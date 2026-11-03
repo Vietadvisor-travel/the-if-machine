@@ -4,7 +4,7 @@ Read first, every session: `PROTOCOL.md` (how Muse and Claude work together), th
 (the channel; the single source of truth unless the owner says otherwise), then the bottom of `jobs/INBOX.md`.
 
 ## Current phase: ENGINE (from 3 Nov 2026)
-The owner is finishing and adjusting the engine. Do not produce an episode until he says so (`làm tập <slug>`).
+The owner is finishing and adjusting the engine. Do not produce an episode until he says so ("làm tập <tên tập>" or "làm tập tiếp", PROTOCOL §6).
 Engine work = changes the owner asks for in `studio/`, each tested on an existing story and logged in
 `studio/CHANGELOG.md`.
 
@@ -17,9 +17,14 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 - Quality gates (brief §3): `node tools/lint.mjs` clean, `node tools/review.mjs` ≥ 85, `python3 tools/qa.py` per-second
   QA at least 2 rounds, frames checked in both formats. Never compress below 30 MB.
 
-## Producing an episode (only when the owner says `làm tập <slug>`)
-1. `git pull --rebase`; `bash setup.sh`. Read `jobs/research/<slug>.md`. Missing → stop and give the owner the line for
-   Muse: `nghiên cứu nhẹ: <slug>`. No slug → the highest-scoring topic in `jobs/topics/BANK.md` not yet delivered.
+## Talking with the owner
+He speaks plain Vietnamese and names an episode by its Vietnamese name, part of it, or "tiếp". Find the slug in the
+`tên (VI)` column of `jobs/STATUS.md` (PROTOCOL §6). "tiếp" = the highest-scoring episode at RESEARCH_READY. Unclear →
+ask one short question, never guess. Always name episodes to him in Vietnamese, never by slug.
+
+## Producing an episode (only when the owner says "làm tập ...")
+1. `git pull --rebase`; `bash setup.sh`. Find the slug (above), read `jobs/research/<slug>.md`. Missing → stop and give
+   the owner the line for Muse: "nghiên cứu chủ đề <tên tiếng Việt>".
 2. STATUS → IN_PRODUCTION; INBOX line.
 3. Write the story per `studio/SKILL.md` and brief §2: long 16:9 5–6 min; vertical 9:16 60–90 s cut from it with its own
    hook and captions; hook in the first 3 s; one question, one twist answer; branded end frame; the main picture of each

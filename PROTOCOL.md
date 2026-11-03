@@ -43,12 +43,12 @@ Read the INBOX at the start of every session; answer what is addressed to you.
 
 ## 4. Episode states: `jobs/STATUS.md`
 
-One row per episode, moving left to right:
+One row per episode, moving left to right. Muse adds the row (slug + Vietnamese name) when research starts:
 
 `TOPIC` → `RESEARCH_READY` (Muse) → `IN_PRODUCTION` (Claude) → `DELIVERED` (Claude) → `APPROVED` (owner, written by Muse
 or Claude on his word) → `PUBLISHED` (Muse).
 
-Muse edits only the `research` and `published` columns; Claude only the `production` and `delivered` columns.
+Muse edits only the `tên (VI)`, `research` and `published` columns; Claude only the `production` and `delivered` columns.
 
 ## 5. File names (fixed)
 
@@ -63,16 +63,27 @@ Muse edits only the `research` and `published` columns; Claude only the `product
 | delivery note | `jobs/deliveries/<slug>.md` (file names, Drive file ids, durations, resolutions, voices, honest notes) |
 | publishing record | `jobs/publish/<slug>.md` (platform, URL, date, caption used) |
 
-Slugs: lowercase, words joined by `-`, taken from `jobs/topics/BANK.md`.
+Slugs: lowercase, words joined by `-`, taken from `jobs/topics/BANK.md`. The slug is an internal file name for Muse and
+Claude only. The owner never has to type or read one (§6).
 
-## 6. Triggers (what the owner types)
+## 6. Triggers (what the owner says)
 
-| Owner says | Who acts | Result |
+The owner speaks plain Vietnamese and names an episode by its Vietnamese name, a few words of it, or "tiếp" (next).
+Muse and Claude turn that into the slug themselves.
+
+| Owner says (examples) | Who acts | Result |
 |---|---|---|
-| `nghiên cứu nhẹ: <slug>` | Muse | `jobs/research/<slug>.md`, STATUS → RESEARCH_READY, INBOX line |
-| `làm tập <slug>` | Claude | the whole episode end to end, STATUS → DELIVERED, INBOX line |
-| `duyệt <slug>` | Muse (or Claude) | STATUS → APPROVED |
-| `đăng <slug>` | Muse | posts per brief §8, `jobs/publish/<slug>.md`, STATUS → PUBLISHED |
+| "nghiên cứu chủ đề AI điều hành quốc gia" | Muse | picks the slug, adds the STATUS row with the Vietnamese name, writes `jobs/research/<slug>.md`, STATUS → RESEARCH_READY, INBOX line |
+| "làm tập AI điều hành quốc gia" / "làm tập tiếp" | Claude | the whole episode end to end, STATUS → DELIVERED, INBOX line |
+| "duyệt tập AI điều hành quốc gia" | Muse (or Claude) | STATUS → APPROVED |
+| "đăng tập AI điều hành quốc gia" | Muse | posts per brief §8, `jobs/publish/<slug>.md`, STATUS → PUBLISHED |
+
+Rules:
+- Match the owner's words to the `tên (VI)` column of `jobs/STATUS.md` (or the topic bank).
+- "tiếp" means: for Muse, the highest-scoring topic in the bank not yet researched; for Claude, the highest-scoring episode
+  at RESEARCH_READY.
+- If the words could mean two episodes, or none, ask the owner one short question. Never guess.
+- In every message to the owner, name the episode by its Vietnamese name, never by its slug.
 
 Nothing is posted before `APPROVED`. Claude never posts anything anywhere.
 
