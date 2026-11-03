@@ -93,9 +93,22 @@ Nothing is posted before `APPROVED`. Claude never posts anything anywhere.
 produced until the owner says so. Muse may build the topic bank and research packs meanwhile.
 
 ## 8. Weekly rhythm (owner, 3 Nov 2026): 4 episodes a week, the owner approves every video
-- **Saturday (Muse):** picks next week's 4 topics from the bank and writes them in `jobs/SCHEDULE.md` (post dates
-  Mon, Wed, Fri, Sun). Muse writes all 4 research packs (`jobs/research/<slug>.md`), sets STATUS → RESEARCH_READY and adds
-  an INBOX line.
+- **Saturday (Muse): the shortlist.** Muse writes `jobs/topics/WEEK_<yyyy-mm-dd>.md` (the Monday it is for) with about
+  **15 candidates already researched lightly**. Each candidate has:
+  - the question (EN and Vietnamese name);
+  - the twist;
+  - 3–5 verified facts with sources;
+  - the score (curiosity / drawable / gap / verifiable);
+  - why now, 3 title options, the risk if any.
+
+  Muse sends the owner the list in Vietnamese, short and numbered.
+- **The owner picks 4** and tells Muse "chốt 2, 5, 9, 12" (and the order if he wants).
+- **Muse, the same day or Sunday:**
+  1. writes the 4 into `jobs/SCHEDULE.md` (post dates Mon, Wed, Fri, Sun) and the STATUS rows;
+  2. writes the 4 full research packs (`jobs/research/<slug>.md`, from the template, about 10 facts, 2 sources for heavy claims);
+  3. sets STATUS → RESEARCH_READY, adds an INBOX line and pushes.
+
+  The candidates not picked stay in the bank for later weeks.
 - **Whenever the owner says "làm tập …" (Claude, a new chat per episode):**
   1. Claude makes the episode end to end and uploads it to Drive `TheIfMachine_Media/<slug>/`.
   2. Claude writes the delivery note, sets STATUS → DELIVERED and reports the Drive link to the owner.
