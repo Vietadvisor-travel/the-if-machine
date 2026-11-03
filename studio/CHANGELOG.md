@@ -1,5 +1,30 @@
 # Motion Studio — changelog
 
+## 2026-11-03 · IFM 3 (directing, asset bank, motivated sound)
+- **Director track** `dir=` on ANY vis beat (`engine/library/ifm_director.js`):
+  - camera into a point, pan, roll, shake, orbit;
+  - pseudo-3D flip, tilt, card;
+  - slow motion and freeze;
+  - frame effects: flash, chroma, glitch, speed lines, shockwave, zoom blur, sub-frame motion blur, vignette, iris;
+  - 20 kinetic text styles (counter, scramble, type, highlight, extrude, glitchtext, outline + the typekit looks);
+  - exact sounds.
+- **New 3D transitions:** flip3d, fold, shatter, pixel, tunnel.
+- **Asset bank** `ifm_bank.js`:
+  - `IFM.bank` registry, 24 core items, `act=stage`;
+  - per-episode files in `engine/library/bank/<slug>.js`;
+  - `tools/bank.mjs catalog|sheet` writes `BANK.md`;
+  - episode-seeded casts, so no face repeats between episodes.
+- **Icons:** `tools/icons.py` imports any SVG pack; Tabler (MIT, 5,203 icons) is installed by `setup.sh`; use `IFM.icon()` or `icon:<name>` in the bank.
+- **Motivated sound only:** no auto fillers or random sweeteners for IFM, no per-line accents; hits only on twist, data and gold lettering, and on `dir=` sfx.
+  The test went from 47 to 30 events in 46 s.
+- **New SFX families** in `sfx_ifm/` register themselves.
+- **variety.mjs** warns:
+  - when < 60 % of beats are directed;
+  - when text styles or effects repeat;
+  - when bank items come back from the last two episodes.
+- **New guide** `references/ifm-director.md`: timing, camera, kinetic type, inventing shots, transitions, sound, the frame line format.
+  Learned from the Remotion agent skills, the animation principles and Muse's reference study.
+
 ## 2026-11-03 · IFM 2 (owner's round-2 notes)
 - **Voices:** am_puck narrates (bright), af_bella is the second voice; the defaults are in `voice.py`.
 - **Music:** Muse's 30 real tracks via `tools/music_lib.py` (ported). The mood follows each scene, tracks rotate, the bed sits 4 dB lower.

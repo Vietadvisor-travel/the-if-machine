@@ -16,3 +16,5 @@ studio/music/
 studio/music_raw/
 studio/sfx_ifm/
 studio/history.json.bak
+studio/engine/library/ifm_icons_*.js
+studio/icons_raw/

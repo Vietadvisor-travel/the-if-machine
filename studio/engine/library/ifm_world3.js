@@ -33,6 +33,7 @@
     try { draw(); } finally { ctx = main; } ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.filter = f; ctx.drawImage(BUF, 0, 0); ctx.filter = 'none'; if (look === 'blueprint') { ctx.globalCompositeOperation = 'color'; ctx.fillStyle = '#1E6BD0'; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = .6; IFM.grid(.18, 0, 60); } if (look === 'night') { const g = ctx.createRadialGradient(W / 2, H / 2, H * .3, W / 2, H / 2, H * .8); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.6)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); } ctx.restore(); };
 
   // ---------------------------------------------------------------- scale ladder
+  IFM.thing = (k, x, y, h, lt) => thing(k, x, y, h, lt);
   function thing(k, x, y, h, lt) { const u = h / 100; switch (k) {
     case 'person': IFM.human(x, y, h, 11, 'stand', lt, {}); break;
     case 'car': rr(x - 50 * u, y - 36 * u, 100 * u, 26 * u, 10 * u, '#E8574A', 0); poly([[x - 28 * u, y - 36 * u], [x - 16 * u, y - 60 * u], [x + 22 * u, y - 60 * u], [x + 34 * u, y - 36 * u]], '#C9473C', 0); circ(x - 28 * u, y - 10 * u, 11 * u, '#222', 0); circ(x + 28 * u, y - 10 * u, 11 * u, '#222', 0); break;

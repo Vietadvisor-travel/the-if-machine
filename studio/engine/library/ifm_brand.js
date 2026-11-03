@@ -18,7 +18,8 @@
 
   // ---------------------------------------------------------------- channel switch (called by SB.compile)
   window.CHANNEL_APPLY = (h = {}) => {
-    IFM.hdr = h; IFM.peopleStyle = h.people || 'facet'; IFM.on = String(h.channel || 'ifm').toLowerCase() === 'ifm';
+    if (IFM.wrapAll) IFM.wrapAll();
+    IFM.hdr = h; IFM.peopleStyle = h.people || 'facet'; IFM.seedBase = [...String(h.title || '')].reduce((a, ch) => (a * 31 + ch.charCodeAt(0)) % 9973, 0); IFM.on = String(h.channel || 'ifm').toLowerCase() === 'ifm';
     Object.assign(C, OLD.C); Object.assign(FONT, OLD.FONT); Object.assign(FW, OLD.FW);
     if (!IFM.on) return;
     Object.assign(C, { brand: P.yellow, brandDark: '#D99B00', yel: P.yellow, yel2: '#E8A400', ink: '#141833', inkSoft: '#3A4270', night: P.midnight, dusk: P.coral, cream: P.paper, white: '#FFFDF7' });

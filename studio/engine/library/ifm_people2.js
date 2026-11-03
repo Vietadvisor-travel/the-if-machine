@@ -55,7 +55,7 @@
     ctx.restore();
     if (holo) { const sy = -100 * u + ((lt * 40 * u + seed * 13) % (110 * u)); ctx.globalAlpha = .5; line(-14 * u, sy, 14 * u, sy, 1.6 * u, '#E8FFFA'); }
     ctx.restore(); }
-  IFM.human = (x, y, h, seed, pose, lt, o = {}) => { const st = o.style || IFM.peopleStyle || 'facet'; return (st === 'facet' || st === 'holo') ? newHuman(x, y, h, seed, pose, lt, { ...o, style: st }) : old(x, y, h, seed, pose, lt, o); };
+  IFM.human = (x, y, h, seed, pose, lt, o = {}) => { const st = o.style || IFM.peopleStyle || 'facet'; seed = seed + (IFM.seedBase || 0); /* every episode gets its own cast */ return (st === 'facet' || st === 'holo') ? newHuman(x, y, h, seed, pose, lt, { ...o, style: st }) : old(x, y, h, seed, pose, lt, o); };
 
   // ---------------------------------------------------------------- creatures (same facet / holo language)
   const CR = { dog: { body: 46, bh: 18, leg: 22, neck: 12, head: 14, snout: 9, tail: 18, col: '#B7793E' }, cat: { body: 40, bh: 15, leg: 18, neck: 8, head: 12, snout: 4, tail: 30, ear: 1, col: '#6B6E80' },

@@ -1128,10 +1128,10 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
         tx = str(sb.get('text', ''))
         if '\u200b' in tx: dips.append((sb['t0'] + (sb['t1'] - sb['t0']) * tx.index('\u200b') / max(1, len(tx)), 'hard'))
     foley_off = {i for i, (bt, o) in enumerate(beats[:len(scenes)]) if o.get('foley') == 'no'}
-    if D.get('auto', True): cands += bed_sounds(scenes, dur) + sweeteners(scenes, dur, foley_off)
+    if D.get('auto', True): cands += bed_sounds(scenes, dur) + ([] if ifm else sweeteners(scenes, dur, foley_off))   # IFM: no random sweeteners
     # ---- 3. schedule
     flags = [t for t, k in dips]; acc, log = schedule(cands, vad, fmt, flags)
-    if D.get('auto', True): acc += fill_gaps(acc, scenes, vad, fmt, flags, foley_off, dur)
+    if D.get('auto', not ifm): acc += fill_gaps(acc, scenes, vad, fmt, flags, foley_off, dur)   # The If Machine: no automatic filler sounds, only motivated ones (owner, 3 Nov 2026)
     # ---- 4. buses
     place_rev = {i: REVERB_FOR.get(sc.get('_bed') or '', None) for i, sc in enumerate(scenes)}
     B = render_bus(acc, n, place_rev)

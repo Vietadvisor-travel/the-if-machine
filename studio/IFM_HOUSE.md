@@ -46,6 +46,16 @@ Lettering: `words="TEXT@k|!TWIST@k|~DATA@k|^GOLD@k"` lands on caption k of the b
 - Colours: `!` coral (twist only), `~` teal (machine/data), `^` yellow.
 - Keep each word ≤ 18 characters.
 
+## 2b. Directing every second, and the asset bank (owner, 3 Nov 2026)
+- Read `references/ifm-director.md` before writing an episode.
+- Every body beat of a long video should carry a `dir=` track (engine/library/ifm_director.js). It covers camera into a point,
+  pseudo-3D, slow motion and freeze, frame effects, kinetic text (20 styles) and exact sounds. It works on ANY `# vis` kind,
+  including bespoke episode acts. New 3D transitions: `flip3d fold shatter pixel tunnel`.
+- **Asset bank** (`engine/library/ifm_bank.js`):
+  - each episode adds ≥ 5 new items (people, creatures, objects, places) in `engine/library/bank/<slug>.js`;
+  - the catalogue lives in `studio/BANK.md` (`node tools/bank.mjs catalog`); `act=stage` builds a set from bank items;
+  - every episode also gets its own cast automatically: people's looks are seeded by the episode title.
+
 ## 3. Variety (owner's rule: nothing repeats, every episode is new)
 - `node tools/variety.mjs stories/<slug>.story` must be clean. It blocks:
   - the same scene twice in a row, or the same transition or camera twice in a row;

@@ -178,12 +178,10 @@
     money: { acc: ['foley_coins', 'ifm_machine_printer', 'ifm_sci_ui_error', 'foley_paper'] } };
   let beatN = 0;
   VIS.K.w = (o, c, Pal, dur, i) => { const S = segs(o, c), idx = i ?? beatN++; const B = S.map((sg, j) => ({ ...sg, b: (A[sg.o.act] || A.globe)(sg.o, c, dur), cam: sg.o.cam || CAMS[(idx * 3 + j * 4) % CAMS.length] }));
-    const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j) sfx.push([sg.at, ['whoosh_small', 'whoosh_swish', 'trans_swipe'][j % 3]]); });
-    // richer, varied sound (owner, 3 Nov 2026): a bed per scene, an accent on every new line, a hit on every lettering cue, a relay when the clock moves
-    const R = rng(idx * 31 + 7), pick = a => a[Math.floor(R() * a.length)], fam = SFAM[o.act] || SFAM.globe;
-    if (fam.bed) sfx.push([.05, fam.bed]); if (o.clock && o.clock !== 'off') sfx.push([.08, pick(['ifm_machine_relay', 'ifm_sci_ui_tick', 'ifm_world_clock_tick'])]);
-    (c || []).forEach((cc, k) => { if (k) sfx.push([cc[0] + .02, pick(fam.acc)]); });
-    String(o.words || '').split('|').filter(Boolean).forEach((w, j) => { const m = w.match(/@(\d+)$/), at = T0(c, m ? +m[1] : j, .3 + j); sfx.push([at, w[0] === '!' ? pick(['ifm_motion_impact_slam', 'ifm_motion_impact_big', 'ifm_motion_impact_metalheavy']) : w[0] === '~' ? pick(['ifm_sci_ui_confirm', 'ifm_sci_power_up', 'ifm_sci_gem']) : w[0] === '^' ? 'ifm_machine_chime' : pick(['ifm_motion_pop', 'ifm_motion_impact_soft', 'ifm_motion_spring'])]); });
+    const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j) sfx.push([sg.at, 'whoosh_small']); });
+    // motivated sound only (owner, 3 Nov 2026: 'too many, too random'): a quiet bed per scene; a hit only where the picture hits (twist / data / gold lettering)
+    const fam = SFAM[o.act] || {}; if (fam.bed && !o.nobed) sfx.push([.05, fam.bed]);
+    String(o.words || '').split('|').filter(Boolean).forEach((w, j) => { const m = w.match(/@(\d+)$/), at = T0(c, m ? +m[1] : j, .3 + j), snd = { '!': 'ifm_motion_impact_slam', '~': 'ifm_sci_ui_confirm', '^': 'ifm_machine_chime' }[w[0]]; if (snd) sfx.push([at, snd]); });
     return { sfx, draw: lt => { let k = 0; for (let j = 0; j < B.length; j++) if (lt >= B[j].at) k = j; const sg = B[k], q = lt - sg.at;
       ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split') { if (k && q < .22) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore();
       if (k && q < .12) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }

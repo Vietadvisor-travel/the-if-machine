@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Vietadvisor Motion Studio - professional SFX palette (CC0 samples + layered synthesis).
 
-    from sfx_pro import get, NAMES, describe
+    from sfx_pro import re, get, NAMES, describe
     x = get('impact_wood', var=3)            # mono float64 @ 44.1 kHz, peak ~0.9
     x = get('amb_rain_tin_roof', dur=12, loop=True)
 
@@ -256,6 +256,11 @@ for _n, _g, _d in [('machine_chime', .45, 'brand chime, 3 notes'), ('machine_cli
         ('world_clock_tick', .35, 'clock tick'), ('world_crowd_mall', .35, 'crowd in a mall'), ('world_crowd_walla', .35, 'crowd walla'), ('world_heartbeat', .45, 'heartbeat'), ('world_rain', .35, 'rain'),
         ('world_splash', .45, 'splash'), ('world_thunder', .5, 'thunder'), ('world_wind_forest', .35, 'wind in a forest'), ('world_wind_snow', .35, 'snow wind')]:
     S('ifm', 'ifm_' + _n, 'ifm/' + _n, _g, _d + ' (The If Machine pack)', 'The If Machine', 3.)
+# any new family Muse adds to studio/sfx_ifm (<family>_<n>.wav or <family>.wav) registers itself as ifm_<family>
+_IFMD = os.path.join(os.path.dirname(HERE), 'sfx_ifm')
+for _f in sorted(glob.glob(os.path.join(_IFMD, '*.wav'))):
+    import re as _re; _n = _re.sub(r'_[0-9]+$', '', os.path.splitext(os.path.basename(_f))[0])
+    if 'ifm_' + _n not in REG: S('ifm', 'ifm_' + _n, 'ifm/' + _n, .4, _n.replace('_', ' ') + ' (The If Machine pack)', 'The If Machine', 3.)
 
 def _finish(x, loop=False):
     x = np.asarray(x, float); x[~np.isfinite(x)] = 0
