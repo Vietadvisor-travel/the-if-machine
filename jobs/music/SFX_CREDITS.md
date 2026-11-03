@@ -90,3 +90,29 @@ Notes:
 - machine_chime_1/2/3 are the 3-note brand chime variants; machine_lever_clunk_1/2/3 plus machine_gear_whirr_1/2 plus a chime make the 2 second brand sound (BRAND section 5).
 - world_rain_1 is a short loop segment (about 4 s); loop it in the engine for longer rain beds.
 - CC BY-SA files (wind, shutters, clock 2, heartbeat 2) are share-alike for the AUDIO FILE itself; using them inside a video does not force the video to CC BY-SA, but keep the credit lines in the video description credits where those files are used.
+
+## Wave 2 (3 Nov 2026, stock library task): ifm_sfx_2.zip on _sfx/
+
+331 files, all WAV 44.1 kHz mono. Breakdown: 269 original syntheses, 58 reused CC0 engine assets, 4 real Wikimedia Commons recordings (CC0/Public domain).
+
+Families (each type 2-5 takes): transitions (whoosh thin/airy/deep/metallic, swish, risers 1s/2s/4s, downers, reverse hits, tape stops, glitch cuts, page turns); impacts (soft, punchy, heavy, metal, wood, glass, cardboard, boing, bass drop, sub hit, stone, plastic); UI/machine (clicks, toggles, relays, servos, keyboard, printers, scanners, beeps, alarms, error buzz, radar, sonar); sci-fi (hologram, teleport, power up/down, laser, force field, data stream, robot, warp, shield); world (rain light/heavy, wind, thunder, ocean, forest, birds, crickets, city, traffic, cafe, office, airport, subway, kitchen, hospital beeps, heartbeat, breathing, footsteps per surface, door creaks, crowd, applause, steam train); animals, stylized syntheses (dog, cat, horse, whale, dinosaur roar designed, insects, wolf, lion); musical stings (reveal, twist, comedy, fail, success, suspense, magic, sad).
+
+Licence notes for wave 2:
+- All syntheses are original, royalty-free, no attribution required.
+- Commons real files: world_crowd_applause_1/2 (CC0), world_train_steam_1 (Public domain), world_ocean_real_1 (Public domain).
+- Commons animal and nature audio is overwhelmingly CC BY-SA, which the stock rules forbid for baked-in use, so those families in wave 2 are stylized syntheses, not real recordings. Freesound needs an API key (not held) and Pixabay Sound Effects pages block direct reading; Sonniss GDC bundles were located (direct zips on downloads.sonniss.com) but each part is GB-scale, so Sonniss curation is left for the weekly top-ups.
+
+## DEPRECATED for baked-in use (stock rules forbid share-alike)
+
+These wave-1 files carry CC BY-SA and must NOT be baked into videos (a video using them would have to be shared under the same licence). Keep for reference only. Wave-2 replacements are listed:
+
+| wave-1 file | licence | wave-2 replacement |
+|---|---|---|
+| world_wind_forest_1.wav | CC BY-SA 4.0 | world_wind_1..4.wav (synth) |
+| world_wind_snow_1.wav | CC BY-SA 4.0 | world_wind_1..4.wav (synth) |
+| world_camera_shutter_1.wav | CC BY-SA 3.0 | no replacement yet, shutter is covered by ui clicks in wave 2 |
+| world_camera_shutter_2.wav | CC BY-SA 3.0 | no replacement yet |
+| world_clock_tick_2.wav | CC BY-SA 4.0 | world_clock_tick_1.wav (Public domain, wave 1) |
+| world_heartbeat_2.wav | CC BY-SA 4.0 | world_heartbeat_1..3.wav (synth, wave 2) |
+
+Wave-1 files that stay cleared: all syntheses, all CC0 engine reuse, world_crowd_mall_1/2 (Public domain), world_crowd_walla_1 (CC0), world_clock_tick_1 (Public domain), world_heartbeat_1 (CC BY 4.0, keep the credit line).
