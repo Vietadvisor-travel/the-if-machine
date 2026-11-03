@@ -12,7 +12,7 @@ Brief này là căn cứ duy nhất cho kênh mới. Claude Code đọc brief n�
 
 ## 2. Chuẩn sản phẩm
 
-- Video dài: 16:9, 5-6 phút, hoạt hình canvas (mục 3).
+- Video dài: 16:9, 3-6 phút theo nội dung, không dưới 3 phút (anh chốt 03/11/2026), hoạt hình canvas (mục 3).
 - Bản dọc: 60-90 giây, 9:16, cắt từ video dài, hook riêng, caption riêng, không dính watermark của app khác.
 - Ảnh cover: 1 frame tĩnh mỗi video (làm cover Instagram và nền thumbnail). Sếp tự làm thumbnail YouTube cuối cùng; Claude không giao thumbnail trong gói.
 - Phụ đề: file .srt tiếng Anh cho mỗi video dài.
@@ -25,7 +25,7 @@ Brief này là căn cứ duy nhất cho kênh mới. Claude Code đọc brief n�
 ## 3. Engine sản xuất (quan trọng: KHÔNG phải engine Poison Pill)
 
 - Sản xuất dùng engine hoạt hình CANVAS của studio Vietadvisor cũ (skill local-vietadvisor-motion-studio), KHÔNG dùng engine điện ảnh footage thật của Poison Pill.
-- Engine này render bản YouTube 16:9 (tối đa 10 phút) và bản dọc 9:16 (tối đa 3 phút). Mục tiêu của mình (dài 5-6 phút, dọc 60-90 giây) nằm trong giới hạn.
+- Engine này render bản YouTube 16:9 (tối đa 10 phút) và bản dọc 9:16 (tối đa 3 phút). Mục tiêu của mình (dài 3-6 phút, dọc 60-90 giây) nằm trong giới hạn.
 - Cổng chất lượng của engine đó: lint bằng node tools/lint.mjs, review bằng node tools/review.mjs đạt 85+, QA từng giây bằng python3 tools/qa.py ít nhất 2 vòng. Không nén ép dưới 30 MB.
 - Nếu không chạy được engine canvas từ repo này thì báo thẳng và dừng, không tự ý chuyển sang engine Poison Pill.
 

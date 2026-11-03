@@ -1,5 +1,23 @@
 # Motion Studio — changelog
 
+## 2026-11-03 · IFM 1 (The If Machine conversion)
+- Brand layer `engine/library/ifm_brand.js` (header `channel: ifm`, default):
+  - Unbounded / Inter / Space Mono, the BRAND.md palette;
+  - Inter karaoke captions (small, fixed);
+  - the lever hook, the machine, the answer ticket, the RUN ticket end frame (6 s);
+  - `scan` / `ticket` / `brand` transitions, the simulation clock HUD (`clock=`).
+- New people `engine/library/ifm_people.js`: styles flat / pill / shadow / line, 15 poses, phones that light faces. The old chibi rig is retired for this channel.
+- World kits:
+  - `ifm_world.js`: globe on Natural Earth land, city in 3 views with blackout cascades, crowd, map, count, split NOW|IF, camera rigs, cue lettering;
+  - `ifm_world2.js`: the cosmic zoom, phone POV / desk, data-centre aisle, time-lapse sky, planets and surfaces with 1–2 suns, money / card declined.
+- Variety guard `tools/variety.mjs` + `history.json`: no repeats inside an episode; caps on overlap with the last 3 episodes; length 3–6 min long / 60–90 s vertical.
+  `lint.mjs` runs it for IFM stories and checks IFM lettering in both formats.
+- Voices: Supertonic 3 (`supertonic:M1|M2|F1|F2`, `voice.py setup-supertonic`). Chatterbox Turbo is not usable on this container (too slow, no CPU torch).
+- Brand sounds `ifm_lever`, `ifm_ding` in `sfx_pro.py`.
+- Tools: `still.mjs` (full frames), `montage.py` (contact sheets).
+- `setup.sh` installs the python deps (scipy was missing).
+- Tested on `stories/test-ifm-brand`, `test-ifm-world`, `test-ifm-world2`, `test-ifm-demo-v` (both formats lint-clean). Vietnam stories moved to `stories/legacy/`.
+
 ## 2026-10 · v10.1 (layout guard, all English)
 - `toontype.js` layout guard: per-frame lettering boxes (keyed by scene time); bubbles and bursts slide clear of words, never into
   the caption band. Draw big words first.

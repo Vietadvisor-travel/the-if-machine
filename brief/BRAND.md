@@ -76,7 +76,9 @@ Mỗi tập có số thứ tự riêng: **RUN #001, #002…** Số này ghi tron
 
 ## 4. Hình ảnh
 
-**Phong cách:** hoạt hình 2D vẽ bằng code (engine canvas): mảng màu phẳng, gradient mềm, ánh viền, không nét viền đen. Không dùng 3D giả game, không dùng footage thật, không dùng ảnh AI về người thật, tài liệu thật, logo hay tít báo giả.
+**Phong cách:** hoạt hình 2D vẽ bằng code (engine canvas): mảng màu phẳng, gradient mềm, ánh viền, không nét viền đen.
+**Nhân vật (anh chốt 03/11/2026):** bỏ hẳn kiểu nhân vật đầu to cũ. Dùng hệ nhân vật mới của kênh với 4 kiểu: phẳng thon dài (mặc định), viên nang, bóng đen viền sáng, nét mảnh. Mỗi tập có thể đổi kiểu để không lặp.
+**Đa dạng (anh chốt 03/11/2026):** trong một tập không lặp cảnh, góc máy, chuyển cảnh; tập sau không dựa vào cảnh của tập trước. Mỗi tập có cảnh vẽ riêng cho nội dung của nó. Chỉ nghi thức thương hiệu được lặp. Không dùng 3D giả game, không dùng footage thật, không dùng ảnh AI về người thật, tài liệu thật, logo hay tít báo giả.
 Hoạt hình chỉ để minh hoạ, không bao giờ giả làm tư liệu.
 
 **Màu thương hiệu:**
@@ -137,7 +139,7 @@ Thế giới trong phim vẫn đủ màu thật (biển xanh, rừng lục, sao 
 
 ## 6. Khuôn mỗi tập
 
-**Bản dài 16:9, 5–6 phút:**
+**Bản dài 16:9, 3–6 phút (độ dài theo nội dung, không dưới 3 phút; anh chốt 03/11/2026):**
 1. 0–3 giây: gạt cần, câu hỏi, một hình gây sốc thị giác.
 2. Đến giây 30: đặt luật chơi, hứa với người xem.
 3. Chạy giả định theo đồng hồ mô phỏng, căng dần.
@@ -176,7 +178,7 @@ The If Machine takes one impossible question, runs the whole world through it, a
 Every episode is a short animated thought experiment built on real science, history and numbers. When the facts run out, we say so, and show you where the machine has to guess.
 
 New runs 3 times a week:
-• Long runs (5–6 min) here on YouTube
+• Long runs (3–6 min) here on YouTube
 • Quick runs (60–90 s) on Shorts, TikTok, Instagram and Facebook
 
 Got a what-if you want the machine to run? Drop it in the comments. We read every one.

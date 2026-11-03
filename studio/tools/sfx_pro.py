@@ -1576,6 +1576,19 @@ def _(c):
     sc = [523.3, 587.3, 659.3, 784, 880, 1046.5, 1174.7]; out = np.zeros(secs(1.8)); st = int(c.r.integers(0, 2))
     for k, f in enumerate(sc[st:st + 5]): place(out, _bell_small(c, f * 2, .9), k * .07, .5 + .1 * k)
     return verb(out, 'plate', .2)
+@snd('ifm_lever', 'brand', .6, 'The If Machine lever: ratchet + heavy metal clunk + motor whirr spinning up', 'the lever hook (brief/BRAND.md §5)')
+def _(c):
+    out = np.zeros(secs(1.6)); place(out, c.smp('ui/switch', 3) * .8, 0, 1.)
+    t = np.arange(secs(.12)) / SR; thump = np.sin(2 * np.pi * (70 - 30 * t / .12) * t) * np.exp(-t * 28); place(out, thump * .9, .03, 1.)
+    n = secs(1.2); t = np.arange(n) / SR; f = 60 + 220 * (1 - np.exp(-t * 2.4)); ph = 2 * np.pi * np.cumsum(f) / SR
+    wh = (np.sin(ph) * .5 + np.sin(ph * 2.01) * .3 + np.sin(ph * 3.02) * .15) * (1 - np.exp(-t * 6)) * np.exp(-np.maximum(0, t - .8) * 5)
+    wh += c.r.normal(0, .05, n) * (1 - np.exp(-t * 4)) * np.exp(-np.maximum(0, t - .8) * 5); place(out, lp(wh, 2400) * .5, .1, 1.)
+    return verb(out, 'room', .12)
+@snd('ifm_ding', 'brand', .5, 'The If Machine answer: three bright rising bell notes (major triad), the ticket is printed', 'the answer ticket, the end frame')
+def _(c):
+    out = np.zeros(secs(2.2))
+    for k, f in enumerate([659.3, 830.6, 987.8]): place(out, _bell_small(c, f * 2, 1.2), k * .11, .55 + .12 * k)
+    return verb(out, 'plate', .25)
 @snd('magic_twinkle', 'magic', .35, 'twinkle: two-three tiny high pings', 'stars, eyes sparkling, clean shine')
 def _(c): return mix(*[(_bell_small(c, c.u(3500, 5500), .25) * .5, k * c.u(.06, .1)) for k in range(int(c.u(2, 4)))])
 @snd('magic_poof', 'magic', .45, 'magic poof: puff + sparkle tail', 'appear/disappear transformations')
