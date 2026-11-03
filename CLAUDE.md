@@ -6,8 +6,9 @@ Token-lean reading (owner, 3 Nov 2026: as cheap as possible, same quality):
   and `brief/BRAND.md` §2 (tone).
 - Everything else (`PROTOCOL.md`, the brief, `IFM_HOUSE.md`, `references/`) only when a question needs it, with grep.
 
-## Current phase: ENGINE (from 3 Nov 2026)
-The owner is finishing and adjusting the engine. Do not produce an episode until he says so ("làm tập <tên tập>" or "làm tập tiếp", PROTOCOL §6).
+## Current phase: PRODUCTION, auto mode (from 3 Nov 2026, PROTOCOL §8)
+The routine "IFM auto-production" makes every RESEARCH_READY episode (earliest post date first). The owner can also say
+"làm tập <tên tập>" / "làm tập tiếp" (PROTOCOL §6) in a chat. In a routine run, the owner's standing authorization is to push to `main`.
 Engine work = changes the owner asks for in `studio/`, each tested on an existing story and logged in
 `studio/CHANGELOG.md`.
 
