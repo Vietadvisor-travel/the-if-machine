@@ -1,6 +1,7 @@
 # Making an episode — the only page to read (lean, complete)
 
-For an episode, read THIS page, `API.md` (when writing code), the research pack and BRAND §2 (tone). Nothing else up front.
+If the research pack is missing, research it yourself first: `jobs/research/_TEMPLATE.md`, web search, 2 sources for heavy
+claims, then commit it. For an episode, read THIS page, `API.md` (when writing code), the research pack and BRAND §2 (tone). Nothing else up front.
 Open `references/ifm-director.md` or `IFM_HOUSE.md` only for a specific question; grep, don't cat.
 Token rules are at the end.
 
@@ -102,11 +103,12 @@ grep -E "deliver →|FAIL|Error|music " out/<slug>*.log
 
 ## 6. Deliver
 ```
-python3 tools/pp_drive.py put out/<slug>_16x9_FINAL.mp4 out/<slug>-v_9x16_FINAL.mp4 out/<slug>_cover.jpg out/<slug>.srt <stories zip> --to <slug>
+bash tools/ship.sh <slug> [cover_second]   # masters (not _FINAL) renamed per PROTOCOL §5 + cover + srt + stories zip → Drive; prints the files block and the music credits
 node tools/variety.mjs stories/<slug>.story --record && node tools/bank.mjs catalog
-python3 tools/music_lib.py credits stories/<slug>.story      # music credit lines → the delivery note
 ```
-- Write `jobs/deliveries/<slug>.md`, set STATUS, add an INBOX line, commit `[claude] [<slug>] delivered`, push `main`.
+- Write `jobs/deliveries/<slug>.md` from `jobs/deliveries/_TEMPLATE.md`; set STATUS → DELIVERED; add an INBOX line;
+  commit `[claude] [<slug>] delivered` (with history.json and BANK.md); push `main`.
+- Report to the owner in ≤ 10 Vietnamese lines. End with the line he sends Muse when he approves: "đăng tập <tên>".
 
 ## 7. Token rules (owner: as lean as possible, quality unchanged)
 - **Read:**

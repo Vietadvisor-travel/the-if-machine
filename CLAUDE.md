@@ -14,13 +14,15 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 
 ## The engine
 - `studio/` is the Vietadvisor Motion Studio **v11 canvas cartoon engine** (imported 3 Nov 2026), converted to The If Machine.
-  Rulebook: **`studio/IFM_HOUSE.md` first** (channel format, kits, people, variety, both formats, tokens), then `studio/SKILL.md`
-  + `studio/references/` for craft. Where they disagree, IFM_HOUSE wins.
+  For an episode: **`studio/EPISODE.md`** (the whole workflow on one page) + `studio/API.md`. Deeper rules, read only when
+  needed: `studio/IFM_HOUSE.md` (house format), `studio/references/ifm-director.md` (directing craft); the legacy
+  `studio/SKILL.md` and `references/` (travel-channel era) lose to them.
 - Never use the Poison Pill footage engine (repo vietadvisor-videos, `pp_*`). If the canvas engine cannot run, say so and stop.
 - Setup once per session: `bash setup.sh` (npm install, Kokoro voice, Chromium check, Drive check).
 - Run: `cd studio && node tools/make.mjs stories/<name>.story` (16:9 and 9:16).
-- Quality gates (brief §3): `node tools/gate.mjs <story>` = lint in BOTH formats + variety + review ≥ 85 in one compact report; `python3 tools/qa.py` per-second
-  QA at least 2 rounds, frames checked in both formats. Never compress below 30 MB.
+- Quality gates (brief §3): `node tools/gate.mjs <story>` = lint in BOTH formats + variety + review ≥ 85 in one compact report;
+  per-second QA 2 rounds (round 1 automatic in the gate, round 2 `python3 tools/qa.py <story> --every 1 --scale .2 --lean`).
+  Drive gets the CRF-17 masters (`tools/ship.sh`), never the chat-size `_FINAL` files: never squeeze below 30 MB.
 
 ## Talking with the owner
 He speaks plain Vietnamese and names an episode by its Vietnamese name, part of it, or "tiếp". Find the slug in the
@@ -41,13 +43,15 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
 5. Voices: only `brief/VOICE_MODELS.md` (Kokoro, Chatterbox Turbo, Supertonic 3). Kitten is banned. Supertonic 3 →
    the delivery note says the audio is machine-generated (OpenRAIL-M).
 6. Gates (above), then render both formats, cover still, English .srt.
-7. Deliver (PROTOCOL §5): `python3 studio/tools/pp_drive.py put <files> --to <slug>`; write `jobs/deliveries/<slug>.md`;
+7. Deliver (PROTOCOL §5): `bash tools/ship.sh <slug>` (names, cover, srt, stories zip, upload of the masters); write
+   `jobs/deliveries/<slug>.md` from `jobs/deliveries/_TEMPLATE.md`;
    STATUS → DELIVERED; `node tools/variety.mjs <story> --record`; `node tools/bank.mjs catalog` (commit BANK.md); INBOX line; commit and push `main`. Never commit video or zip files.
 8. Report to the owner (≤ 10 lines, Vietnamese): the Drive link, length of both cuts, gate scores, what is uncertain, and the
    line to send Muse when he approves: "đăng tập <tên>".
 
 Run each episode end to end without stopping; talk to the owner only at the start and in the final report; stop early
-only for hard blockers he alone can fix (missing research pack, Drive keys, credentials), saying exactly what is missing.
+only for hard blockers he alone can fix (Drive keys, credentials), saying exactly what is missing. A missing research pack
+is not a blocker (step 1).
 
 ## Git
 - Branch `main` only (PROTOCOL §1). Commits start with `[claude]`. End commit messages with the session's attribution lines.
