@@ -104,6 +104,8 @@ def import_muse(folder):
     L = json.load(open(os.path.join(folder, 'library.json'), encoding='utf-8')); have = load()
     for t in L:
         tid = re.sub(r'[^a-z0-9_]', '_', os.path.splitext(t['file'])[0].lower())
-        if tid in have: continue
-        add(os.path.join(folder, t['file']), tid, ','.join(m for m in t['moods'] if m in MOODS) or 'curious', t.get('credit', ''), t.get('license', ''))
+        src = os.path.join(folder, t['file'])
+        if tid in have or not os.path.exists(src): continue   # a shared library.json can list tracks that sit in another zip
+        try: add(src, tid, ','.join(m for m in t['moods'] if m in MOODS) or 'curious', t.get('credit', ''), t.get('license', ''))
+        except Exception as e: print('skip', tid, e)
 if __name__ == '__main__' and len(sys.argv) > 2 and sys.argv[1] == 'import-muse': import_muse(sys.argv[2])

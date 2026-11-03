@@ -1,5 +1,13 @@
 # Motion Studio — changelog
 
+## 2026-11-04 · IFM 6 (fresh-chat readiness)
+- Verified on a clean clone: `setup.sh` ALL OK (deps, voices, Chromium, Drive, stock: 92 tracks, 401 SFX, 10 icon packs);
+  `new_episode.mjs` scaffolds; `gate.mjs` PASS on test-ifm-demo-v (lint 0/0 both formats, review 92).
+- Fixed: Muse's wave-1 music shares one library.json across 3 zips. The importer now skips tracks that live in another zip
+  (it imported 70/92 before, 92/92 now).
+- `tools/ship.sh`: delivers the CRF-17 masters with PROTOCOL names, cover, srt and stories zip, and prints the delivery block
+  and the music credits. `jobs/deliveries/_TEMPLATE.md` added.
+
 ## 2026-11-03 · IFM 5 (Muse's stock library wired in)
 - `tools/stock_sync.sh` (called by `setup.sh`) pulls everything from Drive and imports it:
   - **music:** 92 tracks, 11–12 per mood;
