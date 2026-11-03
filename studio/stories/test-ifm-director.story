@@ -8,5 +8,5 @@ And then, one by one, the lights go out.
 # vis kind=w act=stage bg=dusk items="person_shock@0 .3,.85,.42 slide|dog@0 .55,.86,.16 walk|bus@1 .75,.85,.2 drop" trans=shatter dir="0 text highlight 'NO SIGNAL' .5,.2 yellow; @1 fx speed .75,.6; @1 sfx ifm_motion_impact_big"
 People stop in the street.
 A bus stops dead.
-# vis kind=w act=map pins="-74,40.7,NEW YORK;139.7,35.7,TOKYO" trans=tunnel dir="0 text extrude 'WORLDWIDE' .5,.18 teal; 0-2.5 zoom 1.3 .3,.4; 2.5 fx iris .8,.4"
+# vis kind=w act=map pins="-74,40.7,NEW YORK;139.7,35.7,TOKYO" trans=tunnel dir="0 text extrude 'WORLDWIDE' .5,.18 teal; 0-2.5 zoom 1.25 .45,.4; 2.5 fx iris .8,.4"
 New York. Tokyo. Everywhere.
