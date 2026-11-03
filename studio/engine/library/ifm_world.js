@@ -70,7 +70,7 @@
     for (const ring of IFM_LAND) { ctx.beginPath(); let vis = 0; ring.forEach(([lo, la], i) => { let [x, y, z] = proj(lo, la, l0, p0); if (z < 0) { const m = Math.hypot(x, y) || 1; x /= m; y /= m; } else vis++; const X = cx + x * R, Y = cy - y * R; i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }); if (!vis) continue; ctx.closePath();
       const lg = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R); lg.addColorStop(0, o.land0 || '#7BD389'); lg.addColorStop(1, o.land1 || '#3FA36B'); ctx.fillStyle = lg; ctx.fill(); }
     // ice caps
-    ctx.fillStyle = 'rgba(240,248,255,.92)'; for (const pole of [1, -1]) { ctx.beginPath(); let vis = 0; for (let k = 0; k <= 48; k++) { let [x, y, z] = proj(k * 7.5, pole * 74, l0, p0); if (z < 0) { const m = Math.hypot(x, y) || 1; x /= m; y /= m; } else vis++; k ? ctx.lineTo(cx + x * R, cy - y * R) : ctx.moveTo(cx + x * R, cy - y * R); } const [px, py, pz] = proj(0, pole * 90, l0, p0); if (vis && pz > -.3) { ctx.closePath(); ctx.fill(); } }
+    ctx.fillStyle = 'rgba(240,248,255,.92)'; for (const pole of [1, -1]) { ctx.beginPath(); let vis = 0; for (let k = 0; k <= 48; k++) { let [x, y, z] = proj(k * 7.5, pole * 81, l0, p0); if (z < 0) { const m = Math.hypot(x, y) || 1; x /= m; y /= m; } else vis++; k ? ctx.lineTo(cx + x * R, cy - y * R) : ctx.moveTo(cx + x * R, cy - y * R); } const [px, py, pz] = proj(0, pole * 90, l0, p0); if (vis && pz > -.3) { ctx.closePath(); ctx.fill(); } }
     // clouds drifting
     if (o.clouds !== false) { const r = rng(8); ctx.save(); ctx.globalAlpha = .5; ctx.fillStyle = '#FFFFFF'; for (let i = 0; i < 26; i++) { const lo = r() * 360 + lt * 4, la = r() * 120 - 60, [x, y, z] = proj(lo, la, l0, p0); if (z < .05) continue; ctx.beginPath(); ctx.ellipse(cx + x * R, cy - y * R, R * (.05 + r() * .09) * (.4 + .6 * z), R * .025 * (.5 + z), r(), 0, TAU); ctx.fill(); } ctx.restore(); }
     // night side + city lights
@@ -88,7 +88,7 @@
   IFM.globe = globe;
   A.globe = (o, c, dur) => ({ sfx: [[.1, 'magic_shimmer'], ...(o.off != null ? [[+o.off, 'glitch_power_down']] : []), ...(o.cut != null ? [[+o.cut, 'glitch_data']] : [])], draw: lt => { const u = U(), v = H > W, view = o.view || 'full';
     IFM.nightBg(lt, { grid: false, c0: '#141A40' }); const go = { lon: num(o, 'lon', 10), lat: num(o, 'lat', 18), spin: num(o, 'spin', 5), night: num(o, 'night', 0), lights: o.lights != null ? +o.lights : undefined, off: o.off != null ? +o.off : undefined, arcs: num(o, 'arcs', 0), cut: o.cut != null ? +o.cut : undefined };
-    if (view === 'limb') { const R = Math.max(W, H) * 1.1; globe(W / 2, H + R * .72, R, lt, { ...go, spin: go.spin * .25 }); }
+    if (view === 'limb') { const R = Math.max(W, H) * 1.1; globe(W / 2, H + R * .72, R, lt, { ...go, lat: o.lat != null ? +o.lat : -12, spin: go.spin * .25 }); }
     else if (view === 'side') { const R = Math.min(W, H) * (v ? .42 : .48); globe(v ? W / 2 : W * .68, v ? H * .62 : H * .52, R, lt, go); }
     else { const R = Math.min(W, H) * (v ? .4 : .4) * (1 + .04 * Math.sin(lt * .4)); globe(W / 2, H * (v ? .52 : .53), R, lt, go); } } });
 
@@ -126,10 +126,10 @@
   // ---------------------------------------------------------------- crowd (people as the subject)
   A.crowd = (o, c, dur) => { const pose = o.pose || 'phone', view = o.view || 'wide', time = o.time || 'night', dark = o.dark != null ? +o.dark : undefined; return { sfx: [[.1, 'amb_crowd_festival'], ...(dark != null ? [[dark, 'glitch_power_down'], [dark + .3, 'crowd_gasp']] : [])], draw: lt => { const u = U(), v = H > W;
     const phones = (o.phones != null ? +o.phones : 1) * (dark != null ? 1 - sm(dark, dark + .3, lt) : 1), scr = dark != null && lt > dark ? '#3A3F5C' : (o.screen || '#9FE8FF');
-    if (view === 'close') { sky(time, lt, { clouds: false }); ctx.fillStyle = time === 'day' ? '#C9C2B0' : '#141833'; ctx.fillRect(0, H * .8, W, H * .2); const n = v ? 2 : 3; for (let i = 0; i < n; i++) figure(W * (i + .5) / n, H * (v ? .96 : 1.02), v ? 1.25 : 1.1, 40 + i * 3 + num(o, 'seed', 0), pose, lt, { phones, screen: scr, role: o.role }); return; }
-    if (view === 'street') { A.city({ ...o, view: 'skyline', people: 0, time }, c, dur).draw(lt); crowd(num(o, 'n', 18), H * (v ? .97 : 1), lt, { pose, scale: v ? .62 : .55, rows: 3, depth: .16, seed: num(o, 'seed', 2), phones, screen: scr, role: o.role }); return; }
+    if (view === 'close') { sky(time, lt, { clouds: false }); ctx.fillStyle = time === 'day' ? '#C9C2B0' : '#141833'; ctx.fillRect(0, H * .8, W, H * .2); const n = v ? 2 : 3; for (let i = 0; i < n; i++) figure(W * (i + .5) / n, H * (v ? .77 : 1.02), v ? 1.05 : 1.1, 40 + i * 3 + num(o, 'seed', 0), pose, lt, { phones, screen: scr, role: o.role }); return; }
+    if (view === 'street') { A.city({ ...o, view: 'skyline', people: 0, time }, c, dur).draw(lt); crowd(num(o, 'n', 18), H * (v ? .76 : 1), lt, { pose, scale: v ? .42 : .55, rows: 3, depth: v ? .1 : .16, seed: num(o, 'seed', 2), phones, screen: scr, role: o.role }); return; }
     sky(time, lt, { clouds: time !== 'night' }); const g = ctx.createLinearGradient(0, H * .55, 0, H); g.addColorStop(0, time === 'day' ? '#B7C7A0' : '#1A1F45'); g.addColorStop(1, time === 'day' ? '#8FA57A' : '#0C0F26'); ctx.fillStyle = g; ctx.fillRect(0, H * .55, W, H * .45);
-    crowd(num(o, 'n', 40), H * (v ? .98 : 1.02), lt, { pose: o.mix ? o.mix.split(',') : pose, scale: v ? .5 : .46, rows: 5, depth: .4, seed: num(o, 'seed', 5), phones, screen: scr, role: o.role }); } }; };
+    crowd(num(o, 'n', 40), H * (v ? .77 : 1.02), lt, { pose: o.mix ? o.mix.split(',') : pose, scale: v ? .5 : .46, rows: 5, depth: .4, seed: num(o, 'seed', 5), phones, screen: scr, role: o.role }); } }; };
 
   // ---------------------------------------------------------------- map (flat world)
   A.map = (o, c, dur) => { const pins = String(o.pins || '').split(';').filter(Boolean).map(s => s.split(',')), arcs = String(o.arcs || '').split(';').filter(Boolean).map(s => s.split('>').map(p => p.split(',').map(Number)));
