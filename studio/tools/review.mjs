@@ -18,7 +18,7 @@ const data = await page.evaluate(([txt, w, h, FPS]) => {
     let e = 0; if (prev) { for (let j = 0; j < g.length; j++) e += Math.abs(g[j] - prev[j]); e /= g.length; } energy.push(+e.toFixed(4)); prev = g; }
   for (const t of want) { renderEpisode(t); const tc = mkCanvas(w / 2, h / 2); tc.getContext('2d').drawImage(c, 0, 0, w / 2, h / 2); thumbs.push(tc.toDataURL('image/jpeg', .7)); }
   st = 0; const scenes = ep.scenes.map(s0 => { const s = vmerge(s0); const r = { id: s.id, type: (s.id || '').replace(/^\d+_/, ''), start: st, dur: s.dur, moment: s.moment || null, place: s.place || null, time: (s.placeOpts || {}).time || (s.moment ? 'moment' : 'day'), trans: s.transition ? vmerge(s.transition).type : null,
-    moves: (s.moves || []).map(m => m.type), cover: (s.coverage || []).map(c => [c.t, c.size]), caps: (s.captions || []).filter(c => !(c[3] && c[3].hide)).map(c => [c[0], c[1], String(c[2])]), fg: s.fg || null }; st += s.dur; return r; });
+    moves: (s.moves || []).map(m => m.type), cover: (s.coverage || []).map(c => [c.t, c.size]), caps: (s.captions || []).filter(c => !(c[3] && c[3].hide)).map(c => [c[0], c[1], String(c[2])]), fg: s.fg || null, ifm: s.ifm || null }; st += s.dur; return r; });
   return { D, energy, thumbs, scenes };
 }, [fs.readFileSync(ep, 'utf8'), w, h, FPS]);
 const { D, energy, scenes } = data;
@@ -28,6 +28,12 @@ const E = energy.slice(1), m = med(E) || .001; const issues = []; let score = 10
 const body = scenes.filter(s => s.type !== 'end');
 // cuts = scene boundaries + coverage changes + energy spikes inside moments
 const cuts = new Set(); body.forEach(s => { cuts.add(+s.start.toFixed(2)); s.cover.forEach(([t]) => t > 0 && cuts.add(+(s.start + t).toFixed(2))); });
+// The If Machine: in-beat cuts (then=), peaks, close shots, light states and depth come from the beat keys (engine/library/ifm_*.js)
+const IFMS = body.some(s => s.ifm); if (IFMS) body.forEach(s => { const f = s.ifm; if (!f) return; String(f.then || '').split('|').filter(Boolean).forEach((x, j) => { const m = x.match(/@(\d+)$/); const t = m && s.caps[+m[1]] ? s.caps[+m[1]][0] : 1.5 * (j + 1); cuts.add(+(s.start + t).toFixed(2)); });
+  const allActs = [f.act, ...String(f.then || '').split('|').map(x => (x.match(/act=(\w+)/) || [])[1]).filter(Boolean)], allViews = [f.view, ...String(f.then || '').split('|').map(x => (x.match(/view=(\w+)/) || [])[1]).filter(Boolean)];
+  if (['lever', 'answer'].includes(f.act) || f.hook || allActs.some(a => ['zoom', 'split', 'count'].includes(a)) || f.off) s.moment = s.moment || 'ifm:' + f.act;
+  if (f.kind === 'ifm' || allActs.some(a => ['phone', 'money'].includes(a)) || allViews.includes('close') || allViews.includes('desk') || (f.kind && !['w', 'ifm'].includes(f.kind))) s.cover.push([0, 'CU']);
+  s.time = f.time || ({ globe: 'space', zoom: 'space', space: f.planet || 'space', servers: 'interior', phone: 'interior', money: 'interior', sky: 'cycle', map: 'diagram', count: 'diagram' })[f.act] || (f.kind === 'ifm' ? 'machine' : 'day'); s.fg = s.fg || 'ifm-depth'; });
 energy.forEach((e, i) => { if (e > m * 7 && e > .06) cuts.add(+(i / FPS).toFixed(2)); });
 const cutT = [...cuts].sort((a, b) => a - b).filter((t, i, a) => !i || t - a[i - 1] > .6); const shots = cutT.map((t, i) => (cutT[i + 1] ?? (D - (scenes.at(-1)?.type === 'end' ? scenes.at(-1).dur : 0))) - t).filter(x => x > .3);
 const asl = shots.reduce((a, b) => a + b, 0) / Math.max(1, shots.length), sd = Math.sqrt(shots.reduce((a, b) => a + (b - asl) ** 2, 0) / Math.max(1, shots.length)), cv = sd / (asl || 1);

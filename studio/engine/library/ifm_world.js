@@ -167,7 +167,14 @@
       const lab = (t, x, y, col) => IFM.tag(t, x, y, 30 * u, { bg: col, t: lt }); if (k > .3) { ctx.save(); ctx.globalAlpha *= clamp((k - .3) * 3); lab(o.la || 'NOW', v ? W / 2 : d / 2, v ? H * .1 : H * .1, P.paper); lab(o.lb || 'WHAT IF', v ? W / 2 : d + (W - d) / 2, v ? d + H * .06 : H * .1, P.yellow); ctx.restore(); } } }; };
 
   // ---------------------------------------------------------------- the dispatcher (shared by world kit 2)
+  // then="view=close@1|act=map pins=…@2": the beat cuts to a new angle or a new picture on caption k (a shot every 2–3 s)
+  function segs(o, c) { const L = [{ o, at: 0 }]; String(o.then || '').split('|').map(x => x.trim()).filter(Boolean).forEach((x, j) => { const m = x.match(/^(.*)@(\d+(?:\.\d+)?s?)$/); const body = m ? m[1] : x, at = !m ? 1.5 * (j + 1) : /s$/.test(m[2]) ? parseFloat(m[2]) : T0(c, +m[2], 1.5 * (j + 1)) - .05;
+      const add = {}; body.replace(/(\w+)=("([^"]*)"|\S+)/g, (q, k, v, qq) => { add[k] = qq != null ? qq : v; return ''; }); const prev = L[L.length - 1].o; const n = { ...prev, ...add, then: '', words: '' }; if (add.act && add.act !== prev.act) { for (const k of ['view', 'off', 'dark', 'cut', 'screen']) if (!(k in add)) delete n[k]; } L.push({ o: n, at }); }); return L; }
   let beatN = 0;
-  VIS.K.w = (o, c, Pal, dur, i) => { const act = A[o.act] || A.globe; const B = act(o, c, dur); const camName = o.cam || CAMS[(i ?? beatN++) % CAMS.length];
-    return { sfx: B.sfx.slice(), draw: lt => { ctx.save(); if (o.act !== 'zoom' && o.act !== 'split') cam(camName, lt, dur); B.draw(lt); ctx.restore(); words(o, c, lt); if (B.post) B.post(lt); } }; };
+  VIS.K.w = (o, c, Pal, dur, i) => { const S = segs(o, c), idx = i ?? beatN++; const B = S.map((sg, j) => ({ ...sg, b: (A[sg.o.act] || A.globe)(sg.o, c, dur), cam: sg.o.cam || CAMS[(idx * 3 + j * 4) % CAMS.length] }));
+    const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j) sfx.push([sg.at, ['whoosh_small', 'whoosh_swish', 'trans_swipe'][j % 3]]); });
+    return { sfx, draw: lt => { let k = 0; for (let j = 0; j < B.length; j++) if (lt >= B[j].at) k = j; const sg = B[k], q = lt - sg.at;
+      ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split') { if (k && q < .22) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore();
+      if (k && q < .12) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }
+      words(o, c, lt); if (sg.b.post) sg.b.post(lt); } }; };
 })();

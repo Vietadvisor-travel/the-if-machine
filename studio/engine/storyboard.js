@@ -183,7 +183,8 @@ SB.compile = (text) => {
     if (o.place && PLACE[o.place] && !sc.render) sc.place = o.place; if (o.time && sc.placeOpts) sc.placeOpts.time = o.time;
     if (o.grade) sc.look = { ...(sc.look || {}), grade: o.grade };
     if (o.dur) sc.dur = +o.dur;
-    if (o.clock != null) sc.clock = String(o.clock); // The If Machine simulation clock (engine/library/ifm_brand.js)
+    if (o.clock != null) sc.clock = String(o.clock);
+    if (ifm && (o.kind || b.type === 'vis')) sc.ifm = { kind: o.kind || '', act: o.act || '', view: o.view || '', time: o.time || '', then: o.then || '', planet: o.planet || '', off: o.off || o.dark || o.cut || '', hook: o.hook || '' }; // The If Machine simulation clock (engine/library/ifm_brand.js)
     if (o.artstyle) sc.artstyle = o.artstyle; // whole-frame art direction (engine/library/artstyles.js)
     if (o.caps === 'off') sc.hideCaps = true; // voice still plays; the lettering carries the line
     if (o.art && window.TYPE) { const prev = sc.post; const ao = { at: o.artAt !== undefined ? +o.artAt : .3, out: o.artOut !== undefined ? +o.artOut : undefined, x: o.artX !== undefined ? +o.artX : undefined, y: o.artY !== undefined ? +o.artY : undefined, col: o.artCol, size: o.artSize ? +o.artSize : 1, role: o.artRole };
