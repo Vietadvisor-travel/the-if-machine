@@ -1,7 +1,6 @@
 # Weekly schedule — Muse writes it every Saturday (PROTOCOL §8)
-# Research is due the day before the post date, by 12:00 ICT. Claude's routine makes the video the same day.
+# Muse writes the 4 topics AND their 4 research packs every Saturday. The owner starts each video ("làm tập …") and
+# approves each one himself by telling Muse "đăng tập …". Nothing is posted without that message.
 
-auto-approve: no      # owner: "yes" = Muse posts deliveries without asking; "after 6h" = posts unless the owner says stop
-
-| post date | day | slug | tên (VI) | research due |
-|---|---|---|---|---|
+| post date | day | slug | tên (VI) | research | video |
+|---|---|---|---|---|---|

@@ -92,22 +92,15 @@ Nothing is posted before `APPROVED`. Claude never posts anything anywhere.
 **Engine phase (from 3 Nov 2026):** the owner is finishing and adjusting the canvas engine in `studio/`. No episode is
 produced until the owner says so. Muse may build the topic bank and research packs meanwhile.
 
-## 8. Auto mode (owner, 3 Nov 2026): 4 episodes a week, no messages needed
-- **Saturday:** Muse writes next week's plan in `jobs/SCHEDULE.md`: post date (Mon, Wed, Fri, Sun), slug, Vietnamese name.
-  Muse adds the STATUS rows.
-- **The day before each post date, by 12:00 (ICT):** Muse researches that episode, writes `jobs/research/<slug>.md`,
-  sets STATUS research → RESEARCH_READY, adds an INBOX line and pushes `main`.
-- **Claude's routine** ("IFM auto-production") runs every day at 09:42, 14:42 and 19:42 ICT in a fresh session:
-  1. It pulls `main` and takes the RESEARCH_READY episode with the earliest post date.
-  2. It claims it: production → IN_PRODUCTION, committed and pushed first, so two runs never take the same episode.
-  3. It makes the episode end to end and uploads it to Drive `TheIfMachine_Media/<slug>/`.
-  4. It writes `jobs/deliveries/<slug>.md`, sets STATUS → DELIVERED, adds an INBOX line for Muse and pushes.
-  - Nothing ready → the run ends at once, without a commit.
-  - A claim older than 8 h with no delivery is taken again.
-- **Muse** watches for DELIVERED, downloads from Drive and posts on the post date, per the approval rule below.
-- **Approval** (brief §4: nothing is posted before the owner approves):
-  - the owner approves each delivery ("duyệt …"), or
-  - the owner writes a standing rule in `jobs/SCHEDULE.md`: "auto-approve: yes", or "auto-approve after 6 h unless I say stop".
-  - Muse follows whichever is written there.
-- **Blocked:** Claude writes `claude → owner` in INBOX with the exact reason (missing research, Drive keys, a gate it cannot pass
-  after 3 tries) and stops. The routine's push notification tells the owner.
+## 8. Weekly rhythm (owner, 3 Nov 2026): 4 episodes a week, the owner approves every video
+- **Saturday (Muse):** picks next week's 4 topics from the bank and writes them in `jobs/SCHEDULE.md` (post dates
+  Mon, Wed, Fri, Sun). Muse writes all 4 research packs (`jobs/research/<slug>.md`), sets STATUS → RESEARCH_READY and adds
+  an INBOX line.
+- **Whenever the owner says "làm tập …" (Claude, a new chat per episode):**
+  1. Claude makes the episode end to end and uploads it to Drive `TheIfMachine_Media/<slug>/`.
+  2. Claude writes the delivery note, sets STATUS → DELIVERED and reports the Drive link to the owner.
+  3. If the research pack is missing, Claude researches it itself (the same template, 2 sources for heavy claims) and goes on.
+     It does not stop to ask.
+- **The owner watches the video on Drive.** He tells Claude what to change (same chat), or tells Muse "đăng tập …".
+- **Muse posts only on the owner's "đăng tập …"** (that message is the approval, STATUS → APPROVED → PUBLISHED). Nothing is posted otherwise.
+- The scheduled routine "IFM auto-production" exists but is **off** (owner chose manual starts). It can be switched on again on his word.

@@ -6,9 +6,9 @@ Token-lean reading (owner, 3 Nov 2026: as cheap as possible, same quality):
   and `brief/BRAND.md` §2 (tone).
 - Everything else (`PROTOCOL.md`, the brief, `IFM_HOUSE.md`, `references/`) only when a question needs it, with grep.
 
-## Current phase: PRODUCTION, auto mode (from 3 Nov 2026, PROTOCOL §8)
-The routine "IFM auto-production" makes every RESEARCH_READY episode (earliest post date first). The owner can also say
-"làm tập <tên tập>" / "làm tập tiếp" (PROTOCOL §6) in a chat. In a routine run, the owner's standing authorization is to push to `main`.
+## Current phase: PRODUCTION (from 3 Nov 2026, PROTOCOL §8)
+The owner starts each episode in a new chat ("làm tập <tên tập>" / "làm tập tiếp") and approves each video himself.
+Push to `main` (owner's standing authorization, PROTOCOL §1). The scheduled routine is off.
 Engine work = changes the owner asks for in `studio/`, each tested on an existing story and logged in
 `studio/CHANGELOG.md`.
 
@@ -28,8 +28,9 @@ He speaks plain Vietnamese and names an episode by its Vietnamese name, part of 
 ask one short question, never guess. Always name episodes to him in Vietnamese, never by slug.
 
 ## Producing an episode (only when the owner says "làm tập ...")
-1. `git pull --rebase`; `bash setup.sh`. Find the slug (above), read `jobs/research/<slug>.md`. Missing → stop and give
-   the owner the line for Muse: "nghiên cứu chủ đề <tên tiếng Việt>".
+1. `git pull --rebase`; `bash setup.sh`. Find the slug (above), read `jobs/research/<slug>.md`. Missing → research it yourself
+   (`jobs/research/_TEMPLATE.md`; web search, 2 sources for heavy claims, about 10 facts), commit it as
+   `[claude] [<slug>] research`, and go on. Do not stop to ask.
 2. STATUS → IN_PRODUCTION; INBOX line.
 3. `node tools/new_episode.mjs <slug> "<tên>"`, then direct the story per `studio/EPISODE.md` (a frame line and a `dir=` track per
    beat; new bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: long 16:9 3–6 min (never under 3); vertical 9:16 60–90 s cut from it with its own
@@ -42,7 +43,8 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
 6. Gates (above), then render both formats, cover still, English .srt.
 7. Deliver (PROTOCOL §5): `python3 studio/tools/pp_drive.py put <files> --to <slug>`; write `jobs/deliveries/<slug>.md`;
    STATUS → DELIVERED; `node tools/variety.mjs <story> --record`; `node tools/bank.mjs catalog` (commit BANK.md); INBOX line; commit and push `main`. Never commit video or zip files.
-8. Report to the owner: what was delivered, Drive links, gate scores, what is uncertain.
+8. Report to the owner (≤ 10 lines, Vietnamese): the Drive link, length of both cuts, gate scores, what is uncertain, and the
+   line to send Muse when he approves: "đăng tập <tên>".
 
 Run each episode end to end without stopping; talk to the owner only at the start and in the final report; stop early
 only for hard blockers he alone can fix (missing research pack, Drive keys, credentials), saying exactly what is missing.
