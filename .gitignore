@@ -18,3 +18,6 @@ studio/sfx_ifm/
 studio/history.json.bak
 studio/engine/library/ifm_icons_*.js
 studio/icons_raw/
+studio/textures/
+studio/fonts_stock/
+studio/geo_stock/

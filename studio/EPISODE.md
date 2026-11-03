@@ -104,7 +104,7 @@ grep -E "deliver →|FAIL|Error|music " out/<slug>*.log
 ```
 python3 tools/pp_drive.py put out/<slug>_16x9_FINAL.mp4 out/<slug>-v_9x16_FINAL.mp4 out/<slug>_cover.jpg out/<slug>.srt <stories zip> --to <slug>
 node tools/variety.mjs stories/<slug>.story --record && node tools/bank.mjs catalog
-python3 tools/music_lib.py credits stories/<slug>.story      # credit lines → the delivery note
+python3 tools/music_lib.py credits stories/<slug>.story      # music credit lines → the delivery note (+ "OpenMoji, CC BY 4.0" if openmoji icons were used)
 ```
 - Write `jobs/deliveries/<slug>.md`, set STATUS, add an INBOX line, commit `[claude] [<slug>] delivered`, push `main`.
 

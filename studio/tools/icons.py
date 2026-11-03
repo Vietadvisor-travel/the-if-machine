@@ -3,7 +3,9 @@
    → engine/library/ifm_icons_<pack>.js (generated, gitignored; setup.sh rebuilds it). Licence must be CC0 / MIT / ISC / OFL-like.
    Use: IFM.icon('<pack>:<name>', x, y, size, colour)  ·  bank id 'icon:<pack>:<name>' in act=stage."""
 import sys, os, re, json, glob
-src, pack = sys.argv[1], sys.argv[2]; fill = '--fill' in sys.argv; out = {}
+src, pack = sys.argv[1], sys.argv[2]; out = {}
+_first = next(iter(sorted(glob.glob(os.path.join(src, '*.svg')))), None); _t = open(_first, encoding='utf-8').read() if _first else ''
+fill = '--fill' in sys.argv or ('--stroke' not in sys.argv and not re.search(r'<svg[^>]*fill="none"', _t))   # auto: line packs set fill="none" on <svg>
 num = lambda s, d=0: float(s) if s not in (None, '') else d
 for f in sorted(glob.glob(os.path.join(src, '*.svg'))):
     t = open(f, encoding='utf-8').read(); vb = re.search(r'viewBox="([\d.\s-]+)"', t); vb = [float(x) for x in vb.group(1).split()] if vb else [0, 0, 24, 24]; ds = []

@@ -37,7 +37,13 @@ Every timing is `lt` = seconds inside the beat. `c[k] = [start, end, text]` hold
 - **City:** `IFM.towers(seed,yBase,k,lt,{tall})` gives a list; `IFM.drawTowers(list,col,lt,{lit,dark,k})`
 - **Things and icons:**
   - `IFM.thing('person'|'car'|'bus'|'whale'|'plane'|'tower'|'mountain'|'earth'|'moon'|'sun', x,yBase,h,lt)`
-  - `IFM.icon('tabler:<name>', cx,cy,size,col,{glow,fill,draw:0..1})` (5,203 icons; names: `IFM.bank.icons()` or the tabler.io list)
+  - `IFM.icon('<pack>:<name>', cx,cy,size,col,{glow,fill,draw:0..1})`. Find names with `IFM.bank.icons('<pack>')` or
+    `grep -o '"<word>[a-z-]*"' engine/library/ifm_icons_<pack>.js`.
+  - Packs: tabler, lucide, iconoir, feather, heroicons (line); phosphor, phosphorfill, remix, bootstrap (solid);
+    aiga (public-domain pictograms); openmoji (≈ 4,500 symbols, CC BY 4.0, so credit "OpenMoji" in the delivery note);
+    material (opt-in, `IFM_MATERIAL=1 bash tools/stock_sync.sh`).
+  - On disk for bespoke shots: `textures/` (CC0 paper, plaster…), `fonts_stock/` (15 OFL families), `geo_stock/`
+    (Natural Earth 10/50 m GeoJSON).
 - **Machine and brand:**
   - `IFM.machineFace(lt,{spin,busy})`
   - `IFM.lever(x,yBase,h,pull)`
