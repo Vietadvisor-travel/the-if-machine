@@ -1,0 +1,14 @@
+# media never goes to git (Drive: TheIfMachine_Media/)
+node_modules/
+out/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.zip
+*.chunks/
+__pycache__/
+studio/research/drive_files.json
+# secrets
+*.env
+.env*
