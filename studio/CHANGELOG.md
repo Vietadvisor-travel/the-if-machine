@@ -1,5 +1,15 @@
 # Motion Studio — changelog
 
+## 2026-11-03 · IFM 5 (Muse's stock library wired in)
+- `tools/stock_sync.sh` (called by `setup.sh`) pulls everything from Drive and imports it:
+  - **music:** 92 tracks, 11–12 per mood;
+  - **SFX:** 401 files, 196 `ifm_*` families;
+  - **icon packs (10):** tabler, phosphor, phosphorfill, lucide, iconoir, remix, bootstrap, heroicons, feather, aiga;
+  - **on disk:** textures, 15 OFL font families, Natural Earth.
+- `icons.py` detects line vs solid packs, reads nested folders (`--recursive`) and skips Logos folders.
+  `IFM.icon` refuses brand marks (brief: no logos).
+- OpenMoji is left out: its mixed stroke/fill SVGs render wrong.
+
 ## 2026-11-03 · IFM 4 (token-lean production, same quality)
 - `EPISODE.md`: the one page to read for an episode (setup, shape, picture menu, `dir=` cheat sheet, gates, render, delivery, token rules).
   It replaces about 90 KB of docs per session.

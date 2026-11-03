@@ -39,8 +39,9 @@ Every timing is `lt` = seconds inside the beat. `c[k] = [start, end, text]` hold
   - `IFM.thing('person'|'car'|'bus'|'whale'|'plane'|'tower'|'mountain'|'earth'|'moon'|'sun', x,yBase,h,lt)`
   - `IFM.icon('<pack>:<name>', cx,cy,size,col,{glow,fill,draw:0..1})`. Find names with `IFM.bank.icons('<pack>')` or
     `grep -o '"<word>[a-z-]*"' engine/library/ifm_icons_<pack>.js`.
+  - Logos and brand marks are refused at draw time (brief: no logos).
   - Packs: tabler, lucide, iconoir, feather, heroicons (line); phosphor, phosphorfill, remix, bootstrap (solid);
-    aiga (public-domain pictograms); openmoji (≈ 4,500 symbols, CC BY 4.0, so credit "OpenMoji" in the delivery note);
+    aiga (public-domain pictograms). OpenMoji is on disk (`icons_raw/illus`) but not loaded: its mixed stroke/fill SVGs need a colour importer.
     material (opt-in, `IFM_MATERIAL=1 bash tools/stock_sync.sh`).
   - On disk for bespoke shots: `textures/` (CC0 paper, plaster…), `fonts_stock/` (15 OFL families), `geo_stock/`
     (Natural Earth 10/50 m GeoJSON).

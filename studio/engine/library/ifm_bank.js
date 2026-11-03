@@ -18,13 +18,16 @@
     list(f = {}) { return Object.values(items).filter(d => (!f.kind || d.kind === f.kind) && (!f.tag || d.tags.includes(f.tag)) && (!f.ep || d.ep === f.ep)); } };
   // ---------------------------------------------------------------- vector icon packs (tools/icons.py → engine/library/ifm_icons_<pack>.js)
   const PATHS = {};
-  IFM.icon = (name, x, y, size, col = P.paper, o = {}) => { const [pack, id] = name.includes(':') ? name.split(':') : ['tabler', name]; const Pk = window.IFM_ICONS && IFM_ICONS[pack]; const ic = Pk && Pk.icons[id]; if (!ic) return false;
+  // brief: no logos — brand marks in the packs are refused at draw time
+  const LOGO = /(^|-)(brand|logo|logos)(-|$)|^(apple|android|amazon|facebook|google|microsoft|twitter|youtube|instagram|tiktok|whatsapp|meta|netflix|spotify|github|linkedin|snapchat|telegram|discord|reddit|paypal|visa|mastercard|bitcoin|ethereum|windows|chrome|firefox|safari|slack|skype|dropbox|uber|airbnb|tesla|nike|adidas)(-|$)/i;
+  IFM.isLogo = id => LOGO.test(String(id).split(':').pop());
+  IFM.icon = (name, x, y, size, col = P.paper, o = {}) => { const [pack, id] = name.includes(':') ? name.split(':') : ['tabler', name]; if (LOGO.test(id)) return false; const Pk = window.IFM_ICONS && IFM_ICONS[pack]; const ic = Pk && Pk.icons[id]; if (!ic) return false;
     const key = pack + ':' + id; const ps = PATHS[key] || (PATHS[key] = ic[1].split('|').map(d => new Path2D(d))); const k = size / ic[0]; ctx.save(); ctx.translate(x - size / 2, y - size / 2); ctx.scale(k, k);
     if (o.glow) glow(ic[0] / 2, ic[0] / 2, ic[0], col, .35); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     if (Pk.fill || o.fill) { ctx.fillStyle = col; ps.forEach(p => ctx.fill(p)); } else { ctx.strokeStyle = col; ctx.lineWidth = (o.weight || 2) * (o.bold ? 1.4 : 1); const dash = o.draw != null ? clamp(o.draw) : 1; if (dash < 1) { ctx.setLineDash([60 * dash, 60]); } ps.forEach(p => ctx.stroke(p)); }
     ctx.restore(); return true; };
   const _get = IFM.bank.get; IFM.bank.get = id => { if (items[id]) return items[id]; const m = String(id).match(/^icon:(.+)$/); if (m) return { id, kind: 'icon', asp: 1, draw: (x, y, h, lt, o) => IFM.icon(m[1], x, y - h / 2, h, o.col || P.paper, { glow: 1 }) }; return _get(id); };
-  IFM.bank.icons = (pack = 'tabler') => window.IFM_ICONS && IFM_ICONS[pack] ? Object.keys(IFM_ICONS[pack].icons) : [];
+  IFM.bank.icons = (pack = 'tabler') => window.IFM_ICONS && IFM_ICONS[pack] ? Object.keys(IFM_ICONS[pack].icons).filter(n => !LOGO.test(n)) : [];
 
   // ---------------------------------------------------------------- core items (round 2 engine)
   const T = (k, asp, kind, tags, desc) => IFM.bank.add({ id: k, kind, tags, desc, asp, ep: 'core', draw: (x, y, h, lt, o) => IFM.thing(k, x, y, h, lt, o) });

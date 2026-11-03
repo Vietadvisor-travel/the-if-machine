@@ -14,9 +14,9 @@ A=$C/_assets; X=icons_raw; mkdir -p $X
 for p in phosphor lucide iconoir remix bootstrap extra material; do [ -f $A/icons_$p.zip ] && [ ! -d $X/$p ] && unzip -qo $A/icons_$p.zip -d $X/$p; done
 [ -f $A/ifm_assets_illustrations.zip ] && [ ! -d $X/illus ] && unzip -qo $A/ifm_assets_illustrations.zip -d $X/illus
 dir() { find $X/$1 -type d -path "*$2" | head -1; }
-icon "$(dir phosphor /regular)" phosphor; icon "$(dir phosphor /fill)" phosphorfill; icon "$(dir lucide /icons)" lucide; icon "$(dir iconoir /icons)" iconoir; icon "$(dir iconoir /regular)" iconoir
-icon "$(find $X/remix -name '*.svg' -printf '%h\n' | sort | uniq -c | sort -rn | head -1 | awk '{print $2}')" remix; icon "$(find $X/bootstrap -name '*.svg' -printf '%h\n' | sort | uniq -c | sort -rn | head -1 | awk '{print $2}')" bootstrap
-icon "$(dir extra /24/outline)" heroicons; icon "$(dir extra /feather)" feather; icon "$(dir illus /openmoji-black)" openmoji; icon "$(dir illus /aiga)" aiga
+icon "$(dir phosphor /regular)" phosphor; icon "$(dir phosphor /fill)" phosphorfill; icon "$(dir lucide /icons)" lucide; rm -f engine/library/ifm_icons_iconoir.js.empty; [ "$(stat -c%s engine/library/ifm_icons_iconoir.js 2>/dev/null || echo 0)" -lt 1000 ] && rm -f engine/library/ifm_icons_iconoir.js; icon "$(dir iconoir /regular)" iconoir
+[ -f engine/library/ifm_icons_remix.js ] || python3 tools/icons.py $X/remix/icons remix --recursive >/dev/null 2>&1; icon "$(find $X/bootstrap -name '*.svg' -printf '%h\n' | sort | uniq -c | sort -rn | head -1 | awk '{print $2}')" bootstrap
+icon "$(dir extra /24/outline)" heroicons; icon "$(dir extra /feather)" feather; icon "$(dir illus /aiga)" aiga
 [ "$IFM_MATERIAL" = 1 ] && icon "$(find $X/material -name '*.svg' -printf '%h\n' | sort | uniq -c | sort -rn | head -1 | awk '{print $2}')" material
 [ -f $A/ifm_assets_textures.zip ] && [ -z "$(ls textures)" ] && unzip -qjo $A/ifm_assets_textures.zip -d textures
 [ -f $A/ifm_assets_fonts.zip ] && [ -z "$(ls fonts_stock)" ] && unzip -qo $A/ifm_assets_fonts.zip -d fonts_stock
