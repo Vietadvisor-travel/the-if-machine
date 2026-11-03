@@ -28,7 +28,9 @@ const sheet = await page.evaluate(async (tiles) => { const pad = 8, lab = 20, pe
   return c.toDataURL('image/jpeg', .82); }, tiles);
 fs.writeFileSync(outBase + '_sheet.jpg', Buffer.from(sheet.split(',')[1], 'base64'));
 // ---- variety: every video should have its own shape (compared with the other stories in the same folder)
-if (isStory) { const beatsOf = txt => [...txt.matchAll(/^#\s*(\w+)(.*)$/gm)].map(m => ({ type: m[1].toLowerCase() + (m[1].toLowerCase() === 'moment' ? ':' + ((m[2].match(/kind=(\w+)/) || [])[1] || '') : ''), place: (m[2].match(/place=(\w+)/) || [])[1] }));
+const LEGACY = isStory && /^channel\s*:\s*vietadvisor/m.test(fs.readFileSync(ep, 'utf8'));
+if (isStory && !LEGACY) { const { spawnSync } = await import('child_process'); const r = spawnSync('node', ['tools/variety.mjs', ep], { encoding: 'utf8' }); report += '\n[variety · The If Machine]\n' + (r.stdout || '').split('\n').slice(1).join('\n'); }
+if (LEGACY) { const beatsOf = txt => [...txt.matchAll(/^#\s*(\w+)(.*)$/gm)].map(m => ({ type: m[1].toLowerCase() + (m[1].toLowerCase() === 'moment' ? ':' + ((m[2].match(/kind=(\w+)/) || [])[1] || '') : ''), place: (m[2].match(/place=(\w+)/) || [])[1] }));
   const fmtOf = txt => ((txt.match(/^format\s*:\s*(\w+)/m) || [])[1] || 'explainer'); const me = fs.readFileSync(ep, 'utf8'), mb = beatsOf(me), mt = mb.map(b => b.type).filter(t => t !== 'end');
   const lcs = (a, b) => { const d = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0)); for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = a[i - 1] === b[j - 1] ? d[i - 1][j - 1] + 1 : Math.max(d[i - 1][j], d[i][j - 1]); return d[a.length][b.length]; };
   let v = '';
