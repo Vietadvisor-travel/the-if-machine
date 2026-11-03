@@ -20,7 +20,7 @@ Brief này là căn cứ duy nhất cho kênh mới. Claude Code đọc brief n�
 - Cấu trúc: hook trong 3 giây đầu; một câu hỏi, một đáp án twist; kết bằng end frame thương hiệu.
 - Luật hình ảnh (theo engine canvas Vietadvisor): hình chính mỗi beat phải vẽ đúng CHỦ THỂ của câu thoại đó; talking head tối đa 35% số beat, không hai beat liên tiếp; phụ đề nhỏ, cố định vùng dưới.
 - Sự thật: claim nào hành động được thì verify từ nguồn thật, claim nặng ký cần 2 nguồn. Không bịa số. Không dùng ảnh AI về người thật, tài liệu thật, logo, headline giả làm bằng chứng. Hoạt hình là minh họa, không bao giờ giả làm tư liệu.
-- Giọng đọc: chỉ dùng bộ giọng đã duyệt trong jobs/VOICE_MODELS.md (Kokoro, Chatterbox Turbo, Supertonic 3). Dùng Supertonic 3 thì mô tả video khi đăng phải ghi rõ âm thanh tạo bởi máy (yêu cầu licence OpenRAIL-M). Giọng Kitten đã bị thu hồi, cấm dùng.
+- Giọng đọc: chỉ dùng bộ giọng đã duyệt trong brief/VOICE_MODELS.md (Kokoro, Chatterbox Turbo, Supertonic 3). Dùng Supertonic 3 thì mô tả video khi đăng phải ghi rõ âm thanh tạo bởi máy (yêu cầu licence OpenRAIL-M). Giọng Kitten đã bị thu hồi, cấm dùng.
 
 ## 3. Engine sản xuất (quan trọng: KHÔNG phải engine Poison Pill)
 
@@ -37,7 +37,7 @@ Brief này là căn cứ duy nhất cho kênh mới. Claude Code đọc brief n�
 
 ## 5. Gói nghiên cứu nhẹ (Muse giao, Claude đọc)
 
-- Vị trí: jobs/the-if-machine/research/<topic-slug>.md, commit lên git.
+- Vị trí: jobs/research/<slug>.md, commit lên git.
 - Mỗi tập gồm: một câu hỏi; một twist bất ngờ; khoảng 10 fact đã verify kèm nguồn; list beat canvas (mỗi beat vẽ cái gì); 3 option tiêu đề; hook bản dài; hook bản dọc.
 - KHÔNG yêu cầu: không worksheet 40 fact, không săn clip, không săn ảnh, không săn tài liệu. Canvas vẽ hết.
 - Chấm chủ đề theo thang cũ của engine Vietadvisor: tò mò/click 40, vẽ được bằng canvas 20, khoảng trống so với kênh lớn 20, rẻ và verify được 20. Chỉ làm chủ đề từ 70 điểm trở lên.
@@ -64,8 +64,8 @@ Tập đầu tiên mặc định là chủ đề điểm cao nhất (ai-runs-a-c
 
 ## 7. Hợp đồng bàn giao (Claude giao cho Muse)
 
-- Upload file hoàn chỉnh bằng pp_drive.py vào thư mục Drive the-if-machine/ (chưa có thì tạo): MP4 dài, MP4 dọc, ảnh cover, .srt, .story.
-- Commit note bàn giao jobs/the-if-machine/DELIVERY_<topic-slug>.md ghi: tên file, Drive file ID, thời lượng, độ phân giải, giọng đọc đã dùng, ghi chú trung thực (ví dụ hình minh họa thay thế).
+- Upload file hoàn chỉnh bằng studio/tools/pp_drive.py vào thư mục Drive TheIfMachine_Media/<slug>/: MP4 dài, MP4 dọc, ảnh cover, .srt, .story.
+- Commit note bàn giao jobs/deliveries/<slug>.md ghi: tên file, Drive file ID, thời lượng, độ phân giải, giọng đọc đã dùng, ghi chú trung thực (ví dụ hình minh họa thay thế).
 - Cấm commit file video hoặc zip lên git. Chỉ commit note bàn giao và gói nghiên cứu.
 - Sau bàn giao, Muse đi đăng; Claude không đăng.
 
@@ -89,6 +89,6 @@ Không đạt thì Muse báo và sếp quyết; Claude không tự đổi format
 
 Sếp kích hoạt kênh này trong chat cũ bằng đúng một câu:
 
-"Từ nay làm thêm kênh mới The If Machine theo đúng brief trong jobs/THE_IF_MACHINE_BRIEF.md, mọi thứ theo brief đó trừ khi anh nói khác."
+"Từ nay làm thêm kênh mới The If Machine theo đúng brief trong brief/THE_IF_MACHINE_BRIEF.md, mọi thứ theo brief đó trừ khi anh nói khác."
 
 Kèm tên chủ đề nếu muốn chọn tập, không kèm thì lấy chủ đề điểm cao nhất còn chưa làm trong bank khởi động.

@@ -15,6 +15,15 @@ Read first, every session: `PROTOCOL.md`, then `brief/THE_IF_MACHINE_BRIEF.md`, 
    vertical → Instagram Reels, TikTok (draft/browser at first), Facebook Reels. Captions and hooks written per platform;
    no file with another app's watermark. Record each post in `jobs/publish/<slug>.md`.
 
+## Naming (PROTOCOL §6)
+
+- The owner speaks plain Vietnamese and never uses slugs. Muse and Claude turn his words into the slug themselves.
+- When research starts on a topic, Muse picks the slug (lowercase, words joined by `-`) and adds the STATUS row with the slug and the Vietnamese name (`tên (VI)` column).
+- Match the owner's words to the `tên (VI)` column of `jobs/STATUS.md`, or to the topic bank when no row exists yet.
+- "tiếp" means, for Muse, the highest-scoring topic in the bank not yet researched.
+- If the words could mean two episodes, or none, ask the owner one short question. Never guess.
+- In every message to the owner, name the episode by its Vietnamese name, never by its slug.
+
 ## What Muse never does
 Write the script, render, or change `studio/` or `CLAUDE.md`. Post anything before APPROVED. Commit secrets or media.
 
