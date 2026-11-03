@@ -1,7 +1,8 @@
 # The If Machine — Claude Code makes the videos
 
 Read first, every session: `PROTOCOL.md` (how Muse and Claude work together), then `brief/THE_IF_MACHINE_BRIEF.md`
-(the channel; the single source of truth unless the owner says otherwise), then the bottom of `jobs/INBOX.md`.
+(the channel; the single source of truth unless the owner says otherwise), then `brief/BRAND.md` (identity: tone, look,
+sound, episode format, platform copy; every video follows it), then the bottom of `jobs/INBOX.md`.
 
 ## Current phase: ENGINE (from 3 Nov 2026)
 The owner is finishing and adjusting the engine. Do not produce an episode until he says so ("làm tập <tên tập>" or "làm tập tiếp", PROTOCOL §6).
