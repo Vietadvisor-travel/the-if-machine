@@ -174,7 +174,7 @@ SB.doodles = (P, o, pts) => { const u = U(), k = o.k, r = rng(21); const lons = 
 
 // ---------------------------------------------------------------- compile
 SB.compile = (text) => {
-  const sb = SB.parse(text), H_ = sb.header; const look = {}; const kvs = (H_.look || '').split(/\s+/).filter(Boolean).map(s => s.split('='));
+  const sb = SB.parse(text), H_ = sb.header; if (window.CHANNEL_APPLY) CHANNEL_APPLY(H_); const ifm = !!(window.IFM && IFM.on); const look = {}; const kvs = (H_.look || '').split(/\s+/).filter(Boolean).map(s => s.split('='));
   for (const [k, v] of kvs) { if (k === 'grade') look.grade = v; if (k === 'artstyle') look.artstyle = v; if (k === 'captions') look.captionStyle = v; if (k === 'boil') look.boil = v === 'off' ? undefined : (v === 'on' ? { amp: 1.1, fps: 8 } : { amp: +v, fps: 8 }); if (k === 'step') look.step = +v; if (k === 'smear') look.smear = v !== 'off'; }
   if (H_.artstyle) look.artstyle = H_.artstyle;
   const used = []; const scenes = [];
@@ -183,6 +183,7 @@ SB.compile = (text) => {
     if (o.place && PLACE[o.place] && !sc.render) sc.place = o.place; if (o.time && sc.placeOpts) sc.placeOpts.time = o.time;
     if (o.grade) sc.look = { ...(sc.look || {}), grade: o.grade };
     if (o.dur) sc.dur = +o.dur;
+    if (o.clock != null) sc.clock = String(o.clock); // The If Machine simulation clock (engine/library/ifm_brand.js)
     if (o.artstyle) sc.artstyle = o.artstyle; // whole-frame art direction (engine/library/artstyles.js)
     if (o.caps === 'off') sc.hideCaps = true; // voice still plays; the lettering carries the line
     if (o.art && window.TYPE) { const prev = sc.post; const ao = { at: o.artAt !== undefined ? +o.artAt : .3, out: o.artOut !== undefined ? +o.artOut : undefined, x: o.artX !== undefined ? +o.artX : undefined, y: o.artY !== undefined ? +o.artY : undefined, col: o.artCol, size: o.artSize ? +o.artSize : 1, role: o.artRole };
@@ -191,6 +192,6 @@ SB.compile = (text) => {
     if (i > 0) { const alts = (o.trans ? [o.trans] : TRANS[b.type] || ['whip']); const prev = used[used.length - 1]; const tt = alts.find(a => a !== prev) || alts[0]; sc.transition = { type: tt, dur: tt === 'cut' ? 0 : (['circles', 'stripes', 'iris', 'ink', 'inkbleed', 'burn', 'lightleak', 'fgwipe', 'tear'].includes(tt) ? .7 : .45) }; if (o.tc) sc.transition.center = String(o.tc).split(',').map(Number); if (o.tc2) sc.transition.center2 = String(o.tc2).split(',').map(Number); if (o.tcol) sc.transition.col = o.tcol; if ((window.TR2_DUR || {})[tt]) sc.transition.dur = window.TR2_DUR[tt]; if (o.tdur) sc.transition.dur = +o.tdur; used.push(tt); }
     if (!sc.render) { sc.moves = sc.moves || []; if (!sc.moves.some(m => ['drift', 'handheld'].includes(m.type))) sc.moves.unshift({ type: pick(CAMS, i) }); if (o.cam) String(o.cam).split('+').forEach(c => { if (MOVES[c]) sc.moves.push({ type: c, t0: 0, t1: sc.dur }); }); }
     scenes.push(sc); });
-  if (!scenes.length || sb.beats[sb.beats.length - 1].type !== 'end') scenes.push({ id: 'end', dur: 2, transition: { type: 'brand', dur: .6 }, layers: [{ type: 'ui', name: 'endFrame', screen: true, always: 1, o: {} }] });
+  if (!scenes.length || sb.beats[sb.beats.length - 1].type !== 'end') scenes.push({ id: 'end', dur: ifm ? +(H_.enddur || 6) : 2, transition: { type: 'brand', dur: .6 }, layers: [{ type: 'ui', name: 'endFrame', screen: true, always: 1, o: {} }] });
   return { title: H_.title || 'Untitled', fps: 30, look, sources: H_.sources ? [H_.sources] : [], scenes };
 };

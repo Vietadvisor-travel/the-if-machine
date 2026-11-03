@@ -17,6 +17,11 @@
 <link rel="stylesheet" href="node_modules/@fontsource/sigmar-one/400.css">
 <link rel="stylesheet" href="node_modules/@fontsource/coiny/400.css">
 <link rel="stylesheet" href="node_modules/@fontsource/paytone-one/400.css">
+<link rel="stylesheet" href="node_modules/@fontsource/unbounded/800.css">
+<link rel="stylesheet" href="node_modules/@fontsource/unbounded/900.css">
+<link rel="stylesheet" href="node_modules/@fontsource/inter/700.css">
+<link rel="stylesheet" href="node_modules/@fontsource/inter/800.css">
+<link rel="stylesheet" href="node_modules/@fontsource/space-mono/700.css">
 <link rel="stylesheet" href="node_modules/@fontsource/noto-sans-kr/900.css">
 <link rel="stylesheet" href="node_modules/@fontsource/noto-sans-jp/900.css">
 <link rel="stylesheet" href="node_modules/@fontsource/noto-sans-sc/900.css">
@@ -31,6 +36,6 @@ window.READY=(async()=>{
   await new Promise(res=>{const s=document.createElement('script');s.src='engine/library/images.js';s.onload=res;s.onerror=res;document.body.appendChild(s);}); await loadImages();
   const ep=new URLSearchParams(location.search).get('ep'); if(ep){await new Promise(res=>{const s=document.createElement('script');s.src=ep;s.onload=res;s.onerror=()=>{console.log('missing ep');res()};document.body.appendChild(s);});}
   const sample='Ha Giang Hà Giang ĐƯỜNG TÀU Ầ Ặ Ờ Ữ ẫ ₫ 하장 ハザン 河江 ฮาซาง';
-  for(const f of ['400 40px "Sigmar One"','400 40px "Coiny"','400 40px "Paytone One"','400 40px "Bangers"','800 40px "Baloo 2"','800 40px "Be Vietnam Pro"','900 40px "Be Vietnam Pro"','600 40px "Be Vietnam Pro"','800 40px Kanit','900 40px "Noto Sans KR"','900 40px "Noto Sans JP"','900 40px "Noto Sans SC"','400 40px Anton','700 40px Oswald','500 40px Oswald','900 40px "Playfair Display"','700 40px "Playfair Display"','400 40px Bangers','400 40px Pacifico','400 40px "Patrick Hand"','400 40px Bungee']) await document.fonts.load(f,sample);
+  for(const f of ['400 40px "Sigmar One"','400 40px "Coiny"','400 40px "Paytone One"','400 40px "Bangers"','800 40px "Baloo 2"','800 40px "Be Vietnam Pro"','900 40px "Be Vietnam Pro"','600 40px "Be Vietnam Pro"','800 40px Kanit','900 40px "Noto Sans KR"','900 40px "Noto Sans JP"','900 40px "Noto Sans SC"','400 40px Anton','700 40px Oswald','500 40px Oswald','900 40px "Playfair Display"','700 40px "Playfair Display"','400 40px Bangers','400 40px Pacifico','400 40px "Patrick Hand"','400 40px Bungee','800 40px Unbounded','900 40px Unbounded','700 40px Inter','800 40px Inter','700 40px "Space Mono"']) await document.fonts.load(f,sample);
   await document.fonts.ready; ctx=document.getElementById('c').getContext('2d'); return true;})();
 </script></body></html>

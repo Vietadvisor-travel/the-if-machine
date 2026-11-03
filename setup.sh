@@ -2,6 +2,7 @@
 # One-time setup per Claude Code session (about 1–2 min). Ends with ALL OK or says what is missing.
 set -u; cd "$(dirname "$0")/studio" || exit 1; ok=1
 echo "· npm install"; npm install --no-audit --no-fund >/dev/null 2>&1 && echo "  ok" || { echo "  FAIL npm install"; ok=0; }
+echo "· python deps"; python3 -c "import numpy, scipy, PIL, soundfile" 2>/dev/null || pip install -q numpy scipy pillow soundfile --break-system-packages >/dev/null 2>&1; python3 -c "import numpy, scipy, PIL, soundfile" && echo "  ok" || { echo "  FAIL numpy/scipy/pillow/soundfile"; ok=0; }
 echo "· voice (Kokoro)"; python3 tools/voice.py setup >/dev/null 2>&1 && echo "  ok" || { echo "  FAIL voice setup (needs github.com + pypi)"; ok=0; }
 echo "· Chromium"; node -e "import('./tools/browser.mjs').then(async m=>{const b=await m.launch();await b.close();console.log('  ok')}).catch(e=>{console.log('  FAIL '+e.message.split('\n')[0]);process.exit(1)})" || ok=0
 echo "· ffmpeg"; command -v ffmpeg >/dev/null && echo "  ok" || { echo "  FAIL ffmpeg missing"; ok=0; }

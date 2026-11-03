@@ -177,6 +177,7 @@ function renderEpisode(t) {
     const as = S.artstyle !== undefined ? S.artstyle : (EP.look && EP.look.artstyle); if (window.ARTSTYLE) ARTSTYLE.apply(as, t); }
   // captions (episode-level so they survive transitions)
   EP.scenes.forEach((s, k) => { const S = vmerge(s); const cy = S.capY ? (VERT() ? S.capY.v : S.capY.h) : undefined; const cs = S.capStyle || (S.look && S.look.captionStyle); (S.hideCaps ? [] : S.captions || []).filter(c => !(c[3] && c[3].hide)).forEach(c => caption(c[2], _starts[k] + c[0], _starts[k] + c[1], t, { ...(cy ? { y: cy * H } : {}), ...(cs ? { style: cs } : {}), ...(c[3] || {}) })); });
+  if (window.IFM && IFM.hud) IFM.hud(t); // simulation clock HUD (The If Machine)
   if (!posted) finish(t, EP.finish || {});
 }
 // visual EVENTS for tools/sound_design.py (event list -> rule table -> scheduler): what happens on screen, when, where.
