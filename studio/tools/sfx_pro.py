@@ -189,6 +189,8 @@ def doppler(src, n, v=18., d0=3., tc=None, c=343.):
 @functools.lru_cache(maxsize=None)
 def _files(key):
     cat, name = key.split('/')
+    if cat == 'ifm':   # The If Machine pack from Muse (Drive _sfx/ifm_sfx_1.zip → studio/sfx_ifm, gitignored; credits jobs/music/SFX_CREDITS.md)
+        d = os.path.join(os.path.dirname(HERE), 'sfx_ifm'); return tuple(sorted(glob.glob(os.path.join(d, name + '_[0-9].wav')) + glob.glob(os.path.join(d, name + '.wav'))))
     return tuple(sorted(glob.glob(os.path.join(ASSETS, cat, name + '_[0-9].ogg')) + glob.glob(os.path.join(ASSETS, cat, name + '_[0-9][0-9].ogg'))))
 @functools.lru_cache(maxsize=None)
 def _load(path):
@@ -238,6 +240,22 @@ def S(cat, name, key, gain, desc, use, pct=5., lay=None):
         x = c.smp(key, pct)
         return lay(c, x) if lay else x
     REG[name] = dict(fn=fn, category=cat, gain=gain, description=desc, use=use, loop=False)
+
+
+# ---------------------------------------------------------------- The If Machine pack (Muse, Nov 2026): one name per family, round-robin over takes
+for _n, _g, _d in [('machine_chime', .45, 'brand chime, 3 notes'), ('machine_click_mech', .4, 'mechanical click'), ('machine_dial', .4, 'dial turning'), ('machine_gear_whirr', .4, 'gear whirr spinning up'),
+        ('machine_keys', .35, 'keys'), ('machine_lever_clunk', .6, 'the lever clunk'), ('machine_lock', .45, 'lock'), ('machine_paper', .35, 'paper'), ('machine_printer', .45, 'ticket printer'),
+        ('machine_ratchet', .4, 'ratchet'), ('machine_ratchet_engine', .4, 'ratchet engine'), ('machine_relay', .4, 'relay click'), ('machine_typewriter', .4, 'typewriter'),
+        ('motion_impact_big', .55, 'big impact'), ('motion_impact_glass', .45, 'glass impact'), ('motion_impact_metalheavy', .55, 'heavy metal hit'), ('motion_impact_slam', .55, 'slam'), ('motion_impact_soft', .45, 'soft impact'),
+        ('motion_impact_softheavy', .5, 'soft heavy impact'), ('motion_impact_thump', .5, 'thump'), ('motion_pop', .45, 'pop'), ('motion_pop_engine', .45, 'pop'), ('motion_reverse_cymbal', .45, 'reverse cymbal'),
+        ('motion_riser_1s', .45, 'riser 1 s'), ('motion_riser_2s', .45, 'riser 2 s'), ('motion_riser_3s', .45, 'riser 3 s'), ('motion_slide_down', .4, 'slide down'), ('motion_slide_up', .4, 'slide up'), ('motion_spring', .4, 'spring'),
+        ('motion_squish', .4, 'squish'), ('motion_whoosh_airy', .45, 'airy whoosh'), ('motion_whoosh_deep', .5, 'deep whoosh'), ('motion_whoosh_long', .45, 'long whoosh'), ('motion_whoosh_short', .45, 'short whoosh'),
+        ('sci_data_chatter', .35, 'data chatter'), ('sci_force_field', .4, 'force field'), ('sci_gem', .4, 'gem'), ('sci_glitch_phaser', .4, 'glitch phaser'), ('sci_glitch_zap', .4, 'zap'), ('sci_hologram', .4, 'hologram shimmer'),
+        ('sci_power_up', .45, 'power up'), ('sci_radar_ping', .4, 'radar ping'), ('sci_tone', .35, 'tone'), ('sci_ui_bleep', .35, 'UI bleep'), ('sci_ui_click', .35, 'UI click'), ('sci_ui_confirm', .4, 'confirm'),
+        ('sci_ui_error', .4, 'error'), ('sci_ui_switch', .4, 'switch'), ('sci_ui_tick', .35, 'tick'), ('sci_ui_typing', .35, 'typing'), ('world_bubble', .4, 'bubble'), ('world_camera_shutter', .4, 'camera shutter'),
+        ('world_clock_tick', .35, 'clock tick'), ('world_crowd_mall', .35, 'crowd in a mall'), ('world_crowd_walla', .35, 'crowd walla'), ('world_heartbeat', .45, 'heartbeat'), ('world_rain', .35, 'rain'),
+        ('world_splash', .45, 'splash'), ('world_thunder', .5, 'thunder'), ('world_wind_forest', .35, 'wind in a forest'), ('world_wind_snow', .35, 'snow wind')]:
+    S('ifm', 'ifm_' + _n, 'ifm/' + _n, _g, _d + ' (The If Machine pack)', 'The If Machine', 3.)
 
 def _finish(x, loop=False):
     x = np.asarray(x, float); x[~np.isfinite(x)] = 0

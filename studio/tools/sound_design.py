@@ -36,6 +36,12 @@ from scipy.ndimage import maximum_filter1d, uniform_filter1d
 SR = 44100
 rng = np.random.default_rng(11)
 HERE = os.path.dirname(os.path.abspath(__file__))
+IFM_MOOD = {'lever': 'curious', 'machine': 'tech', 'answer': 'warm', 'globe': 'wonder', 'zoom': 'wonder', 'space': 'wonder', 'sky': 'warm', 'city': 'momentum', 'crowd': 'momentum',
+            'phone': 'curious', 'money': 'comedy', 'map': 'curious', 'count': 'momentum', 'split': 'momentum', 'servers': 'tech'}
+def ifm_mood(o):
+    """The If Machine: music mood of a beat from its scene (mood= on the beat wins); blackouts and cuts read as tension."""
+    if any(o.get(k) not in (None, '') for k in ('off', 'dark', 'cut')) and o.get('act') not in ('answer',): return 'tension'
+    return IFM_MOOD.get(o.get('act') or '', 'curious')
 def _load(modname, fn):
     p = os.path.join(HERE, fn)
     if not os.path.exists(p): return None
@@ -1108,6 +1114,9 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     fmt = fmt or ('youtube' if slug.endswith('-yt') or C.get('fmt') == '16x9' else 'vertical')
     target = float(lufs if lufs is not None else D.get('lufs', -14. if fmt == 'youtube' else -13.)); ceil = float(tp if tp is not None else -2.3)   # AAC adds up to ~0.5 dB of inter-sample overs → ≤ −1.5 dBTP delivered
     beats, score = parse_story(story) if story and os.path.exists(story) else ([], None)
+    _st = open(story, encoding='utf-8').read() if story and os.path.exists(story) else ''
+    ifm = not re.search(r'^\s*channel\s*:\s*(vietadvisor|poison\s*pill)\s*$', _st, re.M | re.I)   # The If Machine is the default channel
+    pp = ifm or bool(re.search(r'^\s*channel\s*:\s*poison\s*pill\s*$', _st, re.M | re.I))     # both use the real-track music library (tools/music_lib.py)
     if len(beats) < len(scenes): beats = beats + [('end', {})] * (len(scenes) - len(beats))
     V = read(base + '_vo.wav'); pad = lambda x: np.zeros((2, n), np.float32) if x is None else np.pad(x, ((0, 0), (0, max(0, n - x.shape[1]))))[:, :n].astype(np.float32)
     V = pad(V); has_vo = np.abs(V).max() > 1e-4
@@ -1115,6 +1124,9 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     # ---- 1-2. events → rules
     evs = collect(C, beats, D); ctx = {'scenes': scenes, 'subs': C.get('subs', []), 'cues': C['cues'], 'events': evs, 'fmt': fmt}
     cands, dips, stings, drops, unknown = expand(evs, C, beats, ctx, D)
+    for sb in C.get('subs', []):   # v5: [BEAT] in the script (a zero-width mark in the caption) → the music drops out under the held pause
+        tx = str(sb.get('text', ''))
+        if '\u200b' in tx: dips.append((sb['t0'] + (sb['t1'] - sb['t0']) * tx.index('\u200b') / max(1, len(tx)), 'hard'))
     foley_off = {i for i, (bt, o) in enumerate(beats[:len(scenes)]) if o.get('foley') == 'no'}
     if D.get('auto', True): cands += bed_sounds(scenes, dur) + sweeteners(scenes, dur, foley_off)
     # ---- 3. schedule
@@ -1133,20 +1145,43 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     del irs; gc.collect()
     REV = eq(REV, [HPF(250), LPF(6000)])
     # music: multi-mood score crossfaded at the cuts + stingers
+    LIBSEG, used_tracks = {}, []
+    if pp and C.get('music') != 'none' and 'music' not in D:
+        import importlib.util; spec = importlib.util.spec_from_file_location('music_lib', os.path.join(HERE, 'music_lib.py')); PM = importlib.util.module_from_spec(spec); spec.loader.exec_module(PM)
+        if score: pm_segs = auto_music(scenes, beats, score, 'curious')
+        else:   # one mood per run of acts; runs shorter than 18 s are merged into the previous one
+            pm_segs = []
+            for i, sc in enumerate(scenes):
+                bo = beats[i][1] if i < len(beats) else {}; act = bo.get('act') or 'setup'; m = bo.get('mood') or (ifm_mood(bo) if ifm else PM.ACT_MOOD.get(act, 'curious'))
+                if not pm_segs or pm_segs[-1][1] != m: pm_segs.append([i, m])
+            merged = []
+            for k, (si, m) in enumerate(pm_segs):
+                t_end = scenes[pm_segs[k + 1][0]]['start'] if k + 1 < len(pm_segs) else dur
+                if merged and t_end - scenes[si]['start'] < 18: continue
+                merged.append([si, m])
+            pm_segs = merged or [[0, 'curious']]
+        for k, (si, m) in enumerate(pm_segs):
+            tid = PM.pick(m, used_tracks, slug)
+            if tid:
+                t0 = scenes[si]['start'] - .35 if k else 0; t1 = scenes[pm_segs[k + 1][0]]['start'] - .35 if k + 1 < len(pm_segs) else dur + 1
+                try: LIBSEG[k] = PM.arrange(tid, max(0, t0), t1, n, first=(k == 0)); used_tracks.append(tid); print(f'  music {m:10} {tid}  {t0:6.1f}–{t1:6.1f} s')
+                except Exception as e: print('warn: library track', tid, 'failed:', e)
+        D['music'] = [[si, PM.FALLBACK.get(m, m)] for si, m in pm_segs]
+        json.dump(used_tracks, open(base + '_music_used.json', 'w'))
     D.setdefault('music', auto_music(scenes, beats, score, C.get('music')))
     segs = D['music']; stems = {}; seed = slug.replace('-yt', '')
     if C.get('music') != 'none':
-        for _, mood in segs:
-            if mood not in stems: stems[mood] = music_stem(base, mood, seed)
+        for k, (_, mood) in enumerate(segs):
+            if k not in LIBSEG and mood not in stems: stems[mood] = music_stem(base, mood, seed)
     M = np.zeros((2, n), np.float32); xf = 1.4
     for k, (si, mood) in enumerate(segs):
-        s = stems.get(mood)
+        s = LIBSEG.get(k) if k in LIBSEG else stems.get(mood)
         if s is None: continue
         s = np.pad(s, ((0, 0), (0, max(0, n - s.shape[1]))))[:, :n]
         t0 = scenes[si]['start'] - .35 if k else 0; t1 = scenes[segs[k + 1][0]]['start'] - .35 if k + 1 < len(segs) else dur + 2
         tt = np.arange(n) / SR; up = np.clip((tt - (t0 - xf / 2)) / xf, 0, 1) if k else np.ones(n); dn = np.clip(((t1 + xf / 2) - tt) / xf, 0, 1) if k + 1 < len(segs) else np.ones(n)
         M += s * np.sin(np.minimum(up, dn) * np.pi / 2)[None, :]
-    had_stems = bool(stems); stems.clear(); gc.collect()
+    had_stems = bool(stems) or bool(LIBSEG); stems.clear(); gc.collect()
     STG = np.zeros((2, n), np.float32); used = []
     if stingers and D.get('stingers', True) and had_stems:
         mood_at = lambda t: next((m for si, m in reversed(segs) if scenes[si]['start'] <= t + .01), segs[0][1])
@@ -1186,7 +1221,7 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     fad = {'MUS': 0., 'FG': 0., 'BG': 0., 'AMB': 0.}
     if has_vo:
         lv = lufs_blocks(Vp); speech = lv > (np.median(lv[lv > -60]) - 10 if np.any(lv > -60) else -40)
-        tg = {'MUS': -18. if not yt else -20., 'AMB': -24.}
+        tg = {'MUS': (-18. if not yt else -20.) - (4. if ifm else 0.), 'AMB': -24.}   # The If Machine: music sits well under the voice (owner, 3 Nov 2026)
         for k, X in (('MUS', Mp), ('AMB', AMB)):
             r = median_rel(X, Vp, speech)
             if r is not None: fad[k] = float(np.clip(tg[k] - r, -15, 15))

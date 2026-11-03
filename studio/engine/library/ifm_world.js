@@ -38,7 +38,7 @@
   // ---------------------------------------------------------------- lettering on cue (words="TEXT@k|!TEXT@k")
   function words(o, c, lt) { if (!o.words) return; const v = H > W; String(o.words).split('|').forEach((w, j, all) => { let s = w.trim(); if (!s) return; let fill = [P.paper, '#FFE7A8']; if (s[0] === '!') { s = s.slice(1); fill = ['#FFC2BC', P.coral]; } else if (s[0] === '~') { s = s.slice(1); fill = ['#C8FFF3', P.teal]; } else if (s[0] === '^') { s = s.slice(1); fill = ['#FFF3B0', P.yellow]; }
       const m = s.match(/^(.*)@(\d+)$/); const txt = m ? m[1] : s, k = m ? +m[2] : j, at = T0(c, k, .3 + j), nxt = all[j + 1] && /@(\d+)$/.test(all[j + 1]) ? T0(c, +all[j + 1].match(/@(\d+)$/)[1], 99) : 99;
-      const y = vy(.17, .15) + (o.wordsY ? (+o.wordsY) * H : 0), size = (v ? 104 : 96) * Math.min(1, 11 / Math.max(6, txt.length));
+      const y = vy(.25, .15) + (o.wordsY ? (+o.wordsY) * H : 0), size = (v ? 104 : 96) * Math.min(1, 11 / Math.max(6, txt.length));
       if (window.LINT && LINT.on && lt >= at && (nxt >= 99 || lt < nxt)) { const sz = Math.max(56, size) * U(), tw = Math.min(W * .86, textW(txt.toUpperCase(), sz, 'toon', 900) + sz * .3); LINT.boxes.push({ k: 'ui', s: txt, x0: W / 2 - tw / 2, x1: W / 2 + tw / 2, y0: y - sz * .6, y1: y + sz * .6 }); }
       TOON.word(txt.toUpperCase(), W / 2, y, { size: Math.max(56, size), lt, at, out: nxt < 99 ? nxt - .12 : undefined, enter: ['slam', 'pop', 'drop'][j % 3], idle: ['wobble', 'bounce', 'none'][j % 3], fill, stroke: '#0E1124', depthCol: '#0E1124', maxW: .86 }); }); }
 
@@ -170,11 +170,22 @@
   // then="view=close@1|act=map pins=…@2": the beat cuts to a new angle or a new picture on caption k (a shot every 2–3 s)
   function segs(o, c) { const L = [{ o, at: 0 }]; String(o.then || '').split('|').map(x => x.trim()).filter(Boolean).forEach((x, j) => { const m = x.match(/^(.*)@(\d+(?:\.\d+)?s?)$/); const body = m ? m[1] : x, at = !m ? 1.5 * (j + 1) : /s$/.test(m[2]) ? parseFloat(m[2]) : T0(c, +m[2], 1.5 * (j + 1)) - .05;
       const add = {}; body.replace(/(\w+)=("([^"]*)"|\S+)/g, (q, k, v, qq) => { add[k] = qq != null ? qq : v; return ''; }); const prev = L[L.length - 1].o; const n = { ...prev, ...add, then: '', words: '' }; if (add.act && add.act !== prev.act) { for (const k of ['view', 'off', 'dark', 'cut', 'screen']) if (!(k in add)) delete n[k]; } L.push({ o: n, at }); }); return L; }
+  const SFAM = { globe: { bed: 'ifm_sci_hologram', acc: ['ifm_sci_radar_ping', 'ifm_sci_ui_bleep', 'ifm_sci_tone', 'ifm_motion_whoosh_airy'] }, zoom: { acc: ['ifm_motion_whoosh_deep', 'ifm_motion_whoosh_long'] },
+    city: { bed: 'amb_traffic_far', acc: ['ifm_world_camera_shutter', 'ifm_motion_whoosh_short', 'vehicle_car_horn', 'ifm_sci_ui_click'] }, crowd: { bed: 'ifm_world_crowd_walla', acc: ['crowd_murmur', 'ifm_motion_pop', 'crowd_ooh', 'ifm_sci_ui_bleep'] },
+    map: { acc: ['ifm_sci_radar_ping', 'ui_pin_drop', 'ifm_sci_ui_click'] }, count: { acc: ['ui_counter', 'ifm_sci_data_chatter', 'ifm_motion_pop'] }, split: { acc: ['ifm_motion_whoosh_short', 'ifm_motion_slide_up'] },
+    phone: { acc: ['ui_notification', 'ifm_sci_ui_click', 'ui_tick', 'ifm_sci_ui_bleep'] }, servers: { bed: 'ifm_sci_data_chatter', acc: ['ifm_machine_relay', 'ifm_sci_glitch_zap', 'ifm_sci_ui_tick'] },
+    sky: { bed: 'ifm_world_wind_forest', acc: ['nature_bird_chirp', 'ifm_world_clock_tick', 'ifm_motion_whoosh_airy'] }, space: { bed: 'ifm_sci_force_field', acc: ['ifm_sci_radar_ping', 'ifm_sci_hologram', 'ifm_motion_whoosh_deep'] },
+    money: { acc: ['foley_coins', 'ifm_machine_printer', 'ifm_sci_ui_error', 'foley_paper'] } };
   let beatN = 0;
   VIS.K.w = (o, c, Pal, dur, i) => { const S = segs(o, c), idx = i ?? beatN++; const B = S.map((sg, j) => ({ ...sg, b: (A[sg.o.act] || A.globe)(sg.o, c, dur), cam: sg.o.cam || CAMS[(idx * 3 + j * 4) % CAMS.length] }));
     const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j) sfx.push([sg.at, ['whoosh_small', 'whoosh_swish', 'trans_swipe'][j % 3]]); });
+    // richer, varied sound (owner, 3 Nov 2026): a bed per scene, an accent on every new line, a hit on every lettering cue, a relay when the clock moves
+    const R = rng(idx * 31 + 7), pick = a => a[Math.floor(R() * a.length)], fam = SFAM[o.act] || SFAM.globe;
+    if (fam.bed) sfx.push([.05, fam.bed]); if (o.clock && o.clock !== 'off') sfx.push([.08, pick(['ifm_machine_relay', 'ifm_sci_ui_tick', 'ifm_world_clock_tick'])]);
+    (c || []).forEach((cc, k) => { if (k) sfx.push([cc[0] + .02, pick(fam.acc)]); });
+    String(o.words || '').split('|').filter(Boolean).forEach((w, j) => { const m = w.match(/@(\d+)$/), at = T0(c, m ? +m[1] : j, .3 + j); sfx.push([at, w[0] === '!' ? pick(['ifm_motion_impact_slam', 'ifm_motion_impact_big', 'ifm_motion_impact_metalheavy']) : w[0] === '~' ? pick(['ifm_sci_ui_confirm', 'ifm_sci_power_up', 'ifm_sci_gem']) : w[0] === '^' ? 'ifm_machine_chime' : pick(['ifm_motion_pop', 'ifm_motion_impact_soft', 'ifm_motion_spring'])]); });
     return { sfx, draw: lt => { let k = 0; for (let j = 0; j < B.length; j++) if (lt >= B[j].at) k = j; const sg = B[k], q = lt - sg.at;
       ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split') { if (k && q < .22) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore();
       if (k && q < .12) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }
-      words(o, c, lt); if (sg.b.post) sg.b.post(lt); } }; };
+      if (!o._noWords) words(o, c, lt); if (sg.b.post) sg.b.post(lt); }, letters: lt => words(o, c, lt) }; };
 })();

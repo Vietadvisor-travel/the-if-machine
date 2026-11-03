@@ -14,7 +14,7 @@ CACHE = os.path.expanduser(os.environ.get('VA_VOICE_DIR', '~/.cache/va-voice'))
 MODEL, VOICES = os.path.join(CACHE, 'kokoro-v1.0.int8.onnx'), os.path.join(CACHE, 'voices-v1.0.bin')
 URL = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
 SR_OUT = 44100
-DEFAULT_SPK = {'narrator': 'am_michael', 'a': 'am_echo', 'b': 'af_heart', 'c': 'bm_george', 'd': 'af_nicole'}
+DEFAULT_SPK = {'narrator': 'am_puck', 'a': 'af_bella', 'b': 'am_adam', 'c': 'af_nova', 'd': 'am_liam'}   # The If Machine (owner, 3 Nov 2026): am_puck narrates, af_bella is the second voice
 
 def setup():
     subprocess.call([sys.executable, '-m', 'pip', 'install', '-q', 'kokoro-onnx', 'soundfile', '--break-system-packages'])
@@ -87,7 +87,7 @@ def visemes(ph, env):
 def voice_for(spk, narrator):
     if re.match(r'^[abefhijpz][fm]_\w+$', spk or '') or str(spk or '').startswith('supertonic:'): return spk
     if spk in (None, '', 'narrator'): return narrator
-    return DEFAULT_SPK.get(spk, 'af_heart' if narrator.startswith('am') or narrator.startswith('bm') else 'am_echo')
+    return DEFAULT_SPK.get(spk, 'af_bella' if narrator.startswith('am') or narrator.startswith('bm') else 'am_puck')
 
 # Supertonic 3 (Supertone; weights OpenRAIL-M: every post must say the narration is AI-generated, brief/BRAND.md §7).
 # Spec "supertonic:M1" … "supertonic:F5". Weights: Drive _voice/supertonic (python3 tools/voice.py setup-supertonic), never git.
@@ -155,7 +155,7 @@ def read_wav(path):
 
 def synth(lines_path, outdir, voice=None, speed=1.0):
     L = json.load(open(lines_path, encoding='utf-8')); os.makedirs(outdir, exist_ok=True)
-    narr = voice or L.get('voice') or 'am_michael'; durs = []
+    narr = voice or L.get('voice') or 'am_puck'; durs = []
     if speed in (None, 'auto'):  # calibrate to ~2.7 words/s (≈160 wpm, explainer pace) from the first lines
         probe = [ln['text'] for ln in L['lines'][:4]] or ['This is a short calibration line for the narrator.']
         dur = 0

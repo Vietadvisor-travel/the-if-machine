@@ -18,7 +18,7 @@
 
   // ---------------------------------------------------------------- channel switch (called by SB.compile)
   window.CHANNEL_APPLY = (h = {}) => {
-    IFM.hdr = h; IFM.peopleStyle = h.people || 'flat'; IFM.on = String(h.channel || 'ifm').toLowerCase() === 'ifm';
+    IFM.hdr = h; IFM.peopleStyle = h.people || 'facet'; IFM.on = String(h.channel || 'ifm').toLowerCase() === 'ifm';
     Object.assign(C, OLD.C); Object.assign(FONT, OLD.FONT); Object.assign(FW, OLD.FW);
     if (!IFM.on) return;
     Object.assign(C, { brand: P.yellow, brandDark: '#D99B00', yel: P.yellow, yel2: '#E8A400', ink: '#141833', inkSoft: '#3A4270', night: P.midnight, dusk: P.coral, cream: P.paper, white: '#FFFDF7' });
@@ -79,7 +79,7 @@
     const toks = []; String(text).replace(/[\*\[\]]/g, '').split(/\s+/).forEach(w => { if (w) toks.push(w); }); if (!toks.length) return;
     const wt = toks.map(w => Math.max(1, w.replace(/[^\p{L}\p{N}]/gu, '').length * .12 + .55)), tot = wt.reduce((a, b) => a + b, 0), span = Math.max(.3, (t1 - t0) * .9); const st = []; let acc = 0; wt.forEach(w => { st.push(t0 + acc / tot * span); acc += w; });
     setFont(size, 'body', 700); const sp = ctx.measureText(' ').width; const lines = [[]]; let lw = 0; toks.forEach((w, i) => { const ww = ctx.measureText(w).width; if (lw + ww > maxW && lines[lines.length - 1].length) { lines.push([]); lw = 0; } lines[lines.length - 1].push(i); lw += ww + sp; });
-    const lh = size * 1.28, yB = vert ? H * .815 : H - 52 * u, y0 = yB - (lines.length - 1) * lh; ctx.save(); ctx.globalAlpha *= out * pin; ctx.translate(0, (1 - pin) * 10 * u); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    const lh = size * 1.28, yB = vert ? H * .645 : H - 52 * u, y0 = yB - (lines.length - 1) * lh; ctx.save(); ctx.globalAlpha *= out * pin; ctx.translate(0, (1 - pin) * 10 * u); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
     lines.forEach((ln, li) => { setFont(size, 'body', 700); const tw = ln.reduce((s, i) => s + ctx.measureText(toks[i]).width + sp, -sp); let x = W / 2 - tw / 2; const y = y0 + li * lh;
       for (const i of ln) { const w = toks[i], ww = ctx.measureText(w).width, cur = t >= st[i] && (i === toks.length - 1 || t < st[i + 1]);
         ctx.lineJoin = 'round'; ctx.lineWidth = size * .2; ctx.strokeStyle = 'rgba(10,12,30,.82)'; ctx.strokeText(w, x, y); ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillText(w, x + 2 * u, y + 3 * u);
@@ -131,7 +131,7 @@
     const roll = clamp(lt / 1.2), n = a.n == null ? null : (b.n != null && b.pre === a.pre ? lerp(b.n, a.n, E.inOut(roll)) : a.n * E.out(roll));
     const num = n == null ? '' : (Number.isInteger(a.n) ? String(Math.round(n)) : n.toFixed(1)); const label = (a.pre + ' ' + num + (a.post ? ' ' + a.post : '')).trim();
     const appear = E.back(clamp((t - _starts[curK === 0 ? 0 : curK]) / .35 + (prev ? 1 : 0)));
-    const size = (vert ? 26 : 22) * u; setFont(size, 'mono', 700); const tw = ctx.measureText('SIM · ' + label).width + size * 2.2, hh = size * 1.9; const x = vert ? W / 2 - tw / 2 : 40 * u, y = vert ? H * .085 : 36 * u;
+    const size = (vert ? 26 : 22) * u; setFont(size, 'mono', 700); const tw = ctx.measureText('SIM · ' + label).width + size * 2.2, hh = size * 1.9; const x = vert ? W / 2 - tw / 2 : 40 * u, y = vert ? H * .155 : 36 * u;
     ctx.save(); ctx.translate(x + tw / 2, y + hh / 2); ctx.scale(appear, appear); ctx.translate(-tw / 2, -hh / 2); ctx.fillStyle = 'rgba(10,12,30,.72)'; ctx.beginPath(); ctx.roundRect(0, 0, tw, hh, hh / 2); ctx.fill();
     ctx.strokeStyle = 'rgba(46,230,197,.55)'; ctx.lineWidth = 2 * u; ctx.stroke(); const blink = (t * 2 % 1) < .6; ctx.fillStyle = blink ? P.coral : 'rgba(255,91,79,.3)'; ctx.beginPath(); ctx.arc(size * .9, hh / 2, size * .26, 0, TAU); ctx.fill();
     ctx.fillStyle = P.teal; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('SIM · ' + label, size * 1.5, hh / 2 + size * .05); ctx.restore(); };
@@ -161,7 +161,7 @@
   IFM.machineFace = machineFace;
   const ACT = {}, LET = {};
   // HOOK 0–3 s: macro on the lever knob, a hand-less yank (clunk), dials spin, the question types on the machine screen, dive in through the screen
-  ACT.lever = (o, c, dur) => { const tQ = .62, tDive = Math.max(2.1, Math.min(dur - .45, cap(o, 'dive', 2.7))); return { sfx: [[.02, 'foley_ratchet'], [.34, 'impact_metal'], [.36, 'ifm_lever'], [.62, 'whoosh_med'], [.7, 'ui_typing'], [tDive - .35, 'riser_short'], [tDive, 'whoosh_huge']],
+  ACT.lever = (o, c, dur) => { const tQ = .62, tDive = Math.max(2.1, Math.min(dur - .45, cap(o, 'dive', 2.7))); return { sfx: [[.02, 'ifm_machine_ratchet'], [.34, 'ifm_machine_lever_clunk'], [.36, 'ifm_lever'], [.45, 'ifm_machine_gear_whirr'], [.62, 'ifm_motion_whoosh_short'], [.7, 'ifm_sci_ui_typing'], [tDive - .35, 'riser_short'], [tDive, 'whoosh_huge']],
     draw: lt => { const u = U(), v = H > W; nightBg(lt, { cy: .5 }); const M = machineLayout(), pull = E.back(clamp((lt - .12) / .24));
       const lx = M.cx + M.mw / 2 + 10 * u, ly = M.cy + M.mh * .12, lh = 260 * u, knob = [lx + 40 * u, ly - lh * .9];
       // camera: macro on the knob → yank (shake) → whip to the screen as the question types → ease back → dive through the screen
@@ -179,13 +179,13 @@
       if ((lt * 3 % 1) < .55 && ch < used + 6) { ctx.fillStyle = P.teal; ctx.fillRect(M.sx + pad, y + fs * .05, fs * .4, fs * .09); } ctx.restore(); ctx.restore();
       if (dive > 0) { ctx.save(); ctx.globalAlpha = dive * dive; ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); } } }; };
   // the machine "thinking": dials race, relays flicker, the screen shows a value
-  ACT.machine = (o, c, dur) => ({ sfx: [[.1, 'foley_click_mech'], [.5, 'glitch_computer'], [1.2, 'foley_ratchet']], draw: lt => { const u = U(); nightBg(lt); ctx.save(); const z = 1.02 + .05 * lt / Math.max(3, dur); ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2);
+  ACT.machine = (o, c, dur) => ({ sfx: [[.1, 'ifm_machine_click_mech'], [.4, 'ifm_machine_gear_whirr'], [.8, 'ifm_sci_data_chatter'], [1.6, 'ifm_machine_relay']], draw: lt => { const u = U(); nightBg(lt); ctx.save(); const z = 1.02 + .05 * lt / Math.max(3, dur); ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2);
     const M = machineFace(lt, { spin: lt * .4, busy: true }); ctx.save(); ctx.beginPath(); ctx.rect(M.sx, M.sy, M.sw, M.sh); ctx.clip(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     setFont(M.sh * .12, 'mono', 700); ctx.fillStyle = P.teal; ctx.fillText(typed(o.label || 'RUNNING SIMULATION', lt * 30), M.sx + M.sw / 2, M.sy + M.sh * .28);
     const pr = clamp(lt / Math.max(1, dur - .5)); rr(M.sx + M.sw * .1, M.sy + M.sh * .55, M.sw * .8, M.sh * .1, M.sh * .05, '#1A2048', 0); rr(M.sx + M.sw * .1, M.sy + M.sh * .55, M.sw * .8 * pr, M.sh * .1, M.sh * .05, P.yellow, 0);
     setFont(M.sh * .1, 'mono', 700); ctx.fillStyle = P.paper; ctx.fillText(Math.round(pr * 100) + '%', M.sx + M.sw / 2, M.sy + M.sh * .8); ctx.restore(); ctx.restore(); } });
   // the answer: the slot prints a ticket, a coral stamp lands on the punch word
-  ACT.answer = (o, c, dur) => { const tS = cap(o, 'at', T0(c, 1, 1.6)); return { sfx: [[.2, 'foley_ratchet'], [.3, 'ui_typing'], [tS, 'impact_slam'], [tS + .05, 'ifm_ding']], draw: lt => { const u = U(), v = H > W; nightBg(lt, { cy: .3 });
+  ACT.answer = (o, c, dur) => { const tS = cap(o, 'at', T0(c, 1, 1.6)); return { sfx: [[.15, 'ifm_machine_printer'], [.3, 'ifm_machine_typewriter'], [tS, 'ifm_motion_impact_slam'], [tS + .05, 'ifm_machine_chime']], draw: lt => { const u = U(), v = H > W; nightBg(lt, { cy: .3 });
     const tw = v ? W * .8 : W * .44, th = v ? H * .5 : H * .74, tx = (W - tw) / 2, ty = H * (v ? .2 : .1); rr(tx - 30 * u, ty - 30 * u, tw + 60 * u, 40 * u, 20 * u, '#060815', 0);
     ticket(tx, ty, tw, th, E.out(clamp(lt / 1.2)), Math.sin(lt * 1.2) * .01, (w, h) => { const m = 50 * u; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = P.midnight; setFont(24 * u, 'mono', 700); ctx.fillText(typed('THE MACHINE PRINTED:', lt * 30), m, m); perf(m * .5, w - m * .5, m + 52 * u);
       const L = wrap(String(o.text || 'THE ANSWER').toUpperCase(), (v ? 64 : 58) * u, 'display', w - m * 2, 900); setFont((v ? 64 : 58) * u, 'display', 900); L.forEach((ln, i) => { ctx.save(); ctx.globalAlpha *= clamp((lt - .25 - i * .12) * 4); ctx.fillText(ln, m, m + 90 * u + i * (v ? 74 : 68) * u); ctx.restore(); }); });

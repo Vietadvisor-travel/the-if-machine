@@ -1,5 +1,18 @@
 # Motion Studio — changelog
 
+## 2026-11-03 · IFM 2 (owner's round-2 notes)
+- **Voices:** am_puck narrates (bright), af_bella is the second voice; the defaults are in `voice.py`.
+- **Music:** Muse's 30 real tracks via `tools/music_lib.py` (ported). The mood follows each scene, tracks rotate, the bed sits 4 dB lower.
+  `sound_design.py` uses the library for IFM by default.
+- **SFX:** Muse's 76-sound pack registered as `ifm_*` in `sfx_pro.py`. World beats emit a bed, line accents, lettering hits and clock relays; the brand acts use the pack.
+  Density on the test passes every window (hook 15, body 15.2, payoff 12.5 per 10 s).
+- **People and creatures, new styles** (`ifm_people2.js`): `facet` low-poly (default) and `holo` simulated; dog cat horse dino bird fish whale robot.
+- **Layers** (`ifm_world3.js`): `fx=` (rain snow dust sparks rays bokeh embers glitch confetti fireflies holo) and `look=` (blueprint xray night vintage mono warm cold).
+- **New acts** `scale` (size ladder), `guess` (viewer commits before the twist), `animals`.
+- **Vertical safe zones:** captions in the 47–65 % band, HUD and lettering below the top 14 % (Muse, _PLATFORMS.md).
+- **Setup:** `setup.sh` pulls the music and SFX packs from Drive and imports them; Supertonic is optional.
+- **Tested** on `stories/test-ifm-round2`: lint clean in both formats, sound QA density ok, stills only (no video render, owner's request).
+
 ## 2026-11-03 · IFM 1 (The If Machine conversion)
 - Brand layer `engine/library/ifm_brand.js` (header `channel: ifm`, default):
   - Unbounded / Inter / Space Mono, the BRAND.md palette;

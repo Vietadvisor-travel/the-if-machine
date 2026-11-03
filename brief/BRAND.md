@@ -68,7 +68,7 @@ Mỗi tập có số thứ tự riêng: **RUN #001, #002…** Số này ghi tron
 ## 3. Giọng đọc
 
 - **Một người dẫn duy nhất cho cả kênh**, gọi là *The Operator*: ấm, tò mò, hơi mỉm cười trong giọng, tốc độ vừa (khoảng 150–160 từ/phút), không gào, không thì thầm kịch tính.
-- Giọng chính lấy từ bộ đã duyệt trong `brief/VOICE_MODELS.md` (Kokoro, Chatterbox Turbo, Supertonic 3). **Anh nghe mẫu rồi chọn một giọng**, sau đó giữ cố định. Claude sẽ làm mẫu nghe khi sang bước engine.
+- **Giọng đã chốt (anh, 03/11/2026):** giọng dẫn chính Kokoro **am_puck** (nam, tươi), giọng thứ hai **af_bella** (nữ, sôi nổi) cho trích dẫn, nhân vật, đổi giọng ở bản dọc. Các giọng đã duyệt khác dùng khi phù hợp. Không dùng giọng trầm làm giọng dẫn.
 - Cảm xúc đổi theo đoạn: tò mò (mở), hào hứng tăng dần (chạy), chậm và trầm một nhịp (trước twist), ấm (kết).
 - Kênh không lộ mặt, anh không lên hình, không lên tiếng. Chỉ dùng giọng AI.
 
@@ -77,7 +77,7 @@ Mỗi tập có số thứ tự riêng: **RUN #001, #002…** Số này ghi tron
 ## 4. Hình ảnh
 
 **Phong cách:** hoạt hình 2D vẽ bằng code (engine canvas): mảng màu phẳng, gradient mềm, ánh viền, không nét viền đen.
-**Nhân vật (anh chốt 03/11/2026):** bỏ hẳn kiểu nhân vật đầu to cũ. Dùng hệ nhân vật mới của kênh với 4 kiểu: phẳng thon dài (mặc định), viên nang, bóng đen viền sáng, nét mảnh. Mỗi tập có thể đổi kiểu để không lặp.
+**Nhân vật (anh chốt 03/11/2026):** bỏ hẳn kiểu nhân vật đầu to cũ. Dùng hệ nhân vật mới của kênh với 4 kiểu: phẳng thon dài (mặc định), viên nang, bóng đen viền sáng, nét mảnh. Mỗi tập có thể đổi kiểu để không lặp. **Bản 2 (anh duyệt 03/11/2026):** mặc định là kiểu khối đa giác (facet) không vẽ mặt, kiểu hologram (holo) cho người do cỗ máy mô phỏng, sinh vật cùng phong cách.
 **Đa dạng (anh chốt 03/11/2026):** trong một tập không lặp cảnh, góc máy, chuyển cảnh; tập sau không dựa vào cảnh của tập trước. Mỗi tập có cảnh vẽ riêng cho nội dung của nó. Chỉ nghi thức thương hiệu được lặp. Không dùng 3D giả game, không dùng footage thật, không dùng ảnh AI về người thật, tài liệu thật, logo hay tít báo giả.
 Hoạt hình chỉ để minh hoạ, không bao giờ giả làm tư liệu.
 

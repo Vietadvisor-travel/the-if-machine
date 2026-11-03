@@ -12,3 +12,7 @@ studio/research/drive_files.json
 # secrets
 *.env
 .env*
+studio/music/
+studio/music_raw/
+studio/sfx_ifm/
+studio/history.json.bak

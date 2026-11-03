@@ -63,10 +63,10 @@
     if (st === 'pill') { ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.arc(head[0] + 2.5 * u, head[1] - 2 * u, 1.6 * u, 0, TAU); ctx.arc(head[0] + 6 * u, head[1] - 2 * u, 1.6 * u, 0, TAU); ctx.fill(); }
     if (pose === 'sleep') { ctx.restore(); ctx.save(); const z = (lt * .8 + ph) % 1; ctx.globalAlpha *= 1 - z; T('z', x + h * .1, y - h * .3 - z * h * .3, { size: h * .12, font: 'display', fill: '#F6F1E7', lw: 0 }); }
     ctx.restore(); }
-  IFM.human = human;
+  IFM.human = human; IFM.poseAngles = poseAngles;
   // a population in depth rows; walkers travel and wrap
   IFM.people = (n, yBase, lt, o = {}) => { const u = U(), r = rng(o.seed || 3), rows = o.rows || 3, L = []; for (let i = 0; i < n; i++) { const row = i % rows; L.push({ seed: (o.seed || 1) * 100 + i, x: r() * W * 1.2 - W * .1, d: rows > 1 ? row / (rows - 1) : 1, dir: r() < .5 ? -1 : 1, poseAlt: r() }); }
     L.sort((a, b) => a.d - b.d); for (const p of L) { const h = (o.h || H * .22) * lerp(.55, 1, p.d), y = yBase - (1 - p.d) * H * (o.depth ?? .12); let x = p.x; const pose = Array.isArray(o.pose) ? o.pose[Math.floor(p.poseAlt * o.pose.length)] : (o.pose || 'stand');
       if (pose === 'walk' || pose === 'run') x = ((p.x + lt * (pose === 'run' ? 2.4 : 1) * h * .6 * p.dir) % (W * 1.3) + W * 1.3) % (W * 1.3) - W * .15;
-      ctx.save(); ctx.globalAlpha *= lerp(.6, 1, p.d); human(x, y, h, p.seed, pose, lt, { ...o, flip: (pose === 'walk' || pose === 'run') ? p.dir < 0 : (p.seed % 2 === 0) }); ctx.restore(); } };
+      ctx.save(); ctx.globalAlpha *= lerp(.6, 1, p.d); IFM.human(x, y, h, p.seed, pose, lt, { ...o, flip: (pose === 'walk' || pose === 'run') ? p.dir < 0 : (p.seed % 2 === 0) }); ctx.restore(); } };
 })();
