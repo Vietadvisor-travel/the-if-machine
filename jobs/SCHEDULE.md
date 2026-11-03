@@ -5,3 +5,6 @@
 
 | post date | day | slug | tên (VI) | research | video |
 |---|---|---|---|---|---|
+| 2026-11-04 | Wed | ai-runs-a-country | AI điều hành quốc gia | RESEARCH_READY | - |
+| 2026-11-06 | Fri | money-disappears | Nếu tiền biến mất | RESEARCH_READY | - |
+| 2026-11-08 | Sun | dinosaurs-survive | Nếu khủng long còn sống | RESEARCH_READY | - |
