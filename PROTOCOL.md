@@ -94,7 +94,10 @@ produced until the owner says so. Muse may build the topic bank and research pac
 
 ## 8. Weekly rhythm (owner, 3 Nov 2026): 4 episodes a week, the owner approves every video
 - **Saturday (Muse): the shortlist.** Muse writes `jobs/topics/WEEK_<yyyy-mm-dd>.md` (the Monday it is for) with about
-  **15 candidates already researched lightly**. Each candidate has:
+  **15 candidates already researched lightly**. This shortlist runs in the same Saturday run as the weekly stock
+  top-up cron (Sat 09:20), after the stock parts, and is committed and pushed with them. The shortlist scan follows
+  the Poison Pill scan style: recent trends, competitor channels, search and social trends, the coming week's calendar,
+  keywords and one insight per candidate that changes a viewer decision. Each candidate has:
   - the question (EN and Vietnamese name);
   - the twist;
   - 3–5 verified facts with sources;

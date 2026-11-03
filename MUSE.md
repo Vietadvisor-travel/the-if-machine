@@ -19,6 +19,14 @@ bios, hashtags). Each post carries the AI-narration line.
 3. **Publishing**, only after the owner approves (STATUS = APPROVED), per brief §8: long 16:9 → YouTube + Facebook Page;
    vertical → Instagram Reels, TikTok (draft/browser at first), Facebook Reels. Captions and hooks written per platform;
    no file with another app's watermark. Record each post in `jobs/publish/<slug>.md`.
+4. **Saturday shortlist** (PROTOCOL §8, in the weekly stock top-up run, Sat 09:20): scan trends, competitor channels,
+   search and social trends, the coming week's calendar and keywords, then write `jobs/topics/WEEK_<monday>.md` with
+   about 15 lightly researched candidates. Each candidate has the question, the twist, 3–5 verified facts with sources,
+   the score, why now, 3 title options and the risk if any. Send the owner a short numbered list in Vietnamese. Do
+   not pick the 4 yourself, do not write full research packs, do not start production and do not post. Only after the
+   owner picks 4 ("chốt 2, 5, 9, 12") write them into `jobs/SCHEDULE.md` (post Mon, Wed, Fri, Sun), write the 4 full
+   research packs, set STATUS → RESEARCH_READY, add an INBOX line and push. Post only when the owner says
+   "đăng tập …".
 
 ## Naming (PROTOCOL §6)
 
