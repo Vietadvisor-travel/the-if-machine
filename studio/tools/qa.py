@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Frame-by-frame QA contact sheets for a storyboard, before the expensive render.
-  python3 tools/qa.py stories/x.story [--every 1.0] [--scale .25] [--fmt 9x16|16x9]
+  python3 tools/qa.py stories/x.story [--every 1.0] [--scale .25] [--fmt 9x16|16x9] [--lean]
 Renders one still every N seconds (real voice timing if out/<slug>_vo/durs.json exists), stamps the time on
 each, and writes out/<slug>_qa_<k>.jpg sheets (40 frames each). Look at every sheet: floating people or
 vehicles, cropped heads, empty halves of the frame, text on faces, long static stretches."""
@@ -17,7 +17,7 @@ d = f'{base}_qa'; os.makedirs(d, exist_ok=True); [os.remove(f) for f in glob.glo
 subprocess.check_call(['node', 'tools/render.mjs', story, '--fmt', fmt, '--scale', str(scale), '--stills', ','.join(map(str, ts)), '--out', d, *voa], stdout=subprocess.DEVNULL)
 fs = sorted(glob.glob(d + '/*.jpg'), key=lambda f: float(f.split('_t')[-1][:-4]))
 for old in glob.glob(f'{base}_qa_*.jpg'): os.remove(old)
-per, cols = 40, 10
+per, cols = (60, 12) if '--lean' in a else (40, 10)   # --lean: 60 tiles per sheet, fewer images to read (token-lean, still one frame per second)
 for s in range(0, len(fs), per):
     ch = fs[s:s + per]; im0 = Image.open(ch[0]); w, h = im0.size; rows = (len(ch) + cols - 1) // cols
     sh = Image.new('RGB', (cols * w, rows * h), 'black'); dr = ImageDraw.Draw(sh)

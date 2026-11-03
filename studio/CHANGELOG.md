@@ -1,5 +1,18 @@
 # Motion Studio — changelog
 
+## 2026-11-03 · IFM 4 (token-lean production, same quality)
+- `EPISODE.md`: the one page to read for an episode (setup, shape, picture menu, `dir=` cheat sheet, gates, render, delivery, token rules).
+  It replaces about 90 KB of docs per session.
+- `API.md`: every painter and helper signature, so engine source is never read to write bespoke shots.
+- `tools/gate.mjs`: lint in both formats + variety + review in one report of about 6–20 lines and one contact sheet.
+  Tested on test-ifm-demo-v: PASS, review 92.
+- `tools/new_episode.mjs`: scaffolds the long story, the vertical story and the bank file (registered), so nothing is written twice.
+- `tools/qa.py --lean`: the per-second visual QA keeps one frame per second, 60 per sheet (5-min film = 5 sheets instead of 8).
+  Round 1 of the per-second QA is automatic (lint every 0.25 s + review motion).
+- `CLAUDE.md`: lean reading order; the gate command; the scaffold step.
+- Bespoke acts use the `x_` prefix (`kind=w act=x_…`) and get every world feature; `variety.mjs` counts them as bespoke.
+- Scale-ladder labels stay inside the frame (caught by the gate).
+
 ## 2026-11-03 · IFM 3 (directing, asset bank, motivated sound)
 - **Director track** `dir=` on ANY vis beat (`engine/library/ifm_director.js`):
   - camera into a point, pan, roll, shake, orbit;

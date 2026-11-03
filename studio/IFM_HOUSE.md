@@ -101,6 +101,8 @@ Lettering: `words="TEXT@k|!TWIST@k|~DATA@k|^GOLD@k"` lands on caption k of the b
 - Engine work and tests: stills only, no video render, unless the owner asks for one.
 
 ## 7. Token budget (owner's rule: lean but complete)
+The working rules for an episode live in `EPISODE.md` §7 (read that page, not this one, when producing).
+
 - Check frames as one montage per beat group (≤ 12 tiles at 400 px), never one image per frame.
 - Edit with small patches. Do not re-read engine files you already know.
 - Render the long video once after lint, variety and stills are clean. Fix with `--reuse-mix` when only pictures changed.

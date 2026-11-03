@@ -52,7 +52,7 @@
       const fit = i => Math.min(H * (v ? .3 : .5), W * .5 / asp(i)) / sz(i); // px per metre that makes item i the hero (fits the frame both ways)
       const e = E.inOut(clamp((lt - at[k]) / .9)), s = k ? Math.exp(lerp(Math.log(fit(k - 1)), Math.log(fit(k)), e)) : fit(0);
       let x = W * (v ? .62 : .6); for (let i = k; i >= 0; i--) { const hp = sz(i) * s * (i === k && lt < at[i] + .45 ? E.back(clamp((lt - at[i]) / .45)) : 1), wp = hp * asp(i); if (hp < 1.5) { circ(x, gy - 4 * u, 3 * u, P.coral, 0); x -= 24 * u; continue; }
-        thing(items[i], x, gy, hp, lt); if (labels[i]) T(labels[i], x, gy + 40 * u + (i % 2) * 34 * u, { size: (v ? 28 : 26) * u, font: 'mono', fill: i === k ? P.teal : P.steel, lw: 0, alpha: clamp((lt - at[i]) / .3) }); x -= wp / 2 + Math.max(30 * u, (sz(Math.max(0, i - 1)) * s * asp(Math.max(0, i - 1))) / 2) + 24 * u; } } }; };
+        thing(items[i], x, gy, hp, lt); if (labels[i] && x > W * .1 && x < W * .9) T(labels[i], x, gy + 40 * u + (i % 2) * 34 * u, { size: (v ? 28 : 26) * u, font: 'mono', fill: i === k ? P.teal : P.steel, lw: 0, alpha: clamp((lt - at[i]) / .3) }); x -= wp / 2 + Math.max(30 * u, (sz(Math.max(0, i - 1)) * s * asp(Math.max(0, i - 1))) / 2) + 24 * u; } } }; };
 
   // ---------------------------------------------------------------- guess before the twist
   A.guess = (o, c, dur) => { const tPick = num(o, 'at', Math.max(2.4, dur - 1.4)); return { sfx: [[.2, 'ifm_motion_slide_up'], [tPick - 2.4, 'ifm_world_clock_tick'], [tPick - 1.6, 'ifm_world_clock_tick'], [tPick - .8, 'ifm_world_clock_tick'], [tPick, 'ifm_machine_chime'], [tPick, 'ifm_motion_impact_big']],

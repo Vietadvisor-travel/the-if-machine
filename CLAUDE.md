@@ -1,8 +1,10 @@
 # The If Machine — Claude Code makes the videos
 
-Read first, every session: `PROTOCOL.md` (how Muse and Claude work together), then `brief/THE_IF_MACHINE_BRIEF.md`
-(the channel; the single source of truth unless the owner says otherwise), then `brief/BRAND.md` (identity: tone, look,
-sound, episode format, platform copy; every video follows it), then the bottom of `jobs/INBOX.md`.
+Token-lean reading (owner, 3 Nov 2026: as cheap as possible, same quality):
+- **Every session:** this file + the last 5 lines of `jobs/INBOX.md` (`tail -5`).
+- **For an episode:** `studio/EPISODE.md` (the one page), `studio/API.md` (when writing code), the research pack,
+  and `brief/BRAND.md` §2 (tone).
+- Everything else (`PROTOCOL.md`, the brief, `IFM_HOUSE.md`, `references/`) only when a question needs it, with grep.
 
 ## Current phase: ENGINE (from 3 Nov 2026)
 The owner is finishing and adjusting the engine. Do not produce an episode until he says so ("làm tập <tên tập>" or "làm tập tiếp", PROTOCOL §6).
@@ -16,7 +18,7 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 - Never use the Poison Pill footage engine (repo vietadvisor-videos, `pp_*`). If the canvas engine cannot run, say so and stop.
 - Setup once per session: `bash setup.sh` (npm install, Kokoro voice, Chromium check, Drive check).
 - Run: `cd studio && node tools/make.mjs stories/<name>.story` (16:9 and 9:16).
-- Quality gates (brief §3): `node tools/lint.mjs <story> --both` clean in BOTH formats, `node tools/variety.mjs <story>` clean, `node tools/review.mjs` ≥ 85, `python3 tools/qa.py` per-second
+- Quality gates (brief §3): `node tools/gate.mjs <story>` = lint in BOTH formats + variety + review ≥ 85 in one compact report; `python3 tools/qa.py` per-second
   QA at least 2 rounds, frames checked in both formats. Never compress below 30 MB.
 
 ## Talking with the owner
@@ -28,8 +30,8 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
 1. `git pull --rebase`; `bash setup.sh`. Find the slug (above), read `jobs/research/<slug>.md`. Missing → stop and give
    the owner the line for Muse: "nghiên cứu chủ đề <tên tiếng Việt>".
 2. STATUS → IN_PRODUCTION; INBOX line.
-3. Direct the story per `studio/IFM_HOUSE.md` + `studio/references/ifm-director.md` (a frame line and a `dir=` track per beat; new
-   bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: long 16:9 3–6 min (never under 3); vertical 9:16 60–90 s cut from it with its own
+3. `node tools/new_episode.mjs <slug> "<tên>"`, then direct the story per `studio/EPISODE.md` (a frame line and a `dir=` track per
+   beat; new bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: long 16:9 3–6 min (never under 3); vertical 9:16 60–90 s cut from it with its own
    hook and captions; hook in the first 3 s; one question, one twist answer; branded end frame; the main picture of each
    beat draws the SUBJECT of its line; talking head ≤ 35 % of beats, never two in a row; small fixed captions low.
 4. Facts: every actionable claim from the research pack with its source; heavy claims need 2 sources; no invented
