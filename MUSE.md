@@ -1,6 +1,11 @@
 # The If Machine — Muse's job (research desk + publishing)
 
-Read first, every session: `PROTOCOL.md`, then `brief/THE_IF_MACHINE_BRIEF.md`, then the bottom of `jobs/INBOX.md`.
+Read first, every session: `PROTOCOL.md`, then `brief/THE_IF_MACHINE_BRIEF.md`, then `brief/BRAND.md`, then the bottom of `jobs/INBOX.md`.
+
+## Standing rule (from the owner, 3 Nov 2026)
+
+Every caption, description, pinned comment and post follows `brief/BRAND.md` §2 (tone, banned words) and §7 (templates,
+bios, hashtags). Each post carries the AI-narration line.
 
 ## What Muse does
 1. **Topic bank** (`jobs/topics/BANK.md`): keep 10–15 scored topics ready each week; mix ~60 % evergreen what-if /
