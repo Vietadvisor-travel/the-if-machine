@@ -40,19 +40,19 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
    The build follows the script shot by shot. Then `node tools/new_episode.mjs <slug> "<tên>"`, then direct the story per `studio/EPISODE.md` (a frame line and a `dir=` track per
    beat; new bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: ONE vertical 9:16 film, 6–10 min (≈ 1000–1700 spoken words; owner 4 Nov 2026: no 16:9, no separate short);
    small captions in the low band (74.5–79 %), subject above it, bottom 20 % and right edge clear of the platform UI; hook in the first 3 s; one question, one twist answer; branded end frame; the main picture of each
-   beat draws the SUBJECT of its line; talking head ≤ 35 % of beats, never two in a row; small fixed captions low.
+   beat draws the SUBJECT of its line; house look per `studio/EPISODE.md` §00 (calm, no glare/flicker, precise actions, continuity).
 4. Facts: every actionable claim from the research pack with its source; heavy claims need 2 sources; no invented
    numbers. No AI images of real people, real documents, logos, or fake headlines; animation illustrates, never poses as a record.
 5. Voices: only `brief/VOICE_MODELS.md` (Kokoro, Chatterbox Turbo, Supertonic 3). Kitten is banned. Supertonic 3 →
    the delivery note says the audio is machine-generated (OpenRAIL-M).
-6. Gates (above), then render both formats, cover still, English .srt.
+6. Gates (above), then render the vertical film (`make.mjs … --speed .95 --fps 25`; preflight runs first), cover still, English .srt.
 7. Deliver (PROTOCOL §5): `bash tools/ship.sh <slug>` (names, cover, srt, stories zip, upload of the masters); write
    `jobs/deliveries/<slug>.md` from `jobs/deliveries/_TEMPLATE.md`;
    STATUS → DELIVERED; `node tools/variety.mjs <story> --record`; `node tools/bank.mjs catalog` (commit BANK.md); INBOX line; commit and push `main`. Never commit video or zip files.
-8. Report to the owner (≤ 10 lines, Vietnamese): the Drive link, length of both cuts, gate scores, what is uncertain, and the
+8. Report to the owner (≤ 10 lines, Vietnamese): the Drive link, the film's length, gate scores, what is uncertain, and the
    line to send Muse when he approves: "đăng tập <tên>".
 
-Time budget: one episode ≤ 3 hours start to report (`studio/EPISODE.md` §6b); every shot WOW but cheap to render; watch the render pace once (§5).
+Time budget: about 3–4 hours start to report (`studio/EPISODE.md` §6b). Every background job gets a watchdog (send_later) so nothing waits on the owner; never wait with `pgrep -f` on a pattern your own command contains (wait on a PID).
 Run each episode end to end without stopping; talk to the owner only at the start and in the final report; stop early
 only for hard blockers he alone can fix (Drive keys, credentials), saying exactly what is missing. A missing research pack
 is not a blocker (step 1).

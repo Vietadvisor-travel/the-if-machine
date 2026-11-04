@@ -181,16 +181,17 @@ node tools/variety.mjs stories/<slug>.story --record && node tools/bank.mjs cata
   commit `[claude] [<slug>] delivered` (with history.json and BANK.md); push `main`.
 - Report to the owner in ≤ 10 Vietnamese lines. End with the line he sends Muse when he approves: "đăng tập <tên>".
 
-## 6b. Time budget (owner: one episode ≤ 3 hours, start to report)
-| step | budget |
+## 6b. Time budget (measured 4 Nov 2026, vertical 6–8 min)
+| step | wall time |
 |---|---|
-| research pack (only if missing) | 20 min |
-| story + bank items (written once, from the template) | 60 min |
-| gate runs (≈ 35 min each; at most 2 fix loops) | 70 min |
-| QA round 2 sheets | 10 min |
-| render the film (watchdog above) | 25 min |
-| ship, delivery note, report | 15 min |
-- Over budget on a step → simplify (fewer fix loops, reuse bank items) rather than polish; never exceed 3 h in total.
+| research pack (only if missing) | 15–20 min |
+| director's script + script_check | 20–30 min |
+| new scenes + story (the variable part) | 60–90 min |
+| gate (lint ≈ 8 min, review, cost/fill) | 30–40 min |
+| render: preflight, voice, frames (4 jobs, 25 fps), mix, encode | ≈ 40 min |
+| QA round 2, ship, delivery note, report | 15 min |
+- About 3–4 hours in total when nothing is redone. Every background job gets a watchdog (send_later); wait on a PID, never
+  on `pgrep -f` with a pattern your own command line contains.
 
 ## 7. Token rules (owner: as lean as possible, quality unchanged)
 - **Read:**
