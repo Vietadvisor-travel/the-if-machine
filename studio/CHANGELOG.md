@@ -237,3 +237,11 @@
   The same shot grammar drives a real 3D camera (size → distance, angle → elevation, move → path). Sets are built at load;
   transitions hold the outgoing/incoming 3D frame; static matrices frozen. Cost ≈ 300–450 ms/frame at 0.62 render scale.
   Tested on a 7-set story (contact sheet checked frame by frame).
+
+## 4 Nov 2026 — 3D realism + variety (owner: real scale, nothing through anything, no repetition, light renders)
+- Real sizes: cars 4.3 × 1.8 × 1.5 m with wheels on axles; feet on the ground; street trees with canopies above 2 m.
+- No overlaps: traffic lights in the city (cars stop on red, one car per lane), same speed per lane; walkers in one-way lanes;
+  street furniture on the curb band; plaza walkers in straight lanes around the fountain; protesters in a block before the steps.
+- Camera never inside a building (raycast to the subject). New gate step `tools/sim_check.mjs` (120 s of each set the story uses:
+  person×person, car×car, person×car, fountain) — all 0 on the sample.
+- variety.mjs: a repeated 3D framing in one film and a set over 35 % of the 3D cuts are flagged; `seed=` varies city/street layouts.

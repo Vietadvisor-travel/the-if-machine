@@ -46,6 +46,10 @@ if (!beats.length || !(beats[0].o.act === 'hook' || beats[0].o.hook || /@0\S*\s+
   if (cuts.length > 20 && share < .5) warn(`only ${(share * 100) | 0} % of cuts use the shot grammar cam=<SIZE>.<angle>.<move> (aim ≥ 70 %)`);
   if (cuts.length > 20 && d3 < .15) warn(`3D shots ${(d3 * 100) | 0} % of cuts (act=s3; aim 20–50 %)`);
   for (let i = 2; i < g.length; i++) if (g[i].sz === g[i - 1].sz && g[i].sz === g[i - 2].sz) { warn(`shot size ${g[i].sz} three times in a row (cut ${i + 1})`); break; } }
+// 3D variety inside the film (owner, 4 Nov 2026: creative and varied, nothing repeated in a video or across episodes)
+{ const seen = {}, sets = {}; let n3 = 0; body.forEach((b, bi) => { let cur = { ...b.o }; [b.o.cam, ...String(b.o.then || '').split('|')].forEach((seg, j) => { if (j) { seg.replace(/(\w+)=("([^"]*)"|\S+)/g, (q, k, v, qq) => { cur[k] = qq != null ? qq : v; return ''; }); } if (cur.act !== 's3') return; n3++;
+    const k = `${cur.set}:${cur.on || '-'}:${String(cur.cam || '').split('.').slice(0, 2).join('.')}`; sets[cur.set] = (sets[cur.set] || 0) + 1; if (seen[k] != null) warn(`beat ${bi + 1}: 3D shot ${k} repeats beat ${seen[k] + 1} — new subject, size or angle`); else seen[k] = bi; }); });
+  Object.entries(sets).forEach(([k, v]) => { if (n3 >= 8 && v / n3 > .35) warn(`3D set "${k}" is ${(v / n3 * 100) | 0} % of the 3D cuts — spread across sets (time of day, seed=, other subjects)`); }); }
 // across episodes (last 3)
 const prev = hist.episodes.filter(e => e.slug !== slug && e.vert === vert).slice(-3);
 if (prev.length) { const mine = new Set(body.map(key)); const last = new Set(prev[prev.length - 1].keys); const shared = [...mine].filter(k => last.has(k)); if (mine.size && shared.length / mine.size > .4) err(`${shared.length}/${mine.size} scene types repeat the last episode (${prev[prev.length - 1].slug}): ${shared.join(', ')}`);

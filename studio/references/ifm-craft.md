@@ -55,6 +55,11 @@ Every shot in the director's script states SIZE · ANGLE · MOVE · MEDIUM (2D, 
 - Mix inside a scene: a 3D establishing shot → a 2D character close-up → a 2D insert of the letter → a 3D pull-out.
 
 ## 4. Simulation look
+**Real-world physics and scale (owner, 4 Nov 2026):** people stand on the ground at human size (≈ 1.8 m), cars are car-sized
+(≈ 4.3 × 1.8 m), nobody walks through a car, a person, a tree, a fountain or a wall; traffic stops at red lights; crowds keep
+personal space. Checked by `tools/sim_check.mjs` (part of the gate).
+**No repetition (owner, 4 Nov 2026):** inside a film no 3D framing (set + subject + size + angle) twice and no set over 35 % of the
+3D cuts; across episodes the scene-type rule of variety.mjs applies (sets count as types; vary `time=`, `seed=`, subjects).
 "Running the world": flows (people, money, cars, data) visibly moving; counters that tick only when they mean something;
 before/after splits; the same place at different times (time-lapse); maps that zoom from country to street.
 

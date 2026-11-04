@@ -9,6 +9,7 @@ let fmt = ''; const seen = new Map(); for (const l of lint) { const f = l.match(
 const issues = [...seen].map(([k, f]) => `  [${f}] ${k}`).sort((a, b) => (/ERROR/.test(b) ? 1 : 0) - (/ERROR/.test(a) ? 1 : 0)); issues.slice(0, 10).forEach(l => out.push(l)); if (issues.length > 10) out.push(`  … ${issues.length - 10} more`);
 const vi = lint.findIndex(l => /\[variety/.test(l)); if (vi >= 0) lint.slice(vi + 1).filter(l => /ERROR|WARN|clean/.test(l)).forEach(l => out.push('variety ' + l.trim().replace(/\s+/g, ' ')));
 if (!process.argv.includes('--no-review')) { const r = run(['tools/review.mjs', ep]).split('\n'); const sc = r.find(l => /^SCORE/.test(l)); if (sc) out.push('review ' + sc); r.filter(l => /^\s+WARN/.test(l)).slice(0, 4).forEach(l => out.push('  ' + l.trim())); }
+{ const sm = run(['tools/sim_check.mjs', ep]).split('\n'); sm.filter(l => /^sim|ERROR/.test(l)).forEach(l => out.push(/^sim/.test(l) ? l : '  ' + l.trim())); }
 if (!process.argv.includes('--no-cost')) run(['tools/cost.mjs', ep]).split('\n').filter(l => /^cost|^fill|ERROR|WARN/.test(l)).slice(0, 10).forEach(l => out.push(/^(cost|fill)/.test(l) ? l : '  ' + l.trim()));
 out.push(`sheet out/${slug}_sheet.jpg (both formats, one frame per beat)`);
 const bad = out.some(l => /ERROR|\b[1-9]\d* errors/.test(l)) || out.some(l => /SCORE (\d+)/.test(l) && +l.match(/SCORE (\d+)/)[1] < 85);

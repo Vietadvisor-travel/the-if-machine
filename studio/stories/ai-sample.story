@@ -8,7 +8,7 @@ people: facet
 sources: Albania "Diella" AI minister, 11 Sep 2025 (Global Government Forum; bne IntelliNews). Everything else is the imagined simulation.
 
 // S01 · HOOK — 3D city at midnight
-# vis kind=w act=s3 set=city time=night cam=EWS.high.orbit on=center words="WHAT IF AN AI@0|RAN YOUR COUNTRY?@1" then="cam=WS.low.pull on=tower@2"
+# vis kind=w act=s3 hook=1 set=city time=night cam=EWS.high.orbit on=center words="WHAT IF AN AI@0|RAN YOUR COUNTRY?@1" then="cam=WS.low.pull on=tower@2"
 Midnight. A whole country hands its government to an artificial intelligence.
 No president. No parliament. One machine.
 So what actually happens next?
@@ -38,8 +38,11 @@ The permit she has waited months for
 was approved at three in the morning.
 
 // S06 · WHAT PEOPLE SAY — the theory
-# vis kind=w act=s3 set=street time=day cam=WS.eye.trackR on=street do=phone trans=slide then="cam=MS.low.push on=her@1|act=s3 set=servers cam=WS.eye.push on=aisle@2|cam=MCU.dutch.orbit on=rack@3"
+# vis kind=w act=s3 set=street time=day cam=WS.eye.trackR on=street do=phone trans=slide then="cam=MS.low.push on=her@1"
 By lunch, a theory is everywhere online.
 The machine wasn't switched on last night. It had been quietly running things for years.
+
+// S07 · WHAT WE KNOW — the real question
+# vis kind=w act=s3 set=servers cam=WS.eye.push on=aisle trans=fade then="cam=MCU.low.orbit on=rack@1"
 There is no evidence for that.
 But it hides a real question: when the machine is wrong, who do you complain to?
