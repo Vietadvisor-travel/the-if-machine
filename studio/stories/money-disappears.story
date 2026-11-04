@@ -52,6 +52,8 @@ At nine forty, the last loaf is gone.
 The people at the back walk home with nothing.
 The bread was free.
 It simply ran out.
+Tomorrow, the same line comes back, only longer.
+The people who got nothing today will come earlier.
 
 // S07 · 1:02 [10 s] SUBJECT: one price card folds into a paper bird and flies to a passer-by
 # vis kind=w act=x_md_card cut=2 cam=CU.eye.push:.45,.44 trans=match then="cam=WS.eye.pan:.5,.5@2"
@@ -114,6 +116,13 @@ A nurse coming off a night shift can't.
 Free turns out to be cheapest
 for people with time to spare.
 
+// S14b · 2:28 [9 s] SUBJECT: a neighbour's cupboard fills up; a second phone in the drawer
+# vis kind=w act=x_md_hoard cam=MS.eye.push:.55,.4 trans=fold
+And when something is free, it pays to take more than you need.
+A spare loaf, just in case.
+A second phone for the drawer.
+So the shelves empty even faster.
+
 // S15 · 2:28 [11 s] SUBJECT: the town hall prints the ration card
 # vis kind=w act=s3 set=office time=day cam=WS.eye.push on=room trans=zoomthru then="act=x_md_ration cam=WS.top.push:.42,.4@2"
 By the end of the first month,
@@ -156,6 +165,7 @@ and no list can hold them all.
 Nora asks for raisins.
 The form has no box for raisins.
 She waits three weeks for a reply.
+Multiply that by every shop in the city.
 
 // S21 · 3:26 [11 s] SUBJECT: the Andes, terraces, the road, llamas
 # vis kind=w act=x_md_andes v=wide cam=EWS.low.crane:.5,.45 trans=fade words="~THE INCA EMPIRE@2|NO COINS@3" then="cam=WS.eye.trackR:.5,.55@2"
@@ -224,12 +234,14 @@ They gave people free money,
 and watched what happened.
 
 // S30 · 4:56 [12 s] WHAT PEOPLE SAY SUBJECT: Finland, Kenya, the USA on the map; people still at work
-# vis kind=w act=map view=flat pins="26,64,FINLAND;37.9,0.2,KENYA;-98,39,USA" cam=WS.high.push:.5,.45 trans=iris words="~ABOUT THE SAME@2|~1–2 H LESS / WEEK@4" then="cam=MCU.eye.pan:.45,.45 pip=x_md_workpip pipPos=ml pipAt=5@4"
+# vis kind=w act=map view=flat pins="26,64,FINLAND;37.9,0.2,KENYA;-98,39,USA;-150,64,ALASKA" cam=WS.high.push:.5,.45 trans=iris words="~ABOUT THE SAME@2|~1–2 H LESS / WEEK@4" then="cam=MCU.eye.pan:.45,.45@4|act=s3 set=office time=day cam=MS.eye.orbit on=room@7"
 What we know:
 in Finland and in Kenyan villages,
 people kept working about as much as before.
 In one American study,
 they worked an hour or two less a week.
+Alaska has paid every resident a yearly oil dividend since 1982,
+and jobs didn't disappear there either.
 Most people keep working.
 
 // S31 · 5:08 [8 s] SUBJECT: a prison camp in winter, World War II
@@ -265,6 +277,8 @@ Even people who never smoked accepted them as payment.
 Because that's all money really is:
 something everyone agrees to accept,
 so that nobody has to find the perfect swap.
+It doesn't have to be gold.
+It just has to be trusted.
 
 // S36 · 5:51 [10 s] MONTAGE SUBJECT: swaps on the street; the I.O.U. board fills
 # vis kind=w act=s3 set=city time=day rush=1 cam=MS.eye.trackL on=street trans=slide then="act=x_md_ious v=board cut=2 cam=MS.eye.push:.5,.36@2"
@@ -305,7 +319,8 @@ And within a year, people invent money again.
 Nora puts the little cards back on her shelves.
 The line outside is short again.
 Money was never the coins.
-It was the message.
+It was the message:
+the way millions of strangers tell each other what they need.
 
 // S41 · 6:42 [5 s] END SUBJECT: the bakery at dusk, OPEN
 # vis kind=w act=x_md_shopfront cam=WS.low.pull:.5,.45 trans=fade

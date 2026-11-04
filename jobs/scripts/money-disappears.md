@@ -96,14 +96,14 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - BUILD: reuse act=s3 set=street n=30 do=walk; NEW x_md_bakery v=line — the bakery front with a growing line
 
 ### S06 · 0:53 · DAY ONE
-- VO: At nine forty, the last loaf is gone. The people at the back walk home with nothing. The bread was free. It simply ran out.
+- VO: At nine forty, the last loaf is gone. The people at the back walk home with nothing. The bread was free. It simply ran out. Tomorrow, the same line comes back, only longer. The people who got nothing today will come earlier.
 - LINK: same line, now from inside the shop: the last loaf leaves the shelf
 - PICTURE: SUBJECT the empty shelves with the price cards still on them / BACKGROUND the shop window, the line breaking up / FOREGROUND flour dust on the counter / LIFE people outside turn and walk away
 - ACTION: Nora hands over the last loaf, then stands with her hands on the counter, looking at the empty shelves; outside people turn and walk away
 - SHOT: MCU low push 2D | WS high static 3D
 - CAMERA: low push across the empty shelves, then a still high wide of the street emptying
 - LOOK: late morning, flatter light, quiet disappointment, empty space on the right of the frame
-- TIMELINE: 0 one loaf left on the shelf · 1.5 a hand takes it · 3 label 9:40 · 4.5 cut: the street, people turn away · 6.5 the street empties · 8.5 Nora in the doorway
+- TIMELINE: 0 one loaf left on the shelf · 1.5 a hand takes it · 3 label 9:40 · 4.5 cut: the street, people turn away · 6.5 the street empties · 8.5 Nora in the doorway · 10 the empty street at dusk · 12 a few people already wait by the door · 14 the camera holds · 15.5 a street lamp comes on
 - TEXT: small 9:40
 - FX: trans=cut
 - SOUND: the bell, then quiet
@@ -221,6 +221,20 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - SOUND: newspaper rustle, footsteps
 - BUILD: NEW x_md_time v=two — the retired man and the nurse
 
+### S14b · 2:30 · HOARDING
+- VO: And when something is free, it pays to take more than you need. A spare loaf, just in case. A second phone for the drawer. So the shelves empty even faster.
+- LINK: the man with time to spare goes home; we follow the bread into a neighbour's cupboard
+- PICTURE: SUBJECT a kitchen cupboard filling with loaves, tins and boxes, a drawer with a second phone / BACKGROUND a kitchen with a window onto the street / FOREGROUND the counter / LIFE the cupboard doors open, items appear one by one, the drawer slides
+- ACTION: a neighbour walks in carrying a box, puts things on the shelves, opens the drawer and points at the spare phone
+- SHOT: MS eye push 2D
+- CAMERA: slow push to the cupboard
+- LOOK: kitchen daylight, warm wood, gentle irony, cupboard on the right two thirds
+- TIMELINE: 0 kitchen, the neighbour walks in with a box · 1.5 the cupboard doors open · 3 loaves appear on the shelf · 5 tins and boxes · 6.5 the drawer slides open: two phones · 8 the drawer closes · 9.5 the camera settles
+- TEXT: none
+- FX: trans=fold
+- SOUND: paper bag, drawer, cupboard door
+- BUILD: NEW x_md_hoard — cupboard, drawer, neighbour
+
 ### S15 · 2:30 · THE CARD
 - VO: By the end of the first month, the city tries something else. If a price can't decide who gets what, a rule will. Two loaves a person. One phone per home.
 - LINK: the line ends at a new counter: the town hall
@@ -292,14 +306,14 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - BUILD: reuse act=s3 set=city time=night lit=1; NEW x_md_board v=list — the endless list
 
 ### S20 · 3:21 · WHO DECIDES
-- VO: Nora asks for raisins. The form has no box for raisins. She waits three weeks for a reply.
+- VO: Nora asks for raisins. The form has no box for raisins. She waits three weeks for a reply. Multiply that by every shop in the city.
 - LINK: one small item from the endless list: Nora's request
 - PICTURE: SUBJECT the request form close up, Nora's pen hovering, no box that says raisins / BACKGROUND her bakery counter / FOREGROUND a small bowl, empty / LIFE her pen moves down the list, she writes RAISINS in the margin
 - ACTION: Nora sits at the counter on a stool holding a pen, reading the form, then writing in the margin
 - SHOT: ECU top push 2D | MS eye static 2D
 - CAMERA: top-down push along the form, then a still medium of Nora waiting
 - LOOK: warm interior, cream and ink, dry humour, form fills the frame
-- TIMELINE: 0 the form: FLOUR · SUGAR · SALT · YEAST · 2 the pen hovers · 3.5 she writes RAISINS in the margin · 4.5 cut: Nora waits at the counter · 5.5 a calendar flips: WEEK 1 · WEEK 2 · WEEK 3
+- TIMELINE: 0 the form: FLOUR · SUGAR · SALT · YEAST · 2 the pen hovers · 3.5 she writes RAISINS in the margin · 4.5 cut: Nora waits at the counter · 5.5 a calendar flips: WEEK 1 · WEEK 2 · WEEK 3 · 7.5 the calendar shows WEEK 3 · 9 Nora rests her chin on her hand
 - TEXT: calendar WEEK 1 2 3
 - FX: trans=cut
 - SOUND: pen scratch, calendar pages
@@ -432,18 +446,18 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - BUILD: reuse act=s3 set=waiting screen="THEORY 2|NO WORK?"; NEW x_md_turn v=envelope
 
 ### S30 · 5:00 · WHAT PEOPLE SAY · WHAT WE KNOW
-- VO: What we know: in Finland and in Kenyan villages, people kept working about as much as before. In one American study, they worked an hour or two less a week. Most people keep working.
+- VO: What we know: in Finland and in Kenyan villages, people kept working about as much as before. In one American study, they worked an hour or two less a week. Most people keep working. Alaska has paid every resident a yearly oil dividend since 1982, and jobs didn't disappear there either.
 - LINK: the envelope's stamp becomes a pin on a map
 - PICTURE: SUBJECT a world map with three pins: Finland, Kenya, USA / BACKGROUND oceans / FOREGROUND map edge / LIFE pins drop, small labels unfold
 - ACTION: none (map)
-- SHOT: WS high push 2D | MCU eye pan 2D+3D (pip)
+- SHOT: WS high push 2D | MCU eye pan 2D | MS eye orbit 3D
 - CAMERA: push across the map, then pan between the pins
 - LOOK: atlas, cool blue sea, warm land, clear, pins in the upper half
-- TIMELINE: 0 world map · 2 pin FINLAND · 2017–18 · 4 pin KENYA · 6 pin USA · 7.5 cut: labels ABOUT THE SAME · ABOUT THE SAME · 1–2 H LESS/WEEK · 10 the inset shows people at desks · 11.5 the map holds
+- TIMELINE: 0 world map · 2 pin FINLAND · 2017–18 · 4 pin KENYA · 6 pin USA · 7.5 cut: labels ABOUT THE SAME · ABOUT THE SAME · 1–2 H LESS/WEEK · 10 the inset shows people at desks · 11.5 the map holds · 13 pin ALASKA · 1982 · 15 label JOBS STAYED · 17 the inset office keeps working · 18.5 the map holds
 - TEXT: per pin: ABOUT THE SAME · 1–2 H LESS A WEEK
 - FX: trans=cut
 - SOUND: soft pin drops
-- BUILD: reuse act=map pins; pip= act=s3 set=office (people at work) as an inset
+- BUILD: reuse act=map pins; then act=s3 set=office (people at work) on the last line
 
 ### S31 · 5:11 · THE CAMP
 - VO: The most telling case is much smaller. It comes from prison camps in the Second World War, where nobody had any money at all.
@@ -502,14 +516,14 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - BUILD: NEW x_md_camp v=prices
 
 ### S35 · 5:51 · THE CAMP
-- VO: Because that's all money really is: something everyone agrees to accept, so that nobody has to find the perfect swap.
+- VO: Because that's all money really is: something everyone agrees to accept, so that nobody has to find the perfect swap. It doesn't have to be gold. It just has to be trusted.
 - LINK: the cigarettes in his pocket become coins, then notes, then a phone payment
 - PICTURE: SUBJECT a crowd in a plaza, each person holding up a small token that changes form together / BACKGROUND the plaza / FOREGROUND hands / LIFE the tokens change in a wave
 - ACTION: people stand in the plaza holding up a token in one hand
 - SHOT: WS low crane 3D | MCU eye static 2D
 - CAMERA: crane up over the plaza, then a still on one hand
 - LOOK: dusk, warm gold, unifying, crowd fills the lower half
-- TIMELINE: 0 plaza crowd · 2 words EVERYONE AGREES · 4 cut: a hand with a cigarette · 5 it becomes a coin · 6 a note · 7 a phone with a tick
+- TIMELINE: 0 plaza crowd · 2 words EVERYONE AGREES · 4 cut: a hand with a cigarette · 5 it becomes a coin · 6 a note · 7 a phone with a tick · 8.5 the phone tick stays · 10 the crowd below lowers its hands · 11.5 the camera holds on the hand
 - TEXT: EVERYONE AGREES
 - FX: trans=fade
 - SOUND: crowd murmur, warm
@@ -586,14 +600,14 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - BUILD: reuse act=s3 set=city time=dusk; NEW x_md_bakery v=back
 
 ### S40 · 6:43 · PAYOFF · CALLBACK
-- VO: Nora puts the little cards back on her shelves. The line outside is short again. Money was never the coins. It was the message.
+- VO: Nora puts the little cards back on her shelves. The line outside is short again. Money was never the coins. It was the message: the way millions of strangers tell each other what they need.
 - LINK: callback to the hook: the same shelves, the same cards
 - PICTURE: SUBJECT Nora placing price cards back on the loaves / BACKGROUND the window with a short line / FOREGROUND bread basket / LIFE steam, a customer enters
 - ACTION: Nora stands at the shelves placing small cards on the loaves with her right hand, then turns to greet a customer
 - SHOT: MCU eye push 2D | WS eye static 2D
 - CAMERA: push to her hand and the card, then a still wide of the shop
 - LOOK: morning, warm and bright, content, mirror of the hook framing
-- TIMELINE: 0 Nora places a card · 2 another card · 3.5 cut: the window, a short line · 5 a customer enters · 6.5 !THE MESSAGE appears · 8 Nora smiles and nods
+- TIMELINE: 0 Nora places a card · 2 another card · 3.5 cut: the window, a short line · 5 a customer enters · 6.5 !THE MESSAGE appears · 8 Nora smiles and nods · 9.5 the street outside fills with ordinary traffic · 11 Nora waves to a customer · 12.5 the camera holds
 - TEXT: !IT WAS THE MESSAGE coral, top third
 - FX: trans=match (the shelf framing matches the hook)
 - SOUND: door bell, warm music

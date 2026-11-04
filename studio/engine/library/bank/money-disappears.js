@@ -350,4 +350,14 @@
   V2('x_md_shelves', 'x_md_bakery', 'hook'); V2('x_md_shopfront', 'x_md_bakery', 'front'); V2('x_md_card', 'x_md_message', 'card'); V2('x_md_market', 'x_md_message', 'up');
   V2('x_md_store', 'x_md_andes', 'store'); V2('x_md_khipu', 'x_md_andes', 'khipu'); V2('x_md_village', 'x_md_barter', 'village'); V2('x_md_quote', 'x_md_barter', 'quote'); V2('x_md_shoes', 'x_md_barter', 'shoes');
   V2('x_md_parcel', 'x_md_camp', 'parcel'); V2('x_md_noticeboard', 'x_md_camp', 'board'); V2('x_md_prices', 'x_md_camp', 'prices');
+  // ---------------------------------------------------------------- x_md_hoard — a kitchen cupboard fills up: a spare loaf, a second phone in the drawer
+  A.x_md_hoard = (o, c, dur) => { const t1 = T0(c, 1, 2.5), t2 = T0(c, 2, 4.5), t3 = T0(c, 3, 6.5); return { sfx: [[t1, 'foley_paper'], [t2, 'foley_drawer'], [t3, 'foley_door_close']], draw: lt => { const u = U(), R = interior({ wall: '#D9C7A8', floor: '#8E6E52', fy: .64 });
+    windowView(R.wl + W * .04, H * .1, W * .26, H * .16, 'street', lt, { time: 'day', seed: 9 }); const cx = W * .38, cw = W * .54, cy = H * .1, ch = H * .44; rr(cx, cy, cw, ch, 8 * u, '#B98E62', 0); const op = K(lt, .3, .8);
+    for (let r = 0; r < 3; r++) { const y = cy + ch * (.3 + r * .3); rr(cx + 10 * u, y, cw - 20 * u, 10 * u, 2 * u, '#7A5A3A', 0); }
+    const items = [[0, 0, 'loaf'], [0, 1, 'loaf'], [0, 2, 'box'], [1, 0, 'tin'], [1, 1, 'loaf'], [1, 2, 'tin'], [2, 0, 'box'], [2, 1, 'loaf'], [2, 2, 'tin']];
+    items.forEach(([r, k, kind], i) => { const at = .6 + i * Math.max(.35, (t3 - 1) / 9), q = K(lt, at, .5); if (q <= 0) return; const x = cx + cw * (.2 + k * .3), y = cy + ch * (.3 + r * .3) - (1 - q) * 30 * u; if (kind === 'loaf') IFM.bank.get('md_loaf').draw(x, y, 34 * u, lt); else if (kind === 'tin') { rr(x - 22 * u, y - 50 * u, 44 * u, 50 * u, 4 * u, '#C0392B', 0); rr(x - 22 * u, y - 50 * u, 44 * u, 8 * u, 3 * u, '#D9D2C4', 0); } else rr(x - 36 * u, y - 44 * u, 72 * u, 44 * u, 4 * u, '#E9DDBF', 0); });
+    rr(cx, cy, cw * .5 * (1 - op * .85), ch, 6 * u, '#9C7450', 0); rr(cx + cw * .5 + cw * .5 * op * .85, cy, cw * .5 * (1 - op * .85), ch, 6 * u, '#9C7450', 0);
+    rr(cx, H * .56, cw, H * .08, 6 * u, '#9C7450', 0); const dr = K(lt, t2, .6) * (1 - K(lt, t3 + .4, .6)); rr(cx + cw * .1, H * .57 + dr * H * .03, cw * .8, H * .06, 6 * u, '#B98E62', 0); circ(cx + cw * .5, H * .6 + dr * H * .03, 8 * u, '#5A4232', 0);
+    if (dr > .2) { for (let i = 0; i < 2; i++) rr(cx + cw * (.3 + i * .25), H * .57 + dr * H * .03 - 20 * u, cw * .16, 26 * u, 6 * u, i ? '#2A9D8F' : '#2B2D42', 0); }
+    const p = Lv.path(lt, .1, [[-W * .1, H * .78], [W * .3, H * .78]], H * .36); man(p.x, p.y, H * .36, 1401, p.moving ? 'walk' : lt > t2 ? 'point' : 'carry', lt, { col: '#6D597A', hold: p.moving || lt < t2 ? 'box' : undefined, holdCol: '#C98B4A' }); } }; };
 })();
