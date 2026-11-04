@@ -92,7 +92,7 @@ No price, no order, no bill.
 Just who arrives first.
 
 // S12 · 1:55 [12 s] MONTAGE SUBJECT: lines everywhere; the clock
-# vis kind=w act=s3 set=street time=day n=40 do=walk cam=WS.high.crane on=block trans=ink words="YOU PAY WITH TIME@5" then="act=s3 set=waiting time=day screen=WAITING cam=WS.eye.trackL on=chairs@2|act=x_md_time v=clock cam=MCU.eye.push:.5,.36@4"
+# vis kind=w act=s3 set=street time=day n=40 do=walk cam=WS.high.crane on=street trans=ink words="YOU PAY WITH TIME@5" then="act=s3 set=waiting time=day screen=WAITING cam=WS.eye.trackL on=chairs@2|act=x_md_time v=clock cam=MCU.eye.push:.5,.36@4"
 So people do what humans always do
 when something is free and scarce.
 They line up.
@@ -274,7 +274,7 @@ Then little paper notes:
 I owe you one morning of work.
 
 // S37 · 6:01 [11 s] SUBJECT: the timeline of money: cattle, cowries, the first coin, paper
-# vis kind=w act=x_md_timeline cam=WS.eye.trackR:.5,.45 trans=ink then="cam=CU.low.push:.5,.42@3"
+# vis kind=w act=x_md_timeline cam=WS.eye.trackR:.5,.45 trans=ink then="cam=MS.low.push:.5,.42@3"
 It has happened again and again.
 Cattle.
 Cowrie shells in China, around 1200 BC.
