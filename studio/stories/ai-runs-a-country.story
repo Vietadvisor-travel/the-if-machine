@@ -139,7 +139,7 @@ Letters went out by the hundred thousand.
 Many people paid, because proving the computer wrong took more time than they had.
 
 // S21 · 3:57 · UNLAWFUL
-# vis kind=w act=x_court cam=push trans=cube then="cam=close:.28,.62@1"
+# vis kind=w act=x_court cam=push trans=cube
 Courts and reviews later found the method was unlawful.
 The scheme was scrapped in 2020, and about four hundred
 and seventy thousand wrongly issued debts had to be paid back.
