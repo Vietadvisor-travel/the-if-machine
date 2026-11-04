@@ -10,46 +10,46 @@ sources: e-Estonia AI strategy factsheet (99% online, digital ID); Jarnias "Esto
 // Director's script: jobs/scripts/ai-runs-a-country.md (v3, calm house look) — one beat per shot, VO verbatim, one smooth camera move per shot.
 
 // S01 · 0:00 · HOOK
-# vis kind=w act=hook scene="x_dawncity" q="WHAT IF AN AI|RAN YOUR COUNTRY?"
+# vis kind=w act=hook scene="x4_dawn" q="WHAT IF AN AI|RAN YOUR COUNTRY?"
 Imagine your country is run by an artificial intelligence.
 Not in a film.
 For one real year.
 
 // S02 · 0:08 · PROMISE
-# vis kind=w act=x_balcony cam=truckR trans=zoomthru then="cam=close:.56,.48@1" time=dawn
+# vis kind=w act=x4_balcony cam=truckR trans=zoomthru then="cam=close:.56,.48@1" time=dawn
 What would actually change?
 Some things would get much easier.
 And one thing would go wrong in a way that is easy to miss.
 
 // S03 · 0:17 · DAY ONE
-# vis kind=w act=x_phonehand cam=truckL trans=cut time=dawn
+# vis kind=w act=x4_phone cam=truckL trans=cut time=dawn
 Day one.
 There is no election night and no speech.
 Her phone simply shows a message: a permit
 she applied for last month has been approved overnight.
 
 // S04 · 0:28 · THE QUEUE THAT DISAPPEARED
-# vis kind=w act=x_serviceoffice cam=pull trans=slide then="cam=close:.45,.66@2"
+# vis kind=w act=x4_queue cam=pull trans=slide then="cam=close:.45,.66@2"
 It used to take weeks.
 A form, a queue, a stamp, a second queue.
 The system read her application at three in the morning,
 checked it against the rules, and said yes.
 
 // S05 · 0:40 · THE TAX FORM
-# vis kind=w act=x_kitchen2 cam=truckL trans=ink
+# vis kind=w act=x4_kitchen cam=truckL trans=ink
 Her tax return is already filled in,
 line by line, from records the state already has.
 She reads it, corrects nothing, and taps confirm.
 
 // S06 · 0:52 · THE BUS
-# vis kind=w act=x_street2 cam=float trans=slide then="cam=close:.35,.6@2"
+# vis kind=w act=x4_street cam=float trans=slide then="cam=close:.5,.6@2"
 Outside, the bus arrives as she reaches the stop.
-Not because of luck.
+Not because of luck. She checks the time. It is eight o'clock.
 The system saw that about two hundred people from her
 area leave at this time, and moved a bus here.
 
 // S07 · 1:04 · HOW IT KNEW
-# vis kind=w act=x_routemap cam=tilt trans=zoom then="cam=close:.5,.42@2|cam=tilt@4"
+# vis kind=w act=x4_map cam=tilt trans=zoom then="cam=close:.5,.42@2|cam=tilt@4"
 It works like a very fast planner.
 It looks at where people travel, at what time,
 and how full each bus is, and it changes the routes every week.
@@ -89,7 +89,7 @@ Less goes to a bridge that can wait another year.
 // S13 · 2:15 · THE SAME RULE FOR EVERYONE
 # vis kind=w act=x_waitingroom cam=pull trans=ink then="cam=close:.37,.66@2"
 And the rules are the same for everyone, every time.
-The waiting list is in order.
+The waiting list is in order. Her number comes up in ten minutes, not two hours.
 There is no friend to call and no envelope under the table.
 A machine has no cousins, and it does not have a bad Monday.
 
@@ -187,7 +187,7 @@ The decision came from a system,
 and people could no longer easily argue with it.
 
 // S28b · 5:36 · A QUIET MOMENT
-# vis kind=w act=x_balcony_dusk cam=pull trans=fade time=dusk dur=6
+# vis kind=w act=x4_balcony_dusk cam=pull trans=fade time=dusk dur=6
 Day two hundred.
 
 // S29 · 5:39 · BACK TO HER
@@ -217,7 +217,7 @@ It flies most of the trip, and it flies it well.
 But there are still pilots in the cockpit, and they can take the controls.
 
 // S33 · 6:29 · THE ANSWER
-# vis kind=w act=x_dawncity_dusk cam=float trans=iris then="cam=close:.5,.55@2" time=dusk
+# vis kind=w act=x4_dusk cam=float trans=iris then="cam=close:.5,.55@2" time=dusk
 So what would a year of AI government look like?
 It would be very good at the routine work: forms, queues, timetables, budgets.
 And it would struggle with the people whose lives do not fit the average,

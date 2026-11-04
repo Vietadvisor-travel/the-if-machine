@@ -71,7 +71,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - BUILD: NEW x_kitchen2 — her kitchen (fixed design), table, chair, tablet UI
 
 ### S06 · 0:52 · THE BUS
-- VO: Outside, the bus arrives as she reaches the stop. Not because of luck. The system saw that about two hundred people from her area leave at this time, and moved a bus here.
+- VO: Outside, the bus arrives as she reaches the stop. Not because of luck. She checks the time. It is eight o'clock. The system saw that about two hundred people from her area leave at this time, and moved a bus here.
 - LINK: she leaves the kitchen; same coat on the street
 - PICTURE: SUBJECT a city bus pulling in as she walks up to the stop / BACKGROUND her street: shops, trees, morning sun / FOREGROUND bus-stop sign and bench / LIFE people walk, leaves move, the bus doors open
 - ACTION: she walks at stride speed to the stop and stops; the bus stops; two people step out
@@ -148,7 +148,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - BUILD: reuse x_pipes (calm version, sign NEXT YEAR)
 
 ### S13 · 2:15 · THE SAME RULE FOR EVERYONE
-- VO: And the rules are the same for everyone, every time. The waiting list is in order. There is no friend to call and no envelope under the table. A machine has no cousins, and it does not have a bad Monday.
+- VO: And the rules are the same for everyone, every time. The waiting list is in order. Her number comes up in ten minutes, not two hours. There is no friend to call and no envelope under the table. A machine has no cousins, and it does not have a bad Monday.
 - LINK: from the hospital pipe to the hospital waiting room, now shorter
 - PICTURE: SUBJECT a hospital waiting room where people are called in order, the woman in the red coat among them / BACKGROUND a clean waiting room with a number display / FOREGROUND rows of chairs / LIFE the number display advances, a nurse calls the next person
 - ACTION: people sit on chairs; the woman sits holding her coat; one person stands and walks to the door when called
