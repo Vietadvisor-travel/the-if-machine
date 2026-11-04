@@ -516,7 +516,7 @@ logos). Real cases are labelled with place and year; facts from jobs/research/ai
 - BUILD: reuse x_averaging (o.odd=1)
 
 ### S47 · 5:40 · PAYOFF
-- VO: The best AI government is not the one with the smartest machine. It is the one where a human can still say: wait, let me look.
+- VO: The AI government worth having is not the one with the smartest machine. It is the one where a human can still say: wait, let me look.
 - PICTURE: SUBJECT the palace again from the hook, but inside the glowing doors a single lit desk with a person behind it, a citizen walking up / BACKGROUND night city, searchlights / FOREGROUND the crowd from the hook, now calm / LIFE the person waves the citizen over, searchlights slow
 - CUTS: palace wide (callback) → into the doors → the desk
 - CAMERA: push-in through the doors

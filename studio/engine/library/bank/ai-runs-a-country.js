@@ -118,7 +118,7 @@
     if (o.label) T(o.label, W / 2, H * (v ? .24 : .2), { size: 44 * u, font: 'display', fill: P.paper, lw: 0, alpha: K(lt, .2) }); stamp('SCRAPPED', W / 2, H * (v ? .45 : .48), 64 * u, red, K(lt, tS, .3)); } }; };
 
   // 9b. the verdict: a gavel falls on the system, UNLAWFUL then SCRAPPED
-  IFM.ACT.x_arc_verdict = (o, c, dur) => { const t0 = T0(c, 0, .3) + .8, t1 = T0(c, 1, 2.5); return { sfx: [[t0, 'ifm_motion_impact_slam'], [t1, 'ifm_motion_impact_big']], draw: lt => { const v = V(), u = U(); ctx.fillStyle = '#3A2A22'; ctx.fillRect(0, 0, W, H); for (let i = 0; i < 16; i++) rr(0, i * H / 16, W, 3 * u, 0, 'rgba(0,0,0,.1)', 0);
+  IFM.ACT.x_arc_verdict = (o, c, dur) => { const t0 = T0(c, 0, .3) + .8, t1 = T0(c, 1, 2.5); return { sfx: [[t0, 'ifm_motion_impact_slam'], [t1, 'ifm_motion_impact_big']], draw: lt => { const v = V(), u = U(); IFM.courtroom ? IFM.courtroom(lt) : (ctx.fillStyle = '#3A2A22', ctx.fillRect(0, 0, W, H));
     const cx = W * (v ? .5 : .38), cy = H * (v ? .4 : .55), s = Math.min(W, H) * (v ? .34 : .4); B('ai_core').draw(cx, cy + s * .5, s, lt, { col: lt > t0 ? red : P.teal });
     const sw = lt < t0 ? -.9 * E.inOut(clamp(lt / t0)) : -.9 + .9 * E.out(K(lt, t0 - .05, .12)), gx = cx + s * (v ? .55 : .8), gy = cy - s * .1; ctx.save(); ctx.translate(gx, gy + s * .4); ctx.rotate(sw); rr(-s * .03, -s * .55, s * .06, s * .55, s * .02, '#8B5A2B', 0); rr(-s * .16, -s * .7, s * .32, s * .16, s * .05, '#6B4220', 0); ctx.restore();
     stamp('UNLAWFUL', cx, cy - s * .62, 54 * u, red, K(lt, t0, .25), -.1); stamp('SCRAPPED 2020', W * (v ? .5 : .72), H * (v ? .62 : .78), 50 * u, P.yellow, K(lt, t1, .25), .08); } }; };

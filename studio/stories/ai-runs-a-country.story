@@ -19,7 +19,7 @@ In one year, it would fix things no politician ever could.
 And then it would break the one thing a machine can't fix.
 
 // S03 · 0:11–0:17 · PROMISE 2
-# vis kind=w act=globe view=limb lights=1 arcs=1 trans=tunnel then="cam=orbit@0|cam=push@1" dir="0-3 pan .05,0; @1 fx shock .5,.5 teal"
+# vis kind=w act=x_worldpins trans=tunnel then="cam=orbit@0|cam=push@1" dir="0-3 pan .05,0; @1 fx shock .5,.5 teal"
 This isn't science fiction.
 Real countries have already tried almost every piece of it.
 
@@ -297,7 +297,7 @@ the life that doesn't fit the average, the person who needs someone to say yes, 
 
 // S47 · 5:40 · PAYOFF
 # vis kind=w act=x_palace desk=1 trans=tunnel then="cam=push@0|cam=push@1|cam=tilt@2" dir="0-4 zoom 1.25 .5,.55 ease=io"
-The best AI government is not the one with the smartest machine.
+The AI government worth having is not the one with the smartest machine.
 It is the one where a human
 can still say: wait, let me look.
 
