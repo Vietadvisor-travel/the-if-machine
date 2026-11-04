@@ -49,14 +49,14 @@ From a sofa.
 
 // 0:51 [7 s] SUBJECT: 130 AI projects in a human government — our machine goes further
 //   0.0 CAMERA push · TEXT 130+ counter · FX glitch on "further" · BRIDGE bloom
-# vis kind=w act=count n=130 icon=person value=130+ label="AI projects since 2019" then="cam=truckR@1|act=stage bg=night items=\"ai_core@1 .5,.85,.6 grow\"@2" trans=bloom clock="DAY 0" dir="0-2 zoom 1.2 .5,.45; @2 fx glitch; @2 text slam 'WE GO FURTHER' .5,.16 coral"
+# vis kind=w act=count n=130 view=wave icon=person value=130+ label="AI projects since 2019" then="cam=truckR@1|act=stage bg=night items=\"ai_core@1 .5,.85,.6 grow\"@2" trans=bloom clock="DAY 0" dir="0-2 zoom 1.2 .5,.45; @2 fx glitch; @2 text slam 'WE GO FURTHER' .5,.16 coral"
 Its government has run more than a hundred and thirty AI projects since 2019.
 But people still make the big calls.
 Our machine goes further. It makes all of them.
 
 // 1:01 [4 s] SUBJECT: the honesty flag — everything after this is simulated
 //   0.0 CAMERA tilt · TEXT SIMULATED · FX glitch · BRIDGE ticket
-# vis kind=w act=crowd view=wide pose=walk people=holo look=night trans=ticket clock="DAY 1" words="~SIMULATED@0" dir="0 3d tilt 25; @0+.3 fx glitch" then="cam=float@1"
+# vis kind=w act=crowd view=wide pose=walk people=holo look=night then="view=close pose=look@1" trans=ticket clock="DAY 1" words="~SIMULATED@0" dir="0 3d tilt 25; @0+.3 fx glitch" then="cam=float@1"
 From here on, it's a simulation.
 Here's where the machine has to guess.
 
@@ -99,7 +99,7 @@ Nobody voted on it. But nobody can bribe it either.
 
 // 1:52 [6 s] SUBJECT: the same rule for everyone, every time
 //   0.0 CAMERA crane up over the crowd · TEXT SAME RULES · FX confetti · BRIDGE fold
-# vis kind=w act=crowd view=street pose=cheer fx=confetti then="act=count n=60 icon=person value=SAME label=\"rule for everyone\"@1" trans=fold clock="DAY 120" dir="0-2 zoom 1.1 .5,.6; @1 text stack 'SAME RULES|every time' .5,.16 yellow"
+# vis kind=w act=crowd view=close pose=cheer fx=confetti then="act=count n=60 icon=person value=SAME label=\"rule for everyone\"@1" trans=fold clock="DAY 120" dir="0-2 zoom 1.1 .5,.6; @1 text stack 'SAME RULES|every time' .5,.16 yellow"
 On small things, it gets boringly consistent.
 Same rules for everyone. Every time. No bad Mondays.
 
@@ -151,6 +151,10 @@ Some countries already have an answer. Canada, for one.
 Before a department switches on an automated decision system, it must assess the likely impact.
 Then publish that assessment.
 And keep watching the results.
+
+// 3:04 [5 s] SUBJECT: quiet — the town keeps turning, the machine keeps counting (breathing room, music up)
+# vis kind=w act=sky days=1 town=1 dur=5 trans=liquid clock="DAY 300" dir="0-5 zoom 1.1 .5,.55 ease=lin"
+Day three hundred.
 
 // 3:06 [7 s] SUBJECT: the viewer commits
 //   0.0 CAMERA hold · TEXT A / B · FX on the answer · BRIDGE ticket
