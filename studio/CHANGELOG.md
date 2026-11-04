@@ -252,3 +252,10 @@
 - Director script: new LOOK field (art direction) and medium `2D+3D`; script_check: 3D share 25–55 % (> 60 % = error), no 4 cuts in a
   row in one medium, hybrid shots every ~2 min, match cut + montage, ≥ 4 looks. variety.mjs: 3D > 60 % of cuts = error.
 - Docs: EPISODE §0b, craft §3, CLAUDE.md step 3, roadmap marked final. The AI episode is dropped (owner: no remake).
+
+## 4 Nov 2026 — alive every second + second-by-second direction
+- Director's script: new TIMELINE field per shot (a moment at least every 2 s); script_check enforces count and gaps.
+- cost.mjs: motion check (mean picture change over 0.6 s each sampled second; < 3 = still): WARN at 2 still samples in a
+  scene, ERROR at 3 (frozen). Calibrated: an empty static room = 2.2, the 1-minute sample median 7.5 (it flags the slow map
+  push and the static phone close-up, which were indeed too still).
+- Docs: the 2D half = the existing living 2D acts and bank, cut with the 3D sets.

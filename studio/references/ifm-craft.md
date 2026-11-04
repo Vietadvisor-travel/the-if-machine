@@ -47,6 +47,10 @@ Every shot in the director's script states SIZE · ANGLE · MOVE · MEDIUM (2D, 
   angles per minute; at least one 3D or 2.5D shot per minute; at least one insert/detail per minute; at least one
   montage or match cut per chapter.
 
+## 2b. Alive every second (owner, 4 Nov 2026)
+Something meaningful changes on screen at least every 2 seconds and nothing is ever frozen: an action, a camera beat, a
+reveal, a label, a cut. The director writes it second by second (TIMELINE); the gate measures it (motion check).
+
 ## 3. 2D, 2.5D and 3D — which, when
 - **2D (flat illustration):** characters acting, diagrams that explain a mechanism, documents, phone screens, comedy beats.
 - **2.5D (layered depth, parallax):** places with atmosphere — streets, rooms, landscapes; camera moves reveal depth.

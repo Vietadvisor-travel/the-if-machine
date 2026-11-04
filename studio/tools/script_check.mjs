@@ -3,7 +3,7 @@
 // Checks: every shot has all fields filled; spoken length 6–10 min (2.8 words/s); variety of camera moves, transitions and
 // effects; no camera move or transition repeated in consecutive shots; a NEW bespoke build at least every 4 shots.
 import fs from 'fs';
-const src = fs.readFileSync(process.argv[2], 'utf8'), F = ['VO', 'LINK', 'PICTURE', 'ACTION', 'SHOT', 'CAMERA', 'LOOK', 'TEXT', 'FX', 'SOUND', 'BUILD'];
+const src = fs.readFileSync(process.argv[2], 'utf8'), F = ['VO', 'LINK', 'PICTURE', 'ACTION', 'SHOT', 'CAMERA', 'LOOK', 'TIMELINE', 'TEXT', 'FX', 'SOUND', 'BUILD'];
 const shots = src.split(/^### /m).slice(1).map(b => { const id = b.split('\n')[0].trim(), f = {}; for (const k of F) { const m = b.match(new RegExp('^- ' + k + ':\\s*(.*)$', 'm')); f[k] = m ? m[1].trim() : ''; } return { id, f }; });
 const err = [], warn = []; if (!shots.length) err.push('no shots (### S01 · … blocks)');
 shots.forEach(s => F.forEach(k => { if (!s.f[k] || s.f[k] === '…' || /^<.*>$/.test(s.f[k])) err.push(`${s.id.split(' ')[0]}: ${k} is empty`); }));
@@ -42,6 +42,13 @@ const looks = new Set(shots.map(s => s.f.LOOK.toLowerCase().split(/[,;·]/)[0].t
 if (!shots.some(s => /SAY|THEOR|MYTH|RUMOU?R/i.test(s.id))) err.push('no "WHAT PEOPLE SAY" segment (a shot id with SAY / THEORY / MYTH): craft §1');
 shots.filter(s => /SAY|THEOR|MYTH|RUMOU?R/i.test(s.id)).forEach(s => { if (!/\b(theory|theories|claim|claims|rumou?r|some say|people say|online|believe|what we know|in fact|actually|evidence)\b/i.test(s.f.VO)) warn.push(`${s.id.split(' ')[0]}: label the theory as a theory and say what is known`); });
 if (!shots.some(s => /PAYOFF|ANSWER|END/i.test(s.id))) err.push('no PAYOFF shot (the answer + callback)');
+
+// second-by-second direction (owner, 4 Nov 2026: alive in every frame, every second; the director's script must be very detailed)
+// TIMELINE: "0 wide city, lights on, camera starts orbit · 1.5 a window goes dark · 3 a car stops at the light · 4.5 cut CU phone …"
+shots.forEach(s => { const dur = (s.f.VO.match(/[A-Za-z0-9'’$€%.,-]+/g) || []).length / 2.8, ev = String(s.f.TIMELINE).split(/\s*[·;|]\s*/).map(x => { const m = x.match(/^(\d+(?:\.\d+)?)s?\s+(.{3,})/); return m ? +m[1] : null; }).filter(x => x != null).sort((a, b) => a - b);
+  const id = s.id.split(' ')[0]; if (!ev.length) { if (s.f.TIMELINE) err.push(`${id}: TIMELINE needs "<seconds> <what happens>" entries separated by ·`); return; }
+  const need = Math.max(2, Math.ceil(dur / 2)); if (ev.length < need) err.push(`${id}: TIMELINE has ${ev.length} moments for ${dur.toFixed(1)} s — at least one every 2 s (${need})`);
+  let gap = ev[0]; for (let i = 1; i < ev.length; i++) gap = Math.max(gap, ev[i] - ev[i - 1]); gap = Math.max(gap, dur - ev[ev.length - 1]); if (gap > 2.6) warn.push(`${id}: ${gap.toFixed(1)} s without a new moment in TIMELINE`); });
 
 console.log(`script · ${n} shots · ${words} words ≈ ${mins.toFixed(1)} min · ${uniq(cams)} camera moves · ${uniq(trs)} transitions · ${shots.filter(s => /NEW/.test(s.f.BUILD)).length} new builds · ${flat.length} cuts · 3D ${(share3 * 100) | 0} %`);
 err.slice(0, 25).forEach(e => console.log('  ERROR ' + e)); warn.slice(0, 12).forEach(w => console.log('  WARN  ' + w)); console.log(err.length ? 'SCRIPT: FIX' : 'SCRIPT: PASS'); process.exit(err.length ? 1 : 0);

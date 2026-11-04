@@ -59,6 +59,11 @@ Token rules are at the end.
     over a 2D chart);
   - `act=split a="s3 set=city time=day cam=…" b="s3 set=city time=night dark=1 cam=…"` — before/after (costs two 3D renders).
   2D carries characters acting, diagrams, maps, numbers, documents and phones; 3D carries places, scale and impossible moves.
+- **The 2D half is the scenes we already have** (owner, 4 Nov 2026): the living 2D acts (people acting, rooms, streets, phones,
+  maps, numbers, documents, the bank of bespoke acts per episode) keep being drawn and extended, cut together with the 3D sets.
+- **Alive every second:** the script's TIMELINE gives a new moment at least every 2 s of each shot; the story carries them with
+  then= cuts, dir= tracks, pins=, words=, people actions and set keys; the gate's motion check (cost.mjs) flags any 2 s where the
+  picture barely changes and fails 3 s frozen.
 - Director craft in every script: `- SHOT:` (size · angle · move · medium) and `- LOOK:` (light, time, palette, mood, composition)
   per shot; a match cut and a montage in the film; ≥ 4 angles and ≥ 1 close-up per minute; vary looks (≥ 4).
 - Check every shot on the contact sheet (`node tools/sheet.mjs stories/<slug>.story v 3`) before the gates.
