@@ -19,7 +19,7 @@ It fixed the queue.
 By day three, nobody is standing in line.
 
 // 0:10 SUBJECT: the tax form fills itself
-# vis kind=w act=x_arc_taxform trans=slices clock="DAY 3" dir="0-2.5 zoom 1.3 .5,.45; @1 fx shock .5,.75 teal"
+# vis kind=w act=x_arc_taxform trans=slices clock="DAY 3" dir="0-2.5 zoom 1.08 .5,.5; @1 fx zblur"
 Your tax form fills itself in.
 You tap yes. Done.
 
@@ -37,7 +37,7 @@ It doesn't say why.
 You tap appeal. Who reads it?
 
 // 0:35 SUBJECT: it already happened — Australia, 2016
-# vis kind=w act=x_arc_letters label="AUSTRALIA, 2016" scrap=2 trans=shatter clock="DAY 150" dir="@0 text type 'REAL CASE' .5,.86 yellow; @2 fx shock .5,.45 coral"
+# vis kind=w act=x_arc_letters label="AUSTRALIA, 2016" then="act=x_arc_verdict@2" trans=shatter clock="DAY 150" dir="@0 text type 'REAL CASE' .5,.8 yellow; @2 fx shake .5"
 This already happened.
 An automated system in Australia sent out welfare debt notices.
 It was found unlawful and scrapped.
@@ -47,12 +47,12 @@ It was found unlawful and scrapped.
 About four hundred and seventy thousand debts had to be paid back.
 
 // 0:50 SUBJECT: the signs outside the building
-# vis kind=w act=x_arc_protest trans=blobs clock="DAY 200" dir="0-2 zoom 1.3 .2,.55; @2 fx shock .2,.5 yellow"
+# vis kind=w act=x_arc_protest trans=blobs clock="DAY 200" dir="0-2 zoom 1.1 .4,.55; @2 fx vignette"
 So the signs outside don't say "stop the robot."
 They ask: who decides the appeal?
 
 // 0:57 the guess
-# vis kind=w act=guess a="It takes over" b="No one to appeal to" answer=b trans=ticket clock="DAY 300"
+# vis kind=w act=guess a="It takes over" b="No one to appeal to" answer=b trans=tunnel clock="DAY 300"
 Biggest problem after one year?
 Pick one before the machine prints.
 

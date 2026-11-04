@@ -1,5 +1,9 @@
 # Motion Studio — changelog
 
+## 2026-11-04 · gate timeout
+- `tools/gate.mjs`: each step may run up to 60 min (was 15). A 4.7-min film's lint in both formats took about 17 min in
+  this container, so the gate died silently with no report. Tested on ai-runs-a-country.
+
 ## 2026-11-04 · IFM 6 (fresh-chat readiness)
 - Verified on a clean clone: `setup.sh` ALL OK (deps, voices, Chromium, Drive, stock: 92 tracks, 401 SFX, 10 icon packs);
   `new_episode.mjs` scaffolds; `gate.mjs` PASS on test-ifm-demo-v (lint 0/0 both formats, review 92).

@@ -1,7 +1,7 @@
 // All pre-render gates in one command with a compact report (token-lean): lint in both formats, variety, director review.
 //   node tools/gate.mjs stories/<slug>.story [--no-review]   → ≤ ~20 lines; the one contact sheet to look at: out/<slug>_sheet.jpg
 import { spawnSync } from 'child_process'; import path from 'path';
-const ep = process.argv[2], slug = path.basename(ep).replace(/\.\w+$/, ''), run = (args, t = 900000) => (spawnSync('node', args, { encoding: 'utf8', timeout: t }).stdout || '');
+const ep = process.argv[2], slug = path.basename(ep).replace(/\.\w+$/, ''), run = (args, t = 3600000) => (spawnSync('node', args, { encoding: 'utf8', timeout: t }).stdout || '');
 const lint = run(['tools/lint.mjs', ep, '--both']).split('\n'); const out = [];
 lint.filter(l => /^\[(9x16|16x9)\]/.test(l)).forEach(l => out.push('lint ' + l.replace(/ · \d+ info/, '')));
 let fmt = ''; const seen = new Map(); for (const l of lint) { const f = l.match(/^\[(9x16|16x9)\]/); if (f) fmt = f[1]; if (/\[variety/.test(l)) break; if (!/^\s+(ERROR|WARN)\s/.test(l) || /no camera move/.test(l)) continue; const k = l.trim().replace(/^\S+\s+[\d.]+s\s+/, '').replace(/\s+/g, ' '); seen.set(k, (seen.get(k) ? seen.get(k) + '+' : '') + fmt); }
