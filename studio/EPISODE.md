@@ -12,7 +12,7 @@ Token rules are at the end.
   The engine enforces it (`ifm_calm.js`): only calm transitions (cut, fade, slide, match, zoom, zoomthru, ink); jerky
   dir= effects are dropped; `variety.mjs` and `script_check.mjs` error on them. An effect is used only where the scene
   needs it (at most about one a minute), never to fill a quota.
-- **Unhurried pacing.** Voice at `--speed .95`, a breath between lines (automatic), a new angle every 4–7 s; the camera
+- **Unhurried pacing.** Voice: am_puck at `--speed 1.06` (the setup voice; owner, 4 Nov 2026), a new angle every 4–7 s; the camera
   moves smoothly inside a shot. Fewer ideas per minute, each one given time to land.
 - **Continuity.** Scenes flow into each other: the same person carries the story through the simulated parts, a place
   or object continues across the cut, a camera move continues, the next line answers the last. Every shot in the
@@ -162,7 +162,7 @@ node tools/gate.mjs stories/<slug>.story          # lint both formats + variety 
 
 ## 5. Render (background, read only the summary)
 ```
-node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed .95 --fps 25 > out/<slug>.log 2>&1
+node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed 1.06 --fps 25 > out/<slug>.log 2>&1
 # make runs tools/preflight.mjs first (voice lines = story lines, every act exists, calm look, every scene draws) and stops on any error
 grep -E "deliver →|FAIL|Error|music " out/<slug>.log
 ```

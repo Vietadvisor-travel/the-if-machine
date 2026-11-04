@@ -8,7 +8,7 @@ const shots = src.split(/^### /m).slice(1).map(b => { const id = b.split('\n')[0
 const err = [], warn = []; if (!shots.length) err.push('no shots (### S01 · … blocks)');
 shots.forEach(s => F.forEach(k => { if (!s.f[k] || s.f[k] === '…' || /^<.*>$/.test(s.f[k])) err.push(`${s.id.split(' ')[0]}: ${k} is empty`); }));
 shots.forEach(s => { if (s.f.PICTURE && !/\/.+\/.+\//.test(s.f.PICTURE)) warn.push(`${s.id.split(' ')[0]}: PICTURE needs SUBJECT / BACKGROUND / FOREGROUND / LIFE`); });
-const words = shots.reduce((n, s) => n + (s.f.VO.match(/[A-Za-z0-9'’$€%.,-]+/g) || []).length, 0), mins = words / 2.35 / 60;
+const words = shots.reduce((n, s) => n + (s.f.VO.match(/[A-Za-z0-9'’$€%.,-]+/g) || []).length, 0), mins = words / 2.8 / 60;
 if (mins < 5.9 || mins > 10.2) err.push(`spoken length ≈ ${mins.toFixed(1)} min from ${words} words: must be 6–10 min (≈ 1000–1700 words)`);
 const first = t => (String(t).toLowerCase().replace(/\b(slow|slowly|gentle|gently|smooth|smoothly|calm|soft|very|a|an|the)\b/g, ' ').match(/[a-z0-9-]+/) || [''])[0];
 const cams = shots.map(s => first(s.f.CAMERA)), trs = shots.map(s => (s.f.FX.match(/trans(?:ition)?\s*[:=]?\s*([a-z0-9-]+)/i) || [])[1] || ''), fxs = shots.map(s => first(s.f.FX));

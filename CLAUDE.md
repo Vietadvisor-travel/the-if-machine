@@ -45,7 +45,7 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
    numbers. No AI images of real people, real documents, logos, or fake headlines; animation illustrates, never poses as a record.
 5. Voices: only `brief/VOICE_MODELS.md` (Kokoro, Chatterbox Turbo, Supertonic 3). Kitten is banned. Supertonic 3 →
    the delivery note says the audio is machine-generated (OpenRAIL-M).
-6. Gates (above), then render the vertical film (`make.mjs … --speed .95 --fps 25`; preflight runs first), cover still, English .srt.
+6. Gates (above), then render the vertical film (`make.mjs … --speed 1.06 --fps 25`; preflight runs first), cover still, English .srt.
 7. Deliver (PROTOCOL §5): `bash tools/ship.sh <slug>` (names, cover, srt, stories zip, upload of the masters); write
    `jobs/deliveries/<slug>.md` from `jobs/deliveries/_TEMPLATE.md`;
    STATUS → DELIVERED; `node tools/variety.mjs <story> --record`; `node tools/bank.mjs catalog` (commit BANK.md); INBOX line; commit and push `main`. Never commit video or zip files.
