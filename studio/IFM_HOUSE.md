@@ -1,5 +1,11 @@
 # The If Machine — house format for the engine (Nov 2026)
 
+> **Owner, 4 Nov 2026 (overrides this file where they differ):** no host character and no machine identity in the films
+> (no lever hook, no machine face, no answer ticket, no SIM clock). An objective documentary voice; entertainment from the
+> content: a strong hook, surprising sourced facts, vivid full-frame pictures that act out every line. One vertical 9:16
+> film, 6–10 min. Small captions in the low band. See studio/EPISODE.md.
+
+
 Read this before `SKILL.md`. Where they disagree, this file wins. `SKILL.md` and `references/` stay useful for the craft:
 story frames, toon lettering, transitions, sound grammar. Their Vietnam travel rules do not apply here: prices in VND,
 the af_heart narrator, PHO/BANH MI signs, the Vietadvisor end frame, the chibi cast.

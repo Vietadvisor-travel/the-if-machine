@@ -40,7 +40,10 @@ SB._vo = null;
 function capDur(s, spk) { const est = Math.max(1.3, String(s).replace(/[\*\[\]]/g, '').split(/\s+/).filter(Boolean).length / WPS + .35); const V = SB._vo; if (!V) return est; const k = V.i++; V.last = k;
   if (V.durs) return V.durs[k] !== undefined ? Math.max(.6, V.durs[k] + .08) : est; V.list.push({ k, text: String(s), spk: spk || 'narrator' }); return est; }
 const voIdx = () => SB._vo ? SB._vo.last : undefined;
-function timeCaps(caps, start = .15, gap = .12, style) { const out = []; let t = start; for (const c of caps) { const d = capDur(c); const m = style ? { style } : {}; if (SB._vo) m.vo = voIdx(); out.push([+t.toFixed(2), +(t + d).toFixed(2), c, m]); t += d + gap; } return { caps: out, end: t }; }
+// cast lines (4 Nov 2026): story header `cast: IFFY=am_puck MAI=af_bella` → a line `MAI: Wait, what?` is spoken by MAI's voice;
+// the caption carries m.who (the name tag) and acts/cameos read it (talking mouths). Only names declared in cast: count.
+function castLine(c) { const m = String(c).match(/^([A-Z][A-Za-z0-9]{1,11}):\s+(.+)$/); const C = SB._cast || {}; return m && C[m[1].toUpperCase()] ? { who: m[1].toUpperCase(), text: m[2], spk: C[m[1].toUpperCase()] } : null; }
+function timeCaps(caps, start = .15, gap = .12, style) { const out = []; let t = start; for (const c0 of caps) { const cl = castLine(c0), c = cl ? cl.text : c0; const d = capDur(c, cl ? cl.spk : undefined); const m = style ? { style } : {}; if (cl) m.who = cl.who; if (SB._vo) m.vo = voIdx(); out.push([+t.toFixed(2), +(t + d).toFixed(2), c, m]); t += d + gap; } return { caps: out, end: t }; }
 const pick = (arr, i) => arr[i % arr.length];
 const num = (v, d) => v === undefined ? d : +v;
 const chr = id => (id && CHAR[id]) ? id : null;
@@ -174,7 +177,7 @@ SB.doodles = (P, o, pts) => { const u = U(), k = o.k, r = rng(21); const lons = 
 
 // ---------------------------------------------------------------- compile
 SB.compile = (text) => {
-  const sb = SB.parse(text), H_ = sb.header; if (window.CHANNEL_APPLY) CHANNEL_APPLY(H_); const ifm = !!(window.IFM && IFM.on); const look = {}; const kvs = (H_.look || '').split(/\s+/).filter(Boolean).map(s => s.split('='));
+  const sb = SB.parse(text), H_ = sb.header; SB._cast = {}; String(H_.cast || '').split(/[\s,]+/).forEach(x => { const m = x.match(/^([A-Za-z][A-Za-z0-9]*)=(\S+)$/); if (m) SB._cast[m[1].toUpperCase()] = m[2]; }); if (window.CHANNEL_APPLY) CHANNEL_APPLY(H_); const ifm = !!(window.IFM && IFM.on); const look = {}; const kvs = (H_.look || '').split(/\s+/).filter(Boolean).map(s => s.split('='));
   for (const [k, v] of kvs) { if (k === 'grade') look.grade = v; if (k === 'artstyle') look.artstyle = v; if (k === 'captions') look.captionStyle = v; if (k === 'boil') look.boil = v === 'off' ? undefined : (v === 'on' ? { amp: 1.1, fps: 8 } : { amp: +v, fps: 8 }); if (k === 'step') look.step = +v; if (k === 'smear') look.smear = v !== 'off'; }
   if (H_.artstyle) look.artstyle = H_.artstyle;
   const used = []; const scenes = [];

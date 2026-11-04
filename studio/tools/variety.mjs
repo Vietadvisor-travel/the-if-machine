@@ -34,7 +34,7 @@ const counters = body.reduce((n, b) => n + (String(b.o.dir || '').match(/text\s+
 const lively = body.filter(b => b.o.dir && /(zoom|pan|orbit|tilt|flip|card|slow|freeze)/.test(b.o.dir)).length; if (body.length >= 8 && lively < Math.ceil(body.length * .5)) warn(`${lively}/${body.length} beats move the camera with intent (zoom/pan/orbit/3D/slow): aim ≥ 50 %`);
 const bankUsed = [...new Set(body.flatMap(b => String(b.o.items || '').split('|').map(x => x.trim().split(/[@\s]/)[0]).filter(Boolean)))];
 for (const b of beats) String(b.o.words || '').split('|').forEach(w => { const t = w.replace(/^[!~^]/, '').replace(/@\d+$/, ''); if (t.length > 18) warn(`lettering "${t}" is long (${t.length} chars): ≤ 18 keeps it clear of the edges in 9:16`); });
-if (!beats.length || !(beats[0].o.kind === 'ifm' && beats[0].o.act === 'lever') && !beats[0].o.hook) warn('the first beat is not the lever hook (kind=ifm act=lever) or a beat marked hook=1');
+if (!beats.length || !(beats[0].o.act === 'hook' || beats[0].o.hook || /@0\S*\s+text\s/.test(beats[0].o.dir || ''))) warn('the first beat is not a hook: kind=w act=hook scene="…" q="…" (the most striking picture + a headline in the first 3 s)');
 // across episodes (last 3)
 const prev = hist.episodes.filter(e => e.slug !== slug && e.vert === vert).slice(-3);
 if (prev.length) { const mine = new Set(body.map(key)); const last = new Set(prev[prev.length - 1].keys); const shared = [...mine].filter(k => last.has(k)); if (mine.size && shared.length / mine.size > .4) err(`${shared.length}/${mine.size} scene types repeat the last episode (${prev[prev.length - 1].slug}): ${shared.join(', ')}`);

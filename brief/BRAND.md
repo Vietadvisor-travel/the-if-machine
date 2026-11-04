@@ -1,5 +1,11 @@
 # NHẬN DIỆN KÊNH THE IF MACHINE (bản 1, 03/11/2026)
 
+> **Owner, 4 Nov 2026 (overrides this file where they differ):** no host character and no machine identity in the films
+> (no lever hook, no machine face, no answer ticket, no SIM clock). An objective documentary voice; entertainment from the
+> content: a strong hook, surprising sourced facts, vivid full-frame pictures that act out every line. One vertical 9:16
+> film, 6–10 min. Small captions in the low band. See studio/EPISODE.md.
+
+
 File này là bộ nhận diện chung của kênh: thương hiệu, tính cách, giọng văn, mood hình và âm thanh, chữ dùng sẵn cho từng nền tảng.
 Anh dùng nó để tạo các kênh cho đồng bộ. Claude và Muse dùng nó cho mọi video, caption, bài đăng.
 Phần giải thích viết tiếng Việt. Phần nằm trong khung xám là chữ tiếng Anh, copy dán thẳng lên nền tảng.

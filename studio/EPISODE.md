@@ -19,7 +19,13 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
   - ≤ 15 % of beats may be data or machine scenes (count, map, servers, scale, guess, the machine).
   - At most one number counter per minute.
   - A number is shown by its consequence: 8 billion = the crowd filling a stadium, not a counter.
-- **The machine** appears only at the hook, the answer ticket and the end. The sim clock shows when it changes, then fades.
+- **No host, no machine (owner, 4 Nov 2026).** An objective documentary voice tells it; no character narrates, no lever,
+  no machine face, no answer ticket, no "SIM · DAY" clock (a plain date or place label only when time really matters).
+  Entertainment comes from the CONTENT: a strong hook, surprising real facts, vivid pictures that act out every line,
+  open loops, a real case, a clear payoff.
+- **Full frames (owner, 4 Nov 2026: every frame wow, no empty space).** The subject is BIG (40–70 % of the picture
+  height); every shot has a real background (a place, a sky, a room), a foreground layer and moving life. No flat
+  bands, no lone icon on a dark field. The gate measures it (`cost.mjs` fill: dead picture area > 35 % WARN, > 55 % ERROR).
 - **Every beat is alive (checklist):**
   1. A foreground layer (`fg=`, automatic per scene) for depth.
   2. A subject that ACTS: pose changes on the key word (`then="pose=shock@1"`, crowds `react="shock@1|cheer@2"` ripple across).
@@ -27,10 +33,10 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
   4. Light that changes (time of day, a lamp, a flicker) or a camera with intent (zoom into a point, orbit, tilt).
   5. One transformation per beat: something becomes something else.
 - **Composition, both formats:**
-  - One focal subject per shot, on a third, with air around it. Lettering lives in the empty third, never on a face or a subject.
+  - One focal subject per shot, BIG, on a third; the rest of the frame is its world. Lettering sits over the background, never on a face or a subject.
   - The gate flags "text covers a face" and "text covers <subject>" in 9:16.
   - 9:16 is composed on its own: the subject sits above the caption band (captions 74.5–79 %, small; keep 72–82 % free of key text), the lettering at 20–30 %.
-    The bottom 35 % is decoration only.
+    Below 72 % the picture continues (ground, floor, table, water) under the captions; never key content there.
   - Polish: no element cut at an edge by accident, no two things fighting for attention, spacing even.
     Colours follow BRAND (coral only for the twist).
 
@@ -40,20 +46,23 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
 - **Frame:** subject in 15–70 % of the height; captions are small and fixed at 74.5–79 %; keep the bottom 20 % and the
   right edge free of key content (Shorts/Reels/TikTok buttons and titles).
 - **Shape:**
-  1. Hook 0–3 s: `kind=ifm act=lever q="WHAT IF|…|…?"`, the question by 1.5 s.
-  2. Setup and promise by 0:30.
-  3. The simulation runs with `clock=` on every beat, stakes rising.
-  4. A `guess` beat, then 0.4–0.8 s of silence.
-  5. The twist at about 70 % (`act=answer text=… stamp=…`).
-  6. The payoff.
-  7. The end frame is automatic (header `run:` and `next:`).
+  1. Hook 0–3 s: `kind=w act=hook scene="<the most striking picture of the episode>" q="WHAT IF …|…?"` and a first line
+     that opens a loop (a consequence you must stay to understand).
+  2. By 0:20, the promise: what the viewer will know at the end.
+  3. 4–6 chapters. Each: a surprising picture, a real fact (sourced), what it does to ordinary life, and an open loop into
+     the next ("But that was the easy part."). Stakes rise chapter by chapter.
+  4. The midpoint reveal at about 50 %; the strongest real case at about 70 %.
+  5. Optional once: a question to the viewer ("What would you do?"), then 0.5 s of silence.
+  6. The payoff: the clear answer in one sentence, a callback to the hook picture.
+  7. The end card is automatic (header `next:`).
 - **Every beat:**
   - a `// m:ss [dur] SUBJECT: …` frame line;
   - a picture of the SUBJECT of its line;
   - a `then=` cut every 2–3 s;
   - a `dir=` track (camera with intent; text only where it adds meaning; one effect on the punch word);
   - a meaning or rhythm `trans=` (never the same twice in a row).
-- **Words:** "you", present tense, short lines, sourced numbers, "about" for estimates. Banned: mind-blowing,
+- **Words:** objective documentary voice (no "I", no host); "you" for the viewer; present tense; short lines; specific
+  concrete details; sourced numbers; "about" for estimates. Banned: mind-blowing,
   you won't believe, shocking, insane.
 - **Header:**
   ```

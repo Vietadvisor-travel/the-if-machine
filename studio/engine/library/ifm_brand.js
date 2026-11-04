@@ -85,27 +85,22 @@
       for (const i of ln) { const w = toks[i], ww = ctx.measureText(w).width, cur = t >= st[i] && (i === toks.length - 1 || t < st[i + 1]);
         ctx.lineJoin = 'round'; ctx.lineWidth = size * .2; ctx.strokeStyle = 'rgba(10,12,30,.82)'; ctx.strokeText(w, x, y); ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillText(w, x + 2 * u, y + 3 * u);
         ctx.fillStyle = cur ? P.yellow : '#FFFFFF'; ctx.fillText(w, x, y); x += ww + sp; } });
+    if (o.who) { const nm = String(o.who), ns = size * .62; setFont(ns, 'display', 800); const nw = ctx.measureText(nm).width, px = W / 2 - nw / 2, py = y0 - lh * .92; // who is speaking: a small name pill above the line
+      rr(px - ns * .55, py - ns * .72, nw + ns * 1.1, ns * 1.44, ns * .72, IFM.castCol(nm), 0); ctx.fillStyle = '#0B1026'; ctx.fillText(nm, px, py + ns * .04); }
     ctx.restore(); };
+  IFM.castCol = nm => [P.coral, P.yellow, '#9FB7FF', '#C7A6FF', '#7FE0A0'][[...nm].reduce((a, ch) => a + ch.charCodeAt(0), 0) % 5];
 
   // ---------------------------------------------------------------- end frame: the machine prints the RUN ticket
   const _end = UI.endFrame;
+  // end card (owner, 4 Nov 2026: no machine identity, no ticket): the next question big, one call to action, the channel name small
   UI.endFrame = (p, o, t) => { if (!IFM.on) return _end(p, o, t); if (p <= 0) return; const u = U(), v = H > W, h = IFM.hdr; ctx.save(); ctx.globalAlpha *= clamp(p * 2);
-    nightBg(t, { cy: .4 }); const run = String(h.run || 1).padStart(3, '0'), next = (h.next || 'What should the machine run next?').toUpperCase();
-    const lgS = v ? 64 * u : 58 * u; logo(v ? W / 2 : W * .28, v ? H * .13 : H * .2, lgS, { pull: clamp(t / .5) });
-    // slot + ticket
-    const tw = v ? W * .74 : W * .34, th = v ? H * .42 : H * .66, tx = v ? (W - tw) / 2 : W * .58, ty = v ? H * .26 : H * .16;
-    rr(tx - 24 * u, ty - 26 * u, tw + 48 * u, 34 * u, 17 * u, '#060815', 0); rr(tx - 24 * u, ty - 26 * u, tw + 48 * u, 8 * u, 4 * u, '#2A335F', 0);
-    const pr = E.out(clamp((t - .25) / 1.6)), shake = pr < 1 ? Math.sin(t * 60) * 1.2 * u : 0;
-    ticket(tx + shake, ty, tw, th, pr, v ? -.01 : .02, (w, hh) => { const m = 48 * u * (v ? 1.1 : 1); ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = P.midnight;
-      const nc = (t - .4) * 28; setFont(24 * u, 'mono', 700); ctx.fillText(typed('THE IF MACHINE', nc), m, m); ctx.fillText(typed('RUN #' + run + ' · COMPLETE', nc - 14), m, m + 38 * u);
-      perf(m * .5, w - m * .5, m + 96 * u); ctx.fillStyle = '#6A6F86'; setFont(22 * u, 'mono', 700); ctx.fillText(typed('NEXT RUN:', nc - 40), m, m + 124 * u);
-      const fsz = (v ? 54 : 46) * u, L = wrap(next, fsz, 'display', w - m * 2, 900); ctx.fillStyle = P.midnight; setFont(fsz, 'display', 900); const q = clamp((t - 1.4) / .5);
-      L.slice(0, 4).forEach((ln, i) => { ctx.save(); ctx.globalAlpha *= clamp(q * 3 - i * .4); ctx.fillText(ln, m, m + 168 * u + i * fsz * 1.18); ctx.restore(); });
-      ctx.fillStyle = P.coral; setFont(20 * u, 'mono', 700); ctx.fillText(typed('▲ TELL THE MACHINE: COMMENTS', nc - 70), m, hh - m - 10 * u); });
-    // call to action
-    const ca = E.back(clamp((t - 1.9) / .45)); if (ca > 0) tag('SUBSCRIBE', v ? W / 2 : W * .28, v ? H * .76 : H * .62, (v ? 46 : 40) * u, { s: ca * (1 + .03 * Math.sin(t * 5)), t });
-    if (t > 2.3) { ctx.save(); ctx.globalAlpha *= clamp((t - 2.3) / .4); T('pull the lever', v ? W / 2 : W * .28, v ? H * .76 + 74 * u : H * .62 + 70 * u, { size: 24 * u, font: 'mono', fill: P.steel, lw: 0 }); ctx.restore(); }
-    if (!v) { ctx.save(); ctx.globalAlpha *= clamp((t - .6) / .5); T('RUN #' + run + ' · COMPLETE', W * .28, H * .36, { size: 26 * u, font: 'mono', fill: P.teal, lw: 0, ls: 4 * u }); const L = wrap('What should the machine run next?', 52 * u, 'display', W * .4, 800); L.forEach((ln, i) => T(ln, W * .28, H * .45 + i * 64 * u, { size: 52 * u, fill: P.paper, lw: 0 })); ctx.restore(); }
+    const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#101633'); g.addColorStop(1, '#05070F'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    for (let i = 0; i < 40; i++) { const r = rng(i * 13 + 1), x = r() * W, y = (r() * H - t * (10 + r() * 30) * u) % H, a = .15 + r() * .35; ctx.save(); ctx.globalAlpha *= a; circ(x, y < 0 ? y + H : y, (1.5 + r() * 3) * u, r() < .3 ? P.yellow : P.paper, 0); ctx.restore(); }
+    const next = String(h.next || '').replace(/^next\s*:\s*/i, ''), cx = W / 2, k1 = E.back(clamp((t - .2) / .5)), k2 = E.out(clamp((t - .6) / .6));
+    if (next) { ctx.save(); ctx.globalAlpha *= k2; T('NEXT', cx, H * (v ? .3 : .26), { size: 30 * u, font: 'mono', fill: P.teal, lw: 0, ls: 8 * u }); ctx.restore();
+      const fsz = (v ? 76 : 70) * u, L = wrap(next.toUpperCase(), fsz, 'display', W * (v ? .82 : .7), 900); L.slice(0, 4).forEach((ln, i) => { const kk = E.back(clamp((t - .7 - i * .15) / .45)); if (kk <= 0) return; ctx.save(); ctx.translate(cx, H * (v ? .38 : .38) + i * fsz * 1.12); ctx.scale(kk, kk); T(ln, 0, 0, { size: fsz, font: 'display', fill: '#FFFFFF', lw: 0, shadow: 6 * u }); ctx.restore(); }); }
+    const ca = E.back(clamp((t - 1.6) / .45)); if (ca > 0) tag('FOLLOW FOR MORE', cx, H * (v ? .62 : .72), (v ? 44 : 40) * u, { s: ca * (1 + .03 * Math.sin(t * 5)), t });
+    if (h.title) { ctx.save(); ctx.globalAlpha *= clamp((t - 2) / .5) * .7; T(String(h.channelName || 'THE IF MACHINE'), cx, H * (v ? .68 : .82), { size: 22 * u, font: 'mono', fill: P.steel, lw: 0, ls: 6 * u }); ctx.restore(); }
     ctx.restore(); };
 
   // ---------------------------------------------------------------- transitions
@@ -132,10 +127,10 @@
     const roll = clamp(lt / 1.2), n = a.n == null ? null : (b.n != null && b.pre === a.pre ? lerp(b.n, a.n, E.inOut(roll)) : a.n * E.out(roll));
     const num = n == null ? '' : (Number.isInteger(a.n) ? String(Math.round(n)) : n.toFixed(1)); const label = (a.pre + ' ' + num + (a.post ? ' ' + a.post : '')).trim();
     const appear = E.back(clamp((t - _starts[curK === 0 ? 0 : curK]) / .35 + (prev ? 1 : 0))), keep = String(IFM.hdr.clock || '') === 'always', fade = keep ? 1 : 1 - clamp((lt - 2.6) / .5); if (fade <= 0) return;
-    const size = (vert ? 26 : 22) * u; setFont(size, 'mono', 700); const tw = ctx.measureText('SIM · ' + label).width + size * 2.2, hh = size * 1.9; const x = vert ? W / 2 - tw / 2 : 40 * u, y = vert ? H * .155 : 36 * u;
+    const size = (vert ? 26 : 22) * u; setFont(size, 'mono', 700); const tw = ctx.measureText(label).width + size * 2.2, hh = size * 1.9; const x = vert ? W / 2 - tw / 2 : 40 * u, y = vert ? H * .155 : 36 * u;
     ctx.save(); ctx.globalAlpha *= fade; ctx.translate(x + tw / 2, y + hh / 2); ctx.scale(appear, appear); ctx.translate(-tw / 2, -hh / 2); ctx.fillStyle = 'rgba(10,12,30,.72)'; ctx.beginPath(); ctx.roundRect(0, 0, tw, hh, hh / 2); ctx.fill();
     ctx.strokeStyle = 'rgba(46,230,197,.55)'; ctx.lineWidth = 2 * u; ctx.stroke(); const blink = (t * 2 % 1) < .6; ctx.fillStyle = blink ? P.coral : 'rgba(255,91,79,.3)'; ctx.beginPath(); ctx.arc(size * .9, hh / 2, size * .26, 0, TAU); ctx.fill();
-    ctx.fillStyle = P.teal; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('SIM · ' + label, size * 1.5, hh / 2 + size * .05); ctx.restore(); };
+    ctx.fillStyle = P.teal; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(label, size * 1.5, hh / 2 + size * .05); ctx.restore(); };
 
   // ---------------------------------------------------------------- `# vis kind=ifm` — the machine itself (only at the start, the twist and the end)
   if (!window.VIS || !VIS.K || !window.TOON) { console.warn('ifm_brand needs vis + toontype'); return; }

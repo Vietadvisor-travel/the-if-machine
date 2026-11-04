@@ -14,23 +14,17 @@ sources: <from jobs/research/${slug}.md, one per claim>
 `;
 const beat = (t, what, line) => `// ${t} SUBJECT: ${what}\n//   0.0 CAMERA … · TEXT … · FX on the punch word … · BRIDGE … · SOUND …\n${line}\n`;
 const long = head('vertical') + `
-// ONE VERTICAL FILM 9:16, 6–10 min (≈ 750–950 spoken words, 70–120 beats). Subject 15–70 % of the height; captions own 74.5–79 %;
-// keep the bottom 20 % and the right edge clear (Shorts/Reels/TikTok UI).
-// 0:00 [3 s] HOOK — the lever, the question types, dive through the screen
-# vis kind=ifm act=lever q="WHAT IF|<SUBJECT>|<TWIST WORD>?" clock=off
-<hook line: consequence + household comparison + time limit, in 2 short sentences>
+// ONE VERTICAL FILM 9:16, 6–10 min (≈ 1000–1700 spoken words, 70–120 beats). Objective documentary voice: no host, no machine,
+// no lever, no ticket, no SIM clock. Every frame FULL: subject big (40–70 % of the picture), real background, foreground, life.
+// Captions own 74.5–79 %; the bottom 20 % and the right edge stay free of key content (Shorts/Reels/TikTok UI).
+` + beat('0:00 [3 s] HOOK', '<the most striking picture of the whole episode>', '# vis kind=w act=hook scene="x_<your best shot>" q="WHAT IF <…>|<…>?"\n<one line that opens a loop: a consequence the viewer must stay to understand>') + `
+` + beat('0:04 [6 s]', '<the promise: what you will know by the end>', '# vis kind=w act=x_<shot> then="cam=push@1" trans=<meaning> dir="0-2 zoom 1.2 .5,.45"\n<line>\n<line>') + `
+// CHAPTER 1 … 4–6 chapters. Each: a surprising picture, a sourced fact shown by its consequence, ordinary life changing,
+// an open loop into the next chapter ("But that was the easy part."). A then= cut every 2–3 s, dir= on every beat.
 
-` + beat('0:04 [8 s]', '<the world before: the most surprising picture of it>', '# vis kind=w act=x_<shot> then="<cut>@1" trans=scan clock="<UNIT 0>" dir="0-2 zoom 1.4 .5,.45; @1 text counter \'<NUMBER|label>\' .5,.2 yellow"\n<line>\n<line>') + `
-` + beat('0:30 [6 s]', '<the rule of the game, the promise>', '# vis kind=w act=<kit or x_shot> trans=<meaning> clock="<UNIT n>" dir="…"\n<line>') + `
-// … the simulation runs: 70–120 beats, clock on every beat, stakes rise, a then= cut every 2–3 s, dir= on every beat …
-
-` + beat('~70 % [6 s]', 'the viewer commits', '# vis kind=w act=guess a="<A>" b="<B>" answer=<a|b> trans=ticket clock="<UNIT>"\n<line>\nPick one before the machine prints.') + `
-// [silence 0.6 s: music drops]
-# vis kind=ifm act=answer text="<the twist in 6–9 words>" stamp="<2–3 WORDS>" trans=ticket clock="<UNIT end>"
-Here's what the machine printed.
-<the twist line>
-
-` + beat('payoff [8 s]', '<what it means for you, one last image>', '# vis kind=w act=<x_shot> trans=<meaning> clock=off dir="…"\n<line>\nThat\'s the run. What should the machine try next?');
+` + beat('~50 %', '<the midpoint reveal>', '# vis kind=w act=x_<shot> trans=<meaning> dir="…"\n<line>') + `
+` + beat('~70 %', '<the strongest REAL case, with its source>', '# vis kind=w act=x_<shot> trans=<meaning> dir="…"\n<line>') + `
+` + beat('payoff [8 s]', '<the answer in one sentence; callback to the hook picture>', '# vis kind=w act=x_<shot> trans=<meaning> dir="…"\n<line>\n<line>');
 const bank = `/* ${vi} — bank items and bespoke acts for episode ${slug} (≥ 5 new items; see API.md). Prefix acts with x_. */
 'use strict';
 (function () {
