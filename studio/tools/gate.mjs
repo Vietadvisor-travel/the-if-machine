@@ -6,7 +6,7 @@ const ep = process.argv[2], slug = path.basename(ep).replace(/\.\w+$/, ''), run 
 const lint = run(['tools/lint.mjs', ep]) /* 9:16 only since 4 Nov 2026 (one vertical film) */.split('\n'); const out = [];
 lint.filter(l => /^\[(9x16|16x9)\]/.test(l)).forEach(l => out.push('lint ' + l.replace(/ · \d+ info/, '')));
 let fmt = ''; const seen = new Map(); for (const l of lint) { const f = l.match(/^\[(9x16|16x9)\]/); if (f) fmt = f[1]; if (/\[variety/.test(l)) break; if (!/^\s+(ERROR|WARN)\s/.test(l) || /no camera move/.test(l)) continue; const k = l.trim().replace(/^\S+\s+[\d.]+s\s+/, '').replace(/\s+/g, ' '); seen.set(k, (seen.get(k) ? seen.get(k) + '+' : '') + fmt); }
-const issues = [...seen].map(([k, f]) => `  [${f}] ${k}`); issues.slice(0, 10).forEach(l => out.push(l)); if (issues.length > 10) out.push(`  … ${issues.length - 10} more`);
+const issues = [...seen].map(([k, f]) => `  [${f}] ${k}`).sort((a, b) => (/ERROR/.test(b) ? 1 : 0) - (/ERROR/.test(a) ? 1 : 0)); issues.slice(0, 10).forEach(l => out.push(l)); if (issues.length > 10) out.push(`  … ${issues.length - 10} more`);
 const vi = lint.findIndex(l => /\[variety/.test(l)); if (vi >= 0) lint.slice(vi + 1).filter(l => /ERROR|WARN|clean/.test(l)).forEach(l => out.push('variety ' + l.trim().replace(/\s+/g, ' ')));
 if (!process.argv.includes('--no-review')) { const r = run(['tools/review.mjs', ep]).split('\n'); const sc = r.find(l => /^SCORE/.test(l)); if (sc) out.push('review ' + sc); r.filter(l => /^\s+WARN/.test(l)).slice(0, 4).forEach(l => out.push('  ' + l.trim())); }
 if (!process.argv.includes('--no-cost')) run(['tools/cost.mjs', ep]).split('\n').filter(l => /^cost|^fill|ERROR|WARN/.test(l)).slice(0, 10).forEach(l => out.push(/^(cost|fill)/.test(l) ? l : '  ' + l.trim()));
