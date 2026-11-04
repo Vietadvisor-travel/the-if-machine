@@ -1,0 +1,64 @@
+{
+ "episodes": [
+  {
+   "slug": "ai-runs-a-country",
+   "vert": false,
+   "date": "2026-11-04",
+   "keys": [
+    "w:stage:",
+    "w:x_arc_keys:",
+    "w:globe:side",
+    "w:servers:",
+    "w:x_arc_idcard:",
+    "w:x_arc_vote:",
+    "w:count:wave",
+    "w:crowd:wide",
+    "w:x_arc_taxform:",
+    "w:x_arc_queue:",
+    "w:x_arc_dashboard:",
+    "w:x_arc_budget:",
+    "w:crowd:close",
+    "w:x_arc_reject:",
+    "w:x_arc_letters:",
+    "w:x_arc_verdict:",
+    "w:money:cash",
+    "w:split:",
+    "w:x_arc_protest:",
+    "w:x_arc_checklist:",
+    "w:sky:",
+    "w:guess:",
+    "w:x_arc_sign:"
+   ],
+   "open": "w:stage:",
+   "music": "",
+   "people": "facet",
+   "trans": [
+    "whip",
+    "scan",
+    "zoomthru",
+    "match",
+    "slices",
+    "bloom",
+    "ticket",
+    "drop",
+    "liquid",
+    "stripes2",
+    "fold",
+    "ripple",
+    "shatter",
+    "pixel",
+    "flip3d",
+    "cube",
+    "blobs",
+    "tunnel"
+   ],
+   "bank": [
+    "ai_core",
+    "budget_bars",
+    "person_phone",
+    "person_stand",
+    "bus"
+   ]
+  }
+ ]
+}
