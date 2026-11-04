@@ -191,7 +191,7 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - TEXT: YOU PAY WITH TIME at 25 %
 - FX: trans=ink
 - SOUND: murmur, clock tick
-- BUILD: MONTAGE — reuse act=s3 set=plaza n=40, act=s3 set=waiting; NEW x_md_time v=clock
+- BUILD: MONTAGE — reuse act=s3 set=street n=40, act=s3 set=waiting; NEW x_md_time v=clock
 
 ### S13 · 2:07 · THE QUEUE
 - VO: Inside a phone shop, there are two hundred phones. Outside, about two thousand people wait all night in sleeping bags.
@@ -556,6 +556,20 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - FX: trans=cut
 - SOUND: pen scratch
 - BUILD: NEW x_md_ious v=ledger; reuse act=s3 set=office
+
+### S38b · 6:28 · QUIET · A YEAR LATER
+- VO: A year later.
+- LINK: from the ledger's last line to the same shop door a year on
+- PICTURE: SUBJECT Nora walking to her shop at dawn and unlocking it / BACKGROUND the shopfront, brick and awning / FOREGROUND the lamp post / LIFE a car passes, the bell swings
+- ACTION: Nora walks along the pavement holding a bag, stops at the door, turns the key and goes in
+- SHOT: WS eye pull 2D
+- CAMERA: slow pull back from the shopfront
+- LOOK: dawn, soft pink, quiet, room to breathe
+- TIMELINE: 0 shopfront at dawn · 1.5 Nora walks in · 3 she reaches the door · 4 the bell swings
+- TEXT: none
+- FX: trans=fade
+- SOUND: music up, birds
+- BUILD: reuse x_md_bakery v=open (callback to S03)
 
 ### S39 · 6:30 · PAYOFF · THE ANSWER
 - VO: So, what if money disappeared? Our best guess: for one morning, everything is free. Within a week, you pay in time. Within a month, a card decides. And within a year, people invent money again.

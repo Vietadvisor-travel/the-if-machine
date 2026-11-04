@@ -288,6 +288,10 @@ a way to keep score.
 Who gave what, to whom,
 and what is owed back.
 
+// S38b · 6:20 [4.5 s] QUIET SUBJECT: a year later, Nora opens her shop at dawn (no words on screen, room to breathe)
+# vis kind=w act=x_md_bakery v=open dur=4.5 cam=WS.eye.pull:.5,.45 trans=fade
+A year later.
+
 // S39 · 6:20 [13 s] PAYOFF SUBJECT: the city at dusk, a year later; our guess, step by step
 # vis kind=w act=s3 set=city time=dusk cam=EWS.low.crane on=tower trans=zoomthru words="~OUR GUESS@0|ONE MORNING: FREE@1|ONE WEEK: TIME@2|ONE MONTH: A CARD@3|1 YEAR: NEW MONEY@4" then="act=x_md_shopfront cam=MCU.eye.push:.35,.45@4"
 So, what if money disappeared?
