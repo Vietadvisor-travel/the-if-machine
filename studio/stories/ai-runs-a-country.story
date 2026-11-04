@@ -38,7 +38,7 @@ Some even plan the bus routes.
 
 // 0:31 [9 s] SUBJECT: one digital ID card opens tax, health, voting and business
 //   0.0 CAMERA push into the chip · TEXT about 99% · FX shock on the card · BRIDGE match
-# vis kind=w act=x_arc_idcard then="cam=pull@1|act=count n=100 hl=99 icon=person value=99%@2|cam=truckR@3" trans=match clock="DAY 0" dir="0-2.5 zoom 1.15 .5,.5 ease=io; @0-@2 text type 'ESTONIA|a real country, human-run' .5,.12 paper; @2 text type 'services online' .5,.3 teal; @1 fx iris .5,.5"
+# vis kind=w act=x_arc_idcard then="cam=pull@1|act=count n=100 hl=99 icon=person value=99%@2|cam=truckR@3" trans=match clock="DAY 0" dir="0-2.5 zoom 1.15 .5,.5 ease=io; @0-@2 text type 'ESTONIA|a real country, human-run' .5,.12 paper; @2 text type 'services online' .5,.24 teal; @1 fx iris .5,.5"
 Look at Estonia, a real country run by humans.
 Every resident has a digital ID.
 One card opens tax, health, voting and business.

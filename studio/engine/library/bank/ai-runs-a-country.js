@@ -154,5 +154,5 @@
     B('ai_core').draw(W * (v ? .14 : .82), H * (v ? .3 : .7), H * (v ? .18 : .42), lt, {});
     if (lt > t1) { const k = clamp((lt - t1) / Math.max(.6, t2 - t1 - .1)), sw = fh * .5, sx = fx - sw * .4, sy = fy - fh * .14; ctx.save(); ctx.strokeStyle = '#1B2A8A'; ctx.lineWidth = 5 * u; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i <= 60 * k; i++) { const t = i / 60, x = sx + t * sw * .8, y = sy + Math.sin(t * 22) * fh * .02 * (1 - t * .5) - t * fh * .02; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); ctx.restore();
       const hx = sx + k * sw * .8, hy = sy; ctx.save(); ctx.translate(hx, hy); ctx.rotate(-.6); rr(-6 * u, -110 * u, 12 * u, 110 * u, 5 * u, P.yellow, 0); poly([[-6 * u, 0], [6 * u, 0], [0, 14 * u]], '#333', 0); ctx.restore(); ell(hx + 40 * u, hy - 70 * u, 56 * u, 40 * u, '#C68B64', 0, -.5); ell(hx + 100 * u, hy - 120 * u, 50 * u, 70 * u, '#3D4BA8', 0, -.5); }
-    if (lt > t2) IFM.tag('SIGNED: A HUMAN', v ? fx : W * .8, v ? fy - fh * .96 : H * .3, 32 * u, { bg: P.yellow, t: lt }); } }; };
+    if (lt > t2) IFM.tag('SIGNED: A HUMAN', v ? fx : W * .7, v ? fy - fh * .96 : H * .2, 32 * u, { bg: P.yellow, t: lt }); } }; };
 })();
