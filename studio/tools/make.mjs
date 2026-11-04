@@ -14,6 +14,7 @@ const hdr = k => (story.match(new RegExp('^' + k + '\\s*:\\s*(.+)$', 'm')) || []
 const voice = opt('voice') || hdr('voice'); const wantVoice = !has('no-audio') && isStory && voice !== 'none';
 let vo = [];
 // 1) voice-over
+if (!has('skip-preflight')) { const pf = spawnSync('node', ['tools/preflight.mjs', ep], { encoding: 'utf8' }); process.stdout.write(pf.stdout || ''); if (pf.status !== 0) { console.error('FAIL: preflight — nothing rendered (fix the errors above)'); process.exit(1); } }
 if (wantVoice) { try { node(['tools/render.mjs', ep, '--lines', `${base}_lines.json`]); { const LJ = JSON.parse(fs.readFileSync(`${base}_lines.json`, 'utf8')); if (!LJ.lines || !LJ.lines.length) { console.error('FAIL: no voice lines collected — refusing to reuse an old voice track'); process.exit(1); } } py(['tools/voice.py', 'synth', `${base}_lines.json`, `${base}_vo`, ...(voice ? ['--voice', voice] : []), '--speed', opt('speed') || 'auto']); vo = ['--vo', `${base}_vo/durs.json`]; }
   catch (e) { console.warn('\n⚠ voice-over unavailable (run: python3 tools/voice.py setup) — continuing with caption timing only.\n'); } }
 // 2) lint
@@ -37,7 +38,7 @@ const loudAf = (wav, target) => { const r = spawnSync('ffmpeg', ['-hide_banner',
   return `loudnorm=I=${target}:TP=-1.5:LRA=20:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`; };
 // 4) video per format (+ mux)
 for (const f of fmts) { const silent = `${base}_${f}_v.mp4`, out = `${base}_${f}.mp4`;
-  node(['tools/render.mjs', ep, '--fmt', f, '--out', silent, ...vo, ...(has('draft') ? ['--scale', '.5'] : [])]);
+  node(['tools/render.mjs', ep, '--fmt', f, '--out', silent, ...vo, ...(has('draft') ? ['--scale', '.5'] : []), ...(opt('fps') ? ['--fps', opt('fps')] : []), ...(opt('jobs') ? ['--jobs', opt('jobs')] : [])]);
   if (mixWav) { execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', silent, '-i', mixWav, '-c:v', 'copy', '-af', loudAf(mixWav, f === '16x9' ? -14 : -13), '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', out]); fs.unlinkSync(silent); }
   // delivery: ONE universal file under 30 MB (H.264, two-pass) — the file you send
   if (!has('draft') && !has('no-deliver')) py(['tools/deliver.py', out]);

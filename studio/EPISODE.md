@@ -162,7 +162,8 @@ node tools/gate.mjs stories/<slug>.story          # lint both formats + variety 
 
 ## 5. Render (background, read only the summary)
 ```
-node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed .95 > out/<slug>.log 2>&1
+node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed .95 --fps 25 > out/<slug>.log 2>&1
+# make runs tools/preflight.mjs first (voice lines = story lines, every act exists, calm look, every scene draws) and stops on any error
 grep -E "deliver →|FAIL|Error|music " out/<slug>.log
 ```
 - Run them with `run_in_background`. Wait for the notification; never poll, never sleep.

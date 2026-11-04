@@ -22,8 +22,8 @@ else if (opt('stills')) { const dir = opt('out') || 'out/stills'; fs.mkdirSync(d
 else if (opt('cues')) { const cues = await page.evaluate(() => episodeCues()); fs.writeFileSync(opt('cues'), JSON.stringify(cues, null, 2)); console.log('duration', dur); }
 else {
   const out = opt('out') || `out/episode_${fmt}.mp4`; const f0 = Math.round((+(opt('from') || 0)) * fps), f1 = Math.round((+(opt('to') || dur)) * fps);
-  const jobs = Math.max(1, Math.min(+(opt('jobs') || Math.min(3, (await import('os')).cpus().length)), Math.ceil((f1 - f0) / 90)));
-  const enc = o => spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-tune', 'animation', '-crf', '17', '-g', '60', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', o], { stdio: ['pipe', 'ignore', 'inherit'] });
+  const jobs = Math.max(1, Math.min(+(opt('jobs') || Math.min(8, (await import('os')).cpus().length)), Math.ceil((f1 - f0) / 90)));
+  const enc = o => spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-preset', opt('preset') || 'fast', '-tune', 'animation', '-crf', '17', '-g', '60', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', o], { stdio: ['pipe', 'ignore', 'inherit'] });
   const t0 = Date.now(); let done = 0; const total = f1 - f0;
   const seg = async (pg, a, b, o) => { const ff = enc(o); for (let f = a; f < b; f++) { const buf = await frameOn(pg, f / fps); if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r)); if (++done % 150 === 0) console.log(`${fmt} frame ${done}/${total} ${((Date.now() - t0) / 1000).toFixed(0)}s (${jobs} jobs)`); } ff.stdin.end(); await new Promise(r => ff.on('close', r)); };
   if (jobs === 1) await seg(page, f0, f1, out);

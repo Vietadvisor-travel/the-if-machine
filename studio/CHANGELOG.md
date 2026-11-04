@@ -1,5 +1,12 @@
 # Motion Studio — changelog
 
+## 2026-11-04 · preflight + faster render
+- `tools/preflight.mjs` (new; runs inside make.mjs before anything is rendered): voice lines collected = the story's caption lines,
+  word for word; every act exists (no silent fallback picture); calm look active, no bloom, calm transitions; every scene draws
+  without throwing. Fails fast. Added after an old voice track was reused (the calm compile wrapper dropped SB.compile options).
+- make.mjs also refuses to continue when no voice lines were collected.
+- Render speed: jobs = CPU cores (was 3), x264 preset fast (was medium; CRF 17 unchanged), `--fps 25` option (17 % fewer frames).
+
 ## 2026-11-04 · calm house look + precise actions (owner feedback on the remake)
 - `ifm_calm.js` (new, applied at compile): calm transitions only (cut fade slide match zoom zoomthru ink), jerky dir= effects dropped
   (flash shake glitch chroma speed zblur shock mblur), whip/dutch → push/float, glow() softened, fillFrame without light shafts.
