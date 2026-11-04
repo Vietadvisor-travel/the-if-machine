@@ -66,7 +66,7 @@
   IFM.human = human; IFM.poseAngles = poseAngles;
   // a population in depth rows; walkers travel and wrap
   IFM.people = (n, yBase, lt, o = {}) => { const u = U(), r = rng(o.seed || 3), rows = o.rows || 3, L = []; for (let i = 0; i < n; i++) { const row = i % rows; L.push({ seed: (o.seed || 1) * 100 + i, x: r() * W * 1.2 - W * .1, d: rows > 1 ? row / (rows - 1) : 1, dir: r() < .5 ? -1 : 1, poseAlt: r() }); }
-    L.sort((a, b) => a.d - b.d); for (const p of L) { const h = (o.h || H * .22) * lerp(.55, 1, p.d), y = yBase - (1 - p.d) * H * (o.depth ?? .12); let x = p.x; const pose = Array.isArray(o.pose) ? o.pose[Math.floor(p.poseAlt * o.pose.length)] : (o.pose || 'stand');
+    L.sort((a, b) => a.d - b.d); for (const p of L) { const h = (o.h || H * .22) * lerp(.55, 1, p.d), y = yBase - (1 - p.d) * H * (o.depth ?? .12); let x = p.x; let pose = Array.isArray(o.pose) ? o.pose[Math.floor(p.poseAlt * o.pose.length)] : (o.pose || 'stand'); if (o.react) for (const [t0, rp] of o.react) if (lt >= t0 + clamp(p.x) * .9 + p.poseAlt * .25) pose = rp;   // reactions ripple left → right
       if (pose === 'walk' || pose === 'run') x = ((p.x + lt * (pose === 'run' ? 2.4 : 1) * h * .6 * p.dir) % (W * 1.3) + W * 1.3) % (W * 1.3) - W * .15;
       ctx.save(); ctx.globalAlpha *= lerp(.6, 1, p.d); IFM.human(x, y, h, p.seed, pose, lt, { ...o, flip: (pose === 'walk' || pose === 'run') ? p.dir < 0 : (p.seed % 2 === 0) }); ctx.restore(); } };
 })();

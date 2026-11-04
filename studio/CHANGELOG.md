@@ -1,5 +1,24 @@
 # Motion Studio — changelog
 
+## 2026-11-04 · IFM 7 (picture first, alive, clean composition — owner)
+- `ifm_life.js`:
+  - automatic background life per scene (birds, leaves, butterflies, shooting stars, blinking aircraft, dust, ripples; `life=` / `life=off`);
+  - a blurred foreground silhouette for depth (`fg=` leaves branch window blinds grass rocks crowd wires);
+  - both are drawn under the lettering.
+- Crowds react: `react="shock@1|cheer@2"` ripples the new pose across the crowd.
+- The sim clock shows when it changes and fades after 3 s (header `clock: always` keeps it).
+- Lint composition:
+  - the IFM captions now register with the lint (they did not, so caption-over-face went unseen);
+  - new warnings "text covers a face" and "text covers <subject>" (people, creatures, bank items register their bodies).
+- 9:16 layouts recomposed: subjects live in 15–57 % (crowds, city ground, animals, Mars surface, stage sets), above the 47–65 %
+  caption band; the bottom is decoration.
+- `variety.mjs` warns:
+  - when > 15 % of beats are data or machine scenes;
+  - when there is more than one counter per minute;
+  - when < 50 % of beats move the camera with intent.
+- `EPISODE.md` §0 "Picture first" (story through people, places and things; liveliness checklist; composition in both formats);
+  `ifm-director.md` §0.
+
 ## 2026-11-04 · gate timeout
 - `tools/gate.mjs`: each step may run up to 60 min (was 15). A 4.7-min film's lint in both formats took about 17 min in
   this container, so the gate died silently with no report. Tested on ai-runs-a-country.

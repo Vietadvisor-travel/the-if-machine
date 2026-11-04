@@ -32,6 +32,7 @@ function lintEpisode(step = .25) {
     const caps = bx.filter(b => b.k === 'caption'), faces = bx.filter(b => b.k === 'face'), texts = bx.filter(b => b.k === 'ui');
     for (const c of caps) { for (const f of faces) { const a = ov(c, f); if (a > (f.x1 - f.x0) * (f.y1 - f.y0) * .12) add('warn', sid, t, `caption covers a face ("${c.s}")`); } for (const x of texts) if (ov(c, x) > 40 * 40) add('warn', sid, t, `caption overlaps on-screen text "${x.s}"`); if (V && (c.y0 < safeTop || c.y1 > safeBot)) add('warn', sid, t, `caption outside 9:16 safe zone`); }
     for (const p of bx.filter(b => b.k === 'phys')) add(p.sev, sid, t, 'FLOAT/physics: ' + p.s);
+    for (const x of texts) { for (const f of faces) if (ov(x, f) > (f.x1 - f.x0) * (f.y1 - f.y0) * .2) add('warn', sid, t, `text covers a face ("${x.s}")`); for (const p of bx.filter(b => b.k === 'prop' && (b.x1 - b.x0) * (b.y1 - b.y0) > 60 * 60)) if (ov(x, p) > (p.x1 - p.x0) * (p.y1 - p.y0) * .25) add('warn', sid, t, `text covers ${p.s} ("${x.s}") — move the text or the subject`); }
     const props = bx.filter(b => b.k === 'prop' && (b.x1 - b.x0) * (b.y1 - b.y0) > 50 * 50);
     for (const c of caps) for (const p of props) if (ov(c, p) > (p.x1 - p.x0) * (p.y1 - p.y0) * .3) add('warn', sid, t, `caption hides prop "${p.s}" — move the prop up or the caption (capY)`);
     const S = vmerge(EP.scenes[k]);

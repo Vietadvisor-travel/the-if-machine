@@ -11,6 +11,29 @@ bash ../setup.sh | tail -12
 node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.story (long) + stories/<slug>-v.story (vertical) + engine/library/bank/<slug>.js
 ```
 
+## 0. Picture first (owner, 4 Nov 2026: livelier, less machine and data, polished, never cluttered)
+- **Story through people, places and things.**
+  - Follow one character (the "you" of the episode) through concrete moments: a morning, a street, a kitchen, a classroom.
+  - Every idea becomes a physical picture: a crowd reacting, a city changing, an object transforming.
+- **Data is seasoning.**
+  - ≤ 15 % of beats may be data or machine scenes (count, map, servers, scale, guess, the machine).
+  - At most one number counter per minute.
+  - A number is shown by its consequence: 8 billion = the crowd filling a stadium, not a counter.
+- **The machine** appears only at the hook, the answer ticket and the end. The sim clock shows when it changes, then fades.
+- **Every beat is alive (checklist):**
+  1. A foreground layer (`fg=`, automatic per scene) for depth.
+  2. A subject that ACTS: pose changes on the key word (`then="pose=shock@1"`, crowds `react="shock@1|cheer@2"` ripple across).
+  3. Background life (`life=`, automatic: birds, leaves, insects, shooting stars, traffic).
+  4. Light that changes (time of day, a lamp, a flicker) or a camera with intent (zoom into a point, orbit, tilt).
+  5. One transformation per beat: something becomes something else.
+- **Composition, both formats:**
+  - One focal subject per shot, on a third, with air around it. Lettering lives in the empty third, never on a face or a subject.
+  - The gate flags "text covers a face" and "text covers <subject>" in 9:16 and 16:9.
+  - 9:16 is composed on its own: the subject sits above the caption band (47–65 %), the lettering at 20–30 %.
+    The bottom 35 % is decoration only.
+  - Polish: no element cut at an edge by accident, no two things fighting for attention, spacing even.
+    Colours follow BRAND (coral only for the twist).
+
 ## 1. The film in one pass (write it once, completely; no drafts)
 - **Long 16:9: 3–6 min** (≈ 420–850 spoken words). **Vertical 9:16: 60–90 s** (≈ 150–210 words), its own hook.
 - **Shape:**
@@ -25,7 +48,7 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
   - a `// m:ss [dur] SUBJECT: …` frame line;
   - a picture of the SUBJECT of its line;
   - a `then=` cut every 2–3 s;
-  - a `dir=` track (camera into a point, one text, one effect on the punch word);
+  - a `dir=` track (camera with intent; text only where it adds meaning; one effect on the punch word);
   - a meaning or rhythm `trans=` (never the same twice in a row).
 - **Words:** "you", present tense, short lines, sourced numbers, "about" for estimates. Banned: mind-blowing,
   you won't believe, shocking, insane.

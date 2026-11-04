@@ -115,7 +115,7 @@
         ctx.fillStyle = shade(time === 'day' ? '#7D8FB5' : '#232A5A', -(1 - k) * .4); ctx.beginPath(); ctx.moveTo(x0, H); ctx.lineTo(x0 + bw, H); ctx.lineTo(x0 + bw + lean * .3 + (left ? 0 : 0), -H * .1); ctx.lineTo(x0 + lean * .3 + (left ? bw * .4 : -bw * .4) * 0, -H * .1); ctx.closePath(); ctx.fill();
         for (let yy = 0; yy < 22; yy++) for (let xx = 0; xx < 5; xx++) { const f = yy / 22, X = lerp(x0 + bw * (xx + .3) / 5, x0 + lean * .3 + bw * (xx + .3) / 5, 1 - f), Y = lerp(-H * .1, H, f); let on = lit * (r() > .3 ? 1 : 0); if (dark != null) on *= 1 - sm(dark + (1 - f) * .9 + r() * .4, dark + (1 - f) * .9 + r() * .4 + .1, lt); if (on > .05) { ctx.globalAlpha = on; ctx.fillStyle = '#FFD27A'; ctx.fillRect(X, Y, 12 * u * (1.2 - f * .6) * k, 8 * u * k); ctx.globalAlpha = 1; } } } return; }
     // skyline: 3 depth layers, haze, street with people
-    const ground = vy(.8, .82); const L3 = towers(31, ground - 80 * u, .7, lt, { tall: 1.3 }), L2 = towers(32, ground - 30 * u, .9, lt), L1 = towers(33, ground, 1.15, lt, { tall: .9 });
+    const ground = vy(.58, .82); const L3 = towers(31, ground - 80 * u, .7, lt, { tall: 1.3 }), L2 = towers(32, ground - 30 * u, .9, lt), L1 = towers(33, ground, 1.15, lt, { tall: .9 });
     const pal = time === 'day' ? ['#A9B9D6', '#8396BD', '#5E6F98'] : time === 'dusk' ? ['#5A4A86', '#3E3870', '#2A2756'] : ['#1D2350', '#161B42', '#10142F'];
     ctx.save(); ctx.translate(-lt * 6 * u, 0); drawTowers(L3, pal[0], lt, { lit: lit * .7, dark, k: .7 }); ctx.restore(); ctx.fillStyle = time === 'day' ? 'rgba(255,255,255,.18)' : 'rgba(40,40,100,.25)'; ctx.fillRect(0, 0, W, H);
     ctx.save(); ctx.translate(-lt * 12 * u, 0); drawTowers(L2, pal[1], lt, { lit, dark, k: .9 }); ctx.restore();
@@ -124,12 +124,13 @@
     const pn = num(o, 'people', 10); if (pn > 0) crowd(pn, ground + 20 * u, lt, { pose: o.pose || 'walk', scale: .32, rows: 2, depth: .02, seed: 7 }); } }; };
 
   // ---------------------------------------------------------------- crowd (people as the subject)
+  const reactOf = (o, c) => o.react ? String(o.react).split('|').map(x => { const m = x.trim().match(/^(\w+)@(\d+)$/); return m ? [T0(c, +m[2], 1), m[1]] : null; }).filter(Boolean) : null;
   A.crowd = (o, c, dur) => { const pose = o.pose || 'phone', view = o.view || 'wide', time = o.time || 'night', dark = o.dark != null ? +o.dark : undefined; return { sfx: [[.1, 'amb_crowd_festival'], ...(dark != null ? [[dark, 'glitch_power_down'], [dark + .3, 'crowd_gasp']] : [])], draw: lt => { const u = U(), v = H > W;
     const phones = (o.phones != null ? +o.phones : 1) * (dark != null ? 1 - sm(dark, dark + .3, lt) : 1), scr = dark != null && lt > dark ? '#3A3F5C' : (o.screen || '#9FE8FF');
-    if (view === 'close') { sky(time, lt, { clouds: false }); ctx.fillStyle = time === 'day' ? '#C9C2B0' : '#141833'; ctx.fillRect(0, H * .8, W, H * .2); const n = v ? 2 : 3; for (let i = 0; i < n; i++) figure(W * (i + .5) / n, H * (v ? .77 : 1.02), v ? 1.05 : 1.1, 40 + i * 3 + num(o, 'seed', 0), pose, lt, { phones, screen: scr, role: o.role }); return; }
-    if (view === 'street') { A.city({ ...o, view: 'skyline', people: 0, time }, c, dur).draw(lt); crowd(num(o, 'n', 18), H * (v ? .76 : 1), lt, { pose, scale: v ? .42 : .55, rows: 3, depth: v ? .1 : .16, seed: num(o, 'seed', 2), phones, screen: scr, role: o.role }); return; }
+    if (view === 'close') { sky(time, lt, { clouds: false }); ctx.fillStyle = time === 'day' ? '#C9C2B0' : '#141833'; ctx.fillRect(0, H * .8, W, H * .2); const n = v ? 2 : 3; for (let i = 0; i < n; i++) figure(W * (i + .5) / n, H * (v ? .56 : 1.02), v ? .8 : 1.1, 40 + i * 3 + num(o, 'seed', 0), pose, lt, { phones, screen: scr, role: o.role, react: reactOf(o, c) }); return; }
+    if (view === 'street') { A.city({ ...o, view: 'skyline', people: 0, time }, c, dur).draw(lt); crowd(num(o, 'n', 18), H * (v ? .56 : 1), lt, { pose, scale: v ? .34 : .55, rows: 3, depth: v ? .08 : .16, seed: num(o, 'seed', 2), phones, screen: scr, role: o.role, react: reactOf(o, c) }); return; }
     sky(time, lt, { clouds: time !== 'night' }); const g = ctx.createLinearGradient(0, H * .55, 0, H); g.addColorStop(0, time === 'day' ? '#B7C7A0' : '#1A1F45'); g.addColorStop(1, time === 'day' ? '#8FA57A' : '#0C0F26'); ctx.fillStyle = g; ctx.fillRect(0, H * .55, W, H * .45);
-    crowd(num(o, 'n', 40), H * (v ? .77 : 1.02), lt, { pose: o.mix ? o.mix.split(',') : pose, scale: v ? .5 : .46, rows: 5, depth: .4, seed: num(o, 'seed', 5), phones, screen: scr, role: o.role }); } }; };
+    crowd(num(o, 'n', 40), H * (v ? .56 : 1.02), lt, { pose: o.mix ? o.mix.split(',') : pose, scale: v ? .5 : .46, rows: 5, depth: .4, seed: num(o, 'seed', 5), phones, screen: scr, role: o.role, react: reactOf(o, c) }); } }; };
 
   // ---------------------------------------------------------------- map (flat world)
   A.map = (o, c, dur) => { const pins = String(o.pins || '').split(';').filter(Boolean).map(s => s.split(',')), arcs = String(o.arcs || '').split(';').filter(Boolean).map(s => s.split('>').map(p => p.split(',').map(Number)));

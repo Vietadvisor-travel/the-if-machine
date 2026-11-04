@@ -81,7 +81,7 @@
     const wt = toks.map(w => Math.max(1, w.replace(/[^\p{L}\p{N}]/gu, '').length * .12 + .55)), tot = wt.reduce((a, b) => a + b, 0), span = Math.max(.3, (t1 - t0) * .9); const st = []; let acc = 0; wt.forEach(w => { st.push(t0 + acc / tot * span); acc += w; });
     setFont(size, 'body', 700); const sp = ctx.measureText(' ').width; const lines = [[]]; let lw = 0; toks.forEach((w, i) => { const ww = ctx.measureText(w).width; if (lw + ww > maxW && lines[lines.length - 1].length) { lines.push([]); lw = 0; } lines[lines.length - 1].push(i); lw += ww + sp; });
     const lh = size * 1.28, yB = vert ? H * .645 : H - 52 * u, y0 = yB - (lines.length - 1) * lh; ctx.save(); ctx.globalAlpha *= out * pin; ctx.translate(0, (1 - pin) * 10 * u); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    lines.forEach((ln, li) => { setFont(size, 'body', 700); const tw = ln.reduce((s, i) => s + ctx.measureText(toks[i]).width + sp, -sp); let x = W / 2 - tw / 2; const y = y0 + li * lh;
+    lines.forEach((ln, li) => { setFont(size, 'body', 700); const tw = ln.reduce((s, i) => s + ctx.measureText(toks[i]).width + sp, -sp); let x = W / 2 - tw / 2; const y = y0 + li * lh; if (window.LINT && LINT.on) LINT.boxes.push({ k: 'caption', s: ln.map(i => toks[i]).join(' '), x0: x, x1: x + tw, y0: y - size * .6, y1: y + size * .6 });
       for (const i of ln) { const w = toks[i], ww = ctx.measureText(w).width, cur = t >= st[i] && (i === toks.length - 1 || t < st[i + 1]);
         ctx.lineJoin = 'round'; ctx.lineWidth = size * .2; ctx.strokeStyle = 'rgba(10,12,30,.82)'; ctx.strokeText(w, x, y); ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillText(w, x + 2 * u, y + 3 * u);
         ctx.fillStyle = cur ? P.yellow : '#FFFFFF'; ctx.fillText(w, x, y); x += ww + sp; } });
@@ -131,9 +131,9 @@
     if (!cur || cur === 'off' || sc.clock === 'off') return; const u = U(), vert = H > W, lt = t - _starts[curK], a = parseClock(cur), b = parseClock(prev);
     const roll = clamp(lt / 1.2), n = a.n == null ? null : (b.n != null && b.pre === a.pre ? lerp(b.n, a.n, E.inOut(roll)) : a.n * E.out(roll));
     const num = n == null ? '' : (Number.isInteger(a.n) ? String(Math.round(n)) : n.toFixed(1)); const label = (a.pre + ' ' + num + (a.post ? ' ' + a.post : '')).trim();
-    const appear = E.back(clamp((t - _starts[curK === 0 ? 0 : curK]) / .35 + (prev ? 1 : 0)));
+    const appear = E.back(clamp((t - _starts[curK === 0 ? 0 : curK]) / .35 + (prev ? 1 : 0))), keep = String(IFM.hdr.clock || '') === 'always', fade = keep ? 1 : 1 - clamp((lt - 2.6) / .5); if (fade <= 0) return;
     const size = (vert ? 26 : 22) * u; setFont(size, 'mono', 700); const tw = ctx.measureText('SIM · ' + label).width + size * 2.2, hh = size * 1.9; const x = vert ? W / 2 - tw / 2 : 40 * u, y = vert ? H * .155 : 36 * u;
-    ctx.save(); ctx.translate(x + tw / 2, y + hh / 2); ctx.scale(appear, appear); ctx.translate(-tw / 2, -hh / 2); ctx.fillStyle = 'rgba(10,12,30,.72)'; ctx.beginPath(); ctx.roundRect(0, 0, tw, hh, hh / 2); ctx.fill();
+    ctx.save(); ctx.globalAlpha *= fade; ctx.translate(x + tw / 2, y + hh / 2); ctx.scale(appear, appear); ctx.translate(-tw / 2, -hh / 2); ctx.fillStyle = 'rgba(10,12,30,.72)'; ctx.beginPath(); ctx.roundRect(0, 0, tw, hh, hh / 2); ctx.fill();
     ctx.strokeStyle = 'rgba(46,230,197,.55)'; ctx.lineWidth = 2 * u; ctx.stroke(); const blink = (t * 2 % 1) < .6; ctx.fillStyle = blink ? P.coral : 'rgba(255,91,79,.3)'; ctx.beginPath(); ctx.arc(size * .9, hh / 2, size * .26, 0, TAU); ctx.fill();
     ctx.fillStyle = P.teal; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('SIM · ' + label, size * 1.5, hh / 2 + size * .05); ctx.restore(); };
 

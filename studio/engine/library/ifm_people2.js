@@ -55,7 +55,7 @@
     ctx.restore();
     if (holo) { const sy = -100 * u + ((lt * 40 * u + seed * 13) % (110 * u)); ctx.globalAlpha = .5; line(-14 * u, sy, 14 * u, sy, 1.6 * u, '#E8FFFA'); }
     ctx.restore(); }
-  IFM.human = (x, y, h, seed, pose, lt, o = {}) => { const st = o.style || IFM.peopleStyle || 'facet'; seed = seed + (IFM.seedBase || 0); /* every episode gets its own cast */ return (st === 'facet' || st === 'holo') ? newHuman(x, y, h, seed, pose, lt, { ...o, style: st }) : old(x, y, h, seed, pose, lt, o); };
+  IFM.human = (x, y, h, seed, pose, lt, o = {}) => { pbox(x, y, h * .4, h, 'person'); const st = o.style || IFM.peopleStyle || 'facet'; seed = seed + (IFM.seedBase || 0); /* every episode gets its own cast */ return (st === 'facet' || st === 'holo') ? newHuman(x, y, h, seed, pose, lt, { ...o, style: st }) : old(x, y, h, seed, pose, lt, o); };
 
   // ---------------------------------------------------------------- creatures (same facet / holo language)
   const CR = { dog: { body: 46, bh: 18, leg: 22, neck: 12, head: 14, snout: 9, tail: 18, col: '#B7793E' }, cat: { body: 40, bh: 15, leg: 18, neck: 8, head: 12, snout: 4, tail: 30, ear: 1, col: '#6B6E80' },
@@ -87,7 +87,9 @@
     poly([[-20 * u, -82 * u - b], [20 * u, -82 * u - b], [16 * u, -40 * u], [-16 * u, -40 * u]], col, 0); poly([[2 * u, -82 * u - b], [20 * u, -82 * u - b], [16 * u, -40 * u], [2 * u, -40 * u]], drk(col), 0);
     rr(-15 * u, -106 * u - b, 30 * u, 20 * u, 4 * u, col, 0); rr(-10 * u, -100 * u - b, 20 * u, 6 * u, 3 * u, '#0B0E22', 0); circ(Math.sin(lt * 2) * 6 * u, -97 * u - b, 2.4 * u, IFM.P.teal, 0); glow(0, -97 * u - b, 20 * u, IFM.P.teal, .5);
     line(0, -106 * u - b, 0, -116 * u - b, 2 * u, drk(col)); circ(0, -117 * u - b, 3 * u, IFM.P.coral, 0); }
-  IFM.creature = (kind, x, y, h, lt, o = {}) => { const st = o.style || (IFM.peopleStyle === 'holo' ? 'holo' : 'facet'); ctx.save(); ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
+  const pbox = (x, y, w, h, s) => { if (!(window.LINT && LINT.on) || h < H * .08) return; const m = ctx.getTransform(); const X = m.a * x + m.c * y + m.e, Y = m.b * x + m.d * y + m.f, sc = Math.hypot(m.a, m.b); LINT.boxes.push({ k: 'prop', s, x0: X - w * sc / 2, x1: X + w * sc / 2, y0: Y - h * sc, y1: Y }); };
+  IFM.pbox = pbox;
+  IFM.creature = (kind, x, y, h, lt, o = {}) => { pbox(x, y, h * 1.1, h, kind); const st = o.style || (IFM.peopleStyle === 'holo' ? 'holo' : 'facet'); ctx.save(); ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
     if (st === 'holo') { ctx.globalAlpha *= .8; glow(0, -h * .4, h * .8, o.col || IFM.P.teal, .25); o = { ...o, col: o.col || IFM.P.teal }; } else if (!['bird', 'fish', 'whale'].includes(kind)) { ctx.save(); ctx.globalAlpha *= .2; ctx.fillStyle = '#000'; ctx.beginPath(); ctx.ellipse(0, 0, h * .45, h * .05, 0, 0, TAU); ctx.fill(); ctx.restore(); }
     if (CR[kind]) quad(kind, h, lt, { ...o, style: st }); else if (kind === 'bird') bird(h, lt, o); else if (kind === 'fish') fish(h, lt, o); else if (kind === 'whale') fish(h, lt, o, true); else robot(h, lt, o);
     ctx.restore(); };

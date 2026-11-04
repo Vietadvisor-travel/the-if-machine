@@ -7,6 +7,10 @@ of what the engine already has. The kits are a floor, not a ceiling. Sources dis
 - the grammar of the big explainer channels (Muse, `jobs/research/_REFERENCES.md`);
 - the platform study (`_PLATFORMS.md`).
 
+## 0. Priority (owner, 4 Nov 2026)
+Pictures of people, places and things over charts and machine screens; every beat alive (foreground, an acting subject,
+background life, light or camera with intent, one transformation); clean composition in both formats. See EPISODE.md §0.
+
 ## 1. The order of work for one episode
 1. **The idea of each beat in one picture.** For every line ask: what is the most surprising, most visual way to SHOW this
    exact sentence? Write it as a frame line (`// 0:42 …`) before choosing any act. If a kit act fits, use it.
