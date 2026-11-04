@@ -30,7 +30,8 @@
       case 'tilt': z = 1.1; r = lerp(-.025, .025, e); break; case 'orbit': z = lerp(1.06, 1.14, e); r = lerp(.04, -.02, e); x = lerp(-W * .02, W * .02, e); break;
       case 'whip': { const w = E.out5(clamp(lt / .55)); z = lerp(1.7, 1.06, w) + .04 * e; r = (1 - w) * .12; break; }
       case 'dutch': z = lerp(1.08, 1.14, e); r = .045; break;
-      default: z = 1.06 + .03 * Math.sin(lt * .5); x = Math.sin(lt * .37) * 12 * u; y = Math.cos(lt * .29) * 9 * u; }
+      default: if (/^close/.test(name || '')) { const f = String(name).split(':')[1] || '.5,.5', [fx, fy] = f.split(',').map(Number); z = lerp(1.5, 1.6, e); const mx = (z - 1) * W / 2 / z, my = (z - 1) * H / 2 / z; x = clamp((W / 2 - fx * W), -mx, mx) * z; y = clamp((H / 2 - fy * H), -my, my) * z; break; }
+        z = 1.06 + .03 * Math.sin(lt * .5); x = Math.sin(lt * .37) * 12 * u; y = Math.cos(lt * .29) * 9 * u; }
     x += Math.sin(lt * .9) * 3 * u; y += Math.cos(lt * .7) * 3 * u; // a breath, never fully still
     ctx.translate(W / 2 + x, H / 2 + y); ctx.rotate(r); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2); }
   IFM.cam = cam;
@@ -179,12 +180,12 @@
     money: { acc: ['foley_coins', 'ifm_machine_printer', 'ifm_sci_ui_error', 'foley_paper'] } };
   let beatN = 0;
   VIS.K.w = (o, c, Pal, dur, i) => { const S = segs(o, c), idx = i ?? beatN++; const B = S.map((sg, j) => ({ ...sg, b: (A[sg.o.act] || A.globe)(sg.o, c, dur), cam: sg.o.cam || CAMS[(idx * 3 + j * 4) % CAMS.length] }));
-    const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j) sfx.push([sg.at, 'whoosh_small']); });
+    const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j && IFM.calm === false) sfx.push([sg.at, 'whoosh_small']); });
     // motivated sound only (owner, 3 Nov 2026: 'too many, too random'): a quiet bed per scene; a hit only where the picture hits (twist / data / gold lettering)
     const fam = SFAM[o.act] || {}; if (fam.bed && !o.nobed) sfx.push([.05, fam.bed]);
     String(o.words || '').split('|').filter(Boolean).forEach((w, j) => { const m = w.match(/@(\d+)$/), at = T0(c, m ? +m[1] : j, .3 + j), snd = { '!': 'ifm_motion_impact_slam', '~': 'ifm_sci_ui_confirm', '^': 'ifm_machine_chime' }[w[0]]; if (snd) sfx.push([at, snd]); });
     return { sfx, draw: lt => { let k = 0; for (let j = 0; j < B.length; j++) if (lt >= B[j].at) k = j; const sg = B[k], q = lt - sg.at;
-      ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split') { if (k && q < .22) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore();
-      if (k && q < .12) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }
+      ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split') { if (k && q < .22 && IFM.calm === false) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore();
+      if (k && q < .12 && IFM.calm === false) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }
       if (!o._noWords) words(o, c, lt); if (sg.b.post) sg.b.post(lt); }, letters: lt => words(o, c, lt) }; };
 })();

@@ -16,7 +16,7 @@ Not in a film.
 For one real year.
 
 // S02 · 0:08 · PROMISE
-# vis kind=w act=x_balcony cam=truckR trans=zoomthru
+# vis kind=w act=x_balcony cam=truckR trans=zoomthru then="cam=close:.56,.48@1"
 What would actually change?
 Some things would get much easier.
 And one thing would go wrong in a way that is easy to miss.
@@ -29,7 +29,7 @@ Her phone simply shows a message: a permit
 she applied for last month has been approved overnight.
 
 // S04 · 0:28 · THE QUEUE THAT DISAPPEARED
-# vis kind=w act=x_serviceoffice cam=pull trans=slide
+# vis kind=w act=x_serviceoffice cam=pull trans=slide then="cam=close:.45,.6@2"
 It used to take weeks.
 A form, a queue, a stamp, a second queue.
 The system read her application at three in the morning,
@@ -42,14 +42,14 @@ line by line, from records the state already has.
 She reads it, corrects nothing, and taps confirm.
 
 // S06 · 0:52 · THE BUS
-# vis kind=w act=x_street2 cam=float trans=slide
+# vis kind=w act=x_street2 cam=float trans=slide then="cam=close:.35,.6@2"
 Outside, the bus arrives as she reaches the stop.
 Not because of luck.
 The system saw that about two hundred people from her
 area leave at this time, and moved a bus here.
 
 // S07 · 1:04 · HOW IT KNEW
-# vis kind=w act=x_routemap cam=tilt trans=zoom
+# vis kind=w act=x_routemap cam=tilt trans=zoom then="cam=close:.5,.42@2|cam=tilt@4"
 It works like a very fast planner.
 It looks at where people travel, at what time,
 and how full each bus is, and it changes the routes every week.
@@ -57,7 +57,7 @@ No committee has to meet.
 Nobody has to approve a new timetable.
 
 // S08 · 1:15 · ESTONIA
-# vis kind=w act=x_snowstreet cam=drop trans=iris
+# vis kind=w act=x_snowstreet cam=drop trans=iris then="cam=close:.5,.62@1"
 This part is not science fiction.
 In Estonia, about ninety-nine percent of public services already work online.
 
@@ -68,40 +68,40 @@ One login opens taxes, health records, business papers, and since 2005, even vot
 In 2023 about half of all votes were cast online.
 
 // S10 · 1:40 · BUT PEOPLE STILL DECIDE
-# vis kind=w act=x_office cam=push trans=liquid
+# vis kind=w act=x_office cam=push trans=liquid then="cam=close:.3,.6@1"
 But notice what Estonia keeps.
 People still run the country.
 The machines handle the paperwork, and a person can still be asked.
 
 // S11 · 1:50 · IN OUR YEAR
-# vis kind=w act=x_govsquare cam=truckR trans=drop
+# vis kind=w act=x_govsquare cam=truckR trans=drop then="cam=close:.5,.38@2"
 In our imaginary year, the machine goes further.
 It does not just help.
 It decides: who gets a benefit,
 how the budget is split, which road is repaired first.
 
 // S12 · 2:04 · THE BUDGET
-# vis kind=w act=x_pipes sign="NEXT YEAR" cam=crane trans=fold
+# vis kind=w act=x_pipes sign="NEXT YEAR" cam=crane trans=fold then="cam=close:.22,.5@1"
 On day ninety, the budget moves.
 More money goes to the hospital where people wait longest.
 Less goes to a bridge that can wait another year.
 
 // S13 · 2:15 · THE SAME RULE FOR EVERYONE
-# vis kind=w act=x_waitingroom cam=pull trans=blobs
+# vis kind=w act=x_waitingroom cam=pull trans=ink then="cam=close:.37,.66@2"
 And the rules are the same for everyone, every time.
 The waiting list is in order.
 There is no friend to call and no envelope under the table.
 A machine has no cousins, and it does not have a bad Monday.
 
 // S14 · 2:28 · ALBANIA
-# vis kind=w act=x_tenderdesk cam=truckL trans=stripes2
+# vis kind=w act=x_tenderdesk cam=truckL trans=slide then="cam=close:.45,.55@2"
 Some governments already want this.
 In September 2025, Albania presented an AI system as a virtual
 minister for public tenders, and promised contracts that cannot be bribed.
 It is a plan, still being rolled out.
 
 // S15 · 2:42 · THE CATCH
-# vis kind=w act=x_tenderdesk_wrong cam=float trans=cut
+# vis kind=w act=x_tenderdesk_wrong cam=float trans=cut then="cam=close:.85,.55@1"
 A machine that cannot be bribed can still be wrong.
 And when it is wrong, it is wrong for
 many people at once, in exactly the same way.
@@ -114,38 +114,38 @@ The system says she was paid too much
 help last year, and she owes it back.
 
 // S17 · 3:06 · WHY IT HAPPENED
-# vis kind=w act=x_averaging cam=drop trans=zoom
+# vis kind=w act=x_averaging cam=drop trans=zoom then="cam=close:.72,.55@2"
 The system took her income for the year
 and spread it evenly across every fortnight.
 But she did not earn evenly.
 She worked a lot in spring, and almost nothing in winter.
 
 // S18 · 3:20 · THE MISTAKE
-# vis kind=w act=x_debt cam=orbit trans=cut
+# vis kind=w act=x_debt cam=orbit trans=cut then="cam=close:.72,.55@1"
 On paper, her winter months now looked like months with a salary,
 while she was also getting help.
 To the system, that meant she had been overpaid.
 
 // S19 · 3:31 · ROBODEBT
-# vis kind=w act=x_aussiekitchen cam=push trans=ink
+# vis kind=w act=x_aussiekitchen cam=push trans=ink then="cam=close:.36,.62@1"
 This exact mistake really happened.
 In 2016, Australia started an automated system to recover welfare overpayments.
 People called it Robodebt.
 
 // S20 · 3:43 · HUNDREDS OF THOUSANDS
-# vis kind=w act=x_postround cam=truckR trans=slide
+# vis kind=w act=x_postround cam=truckR trans=slide then="cam=close:.42,.7@1"
 It used the same income averaging.
 Letters went out by the hundred thousand.
 Many people paid, because proving the computer wrong took more time than they had.
 
 // S21 · 3:57 · UNLAWFUL
-# vis kind=w act=x_court cam=crane trans=cube
+# vis kind=w act=x_court cam=crane trans=cube then="cam=close:.28,.62@1"
 Courts and reviews later found the method was unlawful.
 The scheme was scrapped in 2020, and about four hundred
 and seventy thousand wrongly issued debts had to be paid back.
 
 // S22 · 4:11 · THE REVIEW
-# vis kind=w act=x_report2 cam=pull trans=paper
+# vis kind=w act=x_report2 cam=pull trans=paper then="cam=close:.5,.56@1"
 A settlement in 2021 came to about one point eight billion Australian dollars.
 And in 2023, a Royal Commission called the scheme a crude and cruel mechanism.
 
@@ -162,12 +162,12 @@ and told to repay large sums.
 Investigations later found that nationality had been used as a risk signal.
 
 // S25 · 4:48 · THE GOVERNMENT RESIGNED
-# vis kind=w act=x_cabinet2 cam=tilt trans=liquid
+# vis kind=w act=x_cabinet2 cam=tilt trans=liquid then="cam=close:.5,.62@1"
 In January 2021, the Dutch government resigned over it.
 Wrongly accused parents were offered at least thirty thousand euros each.
 
 // S26 · 5:00 · EXAMS
-# vis kind=w act=x_examhall2 cam=drop trans=flip3d
+# vis kind=w act=x_examhall2 cam=drop trans=flip3d then="cam=close:.5,.7@1"
 And in England, in 2020, exams were cancelled because of the pandemic.
 An algorithm adjusted the grades teachers had predicted.
 
@@ -195,37 +195,38 @@ The form goes to the same system that made the decision,
 and the same answer comes back.
 
 // S30 · 5:52 · THE REAL RISK
-# vis kind=w act=x_serviceoffice_empty cam=crane trans=drop
+# vis kind=w act=x_serviceoffice_empty cam=crane trans=drop then="cam=close:.5,.45@1"
 That is the real risk.
 Not a robot with a plan, but a decision with nobody behind it.
 A door with no one to knock on.
 
 // S31 · 6:03 · WHAT CANADA DOES
-# vis kind=w act=x_meetingroom cam=pull trans=blobs
+# vis kind=w act=x_meetingroom cam=pull trans=paper then="cam=close:.35,.2@1"
 Some countries already have a rule for this.
 In Canada, a federal system that makes decisions about people needs an
 impact assessment before it goes live, and the results are watched afterwards.
 
 // S32 · 6:17 · LIKE AN AUTOPILOT
-# vis kind=w act=x_cockpit cam=truckL trans=stripes2
+# vis kind=w act=x_cockpit cam=truckL trans=zoomthru then="cam=close:.3,.7@1"
 Think of it like an autopilot.
 It flies most of the trip, and it flies it well.
 But there are still pilots in the cockpit, and they can take the controls.
 
 // S33 · 6:29 · THE ANSWER
-# vis kind=w act=x_dawncity_dusk cam=float trans=iris
+# vis kind=w act=x_dawncity_dusk cam=float trans=iris then="cam=close:.5,.55@2"
 So what would a year of AI government look like?
 It would be very good at the routine work: forms, queues, timetables, budgets.
 And it would struggle with the people whose lives do not fit the average,
 like a year with a busy spring and an empty winter.
 
 // S34 · 6:41 · THE DESK
-# vis kind=w act=x_serviceoffice_desk cam=tilt trans=zoomthru
+# vis kind=w act=x_serviceoffice_desk cam=tilt trans=zoomthru then="cam=close:.45,.66@1"
 The version worth having is the one where the machine prepares the decision,
 and a person can still look at it and say: wait, let me check.
 
 // S35 · 6:53 · END
-# vis kind=w act=x_serviceoffice_sign cam=drop trans=cut
+# vis kind=w act=x_serviceoffice_sign cam=drop trans=cut then="cam=close:.55,.66@1"
 The machine drafts.
 A person decides.
 Which part of your country would you hand to an AI first?
+

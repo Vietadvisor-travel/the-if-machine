@@ -31,7 +31,7 @@ const cuts = new Set(); body.forEach(s => { cuts.add(+s.start.toFixed(2)); s.cov
 // The If Machine: in-beat cuts (then=), peaks, close shots, light states and depth come from the beat keys (engine/library/ifm_*.js)
 const IFMS = body.some(s => s.ifm); if (IFMS) body.forEach(s => { const f = s.ifm; if (!f) return; String(f.then || '').split('|').filter(Boolean).forEach((x, j) => { const m = x.match(/@(\d+)$/); const t = m && s.caps[+m[1]] ? s.caps[+m[1]][0] : 1.5 * (j + 1); cuts.add(+(s.start + t).toFixed(2)); });
   const allActs = [f.act, ...String(f.then || '').split('|').map(x => (x.match(/act=(\w+)/) || [])[1]).filter(Boolean)], allViews = [f.view, ...String(f.then || '').split('|').map(x => (x.match(/view=(\w+)/) || [])[1]).filter(Boolean)];
-  if (['lever', 'answer'].includes(f.act) || f.hook || allActs.some(a => ['zoom', 'split', 'count'].includes(a)) || f.off) s.moment = s.moment || 'ifm:' + f.act;
+  if (['lever', 'answer', 'hook'].includes(f.act) || f.hook || allActs.some(a => ['zoom', 'split', 'count'].includes(a)) || f.off) s.moment = s.moment || 'ifm:' + f.act;
   if (f.kind === 'ifm' || allActs.some(a => ['phone', 'money'].includes(a)) || allViews.includes('close') || allViews.includes('desk') || (f.kind && !['w', 'ifm'].includes(f.kind))) s.cover.push([0, 'CU']);
   s.time = f.time || ({ globe: 'space', zoom: 'space', space: f.planet || 'space', servers: 'interior', phone: 'interior', money: 'interior', sky: 'cycle', map: 'diagram', count: 'diagram' })[f.act] || (f.kind === 'ifm' ? 'machine' : 'day'); s.fg = s.fg || 'ifm-depth'; });
 energy.forEach((e, i) => { if (e > m * 7 && e > .06) cuts.add(+(i / FPS).toFixed(2)); });
