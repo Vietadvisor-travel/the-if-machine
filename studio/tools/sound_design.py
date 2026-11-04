@@ -388,7 +388,7 @@ def parse_story(path):
 # synthetic white-noise beds (spectral flatness ~0.8, centroid 8–9 kHz): they read as a constant hiss ("xèo xèo", owner 4 Nov 2026)
 NOISY = {'ifm_world_office', 'ifm_world_city', 'ifm_world_cafe', 'ifm_world_kitchen', 'ifm_world_traffic', 'ifm_world_rain', 'ifm_world_rain_heavy', 'ifm_world_rain_light', 'ifm_world_wind', 'ifm_world_ocean', 'ifm_world_forest', 'ifm_world_subway', 'ifm_world_airport', 'ifm_world_crowd_small', 'ifm_world_breathing', 'city_bed', 'fan', 'simmer', 'steam'}
 def calm_ok(c):
-    n = str(c.get('name') or '')
+    n = str((c.get('name') if isinstance(c, dict) else getattr(c, 'name', '')) or '')
     return not (n in NOISY or n.startswith(('amb_', 'whoosh', 'riser', 'hit_sub', 'swoosh', 'trans_')))
 def Ly(name, off=0., db=0., pan=0., prio=3, tier=None, bus=None, align='peak', depth='near', sync=False, group=None, opts=None, lin=None):
     return dict(name=name, off=off, db=db, pan=pan, prio=prio, tier=tier, bus=bus, align=align, depth=depth, sync=sync, group=group, opts=opts or {}, lin=lin)
