@@ -5,9 +5,31 @@ claims, then commit it. For an episode, read THIS page, `API.md` (when writing c
 Open `references/ifm-director.md` or `IFM_HOUSE.md` only for a specific question; grep, don't cat.
 Token rules are at the end.
 
+## 00. The house look (owner, 4 Nov 2026 — overrides anything below that disagrees)
+- **Calm, clear, alive. Not dramatic.** Tell it plainly, like a good documentary: no stamps slamming, no red alarms,
+  no "shocking" framing. Entertainment comes from good pictures that act out each line and from interesting facts.
+- **No glare, no flicker.** No flashes, shakes, glitches, colour splits, strobing or blinking lights, white blow-outs.
+  The engine enforces it (`ifm_calm.js`): only calm transitions (cut, fade, slide, match, zoom, zoomthru, ink); jerky
+  dir= effects are dropped; `variety.mjs` and `script_check.mjs` error on them. An effect is used only where the scene
+  needs it (at most about one a minute), never to fill a quota.
+- **Unhurried pacing.** Voice at `--speed .95`, a breath between lines (automatic), a new angle every 4–7 s; the camera
+  moves smoothly inside a shot. Fewer ideas per minute, each one given time to land.
+- **Continuity.** Scenes flow into each other: the same person carries the story through the simulated parts, a place
+  or object continues across the cut, a camera move continues, the next line answers the last. Every shot in the
+  director's script has a LINK: how it connects to the shot before.
+- **Precise actions (people must behave like people).** Feet on a floor, never floating or standing on furniture;
+  a seated person sits on a chair (`sit`, `type`, `sitread`, `sitphone` draw one); walkers move at the stride speed
+  (`IFM.walkX`, crowds automatic); hands hold real things (`o.hold` letter, sign, box, cup, bag, pen; `phone` pose);
+  reactions are small and human (`think`, `worried`, `nod`, `read`, `talk`), not cartoon panic; scale and perspective
+  consistent with the room. The director's script states each person's ACTION.
+- **The style stays the same** (facet people, flat colours): the upgrade is in precision and care, not a new look.
+- **Research is a reference, not a script.** Use the facts that serve this story, leave out the rest, and think further:
+  add your own explanations, comparisons and everyday examples (anything stated as fact still needs a source).
+
 ## 0a. The director's script comes FIRST (owner, 4 Nov 2026)
 - Before any code, write `jobs/scripts/<slug>.md` from `jobs/scripts/_TEMPLATE.md`: the spine, then one block per scene
-  with VO (exact words) · PICTURE (SUBJECT / BACKGROUND / FOREGROUND / LIFE) · CUTS · CAMERA · TEXT · FX (with trans=) ·
+  with VO (exact words) · LINK (how it connects to the shot before) · PICTURE (SUBJECT / BACKGROUND / FOREGROUND / LIFE) ·
+  ACTION (what each person does, on what, holding what) · CAMERA · TEXT · FX (trans= + an effect only if needed) ·
   SOUND · BUILD (reuse an act/bank id, or NEW x_<name> and what to draw). Vary everything: cameras, transitions, effects, places.
 - `node tools/script_check.mjs ../jobs/scripts/<slug>.md` must PASS (all fields, 6–10 min of words, variety, a NEW picture
   at least every 5 shots). Commit it as `[claude] [<slug>] director's script`.
@@ -66,7 +88,7 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
 - **Every beat:**
   - a `// m:ss [dur] SUBJECT: …` frame line;
   - a picture of the SUBJECT of its line;
-  - a `then=` cut every 2–3 s;
+  - a new angle or picture every 4–7 s (`then=`), the camera moving smoothly inside the shot — never a cut per line;
   - a `dir=` track (camera with intent; text only where it adds meaning; one effect on the punch word);
   - a meaning or rhythm `trans=` (never the same twice in a row).
 - **Words:** objective documentary voice (no "I", no host); "you" for the viewer; present tense; short lines; specific
@@ -140,7 +162,7 @@ node tools/gate.mjs stories/<slug>.story          # lint both formats + variety 
 
 ## 5. Render (background, read only the summary)
 ```
-node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed 1.06 > out/<slug>.log 2>&1
+node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed .95 > out/<slug>.log 2>&1
 grep -E "deliver →|FAIL|Error|music " out/<slug>.log
 ```
 - Run them with `run_in_background`. Wait for the notification; never poll, never sleep.

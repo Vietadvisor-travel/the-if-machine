@@ -20,7 +20,7 @@ const long = head('vertical') + `
 ` + beat('0:00 [3 s] HOOK', '<the most striking picture of the whole episode>', '# vis kind=w act=hook scene="x_<your best shot>" q="WHAT IF <…>|<…>?"\n<one line that opens a loop: a consequence the viewer must stay to understand>') + `
 ` + beat('0:04 [6 s]', '<the promise: what you will know by the end>', '# vis kind=w act=x_<shot> then="cam=push@1" trans=<meaning> dir="0-2 zoom 1.2 .5,.45"\n<line>\n<line>') + `
 // CHAPTER 1 … 4–6 chapters. Each: a surprising picture, a sourced fact shown by its consequence, ordinary life changing,
-// an open loop into the next chapter ("But that was the easy part."). A then= cut every 2–3 s, dir= on every beat.
+// an open loop into the next chapter ("But that was the easy part."). A new angle every 4–7 s, a smooth camera move per shot, calm transitions.
 
 ` + beat('~50 %', '<the midpoint reveal>', '# vis kind=w act=x_<shot> trans=<meaning> dir="…"\n<line>') + `
 ` + beat('~70 %', '<the strongest REAL case, with its source>', '# vis kind=w act=x_<shot> trans=<meaning> dir="…"\n<line>') + `

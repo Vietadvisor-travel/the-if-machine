@@ -1,5 +1,15 @@
 # Motion Studio — changelog
 
+## 2026-11-04 · calm house look + precise actions (owner feedback on the remake)
+- `ifm_calm.js` (new, applied at compile): calm transitions only (cut fade slide match zoom zoomthru ink), jerky dir= effects dropped
+  (flash shake glitch chroma speed zblur shock mblur), whip/dutch → push/float, glow() softened, fillFrame without light shafts.
+- People (`ifm_people2.js`, same facet style): chairs under seated people; held objects (`o.hold` letter sign box cup bag pen);
+  new poses read sitread sitphone hold holdsign talk worried nod, hand-to-face poses fixed (think was hidden behind the body);
+  stride-matched walking/running (`IFM.WALK/RUN`, `IFM.walkX`), crowds use depth haze instead of see-through people.
+- Pacing: a breath between caption lines in vis beats (.32 s), voice `--speed .95`; review targets 4–7 s shots;
+  variety/script_check error on banned transitions/effects; the director's script gains LINK and ACTION fields.
+- EPISODE.md §00 house look: calm, no glare/flicker, unhurried, continuity, precise actions, same style, research as reference.
+
 ## 2026-11-04 · vertical-only 5–6 min, low small captions (owner)
 - Format: ONE vertical 9:16 film, 5–6 min; no 16:9, no separate short. `new_episode.mjs` writes one story; `gate.mjs` lints 9:16 only;
   `cost.mjs` checks 9:16 (`--both` for 16:9); `ship.sh` ships `<slug>_vertical_9x16.mp4` from `out/<slug>_9x16.mp4`.

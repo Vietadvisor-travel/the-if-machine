@@ -11,7 +11,12 @@ for (const ln of txt.split('\n')) { const t = ln.trim(); if (!t || t.startsWith(
   if (!cur) { const m = t.match(/^(\w+)\s*:\s*(.*)$/); if (m) hdr[m[1].toLowerCase()] = m[2]; continue; } cur.lines.push(t); }
 const BRAND = b => b.o.kind === 'ifm'; const key = b => [b.o.kind || b.type, b.o.act || '', b.o.view || b.o.screen || b.o.planet || ''].join(':'); const actKey = b => (b.o.kind || b.type) + ':' + (b.o.act || '');
 const E = [], Wn = []; const err = m => E.push(m), warn = m => Wn.push(m);
-const words = beats.reduce((s, b) => s + b.lines.join(' ').split(/\s+/).filter(Boolean).length, 0), nLines = beats.reduce((s, b) => s + b.lines.length, 0), mins = words / 2.8 / 60 /* measured 4 Nov 2026: 604 words → 3:35 final at --speed 1.06, pauses and end frame included */ /* ≈ voiced timing + pauses + end frame; lint prints the exact one */, vert = /-v$/.test(slug) /* legacy separate short; since 4 Nov 2026 the main film itself is vertical */;
+// calm house look (owner, 4 Nov 2026): no glare, no jerky or flickering effects; effects only where the scene needs one
+const CALM_TR = ['cut', 'fade', 'slide', 'match', 'zoom', 'zoomthru', 'ink'], BADFX = /\bfx\s+(flash|shake|glitch|chroma|speed|zblur|shock|mblur|strobe)\b/;
+
+const calmOff = /^calm\s*:\s*off\b/m.test(txt);
+if (!calmOff) { beats.forEach((b, i) => { if (b.o.trans && !CALM_TR.includes(b.o.trans)) err(`beat ${i + 1}: transition "${b.o.trans}" is not in the calm set (${CALM_TR.join(' ')})`); if (BADFX.test(b.o.dir || '')) err(`beat ${i + 1}: jerky/flashing effect in dir= (${(b.o.dir.match(BADFX) || [])[1]}) — removed by the calm look; use a camera move instead`); if (/cam=(whip|dutch|snap)/.test(b.o.then || '')) warn(`beat ${i + 1}: cam whip/dutch is jarring — push, pull, truck, crane, float, tilt`); }); }
+const words = beats.reduce((s, b) => s + b.lines.join(' ').split(/\s+/).filter(Boolean).length, 0), nLines = beats.reduce((s, b) => s + b.lines.length, 0), mins = words / 2.35 / 60 /* calm pacing: --speed .95 and a breath between lines ≈ 2.35 words a second (re-measure after each render) */ /* ≈ voiced timing + pauses + end frame; lint prints the exact one */, vert = /-v$/.test(slug) /* legacy separate short; since 4 Nov 2026 the main film itself is vertical */;
 // length (owner, 4 Nov 2026): ONE vertical film, 6–10 min ≈ 1000–1700 spoken words
 if (!vert && (mins < 5.9 || mins > 10.2)) err(`length ≈ ${mins.toFixed(1)} min from ${words} words: the film must be 6–10 min (≈ 1000–1700 words)`);
 if (vert && (mins * 60 < 55 || mins * 60 > 95)) err(`length ≈ ${Math.round(mins * 60)} s: the vertical must be 60–90 s`);

@@ -188,7 +188,7 @@
       fgBokeh(lt, i); } }; };
 
   // ---------- recipe
-  SB.recipes.vis = (o, b) => { const kind = K[o.kind] ? o.kind : 'hero'; const { caps, end } = timeCaps(b.caps, .25, .06, b.capStyle); const idx = (SB._visN = (SB._visN || 0) + 1);
+  SB.recipes.vis = (o, b) => { const kind = K[o.kind] ? o.kind : 'hero'; const { caps, end } = timeCaps(b.caps, .3, (window.IFM && IFM.calm !== false) ? .32 : .06, b.capStyle); // calm pacing (owner, 4 Nov 2026): a breath between lines const idx = (SB._visN = (SB._visN || 0) + 1);
     const P = palOf(o, idx); const dur0 = Math.max(num(o.dur, 0), end + .35, 3); const R = K[kind](o, caps, P, dur0, idx);
     return { dur: dur0, place: 'studio', placeOpts: { color: P.bg, floor: false }, light: 'none', layers: [{ type: 'fn', screen: true, draw: lt => { CUR = o; o._dur = dur0; o._i = idx; o._pushed = false; ctx.save(); R.draw(lt); ctx.restore(); if (o._pushed) { o._pushed = false; } } }], captions: caps, sfx: R.sfx.filter(s => s[0] >= 0 && s[0] < dur0), vis: kind };
   };

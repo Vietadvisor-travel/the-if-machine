@@ -45,8 +45,8 @@ if (firstCap > .6) add(5, 'WARN', `first words land at ${firstCap.toFixed(1)} s`
 const capStarts = body.flatMap(s => s.caps.map(c => s.start + c[0]));
 let run = 0, runStart = 0; energy.forEach((e, i) => { const t = i / FPS; const newCap = capStarts.some(c => c > t - 1 / FPS && c <= t); if (e < m * .3 && !newCap) { if (!run) runStart = t; run++; } else { if (run / FPS >= 2.25) { const s = body.find(s => runStart >= s.start && runStart < s.start + s.dur); if (s && s.type !== 'end') add(4, 'WARN', `dead air ${(run / FPS).toFixed(1)} s at ${runStart.toFixed(1)} s (${s.id})`, 'add a move (cam=breathe/arc), extras, weather, fg=…, a reaction cut, or trim dur'); } run = 0; } });
 // 3 pacing
-if (asl > 4.2) add(8, 'WARN', `average shot length ${asl.toFixed(1)} s — slow for vertical`, 'add shots="WS|MS|CU" coverage or split long beats; target 2–3.5 s');
-if (asl < 1.3) add(5, 'WARN', `average shot length ${asl.toFixed(1)} s — frantic`, 'hold key images longer; give payoffs 3 s+');
+if (asl > 7.5) add(8, 'WARN', `average shot length ${asl.toFixed(1)} s — too slow`, 'add a new angle or a new picture inside long beats; target 4–7 s (calm house look, 4 Nov 2026)');
+if (asl < 3) add(6, 'WARN', `average shot length ${asl.toFixed(1)} s — choppy`, 'hold images longer; let the camera move inside a shot instead of cutting (owner: not too fast)');
 if (cv < .3 && shots.length > 6) add(6, 'WARN', `shot lengths are metronomic (variation ${(cv * 100).toFixed(0)} %)`, 'mix quick cuts (1–1.5 s) with held shots (4–6 s) — rhythm, not a ticking clock');
 // 4 monotony
 const sizes = body.flatMap(s => s.cover.map(c => c[1])); for (let i = 2; i < sizes.length; i++) if (sizes[i] === sizes[i - 1] && sizes[i] === sizes[i - 2]) { add(3, 'INFO', `three ${sizes[i]} shots in a row`, 'change size by ≥2 steps between cuts'); break; }

@@ -21,11 +21,13 @@
   function newHuman(x, y, h, seed, pose, lt, o) { const st = o.style || IFM.peopleStyle; if (h < 2) return; const L = look(seed, o), ph = seed * 1.7, A = IFM.poseAngles ? IFM.poseAngles(pose || 'stand', lt, ph) : null; if (!A) return old(x, y, h, seed, pose, lt, o);
     const holo = st === 'holo', hc = o.holoCol || IFM.P.teal; ctx.save(); ctx.globalAlpha *= o.alpha ?? 1; ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
     if (pose === 'sleep') { ctx.rotate(-Math.PI / 2); ctx.translate(-h * .12, -h * .02); }
-    const H_ = h * L.tall, u = H_ / 100, bob = (pose === 'walk' ? Math.abs(Math.sin(lt * 6 + ph)) * 1.4 : pose === 'run' ? Math.abs(Math.sin(lt * 11 + ph)) * 3 : 0) * u, sit = (pose === 'sit' || pose === 'type') ? 22 * u : 0;
+    const H_ = h * L.tall, u = H_ / 100, bob = (pose === 'walk' ? Math.abs(Math.sin(lt * 6 + ph)) * 1.4 : pose === 'run' ? Math.abs(Math.sin(lt * 11 + ph)) * 3 : 0) * u, sit = (pose === 'sit' || pose === 'type' || pose === 'sitread' || pose === 'sitphone') ? 22 * u : 0;
     const hip = [0, -47 * u - bob + sit], neck = [Math.sin(A[8]) * 34 * u, hip[1] - 33 * u], head = [neck[0] + Math.sin(A[9]) * 4 * u, neck[1] - 10 * u], b = L.bulk;
-    const C = holo ? { skin: hc, top: hc, pants: hc, hair: hc } : { skin: L.skin, top: L.top, pants: L.pants, hair: L.hair }, O = { holo };
+    const hz = o.haze || 0, hzc = o.hazeCol || '#A9B6D3', HZ = c => hz > 0 ? mix(c, hzc, hz) : c; const C = holo ? { skin: hc, top: hc, pants: hc, hair: hc } : { skin: HZ(L.skin), top: HZ(L.top), pants: HZ(L.pants), hair: HZ(L.hair) }, O = { holo };
     if (holo) { ctx.globalAlpha *= .82 + .12 * Math.sin(lt * 23 + seed); ctx.save(); ctx.globalAlpha *= .5; ctx.strokeStyle = hc; ctx.lineWidth = 2 * u; ctx.beginPath(); ctx.ellipse(0, 0, 18 * u, 4.5 * u, 0, 0, TAU); ctx.stroke(); ctx.restore(); glow(0, -50 * u, 70 * u, hc, .25); ctx.globalAlpha *= .78; }
     else { ctx.save(); ctx.globalAlpha *= .22; ctx.fillStyle = '#000'; ctx.beginPath(); ctx.ellipse(4 * u, 0, 16 * u, 3.5 * u, 0, 0, TAU); ctx.fill(); ctx.restore(); }
+    // a real seat under a seated person (no sitting on air); o.chair = false when the scene draws its own
+    if ((pose === 'sit' || pose === 'type' || pose === 'sitread' || pose === 'sitphone') && o.chair !== false && !holo) { const sy = hip[1] + 3 * u, cc = o.chairCol || '#6B4A33'; rr(-12 * u, sy, 24 * u, 4 * u, 1.5 * u, cc, 0); rr(-12 * u, sy + 4 * u, 2.6 * u, -sy - 4 * u, .8 * u, shade(cc, -.25), 0); rr(8.5 * u, sy + 4 * u, 2.6 * u, -sy - 4 * u, .8 * u, shade(cc, -.25), 0); rr(-14 * u, sy - 26 * u, 3.4 * u, 30 * u, 1.2 * u, shade(cc, -.1), 0); }
     // back leg, back arm
     const legB = joints([hip[0] + 2.5 * u, hip[1]], A[6], A[7], 24 * u, 24 * u); seg(hip[0] + 2.5 * u, hip[1], legB[0][0], legB[0][1], 8 * u * b, 6 * u * b, drk(C.pants), O); seg(legB[0][0], legB[0][1], legB[1][0], legB[1][1], 6 * u * b, 4.5 * u * b, drk(C.pants), O);
     const sh = [neck[0] + 6 * u * b, neck[1] + 4 * u], armB = joints(sh, A[2], A[3], 18 * u, 17 * u); seg(sh[0], sh[1], armB[0][0], armB[0][1], 6 * u * b, 5 * u * b, drk(C.top), O); seg(armB[0][0], armB[0][1], armB[1][0], armB[1][1], 5 * u * b, 3.6 * u * b, drk(L.coat ? C.top : C.skin), O);
@@ -39,8 +41,16 @@
     if (!holo) poly([[legF[1][0] - 3 * u, legF[1][1] - 2 * u], [legF[1][0] + 8 * u, legF[1][1] - 1 * u], [legF[1][0] + 8 * u, legF[1][1] + 1 * u], [legF[1][0] - 3 * u, legF[1][1] + 1 * u]], '#1D2036', 0);
     const shF = [neck[0] - 5 * u * b, neck[1] + 4 * u], armF = joints(shF, A[0], A[1], 18 * u, 17 * u); seg(shF[0], shF[1], armF[0][0], armF[0][1], 6.4 * u * b, 5 * u * b, C.top, O); seg(armF[0][0], armF[0][1], armF[1][0], armF[1][1], 5 * u * b, 3.6 * u * b, L.coat ? C.top : C.skin, O);
     if (!holo) poly([[armF[1][0] - 2.4 * u, armF[1][1]], [armF[1][0] + 2.4 * u, armF[1][1]], [armF[1][0], armF[1][1] + 4.5 * u]], C.skin, 0);
+    // held objects (owner, 4 Nov 2026: actions must be precise; hands hold real things)
+    if (o.hold && !holo) { const hF = armF[1], hB = armB[1], mx = (hF[0] + hB[0]) / 2, my = (hF[1] + hB[1]) / 2;
+      if (o.hold === 'letter' || pose === 'read') { ctx.save(); ctx.translate(mx + 3 * u, my - 6 * u); ctx.rotate(-.12); rr(-7 * u, -9 * u, 14 * u, 18 * u, 1 * u, o.holdCol || '#FBFAF4', 0); for (let i = 0; i < 4; i++) rr(-5 * u, -6 * u + i * 3.6 * u, (i % 2 ? 7 : 10) * u, 1.1 * u, .5 * u, '#9AA2B5', 0); if (o.holdMark) rr(-5 * u, 6 * u, 10 * u, 2 * u, .5 * u, o.holdMark, 0); ctx.restore(); }
+      else if (o.hold === 'sign') { line(hF[0], hF[1] + 10 * u, hF[0], hF[1] - 14 * u, 2 * u, '#8B5A2B'); rr(hF[0] - 16 * u, hF[1] - 32 * u, 32 * u, 20 * u, 2 * u, o.holdCol || '#FBFAF4', 0); if (o.signText) T(o.signText, hF[0], hF[1] - 22 * u, { size: Math.min(7 * u, 28 * u / Math.max(1, textW(o.signText, 1, 'display'))), font: 'display', fill: '#1B1F3A', lw: 0 }); }
+      else if (o.hold === 'box') { rr(mx - 9 * u, my - 12 * u, 18 * u, 14 * u, 1.5 * u, o.holdCol || '#C89B62', 0); line(mx - 9 * u, my - 7 * u, mx + 9 * u, my - 7 * u, 1 * u, '#9C7444'); }
+      else if (o.hold === 'cup') { rr(hF[0] - 2 * u, hF[1] - 6 * u, 5 * u, 6 * u, 1 * u, o.holdCol || '#F2E3C6', 0); }
+      else if (o.hold === 'bag') { rr(hF[0] - 5 * u, hF[1], 10 * u, 11 * u, 2 * u, o.holdCol || '#6B4A2E', 0); }
+      else if (o.hold === 'pen') { line(hF[0], hF[1], hF[0] + 5 * u, hF[1] - 4 * u, 1.2 * u, '#1B2A8A'); } }
     // phone in the back hand
-    if (pose === 'phone' || pose === 'type') { const px = armB[1][0], py = armB[1][1]; ctx.fillStyle = '#121527'; ctx.fillRect(px - 2 * u, py - 9 * u, 7 * u, 12 * u); const sc = o.phone || '#9FE8FF'; if (sc !== 'off') { ctx.fillStyle = sc; ctx.fillRect(px - 1 * u, py - 8 * u, 5 * u, 10 * u); glow(px, py - 8 * u, 38 * u, sc, .3); } }
+    if (pose === 'phone' || pose === 'type' || pose === 'sitphone') { const px = armB[1][0], py = armB[1][1]; ctx.fillStyle = '#121527'; ctx.fillRect(px - 2 * u, py - 9 * u, 7 * u, 12 * u); const sc = o.phone || '#9FE8FF'; if (sc !== 'off') { ctx.fillStyle = sc; ctx.fillRect(px - 1 * u, py - 8 * u, 5 * u, 10 * u); glow(px, py - 8 * u, 38 * u, sc, .3); } }
     // neck + head: an angular gem, lit cheek plane, hair as a cap of facets
     if (window.LINT && LINT.on && (o.alpha ?? 1) > .3 && h > H * .08) { const m = ctx.getTransform(), hx = m.a * head[0] + m.c * head[1] + m.e, hy = m.b * head[0] + m.d * head[1] + m.f, r = Math.abs(m.a) * 10 * u; LINT.boxes.push({ k: 'face', x0: hx - r, x1: hx + r, y0: hy - r, y1: hy + r }); }
     seg(neck[0], neck[1] + 3 * u, head[0], head[1] + 4 * u, 4.5 * u, 4 * u, C.skin, O);
@@ -93,4 +103,30 @@
     if (st === 'holo') { ctx.globalAlpha *= .8; glow(0, -h * .4, h * .8, o.col || IFM.P.teal, .25); o = { ...o, col: o.col || IFM.P.teal }; } else if (!['bird', 'fish', 'whale'].includes(kind)) { ctx.save(); ctx.globalAlpha *= .2; ctx.fillStyle = '#000'; ctx.beginPath(); ctx.ellipse(0, 0, h * .45, h * .05, 0, 0, TAU); ctx.fill(); ctx.restore(); }
     if (CR[kind]) quad(kind, h, lt, { ...o, style: st }); else if (kind === 'bird') bird(h, lt, o); else if (kind === 'fish') fish(h, lt, o); else if (kind === 'whale') fish(h, lt, o, true); else robot(h, lt, o);
     ctx.restore(); };
+
+  // ---------------------------------------------------------------- precise actions (owner, 4 Nov 2026: no weird actions)
+  // angles: [frontArm, frontFore, backArm, backFore, frontThigh, frontShin, backThigh, backShin, torsoLean, headTilt]; 0 = straight down, + = forward
+  const basePA = IFM.poseAngles, s_ = Math.sin;
+  const EXTRA = {
+    read: (t, ph) => [.55, -1.35, .45, -1.25, .05, 0, -.05, 0, .03, .32 + s_(t * .7 + ph) * .03],           // both hands hold the letter at chest height, head down
+    sitread: (t, ph) => [.85, -1.2, .75, -1.1, 1.5, -1.5, 1.4, -1.45, .05, .3],
+    sitphone: (t, ph) => [.5, -.4, .9, -1.9, 1.5, -1.5, 1.4, -1.45, .06, .28],
+    hold: (t, ph) => [.5, -1.25, .42, -1.2, .05, 0, -.05, 0, 0, .05],
+    holdsign: (t, ph) => [2.15 + s_(t * 2 + ph) * .05, .25, .3, -.2, .05, 0, -.05, 0, -.02, -.06],
+    talk: (t, ph) => [.25 + s_(t * 3.1 + ph) * .18, -.6 - s_(t * 2.3 + ph) * .3, -.2, -.3, .05, 0, -.05, 0, .02, s_(t * 1.7 + ph) * .06],
+    worried: (t, ph) => [.95, 2.45, -.12, 0, .05, 0, -.05, 0, .02, .2],                                      // hand to the face, head down a little
+    shock: (t, ph) => [1.05, 2.3, -.35, -.2, .12, 0, -.14, 0, -.09, -.1],
+    think: (t, ph) => [.9, 2.4 + s_(t * .8 + ph) * .04, -.15, 0, .05, 0, -.05, 0, 0, -.1],                                        // a hand up to the mouth, leaning back
+    nod: (t, ph) => [.12, 0, -.12, 0, .05, 0, -.05, 0, 0, .12 + s_(t * 4 + ph) * .1],
+    stand: (t, ph) => [.1 + s_(t * 1.1 + ph) * .025, -.05, -.1 - s_(t * 1.1 + ph) * .025, -.05, .04, 0, -.04, 0, 0, s_(t * .7 + ph) * .04],
+  };
+  IFM.poseAngles = (pose, t, ph) => EXTRA[pose] ? EXTRA[pose](t, ph) : basePA(pose, t, ph);
+  // stride-matched travel speeds (in body heights per second): walking/running figures never slide
+  IFM.WALK = .8; IFM.RUN = 2.6;
+  IFM.walkX = (x0, lt, h, dir = 1, run = false) => x0 + dir * lt * h * (run ? IFM.RUN : IFM.WALK);
+  // crowds: depth by haze (not see-through ghosts), stride-matched walkers
+  IFM.people = (n, yBase, lt, o = {}) => { const r = rng(o.seed || 3), rows = o.rows || 3, L = []; for (let i = 0; i < n; i++) { const row = i % rows; L.push({ seed: (o.seed || 1) * 100 + i, x: r() * W * 1.2 - W * .1, d: rows > 1 ? row / (rows - 1) : 1, dir: r() < .5 ? -1 : 1, poseAlt: r() }); }
+    L.sort((a, b) => a.d - b.d); for (const p of L) { const h = (o.h || H * .22) * lerp(.6, 1, p.d), y = yBase - (1 - p.d) * H * (o.depth ?? .1); let x = p.x; let pose = Array.isArray(o.pose) ? o.pose[Math.floor(p.poseAlt * o.pose.length)] : (o.pose || 'stand'); if (o.react) for (const [t0, rp] of o.react) if (lt >= t0 + clamp(p.x) * .9 + p.poseAlt * .25) pose = rp;
+      if (pose === 'walk' || pose === 'run') { const span = W * 1.3; x = ((p.x + lt * h * (pose === 'run' ? IFM.RUN : IFM.WALK) * p.dir) % span + span) % span - W * .15; }
+      IFM.human(x, y, h, p.seed, pose, lt, { ...o, haze: (1 - p.d) * .45, hazeCol: o.hazeCol, flip: (pose === 'walk' || pose === 'run') ? p.dir < 0 : (p.seed % 2 === 0) }); } };
 })();
