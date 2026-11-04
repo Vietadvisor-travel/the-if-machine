@@ -228,3 +228,12 @@
 - tools/sheet.mjs: contact sheet of real frames (v / h) before rendering.
 - world3d.js (three.js street) kept for special set pieces only — reads as a game, not house style.
 - references: vis-format.md, nutworld-transitions.md, script-frames.md, world3d.md. Reference episode: ep5v2 / ep5v2-yt.
+
+## 4 Nov 2026 — engine 3.0, phase 1–2: shot grammar + 3D sets
+- `cam=<SIZE>.<angle>.<move>[:fx,fy]` (EWS WS MS MCU CU ECU · eye high low top dutch ots pov · push pull trackL trackR pan tilt crane drop orbit dolly)
+  on any 2D world beat and in `then=` cuts; moves run over the shot (segment), not the whole beat. `IFM.depth(d, fn)` for 2.5D layers.
+- New `ifm3d.js`: `act=s3 set=city|street|plaza|office|home|waiting|servers on=<subject>` — flat-shaded facet 3D sets with posable
+  3D people (walk, phone, type, sit, sitphone, talk, cheer, sign, wait), traffic, blackout cascade (`dark=`), day/dawn/dusk/night.
+  The same shot grammar drives a real 3D camera (size → distance, angle → elevation, move → path). Sets are built at load;
+  transitions hold the outgoing/incoming 3D frame; static matrices frozen. Cost ≈ 300–450 ms/frame at 0.62 render scale.
+  Tested on a 7-set story (contact sheet checked frame by frame).

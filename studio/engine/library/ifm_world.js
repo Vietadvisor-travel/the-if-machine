@@ -22,7 +22,7 @@
 
   // ---------------------------------------------------------------- camera rigs
   const CAMS = ['push', 'truckR', 'crane', 'pull', 'orbit', 'truckL', 'drop', 'tilt', 'float', 'dutch'];
-  function cam(name, lt, dur) { const q = clamp(lt / Math.max(1, dur)), e = E.inOut(q), u = U(); let z = 1, x = 0, y = 0, r = 0;
+  function cam(name, lt, dur) { if (shot(name, lt, dur)) return; const q = clamp(lt / Math.max(1, dur)), e = E.inOut(q), u = U(); let z = 1, x = 0, y = 0, r = 0;
     switch (name) {
       case 'push': z = lerp(1.02, 1.16, e); break; case 'pull': z = lerp(1.18, 1.02, e); break;
       case 'truckR': z = 1.1; x = lerp(W * .05, -W * .05, e); break; case 'truckL': z = 1.1; x = lerp(-W * .05, W * .05, e); break;
@@ -34,6 +34,30 @@
         z = 1.06 + .03 * Math.sin(lt * .5); x = Math.sin(lt * .37) * 12 * u; y = Math.cos(lt * .29) * 9 * u; }
     x += Math.sin(lt * .9) * 3 * u; y += Math.cos(lt * .7) * 3 * u; // a breath, never fully still
     ctx.translate(W / 2 + x, H / 2 + y); ctx.rotate(r); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2); }
+  // ---------------------------------------------------------------- shot grammar (owner, 4 Nov 2026: many sizes, angles, moves)
+  // cam=<SIZE>[.<angle>][.<move>][:fx,fy]   e.g. cam=CU.low.push:.5,.38   cam=WS.top.crane   cam=MS.ots.track:.4,.5
+  //   SIZE  EWS WS MS MCU CU ECU   (framing scale around the subject point fx,fy = 0..1 of the frame; default .5,.5)
+  //   angle eye high low top dutch ots pov   (2D: composition + mild perspective; true angles live in kind=w3)
+  //   move  static push pull trackL trackR pan tilt crane drop orbit dolly   (eased over the shot)
+  const SIZE = { EWS: 1, WS: 1.05, MS: 1.3, MCU: 1.6, CU: 2, ECU: 2.8 };
+  IFM.camState = { x: 0, y: 0, z: 1, dx: 0, dy: 0 };
+  function shot(name, lt, dur) { const m = String(name).match(/^(EWS|WS|MCU|MS|ECU|CU)((?:\.[a-zA-Z]+)*)(?::([\d.]+),([\d.]+))?$/); if (!m) return false;
+    const mods = m[2].split('.').filter(Boolean), ang = mods.find(a => /^(eye|high|low|top|dutch|ots|pov)$/.test(a)) || 'eye', mv = mods.find(a => !/^(eye|high|low|top|dutch|ots|pov)$/.test(a)) || 'push';
+    let fx = m[3] != null ? +m[3] : .5, fy = m[4] != null ? +m[4] : .5; const e = E.inOut(clamp(lt / Math.max(1, dur))), u = U(); let z = SIZE[m[1]], dx = 0, dy = 0, r = 0, sy = 1;
+    // the angle places the subject: low = subject high in frame (we look up), high/top = subject low (we look down), ots = subject off-centre
+    if (ang === 'low') { fy += .1; sy = 1.06; } else if (ang === 'high') { fy -= .08; sy = .94; } else if (ang === 'top') { sy = .9; } else if (ang === 'dutch') r = .05; else if (ang === 'ots') fx -= .12;
+    switch (mv) { case 'push': z *= lerp(1, 1.12, e); break; case 'pull': z *= lerp(1.14, 1, e); break; case 'trackL': dx = lerp(-.05, .05, e); break; case 'trackR': dx = lerp(.05, -.05, e); break;
+      case 'pan': dx = lerp(.09, -.09, e); break; case 'tilt': dy = lerp(-.07, .07, e); break; case 'crane': dy = lerp(.06, -.05, e); z *= lerp(1, 1.06, e); break; case 'drop': dy = lerp(-.06, .03, e); z *= lerp(1.08, 1, e); break;
+      case 'orbit': r += lerp(.03, -.03, e); dx = lerp(-.03, .03, e); z *= 1.04; break; case 'dolly': z *= lerp(1, 1.25, E.inOut(e)); break; default: z *= 1 + .01 * Math.sin(lt * .5); }
+    z = Math.max(1, z); const mx = (z - 1) * W / 2 / z, my = (z * sy - 1) * H / 2 / (z * sy);
+    let x = clamp((.5 - fx) * W + dx * W, -Math.max(0, mx), Math.max(0, mx)) * z, y = clamp((.5 - fy) * H + dy * H, -Math.max(0, my), Math.max(0, my)) * z * sy;
+    x += Math.sin(lt * .9) * 3 * u; y += Math.cos(lt * .7) * 3 * u; IFM.camState = { x, y, z, dx: dx * W, dy: dy * H, ang };
+    ctx.translate(W / 2 + x, H / 2 + y); ctx.rotate(r); ctx.scale(z, z * sy); ctx.translate(-W / 2, -H / 2); return true; }
+  // foreground for over-the-shoulder: a soft dark shoulder and head in the lower corner (drawn in screen space after the scene)
+  IFM.otsFg = (side = 1) => { const u = U(), x = side > 0 ? W * .02 : W * .98; ctx.save(); ctx.fillStyle = '#141826'; ctx.globalAlpha = .92; ctx.beginPath(); ctx.ellipse(x, H * .98, W * .3, H * .16, 0, 0, TAU); ctx.fill(); ctx.beginPath(); ctx.ellipse(x + side * W * .06, H * .74, W * .1, H * .075, 0, 0, TAU); ctx.fill(); ctx.restore(); };
+  // 2.5D: draw something at depth d (1 = the subject plane, <1 farther, >1 nearer); camera moves shift layers by depth
+  IFM.depth = (d, fn) => { const s = IFM.camState; ctx.save(); ctx.translate(s.dx * (d - 1) * 1.6, s.dy * (d - 1) * 1.6); fn(); ctx.restore(); };
+  IFM.shot = shot;
   IFM.cam = cam;
 
   // ---------------------------------------------------------------- lettering on cue (words="TEXT@k|!TEXT@k")
@@ -185,7 +209,7 @@
     const fam = SFAM[o.act] || {}; if (fam.bed && !o.nobed) sfx.push([.05, fam.bed]);
     String(o.words || '').split('|').filter(Boolean).forEach((w, j) => { const m = w.match(/@(\d+)$/), at = T0(c, m ? +m[1] : j, .3 + j), snd = { '!': 'ifm_motion_impact_slam', '~': 'ifm_sci_ui_confirm', '^': 'ifm_machine_chime' }[w[0]]; if (snd) sfx.push([at, snd]); });
     return { sfx, draw: lt => { let k = 0; for (let j = 0; j < B.length; j++) if (lt >= B[j].at) k = j; const sg = B[k], q = lt - sg.at;
-      ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split') { if (k && q < .22 && IFM.calm === false) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore();
+      IFM.seg = { at: sg.at, end: B[k + 1] ? B[k + 1].at : dur }; ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split' && !sg.b.is3d) { if (k && q < .22 && IFM.calm === false) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } if (/^(EWS|WS|MCU|MS|ECU|CU)/.test(sg.cam)) shot(sg.cam, q, (B[k + 1] ? B[k + 1].at : dur) - sg.at); else cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore(); if (!sg.b.is3d && /\.ots/.test(sg.cam)) IFM.otsFg(/:0?\.[0-4]/.test(sg.cam) ? -1 : 1);
       if (k && q < .12 && IFM.calm === false) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }
       if (!o._noWords) words(o, c, lt); if (sg.b.post) sg.b.post(lt); }, letters: lt => words(o, c, lt) }; };
 })();
