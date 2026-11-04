@@ -310,7 +310,7 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - LINK: one small item from the endless list: Nora's request
 - PICTURE: SUBJECT the request form close up, Nora's pen hovering, no box that says raisins / BACKGROUND her bakery counter / FOREGROUND a small bowl, empty / LIFE her pen moves down the list, she writes RAISINS in the margin
 - ACTION: Nora sits at the counter on a stool holding a pen, reading the form, then writing in the margin
-- SHOT: ECU top push 2D | MS eye static 2D
+- SHOT: ECU top push 2D | MS eye push 2D | EWS high pull 3D
 - CAMERA: top-down push along the form, then a still medium of Nora waiting
 - LOOK: warm interior, cream and ink, dry humour, form fills the frame
 - TIMELINE: 0 the form: FLOUR · SUGAR · SALT · YEAST · 2 the pen hovers · 3.5 she writes RAISINS in the margin · 4.5 cut: Nora waits at the counter · 5.5 a calendar flips: WEEK 1 · WEEK 2 · WEEK 3 · 7.5 the calendar shows WEEK 3 · 9 Nora rests her chin on her hand
@@ -604,7 +604,7 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - LINK: callback to the hook: the same shelves, the same cards
 - PICTURE: SUBJECT Nora placing price cards back on the loaves / BACKGROUND the window with a short line / FOREGROUND bread basket / LIFE steam, a customer enters
 - ACTION: Nora stands at the shelves placing small cards on the loaves with her right hand, then turns to greet a customer
-- SHOT: MCU eye push 2D | WS eye static 2D
+- SHOT: MCU eye push 2D | WS eye push 2D | MS eye push 2D
 - CAMERA: push to her hand and the card, then a still wide of the shop
 - LOOK: morning, warm and bright, content, mirror of the hook framing
 - TIMELINE: 0 Nora places a card · 2 another card · 3.5 cut: the window, a short line · 5 a customer enters · 6.5 !THE MESSAGE appears · 8 Nora smiles and nods · 9.5 the street outside fills with ordinary traffic · 11 Nora waves to a customer · 12.5 the camera holds

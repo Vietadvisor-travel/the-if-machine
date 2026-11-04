@@ -161,7 +161,7 @@ But a city makes millions of different things,
 and no list can hold them all.
 
 // S20 · 3:19 [7 s] SUBJECT: the form with no box for raisins; three weeks of waiting
-# vis kind=w act=x_md_form cut=2 cam=MS.top.push:.5,.38 trans=cut then="cam=MS.eye.static:.5,.42@2"
+# vis kind=w act=x_md_form cut=2 cam=MS.top.push:.5,.38 trans=cut then="cam=MS.eye.push:.5,.42@2|act=s3 set=city time=day rush=1 cam=EWS.high.pull on=street@3"
 Nora asks for raisins.
 The form has no box for raisins.
 She waits three weeks for a reply.
@@ -315,7 +315,7 @@ Within a month, a card decides.
 And within a year, people invent money again.
 
 // S40 · 6:33 [9 s] PAYOFF SUBJECT: Nora puts the price cards back (callback to the hook)
-# vis kind=w act=x_md_bakery v=back cam=MCU.eye.push:.32,.32 trans=match words="!IT WAS THE MESSAGE@3" then="cam=WS.eye.static:.5,.45@2"
+# vis kind=w act=x_md_bakery v=back cam=MCU.eye.push:.32,.32 trans=match words="!IT WAS THE MESSAGE@3" then="cam=WS.eye.push:.5,.45@2|cam=MS.eye.push:.72,.3@4"
 Nora puts the little cards back on her shelves.
 The line outside is short again.
 Money was never the coins.
