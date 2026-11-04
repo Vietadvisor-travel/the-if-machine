@@ -1,36 +1,36 @@
-# Delivery — AI điều hành quốc gia (ai-runs-a-country) · RUN #1 · 2026-11-04 (remake, documentary format)
+# Delivery — AI điều hành quốc gia (ai-runs-a-country) · RUN #1 · 2026-11-04 (v3: calm documentary remake)
 
 ## Files (Drive TheIfMachine_Media/ai-runs-a-country/)
-- ai-runs-a-country_vertical_9x16.mp4 · 219M · 371 s (6:11) · 1080x1920 — https://drive.google.com/file/d/1vz7aAQpddgDrAuqYm3ciAM4fmLtyZCwx/view
-- ai-runs-a-country_cover.jpg · 200K · 1080x1920
-- ai-runs-a-country.srt · 12K (English)
-- ai-runs-a-country_stories.zip · 20K
-- Old file from the first version still on Drive: ai-runs-a-country_long_16x9.mp4 (superseded; vertical only since 4 Nov 2026).
+- ai-runs-a-country_vertical_9x16.mp4 · 6:18 · 1080x1920 · 25 fps — https://drive.google.com/file/d/1vz7aAQpddgDrAuqYm3ciAM4fmLtyZCwx/view
+- ai-runs-a-country_cover.jpg · ai-runs-a-country.srt (English) · ai-runs-a-country_stories.zip
+- Superseded files from earlier versions may remain in the folder (ai-runs-a-country_long_16x9.mp4).
 
 ## Production
-- Director's script first: jobs/scripts/ai-runs-a-country.md (52 shots), built shot by shot (30 new full-frame scenes in engine/library/bank/ai-runs-a-country2–4.js).
-- Voice: am_puck (Kokoro, Apache-2.0). Objective documentary voice; no host, no machine identity.
-- Music credits: Kevin MacLeod (incompetech.com), CC BY 4.0 — "Hidden Agenda", "Covert Affair", "Mystery Bazaar", "Quirky Dog" (+ others listed by ship.sh). Every credit line goes in the description.
-- Gates: gate.mjs PASS · lint 0 errors (9:16) · variety clean · review 90 · render cost max 0.3 s/frame · frame fill median 15 % dead area · qa.py --lean 2 rounds (7 sheets).
-- Length: 6:11, vertical 9:16.
+- Director's script v3 first (jobs/scripts/ai-runs-a-country.md, 36 shots), built shot by shot; calm house look (no bloom, no flashes,
+  no word-by-word caption highlight, smooth varied transitions, one camera move per shot, wide/close cuts); precise people actions
+  (chairs, held objects, stride-matched walking); one woman in a red coat carries the simulated year.
+- Voice: am_puck (Kokoro, Apache-2.0) at speed .95. Music: Kevin MacLeod (incompetech.com), CC BY 4.0 — credit lines in the description.
+- Gates: gate.mjs PASS · lint 0 errors · variety clean · review 97 · render cost max 0.23 s/frame · frame fill median 9 % dead ·
+  preflight OK (117 voice lines = story lines, 29 sounds known, calm look) · qa.py --lean round 2 (7 sheets).
 
-## Facts on screen (each with its source from the research pack)
-- Estonia: about 99 % of public services online; digital ID; 130+ public-sector AI projects since 2019 — e-Estonia factsheet (F1, F3, F4)
-- Online voting since 2005; about half of votes online in 2023 — Jarnias 2026 (F2)
-- Governments already use machines for benefits, fraud checks, transport — The Best AI ch. 44 (F5)
-- Albania presented "Diella", an AI virtual minister for public procurement, Sep 2025; "100% incorruptible" is the stated promise — Global Government Forum + bne IntelliNews (F14)
-- Robodebt: 2016, income averaging, unlawful, scrapped 2020, about 470,000 debts repaid, A$1.8 billion settlement 2021 — Wikipedia + Federal Court (F7, F8); Royal Commission 2023 "crude and cruel" — LSJ + JURIST (F15)
-- Netherlands childcare benefits: nationality used as a risk signal, tens of thousands of families, cabinet resigned 15 Jan 2021, at least €30,000 each — DutchNews.nl + RNZ (F11, F12)
-- England 2020: about 39 % of A-level grades downgraded, government U-turn — CNN + Yahoo News UK + The Week (F13)
-- Canada: impact assessment, publication and monitoring before an automated decision system goes live — The Statesman 2026 (F6)
+## Facts on screen (sources in the research pack)
+- Estonia: about 99 % of public services online; digital identity; online voting since 2005, about half of votes online in 2023 (F1, F2, F4)
+- Albania presented an AI "virtual minister" for public tenders in Sep 2025; "cannot be bribed" is the stated plan, still rolling out (F14)
+- Robodebt: started 2016, income averaging, found unlawful, scrapped 2020, about 470,000 wrongly issued debts repaid, about A$1.8 billion settlement 2021;
+  Royal Commission 2023: "a crude and cruel mechanism" (F7, F8, F15)
+- Netherlands: childcare-benefit risk profiles, nationality used as a risk signal, tens of thousands of families, government resigned January 2021,
+  at least €30,000 offered per parent (F11, F12)
+- England 2020: algorithm lowered about 39 % of A-level grades, dropped within days after protests (F13)
+- Canada: impact assessment before an automated decision system goes live, results monitored (F6)
 
 ## Honest notes
-- The simulated country, its palace and the AI core are illustrative; letters and forms on screen are generic, not real documents. No real people are depicted.
-- Diella is shown only as a glowing tender gate (no avatar likeness). The Dutch victim count is given as "tens of thousands" because sources range from about 20,000 to 30,000+.
-- Two small flaws in this render: the "SIGNED: A HUMAN" tag touches the captions in the last 4 s, and a half-second machine-logo flash in the transition to the end card. Both fixed in the engine for later episodes.
+- The country, the woman in the red coat and every interior are fictional; letters/forms are generic (the $4,120 amount is illustrative).
+  Protest signs in the England scene are generic wording, not quotes.
+- The autopilot comparison is an explanatory analogy, not a claim about any government.
+- Dutch victim count stated as "tens of thousands" (sources range about 20,000–30,000+).
 
 ## For Muse
-- Title options: 1) What If an AI Ran Your Country? 2) What If a Machine Ran Your Government for a Year? 3) What If AI Ran the Whole Government?
-- Hook (first 3 s): "Imagine waking up tomorrow and your government is a machine."
-- 6:11 vertical: YouTube as a normal vertical video (Shorts max 3 min); TikTok; Facebook; Instagram if the length is allowed.
+- Title options: 1) What If an AI Ran Your Country? 2) What Would Actually Change If AI Ran the Government? 3) One Year of AI Government
+- Hook (first 3 s): "Imagine your country is run by an artificial intelligence. Not in a film."
+- 6:18 vertical: YouTube as a normal vertical video (Shorts max 3 min); TikTok; Facebook; Instagram if the length is allowed.
 - Post only after the owner says "đăng tập AI điều hành quốc gia".
