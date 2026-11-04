@@ -439,7 +439,7 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - SHOT: WS high push 2D | MCU eye pan 2D+3D (pip)
 - CAMERA: push across the map, then pan between the pins
 - LOOK: atlas, cool blue sea, warm land, clear, pins in the upper half
-- TIMELINE: 0 world map · 2 pin FINLAND · 2017–18 · 4 pin KENYA · 6 pin USA · 7.5 cut: labels ABOUT THE SAME · ABOUT THE SAME · 1–2 H LESS/WEEK · 10 the map holds
+- TIMELINE: 0 world map · 2 pin FINLAND · 2017–18 · 4 pin KENYA · 6 pin USA · 7.5 cut: labels ABOUT THE SAME · ABOUT THE SAME · 1–2 H LESS/WEEK · 10 the inset shows people at desks · 11.5 the map holds
 - TEXT: per pin: ABOUT THE SAME · 1–2 H LESS A WEEK
 - FX: trans=cut
 - SOUND: soft pin drops
