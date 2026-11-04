@@ -25,6 +25,7 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
   Drive gets the CRF-17 masters (`tools/ship.sh`), never the chat-size `_FINAL` files: never squeeze below 30 MB.
 
 ## Talking with the owner
+**Every message to the owner is in Vietnamese, always** (owner, 4 Nov 2026: never English, including short progress notes).
 He speaks plain Vietnamese and names an episode by its Vietnamese name, part of it, or "tiếp". Find the slug in the
 `tên (VI)` column of `jobs/STATUS.md` (PROTOCOL §6). "tiếp" = the highest-scoring episode at RESEARCH_READY. Unclear →
 ask one short question, never guess. Always name episodes to him in Vietnamese, never by slug.
