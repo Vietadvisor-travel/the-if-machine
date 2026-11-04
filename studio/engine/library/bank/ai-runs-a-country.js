@@ -125,7 +125,7 @@
   IFM.ACT.x_arc_protest = (o, c, dur) => { const t1 = T0(c, 2, 2.5); return { sfx: [[.4, 'crowd_murmur'], [t1, 'ifm_motion_pop']], draw: lt => { const v = V(), u = U(); IFM.sky('day', lt, { clouds: 1 }); ctx.fillStyle = '#7E8AA8'; ctx.fillRect(0, H * .78, W, H * .22);
     B('gov_building').draw(W / 2, H * (v ? .55 : .66), H * (v ? .2 : .42), lt, { lit: 0 }); IFM.people(v ? 10 : 16, H * (v ? .74 : .96), lt, { pose: ['look', 'stand', 'point', 'look'], h: H * (v ? .16 : .26), rows: 2, seed: 9 });
     const texts = ['WHO DECIDES|THE APPEAL?', 'WHO DO|I CALL?', 'WHO DECIDES|THE APPEAL?', 'A HUMAN|PLEASE'], n = v ? 3 : 4;
-    for (let i = 0; i < n; i++) { const k = E.back(K(lt, t1 + i * .18, .4)); if (k <= 0) continue; const x = W * (.2 + .6 * i / Math.max(1, n - 1)), yb = H * (v ? .62 : .78) + (i % 2) * H * .04; B('protest_sign').draw(x, yb + (1 - k) * H * .2, H * (v ? .13 : .26), lt, { text: texts[i], seed: i, col: i === 0 ? red : ink }); } } }; };
+    for (let i = 0; i < n; i++) { const k = E.back(K(lt, t1 + i * .18, .4)); if (k <= 0) continue; const x = W * ((v ? .27 : .2) + (v ? .46 : .6) * i / Math.max(1, n - 1)), yb = H * (v ? .62 : .78) + (i % 2) * H * .04; B('protest_sign').draw(x, yb + (1 - k) * H * .2, H * (v ? .13 : .26), lt, { text: texts[i], seed: i, col: i === 0 ? red : ink }); } } }; };
 
   // 11. the rulebook: assess, publish, monitor — then the switch goes LIVE
   IFM.ACT.x_arc_checklist = (o, c, dur) => { const steps = ['ASSESS THE IMPACT', 'PUBLISH IT', 'WATCH THE RESULTS'], at = i => T0(c, Math.min(i + 1, c ? c.length - 1 : 3), 1 + i * 1.1) + (c && c.length < 4 ? i * .5 : 0), tl = at(2) + .9;
