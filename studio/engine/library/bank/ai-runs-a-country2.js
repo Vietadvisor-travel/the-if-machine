@@ -89,7 +89,7 @@
     rr(W * .5 - W * (v ? .22 : .12), cy + R * 1.6, W * (v ? .44 : .24), H * .06, 8 * u, '#111', 0); T('NOW SERVING 0', W / 2, cy + R * 1.6 + H * .03, { size: 26 * u, font: 'mono', fill: '#FF6B4F', lw: 0 }); dust(lt); } });
 
   // ---------------------------------------------------------------- S07 the bus is already there; cut 1 = dots converging on the stop
-  A.x_busstop = (o, c, dur) => { const t1 = T0(c, 1, 2.5), t2 = T0(c, 2, 5); return { sfx: [[.4, 'street_ambience'], [t2, 'bus_brake']], draw: lt => { const v = V(), u = U(), gy = street(lt, { time: 'day', seed: 2 }); const sx = W * (v ? .3 : .3);
+  A.x_busstop = (o, c, dur) => { const t1 = T0(c, 1, 2.5), t2 = T0(c, 2, 5); return { sfx: [[.4, 'ifm_world_traffic'], [t2, 'bus_brake']], draw: lt => { const v = V(), u = U(), gy = street(lt, { time: 'day', seed: 2 }); const sx = W * (v ? .3 : .3);
     rr(sx - 6 * u, gy - H * .16, 12 * u, H * .16, 3 * u, '#2E3A59', 0); circ(sx, gy - H * .17, 34 * u, '#2E86DE', 0); T('BUS', sx, gy - H * .17, { size: 22 * u, font: 'display', fill: '#fff', lw: 0 }); rr(sx + 20 * u, gy - H * .07, W * .16, 14 * u, 6 * u, '#6B4A2E', 0);
     const bx = lerp(W * 1.4, W * (v ? .62 : .58), E.out(clamp((lt - .2) / Math.max(1, t2 - .2)))); IFM.thing('bus', bx, gy + H * .03, H * (v ? .12 : .18), lt); man(lerp(-W * .1, sx + 40 * u, clamp(lt / 3)), gy + 6 * u, H * (v ? .17 : .25), 7, lt < 3 ? 'walk' : 'look', lt);
     label('8:00', sx, gy - H * .24, 34 * u, yellow);
@@ -97,7 +97,7 @@
       const r = rng(9), tx = sx, ty = gy * .8; for (let i = 0; i < 200; i++) { const x0 = r() * W, y0 = r() * gy * .95, q = E.inOut(clamp((lt - t1 - r() * .6) / 1.6)); circ(lerp(x0, tx + (r() - .5) * 60 * u, q), lerp(y0, ty + (r() - .5) * 40 * u, q), 4 * u, yellow, 0); } glow(tx, ty, 120 * u, yellow, .5); ctx.restore(); } } }; };
 
   // ---------------------------------------------------------------- S08 a snowy old town; phones light up in a wave; 99 % in light
-  A.x_snowtown = (o, c, dur) => { const t2 = T0(c, 1, 3); return { sfx: [[.2, 'wind_soft']], draw: lt => { const v = V(), u = U(), gy = GY(); sky('dusk', lt); ctx.save(); ctx.globalAlpha = .3; ctx.fillStyle = '#C6D4FF'; ctx.fillRect(0, 0, W, H); ctx.restore();
+  A.x_snowtown = (o, c, dur) => { const t2 = T0(c, 1, 3); return { sfx: [[.2, 'ifm_world_wind_snow']], draw: lt => { const v = V(), u = U(), gy = GY(); sky('dusk', lt); ctx.save(); ctx.globalAlpha = .3; ctx.fillStyle = '#C6D4FF'; ctx.fillRect(0, 0, W, H); ctx.restore();
     const sp = W * .72; rr(sp - 14 * u, gy - H * .52, 28 * u, H * .52, 0, '#4A4E6E', 0); poly([[sp - 30 * u, gy - H * .52], [sp, gy - H * .66], [sp + 30 * u, gy - H * .52]], '#2E8B6A', 0);
     gables(lt, gy, v ? 1.05 : 1, true); ctx.fillStyle = '#EEF3FF'; ctx.fillRect(0, gy, W, H - gy); ctx.fillStyle = '#C9D4EE'; for (let i = 0; i < 12; i++) ctx.fillRect(0, gy + i * 22 * u, W, 2 * u);
     for (let i = 0; i < (v ? 6 : 9); i++) { const x = W * (.08 + i * (v ? .17 : .11)), on = lt > .6 + i * .18; man(x, gy + H * .05 + (i % 2) * H * .03, H * (v ? .16 : .24), 40 + i, 'phone', lt, { col: ['#C0392B', '#2C3E50', '#8E44AD', '#16A085'][i % 4] }); if (on) glow(x + 6 * u, gy + H * .05 - H * (v ? .1 : .15), 50 * u, '#BFE9FF', .6); }
@@ -134,7 +134,7 @@
     rr(W * .02, dy - H * .1, 40 * u, H * .07, 6 * u, '#3D5A80', 0); for (let i = 0; i < 4; i++) line(W * .02 + (8 + i * 8) * u, dy - H * .1, W * .02 + (6 + i * 9) * u, dy - H * .15, 3 * u, ['#E63946', '#1D3557', '#2A9D8F', '#E9C46A'][i]); dust(lt, 0, .6); } }; };
 
   // ---------------------------------------------------------------- S11b a city block with three automated offices
-  A.x_block = (o, c, dur) => ({ sfx: [[.2, 'street_ambience'], [T0(c, 1, 2), 'ifm_sci_radar_ping'], [T0(c, 2, 4), 'bus_horn']], draw: lt => { const v = V(), u = U(), gy = street(lt, { time: 'day', seed: 3, signs: [] }); const n = v ? 4 : 6, w = W / n;
+  A.x_block = (o, c, dur) => ({ sfx: [[.2, 'ifm_world_traffic'], [T0(c, 1, 2), 'ifm_sci_radar_ping'], [T0(c, 2, 4), 'bus_horn']], draw: lt => { const v = V(), u = U(), gy = street(lt, { time: 'day', seed: 3, signs: [] }); const n = v ? 4 : 6, w = W / n;
     for (let i = 0; i < 3; i++) { const k = K(lt, T0(c, i, .4 + i * 1.2), .4); if (k <= 0) continue; const x = W * (.3 + i * .2), y = gy - H * .3; ctx.save(); ctx.globalAlpha = k * .6; ctx.globalCompositeOperation = 'screen'; const a = Math.sin(lt * 2 + i) * .4; ctx.fillStyle = [teal, yellow, '#9FB7FF'][i]; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.sin(a - .2) * H * .3, y + H * .3); ctx.lineTo(x + Math.sin(a + .2) * H * .3, y + H * .3); ctx.fill(); ctx.restore(); glow(x, y, 60 * u, [teal, yellow, '#9FB7FF'][i], .6 * k); label(['BENEFITS', 'FRAUD CHECKS', 'BUS ROUTES'][i], W * (.3 + i * .2), H * (.1 + i * .07), 28 * u * E.back(k), [teal, yellow, '#9FB7FF'][i]); }
     const bk = K(lt, T0(c, 2, 4), .3); if (bk > 0) IFM.thing('bus', lerp(W * .7, W * 1.4, clamp((lt - T0(c, 2, 4)) / 3)), gy + H * .05, H * .1, lt);
     for (let i = 0; i < 7; i++) { const x = ((i * W / 6 + lt * 50 * u * (i % 2 ? 1 : -1)) % (W * 1.2) + W * 1.2) % (W * 1.2) - W * .1; man(x, gy + H * (.08 + (i % 3) * .03), H * (v ? .13 : .2), 50 + i, 'walk', lt, { flip: i % 2 === 0 }); }

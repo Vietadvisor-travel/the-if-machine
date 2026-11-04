@@ -1350,6 +1350,7 @@ if __name__ == '__main__':
     a = sys.argv[1:]; opt = lambda k: a[a.index('--' + k) + 1] if '--' + k in a else None
     if not a: print(__doc__); sys.exit()
     if a[0] == 'qa': qa_file(a[1], opt('stems')); sys.exit()
+    if a[0] == 'names': bad = [n for n in a[1:] if resolve(n)[0] is None]; print('unknown sounds: ' + (', '.join(bad) if bad else 'none')); sys.exit(1 if bad else 0)
     q = main(a[0], opt('design'), opt('story'), opt('fmt'), float(opt('lufs')) if opt('lufs') else None, float(opt('tp')) if opt('tp') else None,
              stingers='--no-stingers' not in a, legacy='--legacy-stems' in a, quiet='--quiet' in a)
     print('sound design →', a[0] + '_mix.wav', f'{q["events_scheduled"]} events, {q["unique_sounds"]} sounds, {q["mix"]["lufs_i"]} LUFS, TP {q["mix"]["tp_dbtp"]} dBTP')
