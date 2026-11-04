@@ -3,7 +3,7 @@
 // Checks: every shot has all fields filled; spoken length 6–10 min (2.8 words/s); variety of camera moves, transitions and
 // effects; no camera move or transition repeated in consecutive shots; a NEW bespoke build at least every 4 shots.
 import fs from 'fs';
-const src = fs.readFileSync(process.argv[2], 'utf8'), F = ['VO', 'LINK', 'PICTURE', 'ACTION', 'CAMERA', 'TEXT', 'FX', 'SOUND', 'BUILD'];
+const src = fs.readFileSync(process.argv[2], 'utf8'), F = ['VO', 'LINK', 'PICTURE', 'ACTION', 'SHOT', 'CAMERA', 'TEXT', 'FX', 'SOUND', 'BUILD'];
 const shots = src.split(/^### /m).slice(1).map(b => { const id = b.split('\n')[0].trim(), f = {}; for (const k of F) { const m = b.match(new RegExp('^- ' + k + ':\\s*(.*)$', 'm')); f[k] = m ? m[1].trim() : ''; } return { id, f }; });
 const err = [], warn = []; if (!shots.length) err.push('no shots (### S01 · … blocks)');
 shots.forEach(s => F.forEach(k => { if (!s.f[k] || s.f[k] === '…' || /^<.*>$/.test(s.f[k])) err.push(`${s.id.split(' ')[0]}: ${k} is empty`); }));
@@ -23,5 +23,20 @@ shots.forEach((s, i) => { const t = (s.f.FX.match(/trans(?:ition)?\s*[:=]?\s*([a
 const fxUsed = shots.filter(s => !/^(none|trans=\w+;?\s*none|trans=\w+)$/i.test(s.f.FX.trim()) && !/^trans=\w+$/i.test(s.f.FX.trim())).length; if (fxUsed > Math.ceil(n / 4)) warn.push(`${fxUsed}/${n} shots carry an extra effect — keep effects for the few moments that need one`);
 shots.forEach(s => { if (s.f.ACTION && !/\b(stand|sit|walk|hold|look|read|type|carry|point|lean|run|wait|open|turn|talk|nod|drive|ride|pick|put|push|pull|sleep|wake|cross|queue|sign|write|watch|listen|wave|gather|march|leave|enter|none)/i.test(s.f.ACTION)) warn.push(`${s.id.split(' ')[0]}: ACTION should say exactly what each person does, on what (chair, floor, desk), holding what`); });
 
-console.log(`script · ${n} shots · ${words} words ≈ ${mins.toFixed(1)} min · ${uniq(cams)} camera moves · ${uniq(trs)} transitions · ${shots.filter(s => /NEW/.test(s.f.BUILD)).length} new builds`);
+// ---------------------------------------------------------------- shot grammar + content standard (studio/references/ifm-craft.md, 4 Nov 2026)
+// SHOT: "WS high crane 3D | MCU eye push 2D | ECU top static 2.5D" — one entry per cut in the scene
+const SZ = ['EWS', 'WS', 'MS', 'MCU', 'CU', 'ECU'], AN = ['eye', 'high', 'low', 'top', 'dutch', 'ots', 'pov'], MV = ['static', 'push', 'pull', 'trackl', 'trackr', 'track', 'pan', 'tilt', 'crane', 'drop', 'orbit', 'dolly'], MD = ['2d', '2.5d', '3d'];
+const flat = []; let tsec = 0; shots.forEach(s => { const vo = (s.f.VO.match(/[A-Za-z0-9'’$€%.,-]+/g) || []).length / 2.8, parts = s.f.SHOT.split('|').map(x => x.trim()).filter(Boolean);
+  parts.forEach((p, j) => { const t = p.split(/[\s·,]+/).map(x => x.toLowerCase()); const sz = SZ.find(z => t.includes(z.toLowerCase())), an = AN.find(a => t.includes(a)), mv = MV.find(m => t.includes(m)), md = MD.find(m => t.includes(m));
+    if (!sz || !an || !mv || !md) err.push(`${s.id.split(' ')[0]}: SHOT "${p}" needs SIZE (${SZ.join(' ')}) · angle (${AN.join(' ')}) · move · medium (2D 2.5D 3D)`); flat.push({ id: s.id.split(' ')[0], sz, an, mv, md, t: tsec + vo * j / parts.length }); }); tsec += vo; });
+for (let i = 2; i < flat.length; i++) if (flat[i].sz && flat[i].sz === flat[i - 1].sz && flat[i].sz === flat[i - 2].sz) warn.push(`${flat[i].id}: shot size ${flat[i].sz} three times in a row`);
+for (let m = 0; m * 60 < tsec - 20; m++) { const w = flat.filter(f => f.t >= m * 60 && f.t < (m + 1) * 60); if (!w.length) continue; const an = new Set(w.map(f => f.an).filter(Boolean)).size;
+  if (an < 4) warn.push(`minute ${m + 1}: only ${an} camera angles (aim ≥ 4)`); if (!w.some(f => f.md === '3d' || f.md === '2.5d')) err.push(`minute ${m + 1}: no 3D or 2.5D shot (craft §2: at least one per minute)`); if (!w.some(f => f.sz === 'CU' || f.sz === 'ECU')) warn.push(`minute ${m + 1}: no close-up/insert`); }
+const share3 = flat.filter(f => f.md === '3d').length / Math.max(1, flat.length); if (flat.length && share3 < .2) warn.push(`3D share ${(share3 * 100) | 0} % of shots (aim 20–50 %)`);
+// content: cold open, what-people-say segment with labelled theories, payoff
+if (!shots.some(s => /SAY|THEOR|MYTH|RUMOU?R/i.test(s.id))) err.push('no "WHAT PEOPLE SAY" segment (a shot id with SAY / THEORY / MYTH): craft §1');
+shots.filter(s => /SAY|THEOR|MYTH|RUMOU?R/i.test(s.id)).forEach(s => { if (!/\b(theory|theories|claim|claims|rumou?r|some say|people say|online|believe|what we know|in fact|actually|evidence)\b/i.test(s.f.VO)) warn.push(`${s.id.split(' ')[0]}: label the theory as a theory and say what is known`); });
+if (!shots.some(s => /PAYOFF|ANSWER|END/i.test(s.id))) err.push('no PAYOFF shot (the answer + callback)');
+
+console.log(`script · ${n} shots · ${words} words ≈ ${mins.toFixed(1)} min · ${uniq(cams)} camera moves · ${uniq(trs)} transitions · ${shots.filter(s => /NEW/.test(s.f.BUILD)).length} new builds · ${flat.length} cuts · 3D ${(share3 * 100) | 0} %`);
 err.slice(0, 25).forEach(e => console.log('  ERROR ' + e)); warn.slice(0, 12).forEach(w => console.log('  WARN  ' + w)); console.log(err.length ? 'SCRIPT: FIX' : 'SCRIPT: PASS'); process.exit(err.length ? 1 : 0);

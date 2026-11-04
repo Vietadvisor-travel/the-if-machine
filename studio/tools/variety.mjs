@@ -9,7 +9,7 @@ const hdr = {}, beats = []; let cur = null;
 for (const ln of txt.split('\n')) { const t = ln.trim(); if (!t || t.startsWith('//')) continue;
   if (t.startsWith('#')) { const parts = t.slice(1).trim(); const type = parts.split(/\s+/)[0]; const o = {}; parts.replace(/(\w+)=("([^"]*)"|\S+)/g, (m, k, v, q) => { o[k] = q != null ? q : v; return ''; }); cur = { type, o, lines: [] }; beats.push(cur); continue; }
   if (!cur) { const m = t.match(/^(\w+)\s*:\s*(.*)$/); if (m) hdr[m[1].toLowerCase()] = m[2]; continue; } cur.lines.push(t); }
-const BRAND = b => b.o.kind === 'ifm'; const key = b => [b.o.kind || b.type, b.o.act || '', b.o.view || b.o.screen || b.o.planet || ''].join(':'); const actKey = b => (b.o.kind || b.type) + ':' + (b.o.act || '');
+const BRAND = b => b.o.kind === 'ifm'; const key = b => [b.o.kind || b.type, b.o.act || '', b.o.set || b.o.view || b.o.screen || b.o.planet || ''].join(':'); const actKey = b => (b.o.kind || b.type) + ':' + (b.o.act || '') + (b.o.set ? ':' + b.o.set : '');
 const E = [], Wn = []; const err = m => E.push(m), warn = m => Wn.push(m);
 // calm house look (owner, 4 Nov 2026): no glare, no jerky or flickering effects; effects only where the scene needs one
 const CALM_TR = ['cut', 'fade', 'match', 'slide', 'ink', 'zoomthru', 'paper', 'iris', 'fold', 'liquid', 'cube', 'drop', 'zoom', 'flip3d'], BADFX = /\bfx\s+(flash|shake|glitch|chroma|speed|zblur|shock|mblur|strobe)\b/;
@@ -40,6 +40,12 @@ const lively = body.filter(b => b.o.cam || (b.o.dir && /(zoom|pan|orbit|tilt|fli
 const bankUsed = [...new Set(body.flatMap(b => String(b.o.items || '').split('|').map(x => x.trim().split(/[@\s]/)[0]).filter(Boolean)))];
 for (const b of beats) String(b.o.words || '').split('|').forEach(w => { const t = w.replace(/^[!~^]/, '').replace(/@\d+$/, ''); if (t.length > 18) warn(`lettering "${t}" is long (${t.length} chars): ≤ 18 keeps it clear of the edges in 9:16`); });
 if (!beats.length || !(beats[0].o.act === 'hook' || beats[0].o.hook || /@0\S*\s+text\s/.test(beats[0].o.dir || ''))) warn('the first beat is not a hook: kind=w act=hook scene="…" q="…" (the most striking picture + a headline in the first 3 s)');
+// shot grammar (craft §2): sizes, angles and 3D share across all cuts (cam= on the beat and in then=)
+{ const cuts = []; body.forEach(b => { const all = [b.o.cam, ...String(b.o.then || '').split('|').map(x => (x.match(/cam=(\S+)/) || [])[1])]; let is3 = b.o.act === 's3'; all.forEach((c, j) => { if (j && !c) return; const m = String(c || '').match(/^(EWS|WS|MCU|MS|ECU|CU)\.?([a-z]*)/); cuts.push({ sz: m ? m[1] : '', an: m ? (m[2] || 'eye') : '', d3: is3 || /act=s3/.test(String(b.o.then || '')) }); }); });
+  const g = cuts.filter(c => c.sz); const share = g.length / Math.max(1, cuts.length), d3 = cuts.filter(c => c.d3).length / Math.max(1, cuts.length);
+  if (cuts.length > 20 && share < .5) warn(`only ${(share * 100) | 0} % of cuts use the shot grammar cam=<SIZE>.<angle>.<move> (aim ≥ 70 %)`);
+  if (cuts.length > 20 && d3 < .15) warn(`3D shots ${(d3 * 100) | 0} % of cuts (act=s3; aim 20–50 %)`);
+  for (let i = 2; i < g.length; i++) if (g[i].sz === g[i - 1].sz && g[i].sz === g[i - 2].sz) { warn(`shot size ${g[i].sz} three times in a row (cut ${i + 1})`); break; } }
 // across episodes (last 3)
 const prev = hist.episodes.filter(e => e.slug !== slug && e.vert === vert).slice(-3);
 if (prev.length) { const mine = new Set(body.map(key)); const last = new Set(prev[prev.length - 1].keys); const shared = [...mine].filter(k => last.has(k)); if (mine.size && shared.length / mine.size > .4) err(`${shared.length}/${mine.size} scene types repeat the last episode (${prev[prev.length - 1].slug}): ${shared.join(', ')}`);
