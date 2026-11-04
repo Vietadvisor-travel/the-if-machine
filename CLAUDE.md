@@ -35,7 +35,9 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
    (`jobs/research/_TEMPLATE.md`; web search, 2 sources for heavy claims, about 10 facts), commit it as
    `[claude] [<slug>] research`, and go on. Do not stop to ask.
 2. STATUS → IN_PRODUCTION; INBOX line.
-3. `node tools/new_episode.mjs <slug> "<tên>"`, then direct the story per `studio/EPISODE.md` (a frame line and a `dir=` track per
+3. **Director's script FIRST** (owner, 4 Nov 2026): `jobs/scripts/<slug>.md` from `jobs/scripts/_TEMPLATE.md`, every shot with
+   VO / PICTURE / CUTS / CAMERA / TEXT / FX / SOUND / BUILD; `node studio/tools/script_check.mjs jobs/scripts/<slug>.md` must PASS.
+   The build follows the script shot by shot. Then `node tools/new_episode.mjs <slug> "<tên>"`, then direct the story per `studio/EPISODE.md` (a frame line and a `dir=` track per
    beat; new bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: ONE vertical 9:16 film, 6–10 min (≈ 1000–1700 spoken words; owner 4 Nov 2026: no 16:9, no separate short);
    small captions in the low band (74.5–79 %), subject above it, bottom 20 % and right edge clear of the platform UI; hook in the first 3 s; one question, one twist answer; branded end frame; the main picture of each
    beat draws the SUBJECT of its line; talking head ≤ 35 % of beats, never two in a row; small fixed captions low.

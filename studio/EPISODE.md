@@ -5,6 +5,14 @@ claims, then commit it. For an episode, read THIS page, `API.md` (when writing c
 Open `references/ifm-director.md` or `IFM_HOUSE.md` only for a specific question; grep, don't cat.
 Token rules are at the end.
 
+## 0a. The director's script comes FIRST (owner, 4 Nov 2026)
+- Before any code, write `jobs/scripts/<slug>.md` from `jobs/scripts/_TEMPLATE.md`: the spine, then one block per scene
+  with VO (exact words) · PICTURE (SUBJECT / BACKGROUND / FOREGROUND / LIFE) · CUTS · CAMERA · TEXT · FX (with trans=) ·
+  SOUND · BUILD (reuse an act/bank id, or NEW x_<name> and what to draw). Vary everything: cameras, transitions, effects, places.
+- `node tools/script_check.mjs ../jobs/scripts/<slug>.md` must PASS (all fields, 6–10 min of words, variety, a NEW picture
+  at least every 5 shots). Commit it as `[claude] [<slug>] director's script`.
+- The build (bank file, bespoke acts, story) follows the script shot by shot; the story's beats carry the shot ids (`// S07 …`).
+
 ## 0. Setup and scaffold (2 commands)
 ```
 bash ../setup.sh | tail -12
