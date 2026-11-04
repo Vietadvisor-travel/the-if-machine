@@ -150,7 +150,7 @@ They ask one thing: who decides the appeal?
 
 // 2:55 [10 s] SUBJECT: a real answer — check, publish, watch, then switch it on
 //   0.0 CAMERA push down the checklist · TEXT (checklist in the act) · FX flash on LIVE · BRIDGE fold
-# vis kind=w act=x_arc_checklist trans=fold clock="DAY 210" dir="0-3 pan .03,0; @3+.9 fx flash" then="cam=truckL@1|cam=crane@2|cam=pull@3"
+# vis kind=w act=x_arc_checklist trans=fold clock="DAY 210" dir="0-3 zoom 1.06 .3,.5; @3+.9 fx flash" then="cam=truckL@1|cam=crane@2|cam=pull@3"
 Some countries already have an answer. Canada, for one.
 Before a department switches on an automated decision system, it must assess the likely impact.
 Then publish that assessment.
