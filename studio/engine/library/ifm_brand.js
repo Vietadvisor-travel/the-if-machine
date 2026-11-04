@@ -95,6 +95,7 @@
   // end card (owner, 4 Nov 2026: no machine identity, no ticket): the next question big, one call to action, the channel name small
   UI.endFrame = (p, o, t) => { if (!IFM.on) return _end(p, o, t); if (p <= 0) return; const u = U(), v = H > W, h = IFM.hdr; ctx.save(); ctx.globalAlpha *= clamp(p * 2);
     const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#101633'); g.addColorStop(1, '#05070F'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    for (let i = 0; i < 14; i++) { const r = rng(i * 7 + 5), bx = r() * W, by = r() * H * .8, br = (80 + r() * 220) * u * (1 + .08 * Math.sin(t + i)); const bg = ctx.createRadialGradient(bx, by, 0, bx, by, br); bg.addColorStop(0, [P.teal, P.yellow, P.coral, '#6C7BFF'][i % 4] + '55'); bg.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = bg; ctx.fillRect(bx - br, by - br, br * 2, br * 2); }
     for (let i = 0; i < 40; i++) { const r = rng(i * 13 + 1), x = r() * W, y = (r() * H - t * (10 + r() * 30) * u) % H, a = .15 + r() * .35; ctx.save(); ctx.globalAlpha *= a; circ(x, y < 0 ? y + H : y, (1.5 + r() * 3) * u, r() < .3 ? P.yellow : P.paper, 0); ctx.restore(); }
     const next = String(h.next || '').replace(/^next\s*:\s*/i, ''), cx = W / 2, k1 = E.back(clamp((t - .2) / .5)), k2 = E.out(clamp((t - .6) / .6));
     if (next) { ctx.save(); ctx.globalAlpha *= k2; T('NEXT', cx, H * (v ? .3 : .26), { size: 30 * u, font: 'mono', fill: P.teal, lw: 0, ls: 8 * u }); ctx.restore();
