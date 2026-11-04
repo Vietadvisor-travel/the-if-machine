@@ -19,6 +19,6 @@
 2.
 3.
 
-## Hook (first 3 seconds of the vertical 5–6 min film)
+## Hook (first 3 seconds of the vertical 6–10 min film)
 
 ## Notes / traps (numbers that are easy to get wrong, claims to avoid)

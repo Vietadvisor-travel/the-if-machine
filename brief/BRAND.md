@@ -139,7 +139,7 @@ Thế giới trong phim vẫn đủ màu thật (biển xanh, rừng lục, sao 
 
 ## 6. Khuôn mỗi tập
 
-**Một video dọc 9:16 duy nhất, 5–6 phút (anh chốt 04/11/2026: bỏ bản ngang 16:9 và bản ngắn riêng):**
+**Một video dọc 9:16 duy nhất, 6–10 phút (anh chốt 04/11/2026: bỏ bản ngang 16:9 và bản ngắn riêng):**
 1. 0–3 giây: gạt cần, câu hỏi, một hình gây sốc thị giác.
 2. Đến giây 30: đặt luật chơi, hứa với người xem.
 3. Chạy giả định theo đồng hồ mô phỏng, căng dần.
@@ -178,7 +178,7 @@ The If Machine takes one impossible question, runs the whole world through it, a
 Every episode is a short animated thought experiment built on real science, history and numbers. When the facts run out, we say so, and show you where the machine has to guess.
 
 New runs 3 times a week:
-• Every run is a 5–6 min vertical film: here on YouTube, and on TikTok, Instagram and Facebook
+• Every run is a 6–10 min vertical film: here on YouTube, and on TikTok, Instagram and Facebook
 
 Got a what-if you want the machine to run? Drop it in the comments. We read every one.
 

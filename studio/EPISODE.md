@@ -35,8 +35,8 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
     Colours follow BRAND (coral only for the twist).
 
 ## 1. The film in one pass (write it once, completely; no drafts)
-- **ONE vertical 9:16 film, 5–6 min** (owner, 4 Nov 2026: no 16:9, no separate short). ≈ 840–1000 spoken words
-  (measured: 2.8 words a second final, pauses included); about 45–70 beats. `variety.mjs` errors outside 5–6 min.
+- **ONE vertical 9:16 film, 6–10 min** (owner, 4 Nov 2026: no 16:9, no separate short). ≈ 1000–1700 spoken words
+  (measured: 2.8 words a second final, pauses included); about 70–120 beats. `variety.mjs` errors outside 6–10 min.
 - **Frame:** subject in 15–70 % of the height; captions are small and fixed at 74.5–79 %; keep the bottom 20 % and the
   right edge free of key content (Shorts/Reels/TikTok buttons and titles).
 - **Shape:**

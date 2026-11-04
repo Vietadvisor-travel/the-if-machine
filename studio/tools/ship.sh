@@ -1,7 +1,7 @@
 #!/bin/bash
 # Deliver one episode to Drive (PROTOCOL §5) — the master only, never the chat-size _FINAL file (brief: never squeeze below 30 MB).
 #   bash tools/ship.sh <slug> [cover_second=2.4]
-# Since 4 Nov 2026 (owner): ONE vertical 9:16 film, 5–6 min; no 16:9, no separate short.
+# Since 4 Nov 2026 (owner): ONE vertical 9:16 film, 6–10 min; no 16:9, no separate short.
 # Needs: out/<slug>_9x16.mp4 (master from `make.mjs stories/<slug>.story --fmt 9x16`), out/<slug>.srt.
 # Writes out/ship/<slug>/{<slug>_vertical_9x16.mp4,<slug>_cover.jpg,<slug>.srt,<slug>_stories.zip}, uploads,
 # prints a block to paste into jobs/deliveries/<slug>.md (file names, sizes, durations, resolutions, music credits).
