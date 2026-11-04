@@ -1,536 +1,401 @@
-# Director's script — AI điều hành quốc gia (ai-runs-a-country)
+# Director's script — AI điều hành quốc gia (ai-runs-a-country) · v3 (calm house look)
 
-One vertical 9:16 film, about 7 min, objective documentary voice (am_puck). Every frame full: a real place behind every
-subject, a foreground layer, something moving. The country in the simulation is generic (no flags, no real leaders, no
-logos). Real cases are labelled with place and year; facts from jobs/research/ai-runs-a-country.md (F1–F15).
+One vertical 9:16 film, about 7–8 min, voice am_puck at --speed .95. House look (studio/EPISODE.md §00): calm and clear,
+not dramatic; no glare, no flicker; unhurried; continuous; precise human actions; same facet style.
+The research pack is a reference: we keep the cases that explain the idea, drop the rest, and add our own explanations.
 
 ## Spine
-- Hook: a government palace whose doors are a glowing AI core, searchlights, a crowd looking up. "WHAT IF AN AI | RAN YOUR COUNTRY?"
-- Promise: it would fix things no politician could, then break the one thing a machine can't fix. Real countries already tried every piece.
-- Chapters: 1) the boring miracle (queues, forms, buses; Estonia) 2) the budget nobody can bribe (Albania 2025)
-  3) wrong for everyone at once (Robodebt) 4) it happened again (the Netherlands 2021, England's exam grades 2020)
-- Midpoint reveal: the machines never took over; people just stopped being able to argue with them.
-- Strongest real case: the Dutch cabinet resigning over an algorithm's suspicion.
-- Payoff + callback: the palace again, and inside it one lit desk with a person behind it.
+- Hook: a quiet city at dawn; one ordinary woman (NAM-style no name: "she") opens her phone. "WHAT IF AN AI | RAN YOUR COUNTRY?"
+- Promise: what would really change in one year — what gets easier, and what goes wrong.
+- Through-line: we follow the same woman (red coat, dark hair) through the simulated year: home, street, bus, office, kitchen.
+- Chapters: 1) the easy part (forms, queues, buses; Estonia shows it is real) 2) how such a system decides (rules + records,
+  the same for everyone; Albania's procurement plan) 3) when the records are wrong (Robodebt, explained calmly)
+  4) the same lesson elsewhere (the Netherlands, England's exam grades) 5) what good systems keep: a person who checks, a way to ask why (Canada).
+- Payoff + callback: back to the woman; she sits across a desk from a person who looks at her case.
 
 ## Shots
 
-### S01 · 0:00–0:04 · HOOK
-- VO: Imagine waking up tomorrow and your government is a machine.
-- PICTURE: SUBJECT a white government palace, its great doors replaced by a glowing teal AI core, light pouring down the steps / BACKGROUND night city skyline, searchlights crossing the sky / FOREGROUND dark heads of a crowd looking up, phones raised / LIFE searchlights sweep, sparks drift, crowd shifts
-- CUTS: wide palace → punch-in on the core as "machine" lands
-- CAMERA: push-in from the crowd to the doors, a hard punch on "machine"
-- TEXT: slam headline WHAT IF AN AI | RAN YOUR COUNTRY? top third, white then yellow last line, coral underline
-- FX: shock ring on "machine"; trans=none (cold open)
-- SOUND: low boom on the cut-in, crowd murmur, rising synth bed
-- BUILD: NEW x_palace — palace + core doors + searchlights + crowd foreground; used by act=hook scene=x_palace
+### S01 · 0:00 · HOOK
+- VO: Imagine your country is run by an artificial intelligence. Not in a film. For one real year.
+- LINK: opening shot of the film
+- PICTURE: SUBJECT a calm city at dawn seen from a hill, the government building in the middle with a soft teal light in its windows / BACKGROUND pink-blue dawn sky, distant towers / FOREGROUND rooftops and a balcony railing / LIFE birds cross, a few windows light up, a bus moves on a far street
+- ACTION: none (no people in the first shot)
+- CAMERA: slow push toward the government building
+- TEXT: headline WHAT IF AN AI | RAN YOUR COUNTRY? fades in at the top third, settles
+- FX: trans=none
+- SOUND: soft ambient pad, distant birds
+- BUILD: NEW x_dawncity — city from a hill at dawn, gov building with soft teal windows; act=hook scene=x_dawncity
 
-### S02 · 0:04–0:11 · PROMISE
-- VO: In one year, it would fix things no politician ever could. And then it would break the one thing a machine can't fix.
-- PICTURE: SUBJECT split: left a city sorting itself (traffic flowing, lights turning green in a wave) / BACKGROUND the same skyline at dawn / FOREGROUND a red crack running across the glass between the halves / LIFE cars stream, birds lift, the crack spreads
-- CUTS: the city fixing itself → the crack splitting the frame on "break"
-- CAMERA: crane up over the city, then a dutch tilt on the crack
+### S02 · 0:08 · PROMISE
+- VO: What would actually change? Some things would get much easier. And one thing would go wrong in a way that is easy to miss.
+- LINK: the camera continues into the city: we land on one balcony
+- PICTURE: SUBJECT a woman in a red coat on her balcony with a coffee cup, looking at the city / BACKGROUND the same dawn city / FOREGROUND plant pots on the balcony / LIFE steam from the cup, curtains move
+- ACTION: she stands at the railing holding a cup, then looks at her phone
+- CAMERA: slow crane down from the skyline to the balcony
 - TEXT: none
-- FX: glitch on "break"; trans=whip
-- SOUND: whoosh, glass crack on "break"
-- BUILD: NEW x_crackcity — city flows (towers, cars, green wave) then a glass crack splits the frame
+- FX: trans=zoomthru
+- SOUND: city morning ambience
+- BUILD: NEW x_balcony — balcony, the woman (fixed look), cup with steam
 
-### S03 · 0:11–0:17 · PROMISE 2
-- VO: This isn't science fiction. Real countries have already tried almost every piece of it.
-- PICTURE: SUBJECT the globe turning, four places lighting up in turn with pins / BACKGROUND star field and the sun's rim / FOREGROUND none beyond the globe's glow / LIFE arcs fly between the pins, clouds turn
-- CUTS: globe wide → pins pop one by one on "every piece"
-- CAMERA: orbit around the globe
-- TEXT: none (pins only, no country names yet)
-- FX: flash on each pin; trans=tunnel
-- SOUND: radar pings per pin
-- BUILD: reuse globe (lights, arcs)
+### S03 · 0:17 · DAY ONE
+- VO: Day one. There is no election night and no speech. Her phone simply shows a message: a permit she applied for last month has been approved overnight.
+- LINK: same woman, we move closer to her phone
+- PICTURE: SUBJECT her phone in her hand, a clean notification "Permit approved" / BACKGROUND her blurred balcony and city / FOREGROUND her hand and sleeve / LIFE the notification slides in, steam from the cup at the edge
+- ACTION: she holds the phone in one hand and the cup in the other, reading
+- CAMERA: slow push to the phone screen
+- TEXT: phone UI only: Permit approved
+- FX: trans=cut
+- SOUND: soft notification tone
+- BUILD: NEW x_phonehand — close-up of a hand holding a phone, generic UI
 
-### S04 · 0:17–0:24 · CHAPTER 1 · DAY ONE
-- VO: Day one. You wake up. There was no election, no speech, no parade. Your phone has a message from the government, and for once it is good news.
-- PICTURE: SUBJECT a person sitting up in bed, a phone lighting their face / BACKGROUND a bedroom at sunrise, window with city, posters, a plant / FOREGROUND blanket edge, a mug on the night table steaming / LIFE curtains move, dust in the sunbeam, phone buzzes
-- CUTS: wide bedroom → close on the phone notification "Your permit is approved"
-- CAMERA: slow push to the phone
-- TEXT: phone UI only: "Your permit is approved ✓"
-- FX: zblur on the cut to the phone; trans=bloom
-- SOUND: alarm chirp, phone buzz, soft morning ambience
-- BUILD: NEW x_bedroom — room, bed, person waking (IFM.human sit/phone), sunbeam with dust, phone close-up
-
-### S05 · 0:24–0:31 · THE QUEUE
-- VO: No queue. No office. The machine read your application at three in the morning, because machines don't sleep.
-- PICTURE: SUBJECT a long queue of people at a permit counter dissolving person by person into paper forms that fly away / BACKGROUND a government office hall with clock and number board / FOREGROUND the counter edge, a stamp / LIFE forms flutter, the number board clicks down, the clock spins to 3:00
-- CUTS: the queue → the clock spinning to three → the empty hall
-- CAMERA: truck left along the queue
-- TEXT: QUEUE: 9 → 0 counter on the number board (diegetic)
-- FX: speed lines on "three in the morning"; trans=slices
-- SOUND: murmur fading to silence, paper flutter, clock ticks fast
-- BUILD: reuse x_arc_queue (lifted for 9:16) + NEW x_officeclock — hall with a big clock spinning to 3 a.m.
-
-### S06 · 0:31–0:38 · THE TAX FORM
-- VO: Your tax return? Already filled in. Every number checked against every other number. You read it, you tap yes. Done before your coffee cools.
-- PICTURE: SUBJECT a phone showing the tax return filling line by line, a big DONE button / BACKGROUND a kitchen table at morning, window light / FOREGROUND a coffee cup with steam / LIFE ticks appear, steam curls, light flickers through leaves
-- CUTS: form filling → thumb taps DONE → the steaming cup
-- CAMERA: tilt down from the window to the phone
-- TEXT: none beyond the phone UI
-- FX: pop on DONE; trans=stripes2
-- SOUND: typing ticks, confirm chime
-- BUILD: reuse x_arc_taxform (sized for 9:16)
-
-### S07 · 0:38–0:46 · THE BUS
-- VO: You walk outside and the bus is already there. It didn't follow a timetable. It saw that you, and two hundred people like you, would be standing here at eight.
-- PICTURE: SUBJECT a yellow city bus pulling into a stop exactly as the person arrives / BACKGROUND a street with shops, trees, morning sun / FOREGROUND a bus-stop pole and bench / LIFE pedestrians walk, leaves fall, a map overlay of dots gathering at the stop
-- CUTS: street wide → overhead map of dots converging → the bus doors open
-- CAMERA: truck right with the person, then crane up to the map view
-- TEXT: tag 8:00 above the stop
-- FX: map dots glow; trans=liquid
-- SOUND: bus brakes hiss, doors, street ambience
-- BUILD: NEW x_busstop — street, bus arriving, person, dot map overlay
-
-### S08 · 0:46–0:53 · ESTONIA
-- VO: If that sounds like a fantasy, look at Estonia. About ninety-nine percent of its public services already work online.
-- PICTURE: SUBJECT a winter old-town street (generic, no flags) with people holding phones that glow / BACKGROUND gabled houses, a church spire, snow / FOREGROUND snow-covered railing / LIFE snow falls, windows light, breath steam
-- CUTS: the street → phones lighting up in a wave → a giant 99% made of lit windows
-- CAMERA: crane down into the street
-- TEXT: label ESTONIA · REAL in the top third, then 99% ONLINE
-- FX: flash on "ninety-nine"; trans=fold
-- SOUND: wind, soft bells, notification chimes in a wave
-- BUILD: NEW x_snowtown — snowy old town, glowing phones wave, windows spelling 99%
-
-### S09 · 0:53–1:00 · DIGITAL ID
-- VO: Every resident has a digital ID. One card opens taxes, health records, business papers, and even the ballot box.
-- PICTURE: SUBJECT a big ID card in a hand, doors springing open around it labelled TAX, HEALTH, BUSINESS, VOTE / BACKGROUND a corridor of doors / FOREGROUND the hand / LIFE doors swing, light spills out of each
-- CUTS: card → doors open one per word
-- CAMERA: push-in down the corridor
-- TEXT: door labels TAX · HEALTH · BUSINESS · VOTE
-- FX: glow on each door; trans=cube
-- SOUND: door clicks in rhythm, chime per door
-- BUILD: reuse x_arc_idcard + NEW x_doors — corridor of doors opening to the card
-
-### S10 · 1:00–1:07 · ONLINE VOTE
-- VO: Estonians have voted online since 2005. In 2023, about half of all votes came in over the internet.
-- PICTURE: SUBJECT a laptop and a ballot box side by side; votes stream from the laptop as glowing envelopes, the box fills halfway / BACKGROUND a living room at night, window snow / FOREGROUND a sofa arm / LIFE envelopes fly, the fill bar rises to 51%
-- CUTS: laptop → the two piles growing → the bar at about half
-- CAMERA: orbit around the laptop
-- TEXT: counter 2005 → 2023 · about 51% online
-- FX: chroma pulse on "half"; trans=pixel
-- SOUND: soft clicks, envelope whooshes
-- BUILD: reuse x_arc_vote
-
-### S11 · 1:07–1:14 · AI PROJECTS
-- VO: And since 2019, its government has run more than a hundred and thirty AI projects, including a chatbot network that answers citizens.
-- PICTURE: SUBJECT dozens of small helper screens lighting up across a city map like a constellation / BACKGROUND a night city seen from above / FOREGROUND a glass window with reflections / LIFE lights spread, chat bubbles pop over buildings
-- CUTS: one light → 130 lights → chat bubbles
-- CAMERA: pull back from one building to the city
-- TEXT: 130+ AI PROJECTS
-- FX: flash on "hundred and thirty"; trans=ripple
-- SOUND: rising chimes, a soft pad swell
-- BUILD: NEW x_constellation — city at night, 130 lights spreading, chat bubbles
-
-### S11b · 1:14 · ALREADY EVERYWHERE
-- VO: And it isn't only Estonia. Governments around the world already use machines to check who gets benefits, to spot tax fraud, and to plan where the buses should run.
-- PICTURE: SUBJECT three big glowing stations in one city block: a benefits office with a scanner over the door, a tax office with a magnifier beam sweeping files, a bus depot with route lines drawing themselves / BACKGROUND city street at noon / FOREGROUND a crosswalk with pedestrians / LIFE beams sweep, buses leave, people cross
-- CUTS: benefits → tax → buses, one per clause
-- CAMERA: truck right along the block
-- TEXT: labels BENEFITS · FRAUD CHECKS · BUS ROUTES
-- FX: glow on each station; trans=stripes2
-- SOUND: scanner beeps, bus horns
-- BUILD: NEW x_block — street block with three automated offices
-
-### S12 · 1:14–1:20 · HUMANS STILL DECIDE
-- VO: But notice what Estonia kept. Humans still run the country. The machines just do the paperwork.
-- PICTURE: SUBJECT a long wooden desk with a person signing, a robot arm sorting papers beside them / BACKGROUND a bright ministry room with tall windows / FOREGROUND a pen holder and stacked files / LIFE papers slide, a clock ticks, curtains move
-- CUTS: the robot arm sorting → the human hand signing
-- CAMERA: truck left from the arm to the hand
+### S04 · 0:28 · THE QUEUE THAT DISAPPEARED
+- VO: It used to take weeks. A form, a queue, a stamp, a second queue. The system read her application at three in the morning, checked it against the rules, and said yes.
+- LINK: from the word "queue" we cut to the office she no longer has to visit
+- PICTURE: SUBJECT a city service office, a long queue of people at a counter that shortens as the scene goes on / BACKGROUND office hall with number board and clock / FOREGROUND rope barriers / LIFE the number board ticks, people leave the queue one by one
+- ACTION: people stand in line holding folders; one by one they step out and walk to the door (stride speed)
+- CAMERA: slow truck along the queue
 - TEXT: none
-- FX: vignette on "Humans"; trans=blobs
-- SOUND: paper shuffle, pen scratch
-- BUILD: NEW x_signdesk — ministry room, robot arm + human at the same desk
+- FX: trans=fade
+- SOUND: soft murmur, a ticket machine, the room gets quieter
+- BUILD: NEW x_serviceoffice — office hall, queue with folders, people leaving
 
-### S13 · 1:20–1:26 · LOOP
-- VO: In our simulation, the machine goes much further. It doesn't just do the paperwork. It takes the whole budget, every permit and every benefit, with no minister in between.
-- PICTURE: SUBJECT the AI core rising through the palace roof, orbited by the old offices shrinking / BACKGROUND night sky, city glow / FOREGROUND the palace columns / LIFE offices orbit and shrink, light beams pulse
-- CUTS: core rising → offices orbiting it
-- CAMERA: crane up with the core
-- TEXT: THE WHOLE BUDGET in the top third
-- FX: shake on "whole budget"; trans=scan
-- SOUND: power-up whine, low boom
-- BUILD: reuse x_arc_further (filled with palace + skyline)
+### S05 · 0:40 · THE TAX FORM
+- VO: Her tax return is already filled in, line by line, from records the state already has. She reads it, corrects nothing, and taps confirm.
+- LINK: back to the woman, now at her kitchen table with the same phone
+- PICTURE: SUBJECT the woman sitting at her kitchen table, reading a form on a tablet / BACKGROUND her kitchen, window with morning light / FOREGROUND the coffee cup from the balcony / LIFE the form fills line by line on the tablet, a cat crosses the floor
+- ACTION: she sits on a chair at the table, holds the tablet, scrolls, taps
+- CAMERA: slow push from a wide kitchen to the tablet
+- TEXT: tablet UI: TAX RETURN, lines filling, CONFIRM
+- FX: trans=cut
+- SOUND: kitchen ambience, soft taps
+- BUILD: NEW x_kitchen2 — her kitchen (fixed design), table, chair, tablet UI
 
-### S14 · 1:26–1:34 · CHAPTER 2 · THE BUDGET
-- VO: Day ninety. Money flows like water: more to hospitals with long waits, less to a bridge that can wait a year.
-- PICTURE: SUBJECT a city cut-away with glowing pipes carrying coins into buildings, hospital pipe widening, bridge pipe thinning / BACKGROUND city at day / FOREGROUND pipe valves / LIFE coins stream, valves turn, an ambulance moves
-- CUTS: pipes wide → valve turning on "hospitals" → the bridge sign WAIT 1 YEAR
-- CAMERA: truck right along the pipes
-- TEXT: sign WAIT 1 YEAR on the bridge
-- FX: speed on the coin flow; trans=flip3d
-- SOUND: water rush, coin cascade
-- BUILD: reuse x_arc_budget + NEW x_pipes — city cut-away with coin pipes
-
-### S15 · 1:34–1:41 · NO BRIBES
-- VO: And here is the part people love. You cannot bribe a machine. There is no cousin to call, no envelope under the table.
-- PICTURE: SUBJECT an envelope of cash slid under a table bouncing off a glowing barrier / BACKGROUND a dim office with blinds / FOREGROUND the table edge / LIFE blinds stripe light, the envelope bounces, coins spill
-- CUTS: hand slides the envelope → it bounces back → stamp REJECTED
-- CAMERA: low angle under the table, dutch
-- TEXT: stamp NO BRIBES
-- FX: shake on "cannot"; trans=shatter
-- SOUND: thud, buzzer, coins
-- BUILD: NEW x_bribe — under-table bribe bouncing off a barrier
-
-### S15b · 1:41 · SAME RULES
-- VO: Day one hundred and twenty. The same rules for everyone, every single time. No favourites. No bad mood on a Monday morning.
-- PICTURE: SUBJECT a row of very different people stepping through identical glowing arches, each getting the same green tick / BACKGROUND a bright plaza / FOREGROUND a turnstile / LIFE people walk through, ticks pop, pigeons
-- CUTS: one person → many → a grumpy desk clerk replaced by a calm green light
-- CAMERA: pull back along the arches
-- TEXT: SAME RULES | every time
-- FX: pop on "every single time"; trans=fold
-- SOUND: identical chimes in rhythm
-- BUILD: NEW x_arches — plaza with arches and people
-
-### S16 · 1:41–1:50 · ALBANIA
-- VO: In September 2025, Albania presented a virtual minister, an AI it called Diella, to oversee public tenders. The promise: contracts that are one hundred percent incorruptible.
-- PICTURE: SUBJECT a glowing tender desk where stacks of bid envelopes pass through a light gate and get sorted / BACKGROUND a parliament-style hall (generic, no flags) / FOREGROUND rows of empty seats / LIFE envelopes stream, the gate pulses, a ray of sun moves
-- CUTS: hall wide → envelopes through the light gate → 100% INCORRUPTIBLE stamp
-- CAMERA: push-in down the aisle
-- TEXT: label ALBANIA · 2025 · REAL; quote "100% incorruptible" (the stated promise)
-- FX: glow on "incorruptible"; trans=liquid
-- SOUND: hall echo, scanner hum
-- BUILD: NEW x_tenders — hall, tender gate, envelope stream (no avatar, no person likeness)
-
-### S17 · 1:50–1:56 · THE CATCH
-- VO: That is a promise, not a result. It is still being rolled out, step by step. And a machine that cannot be bribed can still be wrong.
-- PICTURE: SUBJECT the same light gate sorting, one envelope sorted into the wrong bin, flashing red / BACKGROUND the hall dimming / FOREGROUND bins / LIFE envelopes keep streaming, a red light blinks
-- CUTS: the wrong envelope → close on the red light
-- CAMERA: push-in to the red light
+### S06 · 0:52 · THE BUS
+- VO: Outside, the bus arrives as she reaches the stop. Not because of luck. The system saw that about two hundred people from her area leave at this time, and moved a bus here.
+- LINK: she leaves the kitchen; same coat on the street
+- PICTURE: SUBJECT a city bus pulling in as she walks up to the stop / BACKGROUND her street: shops, trees, morning sun / FOREGROUND bus-stop sign and bench / LIFE people walk, leaves move, the bus doors open
+- ACTION: she walks at stride speed to the stop and stops; the bus stops; two people step out
+- CAMERA: slow truck with her, then hold
 - TEXT: none
-- FX: chroma on "wrong"; trans=pixel
-- SOUND: a wrong-note buzz, music drops
-- BUILD: reuse x_tenders (o.wrong=1)
+- FX: trans=slide
+- SOUND: street ambience, bus brakes (soft), doors
+- BUILD: NEW x_street2 — her street, bus, walking people (stride-matched)
 
-### S18 · 1:56–2:02 · LOOP
-- VO: And when a machine is wrong, it isn't wrong once. It is wrong for everyone, at the same time.
-- PICTURE: SUBJECT a city at night where the same red notification lights up in every window at once / BACKGROUND skyline / FOREGROUND a rooftop edge / LIFE windows flip red in a wave
-- CUTS: one red window → all windows red
-- CAMERA: pull back from one window to the skyline
+### S07 · 1:04 · HOW IT KNEW
+- VO: It works like a very fast planner. It looks at where people travel, at what time, and how full each bus is, and it changes the routes every week. No committee has to meet. Nobody has to approve a new timetable.
+- LINK: from the bus we rise above the street to see the network
+- PICTURE: SUBJECT a top-down city map with bus routes as lines and small dots for people moving toward stops / BACKGROUND a calm map of streets and a river / FOREGROUND none / LIFE dots flow, one route line redraws itself
+- ACTION: none
+- CAMERA: slow crane up from the street into the map view
 - TEXT: none
-- FX: flash on "everyone"; trans=ripple
-- SOUND: a hundred notifications stacking, sub drop
-- BUILD: reuse x_constellation (o.red=1)
+- FX: trans=match
+- SOUND: soft pad, gentle ticks
+- BUILD: NEW x_routemap — top-down city map, routes redraw, dots flow
 
-### S18b · 2:02 · NO WAY OUT
-- VO: And unlike a shop or an app, a state can make a decision about you that you cannot walk away from. If it is wrong, you live with it until someone fixes it.
-- PICTURE: SUBJECT a person in a maze of tall paper walls printed with forms, every exit sealed / BACKGROUND overcast sky above the maze / FOREGROUND a sealed exit stamped / LIFE paper walls flap, the person turns corners
-- CUTS: the person at an exit → a sealed wall → overhead view of the maze
-- CAMERA: crane up to overhead
+### S08 · 1:15 · ESTONIA
+- VO: This part is not science fiction. In Estonia, about ninety-nine percent of public services already work online.
+- LINK: the map turns into a real place: we dissolve to a real country that already lives like this
+- PICTURE: SUBJECT a snowy old-town street, people walking with phones / BACKGROUND gabled houses, a church spire, evening light / FOREGROUND a snowy railing / LIFE soft snow, people walk at stride speed, windows glow warmly
+- ACTION: people walk, one person stops and reads their phone, a parent walks with a child
+- CAMERA: slow pan along the street
+- TEXT: label ESTONIA (small, top)
+- FX: trans=fade
+- SOUND: snow quiet, footsteps
+- BUILD: NEW x_snowstreet — old town in snow, walkers, a small label
+
+### S09 · 1:26 · DIGITAL ID
+- VO: Every resident has a digital identity. One login opens taxes, health records, business papers, and since 2005, even voting. In 2023 about half of all votes were cast online.
+- LINK: same street; we go inside one warm window
+- PICTURE: SUBJECT a man at a desk at home with a laptop, an ID card next to it, the screen showing four tiles: TAX, HEALTH, BUSINESS, VOTE / BACKGROUND a cosy room, snow outside the window / FOREGROUND a desk lamp / LIFE snow outside, the cursor moves across tiles
+- ACTION: he sits on a chair at the desk, types, picks up the ID card, puts it down
+- CAMERA: slow push from the window to the laptop
+- TEXT: tiles on the screen only
+- FX: trans=zoomthru
+- SOUND: room tone, keyboard
+- BUILD: NEW x_homedesk — room, man at desk, laptop UI with four tiles, ID card
+
+### S10 · 1:40 · BUT PEOPLE STILL DECIDE
+- VO: But notice what Estonia keeps. People still run the country. The machines handle the paperwork, and a person can still be asked.
+- LINK: from the home desk to an office desk where a civil servant works with the same kind of screen
+- PICTURE: SUBJECT a civil servant at an office desk reviewing a case on screen, a colleague bringing a folder / BACKGROUND a bright open office with windows / FOREGROUND plants and a printer / LIFE the colleague walks in, papers move, people pass in the back
+- ACTION: one sits typing at the desk; the colleague walks in holding a folder and hands it over
+- CAMERA: slow truck right along the desks
 - TEXT: none
-- FX: vignette on "cannot walk away"; trans=blobs
-- SOUND: paper rustle, a heavy door
-- BUILD: NEW x_maze — paper maze, person, overhead
+- FX: trans=slide
+- SOUND: office ambience
+- BUILD: NEW x_office — open office, desks with chairs, people working, a handover
 
-### S19 · 2:02–2:10 · CHAPTER 3 · ROBODEBT
-- VO: This already happened. In July 2016, Australia switched on an automated system to find people who had been overpaid welfare.
-- PICTURE: SUBJECT a big lever-less switch panel going ON, cables lighting toward a mail room / BACKGROUND an office server room / FOREGROUND cable bundles / LIFE lights cascade, fans spin
-- CUTS: the switch → light racing along cables → a mail room starting up
-- CAMERA: truck left along the cables
-- TEXT: label AUSTRALIA · 2016 · REAL CASE
-- FX: flash on "switched on"; trans=whip
-- SOUND: power clunk, hum rising
-- BUILD: reuse servers (lights) + NEW x_mailroom — conveyor printing letters
+### S11 · 1:50 · IN OUR YEAR
+- VO: In our imaginary year, the machine goes further. It does not just help. It decides: who gets a benefit, how the budget is split, which road is repaired first.
+- LINK: back to the simulation: the same government building from the hook, now in daylight
+- PICTURE: SUBJECT the government building in daylight, inside a calm control room with large screens showing the city / BACKGROUND city around it / FOREGROUND a few people crossing the square / LIFE screens update, pigeons, people walk
+- ACTION: people walk across the square; inside, one engineer stands watching a screen
+- CAMERA: slow push from the square into the building windows
+- TEXT: three small labels appear on the screens: BENEFITS · BUDGET · ROADS
+- FX: trans=fade
+- SOUND: square ambience, soft hum
+- BUILD: NEW x_govsquare — the building by day, square, a control room seen through tall windows
 
-### S20 · 2:10–2:19 · AVERAGING
-- VO: The trick was simple. It took a person's yearly income and spread it evenly over the year. But people's work isn't even.
-- PICTURE: SUBJECT a bar chart of a worker's year as physical bricks: tall stacks some fortnights, none others; a giant hand flattens them into an even line / BACKGROUND a construction yard / FOREGROUND a hard hat on a crate / LIFE bricks wobble and slide, dust puffs
-- CUTS: uneven bricks → the hand flattening → the gap where the person had no work
-- CAMERA: pull to reveal the whole year
-- TEXT: labels WORKED / NO WORK under the stacks
-- FX: zblur on the flatten; trans=slices
-- SOUND: bricks scraping, a thud
-- BUILD: NEW x_averaging — brick bars of a year flattened by a hand
+### S12 · 2:04 · THE BUDGET
+- VO: On day ninety, the budget moves. More money goes to the hospital where people wait longest. Less goes to a bridge that can wait another year.
+- LINK: the "budget" screen fills the frame and becomes the city
+- PICTURE: SUBJECT a city cut-away: coins flowing through pipes into a hospital, a school and a bridge; the hospital pipe widens, the bridge pipe narrows / BACKGROUND the city in day / FOREGROUND none / LIFE coins flow steadily, an ambulance drives
+- ACTION: none
+- CAMERA: slow truck right along the pipes
+- TEXT: small sign on the bridge: NEXT YEAR
+- FX: trans=match
+- SOUND: soft flowing water, coin ticks
+- BUILD: reuse x_pipes (calm version, sign NEXT YEAR)
 
-### S21 · 2:19–2:26 · THE DEBT
-- VO: Months with no job suddenly looked like months with a salary. To the system, that meant you had been overpaid. A debt appeared.
-- PICTURE: SUBJECT a red debt letter materialising over the empty months of the brick chart / BACKGROUND the same yard turning grey / FOREGROUND the hard hat / LIFE red glow pulses, dust
-- CUTS: empty months filling with ghost bricks → the red letter dropping in
-- CAMERA: push-in to the letter
-- TEXT: letter header YOU OWE (generic, not a real document)
-- FX: shake on "debt"; trans=stripes2
-- SOUND: printer burst, low hit
-- BUILD: reuse x_averaging (o.debt=1)
-
-### S22 · 2:26–2:34 · THE LETTERS
-- VO: Letters went out by the hundred thousand. Each one looked official, certain, final. Many people paid money they never owed, just to make the letters stop.
-- PICTURE: SUBJECT a blizzard of envelopes falling over a suburb, piling on lawns and roofs / BACKGROUND suburban street at dusk / FOREGROUND a mailbox overflowing / LIFE envelopes drift, a dog barks at the pile, lights come on
-- CUTS: sky full of letters → mailbox overflowing → a person at a kitchen window
-- CAMERA: crane down from the sky to the mailbox
+### S13 · 2:15 · THE SAME RULE FOR EVERYONE
+- VO: And the rules are the same for everyone, every time. The waiting list is in order. There is no friend to call and no envelope under the table. A machine has no cousins, and it does not have a bad Monday.
+- LINK: from the hospital pipe to the hospital waiting room, now shorter
+- PICTURE: SUBJECT a hospital waiting room where people are called in order, the woman in the red coat among them / BACKGROUND a clean waiting room with a number display / FOREGROUND rows of chairs / LIFE the number display advances, a nurse calls the next person
+- ACTION: people sit on chairs; the woman sits holding her coat; one person stands and walks to the door when called
+- CAMERA: slow pull back across the rows
 - TEXT: none
-- FX: dust; trans=shatter
-- SOUND: paper rain, distant dog
-- BUILD: reuse x_arc_letters + NEW x_mailbox — suburb mailbox overflowing
+- FX: trans=cut
+- SOUND: soft hospital ambience, a gentle chime
+- BUILD: NEW x_waitingroom — waiting room, chairs, number display, people called in order
 
-### S23 · 2:34–2:42 · UNLAWFUL
-- VO: It took years, and a court case, before the government admitted the method was unlawful. In 2020 the scheme was scrapped.
-- PICTURE: SUBJECT a gavel falling on the glowing machine, UNLAWFUL stamp, then SCRAPPED 2020 / BACKGROUND a wood-panelled courtroom / FOREGROUND the bench edge / LIFE the gavel swings, paper flies on impact
-- CUTS: gavel → UNLAWFUL → SCRAPPED 2020
-- CAMERA: dutch then straighten on the stamp
-- TEXT: stamps UNLAWFUL · SCRAPPED 2020
-- FX: shake on the gavel; trans=fold
-- SOUND: gavel slam twice
-- BUILD: reuse x_arc_verdict
+### S14 · 2:28 · ALBANIA
+- VO: Some governments already want this. In September 2025, Albania presented an AI system as a virtual minister for public tenders, and promised contracts that cannot be bribed. It is a plan, still being rolled out.
+- LINK: from "no envelope under the table" to a real government trying exactly that
+- PICTURE: SUBJECT a tender office where bid folders pass through a scanner on a long table and are sorted into two trays / BACKGROUND a formal hall with tall windows / FOREGROUND the edge of the table / LIFE folders move along, a clerk places a new stack
+- ACTION: a clerk stands at the table and places folders on the scanner belt
+- CAMERA: slow push along the table
+- TEXT: label ALBANIA · 2025 (small)
+- FX: trans=fade
+- SOUND: hall ambience, soft scanner hum
+- BUILD: NEW x_tenderdesk — hall, table with a scanner belt, folders, a clerk (no avatar, no real person)
 
-### S24 · 2:42–2:49 · 470,000
-- VO: About four hundred and seventy thousand wrongly issued debts had to be paid back.
-- PICTURE: SUBJECT a stadium filling seat by seat with people holding letters / BACKGROUND stadium at dusk, floodlights / FOREGROUND the railing / LIFE the crowd fills in waves, letters wave
-- CUTS: empty stands → full → the number over the pitch
-- CAMERA: crane up over the stands
-- TEXT: counter 470,000 over the pitch, small "wrongly issued debts"
-- FX: flash on the final number; trans=tunnel
-- SOUND: stadium roar swelling
-- BUILD: NEW x_stadium — stands filling with people (crowd painter) + number
-
-### S25 · 2:49–2:56 · A$1.8 BILLION
-- VO: A class action settlement in 2021 came to about one point eight billion Australian dollars.
-- PICTURE: SUBJECT a mountain of cash bundles growing on a court steps / BACKGROUND the court building / FOREGROUND a briefcase / LIFE bundles drop, notes flutter
-- CUTS: the pile → the number
-- CAMERA: tilt up the pile
-- TEXT: A$1.8 BILLION · settlement, 2021
-- FX: flash; trans=flip3d
-- SOUND: cash thuds, register ding
-- BUILD: reuse money view=cash
-
-### S26 · 3:02 · ROYAL COMMISSION
-- VO: In 2023, a Royal Commission called it a crude and cruel mechanism, neither fair nor legal.
-- PICTURE: SUBJECT a report book slamming onto a table, the quote rising off its page / BACKGROUND an inquiry hall with microphones / FOREGROUND microphones / LIFE pages flutter, camera flashes pop
-- CUTS: the report lands → the quote lifts → flashbulbs
-- CAMERA: push-in to the quote
-- TEXT: quote "crude and cruel" (Royal Commission, 2023)
-- FX: shock on "cruel"; trans=bloom
-- SOUND: book slam, shutter clicks
-- BUILD: NEW x_report — inquiry hall, report, quote, flashes
-
-### S27 · 3:09 · LOOP
-- VO: Australia was not alone. In the Netherlands, the same kind of mistake brought down a government.
-- PICTURE: SUBJECT the globe spins from Australia to Europe, a pin drops on the Netherlands / BACKGROUND space / FOREGROUND the globe glow / LIFE clouds, arc travels
-- CUTS: Australia → arc → the Netherlands pin
-- CAMERA: orbit
-- TEXT: THE NETHERLANDS
-- FX: flash on "government"; trans=cube
-- SOUND: whoosh along the arc, ping
-- BUILD: reuse globe arcs + map pins
-
-### S28 · 3:17 · CHAPTER 4 · DUTCH KITCHEN
-- VO: Parents who claimed childcare benefits were flagged by risk profiles as possible fraudsters. Then came the letters: pay it all back.
-- PICTURE: SUBJECT a family kitchen, a mother reading a letter, a child's drawing on the fridge, a toddler at the table / BACKGROUND canal houses through the window (generic gables) / FOREGROUND a high chair / LIFE a kettle steams, the toddler bangs a spoon, a bike passes the window
-- CUTS: the family → the letter close-up REPAY IN FULL → the mother's face (shock pose)
-- CAMERA: push-in to the letter
-- TEXT: letter REPAY IN FULL (generic, not a real document)
-- FX: chroma on "fraudsters"; trans=liquid
-- SOUND: kitchen ambience, letter rustle, music turns minor
-- BUILD: NEW x_kitchen — Dutch-style kitchen, family, letter
-
-### S29 · 3:25 · NATIONALITY
-- VO: Investigations later found that nationality had been used as a risk signal. Tens of thousands of families were wrongly treated as cheats.
-- PICTURE: SUBJECT a long street of canal houses, a red mark appearing on door after door / BACKGROUND canal and bridge / FOREGROUND bicycles / LIFE marks spread door to door, boats move
-- CUTS: one door → many doors → the whole street marked
-- CAMERA: truck right along the canal
-- TEXT: TENS OF THOUSANDS OF FAMILIES
-- FX: glitch on "nationality"; trans=pixel
-- SOUND: a stamp per door, accelerating
-- BUILD: NEW x_canal — canal street, red marks door by door
-
-### S30 · 3:33 · RESIGN
-- VO: In January 2021, the entire Dutch cabinet resigned over it.
-- PICTURE: SUBJECT a long cabinet table, chairs pushed back one by one, silhouettes walking out / BACKGROUND a tall room with a chandelier / FOREGROUND name-less nameplates / LIFE chairs slide, door swings, chandelier sways
-- CUTS: full table → chairs emptying → the last chair
-- CAMERA: pull back down the table
-- TEXT: label JANUARY 2021 · CABINET RESIGNS
-- FX: vignette; trans=slices
-- SOUND: chairs scraping, a door shutting, silence
-- BUILD: NEW x_cabinet — table, silhouettes leaving
-
-### S31 · 3:40 · COMPENSATION
-- VO: Wrongly accused parents were offered at least thirty thousand euros each. Money arrived. Years did not come back.
-- PICTURE: SUBJECT an hourglass with euro coins instead of sand, the mother's kitchen behind / BACKGROUND kitchen, evening / FOREGROUND the letter / LIFE coins trickle, clock hands spin backwards and stop
-- CUTS: hourglass → the clock that won't turn back
-- CAMERA: float
-- TEXT: AT LEAST €30,000
-- FX: zblur on "Years"; trans=blobs
-- SOUND: coin trickle, clock tick slowing
-- BUILD: NEW x_hourglass — kitchen + hourglass of coins + clock
-
-### S32 · 3:48 · EXAMS
-- VO: And in England, in the summer of 2020, an algorithm graded a whole generation.
-- PICTURE: SUBJECT a school hall of students opening envelopes at the same moment / BACKGROUND hall with high windows, banners / FOREGROUND rows of desks / LIFE envelopes rip open, light streams in
-- CUTS: hall wide → envelopes open in a wave
-- CAMERA: crane over the desks
-- TEXT: label ENGLAND · 2020 · REAL
-- FX: flash; trans=fold
-- SOUND: paper ripping, gasps
-- BUILD: NEW x_examhall — school hall, students, envelopes
-
-### S33 · 3:56 · DOWNGRADED
-- VO: Exams were cancelled, so it adjusted teachers' predicted grades. About thirty-nine percent came down, and pupils from poorer schools were hit hardest.
-- PICTURE: SUBJECT giant letter grades falling from the ceiling, A cracking into B, B into C / BACKGROUND the hall / FOREGROUND a student's hands on a desk / LIFE letters fall and crack, dust
-- CUTS: A falls → cracks to B → C; the percentage
-- CAMERA: tilt down with the falling letters
-- TEXT: counter 39% DOWNGRADED
-- FX: shake on "hit hardest"; trans=shatter
-- SOUND: stone cracks, a groan
-- BUILD: reuse x_examhall (o.grades=1)
-
-### S34 · 4:04 · U-TURN
-- VO: Within days, students were protesting in the streets with handmade signs. The pressure worked. The government dropped the algorithm and went back to the teachers' grades.
-- PICTURE: SUBJECT a crowd of students with blank placards marching past a government building / BACKGROUND a city street, summer light / FOREGROUND railings / LIFE placards bob, pigeons scatter
-- CUTS: the march → the U-turn arrow sign
-- CAMERA: truck left with the march
-- TEXT: U-TURN (road-sign style)
-- FX: whip on "dropped"; trans=whip
-- SOUND: chanting crowd, a screech
-- BUILD: reuse x_arc_protest (students, blank signs)
-
-### S35 · 4:11 · MIDPOINT REVEAL
-- VO: Look at all three stories side by side. In none of them did the machines take over. No robot seized power. Something much quieter happened.
-- PICTURE: SUBJECT three panels side by side: letters, kitchen, exam hall, each freezing / BACKGROUND dark / FOREGROUND panel frames / LIFE the panels drift into a triptych
-- CUTS: three panels → they slide together
-- CAMERA: pull
+### S15 · 2:42 · THE CATCH
+- VO: A machine that cannot be bribed can still be wrong. And when it is wrong, it is wrong for many people at once, in exactly the same way.
+- LINK: one folder goes into the wrong tray; the camera follows it
+- PICTURE: SUBJECT one folder sliding into the wrong tray, then a hundred identical folders following it / BACKGROUND the same hall / FOREGROUND the tray / LIFE folders pile up
+- ACTION: the clerk looks at the tray and frowns slightly (think pose)
+- CAMERA: slow push to the tray
 - TEXT: none
-- FX: freeze on "quieter"; trans=ripple
-- SOUND: music stops, single piano note
-- BUILD: NEW x_triptych — three mini scenes as panels
+- FX: trans=cut
+- SOUND: music drops to a single low note
+- BUILD: reuse x_tenderdesk (o.wrong: folders pile into the wrong tray, no flashing)
 
-### S36 · 4:17 · THE REVEAL
-- VO: People stopped being able to argue with them. The answer came from a system, and there was no one on the other end.
-- PICTURE: SUBJECT a person at a phone with a call queue that never ends: 'You are caller number 4,000' / BACKGROUND a dim living room / FOREGROUND the phone / LIFE hold-music notes float, the number grows
-- CUTS: the phone → the queue number growing
-- CAMERA: push-in
-- TEXT: phone UI CALLER #4,000
-- FX: vignette; trans=tunnel
-- SOUND: hold music, looping
-- BUILD: NEW x_holdcall — living room, person on hold, number grows
+### S16 · 2:54 · THE LETTER
+- VO: Day one hundred and fifty. A letter arrives for the woman in the red coat. The system says she was paid too much help last year, and she owes it back.
+- LINK: back to her: we see her at the door of her flat with the post
+- PICTURE: SUBJECT the woman at her front door reading a letter / BACKGROUND her hallway, coat hooks, autumn light from the door / FOREGROUND a doormat and a pair of shoes / LIFE leaves blow in, the door swings slightly
+- ACTION: she stands in the doorway holding the letter in both hands (read pose), then lowers it (worried pose)
+- CAMERA: slow push to the letter
+- TEXT: the letter header: AMOUNT DUE (generic, not a real document)
+- FX: trans=fade
+- SOUND: door, paper, quiet
+- BUILD: NEW x_doorway — her hallway, front door, letter in hand
 
-### S36b · 4:23 · NO ONE THERE
-- VO: In each case, the people affected were told the computer was right. It took journalists, lawyers, and years of complaints before anyone with power looked again.
-- PICTURE: SUBJECT a growing tower of complaint letters on a desk, reaching the ceiling, until a hand finally lifts the top one / BACKGROUND a newsroom at night with screens / FOREGROUND a coffee cup and a notepad / LIFE the tower sways, screens flicker, papers slide
-- CUTS: the tower grows → the hand lifts one letter
-- CAMERA: tilt up the tower
+### S17 · 3:06 · WHY IT HAPPENED
+- VO: The system took her income for the year and spread it evenly across every fortnight. But she did not earn evenly. She worked a lot in spring, and almost nothing in winter.
+- LINK: the letter's numbers become her year
+- PICTURE: SUBJECT her year as a row of 26 brick stacks, tall in spring and empty in winter; a long ruler presses them into one even height / BACKGROUND a calm workshop wall with a calendar / FOREGROUND the edge of a workbench / LIFE the ruler slides, bricks settle
+- ACTION: none
+- CAMERA: slow pull back to show the whole year
+- TEXT: small labels SPRING · WINTER under the stacks
+- FX: trans=match
+- SOUND: soft wooden clicks
+- BUILD: reuse x_averaging (calm version: ruler instead of a giant hand, no flashing)
+
+### S18 · 3:20 · THE MISTAKE
+- VO: On paper, her winter months now looked like months with a salary, while she was also getting help. To the system, that meant she had been overpaid.
+- LINK: the empty winter stacks fill with pale ghost bricks
+- PICTURE: SUBJECT the winter stacks filling with pale outlined bricks that she never earned / BACKGROUND the same workshop / FOREGROUND the workbench / LIFE ghost bricks appear one by one
+- ACTION: none
+- CAMERA: slow push to the winter stacks
 - TEXT: none
-- FX: zblur on "years"; trans=fold
-- SOUND: typing, phones, then a single paper lift
-- BUILD: NEW x_complaints — newsroom, tower of letters
+- FX: trans=cut
+- SOUND: quiet
+- BUILD: reuse x_averaging (o.debt: ghost bricks, no red alarm)
 
-### S37 · 4:25 · THE CORRIDOR
-- VO: That is the real danger. Not a robot with a plan. A door you can't knock on.
-- PICTURE: SUBJECT a long corridor of doors, every door locked, the person walking down it / BACKGROUND corridor stretching to a glowing core at the end / FOREGROUND a locked door handle / LIFE lights flicker, footsteps echo
-- CUTS: corridor → hand on a locked handle
-- CAMERA: push down the corridor
+### S19 · 3:31 · ROBODEBT
+- VO: This exact mistake really happened. In 2016, Australia started an automated system to recover welfare overpayments. People called it Robodebt.
+- LINK: from our woman's kitchen to a real Australian kitchen table with the same kind of letter
+- PICTURE: SUBJECT a kitchen table in an Australian suburban house, a letter and a calculator, a man sitting reading / BACKGROUND kitchen with a window onto a sunny yard and a gum tree / FOREGROUND a mug / LIFE the gum tree moves, a ceiling fan turns
+- ACTION: the man sits on a chair at the table, reads the letter, picks up the calculator
+- CAMERA: slow push across the table
+- TEXT: label AUSTRALIA · 2016 (small)
+- FX: trans=fade
+- SOUND: ceiling fan, birds outside
+- BUILD: NEW x_aussiekitchen — suburban kitchen, man at table, letter, calculator
+
+### S20 · 3:43 · HUNDREDS OF THOUSANDS
+- VO: It used the same income averaging. Letters went out by the hundred thousand. Many people paid, because proving the computer wrong took more time than they had.
+- LINK: from one letter on one table to many letters across a suburb
+- PICTURE: SUBJECT a quiet suburb at evening, a postal van stopping at house after house, letters going into each mailbox / BACKGROUND rows of houses with lit windows / FOREGROUND a mailbox / LIFE the van moves at a steady speed, a person collects post
+- ACTION: a postal worker walks from the van to a mailbox and places letters; a resident walks out to collect
+- CAMERA: slow truck along the street
 - TEXT: none
-- FX: chroma on "can't"; trans=cube
-- SOUND: footsteps echo, rattling handle
-- BUILD: reuse x_doors (o.locked=1)
+- FX: trans=slide
+- SOUND: evening suburb, van engine, mailbox lid
+- BUILD: NEW x_postround — suburb at dusk, postal van, mailboxes, walking postal worker
 
-### S38 · 4:31 · BACK TO THE SIM
-- VO: Back in our simulated country. Day one hundred and fifty. A letter arrives. Your benefit application is rejected. It doesn't say why.
-- PICTURE: SUBJECT the person reading the rejection form on the doorstep, REJECTED stamp / BACKGROUND their front door, autumn trees / FOREGROUND a doormat / LIFE leaves fall, the stamp thumps
-- CUTS: letter → REJECTED → the person turning
-- CAMERA: dutch
-- TEXT: WHO DO I CALL? sign
-- FX: shake on "rejected"; trans=stripes2
-- SOUND: stamp thud, wind
-- BUILD: reuse x_arc_reject
+### S21 · 3:57 · UNLAWFUL
+- VO: Courts and reviews later found the method was unlawful. The scheme was scrapped in 2020, and about four hundred and seventy thousand wrongly issued debts had to be paid back.
+- LINK: from the street to the place where it was decided
+- PICTURE: SUBJECT a courtroom with a judge's bench, lawyers at tables, a public gallery / BACKGROUND wood panels and tall windows / FOREGROUND the gallery rail / LIFE people sit, a lawyer stands and speaks, papers move
+- ACTION: people sit on benches; one lawyer stands and talks; the judge writes
+- CAMERA: slow pull from the bench to the gallery
+- TEXT: small line at the top: ABOUT 470,000 DEBTS REPAID
+- FX: trans=fade
+- SOUND: courtroom room tone, a gavel once (soft)
+- BUILD: NEW x_court — courtroom with seated people (no real people)
 
-### S39 · 4:39 · NO OPT-OUT
-- VO: With an app, you can just quit. You can't quit a country.
-- PICTURE: SUBJECT split: top an app icon being dragged to the trash; bottom a person trying to drag a whole country map, it won't move / BACKGROUND phone screen / city map / FOREGROUND the trash can / LIFE the icon wobbles, the map stays
-- CUTS: app → trash; country → stuck
-- CAMERA: orbit
-- TEXT: NO OPT-OUT
-- FX: glitch; trans=flip3d
-- SOUND: trash crumple, then a heavy thud
-- BUILD: reuse split (x_arc_taxform | x_arc_letters)
+### S22 · 4:11 · THE REVIEW
+- VO: A settlement in 2021 came to about one point eight billion Australian dollars. And in 2023, a Royal Commission called the scheme a crude and cruel mechanism.
+- LINK: from the court to the report on a table
+- PICTURE: SUBJECT a thick report on a desk under a lamp, a person turning its pages / BACKGROUND an office at night, bookshelves / FOREGROUND reading glasses on the desk / LIFE pages turn, the lamp is steady
+- ACTION: a person sits at the desk and turns pages
+- CAMERA: slow push to the report
+- TEXT: quote "a crude and cruel mechanism" — Royal Commission, 2023 (small)
+- FX: trans=cut
+- SOUND: page turns, quiet
+- BUILD: NEW x_report2 — desk with report, lamp, a reader (calm)
 
-### S40 · 4:44 · PROTEST
-- VO: So the signs outside the palace don't say "stop the robot". They ask one thing: who decides the appeal?
-- PICTURE: SUBJECT a crowd outside the palace with handmade signs WHO DECIDES THE APPEAL? / BACKGROUND the palace with the AI core / FOREGROUND sign sticks / LIFE signs bob, birds, searchlights
-- CUTS: crowd → signs pop up
-- CAMERA: truck right
-- TEXT: signs only
-- FX: vignette; trans=blobs
-- SOUND: crowd chant, drums
-- BUILD: reuse x_arc_protest
+### S23 · 4:24 · NOT ONLY AUSTRALIA
+- VO: Australia was not alone. In the Netherlands, the tax office used risk profiles to check parents who claimed childcare benefits.
+- LINK: the camera leaves the desk and travels across a map from Australia to Europe
+- PICTURE: SUBJECT a calm world map with a dotted line travelling from Australia to the Netherlands / BACKGROUND a sea-blue map with soft land shapes / FOREGROUND none / LIFE the line draws itself, a pin settles
+- ACTION: none
+- CAMERA: slow pan across the map
+- TEXT: label THE NETHERLANDS (small)
+- FX: trans=fade
+- SOUND: soft whoosh of paper
+- BUILD: NEW x_worldmap — flat world map, travelling line, pin
 
-### S41 · 4:52 · CHAPTER 5 · THE FIX
-- VO: Some countries already have an answer. In Canada, a government system that makes decisions about people needs an impact assessment before it goes live.
-- PICTURE: SUBJECT a switch labelled LIVE that can't be flipped until three padlocks open: ASSESS, PUBLISH, MONITOR / BACKGROUND an engineering room / FOREGROUND a checklist clipboard / LIFE padlocks click open one by one
-- CUTS: locked switch → each padlock opens → the switch flips
-- CAMERA: push to the switch
-- TEXT: label CANADA · A REAL RULE; padlocks ASSESS · PUBLISH · MONITOR
-- FX: flash on "goes live"; trans=scan
-- SOUND: lock clicks, power up
-- BUILD: reuse x_arc_checklist + NEW x_padlocks
-
-### S42 · 5:01 · PUBLISH
-- VO: The assessment is published, so anyone can read it, and the results are monitored after launch.
-- PICTURE: SUBJECT a giant open book in a public square, people reading it / BACKGROUND town square, fountain / FOREGROUND a bench / LIFE pages turn in the wind, pigeons
-- CUTS: book → people reading
-- CAMERA: crane down
+### S24 · 4:34 · THE PARENTS
+- VO: Tens of thousands of families were wrongly treated as fraudsters and told to repay large sums. Investigations later found that nationality had been used as a risk signal.
+- LINK: the pin opens onto a canal street
+- PICTURE: SUBJECT a canal street of gabled houses; inside one window, a mother at a table with a letter and a child playing / BACKGROUND canal, bridge, bicycles / FOREGROUND bicycles at a rail / LIFE a boat passes slowly, bikes go by
+- ACTION: the mother sits at the table holding the letter; the child sits on the floor with blocks
+- CAMERA: slow push from the canal to the window
 - TEXT: none
-- FX: bloom; trans=liquid
-- SOUND: fountain, page turns
-- BUILD: NEW x_openbook — square with a giant open book and readers
+- FX: trans=zoomthru
+- SOUND: canal ambience, bicycle bells far away
+- BUILD: NEW x_canal2 — canal street and an interior window view
 
-### S43 · 5:08 · HUMAN IN THE LOOP
-- VO: The idea is simple: the machine can prepare a decision, but a person has to be able to check it, and you have to be able to ask why.
-- PICTURE: SUBJECT the robot arm hands a document to a human clerk at a window; the clerk stamps it / BACKGROUND a bright public office / FOREGROUND a ticket machine / LIFE the queue moves, the stamp lands
-- CUTS: robot hands over → human reads → stamp
-- CAMERA: truck left
-- TEXT: WHY? speech bubble from a citizen
-- FX: pop on "why"; trans=fold
-- SOUND: stamp, bell
-- BUILD: reuse x_signdesk (o.window=1)
+### S25 · 4:48 · THE GOVERNMENT RESIGNED
+- VO: In January 2021, the Dutch government resigned over it. Wrongly accused parents were offered at least thirty thousand euros each.
+- LINK: from the family to the long table where the decision was taken
+- PICTURE: SUBJECT a long cabinet table, people in suits standing up and leaving one by one, the room emptying / BACKGROUND a tall room with a chandelier and windows / FOREGROUND chairs / LIFE people walk out at stride speed, the door closes
+- ACTION: people stand up from chairs, pick up folders, and walk to the door
+- CAMERA: slow pull back down the table
+- TEXT: small label JANUARY 2021
+- FX: trans=fade
+- SOUND: chairs, footsteps, a door
+- BUILD: NEW x_cabinet2 — cabinet room, people stand and leave (no real people)
 
-### S44 · 5:16 · QUESTION
-- VO: So what would one year of AI government really look like? Think about it for a second.
-- PICTURE: SUBJECT a calendar flipping through 365 days over the palace / BACKGROUND the palace at sunset / FOREGROUND calendar pages blowing / LIFE pages fly, sky shifts colours
-- CUTS: calendar flips → stops at DAY 365
-- CAMERA: float
-- TEXT: DAY 365
-- FX: speed; trans=ripple
-- SOUND: pages whirring, then silence 0.6 s
-- BUILD: NEW x_calendar — palace + flipping calendar
+### S26 · 5:00 · EXAMS
+- VO: And in England, in 2020, exams were cancelled because of the pandemic. An algorithm adjusted the grades teachers had predicted.
+- LINK: from one room of officials to a room of students
+- PICTURE: SUBJECT a school hall, students at desks opening envelopes / BACKGROUND hall with high windows / FOREGROUND rows of desks / LIFE envelopes open, a teacher walks between rows
+- ACTION: students sit on chairs at desks, open envelopes and read; a teacher walks
+- CAMERA: slow crane down over the desks
+- TEXT: label ENGLAND · 2020 (small)
+- FX: trans=slide
+- SOUND: paper, quiet hall
+- BUILD: NEW x_examhall2 — hall, seated students, envelopes, walking teacher
 
-### S45 · 5:23 · ANSWER 1
-- VO: It would be brilliant at the boring things. Queues, forms, buses, budgets, done faster and cleaner than any office.
-- PICTURE: SUBJECT a quick montage wall: queue gone, form done, bus arriving, budget pipes, each a tile lighting green / BACKGROUND a dark control wall / FOREGROUND desk edge / LIFE tiles flip green in sequence
-- CUTS: tiles light one per word
-- CAMERA: pull
-- TEXT: ticks on each tile
-- FX: flash per tile; trans=pixel
-- SOUND: confirm chimes in rhythm
-- BUILD: reuse x_arc_dashboard (tiles)
+### S27 · 5:12 · DOWNGRADED
+- VO: About thirty-nine percent of grades came down, and students from poorer schools were hit hardest. After protests, the government dropped the algorithm within days.
+- LINK: close on one student's result, then out to the street
+- PICTURE: SUBJECT one student's result sheet with a grade crossed and lowered, then students gathering outside with handwritten signs / BACKGROUND school gate and street / FOREGROUND railings / LIFE signs move gently, people talk
+- ACTION: a student sits reading the sheet; outside, students stand holding signs
+- CAMERA: slow push to the sheet, then a calm cut outside
+- TEXT: small line: ABOUT 39% OF GRADES LOWERED
+- FX: trans=cut
+- SOUND: quiet, then a calm crowd murmur
+- BUILD: NEW x_resultsheet — a result sheet close-up; reuse a street with sign holders
 
-### S46 · 5:31 · ANSWER 2
-- VO: And it would fail at the human things: the strange case, the life that doesn't fit the average, the person who needs someone to say yes, I see the mistake.
-- PICTURE: SUBJECT one brick that doesn't fit the even wall, glowing / BACKGROUND the brick yard / FOREGROUND a hand reaching for the odd brick / LIFE the wall shakes, the odd brick glows
-- CUTS: the wall → the odd brick → the hand
-- CAMERA: push-in
+### S28 · 5:25 · WHAT THE STORIES SHARE
+- VO: Put the three stories side by side. In none of them did a machine take over. Nobody built a robot president. Something quieter happened. The decision came from a system, and people could no longer easily argue with it.
+- LINK: three windows: the Australian kitchen, the Dutch window, the exam hall
+- PICTURE: SUBJECT three window frames side by side in a wall, each showing one of the three scenes / BACKGROUND a plain wall / FOREGROUND window sills / LIFE small movements inside each window
+- ACTION: the people inside keep doing their action (reading, sitting, opening)
+- CAMERA: slow pull back to see all three
 - TEXT: none
-- FX: zblur on "mistake"; trans=shatter
-- SOUND: a single warm chord
-- BUILD: reuse x_averaging (o.odd=1)
+- FX: trans=fade
+- SOUND: music thins to a few notes
+- BUILD: NEW x_threewindows — a wall with three window views of earlier scenes
 
-### S47 · 5:40 · PAYOFF
-- VO: The AI government worth having is not the one with the smartest machine. It is the one where a human can still say: wait, let me look.
-- PICTURE: SUBJECT the palace again from the hook, but inside the glowing doors a single lit desk with a person behind it, a citizen walking up / BACKGROUND night city, searchlights / FOREGROUND the crowd from the hook, now calm / LIFE the person waves the citizen over, searchlights slow
-- CUTS: palace wide (callback) → into the doors → the desk
-- CAMERA: push-in through the doors
+### S29 · 5:39 · BACK TO HER
+- VO: Back in our imaginary year, the woman in the red coat tries to appeal. The website has a form. She explains her winter. The form goes to the same system that made the decision, and the same answer comes back.
+- LINK: back to her kitchen table from S05
+- PICTURE: SUBJECT the woman at her kitchen table typing an appeal on her tablet; the screen shows a loop: SUBMIT → REVIEWED BY SYSTEM → SAME ANSWER / BACKGROUND her kitchen at evening / FOREGROUND the letter on the table / LIFE the screen loops, a lamp is on
+- ACTION: she sits on the chair, types, waits, rests her chin on her hand (think pose)
+- CAMERA: slow push to the tablet
+- TEXT: tablet UI only
+- FX: trans=fade
+- SOUND: kitchen evening tone, soft taps
+- BUILD: reuse x_kitchen2 (o.evening, o.appeal)
+
+### S30 · 5:52 · THE REAL RISK
+- VO: That is the real risk. Not a robot with a plan, but a decision with nobody behind it. A door with no one to knock on.
+- LINK: from her screen to an empty service desk
+- PICTURE: SUBJECT an empty service counter with a closed window and a small sign ONLINE ONLY / BACKGROUND the service office from S04, now empty / FOREGROUND the rope barriers / LIFE dust in the light, the clock moves
+- ACTION: none (empty)
+- CAMERA: slow push to the closed window
+- TEXT: the small sign only
+- FX: trans=match
+- SOUND: empty room tone, a clock
+- BUILD: reuse x_serviceoffice (o.empty)
+
+### S31 · 6:03 · WHAT CANADA DOES
+- VO: Some countries already have a rule for this. In Canada, a federal system that makes decisions about people needs an impact assessment before it goes live, and the results are watched afterwards.
+- LINK: a calm answer: the same kind of office, but with people checking
+- PICTURE: SUBJECT a meeting room where two people review a printed checklist before a big switch on the wall can be turned on / BACKGROUND an office meeting room with a whiteboard / FOREGROUND a coffee cup / LIFE ticks are added to the checklist one by one, the switch turns green
+- ACTION: two people sit at the table, one ticks the list with a pen, the other stands and turns the switch
+- CAMERA: slow push to the checklist, then to the switch
+- TEXT: checklist lines ASSESS · PUBLISH · MONITOR; label CANADA (small)
+- FX: trans=slide
+- SOUND: pen ticks, a soft click
+- BUILD: NEW x_meetingroom — meeting room, checklist, wall switch
+
+### S32 · 6:17 · LIKE AN AUTOPILOT
+- VO: Think of it like an autopilot. It flies most of the trip, and it flies it well. But there are still pilots in the cockpit, and they can take the controls.
+- LINK: an everyday comparison, then back to government
+- PICTURE: SUBJECT a calm airplane cockpit, two pilots sitting, the autopilot light on; one pilot places a hand on the controls / BACKGROUND clouds outside the windshield / FOREGROUND the instrument panel / LIFE clouds pass, instruments move gently
+- ACTION: two pilots sit; one reaches and rests a hand on the controls
+- CAMERA: slow push between the seats
 - TEXT: none
-- FX: bloom; trans=tunnel
-- SOUND: the hook's theme, resolved
-- BUILD: reuse x_palace (o.desk=1)
+- FX: trans=fade
+- SOUND: soft cabin hum
+- BUILD: NEW x_cockpit — cockpit with two seated pilots
 
-### S48 · 5:48 · SIGN
-- VO: The machine drafts. A human signs. And yes, on day one, you still get your bus on time. Which country would you trust to try it first? Tell us in the comments.
-- PICTURE: SUBJECT the MACHINE DRAFT form with a human hand signing, the bus passing outside the window / BACKGROUND office window, street / FOREGROUND the pen / LIFE the signature writes, the bus passes
-- CUTS: signature → the bus outside
-- CAMERA: push
-- TEXT: SIGNED: A HUMAN
-- FX: flash; trans=bloom
-- SOUND: pen scratch, bus horn, music end
-- BUILD: reuse x_arc_sign
+### S33 · 6:29 · THE ANSWER
+- VO: So what would a year of AI government look like? It would be very good at the routine work: forms, queues, timetables, budgets. And it would struggle with the people whose lives do not fit the average, like a year with a busy spring and an empty winter.
+- LINK: from the cockpit back to the city at dusk, the same view as the hook
+- PICTURE: SUBJECT the city from the hill again, now at dusk, the government building's windows warm instead of teal / BACKGROUND dusk sky / FOREGROUND rooftops and the balcony railing / LIFE lights come on, a bus moves
+- ACTION: none
+- CAMERA: slow pull back
+- TEXT: none
+- FX: trans=fade
+- SOUND: the opening pad returns
+- BUILD: reuse x_dawncity (o.dusk)
+
+### S34 · 6:41 · THE DESK
+- VO: The version worth having is the one where the machine prepares the decision, and a person can still look at it and say: wait, let me check.
+- LINK: back to the woman one last time, now at a real service desk
+- PICTURE: SUBJECT the woman sitting across a desk from a clerk, the clerk looking at the letter and the screen, then nodding / BACKGROUND the service office, now with an open counter / FOREGROUND the desk with a nameplate-less sign OPEN / LIFE people in the background, the clerk turns the screen
+- ACTION: both sit on chairs at the desk; the clerk holds the letter and reads; the woman waits, then nods
+- CAMERA: slow push across the desk
+- TEXT: none
+- FX: trans=cut
+- SOUND: office ambience, a calm music resolve
+- BUILD: reuse x_serviceoffice (o.desk)
+
+### S35 · 6:53 · END
+- VO: The machine drafts. A person decides. Which part of your country would you hand to an AI first?
+- LINK: the desk scene holds as the music ends
+- PICTURE: SUBJECT the clerk signing the corrected letter, the woman standing up with her coat / BACKGROUND the service office / FOREGROUND the desk / LIFE the pen moves, people pass
+- ACTION: the clerk signs with a pen; the woman stands up from her chair and puts on her coat
+- CAMERA: slow pull back
+- TEXT: none
+- FX: trans=cut
+- SOUND: music resolves
+- BUILD: reuse x_serviceoffice (o.sign)
