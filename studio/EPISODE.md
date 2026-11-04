@@ -35,6 +35,25 @@ Token rules are at the end.
   at least every 5 shots). Commit it as `[claude] [<slug>] director's script`.
 - The build (bank file, bespoke acts, story) follows the script shot by shot; the story's beats carry the shot ids (`// S07 …`).
 
+## 0b. Engine 3.0 — shots, 2D and 3D (owner, 4 Nov 2026; standard: `references/ifm-craft.md`)
+- Content: cold open → day one → chain reaction (3–5 set pieces) → WHAT PEOPLE SAY (popular theories named as theories,
+  then what is known) → the turn → payoff. Entertaining, light situational humour, never over the top; research is a reference.
+- Every cut states SIZE · angle · move · medium in the script (`- SHOT:`) and in the story:
+  `cam=<EWS|WS|MS|MCU|CU|ECU>.<eye|high|low|top|dutch|ots|pov>.<push|pull|trackL|trackR|pan|tilt|crane|drop|orbit|dolly|static>[:fx,fy]`
+  (2D acts: framing around the point fx,fy; in `then=` each cut gets its own shot).
+- 3D sets (`engine/library/ifm3d.js`): `# vis kind=w act=s3 set=<set> on=<subject> cam=… time=day|dawn|dusk|night`
+  | set | subjects (`on=`) | keys |
+  |---|---|---|
+  | city | center tower park street | `rush=` traffic, `dark=<s>` blackout cascade, `lit=` |
+  | street | her stop street crossing block | `do=walk|phone|talk`, `n=` walkers, `rush=` |
+  | plaza | building steps door fountain crowd | `do=sign|cheer` (protest/celebration), `n=` |
+  | office | desk screen room window | — |
+  | home | her phone room window | `do=sit` (default on the phone) |
+  | waiting | screen queue chairs counter | `screen="TOP|BIG"`, `empty=1` |
+  | servers | aisle rack tech | — |
+  Change set inside a beat with `then="act=s3 set=… cam=…@k"`. Aim 20–50 % of cuts in 3D, ≥ 4 angles and ≥ 1 close-up per minute.
+- Check every shot on the contact sheet (`node tools/sheet.mjs stories/<slug>.story v 3`) before the gates.
+
 ## 0. Setup and scaffold (2 commands)
 ```
 bash ../setup.sh | tail -12
