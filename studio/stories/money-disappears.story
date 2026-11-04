@@ -11,14 +11,14 @@ sources: R.A. Radford, "The Economic Organisation of a P.O.W. Camp", Economica 1
 // Director's script: jobs/scripts/money-disappears.md — one beat per shot (S01–S41), VO verbatim, then= cuts on the captions.
 
 // S01 · 0:00 [9 s] SUBJECT: the bakery shelves at dawn; the price cards lift off; the line outside
-# vis kind=w act=hook scene="x_md_bakery v=hook" q="WHAT IF|MONEY DISAPPEARED?" cam=WS.eye.push:.45,.45 then="act=x_md_bakery v=hook cam=WS.high.pull:.74,.3@3"
+# vis kind=w act=x_md_shelves hook=1 q="WHAT IF|MONEY DISAPPEARED?" cam=MS.eye.dolly:.4,.36 then="q=none cam=WS.high.pull:.74,.3@3"
 Overnight, every coin, every banknote
 and every number in every bank account disappears.
 Everything is free.
 So why is there a queue around the block?
 
 // S02 · 0:09 [10 s] SUBJECT: the city waking at dawn
-# vis kind=w act=s3 set=city time=dawn cam=EWS.high.orbit on=center trans=zoomthru words="~ONE MORNING · ONE WEEK · ONE YEAR@0" then="cam=WS.low.push on=tower@2"
+# vis kind=w act=s3 set=city time=dawn cam=EWS.high.orbit on=center trans=zoomthru words="~DAY 1 → YEAR 1@0" then="cam=WS.low.push on=tower@2"
 Let's run it: one morning, one week, one year.
 By the end, you'll know what money
 was really doing all along.
@@ -47,21 +47,21 @@ By seven, word is out.
 By eight, the line reaches the end of the street.
 
 // S06 · 0:53 [9 s] SUBJECT: the last loaf leaves the shelf; the street empties
-# vis kind=w act=x_md_bakery v=empty cam=MCU.low.push:.32,.28 trans=cut words="~9:40@0" then="act=s3 set=street time=day do=walk n=12 cam=WS.high.static on=street@2"
+# vis kind=w act=x_md_bakery v=empty cam=MCU.low.push:.32,.28 trans=drop words="~9:40@0" then="act=s3 set=street time=day do=walk n=12 cam=WS.high.static on=street@2"
 At nine forty, the last loaf is gone.
 The people at the back walk home with nothing.
 The bread was free.
 It simply ran out.
 
 // S07 · 1:02 [10 s] SUBJECT: one price card folds into a paper bird and flies to a passer-by
-# vis kind=w act=x_md_message v=card cut=2 cam=CU.eye.push:.45,.44 trans=match then="cam=WS.eye.pan:.5,.5@2"
+# vis kind=w act=x_md_card cut=2 cam=CU.eye.push:.45,.44 trans=match then="cam=WS.eye.pan:.5,.5@2"
 So what was missing?
 A price is not only what you pay.
 It is a message, passed from person to person
 without anyone saying a word.
 
 // S08 · 1:12 [11 s] SUBJECT: the price card ticks up between a shopper and a baker
-# vis kind=w act=x_md_message v=up cam=MCU.eye.pan:.4,.42 trans=slide then="cam=CU.high.push:.7,.45@3"
+# vis kind=w act=x_md_market cam=MCU.eye.pan:.4,.42 trans=slide then="cam=CU.high.push:.7,.45@3"
 When bread runs short, its price creeps up.
 That one number tells the buyer:
 take only what you need.
@@ -69,14 +69,14 @@ And it tells the baker:
 bake more, it's worth it.
 
 // S09 · 1:23 [11 s] SUBJECT: the whole city's messages, then they stop
-# vis kind=w act=s3 set=city time=day cam=EWS.high.orbit on=center pins="center:BREAD@0|tower:MILK@1|park:SHOES@1|street:DIESEL@1" trans=zoom then="cam=WS.high.push on=street pins=none@2"
+# vis kind=w act=s3 set=city time=day cam=EWS.top.orbit on=park pins="center:BREAD@0|tower:MILK@1|park:SHOES@1|street:DIESEL@1" trans=zoom then="cam=WS.high.push on=street pins=none@2"
 A city sends millions of these little messages every day.
 Nobody is in charge of them.
 Take them away, and the shelves still empty,
 but nobody hears about it in time.
 
 // S10 · 1:34 [10 s] SUBJECT: flour, the mill, the farmer and his tractor
-# vis kind=w act=s3 set=street time=day do=walk on=her cam=WS.eye.trackR pins="her:FLOUR?@0" trans=paper words="~MONDAY@3" then="act=x_md_chain v=chain cam=WS.eye.trackR:.5,.45@1|cam=MS.low.push:.55,.5@3"
+# vis kind=w act=s3 set=street time=day do=walk on=her cam=MS.low.trackR pins="her:FLOUR?@0" trans=paper words="~MONDAY@3" then="act=x_md_chain v=chain cam=WS.eye.trackR:.5,.45@1|cam=MS.low.push:.55,.5@3"
 Nora needs flour.
 The miller needs grain.
 The farmer needs diesel for the tractor.
@@ -84,7 +84,7 @@ On Monday, all of them still go to work,
 out of habit and goodwill.
 
 // S11 · 1:44 [10 s] SUBJECT: a hundred people at the farm gate
-# vis kind=w act=x_md_chain v=farm cam=WS.high.crane:.5,.5 trans=fade words="NO PRICE · NO ORDER · NO BILL@3|~WHO CAME FIRST?@4" then="cam=MCU.eye.static:.5,.52@2"
+# vis kind=w act=x_md_chain v=farm cam=WS.high.crane:.5,.5 trans=cube words="NO PRICE. NO BILL.@3|~WHO CAME FIRST?@4" then="cam=MCU.eye.static:.5,.52@2"
 But the farmer now has a hundred people
 asking for the same grain,
 and nothing to tell them apart.
@@ -101,7 +101,7 @@ the queue is the new price.
 You pay with time.
 
 // S13 · 2:07 [8 s] SUBJECT: two hundred phones inside, two thousand people outside at night
-# vis kind=w act=s3 set=waiting time=night screen="PHONES|200" cam=MS.high.push on=screen trans=cut words="~200 PHONES@0|~≈ 2,000 PEOPLE@1" then="act=x_md_phoneshop cam=WS.low.pan:.5,.5@1"
+# vis kind=w act=s3 set=waiting time=night screen="PHONES|200" cam=MS.high.push on=screen trans=paper words="~200 PHONES@0|~≈ 2,000 PEOPLE@1" then="act=x_md_phoneshop cam=WS.low.pan:.5,.5@1"
 Inside a phone shop, there are two hundred phones.
 Outside, about two thousand people
 wait all night in sleeping bags.
@@ -138,13 +138,13 @@ to the queue, to the card,
 and to whoever writes the rules on the card.
 
 // S18 · 2:58 [10 s] SUBJECT: the dispatcher decides who gets flour and diesel
-# vis kind=w act=s3 set=office time=day cam=WS.eye.push on=desk trans=cut then="act=x_md_board v=board cam=WS.eye.pan:.5,.4@1"
+# vis kind=w act=s3 set=office time=day cam=WS.eye.push on=desk trans=cube then="act=x_md_board v=board cam=WS.eye.pan:.5,.4@1"
 Someone now decides how much flour goes to Nora,
 how much to the school kitchen,
 and whether diesel goes to the hospital or the farm first.
 
 // S19 · 3:08 [11 s] SUBJECT: hospitals and schools lit; the endless list
-# vis kind=w act=s3 set=city time=night lit=1 cam=EWS.high.crane on=center trans=slide words="~HOSPITALS ✓@1|~SCHOOLS ✓@2" then="act=x_md_board v=list cut=3 cam=EWS.high.pull:.5,.55@3"
+# vis kind=w act=s3 set=city time=night lit=1 cam=WS.low.crane on=tower trans=slide words="~HOSPITALS ✓@1|~SCHOOLS ✓@2" then="act=x_md_board v=list cut=3 cam=EWS.high.pull:.5,.55@3"
 For the big, obvious things, it works.
 Hospitals keep their lights on.
 Schools keep cooking.
@@ -158,14 +158,14 @@ The form has no box for raisins.
 She waits three weeks for a reply.
 
 // S21 · 3:26 [11 s] SUBJECT: the Andes, terraces, the road, llamas
-# vis kind=w act=x_md_andes v=wide cam=EWS.low.crane:.5,.45 trans=fade words="~THE INCA EMPIRE@2|NO COINS · NO MARKETS@3" then="cam=WS.eye.trackR:.5,.55@2"
+# vis kind=w act=x_md_andes v=wide cam=EWS.low.crane:.5,.45 trans=fade words="~THE INCA EMPIRE@2|NO COINS@3" then="cam=WS.eye.trackR:.5,.55@2"
 Has a big society ever run without money?
 Yes. Five hundred years ago,
 the Inca Empire stretched along the Andes,
 with no coins and no markets as we know them.
 
 // S22 · 3:37 [10 s] SUBJECT: workers carry the harvest into stone storehouses
-# vis kind=w act=x_md_andes v=store cam=WS.high.pan:.5,.5 trans=iris words="~MIT'A · A TURN OF WORK@1" then="cam=MS.eye.push:.5,.42@3"
+# vis kind=w act=x_md_store cam=WS.high.pan:.5,.5 trans=iris words="~MIT'A = WORK@1" then="cam=MS.eye.push:.5,.42@3"
 Families paid the state in work:
 a turn of labour called mit'a,
 on roads, farms and terraces.
@@ -173,7 +173,7 @@ Food and cloth went into stone storehouses
 along the roads.
 
 // S23 · 3:47 [10 s] SUBJECT: a family receives a basket; the khipu that kept the accounts
-# vis kind=w act=x_md_andes v=khipu cut=1 cam=WS.eye.pull:.45,.5 trans=fade words="KHIPU@2|NO MONEY@3|NOT MUCH CHOICE@4" then="cam=MS.eye.static:.5,.42@1"
+# vis kind=w act=x_md_khipu cut=1 cam=WS.eye.pull:.45,.5 trans=paper words="KHIPU@2|NO MONEY@3|NOT MUCH CHOICE@4" then="cam=MS.eye.static:.5,.42@1"
 It was handed out when it was needed,
 and the accounts were kept
 on knotted cords called khipu.
@@ -181,7 +181,7 @@ No money at all.
 But also not much choice.
 
 // S24 · 3:57 [13 s] SUBJECT: round the corner, two loaves for a bag of coffee
-# vis kind=w act=s3 set=street time=day do=walk on=her cam=WS.eye.trackL trans=match words="~2 LOAVES = 1 COFFEE@5" then="act=x_md_ious v=swap at=5 cam=MS.eye.push:.5,.5@3"
+# vis kind=w act=s3 set=street time=day do=walk on=her cam=WS.high.trackL trans=match words="~2 LOAVES = COFFEE@5" then="act=x_md_ious v=swap at=5 cam=MS.eye.push:.5,.5@3"
 Back in our imagined city,
 Nora sees the same faces
 at the front of her line every morning.
@@ -190,14 +190,14 @@ Around the corner,
 two loaves go for a bag of coffee.
 
 // S25 · 4:10 [11 s] WHAT PEOPLE SAY SUBJECT: the storybook theory: a cow for wheat, a pot for fish
-# vis kind=w act=x_md_barter v=village cam=WS.eye.pan:.5,.5 trans=fold words="THEORY: BACK TO BARTER@0" then="cam=MCU.low.push:.5,.58@3"
+# vis kind=w act=x_md_village cam=WS.eye.pan:.5,.5 trans=fold words="THEORY: BARTER@0" then="cam=MCU.low.push:.5,.58@3"
 Online, people say the answer is simple:
 we'd just go back to barter, like our ancestors.
 A cow for some wheat.
 A clay pot for a basket of fish.
 
 // S26 · 4:21 [10 s] WHAT PEOPLE SAY SUBJECT: what is known: the anthropologist's notebooks
-# vis kind=w act=s3 set=office time=night cam=WS.high.push on=desk trans=fade words="WHAT IS KNOWN@2" then="act=x_md_barter v=desk cam=WS.top.static:.5,.4@2"
+# vis kind=w act=s3 set=office time=night cam=WS.high.push on=desk trans=zoom words="WHAT IS KNOWN@2" then="act=x_md_barter v=desk cam=WS.top.static:.5,.4@2"
 It's a popular story.
 In fact, it's mostly a myth.
 The anthropologist Caroline Humphrey
@@ -205,26 +205,26 @@ looked for a society that ran on barter alone,
 and in 1985 she wrote:
 
 // S27 · 4:31 [5 s] WHAT PEOPLE SAY · THE QUOTE SUBJECT: the sentence types itself
-# vis kind=w act=x_md_barter v=quote cam=WS.eye.push:.5,.4 trans=cut
+# vis kind=w act=x_md_quote cam=WS.eye.push:.5,.4 trans=cut
 QUOTE: No example of a barter economy, pure and simple,
 QUOTE: has ever been described.
 
 // S28 · 4:36 [11 s] WHAT PEOPLE SAY SUBJECT: the baker wants shoes, the shoemaker wants fish
-# vis kind=w act=x_md_barter v=shoes cam=MS.eye.trackR:.45,.48 trans=slide words="DOUBLE COINCIDENCE OF WANTS@3" then="act=s3 set=street time=day cam=WS.high.static on=street@3"
+# vis kind=w act=x_md_shoes cam=MS.eye.trackR:.45,.48 trans=slide words="DOUBLE COINCIDENCE@3" then="act=s3 set=street time=day cam=WS.high.static on=street@3"
 Barter does actually happen, but it's clumsy.
 A baker who wants shoes
 has to find a shoemaker who wants bread, today.
 Economists call it the double coincidence of wants.
 
 // S29 · 4:47 [9 s] WHAT PEOPLE SAY SUBJECT: theory two; free money, not no money
-# vis kind=w act=s3 set=waiting time=day screen="THEORY 2|NO WORK?" cam=WS.eye.pull on=chairs trans=zoom words="FREE MONEY ≠ NO MONEY@3" then="act=x_md_turn v=envelope cut=2 cam=MCU.high.push:.5,.45@2"
+# vis kind=w act=s3 set=waiting time=day screen="THEORY 2|NO WORK?" cam=WS.eye.pull on=chairs trans=zoom words="FREE ≠ NO MONEY@3" then="act=x_md_turn v=envelope cut=2 cam=MCU.high.push:.5,.45@2"
 A second theory: without pay, nobody would work.
 The closest real tests didn't remove money.
 They gave people free money,
 and watched what happened.
 
 // S30 · 4:56 [12 s] WHAT PEOPLE SAY SUBJECT: Finland, Kenya, the USA on the map; people still at work
-# vis kind=w act=map view=flat pins="26,64,FINLAND;37.9,0.2,KENYA;-98,39,USA" cam=WS.high.push:.5,.45 trans=cut words="~ABOUT THE SAME@2|~1–2 HOURS LESS A WEEK@4" then="cam=MCU.eye.pan:.45,.45 pip=x_md_workpip pipPos=ml pipAt=5@4"
+# vis kind=w act=map view=flat pins="26,64,FINLAND;37.9,0.2,KENYA;-98,39,USA" cam=WS.high.push:.5,.45 trans=iris words="~ABOUT THE SAME@2|~1–2 H LESS / WEEK@4" then="cam=MCU.eye.pan:.45,.45 pip=x_md_workpip pipPos=ml pipAt=5@4"
 What we know:
 in Finland and in Kenyan villages,
 people kept working about as much as before.
@@ -233,20 +233,20 @@ they worked an hour or two less a week.
 Most people keep working.
 
 // S31 · 5:08 [8 s] SUBJECT: a prison camp in winter, World War II
-# vis kind=w act=x_md_camp v=wide cam=EWS.high.pull:.5,.45 trans=fade words="WORLD WAR II · PRISON CAMPS@1" then="cam=WS.eye.trackR:.5,.5@2"
+# vis kind=w act=x_md_camp v=wide cam=EWS.high.pull:.5,.45 trans=fade words="WWII PRISON CAMPS@1" then="cam=WS.eye.trackR:.5,.5@2"
 The most telling case is much smaller.
 It comes from prison camps in the Second World War,
 where nobody had any money at all.
 
 // S32 · 5:16 [9 s] SUBJECT: the food parcel opens; two prisoners swap
-# vis kind=w act=x_md_camp v=parcel cut=2 cam=WS.top.static:.5,.4 trans=liquid then="cam=WS.eye.push:.5,.5@2"
+# vis kind=w act=x_md_parcel cut=2 cam=WS.top.static:.5,.4 trans=liquid then="cam=WS.eye.push:.5,.5@2"
 Prisoners received the same food parcels:
 tins of meat, jam, chocolate, tea and cigarettes.
 Within days, they were swapping.
 Non-smokers traded cigarettes for food.
 
 // S33 · 5:25 [9 s] SUBJECT: the notice board where prices are written in cigarettes
-# vis kind=w act=x_md_camp v=board cut=2 cam=MS.eye.push:.5,.36 trans=zoomthru then="cam=WS.eye.static:.5,.42@2"
+# vis kind=w act=x_md_noticeboard cut=2 cam=MS.eye.push:.5,.36 trans=zoomthru then="cam=WS.eye.static:.5,.42@2"
 Then something happened that nobody planned.
 The cigarettes became money.
 Richard Radford, an economist
@@ -254,7 +254,7 @@ who was a prisoner in those camps himself,
 described it in 1945.
 
 // S34 · 5:34 [10 s] SUBJECT: the prices rise and fall with the parcels
-# vis kind=w act=x_md_camp v=prices cut=3 cam=MCU.eye.pan:.5,.35 trans=cut words="EVEN NON-SMOKERS@3" then="cam=MS.high.push:.6,.58@3"
+# vis kind=w act=x_md_prices cut=3 cam=MCU.eye.pan:.5,.35 trans=paper words="EVEN NON-SMOKERS@3" then="cam=MS.high.push:.6,.58@3"
 Prices were quoted in cigarettes.
 When new parcels arrived, prices rose.
 When cigarettes ran short, prices fell.
@@ -267,7 +267,7 @@ something everyone agrees to accept,
 so that nobody has to find the perfect swap.
 
 // S36 · 5:51 [10 s] MONTAGE SUBJECT: swaps on the street; the I.O.U. board fills
-# vis kind=w act=s3 set=street time=day do=walk n=14 cam=WS.eye.trackL on=street trans=slide then="act=x_md_ious v=board cut=2 cam=MS.eye.push:.5,.36@2"
+# vis kind=w act=s3 set=city time=day rush=1 cam=MS.eye.trackL on=street trans=slide then="act=x_md_ious v=board cut=2 cam=MS.eye.push:.5,.36@2"
 Back in our city, it's already happening.
 Bread for coffee. Coffee for a bike repair.
 Then little paper notes:
@@ -282,14 +282,14 @@ The first coins in Lydia, around 630 BC.
 Paper notes in China, about 700 years before Europe.
 
 // S38 · 6:12 [8 s] SUBJECT: the ledger: who gave what, to whom
-# vis kind=w act=x_md_ious v=ledger cam=WS.top.push:.5,.38 trans=cut words="KEEPING SCORE@1" then="act=s3 set=office time=dusk cam=WS.high.orbit on=room@2"
+# vis kind=w act=x_md_ious v=ledger cam=WS.top.push:.5,.38 trans=drop words="KEEPING SCORE@1" then="act=s3 set=office time=dusk cam=WS.high.orbit on=room@2"
 Each time, people needed the same thing:
 a way to keep score.
 Who gave what, to whom,
 and what is owed back.
 
 // S39 · 6:20 [13 s] PAYOFF SUBJECT: the city at dusk, a year later; our guess, step by step
-# vis kind=w act=s3 set=city time=dusk cam=EWS.high.orbit on=center trans=zoomthru words="~OUR GUESS@0|ONE MORNING: FREE@1|ONE WEEK: TIME@2|ONE MONTH: A CARD@3|ONE YEAR: MONEY AGAIN@4" then="act=x_md_bakery v=front cam=MCU.eye.push:.35,.45@4"
+# vis kind=w act=s3 set=city time=dusk cam=EWS.low.crane on=tower trans=zoomthru words="~OUR GUESS@0|ONE MORNING: FREE@1|ONE WEEK: TIME@2|ONE MONTH: A CARD@3|1 YEAR: NEW MONEY@4" then="act=x_md_shopfront cam=MCU.eye.push:.35,.45@4"
 So, what if money disappeared?
 Our best guess: for one morning, everything is free.
 Within a week, you pay in time.
@@ -304,6 +304,6 @@ Money was never the coins.
 It was the message.
 
 // S41 · 6:42 [5 s] END SUBJECT: the bakery at dusk, OPEN
-# vis kind=w act=x_md_bakery v=front cam=WS.low.pull:.5,.45 trans=fade
+# vis kind=w act=x_md_shopfront cam=WS.low.pull:.5,.45 trans=fade
 That's the run.
 Next time: what if the dinosaurs had never died out?
