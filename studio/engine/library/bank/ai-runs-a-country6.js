@@ -8,7 +8,7 @@
   const wrapX = (x) => ((x % (W * 1.3)) + W * 1.3) % (W * 1.3) - W * .15;
 
   // ---------------------------------------------------------------- S09 a man at his desk at home in winter; cut 1 = the laptop screen
-  A.x_homedesk = (o, c, dur) => { const t1 = T0(c, 1, 3); return { sfx: [[.2, 'ifm_world_office'], [.6, 'ifm_ui_keyboard']], draw: lt => { const v = V(), u = U();
+  A.x_homedesk = (o, c, dur) => { const t1 = T0(c, 1, 3); return { sfx: [[.2, 'ifm_world_crowd_mall'], [.6, 'ifm_ui_keyboard']], draw: lt => { const v = V(), u = U();
     if (lt < t1) { const R = interior({ wall: '#A88F74', floor: '#7A5E46', fy: v ? .6 : .7 }); const cw = R.wr - R.wl; windowView(R.wl + cw * .1, H * .1, cw * .4, H * .22, 'snow', lt, { time: 'dusk' }); for (let i = 0; i < 4; i++) rr(R.wl + cw * (.62 + i * .08), H * .14, cw * .06, H * .18, 2 * u, ['#7A4A3A', '#3E5C76', '#C9A44C', '#4F6D5A'][i], 0); rr(R.wl + cw * .6, H * .32, cw * .36, 10 * u, 2 * u, '#5A4232', 0);
       const dx = W * .52, dy = R.fy + H * .05; man(dx, dy + H * .1, H * (v ? .3 : .38), 91, 'type', lt, { col: '#355C7D' }); table(dx, dy, W * (v ? .6 : .42), H * .05, '#6B4A33');
       rr(dx - W * .1, dy - H * .1, W * .2, H * .075, 4 * u, '#2A2E45', 0); rr(dx - W * .095, dy - H * .095, W * .19, H * .065, 3 * u, '#CFE3F2', 0); poly([[dx - W * .12, dy - H * .025], [dx + W * .12, dy - H * .025], [dx + W * .1, dy - H * .01], [dx - W * .1, dy - H * .01]], '#3A3E55', 0);
@@ -19,13 +19,13 @@
       rr(sx - 30 * u, sy + sh + 20 * u, sw + 60 * u, 20 * u, 6 * u, '#3A3E55', 0); } } }; };
 
   // ---------------------------------------------------------------- S10 an open office: a colleague walks in and hands over a folder
-  A.x_office = (o, c, dur) => { const tw = .8, stop = 3.2; return { sfx: [[.2, 'ifm_world_office']], draw: lt => { const v = V(), u = U(); const R = interior({ wall: '#9EADB6', floor: '#6E7880', fy: v ? .56 : .66 }); const cw = R.wr - R.wl;
+  A.x_office = (o, c, dur) => { const tw = .8, stop = 3.2; return { sfx: [[.2, 'ifm_world_crowd_mall']], draw: lt => { const v = V(), u = U(); const R = interior({ wall: '#9EADB6', floor: '#6E7880', fy: v ? .56 : .66 }); const cw = R.wr - R.wl;
     for (let i = 0; i < 3; i++) windowView(R.wl + cw * (.05 + i * .32), H * .1, cw * .26, H * .2, 'city', lt, { time: 'day', seed: 3 + i }); plant(R.wl + cw * .96, R.fy, 1.6, lt);
     const rows = [[R.fy + H * .05, .6, 101], [R.fy + H * .16, .8, 103]]; rows.forEach(([y, sc, sd], ri) => { const n = v ? 2 : 3; for (let i = 0; i < n; i++) { const x = W * (.25 + i * (v ? .5 : .28)) + ri * W * .04; man(x, y + H * .08 * sc, H * .3 * sc, sd + i * 7, ri === 1 && i === 0 && lt > stop + .6 ? 'sitread' : 'type', lt, { col: ['#4A6FA5', '#6C5B7B', '#2A9D8F', '#B5654A'][(i + ri) % 4], hold: ri === 1 && i === 0 && lt > stop + .6 ? 'letter' : undefined }); table(x, y, W * .3 * sc, H * .03 * sc, '#C9B79A'); rr(x - W * .06 * sc, y - H * .07 * sc, W * .12 * sc, H * .055 * sc, 3 * u, '#2A2E45', 0); rr(x - W * .055 * sc, y - H * .066 * sc, W * .11 * sc, H * .045 * sc, 2 * u, '#BFD8E6', 0); } });
     const tx = W * .25 + W * .04, walkEnd = tx - W * .1, x = Math.min(walkEnd, IFM.walkX(-W * .15, Math.max(0, lt - tw), H * .3, 1)), arrived = x >= walkEnd; man(x, R.fy + H * .25, H * (v ? .32 : .4), 117, arrived ? (lt > stop + .6 ? 'stand' : 'hold') : 'walk', lt, { hold: arrived && lt > stop + .6 ? undefined : 'letter', col: '#2C3E50' }); } }; };
 
   // ---------------------------------------------------------------- S11 the government building by day: people cross the square, screens inside
-  A.x_govsquare = (o, c, dur) => ({ sfx: [[.2, 'ifm_world_city']], draw: lt => { const v = V(), u = U(), gy = H * (v ? .62 : .76); IFM.sky('day', lt, { clouds: 1 }); IFM.drawTowers(IFM.towers(23, gy - H * .1, v ? 1.2 : 1, 0), '#A9B5D6', lt, { lit: 0 });
+  A.x_govsquare = (o, c, dur) => ({ sfx: [[.2, 'ifm_world_crowd_mall']], draw: lt => { const v = V(), u = U(), gy = H * (v ? .62 : .76); IFM.sky('day', lt, { clouds: 1 }); IFM.drawTowers(IFM.towers(23, gy - H * .1, v ? 1.2 : 1, 0), '#A9B5D6', lt, { lit: 0 });
     const gb = IFM.bank.get('gov_building'), bh = H * (v ? .3 : .42); gb.draw(W / 2, gy - H * .02, bh, lt, { lit: .2 }); const labs = ['BENEFITS', 'BUDGET', 'ROADS'];
     for (let i = 0; i < 3; i++) { const wx = W / 2 + (i - 1) * bh * .42, wy = gy - bh * .62; rr(wx - bh * .14, wy, bh * .28, bh * .18, 4 * u, '#2E4A66', 0); ctx.save(); ctx.beginPath(); ctx.rect(wx - bh * .13, wy + bh * .01, bh * .26, bh * .16); ctx.clip(); for (let k = 0; k < 5; k++) rr(wx - bh * .11 + k * bh * .05, wy + bh * .14 - (Math.sin(lt * .5 + k + i) * .5 + .5) * bh * .08, bh * .035, bh * .1, 2 * u, k % 2 ? '#7FD1C3' : '#9FB7FF', 0); ctx.restore(); const k2 = ease((lt - T0(c, 1, 2) - i * .5) / .6); if (k2 > 0) { ctx.save(); ctx.globalAlpha = k2; label(labs[i], wx, wy - 26 * u, 20 * u, P.paper); ctx.restore(); } }
     ctx.fillStyle = '#CFC6B2'; ctx.fillRect(0, gy, W, H); ctx.save(); ctx.globalAlpha = .18; for (let i = 0; i < 10; i++) line(W * i / 9, gy, W * (i / 9 - .5) * 2 + W / 2, H, 2 * u, '#6B6250'); for (let j = 1; j < 6; j++) line(0, gy + j * j * 10 * u, W, gy + j * j * 10 * u, 2 * u, '#6B6250'); ctx.restore();
@@ -40,7 +40,7 @@
     if (lt > t1) man(R.wl + cw * .86, R.fy + H * .02, H * .26, 171, 'wave', lt, { col: '#E9E2D0', flip: true }); } }; };
 
   // ---------------------------------------------------------------- S14/S15 a tender office: folders pass a scanner into two trays (o.wrong: they pile into the wrong tray)
-  A.x_tenderdesk = (o, c, dur) => { const tw = T0(c, 1, 1.5); return { sfx: [[.2, 'ifm_world_office']], draw: lt => { const v = V(), u = U(); const R = interior({ wall: '#8E7F6A', floor: '#6E5E4C', fy: v ? .5 : .62 }); const cw = R.wr - R.wl;
+  A.x_tenderdesk = (o, c, dur) => { const tw = T0(c, 1, 1.5); return { sfx: [[.2, 'ifm_world_crowd_mall']], draw: lt => { const v = V(), u = U(); const R = interior({ wall: '#8E7F6A', floor: '#6E5E4C', fy: v ? .5 : .62 }); const cw = R.wr - R.wl;
     for (let i = 0; i < 3; i++) { const x = R.wl + cw * (.08 + i * .32); rr(x, H * .06, cw * .2, R.fy - H * .14, cw * .1, '#8FA6B8', 0); line(x + cw * .1, H * .06, x + cw * .1, R.fy - H * .08, 4 * u, '#EDE6D6'); }
     const ty = R.fy + H * (v ? .14 : .1); table(W / 2, ty, W * .9, H * .05, '#6B4A33'); const sx = W * .45; rr(sx - 60 * u, ty - H * .09, 120 * u, H * .08, 10 * u, '#4A5068', 0); rr(sx - 46 * u, ty - H * .075, 92 * u, 16 * u, 4 * u, '#7FD1C3', 0);
     const trays = [[W * .78, ty - H * .02, 'A'], [W * .9, ty - H * .02, 'B']]; trays.forEach(([x, y, n]) => { rr(x - 40 * u, y - 24 * u, 80 * u, 24 * u, 4 * u, '#3A3F55', 0); T(n, x, y + 14 * u, { size: 18 * u, font: 'display', fill: '#E9E2D0', lw: 0 }); });
@@ -73,7 +73,7 @@
     rr(tx + W * .2, ty - H * .035, 30 * u, 36 * u, 6 * u, '#F2E3C6', 0); steam(tx + W * .2 + 15 * u, ty - H * .04, 10 * u, lt); label('AUSTRALIA · 2016', W / 2, H * .37, 22 * u, P.paper); } });
 
   // ---------------------------------------------------------------- S20 a suburb at dusk: the post van stops house after house
-  A.x_postround = (o, c, dur) => ({ sfx: [[.2, 'ifm_world_city']], draw: lt => { const v = V(), u = U(), gy = H * (v ? .6 : .74); IFM.sky('dusk', lt, { clouds: 1 });
+  A.x_postround = (o, c, dur) => ({ sfx: [[.2, 'ifm_world_crowd_mall']], draw: lt => { const v = V(), u = U(), gy = H * (v ? .6 : .74); IFM.sky('dusk', lt, { clouds: 1 });
     const n = v ? 3 : 5, hw = W / n; for (let i = 0; i < n + 1; i++) { const x = i * hw - hw * .3, h = H * (v ? .14 : .2), cl = ['#C9A27E', '#9FB4C7', '#B7A08A', '#A7B98A', '#C4A0A0'][i % 5]; rr(x + hw * .1, gy - h, hw * .8, h, 3 * u, cl, 0); poly([[x, gy - h], [x + hw / 2, gy - h - hw * .35], [x + hw, gy - h]], '#6B4A4A', 0); rr(x + hw * .2, gy - h * .7, hw * .18, h * .3, 2 * u, '#FFE3A0', 0); rr(x + hw * .55, gy - h * .7, hw * .18, h * .3, 2 * u, '#FFE3A0', 0); rr(x + hw * .4, gy - h * .45, hw * .14, h * .45, 2 * u, '#5A3E2E', 0);
       const mx = x + hw * .86; rr(mx - 3 * u, gy + H * .01, 6 * u, H * .05, 2 * u, '#5A4632', 0); rr(mx - 18 * u, gy - 4 * u, 36 * u, 20 * u, 8 * u, '#3D5A80', 0); }
     ctx.fillStyle = '#6E9B5A'; ctx.fillRect(0, gy, W, H * .06); ctx.fillStyle = '#B9B4A8'; ctx.fillRect(0, gy + H * .06, W, H * .03); ctx.fillStyle = '#4A4D58'; ctx.fillRect(0, gy + H * .09, W, H);
@@ -82,7 +82,7 @@
     man(W * .8, gy + H * .07, H * (v ? .16 : .22), 219, 'read', lt, { hold: 'letter', col: '#8E5A7A' }); } });
 
   // ---------------------------------------------------------------- S21 a courtroom: people seated, a lawyer speaks, the judge writes
-  A.x_court = (o, c, dur) => ({ sfx: [[.2, 'ifm_world_office']], draw: lt => { const v = V(), u = U(); IFM.courtroom ? IFM.courtroom(lt) : (ctx.fillStyle = '#5A3A26', ctx.fillRect(0, 0, W, H)); const by = H * (v ? .4 : .46);
+  A.x_court = (o, c, dur) => ({ sfx: [[.2, 'ifm_world_crowd_mall']], draw: lt => { const v = V(), u = U(); IFM.courtroom ? IFM.courtroom(lt) : (ctx.fillStyle = '#5A3A26', ctx.fillRect(0, 0, W, H)); const by = H * (v ? .4 : .46);
     man(W / 2, by + H * .06, H * (v ? .2 : .26), 231, 'type', lt, { chair: false, col: '#1E1E28' }); rr(W * .25, by, W * .5, H * .1, 6 * u, '#4A2E1C', 0); rr(W * .25, by, W * .5, 14 * u, 4 * u, '#6E4A30', 0);
     const ty = H * (v ? .62 : .72); [[.28, 241, 'talk'], [.72, 243, 'sitread']].forEach(([fx, sd, pose], i) => { const x = W * fx; man(x, ty + H * .06, H * (v ? .27 : .34), sd, i === 0 && lt > 1 ? 'talk' : 'sit', lt, { col: '#2B2D42', chair: i === 0 && lt > 1 ? false : undefined, hold: pose === 'sitread' ? 'letter' : undefined }); table(x, ty, W * .32, H * .03, '#5A3A26'); });
     for (let i = 0; i < (v ? 5 : 8); i++) man(W * (.08 + i * (v ? .21 : .12)), H * .99, H * (v ? .2 : .26), 250 + i, 'sit', lt, { chair: false, haze: .25 }); rr(0, H * .9, W, H * .1, 0, '#3E2818', 0);

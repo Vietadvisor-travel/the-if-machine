@@ -385,6 +385,11 @@ def parse_story(path):
     if not beats or beats[-1][0] != 'end': beats.append(('end', {}))
     return beats, score
 
+# synthetic white-noise beds (spectral flatness ~0.8, centroid 8–9 kHz): they read as a constant hiss ("xèo xèo", owner 4 Nov 2026)
+NOISY = {'ifm_world_office', 'ifm_world_city', 'ifm_world_cafe', 'ifm_world_kitchen', 'ifm_world_traffic', 'ifm_world_rain', 'ifm_world_rain_heavy', 'ifm_world_rain_light', 'ifm_world_wind', 'ifm_world_ocean', 'ifm_world_forest', 'ifm_world_subway', 'ifm_world_airport', 'ifm_world_crowd_small', 'ifm_world_breathing', 'city_bed', 'fan', 'simmer', 'steam'}
+def calm_ok(c):
+    n = str(c.get('name') or '')
+    return not (n in NOISY or n.startswith(('amb_', 'whoosh', 'riser', 'hit_sub', 'swoosh', 'trans_')))
 def Ly(name, off=0., db=0., pan=0., prio=3, tier=None, bus=None, align='peak', depth='near', sync=False, group=None, opts=None, lin=None):
     return dict(name=name, off=off, db=db, pan=pan, prio=prio, tier=tier, bus=bus, align=align, depth=depth, sync=sync, group=group, opts=opts or {}, lin=lin)
 def whoosh_for(d): return 'whoosh_small' if d < .35 else ('whoosh_med' if d <= .7 else 'whoosh_big')
@@ -1129,6 +1134,8 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
         if '\u200b' in tx: dips.append((sb['t0'] + (sb['t1'] - sb['t0']) * tx.index('\u200b') / max(1, len(tx)), 'hard'))
     foley_off = {i for i, (bt, o) in enumerate(beats[:len(scenes)]) if o.get('foley') == 'no'}
     if D.get('auto', True): cands += bed_sounds(scenes, dur) + ([] if ifm else sweeteners(scenes, dur, foley_off))   # IFM: no random sweeteners
+    calm = ifm and not (story and os.path.exists(story) and re.search(r'^calm\s*:\s*off\b', open(story).read(), re.M))
+    if calm: n0 = len(cands); cands = [c for c in cands if calm_ok(c)]; print(f'  calm sound: {n0 - len(cands)} hiss beds / automatic whooshes removed') if not quiet else None
     # ---- 3. schedule
     flags = [t for t, k in dips]; acc, log = schedule(cands, vad, fmt, flags)
     if D.get('auto', not ifm): acc += fill_gaps(acc, scenes, vad, fmt, flags, foley_off, dur)   # The If Machine: no automatic filler sounds, only motivated ones (owner, 3 Nov 2026)
@@ -1350,7 +1357,7 @@ if __name__ == '__main__':
     a = sys.argv[1:]; opt = lambda k: a[a.index('--' + k) + 1] if '--' + k in a else None
     if not a: print(__doc__); sys.exit()
     if a[0] == 'qa': qa_file(a[1], opt('stems')); sys.exit()
-    if a[0] == 'names': bad = [n for n in a[1:] if resolve(n)[0] is None]; print('unknown sounds: ' + (', '.join(bad) if bad else 'none')); sys.exit(1 if bad else 0)
+    if a[0] == 'names': bad = [n for n in a[1:] if resolve(n)[0] is None or n in NOISY]; print('unknown or hiss sounds: ' + (', '.join(bad) if bad else 'none')); sys.exit(1 if bad else 0)
     q = main(a[0], opt('design'), opt('story'), opt('fmt'), float(opt('lufs')) if opt('lufs') else None, float(opt('tp')) if opt('tp') else None,
              stingers='--no-stingers' not in a, legacy='--legacy-stems' in a, quiet='--quiet' in a)
     print('sound design →', a[0] + '_mix.wav', f'{q["events_scheduled"]} events, {q["unique_sounds"]} sounds, {q["mix"]["lufs_i"]} LUFS, TP {q["mix"]["tp_dbtp"]} dBTP')
