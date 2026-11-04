@@ -53,6 +53,9 @@ Every shot in the director's script states SIZE · ANGLE · MOVE · MEDIUM (2D, 
 - **3D (three.js toon world):** scale and space — flying through a city, rotating around a building or object, a globe,
   a top-down simulation of traffic or crowds, an impossible camera move (through a window, into a server).
 - Mix inside a scene: a 3D establishing shot → a 2D character close-up → a 2D insert of the letter → a 3D pull-out.
+- **Combined, never all 3D (owner, 4 Nov 2026):** 25–55 % of cuts in 3D, never 4 cuts in a row in one medium, and hybrid frames
+  (2D labels pinned on 3D, a 2D inset over 3D or the reverse, 2D/3D split) about every 2 minutes.
+- **Art direction per shot (LOOK):** light, time of day, palette, mood, composition — at least 4 different looks per film.
 
 ## 4. Simulation look
 **Real-world physics and scale (owner, 4 Nov 2026):** people stand on the ground at human size (≈ 1.8 m), cars are car-sized

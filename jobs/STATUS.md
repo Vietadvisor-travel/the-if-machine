@@ -3,6 +3,6 @@
 
 | slug | tên (VI) | research | production | delivered | approved | published |
 |---|---|---|---|---|---|---|
-| ai-runs-a-country | AI điều hành quốc gia | RESEARCH_READY | REDO (owner dropped v1–v4, 4 Nov) | - | - | - |
+| ai-runs-a-country | AI điều hành quốc gia | DROPPED | owner: not remade (engine 3.0 sample only), 4 Nov | - | - | - |
 | money-disappears | Nếu tiền biến mất | RESEARCH_READY | - | - | - | - |
 | dinosaurs-survive | Nếu khủng long còn sống | RESEARCH_READY | - | - | - | - |

@@ -245,3 +245,10 @@
 - Camera never inside a building (raycast to the subject). New gate step `tools/sim_check.mjs` (120 s of each set the story uses:
   person×person, car×car, person×car, fountain) — all 0 on the sample.
 - variety.mjs: a repeated 3D framing in one film and a set over 35 % of the 3D cuts are flagged; `seed=` varies city/street layouts.
+
+## 4 Nov 2026 — engine 3.0 FINAL (owner: "2D and 3D combined, director/art/cinema, varied shots — chốt nâng cấp")
+- Hybrid 2D+3D: `pins=` (2D labels pinned to 3D subjects, follow the camera, stack clear of insets), `pip=` inset card on any beat
+  (2D over 3D or 3D over 2D; `pipAt`, `pipPos`), `act=split` with s3 halves.
+- Director script: new LOOK field (art direction) and medium `2D+3D`; script_check: 3D share 25–55 % (> 60 % = error), no 4 cuts in a
+  row in one medium, hybrid shots every ~2 min, match cut + montage, ≥ 4 looks. variety.mjs: 3D > 60 % of cuts = error.
+- Docs: EPISODE §0b, craft §3, CLAUDE.md step 3, roadmap marked final. The AI episode is dropped (owner: no remake).

@@ -44,6 +44,7 @@ if (!beats.length || !(beats[0].o.act === 'hook' || beats[0].o.hook || /@0\S*\s+
 { const cuts = []; body.forEach(b => { const all = [b.o.cam, ...String(b.o.then || '').split('|').map(x => (x.match(/cam=(\S+)/) || [])[1])]; let is3 = b.o.act === 's3'; all.forEach((c, j) => { if (j && !c) return; const m = String(c || '').match(/^(EWS|WS|MCU|MS|ECU|CU)\.?([a-z]*)/); cuts.push({ sz: m ? m[1] : '', an: m ? (m[2] || 'eye') : '', d3: is3 || /act=s3/.test(String(b.o.then || '')) }); }); });
   const g = cuts.filter(c => c.sz); const share = g.length / Math.max(1, cuts.length), d3 = cuts.filter(c => c.d3).length / Math.max(1, cuts.length);
   if (cuts.length > 20 && share < .5) warn(`only ${(share * 100) | 0} % of cuts use the shot grammar cam=<SIZE>.<angle>.<move> (aim ≥ 70 %)`);
+  if (cuts.length > 20 && d3 > .6) err(`3D is ${(d3 * 100) | 0} % of cuts — 2D and 3D combined (owner 4 Nov 2026), at most 60 %`);
   if (cuts.length > 20 && d3 < .15) warn(`3D shots ${(d3 * 100) | 0} % of cuts (act=s3; aim 20–50 %)`);
   for (let i = 2; i < g.length; i++) if (g[i].sz === g[i - 1].sz && g[i].sz === g[i - 2].sz) { warn(`shot size ${g[i].sz} three times in a row (cut ${i + 1})`); break; } }
 // 3D variety inside the film (owner, 4 Nov 2026: creative and varied, nothing repeated in a video or across episodes)

@@ -51,7 +51,16 @@ Token rules are at the end.
   | home | her phone room window | `do=sit` (default on the phone) |
   | waiting | screen queue chairs counter | `screen="TOP|BIG"`, `empty=1` |
   | servers | aisle rack tech | — |
-  Change set inside a beat with `then="act=s3 set=… cam=…@k"`. Aim 20–50 % of cuts in 3D, ≥ 4 angles and ≥ 1 close-up per minute.
+  Change set inside a beat with `then="act=s3 set=… cam=…@k"`.
+- **2D and 3D combined (owner, 4 Nov 2026 — never all 3D):** 25–55 % of cuts in 3D; never 4 cuts in a row in one medium;
+  hybrid shots about every 2 minutes:
+  - `pins="her:ANA, NURSE@0|phone:~PERMIT APPROVED@1"` — 2D labels pinned to 3D subjects (follow the camera);
+  - `pip="<act> key=val …" pipAt=k pipPos=tr|tl|mr|ml|br|bl` — an inset card on ANY beat (2D detail over a 3D wide, a 3D view
+    over a 2D chart);
+  - `act=split a="s3 set=city time=day cam=…" b="s3 set=city time=night dark=1 cam=…"` — before/after (costs two 3D renders).
+  2D carries characters acting, diagrams, maps, numbers, documents and phones; 3D carries places, scale and impossible moves.
+- Director craft in every script: `- SHOT:` (size · angle · move · medium) and `- LOOK:` (light, time, palette, mood, composition)
+  per shot; a match cut and a montage in the film; ≥ 4 angles and ≥ 1 close-up per minute; vary looks (≥ 4).
 - Check every shot on the contact sheet (`node tools/sheet.mjs stories/<slug>.story v 3`) before the gates.
 
 ## 0. Setup and scaffold (2 commands)

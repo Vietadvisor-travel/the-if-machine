@@ -1,4 +1,7 @@
-# Engine roadmap — The If Machine 3.0 (owner, 4 Nov 2026: build the full engine first, then remake the episode)
+# Engine roadmap — The If Machine 3.0 — FINAL (owner, 4 Nov 2026: "chốt nâng cấp"; the AI episode is not remade)
+
+Status 4 Nov 2026: phases 1, 2, 4 and the sample are done; the hybrid 2D+3D tools (pins, pip, split with s3) are in.
+Phase 3 items still open for later: J/L sound bridges in the mix, a montage helper.
 
 Standard: `references/ifm-craft.md`. Each phase is tested on a short sample and logged in CHANGELOG.md.
 
