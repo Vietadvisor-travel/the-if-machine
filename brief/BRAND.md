@@ -139,7 +139,7 @@ Thế giới trong phim vẫn đủ màu thật (biển xanh, rừng lục, sao 
 
 ## 6. Khuôn mỗi tập
 
-**Bản dài 16:9, 3–6 phút (độ dài theo nội dung, không dưới 3 phút; anh chốt 03/11/2026):**
+**Một video dọc 9:16 duy nhất, 5–6 phút (anh chốt 04/11/2026: bỏ bản ngang 16:9 và bản ngắn riêng):**
 1. 0–3 giây: gạt cần, câu hỏi, một hình gây sốc thị giác.
 2. Đến giây 30: đặt luật chơi, hứa với người xem.
 3. Chạy giả định theo đồng hồ mô phỏng, căng dần.
@@ -147,7 +147,7 @@ Thế giới trong phim vẫn đủ màu thật (biển xanh, rừng lục, sao 
 5. Đáp án, máy in vé.
 6. 8 giây khung kết: câu hỏi tập sau và kêu gọi subscribe.
 
-**Bản dọc 9:16, 60–90 giây:** hook riêng, một câu đặt luật, 3 nấc leo thang, twist, vé, câu cuối dẫn ngược về đầu để người xem xem lại.
+**Khung dọc:** hình chính nằm ở 15–70 % chiều cao; phụ đề nhỏ, cố định ở dải 74,5–79 %, không đè lên hình; chừa 20 % dưới cùng và mép phải cho nút và tiêu đề của Shorts/Reels/TikTok.
 
 **Tiêu đề:** *"What If [điều không tưởng]?"*, tối đa 55 ký tự. Với chủ đề kiến thức đời thường: *"Why Do We [việc quen thuộc]?"*.
 Ví dụ:
@@ -178,8 +178,7 @@ The If Machine takes one impossible question, runs the whole world through it, a
 Every episode is a short animated thought experiment built on real science, history and numbers. When the facts run out, we say so, and show you where the machine has to guess.
 
 New runs 3 times a week:
-• Long runs (3–6 min) here on YouTube
-• Quick runs (60–90 s) on Shorts, TikTok, Instagram and Facebook
+• Every run is a 5–6 min vertical film: here on YouTube, and on TikTok, Instagram and Facebook
 
 Got a what-if you want the machine to run? Drop it in the comments. We read every one.
 

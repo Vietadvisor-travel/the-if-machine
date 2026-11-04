@@ -3,7 +3,7 @@
    Header keys read here: run: 1 (RUN #001) · next: What if money disappeared? · enddur: 6
    What it changes:
    - palette tokens (C.*) and font roles: Unbounded (display, lettering), Inter (body, captions), Space Mono (`mono`: machine)
-   - captions: small Inter, fixed low band, the spoken word lights Lever Yellow (karaoke), soft shadow, no fat outline
+   - captions: small Inter (30/26 u), fixed low band under the picture (9:16 74.5–79 %, 16:9 40 u from the bottom), the spoken word lights Lever Yellow (karaoke), soft shadow, no fat outline
    - end frame: the machine prints the RUN ticket (RUN #00x COMPLETE · NEXT: question · SUBSCRIBE)
    - transitions: `brand` (lever-yellow sweep), `scan` (teal simulation scan line), `ticket` (paper wipe with perforation)
    - HUD: the simulation clock, beat key `clock="HOUR 3"` / `clock="DAY 120"` / `clock=off`; digits roll between beats
@@ -76,11 +76,11 @@
   // ---------------------------------------------------------------- captions: small, fixed, Inter, spoken word in yellow
   const _cap = window.caption;
   caption = function (text, t0, t1, t, o = {}) { if (!IFM.on) return _cap(text, t0, t1, t, o); if (t < t0 || t > t1) return;
-    const u = U(), vert = H > W, size = (vert ? 36 : 31) * u, maxW = vert ? W * .82 : W * .66, out = clamp((t1 - t) / .14), pin = E.out(clamp((t - t0) / .18));
+    const u = U(), vert = H > W, size = (vert ? 30 : 26) * u, maxW = vert ? W * .72 : W * .62, out = clamp((t1 - t) / .14), pin = E.out(clamp((t - t0) / .18));
     const toks = []; String(text).replace(/[\*\[\]]/g, '').split(/\s+/).forEach(w => { if (w) toks.push(w); }); if (!toks.length) return;
     const wt = toks.map(w => Math.max(1, w.replace(/[^\p{L}\p{N}]/gu, '').length * .12 + .55)), tot = wt.reduce((a, b) => a + b, 0), span = Math.max(.3, (t1 - t0) * .9); const st = []; let acc = 0; wt.forEach(w => { st.push(t0 + acc / tot * span); acc += w; });
     setFont(size, 'body', 700); const sp = ctx.measureText(' ').width; const lines = [[]]; let lw = 0; toks.forEach((w, i) => { const ww = ctx.measureText(w).width; if (lw + ww > maxW && lines[lines.length - 1].length) { lines.push([]); lw = 0; } lines[lines.length - 1].push(i); lw += ww + sp; });
-    const lh = size * 1.28, yB = vert ? H * .645 : H - 52 * u, y0 = yB - (lines.length - 1) * lh; ctx.save(); ctx.globalAlpha *= out * pin; ctx.translate(0, (1 - pin) * 10 * u); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    const lh = size * 1.28, y0 = vert ? H * .745 : H - 40 * u - (lines.length - 1) * lh; // owner 4 Nov 2026: low band under the picture; 9:16 starts at 74.5 % and grows DOWN (≤ ~79 %), clear of the Shorts/Reels UI (bottom ~20 %, right-side buttons: maxW 72 %) ctx.save(); ctx.globalAlpha *= out * pin; ctx.translate(0, (1 - pin) * 10 * u); ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
     lines.forEach((ln, li) => { setFont(size, 'body', 700); const tw = ln.reduce((s, i) => s + ctx.measureText(toks[i]).width + sp, -sp); let x = W / 2 - tw / 2; const y = y0 + li * lh; if (window.LINT && LINT.on) LINT.boxes.push({ k: 'caption', s: ln.map(i => toks[i]).join(' '), x0: x, x1: x + tw, y0: y - size * .6, y1: y + size * .6 });
       for (const i of ln) { const w = toks[i], ww = ctx.measureText(w).width, cur = t >= st[i] && (i === toks.length - 1 || t < st[i + 1]);
         ctx.lineJoin = 'round'; ctx.lineWidth = size * .2; ctx.strokeStyle = 'rgba(10,12,30,.82)'; ctx.strokeText(w, x, y); ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillText(w, x + 2 * u, y + 3 * u);

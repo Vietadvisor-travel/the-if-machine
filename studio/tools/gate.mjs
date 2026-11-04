@@ -1,9 +1,9 @@
-// All pre-render gates in one command with a compact report (token-lean): lint in both formats, variety, director review,
+// All pre-render gates in one command with a compact report (token-lean): lint (9:16), variety, director review,
 // render cost (tools/cost.mjs: any frame > 800 ms = ERROR, so a heavy shot can never stall a render again).
 //   node tools/gate.mjs stories/<slug>.story [--no-review]   → ≤ ~20 lines; the one contact sheet to look at: out/<slug>_sheet.jpg
 import { spawnSync } from 'child_process'; import path from 'path';
 const ep = process.argv[2], slug = path.basename(ep).replace(/\.\w+$/, ''), run = (args, t = 3600000) => (spawnSync('node', args, { encoding: 'utf8', timeout: t }).stdout || '');
-const lint = run(['tools/lint.mjs', ep, '--both']).split('\n'); const out = [];
+const lint = run(['tools/lint.mjs', ep]) /* 9:16 only since 4 Nov 2026 (one vertical film) */.split('\n'); const out = [];
 lint.filter(l => /^\[(9x16|16x9)\]/.test(l)).forEach(l => out.push('lint ' + l.replace(/ · \d+ info/, '')));
 let fmt = ''; const seen = new Map(); for (const l of lint) { const f = l.match(/^\[(9x16|16x9)\]/); if (f) fmt = f[1]; if (/\[variety/.test(l)) break; if (!/^\s+(ERROR|WARN)\s/.test(l) || /no camera move/.test(l)) continue; const k = l.trim().replace(/^\S+\s+[\d.]+s\s+/, '').replace(/\s+/g, ' '); seen.set(k, (seen.get(k) ? seen.get(k) + '+' : '') + fmt); }
 const issues = [...seen].map(([k, f]) => `  [${f}] ${k}`); issues.slice(0, 10).forEach(l => out.push(l)); if (issues.length > 10) out.push(`  … ${issues.length - 10} more`);

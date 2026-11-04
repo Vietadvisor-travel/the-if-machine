@@ -19,8 +19,6 @@
 2.
 3.
 
-## Hook — long video (first 3 seconds)
-
-## Hook — vertical (first 3 seconds)
+## Hook (first 3 seconds of the vertical 5–6 min film)
 
 ## Notes / traps (numbers that are easy to get wrong, claims to avoid)

@@ -71,7 +71,7 @@ Lettering: `words="TEXT@k|!TWIST@k|~DATA@k|^GOLD@k"` lands on caption k of the b
 - `node tools/lint.mjs stories/<slug>.story --both`: 0 errors and 0 "cut off / overlap / covers" warnings in BOTH 9:16 and 16:9.
 - Then `node tools/still.mjs <story> v|h "<times>"` + `python3 tools/montage.py` at every lettering beat in both formats.
   Read the contact sheet, not single frames (saves tokens).
-- The caption band is reserved: 9:16 at 81.5 % height, 16:9 at the bottom 52 px. Lettering lives in the top third.
+- The caption band is reserved (owner, 4 Nov 2026: low, under the picture, smaller): 9:16 from 74.5 % growing down to ~79 % (clear of the Shorts/Reels UI in the bottom ~20 % and the right-side buttons), 16:9 the bottom 40 px. No key text in 9:16 72–82 %. Lettering lives in the top third.
 
 ## 5. Voice and sound
 - **Voices (owner, 3 Nov 2026):**

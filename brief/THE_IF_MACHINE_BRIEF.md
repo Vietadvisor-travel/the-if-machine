@@ -12,8 +12,8 @@ Brief này là căn cứ duy nhất cho kênh mới. Claude Code đọc brief n�
 
 ## 2. Chuẩn sản phẩm
 
-- Video dài: 16:9, 3-6 phút theo nội dung, không dưới 3 phút (anh chốt 03/11/2026), hoạt hình canvas (mục 3).
-- Bản dọc: 60-90 giây, 9:16, cắt từ video dài, hook riêng, caption riêng, không dính watermark của app khác.
+- Một video dọc 9:16 duy nhất, 5-6 phút (anh chốt 04/11/2026: bỏ bản ngang 16:9 và bản ngắn 60-90 giây), hoạt hình canvas (mục 3).
+- Phụ đề nhỏ, ở dải thấp dưới hình, chừa vùng nút của Shorts/Reels/TikTok; không dính watermark của app khác.
 - Ảnh cover: 1 frame tĩnh mỗi video (làm cover Instagram và nền thumbnail). Sếp tự làm thumbnail YouTube cuối cùng; Claude không giao thumbnail trong gói.
 - Phụ đề: file .srt tiếng Anh cho mỗi video dài.
 - File .story lưu kèm mỗi video (yêu cầu của engine).
@@ -25,7 +25,7 @@ Brief này là căn cứ duy nhất cho kênh mới. Claude Code đọc brief n�
 ## 3. Engine sản xuất (quan trọng: KHÔNG phải engine Poison Pill)
 
 - Sản xuất dùng engine hoạt hình CANVAS của studio Vietadvisor cũ (skill local-vietadvisor-motion-studio), KHÔNG dùng engine điện ảnh footage thật của Poison Pill.
-- Engine này render bản YouTube 16:9 (tối đa 10 phút) và bản dọc 9:16 (tối đa 3 phút). Mục tiêu của mình (dài 3-6 phút, dọc 60-90 giây) nằm trong giới hạn.
+- Engine này render bản YouTube 16:9 (tối đa 10 phút) và bản dọc 9:16 (tối đa 3 phút). Từ 04/11/2026 chỉ render bản dọc 9:16, 5-6 phút; engine dọc đã chạy được độ dài này (bộ kiểm tra chi phí render chặn cảnh nặng).
 - Cổng chất lượng của engine đó: lint bằng node tools/lint.mjs, review bằng node tools/review.mjs đạt 85+, QA từng giây bằng python3 tools/qa.py ít nhất 2 vòng. Không nén ép dưới 30 MB.
 - Nếu không chạy được engine canvas từ repo này thì báo thẳng và dừng, không tự ý chuyển sang engine Poison Pill.
 
@@ -71,8 +71,7 @@ Tập đầu tiên mặc định là chủ đề điểm cao nhất (ai-runs-a-c
 
 ## 8. Ma trận đăng (Muse chạy sau khi sếp duyệt)
 
-- Bản dài 16:9: YouTube (qua connector YouTube Data API tự build, sếp bấm OAuth một lần) + Facebook Page (facebook-cli, đăng MP4 hoặc tạo draft).
-- Bản dọc 60-90 giây: Instagram Reels (connector đã nối), TikTok (giai đoạn đầu dùng chế độ draft hoặc trình duyệt; app tự build không có đường auto-post trực tiếp), Facebook Reels.
+- Video dọc 5-6 phút (từ 04/11/2026): YouTube (video thường dạng dọc, vì Shorts tối đa 3 phút), Facebook Page (video), TikTok (cho phép tới 10 phút; giai đoạn đầu dùng draft hoặc trình duyệt), Instagram (đăng dạng video/Reels nếu nền tảng cho độ dài này). Muse kiểm tra giới hạn độ dài từng nền tảng trước khi đăng.
 - Caption, hook, nhạc viết riêng từng nền tảng; không copy y nguyên một caption khắp nơi; không đăng file dính watermark app khác.
 - Chặn hiện tại, không tìm cách lách: chân Facebook chờ sếp báo tài khoản ổn lại (cảnh báo bảo mật 06/10/2026, login lưu sẵn chết 01/11/2026); TikTok không có đường auto-post thực tế cho app tự build.
 

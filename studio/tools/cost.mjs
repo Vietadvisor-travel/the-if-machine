@@ -1,4 +1,4 @@
-// Render-cost gate: times real full-size frames across the whole story in both formats, so a shot that is pretty but
+// Render-cost gate: times real full-size frames across the whole story (9:16; --both adds 16:9), so a shot that is pretty but
 // far too heavy to render (one blur over a busy layer cost 12 s a frame and stalled a render for hours) is caught BEFORE make.
 //   node tools/cost.mjs stories/<slug>.story [--every 1.5]
 //   budget per frame: ERROR > 800 ms (fix the shot: cache static layers with mkCanvas/withCtx, no live ctx.filter over many paths)
@@ -8,7 +8,7 @@ const ep = process.argv[2], ai = process.argv.indexOf('--every'), every = ai > 0
 const browser = await launch(); const page = await browser.newPage(); page.on('pageerror', e => console.log('ERR:', e.message));
 await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(() => window.READY);
 let bad = false;
-for (const [fmt, w, h] of [['16x9', 1920, 1080], ['9x16', 1080, 1920]]) {
+for (const [fmt, w, h] of process.argv.includes('--both') ? [['16x9', 1920, 1080], ['9x16', 1080, 1920]] : [['9x16', 1080, 1920]]) {
   const r = await page.evaluate(([txt, w, h, every]) => { const ep = SB.compile(txt); const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(ep);
     const sc = []; let t = 0; for (const s of ep.scenes) { sc.push([t, s.id]); t += s.dur || 0; } const idAt = x => { let id = sc[0][1]; for (const [t0, i] of sc) if (x >= t0) id = i; return id; };
     const out = [], start = performance.now(); for (let x = .5; x < t; x += every) { renderEpisode(x); const t0 = performance.now(); renderEpisode(x + 1 / 30); out.push([+x.toFixed(1), Math.round(performance.now() - t0), idAt(x)]); if (performance.now() - start > 600000) { out.push([x, -1, 'timeout']); break; } }

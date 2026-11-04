@@ -72,14 +72,14 @@
 
   // 4. the tax form fills itself on a phone, then DONE
   IFM.ACT.x_arc_taxform = (o, c, dur) => { const tf = .5, td = T0(c, 2, 2.6); return { sfx: [[tf, 'ui_typing'], [td, 'ifm_sci_ui_confirm']], draw: lt => { const v = V(), u = U(); ctx.fillStyle = '#3B2F2A'; ctx.fillRect(0, 0, W, H); for (let i = 0; i < 24; i++) rr(0, i * H / 24, W, 2 * u, 0, 'rgba(255,255,255,.03)', 0);
-    const ph = H * (v ? .6 : .82), cx = W * (v ? .5 : .5), cy = H * (v ? .4 : .52); const cup = (x, y, s) => { circ(x, y, s, '#EDE6DA', 0); circ(x, y, s * .8, '#5B3A23', 0); for (let i = 0; i < 3; i++) { const yy = y - s * 1.2 - ((lt * .4 + i * .33) % 1) * s * 1.4; ctx.save(); ctx.globalAlpha *= .3 * (1 - ((lt * .4 + i * .33) % 1)); circ(x + Math.sin(lt * 2 + i) * s * .2, yy, s * .25, '#fff', 0); ctx.restore(); } };
+    const ph = H * (v ? .5 : .82), cx = W * (v ? .5 : .5), cy = H * (v ? .37 : .52); const cup = (x, y, s) => { circ(x, y, s, '#EDE6DA', 0); circ(x, y, s * .8, '#5B3A23', 0); for (let i = 0; i < 3; i++) { const yy = y - s * 1.2 - ((lt * .4 + i * .33) % 1) * s * 1.4; ctx.save(); ctx.globalAlpha *= .3 * (1 - ((lt * .4 + i * .33) % 1)); circ(x + Math.sin(lt * 2 + i) * s * .2, yy, s * .25, '#fff', 0); ctx.restore(); } };
     cup(cx + ph * (v ? .32 : .55), cy + ph * .25, ph * .1);
     phoneFrame(cx, cy, ph, (x, y, w, h, uu) => { rr(x, y, w, h * .12, 0, '#3D4BA8', 0); T('TAX RETURN', x + w / 2, y + h * .07, { size: 6 * uu, font: 'mono', fill: P.paper, lw: 0 }); const f = clamp((lt - tf) / Math.max(.5, td - tf - .2));
       for (let i = 0; i < 6; i++) { const yy = y + h * .18 + i * h * .1, on = f * 6 > i; rr(x + w * .08, yy, w * .84, h * .07, 2 * uu, on ? '#E6F7EF' : '#ECEEF5', 0); rr(x + w * .12, yy + h * .025, w * .5 * (on ? clamp(f * 6 - i) : 0), h * .02, uu, '#5A6283', 0); if (on && f * 6 - i > 1) tick(x + w * .82, yy + h * .035, h * .03, green); }
       const dk = E.back(K(lt, td, .35)); rr(x + w * .12, y + h * .82, w * .76, h * .1, 4 * uu, dk > 0 ? green : '#B8BED6', 0); T(dk > 0 ? 'DONE ✓' : 'CONFIRM', x + w / 2, y + h * .87, { size: 7 * uu * (1 + .2 * Math.sin(dk * Math.PI)), font: 'display', fill: '#fff', lw: 0 }); }); } }; };
 
   // 5. the queue at the office shrinks to nothing; paper forms fly up
-  IFM.ACT.x_arc_queue = (o, c, dur) => { const ts = T0(c, 0, .3) + .6; return { sfx: [[ts, 'ifm_motion_whoosh_airy'], [T0(c, 1, 2.5), 'magic_sparkle']], draw: lt => { const v = V(), u = U(); office(lt); const n = 9, gone = clamp((lt - ts) / Math.max(1, dur - ts - 1)) * n, gy = H * .84, ph = H * (v ? .2 : .3);
+  IFM.ACT.x_arc_queue = (o, c, dur) => { const ts = T0(c, 0, .3) + .6; return { sfx: [[ts, 'ifm_motion_whoosh_airy'], [T0(c, 1, 2.5), 'magic_sparkle']], draw: lt => { const v = V(), u = U(); office(lt); const n = 9, gone = clamp((lt - ts) / Math.max(1, dur - ts - 1)) * n, gy = H * (v ? .7 : .84), ph = H * (v ? .2 : .3);
     rr(W * (v ? .02 : .06), gy - ph * .55, ph * .9, ph * .55, 6 * u, '#5A4632', 0); IFM.tag('PERMITS', W * (v ? .02 : .06) + ph * .45, gy - ph * .7, 22 * u, { bg: P.paper, t: lt }); IFM.human(W * (v ? .02 : .06) + ph * .45, gy - ph * .55, ph * .55, 4, gone >= n ? 'cheer' : 'type', lt, {});
     for (let i = n - 1; i >= 0; i--) { const x = W * (v ? .3 : .24) + i * W * (v ? .085 : .07), g = clamp(gone - (n - 1 - i)); if (g >= 1) continue; ctx.save(); ctx.globalAlpha *= 1 - g; IFM.human(x, gy, ph * (.92 + (i * 7 % 3) * .04), 20 + i, i % 3 ? 'phone' : 'look', lt, {}); ctx.restore();
       if (g > 0) { const fy = gy - ph - g * H * .6, fx = x + Math.sin(g * 6 + i) * 40 * u; B('paper_form').draw(fx, fy, ph * .3, lt, { rot: g * 4 + i, fill: 1 }); } }
@@ -113,7 +113,7 @@
 
   // 9. the real case: notices rain down and pile up, a counter climbs, then a SCRAPPED stamp
   IFM.ACT.x_arc_letters = (o, c, dur) => { const tS = +(o.scrap || 0) ? T0(c, +o.scrap, 3) : 1e9; return { sfx: [[.3, 'ifm_motion_whoosh_airy'], ...(tS < 1e9 ? [[tS, 'ifm_motion_impact_big']] : [])], draw: lt => { const v = V(), u = U(); IFM.sky('dusk', lt); ctx.fillStyle = 'rgba(10,12,30,.55)'; ctx.fillRect(0, 0, W, H); const R = rng(77), n = 60, f = clamp(lt / Math.max(1.5, dur * .8));
-    const gy = H * (v ? .72 : .88); ctx.fillStyle = '#1A1E3E'; ctx.fillRect(0, gy, W, H - gy);
+    const gy = H * (v ? .66 : .88); ctx.fillStyle = '#1A1E3E'; ctx.fillRect(0, gy, W, H - gy);
     for (let i = 0; i < n; i++) { const x = R() * W, s = R(), at = i / n; if (at > f) { R(); continue; } const p = clamp((f - at) * 6), r = R(); const y = lerp(-H * .1, gy - 6 * u - (i % 6) * 14 * u, E.out(p)); B('notice_envelope').draw(x, y, H * (v ? .04 : .07) * (.8 + s * .5), lt, { rot: (r - .5) * (1.5 - p) }); }
     if (o.label) T(o.label, W / 2, H * (v ? .24 : .2), { size: 44 * u, font: 'display', fill: P.paper, lw: 0, alpha: K(lt, .2) }); stamp('SCRAPPED', W / 2, H * (v ? .45 : .48), 64 * u, red, K(lt, tS, .3)); } }; };
 
@@ -121,7 +121,7 @@
   IFM.ACT.x_arc_verdict = (o, c, dur) => { const t0 = T0(c, 0, .3) + .8, t1 = T0(c, 1, 2.5); return { sfx: [[t0, 'ifm_motion_impact_slam'], [t1, 'ifm_motion_impact_big']], draw: lt => { const v = V(), u = U(); ctx.fillStyle = '#3A2A22'; ctx.fillRect(0, 0, W, H); for (let i = 0; i < 16; i++) rr(0, i * H / 16, W, 3 * u, 0, 'rgba(0,0,0,.1)', 0);
     const cx = W * (v ? .5 : .38), cy = H * (v ? .4 : .55), s = Math.min(W, H) * (v ? .34 : .4); B('ai_core').draw(cx, cy + s * .5, s, lt, { col: lt > t0 ? red : P.teal });
     const sw = lt < t0 ? -.9 * E.inOut(clamp(lt / t0)) : -.9 + .9 * E.out(K(lt, t0 - .05, .12)), gx = cx + s * (v ? .55 : .8), gy = cy - s * .1; ctx.save(); ctx.translate(gx, gy + s * .4); ctx.rotate(sw); rr(-s * .03, -s * .55, s * .06, s * .55, s * .02, '#8B5A2B', 0); rr(-s * .16, -s * .7, s * .32, s * .16, s * .05, '#6B4220', 0); ctx.restore();
-    stamp('UNLAWFUL', cx, cy - s * .62, 54 * u, red, K(lt, t0, .25), -.1); stamp('SCRAPPED 2020', W * (v ? .5 : .72), H * (v ? .7 : .78), 50 * u, P.yellow, K(lt, t1, .25), .08); } }; };
+    stamp('UNLAWFUL', cx, cy - s * .62, 54 * u, red, K(lt, t0, .25), -.1); stamp('SCRAPPED 2020', W * (v ? .5 : .72), H * (v ? .62 : .78), 50 * u, P.yellow, K(lt, t1, .25), .08); } }; };
 
   // 9c. tools governments already use: icons pop on their captions (o.icons tabler names, o.labels, o.at caption index per icon)
   IFM.ACT.x_arc_icons = (o, c, dur) => { const ic = String(o.icons || 'cpu').split(','), lb = String(o.labels || '').split(','), at = String(o.at || '').split(',').map(Number), t = i => T0(c, at[i] != null && !isNaN(at[i]) ? at[i] : i, .4 + i * .6) + (i && at[i] === at[i - 1] ? .6 : 0);
@@ -136,9 +136,9 @@
 
   // 10. the crowd outside the plain building: signs ask one thing
   IFM.ACT.x_arc_protest = (o, c, dur) => { const t1 = T0(c, 2, 2.5); return { sfx: [[.4, 'crowd_murmur'], [t1, 'ifm_motion_pop']], draw: lt => { const v = V(), u = U(); IFM.sky('day', lt, { clouds: 1 }); ctx.fillStyle = '#7E8AA8'; ctx.fillRect(0, H * .78, W, H * .22);
-    B('gov_building').draw(W / 2, H * (v ? .55 : .66), H * (v ? .2 : .42), lt, { lit: 0 }); IFM.people(v ? 10 : 16, H * (v ? .74 : .96), lt, { pose: ['look', 'stand', 'point', 'look'], h: H * (v ? .16 : .26), rows: 2, seed: 9 });
+    B('gov_building').draw(W / 2, H * (v ? .55 : .66), H * (v ? .2 : .42), lt, { lit: 0 }); IFM.people(v ? 10 : 16, H * (v ? .6 : .96), lt, { pose: ['look', 'stand', 'point', 'look'], h: H * (v ? .16 : .26), rows: 2, seed: 9 });
     const texts = ['WHO DECIDES|THE APPEAL?', 'WHO DO|I CALL?', 'WHO DECIDES|THE APPEAL?', 'A HUMAN|PLEASE'], n = v ? 3 : 4;
-    for (let i = 0; i < n; i++) { const k = E.back(K(lt, t1 + i * .18, .4)); if (k <= 0) continue; const x = W * ((v ? .27 : .22) + (v ? .46 : .5) * i / Math.max(1, n - 1)), yb = H * (v ? .62 : .78) + (i % 2) * H * .04; B('protest_sign').draw(x, yb + (1 - k) * H * .2, H * (v ? .15 : .26), lt, { text: texts[i], seed: i, col: i === 0 ? red : ink }); } } }; };
+    for (let i = 0; i < n; i++) { const k = E.back(K(lt, t1 + i * .18, .4)); if (k <= 0) continue; const x = W * ((v ? .27 : .22) + (v ? .46 : .5) * i / Math.max(1, n - 1)), yb = H * (v ? .56 : .78) + (i % 2) * H * .04; B('protest_sign').draw(x, yb + (1 - k) * H * .2, H * (v ? .15 : .26), lt, { text: texts[i], seed: i, col: i === 0 ? red : ink }); } } }; };
 
   // 11. the rulebook: assess, publish, monitor — then the switch goes LIVE
   IFM.ACT.x_arc_checklist = (o, c, dur) => { const steps = ['ASSESS THE IMPACT', 'PUBLISH IT', 'WATCH THE RESULTS'], at = i => T0(c, Math.min(i + 1, c ? c.length - 1 : 3), 1 + i * 1.1) + (c && c.length < 4 ? i * .5 : 0), tl = at(2) + .9;

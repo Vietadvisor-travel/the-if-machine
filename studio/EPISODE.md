@@ -8,7 +8,7 @@ Token rules are at the end.
 ## 0. Setup and scaffold (2 commands)
 ```
 bash ../setup.sh | tail -12
-node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.story (long) + stories/<slug>-v.story (vertical) + engine/library/bank/<slug>.js
+node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.story (the one vertical film) + engine/library/bank/<slug>.js
 ```
 
 ## 0. Picture first (owner, 4 Nov 2026: livelier, less machine and data, polished, never cluttered)
@@ -28,14 +28,17 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
   5. One transformation per beat: something becomes something else.
 - **Composition, both formats:**
   - One focal subject per shot, on a third, with air around it. Lettering lives in the empty third, never on a face or a subject.
-  - The gate flags "text covers a face" and "text covers <subject>" in 9:16 and 16:9.
-  - 9:16 is composed on its own: the subject sits above the caption band (47–65 %), the lettering at 20–30 %.
+  - The gate flags "text covers a face" and "text covers <subject>" in 9:16.
+  - 9:16 is composed on its own: the subject sits above the caption band (captions 74.5–79 %, small; keep 72–82 % free of key text), the lettering at 20–30 %.
     The bottom 35 % is decoration only.
   - Polish: no element cut at an edge by accident, no two things fighting for attention, spacing even.
     Colours follow BRAND (coral only for the twist).
 
 ## 1. The film in one pass (write it once, completely; no drafts)
-- **Long 16:9: 3–6 min** (≈ 420–850 spoken words). **Vertical 9:16: 60–90 s** (≈ 150–210 words), its own hook.
+- **ONE vertical 9:16 film, 5–6 min** (owner, 4 Nov 2026: no 16:9, no separate short). ≈ 840–1000 spoken words
+  (measured: 2.8 words a second final, pauses included); about 45–70 beats. `variety.mjs` errors outside 5–6 min.
+- **Frame:** subject in 15–70 % of the height; captions are small and fixed at 74.5–79 %; keep the bottom 20 % and the
+  right edge free of key content (Shorts/Reels/TikTok buttons and titles).
 - **Shape:**
   1. Hook 0–3 s: `kind=ifm act=lever q="WHAT IF|…|…?"`, the question by 1.5 s.
   2. Setup and promise by 0:30.
@@ -76,7 +79,7 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
   - guess (a b answer)
   - animals (field sea sky)
   - stage (bank items)
-- **Bespoke acts** (`kind=w act=x_<name>`, the `x_` prefix marks them bespoke): ≥ 30 % of the long video's beats. Write them in `engine/library/bank/<slug>.js` from the
+- **Bespoke acts** (`kind=w act=x_<name>`, the `x_` prefix marks them bespoke): ≥ 30 % of the film's beats. Write them in `engine/library/bank/<slug>.js` from the
   template, composed from API painters, bank items and icons. Add ≥ 5 new bank items. Check `BANK.md`, and do not reuse what the
   last 2 episodes used.
 - **Layers on any world beat:**
@@ -112,7 +115,6 @@ node tools/gate.mjs stories/<slug>.story          # lint both formats + variety 
   `ctx.filter = 'blur(…)'` over many paths; no per-frame loops over thousands of items. A shot at ERROR never goes to render.
 - Fix what it lists, re-run it, then look at the ONE sheet it names (`out/<slug>_sheet.jpg`).
 - Look at single frames only where the sheet shows a doubt: `tools/still.mjs` + `tools/montage.py`, ≤ 12 tiles.
-- Then do the same for `stories/<slug>-v.story`.
 - **Per-second QA, 2 rounds (brief §3), token-lean:**
   - **Round 1** is automatic. The gate's lint samples every 0.25 s in both formats (text cut off, text over faces, overlaps)
     and review measures motion every frame (static stretches). No images to read.
@@ -121,9 +123,8 @@ node tools/gate.mjs stories/<slug>.story          # lint both formats + variety 
 
 ## 5. Render (background, read only the summary)
 ```
-node tools/make.mjs stories/<slug>.story --fmt 16x9 --skip-lint --skip-review --speed 1.06 > out/<slug>.log 2>&1
-node tools/make.mjs stories/<slug>-v.story --fmt 9x16 --skip-lint --skip-review --speed 1.06 > out/<slug>-v.log 2>&1
-grep -E "deliver →|FAIL|Error|music " out/<slug>*.log
+node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed 1.06 > out/<slug>.log 2>&1
+grep -E "deliver →|FAIL|Error|music " out/<slug>.log
 ```
 - Run them with `run_in_background`. Wait for the notification; never poll, never sleep.
 - **Render watchdog.** A healthy render does 150 frames in ~25 s per job (a 5-min film ≈ 15 min, the vertical ≈ 5 min).
@@ -147,7 +148,7 @@ node tools/variety.mjs stories/<slug>.story --record && node tools/bank.mjs cata
 | story + bank items (written once, from the template) | 60 min |
 | gate runs (≈ 35 min each; at most 2 fix loops) | 70 min |
 | QA round 2 sheets | 10 min |
-| render both cuts (watchdog above) | 25 min |
+| render the film (watchdog above) | 25 min |
 | ship, delivery note, report | 15 min |
 - Over budget on a step → simplify (fewer fix loops, reuse bank items) rather than polish; never exceed 3 h in total.
 

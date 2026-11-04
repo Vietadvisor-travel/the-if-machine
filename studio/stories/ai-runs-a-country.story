@@ -117,7 +117,7 @@ You tap appeal. And here's the real question: who reads it?
 
 // 2:12 [8 s] SUBJECT: this already happened — automated debt notices in Australia
 //   0.0 CAMERA tilt down with the falling letters · TEXT 2016 · FX dust · BRIDGE shatter
-# vis kind=w act=x_arc_letters label="AUSTRALIA, 2016" trans=shatter clock="DAY 150" fx=dust dir="0-3 zoom 1.15 .5,.55; @1 text type 'REAL CASE|not a simulation' .5,.88 yellow" then="cam=truckR@1|cam=float@2"
+# vis kind=w act=x_arc_letters label="AUSTRALIA, 2016" trans=shatter clock="DAY 150" fx=dust dir="0-3 zoom 1.15 .5,.55; @1 text type 'REAL CASE|not a simulation' .5,.62 yellow" then="cam=truckR@1|cam=float@2"
 This part isn't a guess. It already happened.
 In 2016, Australia switched on an automated system to find welfare debts.
 It matched income data and sent the notices out by itself.
@@ -136,14 +136,14 @@ A class action settled in 2021 for one point eight billion Australian dollars.
 
 // 2:36 [8 s] SUBJECT: you can quit an app, you can't quit your country
 //   0.0 CAMERA split sweep · TEXT NO OPT-OUT · FX glitch on "can't" · BRIDGE cube
-# vis kind=w act=split a="x_arc_taxform" b="x_arc_letters" la="AN APP" lb="A STATE" trans=cube clock="DAY 160" dir="@1 fx glitch; @1 text slam 'NO OPT-OUT' .5,.78 coral" then="cam=push@1|cam=orbit@2"
+# vis kind=w act=split a="x_arc_taxform" b="x_arc_letters" la="AN APP" lb="A STATE" trans=cube clock="DAY 160" dir="@1 fx glitch; @1 text slam 'NO OPT-OUT' .5,.62 coral" then="cam=push@1|cam=orbit@2"
 That's the catch. You can quit an app.
 You can't quit your country.
 When a state machine gets it wrong, the mistake copies itself to everyone.
 
 // 2:45 [9 s] SUBJECT: people outside a plain building; the signs ask one thing
 //   0.0 CAMERA push past the crowd to the first sign · TEXT (signs in the act) · FX shock on the sign · BRIDGE blobs
-# vis kind=w act=x_arc_protest trans=blobs clock="DAY 200" dir="0-3 zoom 1.12 .35,.6 ease=io; @2 fx vignette; @2 sfx crowd_murmur" then="cam=orbit@1|cam=truckL@2"
+# vis kind=w act=x_arc_protest trans=blobs clock="DAY 200" dir="0-3 zoom 1.12 .35,.4 ease=io; @2 fx vignette; @2 sfx crowd_murmur" then="cam=orbit@1|cam=truckL@2"
 Day two hundred. People gather outside a plain building.
 Their signs don't say "stop the robot."
 They ask one thing: who decides the appeal?

@@ -37,7 +37,7 @@ It doesn't say why.
 You tap appeal. Who reads it?
 
 // 0:35 SUBJECT: it already happened — Australia, 2016
-# vis kind=w act=x_arc_letters label="AUSTRALIA, 2016" then="cam=dutch@1|act=x_arc_verdict@2" trans=shatter clock="DAY 150" dir="@0 text type 'REAL CASE' .5,.8 yellow; @2 fx shake .5"
+# vis kind=w act=x_arc_letters label="AUSTRALIA, 2016" then="cam=dutch@1|act=x_arc_verdict@2" trans=shatter clock="DAY 150" dir="@0 text type 'REAL CASE' .5,.14 yellow; @2 fx shake .5"
 This already happened.
 An automated system in Australia sent out welfare debt notices.
 It was found unlawful and scrapped.

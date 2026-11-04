@@ -1,5 +1,13 @@
 # Motion Studio — changelog
 
+## 2026-11-04 · vertical-only 5–6 min, low small captions (owner)
+- Format: ONE vertical 9:16 film, 5–6 min; no 16:9, no separate short. `new_episode.mjs` writes one story; `gate.mjs` lints 9:16 only;
+  `cost.mjs` checks 9:16 (`--both` for 16:9); `ship.sh` ships `<slug>_vertical_9x16.mp4` from `out/<slug>_9x16.mp4`.
+- `variety.mjs`: length from measured speech (2.8 words/s final) and the rule is now 5–6 min (≈ 840–1000 words).
+- Captions (`engine/library/ifm_brand.js`): smaller (30 u vertical, 26 u wide), 9:16 band starts at 74.5 % and grows down
+  (≤ ~79 %), max width 72 % — under the picture, clear of the Shorts/Reels/TikTok UI. EPISODE.md, IFM_HOUSE.md, BRAND.md, brief, PROTOCOL updated.
+- Tested on ai-runs-a-country (vertical render of the full story); its bespoke acts moved out of the caption band.
+
 ## 2026-11-04 · render-cost gate + phone skyline cache
 - `tools/cost.mjs` (new, inside `gate.mjs`): times real full-size frames every 1.5 s in both formats; > 800 ms = ERROR, > 400 ms = WARN.
 - `engine/library/ifm_world2.js` `phone`: the blurred skyline is drawn and blurred once per size and cached (was a live ctx.filter blur: ~12 s a frame → ~0.19 s, same look).

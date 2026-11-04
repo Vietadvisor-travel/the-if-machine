@@ -55,10 +55,9 @@ Muse edits only the `tên (VI)`, `research` and `published` columns; Claude only
 | File | Name |
 |---|---|
 | research pack | `jobs/research/<slug>.md` (template: `jobs/research/_TEMPLATE.md`) |
-| long video, 16:9, 3–6 min | Drive `<slug>/<slug>_long_16x9.mp4` |
-| vertical, 9:16, 60–90 s | Drive `<slug>/<slug>_vertical_9x16.mp4` |
+| the film, vertical 9:16, 5–6 min (only format since 4 Nov 2026) | Drive `<slug>/<slug>_vertical_9x16.mp4` |
 | cover still | Drive `<slug>/<slug>_cover.jpg` |
-| English subtitles (long video) | Drive `<slug>/<slug>.srt` |
+| English subtitles | Drive `<slug>/<slug>.srt` |
 | the .story files | Drive `<slug>/<slug>_stories.zip` (also committed under `studio/stories/`) |
 | delivery note | `jobs/deliveries/<slug>.md` (file names, Drive file ids, durations, resolutions, voices, honest notes) |
 | publishing record | `jobs/publish/<slug>.md` (platform, URL, date, caption used) |

@@ -19,8 +19,8 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
   `studio/SKILL.md` and `references/` (travel-channel era) lose to them.
 - Never use the Poison Pill footage engine (repo vietadvisor-videos, `pp_*`). If the canvas engine cannot run, say so and stop.
 - Setup once per session: `bash setup.sh` (npm install, Kokoro voice, Chromium check, Drive check).
-- Run: `cd studio && node tools/make.mjs stories/<name>.story` (16:9 and 9:16).
-- Quality gates (brief §3): `node tools/gate.mjs <story>` = lint in BOTH formats + variety + review ≥ 85 + render cost (no frame > 800 ms) in one compact report;
+- Run: `cd studio && node tools/make.mjs stories/<slug>.story --fmt 9x16` (vertical only since 4 Nov 2026).
+- Quality gates (brief §3): `node tools/gate.mjs <story>` = lint (9:16) + variety (length 5–6 min) + review ≥ 85 + render cost (no frame > 800 ms) in one compact report;
   per-second QA 2 rounds (round 1 automatic in the gate, round 2 `python3 tools/qa.py <story> --every 1 --scale .2 --lean`).
   Drive gets the CRF-17 masters (`tools/ship.sh`), never the chat-size `_FINAL` files: never squeeze below 30 MB.
 
@@ -35,8 +35,8 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
    `[claude] [<slug>] research`, and go on. Do not stop to ask.
 2. STATUS → IN_PRODUCTION; INBOX line.
 3. `node tools/new_episode.mjs <slug> "<tên>"`, then direct the story per `studio/EPISODE.md` (a frame line and a `dir=` track per
-   beat; new bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: long 16:9 3–6 min (never under 3); vertical 9:16 60–90 s cut from it with its own
-   hook and captions; hook in the first 3 s; one question, one twist answer; branded end frame; the main picture of each
+   beat; new bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: ONE vertical 9:16 film, 5–6 min (≈ 840–1000 spoken words; owner 4 Nov 2026: no 16:9, no separate short);
+   small captions in the low band (74.5–79 %), subject above it, bottom 20 % and right edge clear of the platform UI; hook in the first 3 s; one question, one twist answer; branded end frame; the main picture of each
    beat draws the SUBJECT of its line; talking head ≤ 35 % of beats, never two in a row; small fixed captions low.
 4. Facts: every actionable claim from the research pack with its source; heavy claims need 2 sources; no invented
    numbers. No AI images of real people, real documents, logos, or fake headlines; animation illustrates, never poses as a record.
