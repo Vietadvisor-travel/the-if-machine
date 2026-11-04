@@ -61,6 +61,61 @@
     "fade"
    ],
    "bank": []
+  },
+  {
+   "slug": "money-disappears",
+   "vert": false,
+   "date": "2026-11-04",
+   "keys": [
+    "w:x_md_shelves:",
+    "w:s3:city",
+    "w:s3:street",
+    "w:x_md_bakery:",
+    "w:x_md_card:",
+    "w:x_md_market:",
+    "w:x_md_chain:",
+    "w:s3:waiting",
+    "w:x_md_time:",
+    "w:x_md_hoard:",
+    "w:s3:office",
+    "w:s3:home",
+    "w:x_md_turn:",
+    "w:x_md_form:",
+    "w:x_md_andes:",
+    "w:x_md_store:",
+    "w:x_md_khipu:",
+    "w:x_md_village:",
+    "w:x_md_quote:",
+    "w:x_md_shoes:",
+    "w:map:flat",
+    "w:x_md_camp:",
+    "w:x_md_parcel:",
+    "w:x_md_noticeboard:",
+    "w:x_md_prices:",
+    "w:s3:plaza",
+    "w:x_md_timeline:",
+    "w:x_md_ious:",
+    "w:x_md_shopfront:"
+   ],
+   "open": "w:x_md_shelves:",
+   "music": "",
+   "people": "facet",
+   "trans": [
+    "zoomthru",
+    "slide",
+    "cut",
+    "fade",
+    "drop",
+    "match",
+    "zoom",
+    "paper",
+    "cube",
+    "ink",
+    "fold",
+    "iris",
+    "liquid"
+   ],
+   "bank": []
   }
  ]
 }
