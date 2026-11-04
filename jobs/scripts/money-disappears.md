@@ -194,14 +194,14 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - BUILD: MONTAGE — reuse act=s3 set=plaza n=40, act=s3 set=waiting; NEW x_md_time v=clock
 
 ### S13 · 2:07 · THE QUEUE
-- VO: Outside a phone shop, people wait all night in sleeping bags. Inside, there are two hundred phones. Outside, there are about two thousand people.
+- VO: Inside a phone shop, there are two hundred phones. Outside, about two thousand people wait all night in sleeping bags.
 - LINK: the clock face turns into night; we are outside a shop
 - PICTURE: SUBJECT the phone shop front at night with sleeping bags along the pavement / BACKGROUND the street, lit shop window / FOREGROUND a thermos and a folding chair / LIFE a man yawns, a woman pours tea, the shop counter screen inside
 - ACTION: people lie in sleeping bags on the pavement, one sits on a folding chair holding a cup, one reads a book by a lamp
-- SHOT: WS low pan 2D | MS high push 3D
+- SHOT: MS high push 3D | WS low pan 2D
 - CAMERA: pan along the sleeping bags, then a push inside to the counter screen
 - LOOK: night, sodium-warm street and cool shop glow, quiet, line along the lower third
-- TIMELINE: 0 sleeping bags along the street · 2 a man yawns and sits up · 3.5 a woman pours tea · 5 cut: inside, the counter screen PHONES | 200 · 7 label OUTSIDE ≈ 2,000 · 9 the camera settles on the counter
+- TIMELINE: 0 inside, the counter screen PHONES | 200 · 2 label 200 PHONES · 3 cut: outside, sleeping bags along the street · 4.5 a man yawns and sits up · 6 a woman pours tea · 7.5 the camera settles on the line
 - TEXT: 200 inside · ≈ 2,000 outside (scenario numbers, small)
 - FX: trans=cut
 - SOUND: night street, kettle, quiet voices
@@ -338,7 +338,7 @@ continuous, precise actions, research as reference). One vertical 9:16 film, abo
 - LINK: the keeper at the door holds up a bundle of knotted cords
 - PICTURE: SUBJECT a khipu: a main cord with many hanging knotted strings / BACKGROUND the storehouse wall / FOREGROUND the keeper's hands / LIFE fingers move along the knots, then a family receives a basket
 - ACTION: the keeper holds the khipu with both hands, moving his fingers down the knots; a family stands in front holding out their hands for a basket
-- SHOT: ECU eye static 2D | WS eye pull 2D
+- SHOT: WS eye pull 2D | ECU eye static 2D
 - CAMERA: still close on the knots, then a pull back to the family receiving the basket
 - LOOK: soft evening, warm wool colours, reflective, khipu fills the frame
 - TIMELINE: 0 khipu, knots · 2 fingers move down a cord · 4 label KHIPU · 5 cut: a family receives a basket · 7 label NO MONEY · 8.5 then NOT MUCH CHOICE · 10 the camera settles
