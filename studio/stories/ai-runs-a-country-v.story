@@ -11,10 +11,10 @@ sources: Wikipedia, "Robodebt scheme" (2016 start, scrapped 2020, about 470,000 
 // 0:00 HOOK
 # vis kind=ifm act=lever q="WHAT IF|AN AI WAS|PRESIDENT?" clock=off
 An AI just took over a country.
-Day one, it didn't give a speech.
 
 // 0:04 SUBJECT: the queue vanishes
-# vis kind=w act=x_arc_queue trans=whip clock="DAY 1" dir="0-2 pan .04,0; @1 text pop 'IT FIXED THE QUEUE' .5,.14 yellow" then="cam=orbit@1"
+# vis kind=w act=x_arc_queue trans=whip clock="DAY 1" dir="0-2 pan .04,0; @1 text pop 'IT FIXED THE QUEUE' .5,.32 yellow" then="cam=orbit@1"
+Day one, it didn't give a speech.
 It fixed the queue.
 By day three, nobody is standing in line.
 

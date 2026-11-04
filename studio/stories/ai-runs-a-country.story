@@ -10,7 +10,11 @@ sources: e-Estonia, AI strategy factsheet (99% of services online, digital ID, 1
 // 0:00 [4 s] HOOK — the lever, the question types, dive through the screen
 # vis kind=ifm act=lever q="WHAT IF|AN AI RAN|A COUNTRY?" clock=off
 What if an AI ran a country for one year?
-No president. No parliament. Just a machine and a budget.
+
+// 0:03 [4 s] SUBJECT: the machine and the budget — nothing else in the room
+# vis kind=w act=stage bg=night items="ai_core@0 .4,.85,.6 drop|budget_bars@1 .66,.85,.36 pop" fx=sparks then="cam=push@1" trans=whip clock=off dir="0-3 zoom 1.15 .5,.55; @0+.3 fx shake .4"
+No president. No parliament.
+Just a machine and a budget.
 
 // 0:05 [7 s] SUBJECT: a plain government building at night gets a new tenant
 //   0.0 CAMERA push into the door · TEXT OPEN 24/7 (in the act) · FX flash as the lights come on · BRIDGE scan · SOUND lock, power up
@@ -49,7 +53,7 @@ From a sofa.
 
 // 0:51 [7 s] SUBJECT: 130 AI projects in a human government — our machine goes further
 //   0.0 CAMERA push · TEXT 130+ counter · FX glitch on "further" · BRIDGE bloom
-# vis kind=w act=count n=130 view=wave icon=person value=130+ label="AI projects since 2019" then="cam=truckR@1|act=stage bg=night items=\"ai_core@1 .5,.85,.6 grow\"@2" trans=bloom clock="DAY 0" dir="0-2 zoom 1.2 .5,.45; @2 fx glitch; @2 text slam 'WE GO FURTHER' .5,.16 coral"
+# vis kind=w act=count n=130 view=wave icon=person value=130+ label="AI projects since 2019" then="cam=truckR@1|act=stage bg=night items=\"ai_core@1 .5,.85,.6 float|human_inbox@1 .22,.85,.18 slide|gov_building@1 .78,.85,.3 slide\" fx=sparks@2" fx=fireflies trans=bloom clock="DAY 0" dir="0-2 zoom 1.2 .5,.45; @2 fx glitch; @2 text slam 'WE GO FURTHER' .5,.16 coral"
 Its government has run more than a hundred and thirty AI projects since 2019.
 But people still make the big calls.
 Our machine goes further. It makes all of them.

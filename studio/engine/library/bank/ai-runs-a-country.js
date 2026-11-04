@@ -66,7 +66,7 @@
   IFM.ACT.x_arc_vote = (o, c, dur) => ({ sfx: [[.4, 'ui_counter'], [T0(c, 1, 2), 'ifm_motion_impact_soft']], draw: lt => { const v = V(), u = U(); office(lt); const t1 = T0(c, 1, 2), q = E.inOut(K(lt, t1, 1.4)) * .51, mx = W * (v ? .1 : .2), mw = W * (v ? .8 : .6), my = H * (v ? .5 : .62);
     const box = (x, y, s) => { rr(x - s * .5, y - s * .6, s, s * .6, s * .06, '#3B4C9B', 0); rr(x - s * .25, y - s * .62, s * .5, s * .06, s * .02, '#0B0F2A', 0); rr(x - s * .16, y - s * .9 + Math.abs(Math.sin(lt * 3)) * s * .2, s * .32, s * .4, s * .03, '#F7F3E8', 0); };
     const lap = (x, y, s) => { rr(x - s * .5, y - s * .65, s, s * .6, s * .05, '#2C3366', 0); rr(x - s * .44, y - s * .6, s * .88, s * .5, s * .03, '#E9EEFF', 0); tick(x, y - s * .36, s * .3, green); rr(x - s * .62, y - s * .06, s * 1.24, s * .08, s * .04, '#8C93B8', 0); };
-    const s = Math.min(W, H) * (v ? .16 : .18); lap(W * .3, H * (v ? .4 : .48), s); box(W * .7, H * (v ? .4 : .48), s); T(lt < 1 ? '2005' : 'ONLINE SINCE 2005', W * .3, H * (v ? .44 : .53), { size: 26 * u, font: 'mono', fill: P.teal, lw: 0, alpha: K(lt, .3) });
+    const s = Math.min(W, H) * (v ? .16 : .18); lap(W * .3, H * (v ? .4 : .48), s); box(W * .7, H * (v ? .4 : .48), s); T(lt < 1 ? '2005' : (v ? 'SINCE 2005' : 'ONLINE SINCE 2005'), W * .3, H * (v ? .44 : .53), { size: 26 * u, font: 'mono', fill: P.teal, lw: 0, alpha: K(lt, .3) });
     rr(mx, my, mw, 34 * u, 17 * u, '#11163A', 0); rr(mx, my, mw * q / .51 * .51, 34 * u, 17 * u, P.teal, 0); rr(mx + mw * .51, my, mw * .49 * clamp(q / .51), 34 * u, 0, 'rgba(255,255,255,.12)', 0);
     if (lt > t1) T('about ' + Math.round(q * 100) + '% online', mx + mw * .5, my + 74 * u, { size: 36 * u, font: 'display', fill: P.yellow, lw: 0 }); } });
 
@@ -83,7 +83,7 @@
     rr(W * (v ? .02 : .06), gy - ph * .55, ph * .9, ph * .55, 6 * u, '#5A4632', 0); IFM.tag('PERMITS', W * (v ? .02 : .06) + ph * .45, gy - ph * .7, 22 * u, { bg: P.paper, t: lt }); IFM.human(W * (v ? .02 : .06) + ph * .45, gy - ph * .55, ph * .55, 4, gone >= n ? 'cheer' : 'type', lt, {});
     for (let i = n - 1; i >= 0; i--) { const x = W * (v ? .3 : .24) + i * W * (v ? .085 : .07), g = clamp(gone - (n - 1 - i)); if (g >= 1) continue; ctx.save(); ctx.globalAlpha *= 1 - g; IFM.human(x, gy, ph * (.92 + (i * 7 % 3) * .04), 20 + i, i % 3 ? 'phone' : 'look', lt, {}); ctx.restore();
       if (g > 0) { const fy = gy - ph - g * H * .6, fx = x + Math.sin(g * 6 + i) * 40 * u; B('paper_form').draw(fx, fy, ph * .3, lt, { rot: g * 4 + i, fill: 1 }); } }
-    T('QUEUE: ' + Math.max(0, Math.round(n - gone)), W / 2, H * (v ? .2 : .14), { size: 54 * u, font: 'display', fill: gone >= n ? P.teal : P.yellow, lw: 0 }); } }; };
+    T('QUEUE: ' + Math.max(0, Math.round(n - gone)), W / 2, H * (v ? .2 : .2), { size: 54 * u, font: 'display', fill: gone >= n ? P.teal : P.yellow, lw: 0 }); } }; };
 
   // 6. one dashboard: hospital beds, school timetable, bus map; a pulse from the core updates all three at once
   IFM.ACT.x_arc_dashboard = (o, c, dur) => { const pulses = [T0(c, 1, 1.5), T0(c, 2, 3), T0(c, 3, 4.5)]; return { sfx: pulses.map(t => [t, 'ifm_sci_radar_ping']), draw: lt => { const v = V(), u = U(); IFM.nightBg(lt, { cy: .5 }); const pw = v ? W * .8 : W * .27, ph = v ? H * .16 : H * .44, cx = W / 2, cy = H * (v ? .44 : .5);
@@ -115,7 +115,7 @@
   IFM.ACT.x_arc_letters = (o, c, dur) => { const tS = +(o.scrap || 0) ? T0(c, +o.scrap, 3) : 1e9; return { sfx: [[.3, 'ifm_motion_whoosh_airy'], ...(tS < 1e9 ? [[tS, 'ifm_motion_impact_big']] : [])], draw: lt => { const v = V(), u = U(); IFM.sky('dusk', lt); ctx.fillStyle = 'rgba(10,12,30,.55)'; ctx.fillRect(0, 0, W, H); const R = rng(77), n = 60, f = clamp(lt / Math.max(1.5, dur * .8));
     const gy = H * (v ? .72 : .88); ctx.fillStyle = '#1A1E3E'; ctx.fillRect(0, gy, W, H - gy);
     for (let i = 0; i < n; i++) { const x = R() * W, s = R(), at = i / n; if (at > f) { R(); continue; } const p = clamp((f - at) * 6), r = R(); const y = lerp(-H * .1, gy - 6 * u - (i % 6) * 14 * u, E.out(p)); B('notice_envelope').draw(x, y, H * (v ? .04 : .07) * (.8 + s * .5), lt, { rot: (r - .5) * (1.5 - p) }); }
-    if (o.label) T(o.label, W / 2, H * (v ? .2 : .16), { size: 44 * u, font: 'display', fill: P.paper, lw: 0, alpha: K(lt, .2) }); stamp('SCRAPPED', W / 2, H * (v ? .45 : .48), 64 * u, red, K(lt, tS, .3)); } }; };
+    if (o.label) T(o.label, W / 2, H * (v ? .24 : .2), { size: 44 * u, font: 'display', fill: P.paper, lw: 0, alpha: K(lt, .2) }); stamp('SCRAPPED', W / 2, H * (v ? .45 : .48), 64 * u, red, K(lt, tS, .3)); } }; };
 
   // 9b. the verdict: a gavel falls on the system, UNLAWFUL then SCRAPPED
   IFM.ACT.x_arc_verdict = (o, c, dur) => { const t0 = T0(c, 0, .3) + .8, t1 = T0(c, 1, 2.5); return { sfx: [[t0, 'ifm_motion_impact_slam'], [t1, 'ifm_motion_impact_big']], draw: lt => { const v = V(), u = U(); ctx.fillStyle = '#3A2A22'; ctx.fillRect(0, 0, W, H); for (let i = 0; i < 16; i++) rr(0, i * H / 16, W, 3 * u, 0, 'rgba(0,0,0,.1)', 0);
@@ -127,7 +127,7 @@
   IFM.ACT.x_arc_protest = (o, c, dur) => { const t1 = T0(c, 2, 2.5); return { sfx: [[.4, 'crowd_murmur'], [t1, 'ifm_motion_pop']], draw: lt => { const v = V(), u = U(); IFM.sky('day', lt, { clouds: 1 }); ctx.fillStyle = '#7E8AA8'; ctx.fillRect(0, H * .78, W, H * .22);
     B('gov_building').draw(W / 2, H * (v ? .55 : .66), H * (v ? .2 : .42), lt, { lit: 0 }); IFM.people(v ? 10 : 16, H * (v ? .74 : .96), lt, { pose: ['look', 'stand', 'point', 'look'], h: H * (v ? .16 : .26), rows: 2, seed: 9 });
     const texts = ['WHO DECIDES|THE APPEAL?', 'WHO DO|I CALL?', 'WHO DECIDES|THE APPEAL?', 'A HUMAN|PLEASE'], n = v ? 3 : 4;
-    for (let i = 0; i < n; i++) { const k = E.back(K(lt, t1 + i * .18, .4)); if (k <= 0) continue; const x = W * ((v ? .27 : .2) + (v ? .46 : .6) * i / Math.max(1, n - 1)), yb = H * (v ? .62 : .78) + (i % 2) * H * .04; B('protest_sign').draw(x, yb + (1 - k) * H * .2, H * (v ? .13 : .26), lt, { text: texts[i], seed: i, col: i === 0 ? red : ink }); } } }; };
+    for (let i = 0; i < n; i++) { const k = E.back(K(lt, t1 + i * .18, .4)); if (k <= 0) continue; const x = W * ((v ? .27 : .2) + (v ? .46 : .6) * i / Math.max(1, n - 1)), yb = H * (v ? .62 : .78) + (i % 2) * H * .04; B('protest_sign').draw(x, yb + (1 - k) * H * .2, H * (v ? .15 : .26), lt, { text: texts[i], seed: i, col: i === 0 ? red : ink }); } } }; };
 
   // 11. the rulebook: assess, publish, monitor — then the switch goes LIVE
   IFM.ACT.x_arc_checklist = (o, c, dur) => { const steps = ['ASSESS THE IMPACT', 'PUBLISH IT', 'WATCH THE RESULTS'], at = i => T0(c, Math.min(i + 1, c ? c.length - 1 : 3), 1 + i * 1.1) + (c && c.length < 4 ? i * .5 : 0), tl = at(2) + .9;
@@ -143,5 +143,5 @@
     B('ai_core').draw(W * (v ? .14 : .82), H * (v ? .3 : .7), H * (v ? .18 : .42), lt, {});
     if (lt > t1) { const k = clamp((lt - t1) / Math.max(.6, t2 - t1 - .1)), sw = fh * .5, sx = fx - sw * .4, sy = fy - fh * .14; ctx.save(); ctx.strokeStyle = '#1B2A8A'; ctx.lineWidth = 5 * u; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i <= 60 * k; i++) { const t = i / 60, x = sx + t * sw * .8, y = sy + Math.sin(t * 22) * fh * .02 * (1 - t * .5) - t * fh * .02; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); ctx.restore();
       const hx = sx + k * sw * .8, hy = sy; ctx.save(); ctx.translate(hx, hy); ctx.rotate(-.6); rr(-6 * u, -110 * u, 12 * u, 110 * u, 5 * u, P.yellow, 0); poly([[-6 * u, 0], [6 * u, 0], [0, 14 * u]], '#333', 0); ctx.restore(); ell(hx + 40 * u, hy - 70 * u, 56 * u, 40 * u, '#C68B64', 0, -.5); ell(hx + 100 * u, hy - 120 * u, 50 * u, 70 * u, '#3D4BA8', 0, -.5); }
-    if (lt > t2) IFM.tag('SIGNED: A HUMAN', fx, fy - fh * 1.04, 32 * u, { bg: P.yellow, t: lt }); } }; };
+    if (lt > t2) IFM.tag('SIGNED: A HUMAN', fx, fy - fh * (v ? .96 : 1.02), 32 * u, { bg: P.yellow, t: lt }); } }; };
 })();
