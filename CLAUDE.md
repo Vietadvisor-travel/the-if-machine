@@ -20,7 +20,7 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 - Never use the Poison Pill footage engine (repo vietadvisor-videos, `pp_*`). If the canvas engine cannot run, say so and stop.
 - Setup once per session: `bash setup.sh` (npm install, Kokoro voice, Chromium check, Drive check).
 - Run: `cd studio && node tools/make.mjs stories/<name>.story` (16:9 and 9:16).
-- Quality gates (brief §3): `node tools/gate.mjs <story>` = lint in BOTH formats + variety + review ≥ 85 in one compact report;
+- Quality gates (brief §3): `node tools/gate.mjs <story>` = lint in BOTH formats + variety + review ≥ 85 + render cost (no frame > 800 ms) in one compact report;
   per-second QA 2 rounds (round 1 automatic in the gate, round 2 `python3 tools/qa.py <story> --every 1 --scale .2 --lean`).
   Drive gets the CRF-17 masters (`tools/ship.sh`), never the chat-size `_FINAL` files: never squeeze below 30 MB.
 
@@ -49,6 +49,7 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
 8. Report to the owner (≤ 10 lines, Vietnamese): the Drive link, length of both cuts, gate scores, what is uncertain, and the
    line to send Muse when he approves: "đăng tập <tên>".
 
+Time budget: one episode ≤ 3 hours start to report (`studio/EPISODE.md` §6b); every shot WOW but cheap to render; watch the render pace once (§5).
 Run each episode end to end without stopping; talk to the owner only at the start and in the final report; stop early
 only for hard blockers he alone can fix (Drive keys, credentials), saying exactly what is missing. A missing research pack
 is not a blocker (step 1).

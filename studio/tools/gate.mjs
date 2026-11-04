@@ -1,4 +1,5 @@
-// All pre-render gates in one command with a compact report (token-lean): lint in both formats, variety, director review.
+// All pre-render gates in one command with a compact report (token-lean): lint in both formats, variety, director review,
+// render cost (tools/cost.mjs: any frame > 800 ms = ERROR, so a heavy shot can never stall a render again).
 //   node tools/gate.mjs stories/<slug>.story [--no-review]   → ≤ ~20 lines; the one contact sheet to look at: out/<slug>_sheet.jpg
 import { spawnSync } from 'child_process'; import path from 'path';
 const ep = process.argv[2], slug = path.basename(ep).replace(/\.\w+$/, ''), run = (args, t = 3600000) => (spawnSync('node', args, { encoding: 'utf8', timeout: t }).stdout || '');
@@ -8,6 +9,7 @@ let fmt = ''; const seen = new Map(); for (const l of lint) { const f = l.match(
 const issues = [...seen].map(([k, f]) => `  [${f}] ${k}`); issues.slice(0, 10).forEach(l => out.push(l)); if (issues.length > 10) out.push(`  … ${issues.length - 10} more`);
 const vi = lint.findIndex(l => /\[variety/.test(l)); if (vi >= 0) lint.slice(vi + 1).filter(l => /ERROR|WARN|clean/.test(l)).forEach(l => out.push('variety ' + l.trim().replace(/\s+/g, ' ')));
 if (!process.argv.includes('--no-review')) { const r = run(['tools/review.mjs', ep]).split('\n'); const sc = r.find(l => /^SCORE/.test(l)); if (sc) out.push('review ' + sc); r.filter(l => /^\s+WARN/.test(l)).slice(0, 4).forEach(l => out.push('  ' + l.trim())); }
+if (!process.argv.includes('--no-cost')) run(['tools/cost.mjs', ep]).split('\n').filter(l => /^cost|ERROR|WARN/.test(l)).slice(0, 8).forEach(l => out.push(l.startsWith('cost') ? l : '  ' + l.trim()));
 out.push(`sheet out/${slug}_sheet.jpg (both formats, one frame per beat)`);
 const bad = out.some(l => /ERROR|\b[1-9]\d* errors/.test(l)) || out.some(l => /SCORE (\d+)/.test(l) && +l.match(/SCORE (\d+)/)[1] < 85);
 console.log(out.join('\n') + '\n' + (bad ? 'GATE: FIX' : 'GATE: PASS')); process.exit(bad ? 1 : 0);

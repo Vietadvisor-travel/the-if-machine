@@ -104,8 +104,12 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
 
 ## 4. Gates — ONE command, compact output
 ```
-node tools/gate.mjs stories/<slug>.story          # lint both formats + variety + review → ≤ 20 lines + ONE contact sheet
+node tools/gate.mjs stories/<slug>.story          # lint both formats + variety + review + render cost → ≤ 20 lines + ONE contact sheet
 ```
+- **Render cost (owner, 4 Nov 2026: every shot WOW, but never heavy to render).** The gate times real full-size frames
+  every 1.5 s in both formats: > 800 ms a frame = ERROR, > 400 ms = WARN, normal 100–250 ms. Fix heavy shots without
+  losing the look: draw static or blurred layers ONCE into a `mkCanvas` cache (`withCtx`) and paste it; never a live
+  `ctx.filter = 'blur(…)'` over many paths; no per-frame loops over thousands of items. A shot at ERROR never goes to render.
 - Fix what it lists, re-run it, then look at the ONE sheet it names (`out/<slug>_sheet.jpg`).
 - Look at single frames only where the sheet shows a doubt: `tools/still.mjs` + `tools/montage.py`, ≤ 12 tiles.
 - Then do the same for `stories/<slug>-v.story`.
@@ -122,6 +126,9 @@ node tools/make.mjs stories/<slug>-v.story --fmt 9x16 --skip-lint --skip-review 
 grep -E "deliver →|FAIL|Error|music " out/<slug>*.log
 ```
 - Run them with `run_in_background`. Wait for the notification; never poll, never sleep.
+- **Render watchdog.** A healthy render does 150 frames in ~25 s per job (a 5-min film ≈ 15 min, the vertical ≈ 5 min).
+  About 10 min after starting, read the last `frame` line of the log once: if the pace fell below 150 frames per 60 s, stop
+  the render at once, find the shot with `node tools/cost.mjs`, fix it, and restart. Never let a render run past 40 min.
 - Final check: one 12-frame sheet per FINAL file (ffmpeg stills → `montage.py`).
 
 ## 6. Deliver
@@ -132,6 +139,17 @@ node tools/variety.mjs stories/<slug>.story --record && node tools/bank.mjs cata
 - Write `jobs/deliveries/<slug>.md` from `jobs/deliveries/_TEMPLATE.md`; set STATUS → DELIVERED; add an INBOX line;
   commit `[claude] [<slug>] delivered` (with history.json and BANK.md); push `main`.
 - Report to the owner in ≤ 10 Vietnamese lines. End with the line he sends Muse when he approves: "đăng tập <tên>".
+
+## 6b. Time budget (owner: one episode ≤ 3 hours, start to report)
+| step | budget |
+|---|---|
+| research pack (only if missing) | 20 min |
+| story + bank items (written once, from the template) | 60 min |
+| gate runs (≈ 35 min each; at most 2 fix loops) | 70 min |
+| QA round 2 sheets | 10 min |
+| render both cuts (watchdog above) | 25 min |
+| ship, delivery note, report | 15 min |
+- Over budget on a step → simplify (fewer fix loops, reuse bank items) rather than polish; never exceed 3 h in total.
 
 ## 7. Token rules (owner: as lean as possible, quality unchanged)
 - **Read:**

@@ -1,5 +1,11 @@
 # Motion Studio — changelog
 
+## 2026-11-04 · render-cost gate + phone skyline cache
+- `tools/cost.mjs` (new, inside `gate.mjs`): times real full-size frames every 1.5 s in both formats; > 800 ms = ERROR, > 400 ms = WARN.
+- `engine/library/ifm_world2.js` `phone`: the blurred skyline is drawn and blurred once per size and cached (was a live ctx.filter blur: ~12 s a frame → ~0.19 s, same look).
+- `EPISODE.md`: render-cost rule, render watchdog, time budget (one episode ≤ 3 h).
+- Tested on ai-runs-a-country: the old phone shot is flagged ERROR (12–29 s/frame); with the cache it renders at ~190 ms.
+
 ## 2026-11-04 · IFM 7 (picture first, alive, clean composition — owner)
 - `ifm_life.js`:
   - automatic background life per scene (birds, leaves, butterflies, shooting stars, blinking aircraft, dust, ripples; `life=` / `life=off`);
