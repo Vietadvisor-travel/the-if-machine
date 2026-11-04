@@ -115,7 +115,7 @@ Free turns out to be cheapest
 for people with time to spare.
 
 // S15 · 2:28 [11 s] SUBJECT: the town hall prints the ration card
-# vis kind=w act=s3 set=office time=day cam=WS.eye.push on=room trans=zoomthru then="act=x_md_ration cam=WS.top.static:.42,.4@2"
+# vis kind=w act=s3 set=office time=day cam=WS.eye.push on=room trans=zoomthru then="act=x_md_ration cam=WS.top.push:.42,.4@2"
 By the end of the first month,
 the city tries something else.
 If a price can't decide who gets what, a rule will.
@@ -130,7 +130,7 @@ Then everyone remembers
 whose old phone is the most broken.
 
 // S17 · 2:47 [11 s] THE TURN SUBJECT: one coin splits into the queue, the card and the pen
-# vis kind=w act=x_md_turn v=coin cam=WS.eye.static:.5,.45 trans=match words="!THE JOB MOVED@2" then="act=s3 set=waiting time=day screen=NEXT cam=WS.high.trackR on=queue@4"
+# vis kind=w act=x_md_turn v=coin cam=WS.eye.push:.5,.45 trans=match words="!THE JOB MOVED@2" then="act=s3 set=waiting time=day screen=NEXT cam=WS.high.trackR on=queue@4"
 And here is the turn in the story.
 Money never really vanished.
 Its job just moved:
