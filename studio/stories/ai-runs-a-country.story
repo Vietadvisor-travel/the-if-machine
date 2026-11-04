@@ -83,7 +83,7 @@ Humans still run the country.
 The machines just do the paperwork.
 
 // S13 · 1:20–1:26 · LOOP
-# vis kind=w act=x_arc_further trans=scan then="cam=crane@0|cam=push@2" dir="0-3 zoom 1.12 .5,.45; @2 text slam 'THE WHOLE BUDGET' .5,.1 yellow; @2 fx shake .5"
+# vis kind=w act=x_palace trans=scan then="cam=crane@0|cam=push@2" dir="0-3 zoom 1.12 .5,.45; @2 text slam 'THE WHOLE BUDGET' .5,.1 yellow; @2 fx shake .5"
 In our simulation, the machine goes much further.
 It doesn't just do the paperwork.
 It takes the whole budget, every permit and every benefit, with no minister in between.
