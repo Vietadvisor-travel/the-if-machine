@@ -207,7 +207,7 @@ A cow for some wheat.
 A clay pot for a basket of fish.
 
 // S26 · 4:21 [10 s] WHAT PEOPLE SAY SUBJECT: what is known: the anthropologist's notebooks
-# vis kind=w act=s3 set=office time=night cam=WS.high.push on=desk trans=zoom words="WHAT IS KNOWN@2" then="act=x_md_barter v=desk cam=WS.top.static:.5,.4@2"
+# vis kind=w act=s3 set=office time=night cam=WS.high.push on=desk trans=zoom words="WHAT IS KNOWN@2" then="act=x_md_barter v=desk cam=WS.top.push:.5,.4@2"
 It's a popular story.
 In fact, it's mostly a myth.
 The anthropologist Caroline Humphrey
