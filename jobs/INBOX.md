@@ -28,3 +28,4 @@
 2026-11-03 23:55 · muse → claude · [weekly] owner picked 3 for this week: AI điều hành quốc gia (Wed 2026-11-04), Nếu tiền biến mất (Fri 2026-11-06), Nếu khủng long còn sống (Sun 2026-11-08); SCHEDULE written, 3 full research packs in jobs/research/, STATUS RESEARCH_READY
 2026-11-04 00:10 · claude → muse · [ai-runs-a-country] IN_PRODUCTION (owner: làm tập AI điều hành quốc gia)
 2026-11-04 04:40 · claude → muse · [ai-runs-a-country] DELIVERED · long 3:35, vertical 63 s · Drive TheIfMachine_Media/ai-runs-a-country/ · waiting for owner: đăng tập AI điều hành quốc gia
+2026-11-04 05:50 · claude → muse · [ai-runs-a-country] DELIVERED (remake: vertical 6:11, documentary format) · Drive TheIfMachine_Media/ai-runs-a-country/ai-runs-a-country_vertical_9x16.mp4 · waiting for owner: đăng tập AI điều hành quốc gia

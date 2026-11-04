@@ -109,7 +109,7 @@
   const _brand = FX.brand;
   FX.brand = (A, B, p, t, c, tr) => { if (!IFM.on) return _brand(A, B, p, t, c, tr); ctx.drawImage(p < .5 ? A : B, 0, 0); const e = p < .5 ? E.inOut(p * 2) : 1 - E.inOut(p * 2 - 1);
     ctx.save(); for (let i = 0; i < 3; i++) { const ee = clamp(e * 1.4 - i * .2); ctx.fillStyle = [P.yellow, P.coral, P.midnight][i]; ctx.beginPath(); const x = p < .5 ? -W * .3 : W * 1.3 - (W * 1.6) * ee; if (p < .5) { ctx.moveTo(-W * .3, 0); ctx.lineTo(-W * .3 + W * 1.6 * ee, 0); ctx.lineTo(-W * .3 + W * 1.6 * ee - W * .3, H); ctx.lineTo(-W * .6, H); } else { ctx.moveTo(x, 0); ctx.lineTo(W * 1.3, 0); ctx.lineTo(W * 1.3, H); ctx.lineTo(x - W * .3, H); } ctx.fill(); } ctx.restore();
-    if (e > .85) logo(W / 2, H / 2, U() * 90 * E.back(clamp((e - .85) / .15)), { short: true }); };
+    /* no machine logo (owner, 4 Nov 2026) */ };
   // simulation scan: a teal line sweeps down, B is "rendered" behind it with a scan grid
   FX.scan = (A, B, p) => { const e = E.inOut(p), y = e * H, u = U(); ctx.drawImage(A, 0, 0); ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, y); ctx.clip(); ctx.drawImage(B, 0, 0); ctx.globalAlpha = .25 * (1 - e); grid(.5, 0, 40); ctx.restore();
     const g = ctx.createLinearGradient(0, y - 60 * u, 0, y); g.addColorStop(0, 'rgba(46,230,197,0)'); g.addColorStop(1, 'rgba(46,230,197,.55)'); ctx.fillStyle = g; ctx.fillRect(0, y - 60 * u, W, 60 * u); ctx.fillStyle = P.teal; ctx.fillRect(0, y - 2 * u, W, 4 * u); };
