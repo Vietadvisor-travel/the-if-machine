@@ -14,7 +14,7 @@ const hdr = k => (story.match(new RegExp('^' + k + '\\s*:\\s*(.+)$', 'm')) || []
 const voice = opt('voice') || hdr('voice'); const wantVoice = !has('no-audio') && isStory && voice !== 'none';
 let vo = [];
 // 1) voice-over
-if (wantVoice) { try { node(['tools/render.mjs', ep, '--lines', `${base}_lines.json`]); py(['tools/voice.py', 'synth', `${base}_lines.json`, `${base}_vo`, ...(voice ? ['--voice', voice] : []), '--speed', opt('speed') || 'auto']); vo = ['--vo', `${base}_vo/durs.json`]; }
+if (wantVoice) { try { node(['tools/render.mjs', ep, '--lines', `${base}_lines.json`]); { const LJ = JSON.parse(fs.readFileSync(`${base}_lines.json`, 'utf8')); if (!LJ.lines || !LJ.lines.length) { console.error('FAIL: no voice lines collected — refusing to reuse an old voice track'); process.exit(1); } } py(['tools/voice.py', 'synth', `${base}_lines.json`, `${base}_vo`, ...(voice ? ['--voice', voice] : []), '--speed', opt('speed') || 'auto']); vo = ['--vo', `${base}_vo/durs.json`]; }
   catch (e) { console.warn('\n⚠ voice-over unavailable (run: python3 tools/voice.py setup) — continuing with caption timing only.\n'); } }
 // 2) lint
 if (!has('skip-lint')) { const rep = execFileSync('node', ['tools/lint.mjs', ep, '--out', base, ...vo, ...(fmts.length > 1 ? ['--both'] : fmts[0] === '16x9' ? ['--16x9'] : [])], { encoding: 'utf8' }); console.log(rep); if (/\b[1-9]\d* errors\b/.test(rep) || /^\s+ERROR\s/m.test(rep)) { console.error('Lint errors — fix them first (or --skip-lint).'); process.exit(1); } }
