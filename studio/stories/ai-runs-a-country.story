@@ -136,7 +136,7 @@ A class action settled in 2021 for one point eight billion Australian dollars.
 
 // 2:36 [8 s] SUBJECT: you can quit an app, you can't quit your country
 //   0.0 CAMERA split sweep · TEXT NO OPT-OUT · FX glitch on "can't" · BRIDGE cube
-# vis kind=w act=split a="phone view=pov screen=offline" b="x_arc_letters" la="AN APP" lb="A STATE" trans=cube clock="DAY 160" dir="@1 fx glitch; @1 text slam 'NO OPT-OUT' .5,.78 coral" then="cam=push@1|cam=orbit@2"
+# vis kind=w act=split a="x_arc_taxform" b="x_arc_letters" la="AN APP" lb="A STATE" trans=cube clock="DAY 160" dir="@1 fx glitch; @1 text slam 'NO OPT-OUT' .5,.78 coral" then="cam=push@1|cam=orbit@2"
 That's the catch. You can quit an app.
 You can't quit your country.
 When a state machine gets it wrong, the mistake copies itself to everyone.
