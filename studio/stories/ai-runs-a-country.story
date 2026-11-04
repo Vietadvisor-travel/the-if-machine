@@ -31,14 +31,14 @@ Let's run it.
 
 // 0:22 [7 s] SUBJECT: machines already at work inside governments today
 //   0.0 CAMERA truck along the server aisle · TEXT ALREADY HERE · FX chroma on "fraud" · BRIDGE whip
-# vis kind=w act=servers off=0 ai=1 then="icon:tabler:bus@2 .7,.6,.22 pop\"@1|cam=pull@2" trans=whip clock="DAY 0" dir="0-2 pan .08,0; @0 text stamp 'ALREADY HERE' .5,.18 teal; @1+.4 fx chroma 10"
+# vis kind=w act=servers off=0 ai=1 then="act=x_arc_icons icons=receipt-tax,shield-search,bus labels=BENEFITS,FRAUD,BUSES at=1,1,2@1|cam=pull@2" trans=whip clock="DAY 0" dir="0-2 pan .08,0; @0 text stamp 'ALREADY HERE' .5,.18 teal; @1+.4 fx chroma 10"
 This isn't as far away as it sounds.
 Governments already use machines to check benefits and spot tax fraud.
 Some even plan the bus routes.
 
 // 0:31 [9 s] SUBJECT: one digital ID card opens tax, health, voting and business
 //   0.0 CAMERA push into the chip · TEXT about 99% · FX shock on the card · BRIDGE match
-# vis kind=w act=x_arc_idcard then="cam=pull@1|act=count n=100 hl=99 icon=person value=99% label=\"services online\"@2|cam=truckR@3" trans=match clock="DAY 0" dir="0-2.5 zoom 1.15 .5,.5 ease=io; @0 text type 'ESTONIA|a real country, human-run' .5,.12 paper; @1 fx iris .5,.5"
+# vis kind=w act=x_arc_idcard then="cam=pull@1|act=count n=100 hl=99 icon=person value=99%@2|cam=truckR@3" trans=match clock="DAY 0" dir="0-2.5 zoom 1.15 .5,.5 ease=io; @0-@2 text type 'ESTONIA|a real country, human-run' .5,.12 paper; @2 text type 'services online' .5,.3 teal; @1 fx iris .5,.5"
 Look at Estonia, a real country run by humans.
 Every resident has a digital ID.
 One card opens tax, health, voting and business.
@@ -53,7 +53,7 @@ From a sofa.
 
 // 0:51 [7 s] SUBJECT: 130 AI projects in a human government — our machine goes further
 //   0.0 CAMERA push · TEXT 130+ counter · FX glitch on "further" · BRIDGE bloom
-# vis kind=w act=count n=130 view=wave icon=person value=130+ label="AI projects since 2019" then="cam=truckR@1|act=stage bg=night items=\"ai_core@1 .5,.85,.6 float|human_inbox@1 .22,.85,.18 slide|gov_building@1 .78,.85,.3 slide\" fx=sparks@2" fx=fireflies trans=bloom clock="DAY 0" dir="0-2 zoom 1.2 .5,.45; @2 fx glitch; @2 text slam 'WE GO FURTHER' .5,.16 coral"
+# vis kind=w act=count n=130 view=wave icon=person value=130+ label="AI projects since 2019" then="cam=truckR@1|act=x_arc_further@2" fx=fireflies trans=bloom clock="DAY 0" dir="0-2 zoom 1.2 .5,.45; @2 fx glitch; @2 text slam 'WE GO FURTHER' .5,.16 coral"
 Its government has run more than a hundred and thirty AI projects since 2019.
 But people still make the big calls.
 Our machine goes further. It makes all of them.
@@ -103,7 +103,7 @@ Nobody voted on it. But nobody can bribe it either.
 
 // 1:52 [6 s] SUBJECT: the same rule for everyone, every time
 //   0.0 CAMERA crane up over the crowd · TEXT SAME RULES · FX confetti · BRIDGE fold
-# vis kind=w act=crowd view=close pose=cheer fx=confetti then="act=count n=60 icon=person value=SAME label=\"rule for everyone\"@1" trans=fold clock="DAY 120" dir="0-2 zoom 1.1 .5,.6; @1 text stack 'SAME RULES|every time' .5,.16 yellow"
+# vis kind=w act=crowd view=close pose=cheer fx=confetti then="act=count n=60 icon=person@1" trans=fold clock="DAY 120" dir="0-2 zoom 1.1 .5,.6; @1 text stack 'SAME RULES|every time' .5,.16 yellow"
 On small things, it gets boringly consistent.
 Same rules for everyone. Every time. No bad Mondays.
 
@@ -124,7 +124,7 @@ It matched income data and sent the notices out by itself.
 
 // 2:20 [9 s] SUBJECT: found unlawful, scrapped, 470,000 debts repaid
 //   0.0 CAMERA push on the stamp · TEXT 470,000 counter · FX shock on SCRAPPED · BRIDGE pixel
-# vis kind=w act=x_arc_verdict then="cam=float@1|act=count n=120 hl=120 icon=coin value=470,000 label=\"debts to be repaid\"@2" trans=pixel clock="DAY 150" dir="0-1.2 zoom 1.1 .45,.5; @0+.75 fx shake .6; @2 text counter '470,000|wrongly issued debts' .5,.16 yellow"
+# vis kind=w act=x_arc_verdict then="cam=float@1|act=count n=120 hl=120 icon=coin value=470,000@2" trans=pixel clock="DAY 150" dir="0-1.2 zoom 1.1 .45,.5; @0+.75 fx shake .6; @2+.4 text type 'wrongly issued debts' .5,.3 teal"
 People called it Robodebt. It was later found unlawful.
 In 2020, the government scrapped it.
 About four hundred and seventy thousand wrongly issued debts had to be paid back.
@@ -136,7 +136,7 @@ A class action settled in 2021 for one point eight billion Australian dollars.
 
 // 2:36 [8 s] SUBJECT: you can quit an app, you can't quit your country
 //   0.0 CAMERA split sweep · TEXT NO OPT-OUT · FX glitch on "can't" · BRIDGE cube
-# vis kind=w act=split a="phone view=pov screen=offline" b="x_arc_letters" la="AN APP" lb="A STATE" trans=cube clock="DAY 160" dir="@1 fx glitch; @1 text slam 'NO OPT-OUT' .5,.16 coral" then="cam=push@1|cam=orbit@2"
+# vis kind=w act=split a="phone view=pov screen=offline" b="x_arc_letters" la="AN APP" lb="A STATE" trans=cube clock="DAY 160" dir="@1 fx glitch; @1 text slam 'NO OPT-OUT' .5,.78 coral" then="cam=push@1|cam=orbit@2"
 That's the catch. You can quit an app.
 You can't quit your country.
 When a state machine gets it wrong, the mistake copies itself to everyone.
