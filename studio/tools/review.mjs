@@ -29,7 +29,7 @@ const body = scenes.filter(s => s.type !== 'end');
 // cuts = scene boundaries + coverage changes + energy spikes inside moments
 const cuts = new Set(); body.forEach(s => { cuts.add(+s.start.toFixed(2)); s.cover.forEach(([t]) => t > 0 && cuts.add(+(s.start + t).toFixed(2))); });
 // The If Machine: in-beat cuts (then=), peaks, close shots, light states and depth come from the beat keys (engine/library/ifm_*.js)
-const IFMS = body.some(s => s.ifm); if (IFMS) body.forEach(s => { const f = s.ifm; if (!f) return; String(f.then || '').split('|').filter(Boolean).forEach((x, j) => { const m = x.match(/@(\d+)$/); const t = m && s.caps[+m[1]] ? s.caps[+m[1]][0] : 1.5 * (j + 1); cuts.add(+(s.start + t).toFixed(2)); });
+const IFMS = body.some(s => s.ifm); if (IFMS) body.forEach(s => { const f = s.ifm; if (!f) return; String(f.then || '').split('|').filter(Boolean).forEach((x, j) => { const m = x.match(/@(\d+)$/); const t = m && s.caps[+m[1]] ? s.caps[+m[1]][0] : 1.5 * (j + 1); cuts.add(+(s.start + t).toFixed(2)); if (/cam=close/.test(x)) s.cover.push([t, 'CU']); });
   const allActs = [f.act, ...String(f.then || '').split('|').map(x => (x.match(/act=(\w+)/) || [])[1]).filter(Boolean)], allViews = [f.view, ...String(f.then || '').split('|').map(x => (x.match(/view=(\w+)/) || [])[1]).filter(Boolean)];
   if (['lever', 'answer', 'hook'].includes(f.act) || f.hook || allActs.some(a => ['zoom', 'split', 'count'].includes(a)) || f.off) s.moment = s.moment || 'ifm:' + f.act;
   if (f.kind === 'ifm' || allActs.some(a => ['phone', 'money'].includes(a)) || allViews.includes('close') || allViews.includes('desk') || (f.kind && !['w', 'ifm'].includes(f.kind))) s.cover.push([0, 'CU']);

@@ -16,20 +16,20 @@ Not in a film.
 For one real year.
 
 // S02 · 0:08 · PROMISE
-# vis kind=w act=x_balcony cam=truckR trans=zoomthru then="cam=close:.56,.48@1"
+# vis kind=w act=x_balcony cam=truckR trans=zoomthru then="cam=close:.56,.48@1" time=dawn
 What would actually change?
 Some things would get much easier.
 And one thing would go wrong in a way that is easy to miss.
 
 // S03 · 0:17 · DAY ONE
-# vis kind=w act=x_phonehand cam=crane trans=cut
+# vis kind=w act=x_phonehand cam=truckL trans=cut time=dawn
 Day one.
 There is no election night and no speech.
 Her phone simply shows a message: a permit
 she applied for last month has been approved overnight.
 
 // S04 · 0:28 · THE QUEUE THAT DISAPPEARED
-# vis kind=w act=x_serviceoffice cam=pull trans=slide then="cam=close:.45,.6@2"
+# vis kind=w act=x_serviceoffice cam=pull trans=slide then="cam=close:.45,.66@2"
 It used to take weeks.
 A form, a queue, a stamp, a second queue.
 The system read her application at three in the morning,
@@ -57,12 +57,12 @@ No committee has to meet.
 Nobody has to approve a new timetable.
 
 // S08 · 1:15 · ESTONIA
-# vis kind=w act=x_snowstreet cam=drop trans=iris then="cam=close:.5,.62@1"
+# vis kind=w act=x_snowstreet cam=drop trans=iris then="cam=close:.5,.62@1" time=dusk
 This part is not science fiction.
 In Estonia, about ninety-nine percent of public services already work online.
 
 // S09 · 1:26 · DIGITAL ID
-# vis kind=w act=x_homedesk cam=orbit trans=zoomthru
+# vis kind=w act=x_homedesk cam=orbit trans=zoomthru time=dusk
 Every resident has a digital identity.
 One login opens taxes, health records, business papers, and since 2005, even voting.
 In 2023 about half of all votes were cast online.
@@ -81,7 +81,7 @@ It decides: who gets a benefit,
 how the budget is split, which road is repaired first.
 
 // S12 · 2:04 · THE BUDGET
-# vis kind=w act=x_pipes sign="NEXT YEAR" cam=crane trans=fold then="cam=close:.22,.5@1"
+# vis kind=w act=x_pipes sign="NEXT YEAR" cam=float trans=fold then="cam=close:.22,.5@1"
 On day ninety, the budget moves.
 More money goes to the hospital where people wait longest.
 Less goes to a bridge that can wait another year.
@@ -107,7 +107,7 @@ And when it is wrong, it is wrong for
 many people at once, in exactly the same way.
 
 // S16 · 2:54 · THE LETTER
-# vis kind=w act=x_doorway cam=tilt trans=paper
+# vis kind=w act=x_doorway cam=tilt trans=paper time=dusk
 Day one hundred and fifty.
 A letter arrives for the woman in the red coat.
 The system says she was paid too much
@@ -133,19 +133,19 @@ In 2016, Australia started an automated system to recover welfare overpayments.
 People called it Robodebt.
 
 // S20 · 3:43 · HUNDREDS OF THOUSANDS
-# vis kind=w act=x_postround cam=truckR trans=slide then="cam=close:.42,.7@1"
+# vis kind=w act=x_postround cam=truckR trans=slide then="cam=close:.42,.7@1" time=dusk
 It used the same income averaging.
 Letters went out by the hundred thousand.
 Many people paid, because proving the computer wrong took more time than they had.
 
 // S21 · 3:57 · UNLAWFUL
-# vis kind=w act=x_court cam=crane trans=cube then="cam=close:.28,.62@1"
+# vis kind=w act=x_court cam=push trans=cube then="cam=close:.28,.62@1"
 Courts and reviews later found the method was unlawful.
 The scheme was scrapped in 2020, and about four hundred
 and seventy thousand wrongly issued debts had to be paid back.
 
 // S22 · 4:11 · THE REVIEW
-# vis kind=w act=x_report2 cam=pull trans=paper then="cam=close:.5,.56@1"
+# vis kind=w act=x_report2 cam=pull trans=paper then="cam=close:.5,.56@1" time=night
 A settlement in 2021 came to about one point eight billion Australian dollars.
 And in 2023, a Royal Commission called the scheme a crude and cruel mechanism.
 
@@ -186,8 +186,12 @@ Something quieter happened.
 The decision came from a system,
 and people could no longer easily argue with it.
 
+// S28b · 5:36 · A QUIET MOMENT
+# vis kind=w act=x_balcony_dusk cam=pull trans=fade time=dusk dur=6
+Day two hundred.
+
 // S29 · 5:39 · BACK TO HER
-# vis kind=w act=x_kitchen2_appeal cam=truckR trans=ink
+# vis kind=w act=x_kitchen2_appeal cam=truckR trans=ink time=dusk
 Back in our imaginary year, the woman in the red coat tries to appeal.
 The website has a form.
 She explains her winter.
@@ -195,7 +199,7 @@ The form goes to the same system that made the decision,
 and the same answer comes back.
 
 // S30 · 5:52 · THE REAL RISK
-# vis kind=w act=x_serviceoffice_empty cam=crane trans=drop then="cam=close:.5,.45@1"
+# vis kind=w act=x_serviceoffice_empty cam=float trans=drop then="cam=close:.5,.45@1"
 That is the real risk.
 Not a robot with a plan, but a decision with nobody behind it.
 A door with no one to knock on.
@@ -213,7 +217,7 @@ It flies most of the trip, and it flies it well.
 But there are still pilots in the cockpit, and they can take the controls.
 
 // S33 · 6:29 · THE ANSWER
-# vis kind=w act=x_dawncity_dusk cam=float trans=iris then="cam=close:.5,.55@2"
+# vis kind=w act=x_dawncity_dusk cam=float trans=iris then="cam=close:.5,.55@2" time=dusk
 So what would a year of AI government look like?
 It would be very good at the routine work: forms, queues, timetables, budgets.
 And it would struggle with the people whose lives do not fit the average,

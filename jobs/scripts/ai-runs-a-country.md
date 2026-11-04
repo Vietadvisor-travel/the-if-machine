@@ -55,7 +55,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: people stand in line holding folders; one by one they step out and walk to the door (stride speed)
 - CAMERA: slow truck along the queue
 - TEXT: none
-- FX: trans=fade
+- FX: trans=slide
 - SOUND: soft murmur, a ticket machine, the room gets quieter
 - BUILD: NEW x_serviceoffice — office hall, queue with folders, people leaving
 
@@ -66,7 +66,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: she sits on a chair at the table, holds the tablet, scrolls, taps
 - CAMERA: slow push from a wide kitchen to the tablet
 - TEXT: tablet UI: TAX RETURN, lines filling, CONFIRM
-- FX: trans=cut
+- FX: trans=ink
 - SOUND: kitchen ambience, soft taps
 - BUILD: NEW x_kitchen2 — her kitchen (fixed design), table, chair, tablet UI
 
@@ -88,7 +88,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: none
 - CAMERA: slow crane up from the street into the map view
 - TEXT: none
-- FX: trans=match
+- FX: trans=zoom
 - SOUND: soft pad, gentle ticks
 - BUILD: NEW x_routemap — top-down city map, routes redraw, dots flow
 
@@ -99,7 +99,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: people walk, one person stops and reads their phone, a parent walks with a child
 - CAMERA: slow pan along the street
 - TEXT: label ESTONIA (small, top)
-- FX: trans=fade
+- FX: trans=iris
 - SOUND: snow quiet, footsteps
 - BUILD: NEW x_snowstreet — old town in snow, walkers, a small label
 
@@ -121,7 +121,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: one sits typing at the desk; the colleague walks in holding a folder and hands it over
 - CAMERA: slow truck right along the desks
 - TEXT: none
-- FX: trans=slide
+- FX: trans=liquid
 - SOUND: office ambience
 - BUILD: NEW x_office — open office, desks with chairs, people working, a handover
 
@@ -132,7 +132,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: people walk across the square; inside, one engineer stands watching a screen
 - CAMERA: slow push from the square into the building windows
 - TEXT: three small labels appear on the screens: BENEFITS · BUDGET · ROADS
-- FX: trans=fade
+- FX: trans=drop
 - SOUND: square ambience, soft hum
 - BUILD: NEW x_govsquare — the building by day, square, a control room seen through tall windows
 
@@ -143,7 +143,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: none
 - CAMERA: slow truck right along the pipes
 - TEXT: small sign on the bridge: NEXT YEAR
-- FX: trans=match
+- FX: trans=fold
 - SOUND: soft flowing water, coin ticks
 - BUILD: reuse x_pipes (calm version, sign NEXT YEAR)
 
@@ -154,7 +154,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: people sit on chairs; the woman sits holding her coat; one person stands and walks to the door when called
 - CAMERA: slow pull back across the rows
 - TEXT: none
-- FX: trans=cut
+- FX: trans=ink
 - SOUND: soft hospital ambience, a gentle chime
 - BUILD: NEW x_waitingroom — waiting room, chairs, number display, people called in order
 
@@ -165,7 +165,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: a clerk stands at the table and places folders on the scanner belt
 - CAMERA: slow push along the table
 - TEXT: label ALBANIA · 2025 (small)
-- FX: trans=fade
+- FX: trans=slide
 - SOUND: hall ambience, soft scanner hum
 - BUILD: NEW x_tenderdesk — hall, table with a scanner belt, folders, a clerk (no avatar, no real person)
 
@@ -187,7 +187,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: she stands in the doorway holding the letter in both hands (read pose), then lowers it (worried pose)
 - CAMERA: slow push to the letter
 - TEXT: the letter header: AMOUNT DUE (generic, not a real document)
-- FX: trans=fade
+- FX: trans=paper
 - SOUND: door, paper, quiet
 - BUILD: NEW x_doorway — her hallway, front door, letter in hand
 
@@ -198,7 +198,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: none
 - CAMERA: slow pull back to show the whole year
 - TEXT: small labels SPRING · WINTER under the stacks
-- FX: trans=match
+- FX: trans=zoom
 - SOUND: soft wooden clicks
 - BUILD: reuse x_averaging (calm version: ruler instead of a giant hand, no flashing)
 
@@ -220,7 +220,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: the man sits on a chair at the table, reads the letter, picks up the calculator
 - CAMERA: slow push across the table
 - TEXT: label AUSTRALIA · 2016 (small)
-- FX: trans=fade
+- FX: trans=ink
 - SOUND: ceiling fan, birds outside
 - BUILD: NEW x_aussiekitchen — suburban kitchen, man at table, letter, calculator
 
@@ -242,7 +242,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: people sit on benches; one lawyer stands and talks; the judge writes
 - CAMERA: slow pull from the bench to the gallery
 - TEXT: small line at the top: ABOUT 470,000 DEBTS REPAID
-- FX: trans=fade
+- FX: trans=cube
 - SOUND: courtroom room tone, a gavel once (soft)
 - BUILD: NEW x_court — courtroom with seated people (no real people)
 
@@ -253,7 +253,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: a person sits at the desk and turns pages
 - CAMERA: slow push to the report
 - TEXT: quote "a crude and cruel mechanism" — Royal Commission, 2023 (small)
-- FX: trans=cut
+- FX: trans=paper
 - SOUND: page turns, quiet
 - BUILD: NEW x_report2 — desk with report, lamp, a reader (calm)
 
@@ -264,7 +264,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: none
 - CAMERA: slow pan across the map
 - TEXT: label THE NETHERLANDS (small)
-- FX: trans=fade
+- FX: trans=iris
 - SOUND: soft whoosh of paper
 - BUILD: NEW x_worldmap — flat world map, travelling line, pin
 
@@ -286,7 +286,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: people stand up from chairs, pick up folders, and walk to the door
 - CAMERA: slow pull back down the table
 - TEXT: small label JANUARY 2021
-- FX: trans=fade
+- FX: trans=liquid
 - SOUND: chairs, footsteps, a door
 - BUILD: NEW x_cabinet2 — cabinet room, people stand and leave (no real people)
 
@@ -297,7 +297,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: students sit on chairs at desks, open envelopes and read; a teacher walks
 - CAMERA: slow crane down over the desks
 - TEXT: label ENGLAND · 2020 (small)
-- FX: trans=slide
+- FX: trans=flip3d
 - SOUND: paper, quiet hall
 - BUILD: NEW x_examhall2 — hall, seated students, envelopes, walking teacher
 
@@ -319,9 +319,20 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: the people inside keep doing their action (reading, sitting, opening)
 - CAMERA: slow pull back to see all three
 - TEXT: none
-- FX: trans=fade
+- FX: trans=fold
 - SOUND: music thins to a few notes
 - BUILD: NEW x_threewindows — a wall with three window views of earlier scenes
+
+### S28b · 5:36 · A QUIET MOMENT
+- VO: Day two hundred.
+- LINK: from the three windows back to one window: hers, at dusk
+- PICTURE: SUBJECT the woman in the red coat on her balcony at dusk, the letter on the table behind her / BACKGROUND the city at dusk, lights coming on / FOREGROUND plant pots / LIFE windows light up one by one, a plane crosses slowly
+- ACTION: she stands at the railing, still, looking at the city
+- CAMERA: slow pull back
+- TEXT: none
+- FX: trans=fade
+- SOUND: evening city, music almost silent
+- BUILD: reuse x_balcony (o.dusk)
 
 ### S29 · 5:39 · BACK TO HER
 - VO: Back in our imaginary year, the woman in the red coat tries to appeal. The website has a form. She explains her winter. The form goes to the same system that made the decision, and the same answer comes back.
@@ -330,7 +341,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: she sits on the chair, types, waits, rests her chin on her hand (think pose)
 - CAMERA: slow push to the tablet
 - TEXT: tablet UI only
-- FX: trans=fade
+- FX: trans=ink
 - SOUND: kitchen evening tone, soft taps
 - BUILD: reuse x_kitchen2 (o.evening, o.appeal)
 
@@ -341,7 +352,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: none (empty)
 - CAMERA: slow push to the closed window
 - TEXT: the small sign only
-- FX: trans=match
+- FX: trans=drop
 - SOUND: empty room tone, a clock
 - BUILD: reuse x_serviceoffice (o.empty)
 
@@ -352,7 +363,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: two people sit at the table, one ticks the list with a pen, the other stands and turns the switch
 - CAMERA: slow push to the checklist, then to the switch
 - TEXT: checklist lines ASSESS · PUBLISH · MONITOR; label CANADA (small)
-- FX: trans=slide
+- FX: trans=paper
 - SOUND: pen ticks, a soft click
 - BUILD: NEW x_meetingroom — meeting room, checklist, wall switch
 
@@ -363,7 +374,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: two pilots sit; one reaches and rests a hand on the controls
 - CAMERA: slow push between the seats
 - TEXT: none
-- FX: trans=fade
+- FX: trans=zoomthru
 - SOUND: soft cabin hum
 - BUILD: NEW x_cockpit — cockpit with two seated pilots
 
@@ -374,7 +385,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: none
 - CAMERA: slow pull back
 - TEXT: none
-- FX: trans=fade
+- FX: trans=iris
 - SOUND: the opening pad returns
 - BUILD: reuse x_dawncity (o.dusk)
 
@@ -385,7 +396,7 @@ The research pack is a reference: we keep the cases that explain the idea, drop 
 - ACTION: both sit on chairs at the desk; the clerk holds the letter and reads; the woman waits, then nods
 - CAMERA: slow push across the desk
 - TEXT: none
-- FX: trans=cut
+- FX: trans=zoomthru
 - SOUND: office ambience, a calm music resolve
 - BUILD: reuse x_serviceoffice (o.desk)
 

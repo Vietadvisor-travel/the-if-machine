@@ -44,7 +44,7 @@
     for (let i = 0; i < 5; i++) { const q = (lt * .05 + i * .2) % 1; IFM.creature && IFM.creature('bird', W * q, H * (.18 + (i % 3) * .04), H * .015, lt, {}); } } });
 
   // ---------------------------------------------------------------- S02 her balcony at dawn, a cup of coffee, then she looks at her phone
-  A.x_balcony = (o, c, dur) => { const t1 = T0(c, 1, 3); return { sfx: [[.2, 'city_morning']], draw: lt => { const v = V(), u = U(); IFM.sky('dawn', lt, { clouds: 1 }); IFM.drawTowers(IFM.towers(17, H * .55, v ? 1.2 : 1, 0), '#8E96C4', lt, { lit: .1 });
+  A.x_balcony = (o, c, dur) => { const t1 = o.dusk ? 1e9 : T0(c, 1, 3); return { sfx: [[.2, o.dusk ? 'city_evening' : 'city_morning']], draw: lt => { const v = V(), u = U(); IFM.sky(o.dusk ? 'dusk' : 'dawn', lt, { clouds: 1 }); IFM.drawTowers(IFM.towers(17, H * .55, v ? 1.2 : 1, 0), o.dusk ? '#4A4C7E' : '#8E96C4', lt, { lit: o.dusk ? .7 : .1 });
     const wy = H * (v ? .2 : .1); rr(W * (v ? .02 : .5), 0, W * (v ? .3 : .5), H * .7, 0, '#D9CDB8', 0); ctx.save(); ctx.globalAlpha = .5; rr(W * (v ? .05 : .55), wy, W * (v ? .22 : .2), H * .4, 4 * u, '#BFD3E6', 0); ctx.restore(); poly([[W * (v ? .3 : .78), wy - H * .02], [W * (v ? .32 : .82), wy - H * .02], [W * (v ? .3 + Math.sin(lt) * .005 : .8), H * .62], [W * (v ? .28 : .76), H * .62]], '#C9584C', 0);
     const fy = H * .7; ctx.fillStyle = '#B7A68E'; ctx.fillRect(0, fy, W, H); poly([[0, fy], [W, fy], [W, fy + H * .02], [0, fy + H * .02]], '#9C8B74', 0);
     plant(W * .12, fy + H * .01, v ? 1.3 : 1.6, lt); plant(W * .88, fy + H * .01, v ? 1.1 : 1.4, lt);
