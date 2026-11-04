@@ -5,306 +5,227 @@ run: 1
 next: What if money disappeared?
 voice: am_puck
 people: facet
-sources: e-Estonia AI strategy factsheet (99% online, digital ID, 130+ AI projects); Jarnias "Estonia Digital Society 2026" (online voting since 2005, about 51% in 2023); The Best AI ch. 44 (benefits, fraud, transport); Global Government Forum + bne IntelliNews, Sep 2025 (Albania, Diella); Wikipedia "Robodebt scheme" + Federal Court, Prygodicz v Commonwealth (2016, unlawful, scrapped 2020, 470,000 debts, A$1.8 billion 2021); LSJ + JURIST, Jul 2023 (Royal Commission "crude and cruel"); DutchNews.nl + RNZ, Jan 2021 (childcare benefits, cabinet resigned, at least EUR 30,000); CNN + Yahoo News UK + The Week, Aug 2020 (A-level algorithm, 39% downgraded, U-turn); The Statesman 2026 (Canada impact assessment). The simulated country is fictional and generic.
+sources: e-Estonia AI strategy factsheet (99% online, digital ID); Jarnias "Estonia Digital Society 2026" (online voting since 2005, about half in 2023); Global Government Forum + bne IntelliNews, Sep 2025 (Albania); Wikipedia "Robodebt scheme" + Federal Court, Prygodicz v Commonwealth (2016, income averaging, unlawful, scrapped 2020, about 470,000 debts, A$1.8 billion 2021); LSJ + JURIST, Jul 2023 (Royal Commission "crude and cruel"); DutchNews.nl + RNZ, Jan 2021 (childcare benefits, risk profiles, cabinet resigned, at least EUR 30,000); CNN + Yahoo News UK + The Week, Aug 2020 (A-level algorithm, about 39% lowered, U-turn); The Statesman 2026 (Canada impact assessment). The simulated country and the woman in the red coat are fictional.
 
-// Director's script: jobs/scripts/ai-runs-a-country.md — one beat per shot, VO verbatim.
+// Director's script: jobs/scripts/ai-runs-a-country.md (v3, calm house look) — one beat per shot, VO verbatim, one smooth camera move per shot.
 
-// S01 · 0:00–0:04 · HOOK
-# vis kind=w act=hook scene="x_palace" q="WHAT IF AN AI|RAN YOUR COUNTRY?" dir="@0+1.6 fx shock .5,.45 teal"
-Imagine waking up tomorrow and your government is a machine.
+// S01 · 0:00 · HOOK
+# vis kind=w act=hook scene="x_dawncity" q="WHAT IF AN AI|RAN YOUR COUNTRY?"
+Imagine your country is run by an artificial intelligence.
+Not in a film.
+For one real year.
 
-// S02 · 0:04–0:11 · PROMISE
-# vis kind=w act=x_crackcity trans=whip then="cam=crane@0|cam=dutch@1" dir="0-3 zoom 1.12 .5,.45; @1+.3 fx glitch; @1+.3 sfx glass_break"
-In one year, it would fix things no politician ever could.
-And then it would break the one thing a machine can't fix.
+// S02 · 0:08 · PROMISE
+# vis kind=w act=x_balcony cam=truckR trans=zoomthru
+What would actually change?
+Some things would get much easier.
+And one thing would go wrong in a way that is easy to miss.
 
-// S03 · 0:11–0:17 · PROMISE 2
-# vis kind=w act=x_worldpins trans=tunnel then="cam=orbit@0|cam=push@1" dir="0-3 pan .05,0; @1 fx shock .5,.5 teal"
-This isn't science fiction.
-Real countries have already tried almost every piece of it.
-
-// S04 · 0:17–0:24 · CHAPTER 1 · DAY ONE
-# vis kind=w act=x_bedroom trans=bloom dir="0-3 zoom 1.1 .4,.45; @2 fx zblur" then="cam=truckR@1|cam=tilt@2|cam=orbit@3|cam=crane@4"
+// S03 · 0:17 · DAY ONE
+# vis kind=w act=x_phonehand cam=crane trans=cut
 Day one.
-You wake up.
-There was no election, no speech, no parade.
-Your phone has a message from the government,
-and for once it is good news.
+There is no election night and no speech.
+Her phone simply shows a message: a permit
+she applied for last month has been approved overnight.
 
-// S05 · 0:24–0:31 · THE QUEUE
-# vis kind=w act=x_arc_queue trans=slices then="cam=truckL@0|act=x_officeclock@2|cam=truckR@1|cam=orbit@3" dir="0-3 zoom 1.08 .4,.5 ease=io; @2 fx speed .5,.3"
-No queue.
-No office.
-The machine read your application at three
-in the morning, because machines don't sleep.
+// S04 · 0:28 · THE QUEUE THAT DISAPPEARED
+# vis kind=w act=x_serviceoffice cam=pull trans=slide
+It used to take weeks.
+A form, a queue, a stamp, a second queue.
+The system read her application at three in the morning,
+checked it against the rules, and said yes.
 
-// S06 · 0:31–0:38 · THE TAX FORM
-# vis kind=w act=x_arc_taxform trans=stripes2 then="cam=tilt@0|cam=push@2|cam=truckR@1|cam=orbit@3|cam=crane@4" dir="0-3 pan -.05,0; @3 text pop 'DONE' .5,.12 yellow"
-Your tax return?
-Already filled in.
-Every number checked against every other number.
-You read it, you tap yes.
-Done before your coffee cools.
+// S05 · 0:40 · THE TAX FORM
+# vis kind=w act=x_kitchen2 cam=truckL trans=ink
+Her tax return is already filled in,
+line by line, from records the state already has.
+She reads it, corrects nothing, and taps confirm.
 
-// S07 · 0:38–0:46 · THE BUS
-# vis kind=w act=x_busstop trans=liquid then="cam=truckR@0|cam=crane@1|cam=push@2|cam=orbit@3" dir="0-3 zoom 1.15 .55,.4"
-You walk outside and the bus is already there.
-It didn't follow a timetable.
-It saw that you, and two hundred people like you,
-would be standing here at eight.
+// S06 · 0:52 · THE BUS
+# vis kind=w act=x_street2 cam=float trans=slide
+Outside, the bus arrives as she reaches the stop.
+Not because of luck.
+The system saw that about two hundred people from her
+area leave at this time, and moved a bus here.
 
-// S08 · 0:46–0:53 · ESTONIA
-# vis kind=w act=x_snowtown trans=fold then="cam=drop@0|cam=push@1" dir="0-3 zoom 1.12 .5,.45; @0 text pop 'ESTONIA · REAL' .5,.08 yellow; @1 fx shock .5,.2 teal"
-If that sounds like a fantasy, look at Estonia.
-About ninety-nine percent of its public services already work online.
+// S07 · 1:04 · HOW IT KNEW
+# vis kind=w act=x_routemap cam=tilt trans=zoom
+It works like a very fast planner.
+It looks at where people travel, at what time,
+and how full each bus is, and it changes the routes every week.
+No committee has to meet.
+Nobody has to approve a new timetable.
 
-// S09 · 0:53–1:00 · DIGITAL ID
-# vis kind=w act=x_doors trans=cube then="cam=push@0|cam=truckR@1" dir="0-4 zoom 1.12 .5,.4"
-Every resident has a digital ID.
-One card opens taxes, health records, business papers, and even the ballot box.
+// S08 · 1:15 · ESTONIA
+# vis kind=w act=x_snowstreet cam=drop trans=iris
+This part is not science fiction.
+In Estonia, about ninety-nine percent of public services already work online.
 
-// S10 · 1:00–1:07 · ONLINE VOTE
-# vis kind=w act=x_arc_vote trans=pixel then="cam=orbit@0|cam=push@1" dir="0-3 pan .05,0; @1 text counter '51%|of votes online, 2023' .5,.12 yellow; @1 fx chroma 8"
-Estonians have voted online since 2005.
-In 2023, about half of all votes came in over the internet.
+// S09 · 1:26 · DIGITAL ID
+# vis kind=w act=x_homedesk cam=orbit trans=zoomthru
+Every resident has a digital identity.
+One login opens taxes, health records, business papers, and since 2005, even voting.
+In 2023 about half of all votes were cast online.
 
-// S11 · 1:07–1:14 · AI PROJECTS
-# vis kind=w act=x_constellation trans=ripple then="cam=pull@0|cam=truckR@1" dir="0-3 zoom 1.08 .4,.5 ease=io; @0+1 text pop '130+ AI PROJECTS' .5,.1 teal; @0+1 fx flash"
-And since 2019, its government has run more than a hundred
-and thirty AI projects, including a chatbot network that answers citizens.
+// S10 · 1:40 · BUT PEOPLE STILL DECIDE
+# vis kind=w act=x_office cam=push trans=liquid
+But notice what Estonia keeps.
+People still run the country.
+The machines handle the paperwork, and a person can still be asked.
 
-// S11b · 1:14 · ALREADY EVERYWHERE
-# vis kind=w act=x_block trans=stripes2 then="cam=truckR@0|cam=tilt@1|cam=orbit@2" dir="0-3 pan -.05,0"
-And it isn't only Estonia.
-Governments around the world already use machines to check who gets benefits,
-to spot tax fraud, and to plan where the buses should run.
+// S11 · 1:50 · IN OUR YEAR
+# vis kind=w act=x_govsquare cam=truckR trans=drop
+In our imaginary year, the machine goes further.
+It does not just help.
+It decides: who gets a benefit,
+how the budget is split, which road is repaired first.
 
-// S12 · 1:14–1:20 · HUMANS STILL DECIDE
-# vis kind=w act=x_signdesk trans=blobs then="cam=truckL@0|cam=push@1|cam=tilt@2" dir="0-3 zoom 1.15 .55,.4; @1 fx vignette"
-But notice what Estonia kept.
-Humans still run the country.
-The machines just do the paperwork.
+// S12 · 2:04 · THE BUDGET
+# vis kind=w act=x_pipes sign="NEXT YEAR" cam=crane trans=fold
+On day ninety, the budget moves.
+More money goes to the hospital where people wait longest.
+Less goes to a bridge that can wait another year.
 
-// S13 · 1:20–1:26 · LOOP
-# vis kind=w act=x_palace trans=scan then="cam=crane@0|cam=push@2|cam=truckR@1|cam=orbit@3" dir="0-3 zoom 1.12 .5,.45; @2 text slam 'THE WHOLE BUDGET' .5,.1 yellow; @2 fx shake .5"
-In our simulation, the machine goes much further.
-It doesn't just do the paperwork.
-It takes the whole budget,
-every permit and every benefit, with no minister in between.
+// S13 · 2:15 · THE SAME RULE FOR EVERYONE
+# vis kind=w act=x_waitingroom cam=pull trans=blobs
+And the rules are the same for everyone, every time.
+The waiting list is in order.
+There is no friend to call and no envelope under the table.
+A machine has no cousins, and it does not have a bad Monday.
 
-// S14 · 1:26–1:34 · CHAPTER 2 · THE BUDGET
-# vis kind=w act=x_pipes trans=flip3d then="cam=truckR@0|cam=push@1|cam=pull@2" dir="0-3 pan .05,0; @1 fx speed .2,.6"
-Day ninety.
-Money flows like water: more to hospitals
-with long waits, less to a bridge that can wait a year.
+// S14 · 2:28 · ALBANIA
+# vis kind=w act=x_tenderdesk cam=truckL trans=stripes2
+Some governments already want this.
+In September 2025, Albania presented an AI system as a virtual
+minister for public tenders, and promised contracts that cannot be bribed.
+It is a plan, still being rolled out.
 
-// S15 · 1:34–1:41 · NO BRIBES
-# vis kind=w act=x_bribe trans=shatter then="cam=dutch@0|cam=push@2|cam=truckR@1" dir="0-3 zoom 1.08 .4,.5 ease=io; @1 fx shake .5"
-And here is the part people love.
-You cannot bribe a machine.
-There is no cousin to call, no envelope under the table.
+// S15 · 2:42 · THE CATCH
+# vis kind=w act=x_tenderdesk_wrong cam=float trans=cut
+A machine that cannot be bribed can still be wrong.
+And when it is wrong, it is wrong for
+many people at once, in exactly the same way.
 
-// S15b · 1:41 · SAME RULES
-# vis kind=w act=x_arches trans=fold then="cam=pull@0|cam=float@2|cam=tilt@1|cam=crane@3" dir="0-3 pan -.05,0; @1 text stack 'SAME RULES|every time' .5,.1 yellow"
-Day one hundred and twenty.
-The same rules for everyone, every single time.
-No favourites.
-No bad mood on a Monday morning.
-
-// S16 · 1:41–1:50 · ALBANIA
-# vis kind=w act=x_tenders trans=liquid then="cam=push@0|cam=float@1|cam=tilt@2" dir="0-3 zoom 1.15 .55,.4; @1 fx vignette"
-In September 2025, Albania presented a virtual minister,
-an AI it called Diella, to oversee public tenders.
-The promise: contracts that are one hundred percent incorruptible.
-
-// S17 · 1:50–1:56 · THE CATCH
-# vis kind=w act=x_tenders_wrong trans=pixel then="cam=push@0|cam=dutch@2|cam=truckR@1" dir="0-3 zoom 1.12 .5,.45; @2 fx chroma 12"
-That is a promise, not a result.
-It is still being rolled out, step by step.
-And a machine that cannot be bribed can still be wrong.
-
-// S18 · 1:56–2:02 · LOOP
-# vis kind=w act=x_constellation red=1 trans=ripple then="cam=pull@0|cam=truckR@1" dir="0-3 pan .05,0; @1 fx shock .5,.5 coral"
-And when a machine is wrong, it isn't wrong once.
-It is wrong for everyone, at the same time.
-
-// S18b · 2:02 · NO WAY OUT
-# vis kind=w act=x_maze trans=blobs then="cam=push@0|cam=crane@1|cam=orbit@2" dir="0-3 zoom 1.08 .4,.5 ease=io; @1 fx vignette"
-And unlike a shop or an app,
-a state can make a decision about you that you cannot walk away from.
-If it is wrong, you live with it until someone fixes it.
-
-// S19 · 2:02–2:10 · CHAPTER 3 · ROBODEBT
-# vis kind=w act=servers trans=whip then="cam=truckL@0|act=x_mailroom@1|cam=tilt@2" dir="0-3 pan -.05,0; @0 text pop 'AUSTRALIA · 2016' .5,.1 yellow; @0+.6 fx chroma 10"
-This already happened.
-In July 2016, Australia switched on an automated system
-to find people who had been overpaid welfare.
-
-// S20 · 2:10–2:19 · AVERAGING
-# vis kind=w act=x_averaging trans=slices then="cam=pull@0|cam=push@2|cam=truckR@1" dir="0-3 zoom 1.15 .55,.4; @1 fx zblur"
-The trick was simple.
-It took a person's yearly income and spread it evenly over the year.
-But people's work isn't even.
-
-// S21 · 2:19–2:26 · THE DEBT
-# vis kind=w act=x_debt trans=stripes2 then="cam=push@0|cam=truckR@1|cam=tilt@2" dir="0-3 zoom 1.12 .5,.45; @2 fx shake .6"
-Months with no job suddenly looked like months with a salary.
-To the system, that meant you had been overpaid.
-A debt appeared.
-
-// S22 · 2:26–2:34 · THE LETTERS
-# vis kind=w act=x_arc_letters trans=shatter then="cam=crane@0|act=x_mailbox@1|cam=push@2" fx=dust dir="0-3 pan .05,0"
-Letters went out by the hundred thousand.
-Each one looked official, certain, final.
-Many people paid money they never owed, just to make the letters stop.
-
-// S23 · 2:34–2:42 · UNLAWFUL
-# vis kind=w act=x_arc_verdict trans=fold then="cam=dutch@0|cam=push@1|cam=tilt@2" dir="0-3 zoom 1.08 .4,.5 ease=io; @0+.75 fx shake .6"
-It took years, and a court case,
-before the government admitted the method was unlawful.
-In 2020 the scheme was scrapped.
-
-// S24 · 2:42–2:49 · 470,000
-# vis kind=w act=x_stadium trans=tunnel then="cam=crane@0|cam=truckR@1" dir="0-3 pan -.05,0; @0+.5 text counter '470,000|wrongly issued debts' .5,.1 yellow; @0+2.5 fx flash"
-About four hundred and seventy thousand wrongly
-issued debts had to be paid back.
-
-// S25 · 2:49–2:56 · A$1.8 BILLION
-# vis kind=w act=money view=cash word="A$1.8 BILLION" trans=flip3d then="cam=tilt@0|cam=truckR@1" dir="0-3 zoom 1.15 .55,.4; @0 text pop 'SETTLEMENT · 2021' .5,.1 yellow; @0+1 fx flash"
-A class action settlement in 2021 came
-to about one point eight billion Australian dollars.
-
-// S26 · 3:02 · ROYAL COMMISSION
-# vis kind=w act=x_report trans=bloom then="cam=push@0|cam=float@1" dir="0-3 zoom 1.12 .5,.45; @1 fx shock .5,.3 yellow"
-In 2023, a Royal Commission called it a crude
-and cruel mechanism, neither fair nor legal.
-
-// S27 · 3:09 · LOOP
-# vis kind=w act=globe view=side arcs=1 trans=cube then="cam=orbit@0|cam=push@1" dir="0-3 pan .05,0; @1 text pop 'THE NETHERLANDS' .5,.1 yellow; @1 fx speed .5,.5"
-Australia was not alone.
-In the Netherlands, the same kind of mistake brought down a government.
-
-// S28 · 3:17 · CHAPTER 4 · DUTCH KITCHEN
-# vis kind=w act=x_kitchen trans=liquid then="cam=push@1|cam=dutch@2" dir="0-3 zoom 1.08 .4,.5 ease=io; @0 fx chroma 8"
-Parents who claimed childcare benefits were flagged by risk profiles as possible fraudsters.
-Then came the letters: pay it all back.
-
-// S29 · 3:25 · NATIONALITY
-# vis kind=w act=x_canal trans=pixel then="cam=truckR@0|cam=pull@1" dir="0-3 pan -.05,0; @1 text pop 'TENS OF THOUSANDS OF FAMILIES' .5,.08 coral; @0 fx glitch"
-Investigations later found that nationality had been used as a risk signal.
-Tens of thousands of families were wrongly treated as cheats.
-
-// S30 · 3:33 · RESIGN
-# vis kind=w act=x_cabinet trans=slices then="cam=pull@0" dir="0-3 zoom 1.15 .55,.4; @0 fx vignette"
-In January 2021, the entire Dutch cabinet resigned over it.
-
-// S31 · 3:40 · COMPENSATION
-# vis kind=w act=x_hourglass trans=blobs then="cam=float@0|cam=push@2|cam=truckR@1" dir="0-3 zoom 1.12 .5,.45; @2 fx zblur"
-Wrongly accused parents were offered at least thirty thousand euros each.
-Money arrived.
-Years did not come back.
-
-// S32 · 3:48 · EXAMS
-# vis kind=w act=x_examhall trans=fold then="cam=crane@0|cam=truckR@1" dir="0-3 pan .05,0; @0+.8 fx zblur"
-And in England, in the summer of 2020,
-an algorithm graded a whole generation.
-
-// S33 · 3:56 · DOWNGRADED
-# vis kind=w act=x_grades trans=shatter then="cam=tilt@0|cam=push@1" dir="0-3 zoom 1.08 .4,.5 ease=io; @1 text counter '39%|of grades downgraded' .5,.08 coral; @2 fx shake .5"
-Exams were cancelled, so it adjusted teachers' predicted grades.
-About thirty-nine percent came down, and pupils from poorer schools were hit hardest.
-
-// S34 · 4:04 · U-TURN
-# vis kind=w act=x_arc_protest trans=whip then="cam=truckL@0|cam=float@2|cam=truckR@1" dir="0-3 pan -.05,0; @2 text slam 'U-TURN' .5,.1 yellow; @2 fx speed .5,.4"
-Within days, students were protesting in the streets with handmade signs.
-The pressure worked.
-The government dropped the algorithm and went back to the teachers' grades.
-
-// S35 · 4:11 · MIDPOINT REVEAL
-# vis kind=w act=x_triptych trans=ripple then="cam=pull@0|cam=truckR@1|cam=tilt@2|cam=orbit@3" dir="0-3 zoom 1.15 .55,.4; @3 fx vignette"
-Look at all three stories side by side.
-In none of them did the machines take over.
-No robot seized power.
-Something much quieter happened.
-
-// S36 · 4:17 · THE REVEAL
-# vis kind=w act=x_holdcall trans=tunnel then="cam=push@0|cam=truckR@1|cam=tilt@2" dir="0-3 zoom 1.12 .5,.45; @1 fx vignette"
-People stopped being able to argue with them.
-The answer came from a system,
-and there was no one on the other end.
-
-// S36b · 4:23 · NO ONE THERE
-# vis kind=w act=x_complaints trans=fold then="cam=tilt@0|cam=push@1|cam=orbit@2" dir="0-3 pan .05,0; @1 fx zblur"
-In each case, the people affected were told the computer was right.
-It took journalists, lawyers,
-and years of complaints before anyone with power looked again.
-
-// S37 · 4:25 · THE CORRIDOR
-# vis kind=w act=x_doors locked=1 trans=cube then="cam=push@0|cam=truckR@1|cam=tilt@2" dir="0-3 zoom 1.08 .4,.5 ease=io; @2 fx chroma 10"
-That is the real danger.
-Not a robot with a plan.
-A door you can't knock on.
-
-// S38 · 4:31 · BACK TO THE SIM
-# vis kind=w act=x_arc_reject trans=stripes2 then="cam=dutch@1|cam=truckR@3|cam=tilt@2|cam=crane@4" dir="0-3 pan -.05,0; @3 fx shake .5; @4 text sign 'WHO DO I CALL?' .5,.1 coral"
-Back in our simulated country.
+// S16 · 2:54 · THE LETTER
+# vis kind=w act=x_doorway cam=tilt trans=paper
 Day one hundred and fifty.
-A letter arrives.
-Your benefit application is rejected.
-It doesn't say why.
+A letter arrives for the woman in the red coat.
+The system says she was paid too much
+help last year, and she owes it back.
 
-// S39 · 4:39 · NO OPT-OUT
-# vis kind=w act=split a="x_arc_taxform" b="x_arc_letters" la="AN APP" lb="A COUNTRY" trans=flip3d then="cam=orbit@0|cam=truckR@1" dir="0-3 zoom 1.15 .55,.4; @1 fx glitch; @1 text slam 'NO OPT-OUT' .5,.5 coral"
-With an app, you can just quit.
-You can't quit a country.
+// S17 · 3:06 · WHY IT HAPPENED
+# vis kind=w act=x_averaging cam=drop trans=zoom
+The system took her income for the year
+and spread it evenly across every fortnight.
+But she did not earn evenly.
+She worked a lot in spring, and almost nothing in winter.
 
-// S40 · 4:44 · PROTEST
-# vis kind=w act=x_arc_protest trans=blobs then="cam=truckR@0|cam=push@2|cam=truckR@1" dir="0-3 zoom 1.12 .5,.45; @2 fx vignette"
-So the signs outside the palace don't say "stop the robot".
-They ask one thing: who decides the appeal?
+// S18 · 3:20 · THE MISTAKE
+# vis kind=w act=x_debt cam=orbit trans=cut
+On paper, her winter months now looked like months with a salary,
+while she was also getting help.
+To the system, that meant she had been overpaid.
 
-// S41 · 4:52 · CHAPTER 5 · THE FIX
-# vis kind=w act=x_padlocks trans=scan then="cam=push@0|cam=float@2|cam=truckR@1" dir="0-3 pan .05,0; @1 fx shock .5,.3 teal"
-Some countries already have an answer.
-In Canada, a government system that makes decisions about
-people needs an impact assessment before it goes live.
+// S19 · 3:31 · ROBODEBT
+# vis kind=w act=x_aussiekitchen cam=push trans=ink
+This exact mistake really happened.
+In 2016, Australia started an automated system to recover welfare overpayments.
+People called it Robodebt.
 
-// S42 · 5:01 · PUBLISH
-# vis kind=w act=x_openbook trans=liquid then="cam=drop@0|cam=truckR@1" dir="0-3 zoom 1.08 .5,.5"
-The assessment is published, so anyone can read it,
-and the results are monitored after launch.
+// S20 · 3:43 · HUNDREDS OF THOUSANDS
+# vis kind=w act=x_postround cam=truckR trans=slide
+It used the same income averaging.
+Letters went out by the hundred thousand.
+Many people paid, because proving the computer wrong took more time than they had.
 
-// S43 · 5:08 · HUMAN IN THE LOOP
-# vis kind=w act=x_signdesk window=1 trans=fold then="cam=truckL@0|cam=push@2|cam=truckR@1" dir="0-3 zoom 1.08 .4,.5 ease=io; @2 fx vignette"
-The idea is simple: the machine can prepare a decision,
-but a person has to be able to check it, and you have to be able to ask why.
+// S21 · 3:57 · UNLAWFUL
+# vis kind=w act=x_court cam=crane trans=cube
+Courts and reviews later found the method was unlawful.
+The scheme was scrapped in 2020, and about four hundred
+and seventy thousand wrongly issued debts had to be paid back.
 
-// S44 · 5:16 · QUESTION
-# vis kind=w act=x_calendar trans=ripple then="cam=float@0|cam=truckR@1" dir="0-3 pan -.05,0; @0 fx speed .5,.3"
-So what would one year of AI government really look like?
-Think about it for a second.
+// S22 · 4:11 · THE REVIEW
+# vis kind=w act=x_report2 cam=pull trans=paper
+A settlement in 2021 came to about one point eight billion Australian dollars.
+And in 2023, a Royal Commission called the scheme a crude and cruel mechanism.
 
+// S23 · 4:24 · NOT ONLY AUSTRALIA
+# vis kind=w act=x_worldmap cam=truckL trans=iris
+Australia was not alone.
+In the Netherlands, the tax office used risk
+profiles to check parents who claimed childcare benefits.
 
-// S45 · 5:23 · ANSWER 1
-# vis kind=w act=x_arc_dashboard trans=pixel then="cam=pull@0|cam=push@1" dir="0-3 zoom 1.15 .55,.4; @1 fx chroma 6"
-It would be brilliant at the boring things.
-Queues, forms, buses, budgets, done faster and cleaner than any office.
+// S24 · 4:34 · THE PARENTS
+# vis kind=w act=x_canal2 cam=float trans=zoomthru
+Tens of thousands of families were wrongly treated as fraudsters
+and told to repay large sums.
+Investigations later found that nationality had been used as a risk signal.
 
-// S46 · 5:31 · ANSWER 2
-# vis kind=w act=x_oddbrick trans=shatter then="cam=push@0|cam=float@2|cam=truckR@1" dir="0-3 zoom 1.12 .5,.45; @2 fx zblur"
-And it would fail at the human things: the strange case,
-the life that doesn't fit the average, the person who needs someone to say yes, I see the mistake.
+// S25 · 4:48 · THE GOVERNMENT RESIGNED
+# vis kind=w act=x_cabinet2 cam=tilt trans=liquid
+In January 2021, the Dutch government resigned over it.
+Wrongly accused parents were offered at least thirty thousand euros each.
 
-// S47 · 5:40 · PAYOFF
-# vis kind=w act=x_palace desk=1 trans=tunnel then="cam=push@0|cam=push@1|cam=tilt@2" dir="0-4 zoom 1.25 .5,.55 ease=io"
-The AI government worth having is not the one with the smartest machine.
-It is the one where a human
-can still say: wait, let me look.
+// S26 · 5:00 · EXAMS
+# vis kind=w act=x_examhall2 cam=drop trans=flip3d
+And in England, in 2020, exams were cancelled because of the pandemic.
+An algorithm adjusted the grades teachers had predicted.
 
-// S48 · 5:48 · SIGN
-# vis kind=w act=x_arc_sign trans=bloom then="cam=push@1|cam=float@3|cam=tilt@2|cam=crane@4" dir="0-3 pan .05,0; @2 fx flash"
+// S27 · 5:12 · DOWNGRADED
+# vis kind=w act=x_resultsheet cam=orbit trans=cut
+About thirty-nine percent of grades came down,
+and students from poorer schools were hit hardest.
+After protests, the government dropped the algorithm within days.
+
+// S28 · 5:25 · WHAT THE STORIES SHARE
+# vis kind=w act=x_threewindows cam=push trans=fold
+Put the three stories side by side.
+In none of them did a machine take over.
+Nobody built a robot president.
+Something quieter happened.
+The decision came from a system,
+and people could no longer easily argue with it.
+
+// S29 · 5:39 · BACK TO HER
+# vis kind=w act=x_kitchen2_appeal cam=truckR trans=ink
+Back in our imaginary year, the woman in the red coat tries to appeal.
+The website has a form.
+She explains her winter.
+The form goes to the same system that made the decision,
+and the same answer comes back.
+
+// S30 · 5:52 · THE REAL RISK
+# vis kind=w act=x_serviceoffice_empty cam=crane trans=drop
+That is the real risk.
+Not a robot with a plan, but a decision with nobody behind it.
+A door with no one to knock on.
+
+// S31 · 6:03 · WHAT CANADA DOES
+# vis kind=w act=x_meetingroom cam=pull trans=blobs
+Some countries already have a rule for this.
+In Canada, a federal system that makes decisions about people needs an
+impact assessment before it goes live, and the results are watched afterwards.
+
+// S32 · 6:17 · LIKE AN AUTOPILOT
+# vis kind=w act=x_cockpit cam=truckL trans=stripes2
+Think of it like an autopilot.
+It flies most of the trip, and it flies it well.
+But there are still pilots in the cockpit, and they can take the controls.
+
+// S33 · 6:29 · THE ANSWER
+# vis kind=w act=x_dawncity_dusk cam=float trans=iris
+So what would a year of AI government look like?
+It would be very good at the routine work: forms, queues, timetables, budgets.
+And it would struggle with the people whose lives do not fit the average,
+like a year with a busy spring and an empty winter.
+
+// S34 · 6:41 · THE DESK
+# vis kind=w act=x_serviceoffice_desk cam=tilt trans=zoomthru
+The version worth having is the one where the machine prepares the decision,
+and a person can still look at it and say: wait, let me check.
+
+// S35 · 6:53 · END
+# vis kind=w act=x_serviceoffice_sign cam=drop trans=cut
 The machine drafts.
-A human signs.
-And yes, on day one, you still get your bus on time.
-Which country would you trust to try it first?
-Tell us in the comments.
+A person decides.
+Which part of your country would you hand to an AI first?

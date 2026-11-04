@@ -7,13 +7,13 @@
   if (!window.IFM || !IFM.ACT) return; const A = IFM.ACT, P = IFM.P;
   const sub = s => { const o = {}; String(s || '').replace(/(\w+)=("([^"]*)"|\S+)/g, (m, k, v, q) => { o[k] = q != null ? q : v; return ''; }); o.act = String(s || '').trim().split(/\s+/)[0]; return o; };
   A.hook = (o, c, dur) => { const so = sub(o.scene || 'city time=night'), S = (A[so.act] || A.city)(so, c, dur), at = +(o.at || .25), words = String(o.q || 'WHAT IF?').split('|');
-    const sfx = [...(S.sfx || []).slice(0, 2), [at, 'ifm_motion_impact_big'], ...words.slice(1).map((_, i) => [at + .35 * (i + 1), 'ifm_motion_impact_soft'])];
-    return { sfx, draw: lt => { const v = H > W, u = U(), pk = 1.14 - .14 * E.out(clamp(lt / .5)) + .03 * clamp((lt - .5) / Math.max(1, dur)), sh = lt > at && lt < at + .25 ? Math.sin(lt * 90) * 8 * u * (1 - (lt - at) / .25) : 0;
+    const sfx = IFM.calm !== false ? [...(S.sfx || []).slice(0, 2)] : [...(S.sfx || []).slice(0, 2), [at, 'ifm_motion_impact_big'], ...words.slice(1).map((_, i) => [at + .35 * (i + 1), 'ifm_motion_impact_soft'])];
+    return { sfx, draw: lt => { const v = H > W, u = U(), calm = IFM.calm !== false, pk = calm ? 1 + .06 * E.inOut(clamp(lt / Math.max(1, dur))) : 1.14 - .14 * E.out(clamp(lt / .5)) + .03 * clamp((lt - .5) / Math.max(1, dur)), sh = !calm && lt > at && lt < at + .25 ? Math.sin(lt * 90) * 8 * u * (1 - (lt - at) / .25) : 0;
       ctx.save(); ctx.translate(W / 2 + sh, H / 2); ctx.scale(pk, pk); ctx.translate(-W / 2, -H / 2); S.draw(lt); ctx.restore();
       const g = ctx.createLinearGradient(0, 0, 0, H * .5); g.addColorStop(0, 'rgba(5,7,15,.75)'); g.addColorStop(1, 'rgba(5,7,15,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H * .5);
-      const fs = (v ? 96 : 90) * u; words.forEach((w, i) => { const k = E.back(clamp((lt - at - .35 * i) / .28)); if (k <= 0) return; const y = H * (v ? .13 : .16) + i * fs * 1.08, size = Math.min(fs, W * .76 / Math.max(1, textW(w, 1, 'display')));
-        ctx.save(); ctx.translate(W / 2, y); ctx.scale(k * (1 + .15 * (1 - k)), k * (1 + .15 * (1 - k))); ctx.rotate((i % 2 ? .02 : -.02)); T(w, 0, 0, { size, font: 'display', fill: i === words.length - 1 ? P.yellow : '#FFFFFF', lw: 0, shadow: 10 * u }); ctx.restore(); });
-      if (lt > at + .35 * words.length) { const k = E.out(clamp((lt - at - .35 * words.length) / .3)), y = H * (v ? .13 : .16) + (words.length - .45) * fs * 1.08; rr(W / 2 - W * .3 * k, y, W * .6 * k, 8 * u, 4 * u, P.coral, 0); } } }; };
+      const fs = (v ? 96 : 90) * u; words.forEach((w, i) => { const k = calm ? E.inOut(clamp((lt - at - .5 * i) / .6)) : E.back(clamp((lt - at - .35 * i) / .28)); if (k <= 0) return; const y = H * (v ? .13 : .16) + i * fs * 1.08, size = Math.min(fs, W * .76 / Math.max(1, textW(w, 1, 'display')));
+        ctx.save(); ctx.translate(W / 2, y); if (calm) { ctx.globalAlpha *= k; } else { ctx.scale(k * (1 + .15 * (1 - k)), k * (1 + .15 * (1 - k))); ctx.rotate((i % 2 ? .02 : -.02)); } T(w, 0, 0, { size, font: 'display', fill: i === words.length - 1 ? P.yellow : '#FFFFFF', lw: 0, shadow: 10 * u }); ctx.restore(); });
+      if (!calm && lt > at + .35 * words.length) { const k = E.out(clamp((lt - at - .35 * words.length) / .3)), y = H * (v ? .13 : .16) + (words.length - .45) * fs * 1.08; rr(W / 2 - W * .3 * k, y, W * .6 * k, 8 * u, 4 * u, P.coral, 0); } } }; };
 
   // light, dust and haze for a band that would otherwise be flat (call last in a bespoke act)
   IFM.fillFrame = (lt, o = {}) => { const u = U(), top = o.top ?? 0, bot = o.bottom ?? 1, col = o.col || '#FFE7B0';
