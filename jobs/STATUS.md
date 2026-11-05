@@ -4,5 +4,5 @@
 | slug | tên (VI) | research | production | delivered | approved | published |
 |---|---|---|---|---|---|---|
 | ai-runs-a-country | AI điều hành quốc gia | DROPPED | owner: not remade (engine 3.0 sample only), 4 Nov | - | - | - |
-| money-disappears | Nếu tiền biến mất | RESEARCH_READY | IN_PRODUCTION (remake, new engine standard, 5 Nov) | v1 4 Nov rejected | REJECTED 5 Nov (v1) — remake ordered 5 Nov | - |
+| money-disappears | Nếu tiền biến mất | RESEARCH_READY | DELIVERED (remake v2) | 5 Nov · Drive · vertical 7:09 | v1 REJECTED 5 Nov; v2 waiting for the owner | - |
 | dinosaurs-survive | Nếu khủng long còn sống | RESEARCH_READY | - | - | - | - |

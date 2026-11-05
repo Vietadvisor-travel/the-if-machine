@@ -1,38 +1,43 @@
-# Delivery — Nếu tiền biến mất (money-disappears) · RUN #2 · 2026-11-04
+# Delivery — Nếu tiền biến mất (money-disappears) · RUN #1 · REMAKE v2 · 5 Nov 2026
+
+v1 (4 Nov, 6:15) was rejected by the owner on 5 Nov (content/sound/pace/voice/2D). This is a full remake on the new engine
+standard: neutral explainer (no invented character, no "day one"), real hook and conclusion, af_heart at --speed 1.0,
+music bed only, theme banknote, every 2D picture in a real place, 2D + 3D combined. The Drive files were replaced in place
+(same file ids).
 
 ## Files (Drive TheIfMachine_Media/money-disappears/)
-- money-disappears_vertical_9x16.mp4 · 6:15 · 1080x1920 · 25 fps · 234 MB master (CRF 17) — https://drive.google.com/file/d/1Pdb4XKM4NiWllwh8EHRn3HUs7LP4n74X/view
+- money-disappears_vertical_9x16.mp4 · 7:09 · 1080x1920 · 25 fps · 314 MB master (CRF 17) — https://drive.google.com/file/d/1Pdb4XKM4NiWllwh8EHRn3HUs7LP4n74X/view
 - money-disappears_cover.jpg · 1080x1920 — https://drive.google.com/file/d/1JIU3-bhyBlXApeANLvvArwSbPJgwiPkJ/view
 - money-disappears.srt (English) — https://drive.google.com/file/d/1Oo7TZU2FZpLwWpCH52MRG6lZsKSAPgV6/view
 - money-disappears_stories.zip (story + director's script) — https://drive.google.com/file/d/1Pje1k5FgoPpU_jiujxxvwzOabW6ALBny/view
+- Folder: https://drive.google.com/drive/folders/1FjNpe5FWgjA46TxQQKqp3WCPcyEz2OE6
 
 ## Production
-- Voices: am_puck (narrator, --speed 1.06) + af_bella for the one quotation (Humphrey, 1985). Kokoro, Apache-2.0. No Supertonic.
-- Music credits (CC BY 4.0, every line goes in the YouTube description):
-  - "Onion Capers", "Thatched Villagers", "Itty Bitty 8 Bit", "Babylon", "Airport Lounge" — Kevin MacLeod (incompetech.com), Licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/
-- Gates: gate.mjs PASS · review 87/100 · lint 0 errors (9:16; 86 warnings, mostly in-scene labels touching the frame edge under camera zoom) · render cost max 361 ms/frame (median 123) · sim_check OK · script_check PASS · qa.py --lean 2 rounds.
-- Length: 6:15 (vertical 9:16). Engine 3.0: 44 beats, 2D + 3D combined (≈ 35–40 % 3D cuts), 16 bespoke acts, 11 new bank items (md_*).
-- Sound QA (legacy density targets from the travel channel) reports "FAIL" for events per 10 s; this is by design under the IFM rule "motivated sound only" (calm look). Loudness -13.1 LUFS, TP -2.4 dBTP.
+- Voices (Kokoro, Apache-2.0): af_heart narrates; af_nicole reads the two quotations (Radford, Humphrey); am_santa reads the Inca lines.
+- Music credits: Music: Public domain via FreePD, no attribution required — CC0 1.0 (2 tracks: "Midnight in the Green House", "Traveler's Notebook").
+- Illustrations: Microsoft Fluent Emoji Flat (MIT) and OpenMoji (openmoji.org), CC BY-SA 4.0 — put the OpenMoji credit in the description. 3D models: Kenney, KayKit, Quaternius (CC0).
+- Gates: gate.mjs PASS · review 91/100 · lint 0 errors (9:16) · render cost max 651 ms/frame · sim OK · qa.py --lean 2 rounds (round 2 fixed 4 shots).
+- Sound: master −16.0 LUFS, TP −3.9 dBTP, no sound effects. Sound QA flags the music bed as very quiet on a phone speaker (−45.8 LUFS); the voice is clear.
+- Length: 7:09 (vertical 9:16, target 6–10 min), 45 shots, about 960 words.
 
 ## Facts on screen (each with its source from the research pack)
-- WWII prison camps: cigarettes became currency, prices were quoted in cigarettes and moved with the supply; non-smokers accepted them — R.A. Radford, Economica 12(48), Nov 1945; The Globe and Mail explainer; Carleton Newsroom 2010 (F11).
-- "No example of a barter economy, pure and simple, has ever been described." — C. Humphrey, Man, 1985, via ERA and History News Network (F12).
-- Inca: no coins or markets as we know them; labour duty (mit'a); storehouses along the roads; khipu records — Wikipedia "Qullqa", J.V. Murra, Sky HISTORY (F6, F13).
-- Finland 2017–18: 2,000 unemployed people, EUR 560 a month for two years, employment about the same, wellbeing better — Medium (Jul 2026), StrongMocha (F7).
-- Kenya (GiveDirectly): no significant drop in work — Medium, ScienceArray (F8).
-- US OpenResearch: about 1–2 fewer hours of work a week — StrongMocha, DigiTechBytes (F9).
-- Alaska: a yearly oil dividend since 1982, no overall fall in employment — A Just Society policy paper, ScienceArray (F10).
-- Cattle as early money; cowrie shells in China around 1200 BC; paper notes in China about 700 years before Europe — Brewminate, Sky HISTORY (F2, F3, F5).
-- First coins in Lydia, around 630 BC — Money.org, Wise (F4).
+- No pure barter economy has ever been described — Caroline Humphrey, Man 1985 (F12; ERA, History News Network)
+- Cattle as money from about 9000 BCE; cowries in China about 1200 BCE; first coins in Lydia about 630 BCE; paper money in China in the 800s — F2–F5 (Brewminate, Sky HISTORY, Money.org, Wise)
+- Britain rationed food 1940–1954 with coupon books — F14 (Imperial War Museums; Bodleian)
+- The Inca state: no coins, mit'a labour turns, storehouses, khipu records — F6, F13 (Sky HISTORY; Qullqa; Murra)
+- WWII POW camps: cigarettes became currency, prices quoted in cigarettes — F11 (Radford, Economica 1945)
+- Finland 2017–2018: 2,000 unemployed people, 560 € a month for two years; employment about the same, less stress — F7
+- Kenya (GiveDirectly): no significant drop in work — F8
+- One US study (OpenResearch): one to two hours less work a week — F9
+- About 97 % of UK money is bank deposits — F15 (Bank of England QB 2014 Q1, via Positive Money; NEF evidence)
 
 ## Honest notes
-- Nora, her city, the queues, the 200 phones / about 2,000 people, the ration card and the dispatcher are an imagined scenario, said so in the voice ("our imagined city") and the year-one outcome is labelled OUR GUESS on screen.
-- The Humphrey and Radford claims rest on secondary sources quoting the original papers (the full texts were not read).
-- "Barter is mostly a myth" is the anthropologists' view as reported; some economists read Radford's camp as support for the classic story of money arising from barter. The film says barter does happen, only not as a whole economy.
-- The trials gave money rather than removing it; the film says so explicitly ("free money, not no money").
-- Drawings illustrate, nothing poses as a record: the Economica 1945 reference is a label, not a reproduced page; no flags, insignia or emblems in the camp scenes.
+- The camp price board (jam = 6, bread = 4, soap = 2 cigarettes) is an illustration of "prices quoted in cigarettes", not Radford's actual numbers.
+- The phone balance (1,250.00, bakery −12.40) is illustrative.
+- The "97 %" figure is cited through secondary sources quoting the Bank of England bulletin; the wording on screen is "about".
+- "The cost moves, it does not vanish" and "someone would still decide" are the film's conclusion (reasoning from the cases), not a measured result.
 
 ## For Muse
 - Title options: 1) What If Money Disappeared Tomorrow? 2) What If Everything Was Free? 3) What If Money Vanished Overnight?
-- Hook line (first 3 s): "Overnight, every coin, every banknote and every number in every bank account disappears. Everything is free. So why is there a queue around the block?"
+- Hook line (first 3 s): What if, tonight, every coin, every banknote, and every number in every bank account simply disappeared?
 - Post only after the owner says "đăng tập Nếu tiền biến mất".
