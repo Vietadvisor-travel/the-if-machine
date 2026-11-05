@@ -377,3 +377,14 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
   the premium title (if it has none) and the finish; the 2D camera is gentle so the title band is never cropped. `look: classic` = off.
 - variety: warns on scenes without kick= and on kit beats whose main subject is an emoji with no drawn version.
 - Bank: money-v5.js (x_px_hook with money/signals/tags, barter, signal, queue, parcel, reborn, stat, promise). Tested on the money episode.
+
+## 5 Nov 2026 night — premium v6: punchy hook, spoken ending, no drifting edges (owner: 7/10; "don't redo the episode, upgrade the engine")
+- ifm_world shot(): overscan — the zoom always covers sway, angle squash and roll, so no edge of the picture shows.
+- ex_cold (house act): the cold open — one punch word per caption (`w=` with *gold*), one drawn thing per line (`items=`), the last
+  line dissolves everything into gold dust, `end=` kicker. ex_outro (house act): the closing thought spoken while drawn things merge
+  into one glowing word, then "Next time on The If Machine" with a teaser (`next=`, `e=`). Both in ifm_premium_kit.js.
+- Chapter cards: chapter progress (01 / 05 + dots), optional `sub=`. Quotations: a clean paper card instead of a blurred library.
+- City parallax layers drawn wider and clamped (money-v5).
+- script_check: the first shot needs ≥ 3 punch lines; the last shot must be an OUTRO that names the next episode. variety: warns
+  when the first beat is not ex_cold, errors when the last beat is not ex_outro.
+- Tested on the money story (S01 → ex_cold, S45 → ex_outro); the episode is NOT re-rendered (owner: engine only).

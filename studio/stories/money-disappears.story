@@ -10,18 +10,19 @@ theme: banknote
 score: curious_easy_lemon@1 tension_deliberate_thought@13 nostalgic_piano@19 warm_gymnopedie_no_1@30
 sources: jobs/research/money-disappears.md — F1–F5 history of money (Money.org, Sky HISTORY, Brewminate, Wise) · F6/F13 Inca (Sky HISTORY, Murra, Qullqa) · F7 Finland · F8 Kenya GiveDirectly · F9 OpenResearch · F11 Radford 1945 (Economica) · F12 Humphrey 1985 (Man) · F14 UK rationing (IWM, Bodleian) · F15 Bank of England QB 2014 Q1
 
-// REMAKE v3 (owner, 5 Nov 2026 evening): 2D only, polished, flowing narration, planned transitions — script jobs/scripts/money-disappears.md (S01–S44)
+// REMAKE v3 (owner, 5 Nov 2026 evening): 2D only, polished, flowing narration, planned transitions — script jobs/scripts/money-disappears.md (S01–S45)
 
-// S01 SUBJECT: a city skyline at night, banknotes and coins rising out of the windows and dissolving
-# vis kind=w act=x_px_hook time=night money=1 kick="THE IF MACHINE · A THOUGHT EXPERIMENT" head="WHAT IF MONEY|*DISAPPEARED?*" cam=WS.eye.push hook=1 then="cam=EWS.low.pull@1"
-What if, tonight, every coin,
-every banknote and every number in every bank account simply disappeared, not stolen,
-just gone?
+// S01 SUBJECT: the cold open — a coin, a banknote, a bank balance, one punch per line, then all of it dissolves into gold dust
+# vis kind=w act=x_px_cold cam=WS.eye.static hook=1 pause=.8
+Every coin.
+Every banknote.
+Every number in every bank account.
+… Gone.
 
-// S02 SUBJECT: one engraved banknote that crumbles into dust
-# vis kind=w act=x_mv_note kick="EVERY COIN · EVERY NOTE · EVERY ACCOUNT" title="EVERYTHING|*FREE?*" k=1 cam=WS.high.push trans=zoomthru tc=.5,.45 tc2=.5,.44 then="cam=EWS.eye.push@1"
-At first it sounds like a dream, because if nothing has a price,
-then surely everything is free.
+// S02 SUBJECT: the question over the city at night, money leaving through the windows
+# vis kind=w act=x_px_hook time=night money=1 kick="THE IF MACHINE · A THOUGHT EXPERIMENT" head="WHAT IF MONEY|*DISAPPEARED?*" cam=WS.eye.push trans=zoomthru tc=.5,.45 tc2=.5,.5 then="cam=EWS.low.pull@1"
+What if money simply disappeared, overnight, not stolen, just gone?
+At first it sounds like a dream, because if nothing has a price, surely everything is free.
 But history suggests that something much stranger would happen.
 
 // S03 SUBJECT: two fact cards: a cow with NO PURE BARTER, a cigarette with REBUILT IN WEEKS
@@ -260,7 +261,14 @@ they would just lose their price tags,
 and someone or something would still decide who gets what.
 
 // S44 SUBJECT: the same city as the opening, now at dawn, windows lit, no money leaving
-# vis kind=w act=x_px_hook time=dawn tag="AN AGREEMENT@1" kick="THE IF MACHINE" head="MONEY IS|AN *AGREEMENT*" cam=EWS.high.push trans=dissolve then="cam=EWS.top.pull@1"
+# vis kind=w act=x_px_hook time=dawn back=1 tag="AN AGREEMENT@1" kick="THE CITY WAKES UP" head="MONEY IS|AN *AGREEMENT*" cam=EWS.high.push trans=dissolve then="cam=EWS.top.pull@1"
 Money was never really the coins.
 It is an agreement between millions of strangers,
 and that is much harder to make disappear.
+
+// S45 SUBJECT: the closing thought said out loud — a note, a card and a coin become one word, A PROMISE; then the next question
+# vis kind=w act=x_px_outro kick="ONE LAST THOUGHT" cam=WS.eye.static trans=morph tc=.5,.45 tc2=.5,.44 tr1=.2 tr2=.2 tail=2.4
+So the next time you tap a card or hand over a note,
+remember what you are really holding.
+Not paper. Not numbers. … A promise.
+And next time on The If Machine: what if the dinosaurs had never died out?

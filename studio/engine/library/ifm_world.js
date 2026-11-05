@@ -50,7 +50,9 @@
       case 'pan': dx = lerp(.09, -.09, e); break; case 'tilt': dy = lerp(-.07, .07, e); break; case 'crane': dy = lerp(.06, -.05, e); z *= lerp(1, 1.06, e); break; case 'drop': dy = lerp(-.06, .03, e); z *= lerp(1.08, 1, e); break;
       case 'orbit': r += lerp(.03, -.03, e); dx = lerp(-.03, .03, e); z *= 1.04; break; case 'dolly': z *= lerp(1, 1.25, E.inOut(e)); break; default: z *= 1 + .01 * Math.sin(lt * .5); }
     if (IFM.premium && IFM._camSoft) { z = 1 + (z - 1) * .35; sy = 1 + (sy - 1) * .3; dx *= .4; dy *= .4; fy = .5 + (fy - .5) * .3; }   // premium layouts are designed to the edge: a gentle camera, never a crop of the title band
-    z = Math.max(1, z); const mx = (z - 1) * W / 2 / z, my = (z * sy - 1) * H / 2 / (z * sy);
+    // overscan (owner, 5 Nov 2026: 'the frame drifts and shows the background behind'): the zoom always covers the hand-held
+    // sway, the angle squash and any roll, so no edge of the picture ever shows
+    z = Math.max(1, z, (1 + 16 * u / Math.min(W, H) + Math.abs(r) * (W + H) / Math.min(W, H) * .55) / Math.min(1, sy)); const mx = (z - 1) * W / 2 / z, my = (z * sy - 1) * H / 2 / (z * sy);
     let x = clamp((.5 - fx) * W + dx * W, -Math.max(0, mx), Math.max(0, mx)) * z, y = clamp((.5 - fy) * H + dy * H, -Math.max(0, my), Math.max(0, my)) * z * sy;
     x += Math.sin(lt * .9) * 3 * u; y += Math.cos(lt * .7) * 3 * u; IFM.camState = { x, y, z, dx: dx * W, dy: dy * H, ang };
     ctx.translate(W / 2 + x, H / 2 + y); ctx.rotate(r); ctx.scale(z, z * sy); ctx.translate(-W / 2, -H / 2); return true; }

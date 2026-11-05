@@ -20,6 +20,19 @@ Token rules are at the end.
 - **Bespoke scenes** for the ideas that matter, built from PX parts (examples: engine/library/bank/money-v5.js — x_px_hook city,
   x_px_barter, x_px_signal, x_px_queue, x_px_parcel, x_px_reborn, x_px_stat, x_px_promise). `look: classic` turns it off.
 
+## 00000. Hook, ending and finish (owner, 5 Nov 2026 night: "7/10 — the hook needs punch, the ending feels cut, the frame drifts and shows the background")
+- **Cold open first** (`ex_cold`): 3–4 punch lines of ≤ 6 words, one per caption, with `…` before the last for a held beat
+  ("Every coin. / Every banknote. / Every number in every bank account. / … Gone."); one drawn thing slams in per line
+  (`items=coin|banknote|balance|<drawn name>`, `w="EVERY|*COIN.*;…;*GONE.*"`), the last word dissolves everything into gold dust,
+  `end=` a kicker under it. THEN the question over a big picture (`x_px_hook`-style), the surprising fact, the promise.
+- **The ending is said out loud** (`ex_outro`, the last beat, `tail=2.4`): after the answer and the callback picture, 2–3 lines of
+  closing thought while the drawn things merge into one glowing word (`items=`, `word=`, `sub=`), then the next question spoken:
+  "Next time on The If Machine: …" (`next=` headline, `e=` a drawn/emoji teaser). The end card follows. script_check and variety
+  enforce both.
+- **No drifting edges**: the 2D camera always zooms enough to cover its sway, squash and roll; parallax layers are drawn wider than
+  the frame and clamped. Chapter cards show the chapter progress (01 / 05 + dots; header `chapters:` or `of=`); quotations sit on a
+  clean paper card.
+
 ## 000. Engine 4.0 — 2D only, polished, flowing (owner, 5 Nov 2026 evening — overrides §0b and anything about 3D below)
 - **2D only for now.** No `act=s3`, no 3D in `split=`/`pip=`/`then=` (variety ERROR; header `allow3d: yes` lifts it). Depth comes
   from layered 2D (2.5D: parallax layers, soft places). The 3D notes below are kept for later.

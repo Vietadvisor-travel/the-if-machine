@@ -32,33 +32,33 @@ shared banknote / push2 and wipe to move along the argument / dissolve when time
 
 ## Shots
 
-### S01 · HOOK
-- VO: What if, tonight, every coin, every banknote and every number in every bank account simply disappeared, not stolen, just gone?
-- LINK: opening shot
-- PICTURE: SUBJECT a city skyline at night, banknotes and coins rising out of the windows and dissolving / BACKGROUND starry sky and a moon / FOREGROUND dark rooftops fading to the caption band / LIFE notes drift up, towers drift in parallax
-- ACTION: none (illustrations, no acting people)
-- SHOT: WS eye push 2.5D
-- CAMERA: slow push into the skyline
-- LOOK: night, deep blue, warm windows, quiet wonder, title in the top fifth
-- TIMELINE: 0 the skyline, title WHAT IF MONEY DISAPPEARED? · 1.5 the first notes lift out of the windows · 3.5 more notes and coins rise · 5.5 they dissolve near the moon · 7.5 the push settles
-- TEXT: WHAT IF MONEY DISAPPEARED?
+### S01 · HOOK COLD OPEN
+- VO: Every coin. Every banknote. Every number in every bank account. … Gone.
+- LINK: opening shot of the film
+- PICTURE: SUBJECT a gold coin, then a banknote, then a bank balance falling to 0.00, each slamming in on its line, then all dissolving into gold dust / BACKGROUND deep night guilloche / FOREGROUND drifting gold motes / LIFE the punch words slam in one by one
+- ACTION: none (drawn objects)
+- SHOT: MS eye static 2D
+- CAMERA: still, the punches do the moving
+- LOOK: night blue, gold spotlight tightening on each punch, tense
+- TIMELINE: 0 EVERY COIN, the coin spins in · 1.5 EVERY BANKNOTE, the note drops, the coin moves aside · 3 EVERY NUMBER IN EVERY ACCOUNT, the balance counts to 0.00 · 5.5 held beat · 6 GONE, everything dissolves into gold dust · 7.5 NOT STOLEN · JUST GONE
+- TEXT: EVERY COIN. / EVERY BANKNOTE. / EVERY NUMBER IN EVERY ACCOUNT. / GONE.
 - FX: trans=none
-- SOUND: music bed only
-- BUILD: NEW x_mv_city time=night money=1 (money-v3.js)
+- SOUND: music bed, a held silence before GONE
+- BUILD: house act ex_cold (via x_px_cold)
 
 ### S02 · HOOK
-- VO: At first it sounds like a dream, because if nothing has a price, then surely everything is free. But history suggests that something much stranger would happen.
-- LINK: the camera flies into one lit window and comes out on a single banknote
-- PICTURE: SUBJECT one engraved banknote that crumbles into dust / BACKGROUND the banknote paper with guilloche / FOREGROUND drifting green dust / LIFE fragments lift away, a dotted outline and a 0 remain
-- ACTION: none (illustrations, no acting people)
-- SHOT: CU eye push 2D
-- CAMERA: slow push to the note
-- LOOK: banknote green and gold, soft daylight, curious, centred
-- TIMELINE: 0 the note, title EVERYTHING FREE? · 2 it tilts · 4 the first fragments lift · 6.5 the note is dust · 8.5 the dotted outline and 0 · 10 dust drifts up
-- TEXT: EVERYTHING FREE?
-- FX: trans=zoomthru tc=.5,.45 tc2=.5,.44 (into the window light, out of the note)
-- SOUND: music bed only
-- BUILD: NEW x_mv_note k=1 (money-v2.js)
+- VO: What if money simply disappeared, overnight, not stolen, just gone? At first it sounds like a dream, because if nothing has a price, surely everything is free. But history suggests that something much stranger would happen.
+- LINK: from the gold dust into the night city where the money is leaving
+- PICTURE: SUBJECT the city at night, banknotes and coins rising out of the windows / BACKGROUND stars, moon / FOREGROUND dark rooftops / LIFE notes drift up and dissolve
+- ACTION: none (city wide)
+- SHOT: WS eye push 2.5D | EWS low pull 2.5D
+- CAMERA: slow push, then a pull back
+- LOOK: night, deep blue, warm windows, wonder
+- TIMELINE: 0 the city, WHAT IF MONEY DISAPPEARED? · 2 notes lift out · 4 more notes · 7 pull back · 10 the push settles
+- TEXT: WHAT IF MONEY DISAPPEARED?
+- FX: trans=zoomthru tc=.5,.45 tc2=.5,.5
+- SOUND: music bed
+- BUILD: NEW x_px_hook time=night money=1 (money-v5.js)
 
 ### S03 · HOOK
 - VO: No society is known to have run on barter alone, and when people have lost their money, they have usually rebuilt it within a few weeks.
@@ -647,3 +647,17 @@ shared banknote / push2 and wipe to move along the argument / dissolve when time
 - FX: trans=dissolve
 - SOUND: music bed only
 - BUILD: NEW x_mv_city time=dawn tag= (money-v3.js)
+
+### S45 · OUTRO
+- VO: So the next time you tap a card or hand over a note, remember what you are really holding. Not paper. Not numbers. … A promise. And next time on The If Machine: what if the dinosaurs had never died out?
+- LINK: the dawn city morphs into the things we hold, which merge into one word
+- PICTURE: SUBJECT a banknote, a bank card and a coin orbiting, merging into the glowing words A PROMISE; then the next question with a drawn dinosaur / BACKGROUND dark green / FOREGROUND motes / LIFE rays, the merge, the teaser
+- ACTION: none (drawn objects)
+- SHOT: MS eye static 2D
+- CAMERA: still
+- LOOK: dark green, gold glow, warm, closing
+- TIMELINE: 0 note, card and coin spring in · 3 they orbit · 6 they merge into A PROMISE · 9 THAT IS WHAT YOU ARE HOLDING · 12 NEXT ON THE IF MACHINE · 14 the dinosaur · 16 hold for the end card
+- TEXT: A PROMISE · NEXT ON THE IF MACHINE · WHAT IF THE DINOSAURS HAD NEVER DIED OUT?
+- FX: trans=morph tc=.5,.45 tc2=.5,.44
+- SOUND: music swells gently, 2.4 s tail before the end card
+- BUILD: house act ex_outro (via x_px_outro)
