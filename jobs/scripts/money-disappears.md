@@ -1,628 +1,657 @@
-# Director's script — Nếu tiền biến mất (money-disappears)
+# Director's script — Nếu tiền biến mất (money-disappears) · REMAKE v2
 
-Written FIRST, before any code (owner, 4 Nov 2026). House look: studio/EPISODE.md §00 (calm, no glare or flicker, unhurried,
-continuous, precise actions, research as reference). One vertical 9:16 film, about 6.7 min (≈ 1120 words), voice am_puck at
---speed 1.06, objective documentary voice; af_bella reads the one quote (S27).
+Written FIRST, before any code (owner, 4–5 Nov 2026; v1 of 4 Nov rejected: it had an invented baker, a "day one" plot, a fast
+voice and vague 2D). House look: studio/EPISODE.md §00. One vertical 9:16 film, about 7.5 min (≈ 1060 words), af_heart at
+--speed 1.0, af_nicole reads the two quotations. Theme: banknote (guilloche green and gold). Every 2D picture sits in a real
+place (place=), every 3D stage is dressed (dress=).
 
-## Content
-- Cold open: a bakery where the price cards stop meaning anything, and a queue already around the block.
-- Day one: Nora (fictional baker, red top, navy apron; the 3D "her") gives bread away and runs out by 9:40.
-- Chain reaction: 1) prices were messages 2) the queue becomes the price 3) the ration card and the person who writes it
-  (midpoint turn) 4) the Inca: a big society that really ran without money (and without much choice).
-- WHAT PEOPLE SAY: "we'd go back to barter" (Humphrey 1985: no pure barter economy described) · "nobody would work" (the closest
-  tests gave money, not removed it: Finland, Kenya, one US study).
-- The turn / strongest real case: WWII prison camps, cigarettes became money (Radford 1945).
-- Payoff: money returns within a year in our imagined city; history shows it again and again; callback to the bakery cards.
-- Humour: light, observational (the raisin form, the family with one new phone, free is cheapest for people with time).
+REAL: Inca, Britain, Finland, Radford, Humphrey, Kenya
+
+## Content (owner, 4 Nov 2026 evening — studio/EPISODE.md §00, references/ifm-craft.md §1)
+- A neutral explainer: what money does, what fills the gap without it, the real cases, what people say, what money really is.
+- Facts only from jobs/research/money-disappears.md (F1–F15); guesses are said as guesses.
 
 ## Spine
-- Hook (0–3 s): Nora's bakery at dawn, the price cards lift off the loaves, through the window a line wraps the block; WHAT IF | MONEY DISAPPEARED?
-- Promise: one morning, one week, one year; and what money was really doing all along.
-- Chapters: 1) the empty shelf and the missing message 2) the queue is the new price 3) the card, the dispatcher, the Inca 4) what people say 5) the camp
-- Midpoint reveal (S17, ≈ 43 %): money's job didn't vanish, it moved to the queue, the card and whoever writes the card.
-- Strongest real case (S31–S35, ≈ 75 %): cigarettes became money in WWII prison camps (Radford, Economica 1945).
-- Payoff + callback (S39–S40): our guess for the year; Nora puts the price cards back; money was the message, not the coins.
+- Hook: every coin, note and account number gone tonight → it sounds like everything is free → surprising fact: no society
+  is known to have run on barter alone, and people who lost money rebuilt it within weeks → the promise: what money does,
+  who decides without it, the times it was tried, the answer.
+- Sections: 1) What money does (go-between, measuring stick, a message) → without prices the messages go.
+  2) Who gets the last loaf (the queue = paying with time; the ration card, Britain 1940–1954; someone writes the card).
+  3) It has been tried (the Inca: work, storehouses, khipu, the state decides; WWII camps: cigarettes became money, Radford 1945;
+  money keeps coming back: cattle, cowries, coins, paper).
+  4) What people say (belief: back to barter → Humphrey 1985; belief: nobody would work → Finland, Kenya, a US study: it depends).
+  5) What money really is (97 % numbers; it works because everyone accepts it; a shared promise).
+- Conclusion: queues and rules decide · people rebuild money fast · the cost moves, it does not vanish → the answer: things would
+  not become free, someone would still decide who gets what → money is an agreement between strangers, hard to make vanish.
 
 ## Shots
 
 ### S01 · 0:00 · HOOK
-- VO: Overnight, every coin, every banknote and every number in every bank account disappears. Everything is free. So why is there a queue around the block?
+- VO: What if, tonight, every coin, every banknote, and every number in every bank account simply disappeared?
 - LINK: opening shot of the film
-- PICTURE: SUBJECT the shelves of Nora's bakery at dawn, loaves with small white price cards / BACKGROUND the shop window with a pink dawn street and a line of people outside / FOREGROUND the counter edge, a bread basket / LIFE price cards lift off one by one and drift down like leaves, steam from the loaves, the line outside shuffles
-- ACTION: people outside stand in line holding bags; Nora behind the counter looks at the cards, then at the window
-- SHOT: MCU eye push 2D | WS high pull 2D
-- CAMERA: slow push to the price cards, then a pull back to show the window and the queue
-- LOOK: dawn, warm bakery light, cool pink street, quiet wonder, cards on the left third
-- TIMELINE: 0 shelf of loaves, cards on them, headline fades in · 1.5 the first card lifts off · 3 three more drift down · 5 Nora looks up from the counter · 6.5 cut: the window, the line outside grows · 8 the line bends round the corner
-- TEXT: headline WHAT IF | MONEY DISAPPEARED? top third
-- FX: trans=none
-- SOUND: soft dawn pad, oven hum, distant street murmur
-- BUILD: NEW x_md_bakery v=hook — bakery interior: shelves, loaves with price cards (bank md_loaf, md_pricecard), window with the line outside; act=hook scene=x_md_bakery
-
-### S02 · 0:09 · PROMISE
-- VO: Let's run it: one morning, one week, one year. By the end, you'll know what money was really doing all along. It isn't what most people think.
-- LINK: the camera leaves the window and rises over the same city at dawn
-- PICTURE: SUBJECT the whole city waking at dawn, towers and streets / BACKGROUND pink-blue sky / FOREGROUND rooftops / LIFE traffic starts, windows light up
-- ACTION: none (city wide)
-- SHOT: EWS high orbit 3D | WS low push 3D
-- CAMERA: slow orbit over the centre, then a low push toward one tower
-- LOOK: dawn, pastel city, calm, wide horizon in the upper third
-- TIMELINE: 0 city at dawn, camera starts orbit · 2 first cars on the avenue · 4 windows light in a wave · 6 cut: low angle on a tower · 8 the camera pushes in, sun on the glass
-- TEXT: ONE MORNING · ONE WEEK · ONE YEAR typed small at 25 %
-- FX: trans=zoomthru
-- SOUND: city wakes, birds
-- BUILD: reuse act=s3 set=city time=dawn
-
-### S03 · 0:19 · DAY ONE
-- VO: Meet Nora. She bakes bread on a corner of an ordinary city. At six in the morning she unlocks the door, the way she has for twelve years.
-- LINK: from the tower down to one street corner: the same city, now at street level
-- PICTURE: SUBJECT Nora walking along the street to her shop / BACKGROUND shopfronts with awnings / FOREGROUND kerb, a lamp post / LIFE a few early walkers, a car passes
-- ACTION: Nora walks at stride speed on the pavement holding a bag; in the 2D cut she stands at the door turning a key, then pushes it open
-- SHOT: WS eye trackR 3D+2D (pins) | MS eye push 2D
-- CAMERA: track right alongside her, then a slow push to her hands on the key
-- LOOK: morning, cool street, warm shop light, quiet routine, she walks on the right third
-- TIMELINE: 0 street, Nora walks in · 1.5 label NORA · BAKER pins to her · 3 a car passes behind · 5 cut: her shop door, she lifts the key · 7 the lock turns, the bell over the door swings · 8.5 she steps inside, lights flick on softly
-- TEXT: pin NORA · BAKER
-- FX: trans=slide
-- SOUND: footsteps, a door bell
-- BUILD: reuse act=s3 set=street do=walk on=her + pins; NEW x_md_bakery v=open — shop door from outside, key, bell
-
-### S04 · 0:29 · DAY ONE
-- VO: Today, the little price cards on her shelves mean nothing. There is no till to open, and nothing to put in it. So she does the only thing that makes sense. She gives the bread away.
-- LINK: same shop, now inside, the cards from the hook again
-- PICTURE: SUBJECT Nora behind the counter with an open, empty till / BACKGROUND the shelves full of bread / FOREGROUND bread basket / LIFE steam, the till drawer slides, a customer's hand takes a loaf
-- ACTION: Nora stands behind the counter, opens the empty till, shrugs, then holds out a loaf with both hands
-- SHOT: MS eye static 2D | CU top push 2D
-- CAMERA: steady medium on Nora, then a top-down push onto the empty till
-- LOOK: warm interior, honey and cream palette, gentle humour, Nora centred
-- TIMELINE: 0 Nora at the counter, the cards on the shelves · 2 she pulls the till open · 3.5 cut: top view, the till is empty · 5.5 she closes it · 7.5 she picks up a loaf · 9.5 she holds it out to the door · 11.5 the first hand takes it
-- TEXT: none
+- PICTURE: SUBJECT a whole city at night, lit windows, the question in big letters / BACKGROUND night sky over the skyline / FOREGROUND rooftops at the bottom edge / LIFE traffic moves, windows flicker on and off one by one, the camera orbits
+- ACTION: none (city wide, cars driving on the avenues)
+- SHOT: EWS high orbit 3D | WS low pull 3D
+- CAMERA: slow orbit over the centre, then a low pull back from one tower
+- LOOK: night, deep blue city, warm windows, quiet, question in the upper third
+- TIMELINE: 0 city at night, orbit starts, WHAT IF MONEY appears · 1.5 DISAPPEARED? lands · 3 cars cross the avenue · 4.5 cut: low angle on one tower, slow pull back · 6 windows go dark floor by floor
+- TEXT: WHAT IF MONEY | DISAPPEARED? upper third
 - FX: trans=cut
-- SOUND: till drawer, oven tick
-- BUILD: NEW x_md_bakery v=give — till, Nora handing a loaf
+- SOUND: low music bed only
+- BUILD: act=s3 set=city time=night on=center, then= on=tower; words=
 
-### S05 · 0:42 · DAY ONE
-- VO: The first customers can't quite believe it. They take one loaf each and say thank you. By seven, word is out. By eight, the line reaches the end of the street.
-- LINK: the loaf goes out of the door; outside, the street fills
-- PICTURE: SUBJECT the line of people outside the bakery growing along the street / BACKGROUND the street with shops / FOREGROUND a bicycle at the kerb / LIFE people arrive, a man waves to a friend to join
-- ACTION: people walk up and stand in line on the pavement, some holding bags, a woman checks her phone
-- SHOT: WS eye trackL 3D | MS high push 2D
-- CAMERA: track left along the street, then a high push down the length of the line
-- LOOK: morning sun, warm light on cool street, curious mood, the line leads the eye diagonally
-- TIMELINE: 0 street, a few people walking · 2 more people join, they slow to a stop · 4 a clock label 7:00 · 5.5 cut: high view of the bakery front, the line grows · 7.5 label 8:00, the line reaches the corner · 10 a man waves to a friend
-- TEXT: small 7:00 then 8:00 at 25 %
+### S02 · 0:07 · HOOK
+- VO: No paper, no coins, no balance on your phone. Not stolen, just gone. It sounds like everything would suddenly be free. History suggests something stranger.
+- LINK: from the dark tower to the thing itself: one banknote
+- PICTURE: SUBJECT one engraved banknote (no real design) that crumbles to dust / BACKGROUND the banknote-theme paper with guilloche / FOREGROUND drifting green dust / LIFE the note tilts, breaks into fragments, a dotted outline and a 0 remain
+- ACTION: none (an object)
+- SHOT: CU eye push 2D
+- CAMERA: slow push to the note
+- LOOK: banknote green and gold, soft daylight, curious, centred
+- TIMELINE: 0 the note fills the frame, title EVERYTHING FREE? · 2 the note tilts · 3.5 the first fragments lift away · 6 the note is dust, a dotted outline and 0 stay · 8 dust drifts upward
+- TEXT: EVERYTHING FREE? at 20 %
 - FX: trans=fade
-- SOUND: street murmur rising
-- BUILD: reuse act=s3 set=street n=30 do=walk; NEW x_md_bakery v=line — the bakery front with a growing line
+- SOUND: music bed
+- BUILD: NEW x_mv_note (made for this topic in the 5 Nov style test, money-v2.js) k=1 (money-v2.js)
 
-### S06 · 0:53 · DAY ONE
-- VO: At nine forty, the last loaf is gone. The people at the back walk home with nothing. The bread was free. It simply ran out. Tomorrow, the same line comes back, only longer. The people who got nothing today will come earlier.
-- LINK: same line, now from inside the shop: the last loaf leaves the shelf
-- PICTURE: SUBJECT the empty shelves with the price cards still on them / BACKGROUND the shop window, the line breaking up / FOREGROUND flour dust on the counter / LIFE people outside turn and walk away
-- ACTION: Nora hands over the last loaf, then stands with her hands on the counter, looking at the empty shelves; outside people turn and walk away
-- SHOT: MCU low push 2D | WS high static 3D
-- CAMERA: low push across the empty shelves, then a still high wide of the street emptying
-- LOOK: late morning, flatter light, quiet disappointment, empty space on the right of the frame
-- TIMELINE: 0 one loaf left on the shelf · 1.5 a hand takes it · 3 label 9:40 · 4.5 cut: the street, people turn away · 6.5 the street empties · 8.5 Nora in the doorway · 10 the empty street at dusk · 12 a few people already wait by the door · 14 the camera holds · 15.5 a street lamp comes on
-- TEXT: small 9:40
-- FX: trans=cut
-- SOUND: the bell, then quiet
-- BUILD: NEW x_md_bakery v=empty; reuse act=s3 set=street time=day do=walk n=12
-
-### S07 · 1:02 · PRICES
-- VO: So what was missing? A price is not only what you pay. It is a message, passed from person to person without anyone saying a word.
-- LINK: the camera finds one price card left on the empty shelf
-- PICTURE: SUBJECT one price card that unfolds into a small paper envelope / BACKGROUND the bakery shelf, soft focus / FOREGROUND crumbs / LIFE the envelope flies like a paper bird out of the window into the street
-- ACTION: none (object scene); a passer-by outside catches the paper bird and reads it
-- SHOT: CU eye push 2D | WS eye pan 2D
-- CAMERA: push to the card, then a pan following the paper bird outside
-- LOOK: warm interior to cool street, paper and ink palette, thoughtful, card on the left third
-- TIMELINE: 0 the card on the shelf · 2 it folds itself into a little envelope · 4 the envelope flaps and lifts · 5.5 cut: it flies out over the street · 7.5 a walker catches it and reads · 9 it flies on to the next person
-- TEXT: A PRICE = A MESSAGE hand-lettered at 25 %
-- FX: trans=match (the card's rectangle matches the shelf label)
-- SOUND: paper flutter
-- BUILD: NEW x_md_message v=card — price card that becomes a paper bird
-
-### S08 · 1:12 · PRICES
-- VO: When bread runs short, its price creeps up. That one number tells the buyer: take only what you need. And it tells the baker: bake more, it's worth it.
-- LINK: the paper bird lands on a shop counter in an ordinary day before the vanishing
-- PICTURE: SUBJECT a price card whose number ticks up, with two people on either side: a shopper and a baker / BACKGROUND a market street / FOREGROUND a basket of bread / LIFE the shopper puts one loaf back, the baker rolls more dough
-- ACTION: the shopper stands at a stall and puts one of two loaves back; the baker kneads dough at a table
-- SHOT: MCU eye pan 2D | WS high push 3D+2D (pip)
-- CAMERA: pan from shopper to baker, then a high push into the number
-- LOOK: daylight, market colours, clear and friendly, the card in the centre
-- TIMELINE: 0 card shows 2.00 · 1.5 it ticks to 2.20 · 3 the shopper puts a loaf back · 5 the label TAKE ONLY WHAT YOU NEED · 6.5 cut: the baker side, label BAKE MORE · 8.5 the baker slides a new tray into the oven · 10.5 the number holds steady
-- TEXT: TAKE ONLY WHAT YOU NEED (left), BAKE MORE (right), small labels
-- FX: trans=slide
-- SOUND: a soft tick when the number moves
-- BUILD: NEW x_md_message v=up — the two-sided message; then act=s3 set=street time=day with pip= the price card (2D inset over the 3D market street)
-
-### S09 · 1:23 · PRICES
-- VO: A city sends millions of these little messages every day. Nobody is in charge of them. Take them away, and the shelves still empty, but nobody hears about it in time.
-- LINK: from one card to the whole city: the same message multiplied
-- PICTURE: SUBJECT the city from above with small paper messages flying between shops / BACKGROUND city at midday / FOREGROUND rooftops / LIFE traffic, the messages stop and the city goes quiet
-- ACTION: none (city wide)
-- SHOT: EWS high orbit 3D+2D (pins) | WS top drop 3D
-- CAMERA: orbit high over the city, then a drop straight down onto one street
-- LOOK: midday, bright neutral city, calm scale, horizon high
-- TIMELINE: 0 city from above · 1.5 pins MILK, BREAD, SHOES, DIESEL appear over different blocks · 4 the pins fade one by one · 6 cut: top view dropping toward a street · 8 a shop sign reads EMPTY · 10 the camera settles
-- TEXT: pins MILK · BREAD · SHOES · DIESEL
-- FX: trans=zoom
-- SOUND: city air, quieter at the end
-- BUILD: reuse act=s3 set=city time=day + pins
-
-### S10 · 1:34 · THE CHAIN
-- VO: Nora needs flour. The miller needs grain. The farmer needs diesel for the tractor. On Monday, all of them still go to work, out of habit and goodwill.
-- LINK: from the empty shop we follow the flour back up the chain
-- PICTURE: SUBJECT a side-scrolling chain: bakery, mill, farm with a tractor / BACKGROUND fields and a road / FOREGROUND grass, a fence / LIFE the tractor moves, the mill wheel turns, a truck drives
-- ACTION: Nora carries an empty flour sack; the miller stands at the mill door; the farmer climbs into the tractor seat
-- SHOT: WS eye trackR 3D+2D (pins) | MS low push 2D
-- CAMERA: track right from bakery to mill to farm, then a low push to the tractor
-- LOOK: morning countryside, golden fields, warm and steady, horizon on the lower third
-- TIMELINE: 0 Nora with an empty sack · 2 the camera tracks to the mill, its wheel turns · 4 the farm, the farmer climbs on the tractor · 6 cut: low angle on the tractor, it rolls · 8 a fuel gauge reads low · 10 a small label MONDAY
-- TEXT: small MONDAY
-- FX: trans=paper
-- SOUND: mill creak, tractor engine soft
-- BUILD: reuse act=s3 set=street do=walk on=her + pins FLOUR?; NEW x_md_chain v=chain — mill, farm, tractor
-
-### S11 · 1:44 · THE CHAIN
-- VO: But the farmer now has a hundred people asking for the same grain, and nothing to tell them apart. No price, no order, no bill. Just who arrives first.
-- LINK: same farm, now people arrive at the gate
-- PICTURE: SUBJECT the farmer at his gate facing a crowd holding empty sacks / BACKGROUND the barn and the grain store / FOREGROUND the gate / LIFE more people walk up the road
-- ACTION: the farmer stands at the gate scratching his head; people walk up the road carrying sacks and stand in a cluster
-- SHOT: WS high crane 2D | MCU eye static 2D
-- CAMERA: crane up to see the road filling, then a still close shot of the farmer thinking
-- LOOK: afternoon, dusty gold, gently absurd, crowd on the lower half
-- TIMELINE: 0 farmer at the gate · 2 people walk up the road · 4 the crowd thickens · 5.5 cut: the farmer's face, he thinks · 7.5 labels NO PRICE · NO ORDER · NO BILL appear one by one · 10 a small sign WHO CAME FIRST?
-- TEXT: NO PRICE · NO ORDER · NO BILL
-- FX: trans=fade
-- SOUND: footsteps on gravel, murmur
-- BUILD: NEW x_md_chain v=farm — the gate crowd
-
-### S12 · 1:55 · THE QUEUE
-- VO: So people do what humans always do when something is free and scarce. They line up. By the end of the first week, the queue is the new price. You pay with time.
-- LINK: the crowd at the gate becomes a line; a montage of lines across the city
-- PICTURE: SUBJECT montage of queues: a plaza crowd, a waiting room, the street / BACKGROUND the city / FOREGROUND barriers / LIFE people shuffle forward, a clock turns
-- ACTION: people stand in lines, step forward, check watches, one sits on a folding stool
-- SHOT: WS high crane 3D | WS eye trackL 3D | MCU eye push 2D
-- CAMERA: crane over the plaza, track along a waiting room, then push to a clock
-- LOOK: overcast, muted blue-grey, patient, lines drawn as strong diagonals
-- TIMELINE: 0 plaza, a crowd lined up · 2 the camera rises · 4 cut: waiting room, people seated · 6 they move up a chair · 8 cut: a big clock, the minute hand moves · 10 label YOU PAY WITH TIME · 11.5 the clock hand keeps turning
-- TEXT: YOU PAY WITH TIME at 25 %
-- FX: trans=ink
-- SOUND: murmur, clock tick
-- BUILD: MONTAGE — reuse act=s3 set=street n=40, act=s3 set=waiting; NEW x_md_time v=clock
-
-### S13 · 2:07 · THE QUEUE
-- VO: Inside a phone shop, there are two hundred phones. Outside, about two thousand people wait all night in sleeping bags.
-- LINK: the clock face turns into night; we are outside a shop
-- PICTURE: SUBJECT the phone shop front at night with sleeping bags along the pavement / BACKGROUND the street, lit shop window / FOREGROUND a thermos and a folding chair / LIFE a man yawns, a woman pours tea, the shop counter screen inside
-- ACTION: people lie in sleeping bags on the pavement, one sits on a folding chair holding a cup, one reads a book by a lamp
-- SHOT: MS high push 3D | WS low pan 2D
-- CAMERA: pan along the sleeping bags, then a push inside to the counter screen
-- LOOK: night, sodium-warm street and cool shop glow, quiet, line along the lower third
-- TIMELINE: 0 inside, the counter screen PHONES | 200 · 2 label 200 PHONES · 3 cut: outside, sleeping bags along the street · 4.5 a man yawns and sits up · 6 a woman pours tea · 7.5 the camera settles on the line
-- TEXT: 200 inside · ≈ 2,000 outside (scenario numbers, small)
-- FX: trans=cut
-- SOUND: night street, kettle, quiet voices
-- BUILD: NEW x_md_phoneshop v=night; reuse act=s3 set=waiting screen="PHONES|200"
-
-### S14 · 2:17 · THE QUEUE
-- VO: And time isn't shared fairly either. A retired man with free mornings can wait for hours. A nurse coming off a night shift can't. Free turns out to be cheapest for people with time to spare.
-- LINK: morning in the same line; we meet two people in it
-- PICTURE: SUBJECT a retired man on a folding chair in the line with a newspaper, and a nurse in scrubs walking past, tired / BACKGROUND the shop front / FOREGROUND the line rope / LIFE the man turns a page, the nurse checks her watch and leaves
-- ACTION: the old man sits on a folding chair reading a newspaper and sipping from a thermos; the nurse walks up, looks at the line, checks her watch, walks away
-- SHOT: MS eye static 2D | MCU ots trackL 2D
-- CAMERA: still medium on the man, then track with the nurse as she leaves
-- LOOK: early morning, soft gold, gentle humour, the man on the left third, the nurse on the right
-- TIMELINE: 0 the man in his chair, newspaper up · 2 he turns a page · 4 the nurse walks in from the right · 6 she checks her watch · 7.5 cut: closer on her, she sighs · 9.5 she walks away · 11.5 the man pours more tea
-- TEXT: none
-- FX: trans=slide
-- SOUND: newspaper rustle, footsteps
-- BUILD: NEW x_md_time v=two — the retired man and the nurse
-
-### S14b · 2:30 · HOARDING
-- VO: And when something is free, it pays to take more than you need. A spare loaf, just in case. A second phone for the drawer. So the shelves empty even faster.
-- LINK: the man with time to spare goes home; we follow the bread into a neighbour's cupboard
-- PICTURE: SUBJECT a kitchen cupboard filling with loaves, tins and boxes, a drawer with a second phone / BACKGROUND a kitchen with a window onto the street / FOREGROUND the counter / LIFE the cupboard doors open, items appear one by one, the drawer slides
-- ACTION: a neighbour walks in carrying a box, puts things on the shelves, opens the drawer and points at the spare phone
-- SHOT: MS eye push 2D
-- CAMERA: slow push to the cupboard
-- LOOK: kitchen daylight, warm wood, gentle irony, cupboard on the right two thirds
-- TIMELINE: 0 kitchen, the neighbour walks in with a box · 1.5 the cupboard doors open · 3 loaves appear on the shelf · 5 tins and boxes · 6.5 the drawer slides open: two phones · 8 the drawer closes · 9.5 the camera settles
-- TEXT: none
-- FX: trans=fold
-- SOUND: paper bag, drawer, cupboard door
-- BUILD: NEW x_md_hoard — cupboard, drawer, neighbour
-
-### S15 · 2:30 · THE CARD
-- VO: By the end of the first month, the city tries something else. If a price can't decide who gets what, a rule will. Two loaves a person. One phone per home.
-- LINK: the line ends at a new counter: the town hall
-- PICTURE: SUBJECT a ration card printing out of a machine at the town hall / BACKGROUND the town hall office with a clerk / FOREGROUND a stack of printed cards / LIFE the printer pushes out cards, the clerk stamps them
-- ACTION: the clerk sits at a desk stamping cards with a stamp in his right hand; a woman stands at the counter holding out her ID
-- SHOT: WS eye push 3D | CU top static 2D
-- CAMERA: push to the printer, then a still top view of one card
-- LOOK: office daylight, pale green and paper white, orderly, card centred
-- TIMELINE: 0 town hall office · 2 the printer starts · 4 cards slide out · 5.5 cut: top view of one card · 7 lines print: 2 LOAVES / PERSON / DAY · 9 1 PHONE / HOME · 10.5 a stamp lands gently
-- TEXT: on the card only
-- FX: trans=zoomthru
-- SOUND: printer whirr, a soft stamp
-- BUILD: reuse act=s3 set=office (the town hall); NEW x_md_ration — printer, clerk, card (bank md_rationcard)
-
-### S16 · 2:41 · THE CARD
-- VO: A family of four receives one new phone. It's a quiet evening. Then everyone remembers whose old phone is the most broken.
-- LINK: the card's PHONE line goes home with one family
-- PICTURE: SUBJECT a family of four around a table with one phone box in the middle / BACKGROUND a living room in the evening / FOREGROUND a lamp / LIFE they look at each other, everyone holds up a cracked old phone
-- ACTION: parents and two teenagers sit on chairs around the table, each slowly lifts their old phone to show the cracks
-- SHOT: WS high orbit 3D+2D (pins) | MCU eye push 2D
-- CAMERA: slow orbit round the room, then a push to the box on the table
-- LOOK: evening, warm lamp, cosy, humorous, the box in the centre
-- TIMELINE: 0 living room, family seated · 2 pin 1 PHONE · 4 FAMILY appears over the box · 3.5 cut: the box on the table · 5 four hands reach for it and stop · 6.5 each lifts a cracked old phone · 8 they look at each other
-- TEXT: pin 1 PHONE · 4 PEOPLE
-- FX: trans=fade
-- SOUND: clock tick, a soft laugh
-- BUILD: reuse act=s3 set=home time=dusk + pins; NEW x_md_family — table, box, four cracked phones
-
-### S17 · 2:49 · THE TURN
-- VO: And here is the turn in the story. Money never really vanished. Its job just moved: to the queue, to the card, and to whoever writes the rules on the card.
-- LINK: the phone box opens; inside, a coin, which splits into three things
-- PICTURE: SUBJECT a single coin on the table that splits into three: a line of tiny people, a card, a pen / BACKGROUND the evening room, darker / FOREGROUND the table edge / LIFE each part slides to its place
-- ACTION: none (object transformation)
-- SHOT: CU eye static 2D | WS high trackR 3D
-- CAMERA: still close on the coin, then a track along the queue in the waiting room
-- LOOK: dusk, coral accent for the twist, clear and calm, three items in thirds
-- TIMELINE: 0 a coin on the table · 2 it splits into three · 3.5 THE QUEUE label · 5 THE CARD label · 6.5 THE PEN label · 8 cut: waiting room queue · 10 the screen reads NEXT
-- TEXT: !THE JOB MOVED in coral at 25 %
-- FX: trans=match (the coin matches the round lamp)
-- SOUND: soft chime
-- BUILD: NEW x_md_turn — coin splitting into queue, card, pen; reuse act=s3 set=waiting screen="NOW SERVING|117"
-
-### S18 · 3:00 · WHO DECIDES
-- VO: Someone now decides how much flour goes to Nora, how much to the school kitchen, and whether diesel goes to the hospital or the farm first.
-- LINK: the pen from the turn lands on a dispatcher's desk
-- PICTURE: SUBJECT a dispatcher at a desk with three phones and a wall board / BACKGROUND an office / FOREGROUND papers / LIFE phones ring, she moves magnets on the board
-- ACTION: the dispatcher sits at a desk with a phone at her ear, writing with a pen; she stands and moves a magnet on the board
-- SHOT: WS eye push 3D | MS eye pan 2D
-- CAMERA: push into the office, then pan along the board
-- LOOK: fluorescent office, cool teal, busy but calm, the board on the right third
-- TIMELINE: 0 office, desks · 2 the camera pushes to one desk · 4 cut: the board: BAKERY · SCHOOL · HOSPITAL · FARM · 5.5 a magnet slides to HOSPITAL · 7.5 a phone rings, she answers · 9 she writes a number
-- TEXT: board words BAKERY SCHOOL HOSPITAL FARM
-- FX: trans=cut
-- SOUND: phone ring (soft), marker squeak
-- BUILD: reuse act=s3 set=office; NEW x_md_board v=board
-
-### S19 · 3:10 · WHO DECIDES
-- VO: For the big, obvious things, it works. Hospitals keep their lights on. Schools keep cooking. But a city makes millions of different things, and no list can hold them all.
-- LINK: from the board out of the window to the city it is trying to run
-- PICTURE: SUBJECT the dispatcher's list unrolling out of the window, down the street, longer and longer / BACKGROUND the city / FOREGROUND the window frame / LIFE the list grows, items appear: SOCKS, GLUE, SPARE BULBS
-- ACTION: the dispatcher stands at the window holding the end of a long paper list
-- SHOT: EWS high crane 3D | EWS high pull 2D
-- CAMERA: tilt down the list, then a pull back to see it go round the block
-- LOOK: afternoon, paper white on blue city, gentle comedy, the list as a long S-curve
-- TIMELINE: 0 a lit hospital and a school kitchen side by side · 2 ticks appear on both · 4 the list starts to unroll · 6 cut: wide, the list goes round the block · 8 items: SOCKS · GLUE · SPARE BULBS · 10 the list still unrolling · 11 it disappears round a corner
-- TEXT: list items, small
-- FX: trans=slide
-- SOUND: paper unrolling
-- BUILD: reuse act=s3 set=city time=night lit=1; NEW x_md_board v=list — the endless list
-
-### S20 · 3:21 · WHO DECIDES
-- VO: Nora asks for raisins. The form has no box for raisins. She waits three weeks for a reply. Multiply that by every shop in the city.
-- LINK: one small item from the endless list: Nora's request
-- PICTURE: SUBJECT the request form close up, Nora's pen hovering, no box that says raisins / BACKGROUND her bakery counter / FOREGROUND a small bowl, empty / LIFE her pen moves down the list, she writes RAISINS in the margin
-- ACTION: Nora sits at the counter on a stool holding a pen, reading the form, then writing in the margin
-- SHOT: ECU top push 2D | MS eye push 2D | EWS high pull 3D
-- CAMERA: top-down push along the form, then a still medium of Nora waiting
-- LOOK: warm interior, cream and ink, dry humour, form fills the frame
-- TIMELINE: 0 the form: FLOUR · SUGAR · SALT · YEAST · 2 the pen hovers · 3.5 she writes RAISINS in the margin · 4.5 cut: Nora waits at the counter · 5.5 a calendar flips: WEEK 1 · WEEK 2 · WEEK 3 · 7.5 the calendar shows WEEK 3 · 9 Nora rests her chin on her hand
-- TEXT: calendar WEEK 1 2 3
-- FX: trans=cut
-- SOUND: pen scratch, calendar pages
-- BUILD: NEW x_md_form — the form close-up, calendar
-
-### S21 · 3:28 · THE INCA
-- VO: Has a big society ever run without money? Yes. Five hundred years ago, the Inca Empire stretched along the Andes, with no coins and no markets as we know them.
-- LINK: from the calendar pages to a page of history: the Andes
-- PICTURE: SUBJECT the Andes with terraced fields and a long stone road / BACKGROUND snow peaks / FOREGROUND grass and stones / LIFE llamas walk the road, clouds drift
-- ACTION: farmers work the terraces with hoes; a runner walks the road carrying a bundle
-- SHOT: EWS low crane 2D | WS eye trackR 2D
-- CAMERA: crane up over the terraces, then track along the road
-- LOOK: high altitude, clear cold light, ochre and green, majestic and calm
-- TIMELINE: 0 mountains, terraces in the sun · 2 the camera rises · 4 llamas on the road · 5.5 cut: track along the road · 7.5 a runner passes · 9 label NO COINS · NO MARKETS · 11 clouds pass the peaks
-- TEXT: INCA EMPIRE · 1400s–1500s small; NO COINS
-- FX: trans=fade
-- SOUND: wind, a far bell of llamas
-- BUILD: NEW x_md_andes v=wide — terraces, road, llamas
-
-### S22 · 3:40 · THE INCA
-- VO: Families paid the state in work: a turn of labour called mit'a, on roads, farms and terraces. Food and cloth went into stone storehouses along the roads.
-- LINK: the runner arrives at a row of stone storehouses
-- PICTURE: SUBJECT a row of round stone storehouses (qullqa) on a slope / BACKGROUND the valley / FOREGROUND bundles of cloth and baskets of maize / LIFE workers carry baskets in, one at a time
-- ACTION: workers walk in a line carrying baskets on their backs into the storehouses; a keeper stands at a door counting
-- SHOT: WS high pan 2D | MS eye push 2D
-- CAMERA: pan along the storehouses, then push to the open door
-- LOOK: afternoon, warm stone, earthy palette, orderly, storehouses on the upper half
-- TIMELINE: 0 storehouses on the slope · 2 a worker carries a basket in · 4 label MIT'A = A TURN OF WORK · 5.5 cut: the door, baskets inside · 7.5 a second worker brings cloth · 9.5 the keeper nods
-- TEXT: MIT'A · a turn of work
-- FX: trans=iris
-- SOUND: footsteps on stone
-- BUILD: NEW x_md_andes v=store (bank md_qullqa)
-
-### S23 · 3:50 · THE INCA
-- VO: It was handed out when it was needed, and the accounts were kept on knotted cords called khipu. No money at all. But also not much choice.
-- LINK: the keeper at the door holds up a bundle of knotted cords
-- PICTURE: SUBJECT a khipu: a main cord with many hanging knotted strings / BACKGROUND the storehouse wall / FOREGROUND the keeper's hands / LIFE fingers move along the knots, then a family receives a basket
-- ACTION: the keeper holds the khipu with both hands, moving his fingers down the knots; a family stands in front holding out their hands for a basket
-- SHOT: WS eye pull 2D | ECU eye static 2D
-- CAMERA: still close on the knots, then a pull back to the family receiving the basket
-- LOOK: soft evening, warm wool colours, reflective, khipu fills the frame
-- TIMELINE: 0 khipu, knots · 2 fingers move down a cord · 4 label KHIPU · 5 cut: a family receives a basket · 7 label NO MONEY · 8.5 then NOT MUCH CHOICE · 10 the camera settles
-- TEXT: KHIPU · NO MONEY · NOT MUCH CHOICE
-- FX: trans=fade
-- SOUND: soft wind, wool rustle
-- BUILD: NEW x_md_andes v=khipu (bank md_khipu)
-
-### S24 · 4:00 · BACK IN THE CITY
-- VO: Back in our imagined city, Nora sees the same faces at the front of her line every morning. Some of them aren't eating the bread. Around the corner, two loaves go for a bag of coffee.
-- LINK: from the basket in the Andes back to a bag of bread in the city
-- PICTURE: SUBJECT a man trading two loaves for a bag of coffee around the corner / BACKGROUND a side street wall / FOREGROUND a bin and a bicycle / LIFE a quick swap, a look over the shoulder
-- ACTION: two men stand in a side street; one holds out two loaves, the other hands over a bag of coffee
-- SHOT: WS eye trackL 3D | MS eye push 2D
-- CAMERA: track left along the street to the corner, then push to the swap
-- LOOK: morning, cool shadows on a side street, light mischief, swap in the centre
-- TIMELINE: 0 street, Nora's line · 2 the camera tracks to the corner · 4 cut: two men in the side street · 6 the loaves change hands · 8 the coffee bag changes hands · 10 one of them nods and leaves · 11.5 Nora glances over from her doorway
-- TEXT: 2 LOAVES = 1 COFFEE small
-- FX: trans=match (the basket matches the bread bag)
-- SOUND: street hum, paper bag rustle
-- BUILD: reuse act=s3 set=street do=walk; NEW x_md_ious v=swap
-
-### S25 · 4:13 · WHAT PEOPLE SAY
-- VO: Online, people say the answer is simple: we'd just go back to barter, like our ancestors. A cow for some wheat. A clay pot for a basket of fish.
-- LINK: the swap freezes and becomes an old picture-book drawing of barter
-- PICTURE: SUBJECT a storybook scene: a man with a cow, a woman with wheat sheaves, a potter and a fisher / BACKGROUND a riverside village / FOREGROUND reeds / LIFE the cow chews, the fish flips in the basket
-- ACTION: the man leads the cow on a rope; the woman carries wheat; the potter holds out a pot, the fisher holds a basket of fish
-- SHOT: WS eye pan 2D | MCU low push 2D
-- CAMERA: pan across the village, then a low push to the pot and the fish
-- LOOK: storybook, vintage paper texture, warm and slightly ironic, characters in pairs
-- TIMELINE: 0 village, a phone frame shows THE THEORY · 2 the cow and the wheat meet · 4 they swap · 5.5 cut: the pot and the basket of fish · 7.5 the fish flips · 9.5 label POPULAR THEORY
-- TEXT: THEORY: WE'D GO BACK TO BARTER
-- FX: trans=fold
-- SOUND: soft river, a cow
-- BUILD: NEW x_md_barter v=village — storybook barter
-
-### S26 · 4:24 · WHAT PEOPLE SAY
-- VO: It's a popular story. In fact, it's mostly a myth. The anthropologist Caroline Humphrey looked for a society that ran on barter alone, and in 1985 she wrote:
-- LINK: the storybook closes; we are on a researcher's desk
-- PICTURE: SUBJECT a researcher's desk with field notebooks and an open journal / BACKGROUND a bookshelf / FOREGROUND a desk lamp and tea / LIFE pages turn, the lamp is on
-- ACTION: none visible (hands only: a hand turns the pages of a notebook)
-- SHOT: WS high push 3D | CU top static 2D
-- CAMERA: high push to the desk, then a still top view of the journal page
-- LOOK: library, lamp-warm amber, quiet, journal centred
-- TIMELINE: 0 the storybook closes · 2 the desk with notebooks · 4 a hand turns a page · 6 cut: the journal, MAN · 1985 · 8 label WHAT IS KNOWN · 9.5 the pen rests
-- TEXT: WHAT IS KNOWN small
-- FX: trans=fade
-- SOUND: page turns
-- BUILD: reuse act=s3 set=office time=night; NEW x_md_barter v=desk — research desk (no likeness of the real person)
-
-### S27 · 4:34 · WHAT PEOPLE SAY · THE QUOTE
-- VO: No example of a barter economy, pure and simple, has ever been described.
-- LINK: the camera continues into the page; the sentence types itself
-- PICTURE: SUBJECT the quote typed on the page / BACKGROUND the page texture / FOREGROUND the lamp glow / LIFE letters appear one by one
-- ACTION: none (text scene)
-- SHOT: ECU eye push 2D
-- CAMERA: slow push into the sentence
-- LOOK: paper white, black ink, still, sentence centred
-- TIMELINE: 0 the page · 1 the sentence types · 3 it completes · 4 the attribution C. HUMPHREY, 1985
-- TEXT: the quote, typewriter style
-- FX: trans=cut
-- SOUND: soft typewriter
-- BUILD: NEW x_md_barter v=quote
-
-### S28 · 4:39 · WHAT PEOPLE SAY
-- VO: Barter does actually happen, but it's clumsy. A baker who wants shoes has to find a shoemaker who wants bread, today. Economists call it the double coincidence of wants.
-- LINK: from the page back to Nora, who needs shoes
-- PICTURE: SUBJECT Nora with a loaf and a shoemaker with shoes, each with a thought bubble showing what they want / BACKGROUND the street with two shops / FOREGROUND the kerb / LIFE the shoemaker's bubble shows a fish, not bread
-- ACTION: Nora walks up holding a loaf, points at the shoes; the shoemaker stands at his door, shakes his head and points at a fish shop
-- SHOT: MS eye trackR 2D | WS high static 3D
-- CAMERA: track with Nora to the shoe shop, then a high still of the street
-- LOOK: day, two-shop symmetry, playful, bubbles in the upper third
-- TIMELINE: 0 Nora with a loaf · 2 she walks to the shoe shop · 3.5 her bubble: shoes · 5 his bubble: a fish · 6.5 cut: high view of the street · 8.5 label DOUBLE COINCIDENCE OF WANTS · 10 Nora shrugs
-- TEXT: DOUBLE COINCIDENCE OF WANTS
-- FX: trans=slide
-- SOUND: street, a small "hm"
-- BUILD: NEW x_md_barter v=shoes; reuse act=s3 set=street time=day
-
-### S29 · 4:50 · WHAT PEOPLE SAY
-- VO: A second theory: without pay, nobody would work. The closest real tests didn't remove money. They gave people free money, and watched what happened.
-- LINK: from the street to a job centre waiting room
-- PICTURE: SUBJECT a waiting room with a screen / BACKGROUND counters / FOREGROUND chairs / LIFE the number on the screen changes
-- ACTION: people sit on chairs holding letters, one stands up when called
-- SHOT: WS eye pull 3D | MCU high push 2D
-- CAMERA: pull back through the room, then a high push onto an envelope of cash in a hand
-- LOOK: daylight, soft green institution, neutral, screen centred
-- TIMELINE: 0 waiting room, screen THEORY 2 · 2 a man is called and stands · 4 cut: an envelope opens in a hand · 6 label FREE MONEY · NOT NO MONEY · 8 the hand counts notes · 9.5 the camera holds
-- TEXT: THEORY 2 · then FREE MONEY ≠ NO MONEY
-- FX: trans=zoom
-- SOUND: a soft chime
-- BUILD: reuse act=s3 set=waiting screen="THEORY 2|NO WORK?"; NEW x_md_turn v=envelope
-
-### S30 · 5:00 · WHAT PEOPLE SAY · WHAT WE KNOW
-- VO: What we know: in Finland and in Kenyan villages, people kept working about as much as before. In one American study, they worked an hour or two less a week. Most people keep working. Alaska has paid every resident a yearly oil dividend since 1982, and jobs didn't disappear there either.
-- LINK: the envelope's stamp becomes a pin on a map
-- PICTURE: SUBJECT a world map with three pins: Finland, Kenya, USA / BACKGROUND oceans / FOREGROUND map edge / LIFE pins drop, small labels unfold
-- ACTION: none (map)
-- SHOT: WS high push 2D | MCU eye pan 2D | MS eye orbit 3D
-- CAMERA: push across the map, then pan between the pins
-- LOOK: atlas, cool blue sea, warm land, clear, pins in the upper half
-- TIMELINE: 0 world map · 2 pin FINLAND · 2017–18 · 4 pin KENYA · 6 pin USA · 7.5 cut: labels ABOUT THE SAME · ABOUT THE SAME · 1–2 H LESS/WEEK · 10 the inset shows people at desks · 11.5 the map holds · 13 pin ALASKA · 1982 · 15 label JOBS STAYED · 17 the inset office keeps working · 18.5 the map holds
-- TEXT: per pin: ABOUT THE SAME · 1–2 H LESS A WEEK
-- FX: trans=cut
-- SOUND: soft pin drops
-- BUILD: reuse act=map pins; then act=s3 set=office (people at work) on the last line
-
-### S31 · 5:11 · THE CAMP
-- VO: The most telling case is much smaller. It comes from prison camps in the Second World War, where nobody had any money at all.
-- LINK: the map zooms into Europe and becomes a 1940s camp
-- PICTURE: SUBJECT a camp of wooden huts behind a wire fence in winter / BACKGROUND pine forest, grey sky / FOREGROUND fence posts / LIFE smoke from a chimney, men walk between huts
-- ACTION: men in greatcoats walk between huts with their hands in their pockets; one carries a box
-- SHOT: EWS high pull 2D | WS eye trackR 2D
-- CAMERA: pull back over the camp, then track past the huts
-- LOOK: winter, sepia-grey archival, sober and calm, huts in the middle band
-- TIMELINE: 0 camp from above · 2 chimney smoke · 4 men walk between huts · 5.5 cut: track along a hut · 7.5 label WWII · PRISON CAMPS · 9.5 snow drifts
-- TEXT: WORLD WAR II · PRISON CAMPS
-- FX: trans=fade
-- SOUND: wind, distant footsteps
-- BUILD: NEW x_md_camp v=wide (no flags, no insignia)
-
-### S32 · 5:20 · THE CAMP
-- VO: Prisoners received the same food parcels: tins of meat, jam, chocolate, tea and cigarettes. Within days, they were swapping. Non-smokers traded cigarettes for food.
-- LINK: one man carries his box inside a hut and opens it
-- PICTURE: SUBJECT an opened parcel on a wooden table, items laid out / BACKGROUND hut interior with bunks / FOREGROUND table edge / LIFE hands lay the items out, two men swap
-- ACTION: two men sit on a bench at a table; one slides a pack of cigarettes across, the other slides a tin of jam back
-- SHOT: CU top static 2D | MS eye push 2D
-- CAMERA: still top view of the parcel, then push to the two men swapping
-- LOOK: warm lamp inside, brown and khaki palette, intimate, table in the lower half
-- TIMELINE: 0 the parcel opens · 1.5 tins come out: MEAT · JAM · 3 chocolate, tea, cigarettes · 4.5 cut: two men at the table · 6.5 cigarettes slide across · 8 a tin of jam slides back
-- TEXT: item labels small
-- FX: trans=liquid
-- SOUND: cardboard, tins on wood
-- BUILD: NEW x_md_camp v=parcel (bank md_parcel, md_tin)
-
-### S33 · 5:29 · THE CAMP
-- VO: Then something happened that nobody planned. The cigarettes became money. Richard Radford, an economist who was a prisoner in those camps himself, described it in 1945.
-- LINK: the cigarette pack on the table is lifted and set on a notice board
-- PICTURE: SUBJECT a hut notice board where items are pinned with prices in cigarettes / BACKGROUND the hut / FOREGROUND a man's shoulder / LIFE a hand pins a new card, a journal page slides in: ECONOMICA · 1945
-- ACTION: a prisoner stands at the board pinning a card with a pin; another reads with his hands behind his back
-- SHOT: MS eye push 2D | CU eye static 2D
-- CAMERA: push to the board, then a still close-up of one card
-- LOOK: lamp-warm wood, sepia accents, discovery, board centred
-- TIMELINE: 0 the board, empty · 2 a hand pins a card · 4 another card · 5.5 cut: close on a card JAM · 4 CIGS · 7.5 the journal page ECONOMICA · NOV 1945 · 9.5 label R. A. RADFORD
-- TEXT: ECONOMICA · 1945 · R. A. RADFORD
-- FX: trans=zoomthru
-- SOUND: a pin pressed into cork
-- BUILD: NEW x_md_camp v=board
-
-### S34 · 5:40 · THE CAMP
-- VO: Prices were quoted in cigarettes. When new parcels arrived, prices rose. When cigarettes ran short, prices fell. Even people who never smoked accepted them as payment.
-- LINK: same board, the numbers start to change
-- PICTURE: SUBJECT the board's price cards changing their numbers / BACKGROUND hut / FOREGROUND a stack of parcels arriving / LIFE parcels come in, numbers go up; then the stack shrinks, numbers go down
-- ACTION: two men carry a crate of parcels through the door; a non-smoker takes cigarettes for a tin and puts them in his pocket
-- SHOT: MCU eye pan 2D | MS high push 2D
-- CAMERA: pan across the cards, then a high pull out of the hut
-- LOOK: lamp-warm then grey daylight, steady, numbers on the upper half
-- TIMELINE: 0 cards JAM 4 · TEA 6 · 2 a crate of parcels arrives · 3.5 numbers rise JAM 6 · 5 the crate empties · 6.5 numbers fall JAM 3 · 8 cut: a man pockets cigarettes · 10 label EVEN NON-SMOKERS
-- TEXT: numbers on the cards; EVEN NON-SMOKERS small
-- FX: trans=cut
-- SOUND: crate on boards, soft ticks
-- BUILD: NEW x_md_camp v=prices
-
-### S35 · 5:51 · THE CAMP
-- VO: Because that's all money really is: something everyone agrees to accept, so that nobody has to find the perfect swap. It doesn't have to be gold. It just has to be trusted.
-- LINK: the cigarettes in his pocket become coins, then notes, then a phone payment
-- PICTURE: SUBJECT a crowd in a plaza, each person holding up a small token that changes form together / BACKGROUND the plaza / FOREGROUND hands / LIFE the tokens change in a wave
-- ACTION: people stand in the plaza holding up a token in one hand
-- SHOT: WS low crane 3D | MCU eye static 2D
-- CAMERA: crane up over the plaza, then a still on one hand
-- LOOK: dusk, warm gold, unifying, crowd fills the lower half
-- TIMELINE: 0 plaza crowd · 2 words EVERYONE AGREES · 4 cut: a hand with a cigarette · 5 it becomes a coin · 6 a note · 7 a phone with a tick · 8.5 the phone tick stays · 10 the crowd below lowers its hands · 11.5 the camera holds on the hand
-- TEXT: EVERYONE AGREES
-- FX: trans=fade
-- SOUND: crowd murmur, warm
-- BUILD: reuse act=s3 set=plaza do=cheer n=40 ; NEW x_md_turn v=token
-
-### S36 · 6:00 · BACK IN THE CITY
-- VO: Back in our city, it's already happening. Bread for coffee. Coffee for a bike repair. Then little paper notes: I owe you one morning of work.
-- LINK: the phone tick becomes a paper note pinned to Nora's corkboard
-- PICTURE: SUBJECT a corkboard in Nora's bakery filling with IOU notes / BACKGROUND bakery / FOREGROUND bread / LIFE notes are pinned, a bike is repaired outside
-- ACTION: a neighbour stands at the board and pins a note, holding a coffee cup; outside, a man kneels on the pavement holding a spanner and repairs a bike
-- SHOT: WS eye trackL 3D | CU eye push 2D
-- CAMERA: track along the street past the bike repair, then a push to the corkboard
-- LOOK: morning, bright and friendly, MONTAGE of swaps, board centred
-- TIMELINE: 0 street, a bike repair on the pavement · 2 a man hands over coffee · 4 cut: the corkboard · 5 a note I.O.U. 1 MORNING OF WORK · 6.5 a second note · 8 a third · 9.5 the board half full
-- TEXT: notes on the board
-- FX: trans=slide
-- SOUND: a spanner, pins
-- BUILD: MONTAGE — reuse act=s3 set=street time=day; NEW x_md_ious v=board (bank md_iou)
-
-### S37 · 6:10 · HISTORY
-- VO: It has happened again and again. Cattle. Cowrie shells in China, around 1200 BC. The first coins in Lydia, around 630 BC. Paper notes in China, about 700 years before Europe.
-- LINK: the IOU notes blow off the board into a timeline of money
-- PICTURE: SUBJECT a timeline of money forms: cattle, cowrie shells, an electrum coin, a paper note / BACKGROUND a long museum wall / FOREGROUND plinths / LIFE each object turns slowly under its light
+### S03 · 0:15 · HOOK
+- VO: Here's a surprising fact. No society is known to have run on barter alone. And when people lost their money, they rebuilt it within weeks.
+- LINK: the dust settles into a pile of coins on a studio table
+- PICTURE: SUBJECT a pile of coins and an open wooden chest on a studio table / BACKGROUND a soft studio back wall / FOREGROUND a sack and a lantern at the table edge / LIFE the camera orbits, the coin pile glints, labels pin to the objects
 - ACTION: none (objects)
-- SHOT: WS eye trackR 2D | CU low push 2D
-- CAMERA: track along the wall, then a low push to the coin
-- LOOK: museum, dark wall and warm spotlights, reverent, objects in a row
-- TIMELINE: 0 cattle · 2 cowrie shells · 4 label CHINA ≈ 1200 BC · 5.5 cut: the coin, LYDIA ≈ 630 BC · 7.5 the paper note · 9 label ≈ 700 YEARS BEFORE EUROPE · 11 track ends
-- TEXT: dates small under each
-- FX: trans=ink
-- SOUND: soft museum air
-- BUILD: NEW x_md_timeline (bank md_cowrie, md_coin, md_note)
+- SHOT: WS high orbit 3D
+- CAMERA: slow orbit around the table
+- LOOK: warm studio light, gold and wood on green, calm, subject at the centre
+- TIMELINE: 0 coin pile and chest, orbit starts · 2 label NO PURE BARTER pins to the chest · 4 the camera passes the sack · 6 label REBUILT IN WEEKS pins to the coins · 8 orbit continues
+- TEXT: pins NO PURE BARTER, REBUILT IN WEEKS
+- FX: trans=zoom
+- SOUND: music bed
+- BUILD: act=s3 set=stage dress=treasure models props/coin_pile, props/chest_wood, medieval/sack; pins=
 
-### S38 · 6:22 · HISTORY
-- VO: Each time, people needed the same thing: a way to keep score. Who gave what, to whom, and what is owed back.
-- LINK: the timeline ends on a ledger; the score is written
-- PICTURE: SUBJECT a ledger with names and arrows: who gave what to whom / BACKGROUND a desk / FOREGROUND a pen / LIFE arrows draw themselves between names
-- ACTION: a hand writes in the ledger with a pen
-- SHOT: MCU top push 2D | WS high orbit 3D
-- CAMERA: top-down push onto the ledger, then orbit the office from above
-- LOOK: lamp-warm desk, navy and cream, clear, ledger centred
-- TIMELINE: 0 the ledger · 1.5 NORA → BREAD → SAM · 3 SAM → COFFEE → ALEX · 4.5 cut: office from above · 6.5 label KEEPING SCORE · 7.5 the camera orbits
-- TEXT: KEEPING SCORE
+### S04 · 0:26 · HOOK
+- VO: So what would really happen? In this video: what money actually does, who decides without it, the times it was tried, and the answer.
+- LINK: from the coins to the bank that holds them
+- PICTURE: SUBJECT a money bag with a coin, a banknote and a card circling it / BACKGROUND a bank hall with columns and counters / FOREGROUND a blurred counter rail / LIFE the items orbit, a clerk figure moves behind
+- ACTION: none (illustration)
+- SHOT: WS high push 2D
+- CAMERA: slow push to the money bag
+- LOOK: bank hall, cool marble, gold accents, orderly, subject centred
+- TIMELINE: 0 money bag appears in the bank hall · 2 the coin orbits in · 4 the banknote joins · 6 the card joins · 8 the push ends, breath
+- TEXT: THE QUESTION at 20 %
+- FX: trans=paper
+- SOUND: music bed, pause after the hook
+- BUILD: ex_show e="money bag" around=coin|banknote|credit card place=bank
+
+### S05 · 0:37 · SECTION 1
+- VO: First, a step back. What is money actually for?
+- LINK: chapter card after the hook's breath
+- PICTURE: SUBJECT the number 1 and a balance scale / BACKGROUND the dark banknote card / FOREGROUND engraved frame / LIFE the scale tips gently
+- ACTION: none
+- SHOT: MS low static 2D
+- CAMERA: still, the card breathes
+- LOOK: dark green banknote card, gold type, calm signpost
+- TIMELINE: 0 the card fades in, number 1 · 1.5 title WHAT MONEY DOES · 3 the scale tips · 4 breath
+- TEXT: 1 · WHAT MONEY DOES
+- FX: trans=fade
+- SOUND: music bed lifts slightly
+- BUILD: ex_chapter n=1 e="balance scale"
+
+### S06 · 0:43 · SECTION 1
+- VO: Imagine you raise cows, and you want rice. You'd need to find someone who has rice, wants a cow, and wants it today. Then you'd both have to agree how much rice a cow is worth.
+- LINK: from the scale to the two things being weighed: a cow and rice
+- PICTURE: SUBJECT a cow and an ear of rice with a not-equal sign / BACKGROUND a farm with fields and a barn / FOREGROUND blurred grass / LIFE the sign pulses, wheat sways
+- ACTION: none (illustration)
+- SHOT: MS low push 2D
+- CAMERA: slow push between the two
+- LOOK: farm daylight, green and straw, plain, two subjects on the thirds
+- TIMELINE: 0 farm, the cow appears · 2 the rice appears · 3.5 the not-equal sign draws · 5.5 title THE BARTER PROBLEM · 8 the sign pulses: how much rice? · 11 push settles
+- TEXT: THE BARTER PROBLEM, labels A COW | SOME RICE
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: ex_compare e="cow|ear of rice" sign=≠ place=farm
+
+### S07 · 0:52 · SECTION 1
+- VO: Economists call this the double coincidence of wants. In a busy market, it makes the simplest swap surprisingly hard.
+- LINK: from one farm to many traders: the market
+- PICTURE: SUBJECT a market stall with sacks, bread and crates / BACKGROUND a studio market diorama / FOREGROUND a barrel close to the lens / LIFE the camera trucks past the stall, labels pin
+- ACTION: none (objects on the stall)
+- SHOT: MCU eye trackR 3D
+- CAMERA: slow truck right along the stall
+- LOOK: warm market morning, wood and canvas, busy but calm, stall on the left third
+- TIMELINE: 0 the stall, sacks and loaves · 2 truck right begins · 4 label HAVE: RICE pins to the sack · 6 label WANT: A COW? pins to the stall · 8 the barrel slides past the lens
+- TEXT: pins HAVE: RICE, WANT: A COW?
+- FX: trans=match
+- SOUND: music bed
+- BUILD: act=s3 set=stage dress=market models building/marketstand_1, medieval/sack, food/loaf, props/crate_wooden
+
+### S08 · 1:01 · SECTION 1
+- VO: Money solves it. You sell the cow to anyone, and buy rice from anyone else. That's money's first job: a go-between.
+- LINK: the market swap now goes through a coin
+- PICTURE: SUBJECT a chain cow → coin → rice / BACKGROUND a market street with stalls / FOREGROUND blurred awning / LIFE arrows draw, the coin spins
+- ACTION: none (diagram)
+- SHOT: WS top trackL 2D
+- CAMERA: slow truck left along the chain
+- LOOK: bright market, warm awnings, clear diagram across the middle third
+- TIMELINE: 0 the cow appears · 2 an arrow draws to the coin · 4 the coin spins · 6 an arrow to the rice · 8 label GO-BETWEEN
+- TEXT: labels A COW | MONEY | RICE, title JOB 1
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: ex_flow e="cow|coin|ear of rice" place=market
+
+### S09 · 1:10 · SECTION 1
+- VO: Its second job is a measuring stick. A price lets you compare a loaf of bread with a pair of shoes, or an hour of work, in a single number.
+- LINK: from the market to a shop window on the same street
+- PICTURE: SUBJECT a loaf and a pair of shoes in a shop window, each with a price tag / BACKGROUND the shop street / FOREGROUND the window frame / LIFE the tags swing, a ruler slides between them
+- ACTION: none (objects)
+- SHOT: CU high push 2D
+- CAMERA: slow push to the two tags
+- LOOK: street daylight, glass reflections, cream and green, two subjects side by side
+- TIMELINE: 0 the window, a loaf · 2 the shoes appear · 3.5 the tags swing in · 5.5 a ruler slides under them · 7.5 title JOB 2
+- TEXT: JOB 2 · A MEASURING STICK
+- FX: trans=iris
+- SOUND: music bed
+- BUILD: NEW x_mv_window — street place behind, a shop window with bread and shoes, price tags 2 and 60, a ruler
+
+### S10 · 1:19 · SECTION 1
+- VO: Its third job is easy to miss. A price is a message. When bread runs short, its price goes up.
+- LINK: from the window into the shop: the aisle
+- PICTURE: SUBJECT a supermarket aisle with yellow price tags / BACKGROUND shelves in perspective / FOREGROUND a trolley rolling / LIFE the tags drop one by one
+- ACTION: none (a trolley rolls by)
+- SHOT: WS eye push 2D
+- CAMERA: slow push down the aisle
+- LOOK: cool shop light, pale green shelves, yellow tags, one-point perspective
+- TIMELINE: 0 the aisle · 2 the push starts · 4 the first tag falls · 6 more tags fall · 8 a trolley rolls through
+- TEXT: A PRICE IS A MESSAGE
+- FX: trans=zoomthru
+- SOUND: music bed
+- BUILD: NEW x_mv_shelf (made for this topic in the 5 Nov style test, money-v2.js) k=1 (money-v2.js)
+
+### S11 · 1:28 · SECTION 1
+- VO: That rise tells bakers to bake more, and shoppers to buy a little less. Nobody has to give an order.
+- LINK: out of the shop onto the street where the bakers and shoppers are
+- PICTURE: SUBJECT a shopping street with walkers / BACKGROUND shopfronts / FOREGROUND kerb and a lamp / LIFE walkers on the pavement, a bus, labels pinned to people
+- ACTION: walkers walk along the pavement holding bags; one stops at the stop
+- SHOT: WS high trackR 3D+2D (pins)
+- CAMERA: slow high truck along the pavement
+- LOOK: late morning, sunlit street, soft shadows, busy but calm
+- TIMELINE: 0 the street, walkers · 2 label BAKE MORE pins to the shopfront · 4 a bus passes · 6 label BUY LESS pins to a walker · 8 truck ends
+- TEXT: pins BAKE MORE, BUY LESS
 - FX: trans=cut
-- SOUND: pen scratch
-- BUILD: NEW x_md_ious v=ledger; reuse act=s3 set=office
+- SOUND: music bed
+- BUILD: act=s3 set=street do=walk n=14 on=street pins=
 
-### S38b · 6:28 · QUIET · A YEAR LATER
-- VO: A year later.
-- LINK: from the ledger's last line to the same shop door a year on
-- PICTURE: SUBJECT Nora walking to her shop at dawn and unlocking it / BACKGROUND the shopfront, brick and awning / FOREGROUND the lamp post / LIFE a car passes, the bell swings
-- ACTION: Nora walks along the pavement holding a bag, stops at the door, turns the key and goes in
-- SHOT: WS eye pull 2D
-- CAMERA: slow pull back from the shopfront
-- LOOK: dawn, soft pink, quiet, room to breathe
-- TIMELINE: 0 shopfront at dawn · 1.5 Nora walks in · 3 she reaches the door · 4 the bell swings
+### S12 · 1:37 · SECTION 1
+- VO: A city sends millions of these signals every day, on every shelf and every menu. When money disappears, the messages disappear with it.
+- LINK: the same city, seen twice
+- PICTURE: SUBJECT the same city in two halves, lit with prices, dark without / BACKGROUND sky / FOREGROUND labels / LIFE both halves orbit, the right half goes dark
+- ACTION: none (city wide)
+- SHOT: MS high orbit 3D
+- CAMERA: slow orbit in both halves
+- LOOK: day versus night, warm against cold, before and after, split vertical
+- TIMELINE: 0 both halves, WITH PRICES · 2 WITHOUT label · 4 the right half dims · 6 windows go out · 8 the orbit slows
+- TEXT: WITH PRICES | WITHOUT
+- FX: trans=fade
+- SOUND: music bed
+- BUILD: act=split a=s3 city day, b=s3 city night dark=1
+
+### S13 · 1:46 · SECTION 1
+- VO: Without those messages, how does anyone know what is running out? And what decides who gets the last loaf?
+- LINK: one loaf, alone, after the dark city
+- PICTURE: SUBJECT one loaf of bread on a kitchen counter / BACKGROUND a kitchen with shelves / FOREGROUND a blurred jar / LIFE the loaf grows, a label appears
+- ACTION: none (object)
+- SHOT: CU top push 2D
+- CAMERA: slow push to the loaf
+- LOOK: warm kitchen light, cream and brown, lonely, the loaf centred
+- TIMELINE: 0 kitchen, the loaf grows in · 2 label THE LAST LOAF · 3.5 push settles
+- TEXT: THE LAST LOAF
+- FX: trans=fade
+- SOUND: music bed
+- BUILD: ex_show e=bread place=kitchen do=grow
+
+### S14 · 1:52 · SECTION 2
+- VO: Who gets the last loaf? There are two usual answers.
+- LINK: the question becomes the chapter title
+- PICTURE: SUBJECT the number 2 and a ticket / BACKGROUND the dark banknote card / FOREGROUND engraved frame / LIFE the ticket rocks
+- ACTION: none
+- SHOT: MCU eye static 2D
+- CAMERA: still, a breath
+- LOOK: dark green card, gold type, quiet
+- TIMELINE: 0 card fades in, number 2 · 1.5 title WHO GETS IT? · 3 breath
+- TEXT: 2 · WHO GETS IT?
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: ex_chapter n=2 e="ticket"
+
+### S15 · 1:57 · SECTION 2
+- VO: When something is free and everyone wants it, the first answer is usually the queue. You pay with time instead of money.
+- LINK: from the ticket to a real waiting room with a ticket screen
+- PICTURE: SUBJECT a long queue in a waiting room / BACKGROUND counter and a NOW SERVING screen / FOREGROUND chairs / LIFE people shuffle forward, the screen number changes, an hourglass inset
+- ACTION: people stand in line holding tickets; one sits on a chair
+- SHOT: WS high trackL 3D | MS eye push 3D
+- CAMERA: slow truck along the queue, then a push to the screen
+- LOOK: flat office light, pale blue and grey, patient, the line on a diagonal
+- TIMELINE: 0 the queue · 2 label PAY WITH TIME pins to the queue · 4 hourglass inset appears · 6 cut: the screen, number 043 · 9 the push ends
+- TEXT: pin PAY WITH TIME; inset TIME
+- FX: trans=zoom
+- SOUND: music bed
+- BUILD: act=s3 set=waiting on=queue screen="NOW SERVING|043" pip=ex_show hourglass
+
+### S16 · 2:07 · SECTION 2
+- VO: Queues favour people with spare hours. Someone with a shift to get to, or children to collect, loses out. Free things often end up cheapest for the people with the most time.
+- LINK: out of the waiting room onto the street, where the queue continues
+- PICTURE: SUBJECT a bus stop with people waiting and others hurrying past / BACKGROUND the street / FOREGROUND a lamp post / LIFE one person checks a phone and leaves the line
+- ACTION: people wait at the stop; one walks off fast holding a phone
+- SHOT: MS low push 3D
+- CAMERA: low slow push to the stop
+- LOOK: late afternoon, long shadows, amber, a little tense
+- TIMELINE: 0 the stop, people waiting · 2 label SPARE TIME pins · 4 a walker hurries past · 6 label NO TIME pins · 8 push ends
+- TEXT: pins SPARE TIME, NO TIME
+- FX: trans=cut
+- SOUND: music bed
+- BUILD: act=s3 set=street do=phone on=stop time=dusk pins=
+
+### S17 · 2:16 · SECTION 2
+- VO: The second answer is rationing: a card that says how much each household may take. Britain did this from 1940 until 1954. Every person had a book of coupons, and the shopkeeper cut them out.
+- LINK: from the stop to a kitchen table where a ration book lies open
+- PICTURE: SUBJECT a ration book, coupons being cut out one by one / BACKGROUND a kitchen with shelves / FOREGROUND scissors / LIFE coupons lift away, a stamp falls
+- ACTION: none (object, coupons cut)
+- SHOT: CU top push 2D
+- CAMERA: top-down slow push to the coupons
+- LOOK: warm kitchen, brown paper, 1940s pastel, centred book
+- TIMELINE: 0 the ration book · 2 the first coupon lifts · 4 a second coupon · 6 stamp 1940–1954 lands · 9 the last coupon goes
+- TEXT: RATION BOOK, stamp 1940–1954
+- FX: trans=paper
+- SOUND: music bed
+- BUILD: NEW x_mv_ration — kitchen place behind, a ration book with a grid of coupons, coupons cut away, a stamp
+
+### S18 · 2:27 · SECTION 2
+- VO: Rationing is fairer to people without spare time. But someone has to decide what goes on the card.
+- LINK: from the card to the office where it is written
+- PICTURE: SUBJECT a planner at a desk with a screen / BACKGROUND an office with windows / FOREGROUND the desk edge / LIFE the planner types, a label pins to the screen
+- ACTION: one person sits on a chair at a desk, typing on a keyboard
+- SHOT: MCU ots push 3D
+- CAMERA: over-the-shoulder slow push to the screen
+- LOOK: office morning light, cool grey, focused, screen on the right third
+- TIMELINE: 0 the desk, typing · 2 the screen glows · 4 label WHO DECIDES? pins to the screen · 6 push ends · 8 typing stops
+- TEXT: pin WHO DECIDES?
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: act=s3 set=office on=screen pins=
+
+### S19 · 2:36 · SECTION 2
+- VO: So money's job doesn't vanish. It moves: to the queue, to the card, and to whoever writes the card. Has anyone actually lived this way?
+- LINK: the three answers stacked as a list
+- PICTURE: SUBJECT a list of three: hourglass, ticket, clipboard / BACKGROUND an office with shelves / FOREGROUND blurred files / LIFE items appear one by one
+- ACTION: none (list)
+- SHOT: MS high push 2D
+- CAMERA: slow push down the list
+- LOOK: office daylight, green and cream, orderly, list centred
+- TIMELINE: 0 title THE JOB MOVES · 2 THE QUEUE · 4 THE CARD · 6 WHO WRITES IT · 9 the question appears
+- TEXT: THE JOB MOVES
+- FX: trans=zoom
+- SOUND: music bed
+- BUILD: ex_list e="hourglass|ticket|clipboard" place=office
+
+### S20 · 2:48 · SECTION 3
+- VO: It has been tried, more than once.
+- LINK: the question answered by a chapter card
+- PICTURE: SUBJECT number 3 and a classical building / BACKGROUND the dark banknote card / FOREGROUND engraved frame / LIFE gold lines draw
+- ACTION: none
+- SHOT: MCU low static 2D
+- CAMERA: still
+- LOOK: dark green card, gold, a breath
+- TIMELINE: 0 card, number 3 · 1.5 title IT HAS BEEN TRIED · 3 breath
+- TEXT: 3 · IT HAS BEEN TRIED
+- FX: trans=fade
+- SOUND: music bed
+- BUILD: ex_chapter n=3 e="classical building"
+
+### S21 · 2:53 · SECTION 3
+- VO: The Inca Empire stretched along the Andes mountains: a huge state with roads, farms and armies, but no coins and no markets as we know them.
+- LINK: from the card into the mountains
+- PICTURE: SUBJECT the Andes as a paper-cut diorama, llamas on the road, storehouses / BACKGROUND snowy ridges / FOREGROUND terraces / LIFE llamas walk the road
+- ACTION: none (llamas walk)
+- SHOT: EWS high push 2D
+- CAMERA: slow push over the ridges
+- LOOK: high-altitude daylight, blue ridges, ochre road, wide and calm
+- TIMELINE: 0 ridges, title THE INCA EMPIRE · 2 llamas start along the road · 4 tag NO COINS · NO MARKETS · 6 push ends
+- TEXT: THE INCA EMPIRE, tag NO COINS · NO MARKETS
+- FX: trans=ink
+- SOUND: music bed
+- BUILD: NEW x_mv_andes (made for this topic in the 5 Nov style test, money-v2.js) k=1 (money-v2.js)
+
+### S22 · 3:02 · SECTION 3
+- VO: Families owed the state their work, in turns called mit'a. The harvest went into stone storehouses along the roads, and was handed out as needed.
+- LINK: down from the ridges to a village with its storehouse
+- PICTURE: SUBJECT a village with a storehouse, sacks and a cart / BACKGROUND a studio village diorama / FOREGROUND a sack near the lens / LIFE the camera cranes, labels pin, told like a legend
+- ACTION: none (buildings and sacks)
+- SHOT: WS low crane 3D
+- CAMERA: low crane up over the storehouse
+- LOOK: golden afternoon, ochre and green, old-world, storehouse centred
+- TIMELINE: 0 the village, crane starts · 3 label MIT'A: WORK pins to the field · 6 label STOREHOUSE pins · 9 crane tops out · 12 the sacks glint
+- TEXT: pins MIT'A: WORK, STOREHOUSE
+- FX: trans=fade
+- SOUND: music bed, the old storyteller voice
+- BUILD: act=s3 set=stage dress=village models building/mill, building/stable, medieval/sack, building/cart
+
+### S23 · 3:14 · SECTION 3
+- VO: Records were kept on knotted cords called khipu. Knots, not coins, tracked who owed what.
+- LINK: from the storehouse to its record: the cords
+- PICTURE: SUBJECT a khipu: a main cord with hanging coloured cords and knots / BACKGROUND a library with shelves / FOREGROUND a blurred candle / LIFE cords sway, knots appear one by one
+- ACTION: none (object)
+- SHOT: ECU eye tilt 2D
+- CAMERA: slow tilt down the cords
+- LOOK: warm library light, wool colours, close and tactile
+- TIMELINE: 0 the main cord · 2 cords drop down · 4 knots tie one by one · 6 label KHIPU · 8 tilt ends
+- TEXT: KHIPU
+- FX: trans=fold
+- SOUND: music bed
+- BUILD: NEW x_mv_khipu — library place behind, a khipu drawn in code (cords and knots), knots appear
+
+### S24 · 3:22 · SECTION 3
+- VO: It worked, for a long time and at a huge scale. But nothing was free. The state decided what you made, and what you received.
+- LINK: the cords' record becomes the cycle it recorded
+- PICTURE: SUBJECT a cycle: work → harvest → storehouse → family / BACKGROUND a village / FOREGROUND blurred field / LIFE arrows draw between steps
+- ACTION: none (diagram)
+- SHOT: WS eye trackR 2D
+- CAMERA: slow truck right along the chain
+- LOOK: village daylight, warm earth, orderly, chain across the middle
+- TIMELINE: 0 YOUR WORK · 2 THE HARVEST · 4 THE STORE · 6 YOUR SHARE · 8 title THE STATE DECIDES
+- TEXT: THE STATE DECIDES
+- FX: trans=cut
+- SOUND: music bed
+- BUILD: ex_flow e="hammer and pick|ear of corn|house|family" place=village
+
+### S25 · 3:30 · SECTION 3
+- VO: A sharper case comes from the Second World War. In prisoner-of-war camps, nobody had money at all.
+- LINK: from a village to another closed world: the camp
+- PICTURE: SUBJECT a camp at dusk, barracks, a fence, a crate / BACKGROUND dusk sky / FOREGROUND the fence wire / LIFE chimney smoke, a jar and cigarettes swap on the crate
+- ACTION: none (objects trade places)
+- SHOT: WS eye push 2D
+- CAMERA: slow push to the crate
+- LOOK: dusk, purple and amber, cold, the crate in the lower third
+- TIMELINE: 0 the camp at dusk · 2 smoke rises · 4 the jar slides across · 6 the cigarettes slide back · 8 dotted swap arrows
 - TEXT: none
 - FX: trans=fade
-- SOUND: music up, birds
-- BUILD: reuse x_md_bakery v=open (callback to S03)
+- SOUND: music bed
+- BUILD: NEW x_mv_camp (made for this topic in the 5 Nov style test, money-v2.js) k=1 (money-v2.js)
 
-### S39 · 6:30 · PAYOFF · THE ANSWER
-- VO: So, what if money disappeared? Our best guess: for one morning, everything is free. Within a week, you pay in time. Within a month, a card decides. And within a year, people invent money again.
-- LINK: from the office out to the whole city at dusk, a year later
-- PICTURE: SUBJECT the city at dusk, the bakery corner lit / BACKGROUND sunset sky / FOREGROUND roofs / LIFE lights come on, traffic
-- ACTION: none (city wide); in the 2D cut Nora walks to her shop window
-- SHOT: EWS high orbit 3D | CU eye push 2D
-- CAMERA: orbit high over the city at dusk, then push to the bakery window
-- LOOK: dusk, warm windows, cool sky, resolved, horizon low
-- TIMELINE: 0 city at dusk · 2 OUR GUESS label · 3 ONE MORNING: FREE · 5 ONE WEEK: TIME · 7 ONE MONTH: A CARD · 9 ONE YEAR: MONEY AGAIN · 10.5 cut: bakery window · 12 Nora inside
-- TEXT: OUR GUESS · 4 small lines appear in sequence
-- FX: trans=zoomthru
-- SOUND: music warms
-- BUILD: reuse act=s3 set=city time=dusk; NEW x_md_bakery v=back
+### S26 · 3:39 · SECTION 3
+- VO: Red Cross parcels arrived with food, chocolate and cigarettes. And people began to trade.
+- LINK: into the crate: what was in the parcel
+- PICTURE: SUBJECT an open parcel crate with food tins, chocolate and a carton / BACKGROUND a studio back wall / FOREGROUND a sack / LIFE the camera drops in, labels pin
+- ACTION: none (objects)
+- SHOT: MCU high drop 3D
+- CAMERA: slow drop toward the open crate
+- LOOK: dim barrack light, wood and khaki, close, crate centred
+- TIMELINE: 0 the crate · 2 the camera drops · 4 label FOOD pins · 6 label CIGARETTES pins · 7.5 drop ends
+- TEXT: pins FOOD, CIGARETTES
+- FX: trans=zoom
+- SOUND: music bed
+- BUILD: act=s3 set=stage dress=treasure models props/crate_wooden, food/carton, food/bag, food/loaf
 
-### S40 · 6:43 · PAYOFF · CALLBACK
-- VO: Nora puts the little cards back on her shelves. The line outside is short again. Money was never the coins. It was the message: the way millions of strangers tell each other what they need.
-- LINK: callback to the hook: the same shelves, the same cards
-- PICTURE: SUBJECT Nora placing price cards back on the loaves / BACKGROUND the window with a short line / FOREGROUND bread basket / LIFE steam, a customer enters
-- ACTION: Nora stands at the shelves placing small cards on the loaves with her right hand, then turns to greet a customer
-- SHOT: MCU eye push 2D | WS eye push 2D | MS eye push 2D
-- CAMERA: push to her hand and the card, then a still wide of the shop
-- LOOK: morning, warm and bright, content, mirror of the hook framing
-- TIMELINE: 0 Nora places a card · 2 another card · 3.5 cut: the window, a short line · 5 a customer enters · 6.5 !THE MESSAGE appears · 8 Nora smiles and nods · 9.5 the street outside fills with ordinary traffic · 11 Nora waves to a customer · 12.5 the camera holds
-- TEXT: !IT WAS THE MESSAGE coral, top third
-- FX: trans=match (the shelf framing matches the hook)
-- SOUND: door bell, warm music
-- BUILD: NEW x_md_bakery v=back
+### S27 · 3:47 · SECTION 3
+- VO: Within weeks, cigarettes had become money. Prices were quoted in cigarettes, and they rose and fell with the supply.
+- LINK: the cigarettes from the crate go onto the price board
+- PICTURE: SUBJECT a camp notice board: jam, bread, soap priced in cigarettes / BACKGROUND barrack wall / FOREGROUND blurred bunk / LIFE prices change on the board
+- ACTION: none (board)
+- SHOT: CU dutch pan 2D
+- CAMERA: slow pan down the board
+- LOOK: dim wood, chalk-white notes, cold dusk, board centred
+- TIMELINE: 0 the board · 2 JAM = 6 · 4 BREAD = 4 · 6 SOAP = 2 · 8 prices tick up as supply runs low · 10 label PRICES IN CIGARETTES
+- TEXT: PRICES IN CIGARETTES
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: NEW x_mv_board — barrack place behind (built in code), a cork board with notes, prices in cigarettes changing
 
-### S41 · 6:52 · END
-- VO: That's the run. Next time: what if the dinosaurs had never died out?
-- LINK: the bakery window fades into the end card
-- PICTURE: SUBJECT the bakery at dusk, sign turned to OPEN / BACKGROUND the street / FOREGROUND the window frame / LIFE a bird lands on the awning
-- ACTION: none
-- SHOT: WS low pull 2D
-- CAMERA: slow pull back from the bakery
-- LOOK: dusk, golden window, warm close
-- TIMELINE: 0 the shopfront · 2 a bird lands · 4 end card
-- TEXT: end card (automatic)
+### S28 · 3:58 · SECTION 3
+- VO: One prisoner, an economist named Radford, wrote it down. Cigarettes rose from the status of a normal commodity to that of currency.
+- LINK: the board's writer and his words
+- PICTURE: SUBJECT the quotation, typed / BACKGROUND a library / FOREGROUND blurred book / LIFE the words type on
+- ACTION: none (quotation)
+- SHOT: MCU low push 2D
+- CAMERA: slow push to the words
+- LOOK: library lamp, cream paper, quiet, text centred
+- TIMELINE: 0 the first line types · 3 the second line · 6 the third line · 8 the name, Radford, 1945 · 10 push ends
+- TEXT: the quotation, R.A. Radford, 1945
 - FX: trans=fade
-- SOUND: music resolves
-- BUILD: NEW x_md_bakery v=front
+- SOUND: music bed, the second voice
+- BUILD: ex_quote q="rose from the status of|a normal commodity|to that of currency" by="R.A. Radford, 1945" place=library
+
+### S29 · 4:09 · SECTION 3
+- VO: Take money away from people, and they invent it again, often within weeks. History shows it over and over, with very different things.
+- LINK: from the camp back to a table of coins
+- PICTURE: SUBJECT coins piling up beside a chest / BACKGROUND a studio market back wall / FOREGROUND a lantern / LIFE the camera orbits low, labels pin
+- ACTION: none (objects)
+- SHOT: MS low orbit 3D
+- CAMERA: low orbit around the coins
+- LOOK: warm lamplight, gold and green, satisfied, coins centred
+- TIMELINE: 0 coins and chest · 2 orbit · 4 label INVENTED AGAIN pins · 6 the orbit passes the lantern · 8 orbit ends
+- TEXT: pin INVENTED AGAIN
+- FX: trans=zoom
+- SOUND: music bed
+- BUILD: act=s3 set=stage dress=market models props/coin_pile_2, pirate/chest, props/lantern_wall
+
+### S30 · 4:17 · SECTION 3
+- VO: Cattle, around nine thousand years before Christ. Cowrie shells in China. The first coins in Lydia, around 630 BCE. Paper money in China, in the 800s.
+- LINK: the coins on the table take their place in history
+- PICTURE: SUBJECT a timeline: cow, shell, coin, banknote / BACKGROUND a museum hall / FOREGROUND a blurred rope barrier / LIFE the camera moves to each date
+- ACTION: none (timeline)
+- SHOT: WS eye trackR 2D
+- CAMERA: truck right from date to date
+- LOOK: museum spot light, dark walls, gold labels, a walk through time
+- TIMELINE: 0 CATTLE 9000 BC · 3 COWRIES 1200 BC · 6 COINS 630 BC · 9 PAPER 800s AD · 11 title IT KEEPS COMING BACK
+- TEXT: IT KEEPS COMING BACK, dates
+- FX: trans=liquid
+- SOUND: music bed
+- BUILD: a montage of money through time: ex_timeline e="cow|spiral shell|coin|banknote" place=library
+
+### S31 · 4:31 · SECTION 4
+- VO: Now, what people say, and what is actually known.
+- LINK: from history to opinions: a chapter card
+- PICTURE: SUBJECT number 4 and two speech bubbles / BACKGROUND the dark card / FOREGROUND frame / LIFE bubbles pop
+- ACTION: none
+- SHOT: MS high static 2D
+- CAMERA: still
+- LOOK: dark green card, gold, breath
+- TIMELINE: 0 card, number 4 · 1.5 WHAT PEOPLE SAY · 3 breath
+- TEXT: 4 · WHAT PEOPLE SAY
+- FX: trans=fade
+- SOUND: music bed
+- BUILD: ex_chapter n=4 e="speech balloon"
+
+### S32 · 4:36 · SECTION 4
+- VO: A popular belief is that, without money, we'd simply go back to barter, swapping goods directly, like a giant market.
+- LINK: the speech bubbles become the crowd in a square
+- PICTURE: SUBJECT a busy square with people / BACKGROUND a civic building and steps / FOREGROUND the fountain rim / LIFE people walk, a label pins to the crowd
+- ACTION: people walk across the square; a group stands by the fountain talking
+- SHOT: WS high crane 3D+2D (pins)
+- CAMERA: slow crane down to the crowd
+- LOOK: bright midday, white stone, many colours, lively
+- TIMELINE: 0 the square from above · 2 crane down · 4 label BELIEF: BACK TO BARTER pins · 6 walkers cross · 8 crane ends
+- TEXT: pin BELIEF: BACK TO BARTER
+- FX: trans=zoom
+- SOUND: music bed
+- BUILD: act=s3 set=plaza do=talk n=30 on=crowd time=day pins=
+
+### S33 · 4:45 · SECTION 4
+- VO: But the anthropologist Caroline Humphrey wrote: No example of a barter economy, pure and simple, has ever been described.
+- LINK: the belief answered by the scholar's words
+- PICTURE: SUBJECT the quotation typed on paper / BACKGROUND a library / FOREGROUND blurred books / LIFE words type on
+- ACTION: none (quotation)
+- SHOT: CU low push 2D
+- CAMERA: slow push
+- LOOK: library lamp, cream, quiet, centred
+- TIMELINE: 0 the first line · 2.5 the second · 5 the third · 7 the name · 9 push ends
+- TEXT: the quotation, Caroline Humphrey, 1985
+- FX: trans=fade
+- SOUND: music bed, the second voice
+- BUILD: ex_quote q="No example of a|barter economy, pure and simple,|has ever been described." by="Caroline Humphrey, 1985" place=library
+
+### S34 · 4:55 · SECTION 4
+- VO: Barter does happen, mostly where money is scarce. But it lives alongside money, never instead of it.
+- LINK: from the words to the two things: a parcel and a coin
+- PICTURE: SUBJECT a package and a coin side by side with a plus sign / BACKGROUND a market / FOREGROUND awning / LIFE the plus pulses
+- ACTION: none (illustration)
+- SHOT: MS top push 2D
+- CAMERA: slow push
+- LOOK: market daylight, warm, balanced, two thirds
+- TIMELINE: 0 the package · 2 the coin · 3.5 the plus sign · 5.5 title ALONGSIDE, NOT INSTEAD · 7 push ends
+- TEXT: ALONGSIDE, NOT INSTEAD
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: ex_compare e="package|coin" l="BARTER|MONEY" sign=+ place=market
+
+### S35 · 5:03 · SECTION 4
+- VO: Another belief: if everything were free, nobody would bother to work. Here, the honest answer is more careful than either side likes.
+- LINK: from the market to an office full of workers
+- PICTURE: SUBJECT an office with people at desks / BACKGROUND windows / FOREGROUND a desk edge / LIFE people type, the camera trucks
+- ACTION: people sit on chairs at desks, typing on keyboards
+- SHOT: WS eye trackL 3D
+- CAMERA: slow truck left along the desks
+- LOOK: office daylight, cool grey and green, busy, desks in rows
+- TIMELINE: 0 the office · 2 truck starts · 4 label BELIEF: NOBODY WORKS pins to the room · 6 a worker stretches · 8 truck ends
+- TEXT: pin BELIEF: NOBODY WORKS
+- FX: trans=cut
+- SOUND: music bed
+- BUILD: act=s3 set=office on=room pins=
+
+### S36 · 5:12 · SECTION 4
+- VO: The closest tests gave people money, rather than removing it. In Finland, two thousand unemployed people got 560 euros a month for two years.
+- LINK: from the office to the people in the trial
+- PICTURE: SUBJECT the number 2,000 shown as a grid of people / BACKGROUND an office / FOREGROUND blurred papers / LIFE the grid fills
+- ACTION: none (statistic)
+- SHOT: MS high push 2D
+- CAMERA: slow push to the number
+- LOOK: Nordic daylight, pale blue and white, factual, number on top
+- TIMELINE: 0 the number counts up · 3 the grid fills · 6 label 560 € A MONTH · 9 title FINLAND, 2017–2018 · 11 push ends
+- TEXT: FINLAND, 2017–2018
+- FX: trans=cube
+- SOUND: music bed
+- BUILD: ex_stat v=2000 unit=people in Finland's trial e="bust in silhouette" place=office
+
+### S37 · 5:23 · SECTION 4
+- VO: Their employment ended up about the same as the comparison group's, and they reported less stress. In Kenya, a long study found no real drop in work.
+- LINK: from Finland on the map to Kenya
+- PICTURE: SUBJECT a world map with pins on Finland, Kenya and the United States / BACKGROUND the map ocean / FOREGROUND labels / LIFE pins drop one by one, arcs draw
+- ACTION: none (map)
+- SHOT: WS top push 2D
+- CAMERA: top-down push from Finland to Kenya
+- LOOK: soft blue map, cream land, gold pins, calm
+- TIMELINE: 0 the map · 2 pin FINLAND · 4 label SAME WORK, LESS STRESS · 7 pin KENYA · 9 label NO REAL DROP · 11 push ends
+- TEXT: FINLAND · KENYA labels
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: world act=map with pins
+
+### S38 · 5:35 · SECTION 4
+- VO: In one American study, people worked one to two hours less a week. So it depends, and nobody has ever tested a world with no money at all.
+- LINK: from the map to a whole city: the untested case
+- PICTURE: SUBJECT a city at dusk, wide / BACKGROUND sky / FOREGROUND rooftops / LIFE traffic, the camera pushes, a label pins
+- ACTION: none (city wide, cars driving)
+- SHOT: EWS eye push 3D+2D (pins)
+- CAMERA: slow push toward the centre
+- LOOK: dusk, violet sky, amber streets, thoughtful
+- TIMELINE: 0 the city at dusk · 2 label US: 1–2 H LESS pins · 5 traffic flows · 8 label NEVER TESTED pins to the centre · 11 push ends
+- TEXT: pins US: 1–2 H LESS, NEVER TESTED
+- FX: trans=zoom
+- SOUND: music bed
+- BUILD: act=s3 set=city time=dusk on=park pins=
+
+### S39 · 5:47 · SECTION 5
+- VO: Which leaves one question. What is money, really?
+- LINK: the dusk city leads to the last chapter card
+- PICTURE: SUBJECT number 5 and a handshake / BACKGROUND dark card / FOREGROUND frame / LIFE the hands meet
+- ACTION: none
+- SHOT: MCU low static 2D
+- CAMERA: still
+- LOOK: dark green card, gold, breath
+- TIMELINE: 0 card, number 5 · 1.5 WHAT MONEY REALLY IS · 3 breath
+- TEXT: 5 · WHAT MONEY REALLY IS
+- FX: trans=fade
+- SOUND: music bed
+- BUILD: ex_chapter n=5 e="handshake"
+
+### S40 · 5:54 · SECTION 5
+- VO: Today, most money isn't paper at all. In Britain, about ninety-seven percent of it is deposits in banks: numbers, moving between computers.
+- LINK: from the card out to the whole planet at night
+- PICTURE: SUBJECT the Earth at night with arcs of light between cities / BACKGROUND space / FOREGROUND none / LIFE arcs draw, the globe spins
+- ACTION: none (globe)
+- SHOT: EWS low push 2D
+- CAMERA: slow push to the globe
+- LOOK: night space, blue planet, gold arcs, vast and calm
+- TIMELINE: 0 the globe at night · 2 arcs begin · 4 label MOSTLY NUMBERS · 7 more arcs · 10 push ends
+- TEXT: ~MOSTLY NUMBERS
+- FX: trans=zoomthru
+- SOUND: music bed
+- BUILD: world act=globe view=night arcs
+
+### S41 · 6:05 · SECTION 5
+- VO: Those numbers work for one reason. Everyone agrees to accept them: your employer, your shop, your landlord, and you.
+- LINK: from the arcs into one bank balance on a screen
+- PICTURE: SUBJECT a phone with a bank balance, digits rolling / BACKGROUND an office desk / FOREGROUND a blurred mug / LIFE digits roll, a tick appears: ACCEPTED
+- ACTION: none (object)
+- SHOT: CU eye push 2D
+- CAMERA: slow push to the digits
+- LOOK: office light, phone glow, green on white, close and calm
+- TIMELINE: 0 the phone, balance 1,250.00 · 2 digits roll · 4 a payment goes out · 5.5 ACCEPTED tick · 7 push ends
+- TEXT: ACCEPTED
+- FX: trans=iris
+- SOUND: music bed
+- BUILD: NEW x_mv_digits — office place behind, a phone with a balance; digits roll, a payment line, a tick
+
+### S42 · 6:12 · SECTION 5
+- VO: A banknote is paper. An account is a number. What's real is the trust behind them, a promise millions of strangers keep.
+- LINK: from one phone to millions of people
+- PICTURE: SUBJECT a crowd in a square at dusk / BACKGROUND civic building / FOREGROUND fountain / LIFE people cheer, a label pins
+- ACTION: people stand in the square raising their arms
+- SHOT: WS low crane 3D
+- CAMERA: low crane up over the crowd
+- LOOK: dusk, warm lamps, blue sky, together
+- TIMELINE: 0 the crowd · 2 crane starts · 4 label A SHARED PROMISE pins · 7 arms rise · 10 crane ends
+- TEXT: pin A SHARED PROMISE
+- FX: trans=fade
+- SOUND: music bed
+- BUILD: act=s3 set=plaza do=cheer n=40 on=crowd time=dusk pins=
+
+### S43 · 6:22 · CONCLUSION RECAP
+- VO: So, what would happen? Without prices, queues and rules would decide who gets what. People would rebuild money, fast. And the cost of things would not vanish. It would just move.
+- LINK: the crowd's promise gathered into the three ideas
+- PICTURE: SUBJECT a numbered list of three ideas / BACKGROUND a classroom / FOREGROUND blurred desk / LIFE points appear
+- ACTION: none (list)
+- SHOT: MS high push 2D
+- CAMERA: slow push down the list
+- LOOK: classroom daylight, green board, clear, list centred
+- TIMELINE: 0 title SO, WHAT HAPPENS? · 2 point 1 · 5 point 2 · 8 point 3 · 11 push ends
+- TEXT: SO, WHAT HAPPENS?
+- FX: trans=slide
+- SOUND: music bed
+- BUILD: ex_list n=1 e="ticket|coin|balance scale" place=classroom
+
+### S44 · 6:36 · CONCLUSION ANSWER
+- VO: If money disappeared, things wouldn't become free. They would just lose their price tags. Someone, or something, would still decide who gets what.
+- LINK: the list closes on the one answer
+- PICTURE: SUBJECT a balance scale, labelled WHO DECIDES / BACKGROUND a bank hall / FOREGROUND counter / LIFE the scale tips, settles
+- ACTION: none
+- SHOT: CU low push 2D
+- CAMERA: low slow push
+- LOOK: bank hall, marble, gold, settled
+- TIMELINE: 0 the scale · 2 it tips · 4 label NOT FREE · 6 it settles · 8 push ends
+- TEXT: NOT FREE
+- FX: trans=fade
+- SOUND: music bed
+- BUILD: ex_show e="balance scale" place=bank do=pulse
+
+### S45 · 6:45 · CONCLUSION
+- VO: Money was never the coins. It's an agreement between millions of strangers. And that is much harder to make disappear.
+- LINK: callback to the opening city, now at dawn: the same city, still standing
+- PICTURE: SUBJECT the city at dawn, lights coming on / BACKGROUND pink sky / FOREGROUND rooftops / LIFE traffic, windows light up
+- ACTION: none (city wide, cars driving)
+- SHOT: EWS high orbit 3D+2D (pins)
+- CAMERA: slow orbit, the reverse of the opening
+- LOOK: dawn, pink and gold, hopeful, horizon in the upper third
+- TIMELINE: 0 the city at dawn · 2 windows light · 4 label AN AGREEMENT pins · 7 traffic flows · 10 the orbit slows into the end card
+- TEXT: pin AN AGREEMENT
+- FX: trans=match
+- SOUND: music bed rises gently, end card
+- BUILD: act=s3 set=city time=dawn on=center pins=
