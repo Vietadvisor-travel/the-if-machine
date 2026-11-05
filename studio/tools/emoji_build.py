@@ -140,6 +140,21 @@ def main():
         key = code.replace('-FE0F', '')
         data[key] = out
         if nm not in names or len(key) < len(names[nm]): names[nm] = key
+    # Microsoft Fluent Emoji — Flat (MIT; Muse wave 2, 5 Nov 2026): flat colour, no outlines — closest to the house style, so it WINS
+    # over OpenMoji for every name it has (OpenMoji stays as the fallback). Names from the file names ('custard_flat.svg' → 'custard').
+    FL = next((d for d in [os.path.join(ROOT, 'icons_raw/fluent_flat/flat'), os.path.expanduser('~/.cache/ifm-new/fluent_flat/flat')] if os.path.isdir(d)), None); nfl = 0
+    if FL:
+        for fn in sorted(os.listdir(FL)):
+            if not fn.endswith('.svg'): continue
+            nm = re.sub(r'_flat$', '', fn[:-4]).replace('_', ' ').strip().lower()
+            try: root = ET.parse(os.path.join(FL, fn)).getroot()
+            except ET.ParseError: continue
+            vb = [float(x) for x in NUM.findall(root.attrib.get('viewBox', '0 0 32 32'))] or [0, 0, 32, 32]; k = 72 / max(vb[2], vb[3])
+            out = []; walk(root, {}, [k, 0, 0, k, -vb[0] * k, -vb[1] * k], out)
+            out = [r for r in out if not (r[1] or '').startswith('url') and r[1] != 'none']
+            if not out: continue
+            key = 'F_' + re.sub(r'[^a-z0-9]+', '_', nm); data[key] = out; names[nm] = key; nfl += 1
+        print(f'fluent flat: {nfl} glyphs (preferred over OpenMoji)')
     for a, b in ALIAS.items():
         if a not in names and b in names: names[a] = names[b]
     js = ('/* OpenMoji illustrations (CC BY-SA 4.0, https://openmoji.org) converted by tools/emoji_build.py — do not edit by hand. */\n'

@@ -1,5 +1,17 @@
 # Motion Studio — changelog
 
+## 2026-11-05 · Muse wave 2 integrated: Fluent Flat illustrations, real low-poly 3D models
+- **Fluent Emoji Flat** (MIT, 1,291 glyphs; flat colour, no outlines) built into `emoji_data.js` by `tools/emoji_build.py` and preferred
+  over OpenMoji for every name it covers (OpenMoji is the fallback); not re-toned (already a calm flat palette), still gets the house
+  gradient/facet/rim light.
+- **3D models**: `tools/model_build.py` bakes glTF/GLB (node transforms into vertices, palette textures into vertex colours, int16/uint8/
+  uint16 quantised) → `engine/library/models_data.js` (463 Kenney CC0 models, 3.9 MB: food, cars, roads, pirate, survival). Runtime
+  `IFM.model(name)`, `models=` on any 3D set, new `set=stage` studio diorama (objects framed by their own size, aimed so they sit above
+  the captions in 9:16). Tested on stories/test-models.story (stage with food, stage with a chest, taxi and police car in the street set).
+- Not usable yet (reported to the owner): KayKit ×6 and Quaternius nature/props are missing their texture PNGs; Quaternius buildings/
+  food/characters/spaceships came as FBX (glTF needed).
+- stock_sync.sh unpacks the wave-2 zips (only needed to rebuild the data files, which are committed).
+
 ## 2026-11-05 · illustrations re-drawn in the house style (owner: "the emoji break the style")
 - `IFM.emoji` now renders OpenMoji in the BRAND §4 look by default: colours pulled into a calmer palette (saturation ≤ .66, light
   .2–.8, a slight pull toward the theme accent), the black sticker outline replaced by a thin soft line (45 % width, 55 % alpha, deep

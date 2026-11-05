@@ -18,6 +18,11 @@ icon "$(dir phosphor /regular)" phosphor; icon "$(dir phosphor /fill)" phosphorf
 [ -f engine/library/ifm_icons_remix.js ] || python3 tools/icons.py $X/remix/icons remix --recursive >/dev/null 2>&1; icon "$(find $X/bootstrap -name '*.svg' -printf '%h\n' | sort | uniq -c | sort -rn | head -1 | awk '{print $2}')" bootstrap
 icon "$(dir extra /24/outline)" heroicons; icon "$(dir extra /feather)" feather; icon "$(dir illus /aiga)" aiga
 [ "$IFM_MATERIAL" = 1 ] && icon "$(find $X/material -name '*.svg' -printf '%h\n' | sort | uniq -c | sort -rn | head -1 | awk '{print $2}')" material
+# wave 2 (5 Nov 2026): Fluent Flat illustrations (rebuild with tools/emoji_build.py) and the 3D model packs (rebuild with tools/model_build.py);
+# the built engine/library/emoji_data.js and models_data.js are committed, so this is only needed to rebuild them
+[ -f $A/ifm_assets_fluent_flat.zip ] && [ ! -d $X/fluent_flat ] && unzip -qo $A/ifm_assets_fluent_flat.zip -d $X/fluent_flat
+for z in $A/ifm_assets_kaykit_*.zip $A/ifm_assets_kenney_*3d.zip $A/ifm_assets_quaternius_*.zip; do [ -f "$z" ] || continue; n=$(basename $z .zip); n=${n#ifm_assets_}; [ -d $X/models/$n ] || { mkdir -p $X/models/$n; unzip -qo $z -d $X/models/$n; }; done
+[ -f $A/ifm_assets_textures2.zip ] && [ ! -f textures/.wave2 ] && unzip -qjo $A/ifm_assets_textures2.zip -d textures && touch textures/.wave2
 [ -f $A/ifm_assets_textures.zip ] && [ -z "$(ls textures)" ] && unzip -qjo $A/ifm_assets_textures.zip -d textures
 [ -f $A/ifm_assets_fonts.zip ] && [ -z "$(ls fonts_stock)" ] && unzip -qo $A/ifm_assets_fonts.zip -d fonts_stock
 [ -f $A/ifm_assets_natural_earth.zip ] && [ -z "$(ls geo_stock)" ] && unzip -qo $A/ifm_assets_natural_earth.zip -d geo_stock

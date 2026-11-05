@@ -65,6 +65,8 @@ Token rules are at the end.
   | home | her phone room window | `do=sit` (default on the phone) |
   | waiting | screen queue chairs counter | `screen="TOP|BIG"`, `empty=1` |
   | servers | aisle rack tech | — |
+  | stage | item wide | a studio diorama for real low-poly models: `models="food/loaf@0,0,20,h1|…"`, `floor=` `back=` (MODELS.md) |
+  Any set also takes `models="name@x,z,rot,scale|…"` (cars in the street, props in a room).
   Change set inside a beat with `then="act=s3 set=… cam=…@k"`.
 - **2D and 3D combined (owner, 4 Nov 2026 — never all 3D):** 25–55 % of cuts in 3D; never 4 cuts in a row in one medium;
   hybrid shots about every 2 minutes:

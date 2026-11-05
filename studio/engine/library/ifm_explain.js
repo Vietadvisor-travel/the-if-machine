@@ -36,7 +36,7 @@
     if (tint) { const [th, ts] = toHsl(HEX(tint)); const dh = ((th - h + 1.5) % 1) - .5; h = (h + dh * .08 + 1) % 1; s = s * .9 + ts * .06; } return (TONE[k] = fromHsl([h, s, l])); };
   function paint(g, key, s, o = {}) { const raw = o.style === 'raw', tint = o.tint || '', lineCol = o.lineCol || (raw ? '#1E2233' : '#2A2E4A'), lwK = o.lw ?? (raw ? .9 : .45); g.save(); g.scale(s / 72, s / 72); g.lineCap = 'round'; g.lineJoin = 'round';
     for (const r of paths(key)) { g.save(); if (r.x.m) g.transform(...r.x.m); if (r.x.o) g.globalAlpha *= +r.x.o;
-      if (r.fill) { g.fillStyle = raw || !/^#/.test(r.fill) ? r.fill : tone(r.fill, tint); g.fill(r.p, r.x.e ? 'evenodd' : 'nonzero'); }
+      if (r.fill) { g.fillStyle = raw || key.startsWith('F_') || !/^#/.test(r.fill) ? r.fill : tone(r.fill, tint);   /* Fluent Flat is already in a calm flat palette */ g.fill(r.p, r.x.e ? 'evenodd' : 'nonzero'); }
       if (r.stroke && o.line !== false) { const blk = /^#0{3}(0{3})?$/.test(r.stroke); g.strokeStyle = blk ? lineCol : (raw ? r.stroke : tone(r.stroke, tint)); if (blk && !raw) g.globalAlpha *= .55; g.lineWidth = r.sw * (blk ? lwK : 1); g.stroke(r.p); }
       g.restore(); } g.restore();
     if (raw) return; g.save(); g.globalCompositeOperation = 'source-atop';

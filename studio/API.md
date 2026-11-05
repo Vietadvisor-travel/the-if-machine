@@ -58,6 +58,11 @@ Every timing is `lt` = seconds inside the beat. `c[k] = [start, end, text]` hold
 - `IFM.emoji(name, cx, cy, size, {ground, rot, flip, alpha, sx, line})` — an OpenMoji illustration centred at (cx, cy); names in `EMOJI.md`
   ('bread', 'cow', 'coin', 'money bag', 'bank', 'flag kenya', …); `IFM.emojiFind('word')`. Credit: OpenMoji, CC BY-SA 4.0.
 - Kit acts for 2D beats: `ex_show ex_compare ex_flow ex_list ex_stat ex_chapter ex_quote ex_timeline` (`references/explainer-kit.md`).
+- Illustrations come from Microsoft Fluent Emoji **Flat** first (flat, no outlines — the house look), OpenMoji as fallback; both are
+  re-toned to the house palette by `IFM.emoji`.
+- **3D models (CC0, `MODELS.md`):** `IFM.model('food/bread')` → a THREE.Group (flat-shaded vertex colours). In any 3D set:
+  `models="name@x,z,rot,scale|…"` (scale `h1.2` = height in metres). `set=stage` = a studio diorama for objects (subjects `item`, `wide`;
+  `floor=` `back=` colours), e.g. `act=s3 set=stage models="food/loaf@0,0,20,h1|car/taxi@2,0,-30,h.8" cam=WS.high.orbit on=wide`.
 - Sound: a beat asks for a one-shot with `sfx=name@k`; acts make no sound by themselves (minimal sound).
 
 ## Bank and acts
