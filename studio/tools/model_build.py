@@ -46,7 +46,10 @@ def image(g, bufs, d, ti):
     if 'bufferView' in im: bv = g['bufferViews'][im['bufferView']]; data = bufs[bv.get('buffer', 0)][bv.get('byteOffset', 0): bv.get('byteOffset', 0) + bv['byteLength']]
     else:
         u = im.get('uri', ''); data = base64.b64decode(u.split(',', 1)[1]) if u.startswith('data:') else (open(os.path.join(d, u), 'rb').read() if os.path.exists(os.path.join(d, u)) else None)
-    return np.asarray(Image.open(io.BytesIO(data)).convert('RGB')) if data else None
+    if not data: return None
+    im = np.asarray(Image.open(io.BytesIO(data)).convert('RGBA')).astype(np.float32); rgb, al = im[..., :3], im[..., 3]
+    if (al < 128).any() and (al >= 128).any(): rgb[al < 128] = rgb[al >= 128].mean(0)   # leaf cards etc.: transparent texels take the mean opaque colour (not black)
+    return rgb.astype(np.uint8)
 
 def trs(n):
     if 'matrix' in n: return np.array(n['matrix'], np.float64).reshape(4, 4).T

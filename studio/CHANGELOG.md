@@ -1,5 +1,13 @@
 # Motion Studio — changelog
 
+## 2026-11-05 · Muse wave 2 fix: all 17 model packs (1,337 low-poly CC0 models)
+- Muse re-packed KayKit ×6 and Quaternius ×6 with textures (buildings/food converted FBX→GLB). `tools/model_build.py` now bakes all 17
+  packs: 1,337 models, `models_data.js` 25 MB (+≈ 3 s page load per render job, measured). Transparent texels (leaf cards) take the mean
+  opaque colour instead of black.
+- `set=stage` sized from its models: plinth radius from their spread, objects framed by their own height, a closed dome backdrop (no sky,
+  no wall edge), lit as an interior. Tested on stories/test-models2.story (city block, village market, characters, space base, trees).
+- Known limit: rigged characters (KayKit adventurers, Quaternius characters) show their bind pose (T-pose); no animation playback yet.
+
 ## 2026-11-05 · Muse wave 2 integrated: Fluent Flat illustrations, real low-poly 3D models
 - **Fluent Emoji Flat** (MIT, 1,291 glyphs; flat colour, no outlines) built into `emoji_data.js` by `tools/emoji_build.py` and preferred
   over OpenMoji for every name it covers (OpenMoji is the fallback); not re-toned (already a calm flat palette), still gets the house
