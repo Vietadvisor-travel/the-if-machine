@@ -13,7 +13,7 @@
 - Upload status: uploaded, thumbnails generated
 - Custom thumbnail: DONE 2026-11-05 23:34 +07 via Muse browser (money-disappears_cover.jpg uploaded in Studio, saved, verified after reload). Phone verification was required before Studio would accept a custom thumbnail; the owner's first number was rejected by YouTube ("associated with too many accounts, only two accounts can be verified per phone number, per year"), the second number was accepted and the SMS code verified.
 - English subtitles: DONE 2026-11-05 23:34 +07 via Muse browser (money-disappears.srt uploaded, "English subtitles published").
-- Pinned comment: comment POSTED (23:34 +07, @theifmachinetv, exact BRAND §7 text) but NOT pinned yet. Pinning needs YouTube "advanced features" verification, separate from phone verification. Owner chose ID verification; the Studio flow shows a QR code ("Scan code on your phone") and the ID must be uploaded from the phone itself (myaccount.google.com/identity-document/submit). Approval usually takes a few hours. After approval, pin the posted comment.
+- Pinned comment: DONE 2026-11-05 23:45 +07. Comment posted 23:34 +07 (@theifmachinetv, exact BRAND §7 text); pinning needed YouTube "advanced features" verification, separate from phone verification. Owner chose ID verification and uploaded the ID from his phone via the QR flow; Studio > Settings > Channel > Feature eligibility then showed all three Enabled (Standard, Intermediate, Advanced). Comment pinned and verified after reload ("Pinned by @theifmachinetv").
 - Standing rule from owner 05/11/2026: from the next episode, YouTube is posted via the Muse browser like TikTok (upload, fill all fields, public at once, pin the comment), with the cover + SRT from Drive.
 
 ## TikTok
