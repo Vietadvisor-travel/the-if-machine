@@ -388,3 +388,14 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 - script_check: the first shot needs ≥ 3 punch lines; the last shot must be an OUTRO that names the next episode. variety: warns
   when the first beat is not ex_cold, errors when the last beat is not ex_outro.
 - Tested on the money story (S01 → ex_cold, S45 → ex_outro); the episode is NOT re-rendered (owner: engine only).
+
+## 5 Nov 2026 night — premium v7: brand-film transitions and type (owner: "learn from ElevenLabs' videos; bring home good repos/skills")
+- Imported gl-transitions@3.0.0 (MIT, 186 GLSL shaders + an Agent Skill): 42 calm ones curated (`tools/gl_import.mjs` →
+  `engine/library/gl_trans_data.js`), rendered by `engine/library/gl_transitions.js` (one WebGL canvas, half-size, eased): `trans=gl<Name>`,
+  `tdur=`, `tp=`. Excluded: flashes, glitches, TV noise, colour splits, light blow-outs, fast whips, black-floor 3D (Doorway, Swap).
+- Pre-roll (engine/timeline.js `_lead`): the incoming scene starts up to .95 s early in the premium look — no empty reveals.
+- Headlines: blur-to-sharp mask reveal; `X.orbs` soft colour fields (cold open, chapters, outro).
+- Project skills: `.claude/skills/gl-transitions` (vendor skill + our usage note) and `.claude/skills/ifm-motion` (house standard).
+  `references/transitions.md`: the curated list with "use it for". Test: `stories/test-gl.story` (CrossWarp, InkBleed, Doorway→dropped,
+  BokehDissolve): render cost max 708 ms.
+- Not adopted: Remotion and its Agent Skills (React-based renderer; adopting it would replace the canvas engine).

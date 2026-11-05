@@ -18,11 +18,11 @@
   const cleanLine = ln => { if (!/^#\s*vis\b/.test(ln)) return ln; return ln
     .replace(/\bdir="([^"]*)"/, (m, d) => 'dir="' + cleanDir(d) + '"')
     .replace(/\bcam=(whip|dutch|snap)\b/g, (m, c) => 'cam=' + (c === 'dutch' ? 'float' : 'push'))
-    .replace(/\btrans=(\w+)/, (m, t) => CALM_TR.includes(t) ? m : ''); };
+    .replace(/\btrans=(\w+)/, (m, t) => (CALM_TR.includes(t) || /^gl[A-Z]/.test(t)) ? m : ''); };
   const compile = SB.compile;
   SB.compile = (text, opts) => { const calm = !/^calm\s*:\s*off\b/m.test(String(text)); IFM.calm = calm; IFM.soundFull = /^sound\s*:\s*full\b/m.test(String(text)); const src = calm ? String(text).split('\n').map(cleanLine).join('\n') : text; const ep = compile(src, opts); // pass options through (collect: 1 gathers the voice lines)
     if (calm && ep) { ep.look = { ...(ep.look || {}) }; if (!ep.look.grade || ep.look.grade === 'warm') ep.look.grade = 'calm'; ep.look.smear = false; }
-    if (calm && ep && ep.scenes) ep.scenes.forEach((s, i) => { if (!s.transition) return; const t = s.transition.type; if (!CALM_TR.includes(t)) { const prev = i > 0 && ep.scenes[i - 1].transition ? ep.scenes[i - 1].transition.type : ''; let k = (i * 5) % SMOOTH.length; if (SMOOTH[k] === prev) k = (k + 1) % SMOOTH.length; s.transition = { ...s.transition, type: i === ep.scenes.length - 1 ? 'fade' : SMOOTH[k], dur: Math.max(.6, s.transition.dur || .6) }; } if (s.shakes) s.shakes = []; });
+    if (calm && ep && ep.scenes) ep.scenes.forEach((s, i) => { if (!s.transition) return; const t = s.transition.type; if (!(CALM_TR.includes(t) || /^gl[A-Z]/.test(t))) { const prev = i > 0 && ep.scenes[i - 1].transition ? ep.scenes[i - 1].transition.type : ''; let k = (i * 5) % SMOOTH.length; if (SMOOTH[k] === prev) k = (k + 1) % SMOOTH.length; s.transition = { ...s.transition, type: i === ep.scenes.length - 1 ? 'fade' : SMOOTH[k], dur: Math.max(.6, s.transition.dur || .6) }; } if (s.shakes) s.shakes = []; });
       ep.finish = { ...(ep.finish || {}), grain: false };
     return ep; };
   // the calm grade: no bloom haze, a touch of warmth and contrast so colours stay clean

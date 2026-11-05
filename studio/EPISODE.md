@@ -20,6 +20,14 @@ Token rules are at the end.
 - **Bespoke scenes** for the ideas that matter, built from PX parts (examples: engine/library/bank/money-v5.js — x_px_hook city,
   x_px_barter, x_px_signal, x_px_queue, x_px_parcel, x_px_reborn, x_px_stat, x_px_promise). `look: classic` turns it off.
 
+## 000000. Transitions and type like a premium brand film (owner, 5 Nov 2026 night: "ElevenLabs videos — very premium transitions")
+- **42 GL shader transitions** (gl-transitions.com, MIT) built in: `trans=gl<Name>` (`glCrossWarp`, `glInkBleed`, `glBokehDissolve`,
+  `glFold`, `glGridFlip`, `glCircleOpen` …), eased, rendered at half size (cost < 800 ms a frame). Pick by MEANING from
+  `references/transitions.md`; the project skills `.claude/skills/ifm-motion` and `.claude/skills/gl-transitions` explain how.
+- **Pre-roll**: in the premium look the incoming scene's clock starts up to .95 s early, so a transition never reveals an empty frame.
+- **Headlines come into focus**: each line rises through a mask from a soft blur to sharp while its tracking closes in
+  (`reveal: 'mask'` keeps the plain rise). **Orbs**: `X.orbs(lt, colours, a)` soft colour fields behind dark cards.
+
 ## 00000. Hook, ending and finish (owner, 5 Nov 2026 night: "7/10 — the hook needs punch, the ending feels cut, the frame drifts and shows the background")
 - **Cold open first** (`ex_cold`): 3–4 punch lines of ≤ 6 words, one per caption, with `…` before the last for a held beat
   ("Every coin. / Every banknote. / Every number in every bank account. / … Gone."); one drawn thing slams in per line

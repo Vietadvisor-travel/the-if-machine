@@ -119,6 +119,9 @@ function blurred(body, px) {
   bc.setTransform(1, 0, 0, 1, 0, 0); bc.clearRect(0, 0, w, h); bc.filter = `blur(${(px * q).toFixed(2)}px)`; bc.drawImage(a, 0, 0); bc.filter = 'none';
   ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = alpha; ctx.imageSmoothingQuality = 'high'; ctx.drawImage(b, 0, 0, W, H); ctx.restore();
 }
+// pre-roll (owner, 5 Nov 2026, the ElevenLabs lesson): the incoming scene is already alive when the transition reveals it — its
+// clock starts half a transition early (premium look only), so nothing is revealed empty
+function _lead(k) { if (!(window.IFM && IFM.premium) || k <= 0) return 0; const tr = EP.scenes[k] && EP.scenes[k].transition; if (!tr || tr.type === 'cut') return 0; return Math.min(.95, (tr.dur ?? .5) / 2 + .5); }
 function drawSceneContent(S0, lt) {
   const S = vmerge(S0); S._lt = lt; LW = 6;
   if (S.render) { LINT.tag = 'world'; S.render(lt, S); if (S.fg && typeof drawFg === 'function') drawFg(S.fg, lt, { x: .5, y: .5, z: 1 + lt * .01, rot: 0 }, S, null); LINT.tag = 'text'; if (S.post) S.post(lt, S); return; }
@@ -166,12 +169,12 @@ function renderEpisode(t) {
     const tr = vmerge(EP.scenes[j].transition || { type: 'cut', dur: 0 }); const d = tr.dur ?? .5; const at = _starts[j];
     if (tr.type !== 'cut' && d > 0 && t >= at - d / 2 && t < at + d / 2) {
       const p = (t - (at - d / 2)) / d;
-      for (const [k, b] of [[j - 1, _buf[0]], [j, _buf[1]]]) { ctx = b; ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H); drawSceneContent(EP.scenes[k], Math.max(0, t - _starts[k])); ctx.restore(); }
+      for (const [k, b] of [[j - 1, _buf[0]], [j, _buf[1]]]) { ctx = b; ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H); drawSceneContent(EP.scenes[k], Math.max(0, t - _starts[k] + _lead(k))); ctx.restore(); }
       ctx = main; (FX[tr.type] || FX.fade)(_buf[0].canvas, _buf[1].canvas, p, t, tr.center ? [tr.center[0] * W, tr.center[1] * H] : undefined, tr); done = true; break;
     }
   }
   ctx = main;
-  if (!done) { ctx.save(); drawSceneContent(EP.scenes[i], t - _starts[i]); ctx.restore(); }
+  if (!done) { ctx.save(); drawSceneContent(EP.scenes[i], t - _starts[i] + _lead(i)); ctx.restore(); }
   ctx.restore();
   let posted = false; { const S = vmerge(EP.scenes[i]); const g = (S.look && S.look.grade) || S.grade || LOOK.grade; posted = postFrame(g, t); if (!posted) applyGrade(g);
     const as = S.artstyle !== undefined ? S.artstyle : (EP.look && EP.look.artstyle); if (window.ARTSTYLE) ARTSTYLE.apply(as, t); }

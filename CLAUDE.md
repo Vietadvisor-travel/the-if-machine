@@ -18,6 +18,7 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 - Engine 4.0 (owner, 5 Nov 2026 evening): **2D only** (no 3D sets for now), polished and clear (soft places, subjects in the light, nothing in the caption band), every picture shows its line, transitions planned in the script (morph/match/zoomthru/push2/wipe), narration that flows (one utterance per beat, joined sentences), music named per section (`score:`). `studio/EPISODE.md` §000.
 - **PREMIUM is the standard** (owner, 5 Nov 2026 night): drawn objects and people (IFM.PX), not emoji; motion typography (`kick=` + `title=` with `*gold*` words, callouts, counters); grain/vignette finish; a gentle 2D camera. `studio/EPISODE.md` §0000.
 - **Hook and ending** (owner, 5 Nov 2026 night): open cold with `ex_cold` (3–4 punch lines, one per caption, `…` before the last); end out loud with `ex_outro` (closing thought + "Next time on The If Machine: …", `tail=2.4`). `studio/EPISODE.md` §00000.
+- **Transitions** (owner, 5 Nov 2026 night): 42 GL shader transitions (`trans=gl<Name>`) plus the shape ones, picked by meaning from `studio/references/transitions.md`; skills `.claude/skills/ifm-motion` + `gl-transitions`.
 - Unhurried: `--speed 1.0`, real pauses (engine default), one idea per beat. Minimal sound: music bed only, `sfx=` where it matters
   (≤ 1 per 30 s), master −16 LUFS. 2D = recognisable illustrations (explainer kit + OpenMoji), never vague shapes.
 - Voices (owner, 5 Nov 2026, only these three): **af_heart** narrates every episode; **af_nicole** = second female voice (slow,

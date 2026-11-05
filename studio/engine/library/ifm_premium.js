@@ -28,7 +28,10 @@
   PX.headline = (lines, x, y, lt, at = .2, o = {}) => { const u = U(), L = (Array.isArray(lines) ? lines : String(lines).split('|')), maxW = (o.maxW || .8) * W; let s = (o.s || 76) * u;
     L.forEach(l => { s = Math.min(s, fitS(l.replace(/\*/g, ''), 'disp', 900, s, maxW)); }); const lh = s * 1.08, al = o.align || 'center', y0 = y - (L.length - 1) * lh / 2;
     L.forEach((l, i) => { const t0 = at + i * .14, k = KO(lt, t0, .7); if (k <= 0) return; const yy = y0 + i * lh, plain = l.replace(/\*/g, ''), w = PX.tw(plain, 'disp', 900, s), xs = al === 'left' ? x : al === 'right' ? x - w : x - w / 2;
-      ctx.save(); ctx.beginPath(); ctx.rect(xs - 40 * u, yy - lh * .62, w + 80 * u, lh * 1.18); ctx.clip(); ctx.translate(0, (1 - k) * lh);
+      // reveal (the ElevenLabs lesson): each line rises through a mask while it comes into focus — from a soft blur to sharp,
+      // its tracking closing in; o.reveal = 'mask' keeps the old plain rise
+      const kb = K(lt, t0, .9), blurPx = o.reveal === 'mask' ? 0 : (1 - kb) * 14 * u;
+      ctx.save(); ctx.beginPath(); ctx.rect(xs - 60 * u, yy - lh * .75, w + 120 * u, lh * 1.4); ctx.clip(); ctx.translate(0, (1 - k) * lh * (o.reveal === 'mask' ? 1 : .35)); if (blurPx > .3) ctx.filter = `blur(${blurPx.toFixed(1)}px)`; ctx.globalAlpha *= o.reveal === 'mask' ? 1 : clamp(kb * 1.3);
       // gold words: a marker sweep under them
       let cx = xs; for (const [j, part] of l.split('*').entries()) { if (!part) continue; const pw = PX.tw(part, 'disp', 900, s); if (j % 2) { const m = K(lt, t0 + .45, .5); ctx.save(); ctx.globalAlpha *= .9; rr(cx - 6 * u, yy - s * .16, (pw + 12 * u) * m, s * .5, 6 * u, o.marker || 'rgba(217,164,65,.28)', 0); ctx.restore(); }
         text(part, cx, yy, { f: 'disp', w: 900, s, fill: j % 2 ? (o.hi || C.gold) : (o.col || C.ink), align: 'left', shadow: o.shadow, sb: 24 * u, sy: 6 * u }); cx += pw; } ctx.restore(); }); return y0 + L.length * lh; };
@@ -64,6 +67,9 @@
     ctx.save(); ctx.globalAlpha = a; ctx.globalCompositeOperation = 'overlay'; ctx.drawImage(GR[k], 0, 0); ctx.restore(); };
   PX.vignette = (a = .35, col = '#0A0E1C') => { const g = ctx.createRadialGradient(W / 2, H * .45, H * .25, W / 2, H * .45, H * .8); g.addColorStop(0, rgba(col, 0)); g.addColorStop(1, rgba(col, a)); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); };
   PX.motes = (lt, n = 22, col = '#FFF4D6', a = .25, seed = 3) => { const u = U(); for (let i = 0; i < n; i++) { const r = rng(seed * 100 + i), x = W * r() + Math.sin(lt * .3 + i) * 24 * u, y = ((H * r() - lt * (6 + 12 * r()) * u) % H + H) % H, s = (2 + 5 * r()) * u; ctx.save(); ctx.globalAlpha = a * (.5 + .5 * Math.sin(lt * .8 + i)); circ(x, y, s, col, 0); ctx.restore(); } };
+  // soft gradient orbs (the ElevenLabs look): a few large blurred colour fields drifting slowly behind everything; screen-blended
+  PX.orbs = (lt, cols = ['#3E6A8A', '#D9A441', '#2F5B43'], a = .35, o = {}) => { const u = U(); ctx.save(); ctx.globalCompositeOperation = o.mode || 'screen'; cols.forEach((c, i) => { const r = rng(i * 7 + 3), x = W * (.2 + .6 * r()) + Math.sin(lt * .13 + i * 2) * W * .12, y = H * (.25 + .5 * r()) + Math.cos(lt * .11 + i) * H * .08, R = W * (.45 + .25 * r());
+      const g = ctx.createRadialGradient(x, y, 0, x, y, R); g.addColorStop(0, rgba(c, a)); g.addColorStop(1, rgba(c, 0)); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); }); ctx.restore(); };
   PX.finish = (lt, o = {}) => { PX.vignette(o.vig ?? .3, o.vcol); PX.grain(o.grain ?? .045); };
   const CH = {}; PX.cache = (key, fn, blur) => { const k = key + W + 'x' + H + (blur || 0); if (!CH[k]) { const cv = mkCanvas(W, H); withCtx(cv.getContext('2d'), fn); if (blur) { const b = mkCanvas(W, H), bg = b.getContext('2d'); bg.filter = `blur(${blur}px)`; bg.drawImage(cv, 0, 0); CH[k] = b; } else CH[k] = cv; } return CH[k]; };
   // soft gradient backdrop with a light pool (studio look)
