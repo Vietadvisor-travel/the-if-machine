@@ -3,31 +3,23 @@ many shots and angles; research and standardise everything, then build the engin
 
 This is the reference every director's script and every engine feature answers to. Sources consulted are listed at the end.
 
-## 1. Content: entertainment first, knowledge inside it
-The channel is entertainment. Facts are the backbone; the fun is how the "what if" plays out.
-- **The promise in 5 seconds.** The first shot confirms the title's promise with the most striking picture and one line
-  that opens a loop. More than half of viewers decide in the first minute.
-- **The world reacts.** A what-if is a chain of consequences: the first hour, the first week, the first year. Ordinary
-  life (one recurring person), institutions, money, power, the internet, other countries, criminals, comedians.
-- **Every 30–45 s something new happens** (a new place, a new character, a twist, a reveal, a number made visible).
-  No two minutes in the same rhythm.
-- **Include what people actually say about it** — rumours, fears, jokes, and conspiracy theories — as part of the show:
-  - name a theory as a theory ("Online, a theory spreads that…"), show it, then show what is known; never present it as fact;
-  - pick theories that are popular and fun to examine, not harmful ones (no health misinformation, no hate, no real private people);
-  - context over amplification: one or two strong theories per episode, each with a clear "here is what we actually know".
-- **Not over the top.** No fear-mongering, no "you won't believe", no fake urgency, no invented numbers. Humour is light
-  and comes from situations (a machine with no cousins, a robot answering the phone at 3 a.m.), never from mocking people.
-- **Clear payoff.** The twist answer in one sentence, a callback to the opening picture, and the next question.
-- **Research is a reference.** Use what serves the story, add your own explanations, analogies and scenarios; anything
-  stated as fact needs a source; anything imagined is framed as the simulation ("in our imaginary year").
+## 1. Content: a neutral explainer that entertains (owner, 4 Nov 2026 evening — replaces the "what-if simulation" plot)
+"The content was bad, the storyline silly. Neutral, normal content, no storyline; explain it normally as long as it entertains."
+- **Explain, don't dramatise.** The narrator explains the question: what it really asks, how the thing works, what history and
+  real evidence say, what experts expect, what is uncertain, and the answer. No invented protagonist, no plot, no "imagined
+  city", no "day one" simulation. One-sentence "imagine…" illustrations are fine.
+- **Entertainment = content.** A question worth asking, surprising true facts, analogies and comparisons that make an idea
+  click, what people believe vs what is known, light observational humour, and clear pictures.
+- **Hook (15–25 s):** the question → a surprising fact → why it matters → "in this video". Then a breath.
+- **Sections (3–5):** each opens with a section card; one idea → analogy → evidence (sourced) → meaning → takeaway → a question
+  that leads to the next section.
+- **What people say (optional):** a popular belief named as a belief, then what is actually known.
+- **Conclusion (25–45 s):** the 3 key ideas recapped, the answer in one sentence, a closing thought. Then the end card.
+- **Not over the top.** No fear-mongering, no "you won't believe", no fake urgency, no invented numbers.
 
 ### Episode skeleton (6–10 min)
-1. Cold open (0–20 s): a striking moment from inside the what-if + the question.
-2. Day one (≈ 1 min): the world flips; first reactions; the fun easy wins.
-3. The chain reaction (≈ 3–4 min): 3–5 set pieces, each = situation → real-world fact/case → consequence → open loop.
-4. "What people say" (≈ 1 min): the rumour/theory segment, examined calmly.
-5. The turn (≈ 1 min): the thing nobody saw coming; the strongest real case.
-6. Payoff (≈ 30–45 s): the answer, callback, next episode.
+1. HOOK (0–25 s) 2. SECTION 1–5 (≈ 1–2 min each, `ex_chapter` + 6–15 beats) 3. WHAT PEOPLE SAY (optional, ≈ 1 min)
+4. CONCLUSION (25–45 s) 5. end card.
 
 ## 2. Picture: cinematography for animation
 Every shot in the director's script states SIZE · ANGLE · MOVE · MEDIUM (2D, 2.5D or 3D).
@@ -47,12 +39,13 @@ Every shot in the director's script states SIZE · ANGLE · MOVE · MEDIUM (2D, 
   angles per minute; at least one 3D or 2.5D shot per minute; at least one insert/detail per minute; at least one
   montage or match cut per chapter.
 
-## 2b. Alive every second (owner, 4 Nov 2026)
-Something meaningful changes on screen at least every 2 seconds and nothing is ever frozen: an action, a camera beat, a
-reveal, a label, a cut. The director writes it second by second (TIMELINE); the gate measures it (motion check).
+## 2b. Alive, never busy (owner, 4 Nov 2026 evening: too fast)
+Something meaningful changes every 3–4 seconds (an item appears, an arrow draws, the camera pushes) and nothing is frozen
+> 3 s; one idea at a time, given room to land. The director writes it in TIMELINE; the gate measures it.
 
 ## 3. 2D, 2.5D and 3D — which, when
-- **2D (flat illustration):** characters acting, diagrams that explain a mechanism, documents, phone screens, comedy beats.
+- **2D (the explainer kit, `references/explainer-kit.md`):** recognisable illustrations (OpenMoji), comparisons, processes,
+  numbers shown by size, timelines, quotations, section cards. Never vague hand-drawn shapes.
 - **2.5D (layered depth, parallax):** places with atmosphere — streets, rooms, landscapes; camera moves reveal depth.
 - **3D (three.js toon world):** scale and space — flying through a city, rotating around a building or object, a globe,
   a top-down simulation of traffic or crowds, an impossible camera move (through a window, into a server).
@@ -70,13 +63,14 @@ personal space. Checked by `tools/sim_check.mjs` (part of the gate).
 "Running the world": flows (people, money, cars, data) visibly moving; counters that tick only when they mean something;
 before/after splits; the same place at different times (time-lapse); maps that zoom from country to street.
 
-## 5. Sound
-Music carries the emotion; real recorded ambience only (no synthetic white-noise beds); one-shots only for visible actions;
-no automatic whooshes; silence before a reveal.
+## 5. Sound (owner, 4 Nov 2026 evening: too many effects, too loud)
+A low music bed under the voice (≈ 20 dB below it); no ambience beds; no automatic one-shots — a beat asks for a sound with
+`sfx=name@k` only where it matters (at most one every 30 s); master −16 LUFS. Story header `sound: full` restores the old design.
 
-## 6. Voice
-An expressive narrator (owner picks from the samples); script written for speech: contractions, rhetorical questions,
-short sentences, pauses before reveals.
+## 6. Voice and pace
+The narrator the owner picks from the samples (Drive voice_samples_2026-11-04); `--speed 1.0`; ≈ 135–150 words a minute;
+0.34 s between lines, ≈ 1.2 s between beats, `pause=1.2` after the hook, each section card and before the conclusion.
+Script written for speech: contractions, rhetorical questions, short sentences.
 
 ## Sources consulted (4 Nov 2026)
 - Retention and structure: teleprompter.com "YouTube audience retention"; overseeros.com "YouTube retention architecture";

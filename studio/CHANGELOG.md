@@ -1,5 +1,35 @@
 # Motion Studio — changelog
 
+## 2026-11-05 · engine upgrade after the owner rejected "Nếu tiền biến mất" (content, sound, pace, voice, 2D pictures)
+Owner: "content bad, storyline silly; neutral explanation, no storyline, entertaining; far too many sound effects and too loud;
+too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what the shapes are". For every episode from now on:
+- **Content rules** (EPISODE.md §00/§0/§1, references/ifm-craft.md §1, jobs/scripts/_TEMPLATE.md, CLAUDE.md): neutral explainer,
+  no invented protagonist or plot; HOOK 15–25 s (question, surprising fact, why it matters, promise); 3–5 sections opened by a
+  section card; CONCLUSION 25–45 s (recap, answer, closing thought). `script_check.mjs` now ERRORS on "Meet <Name>", "our imagined…",
+  "Day one", "Let's run it", any capitalised name used ≥ 3 times that is not on the script's `REAL:` line, a hook < 30 words or
+  without a question, a conclusion < 55 words; WARNS on < 3 section cards and on shots > 40 words. WHAT PEOPLE SAY is optional.
+  Tested: the rejected money-disappears script now fails with exactly the owner's complaints.
+- **Pace**: IFM beats leave 0.34 s between lines (was 0.06) and ≈ 1.2 s between beats (was 0.6); `pause=<s>` holds a beat after the
+  hook/section/reveal; voice.py breath between sentences 0.26 s (was 0.14); `--speed 1.0` (was 1.06). Word budgets at 2.35 words/s
+  (script_check, variety). Tested on money-disappears: the same words run 7:33 instead of 6:15.
+- **Sound** (minimal by default for IFM; story header `sound: full` restores the old design): the picture makes no sound (act sfx,
+  scene beds, `!`-lettering hits, dir= flip/shock/freeze sounds and weather layers are silent); a beat asks for a one-shot with
+  `sfx=name@k`; sound_design keeps ≤ 1 per 30 s, no ambience beds, music −5 dB lower (≈ 20 dB under the voice), stronger duck,
+  no stingers; master −16 LUFS (was −13) in sound_design and in make.mjs' final loudnorm. QA no longer "fails" low density.
+  Tested on money-disappears: 0 events, −16.0 LUFS, TP −3.4 dBTP.
+- **Glare bug fixed**: the WebGL post pass had no `calm` grade and fell back to `warm` (bloom .26 + halation .1) — the white haze on
+  every light IFM frame. ifm_calm.js now defines GRADE_GL.calm and zeroes bloom/halation everywhere (measured: a cream pixel 228 stays
+  228, was 255).
+- **Pictures**: `tools/emoji_build.py` → `engine/library/emoji_data.js` (OpenMoji, 2,078 glyphs, 2,119 names + aliases, flags by
+  country name; CC BY-SA 4.0 credit) and `IFM.emoji(name, x, y, size, o)` (Path2D, bitmap-cached). New explainer kit
+  `engine/library/ifm_explain.js`: ex_show ex_compare ex_flow ex_list ex_stat ex_chapter ex_quote ex_timeline (docs:
+  references/explainer-kit.md; names: EMOJI.md); calm backgrounds kept ≤ ~230 so the grade never blows them out; ex_ acts get a gentle
+  WS push by default (titles never cropped). preflight errors on an unknown illustration name. variety treats a different
+  illustration as a different picture. Tested on stories/test-ifm-explain.story (contact sheet).
+- **Voices**: 28 Kokoro English voices rendered with the same expressive paragraph → Drive `voice_samples_2026-11-04/` (+ one file
+  with all of them in order) for the owner to choose. Supertonic 3 and Chatterbox Turbo could not be fetched in this session
+  (HuggingFace is blocked by the network policy; weights not in this Drive).
+
 ## 2026-11-04 · preflight + faster render
 - `tools/preflight.mjs` (new; runs inside make.mjs before anything is rendered): voice lines collected = the story's caption lines,
   word for word; every act exists (no silent fallback picture); calm look active, no bloom, calm transitions; every scene draws

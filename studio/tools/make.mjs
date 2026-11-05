@@ -21,6 +21,8 @@ if (wantVoice) { try { node(['tools/render.mjs', ep, '--lines', `${base}_lines.j
 if (!has('skip-lint')) { const rep = execFileSync('node', ['tools/lint.mjs', ep, '--out', base, ...vo, ...(fmts.length > 1 ? ['--both'] : fmts[0] === '16x9' ? ['--16x9'] : [])], { encoding: 'utf8' }); console.log(rep); if (/\b[1-9]\d* errors\b/.test(rep) || /^\s+ERROR\s/m.test(rep)) { console.error('Lint errors — fix them first (or --skip-lint).'); process.exit(1); } }
 // 2b) director review (advisory)
 if (!has('skip-review')) { try { console.log(execFileSync('node', ['tools/review.mjs', ep], { encoding: 'utf8' })); } catch (e) { console.warn('review skipped:', e.message.split('\n')[0]); } }
+// The If Machine (owner, 4 Nov 2026): minimal sound and a quieter master (−16 LUFS) unless the story says `sound: full`
+const _stx = fs.readFileSync(ep, 'utf8'), MIN_SOUND = !/^\s*channel\s*:\s*(vietadvisor|poison\s*pill)\s*$/mi.test(_stx) && !/^\s*sound\s*:\s*full\b/mi.test(_stx);
 // 3) audio
 node(['tools/render.mjs', ep, '--cues', `${base}_cues.json`, ...vo]);
 let mixWav = null;
@@ -28,7 +30,7 @@ if (!has('no-audio')) {
   if (vo.length) py(['tools/voice.py', 'place', `${base}_cues.json`, `${base}_vo`, `${base}_vo.wav`]);
   // sound design owns the whole soundtrack: visual events + beats → rule table → scheduler → beds, SFX, score, stingers → bus mix → QA
   // (tools/sfx.py and tools/ambience.py are no longer mixed; pass --legacy-stems to sound_design.py to layer them underneath)
-  const design = ep.replace(/\.story$/, '.sound.json'), lufs = fmts.includes('9x16') ? '-13' : '-14';
+  const design = ep.replace(/\.story$/, '.sound.json'), lufs = MIN_SOUND ? '-16' : fmts.includes('9x16') ? '-13' : '-14';
   if (has('reuse-mix') && fs.existsSync(`${base}_mix.wav`)) console.log('reusing', `${base}_mix.wav`);
   else py(['tools/sound_design.py', base, '--story', ep, '--lufs', lufs, '--fmt', fmts.includes('9x16') ? 'vertical' : 'youtube', ...(fs.existsSync(design) ? ['--design', design] : [])]); mixWav = `${base}_mix.wav`;
 }
@@ -39,7 +41,7 @@ const loudAf = (wav, target) => { const r = spawnSync('ffmpeg', ['-hide_banner',
 // 4) video per format (+ mux)
 for (const f of fmts) { const silent = `${base}_${f}_v.mp4`, out = `${base}_${f}.mp4`;
   node(['tools/render.mjs', ep, '--fmt', f, '--out', silent, ...vo, ...(has('draft') ? ['--scale', '.5'] : []), ...(opt('fps') ? ['--fps', opt('fps')] : []), ...(opt('jobs') ? ['--jobs', opt('jobs')] : [])]);
-  if (mixWav) { execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', silent, '-i', mixWav, '-c:v', 'copy', '-af', loudAf(mixWav, f === '16x9' ? -14 : -13), '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', out]); fs.unlinkSync(silent); }
+  if (mixWav) { execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', silent, '-i', mixWav, '-c:v', 'copy', '-af', loudAf(mixWav, MIN_SOUND ? -16 : f === '16x9' ? -14 : -13), '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', out]); fs.unlinkSync(silent); }
   // delivery: ONE universal file under 30 MB (H.264, two-pass) — the file you send
   if (!has('draft') && !has('no-deliver')) py(['tools/deliver.py', out]);
   else if (!mixWav) fs.renameSync(silent, out); }

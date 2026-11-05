@@ -12,6 +12,13 @@ Push to `main` (owner's standing authorization, PROTOCOL §1). The scheduled rou
 Engine work = changes the owner asks for in `studio/`, each tested on an existing story and logged in
 `studio/CHANGELOG.md`.
 
+## Content and look (owner, 4 Nov 2026 evening — overrides older notes)
+- A NEUTRAL EXPLAINER that entertains through content: no invented protagonist, no plot, no simulated "day one". A real HOOK
+  (question, surprising fact, why it matters, what the video answers) and a real CONCLUSION (recap, the answer, a closing thought).
+- Unhurried: `--speed 1.0`, real pauses (engine default), one idea per beat. Minimal sound: music bed only, `sfx=` where it matters
+  (≤ 1 per 30 s), master −16 LUFS. 2D = recognisable illustrations (explainer kit + OpenMoji), never vague shapes.
+- Narrator voice: the one the owner picks from Drive `voice_samples_2026-11-04` (until he picks, ask; am_puck is the old default).
+
 ## The engine
 - `studio/` is the Vietadvisor Motion Studio **v11 canvas cartoon engine** (imported 3 Nov 2026), converted to The If Machine.
   For an episode: **`studio/EPISODE.md`** (the whole workflow on one page) + `studio/API.md`. Deeper rules, read only when
@@ -39,14 +46,14 @@ ask one short question, never guess. Always name episodes to him in Vietnamese, 
    VO / PICTURE / CUTS / CAMERA / TEXT / FX / SOUND / BUILD; `node studio/tools/script_check.mjs jobs/scripts/<slug>.md` must PASS.
    Every shot also has SHOT (size · angle · move · 2D/3D/2D+3D) and LOOK; engine 3.0 = `studio/EPISODE.md` §0b (2D and 3D combined,
    3D sets `act=s3`, pins/pip/split; `tools/sim_check.mjs` in the gate). The build follows the script shot by shot. Then `node tools/new_episode.mjs <slug> "<tên>"`, then direct the story per `studio/EPISODE.md` (a frame line and a `dir=` track per
-   beat; new bespoke shots and ≥ 5 new bank items in `engine/library/bank/<slug>.js`) and brief §2: ONE vertical 9:16 film, 6–10 min (≈ 1000–1700 spoken words; owner 4 Nov 2026: no 16:9, no separate short);
+   beat; 2D from the explainer kit with OpenMoji illustrations, `studio/references/explainer-kit.md`; bespoke shots only where the kit cannot show it) and brief §2: ONE vertical 9:16 film, 6–10 min (≈ 850–1400 spoken words; owner 4 Nov 2026: no 16:9, no separate short);
    small captions in the low band (74.5–79 %), subject above it, bottom 20 % and right edge clear of the platform UI; hook in the first 3 s; one question, one twist answer; branded end frame; the main picture of each
    beat draws the SUBJECT of its line; house look per `studio/EPISODE.md` §00 (calm, no glare/flicker, precise actions, continuity).
 4. Facts: every actionable claim from the research pack with its source; heavy claims need 2 sources; no invented
    numbers. No AI images of real people, real documents, logos, or fake headlines; animation illustrates, never poses as a record.
 5. Voices: only `brief/VOICE_MODELS.md` (Kokoro, Chatterbox Turbo, Supertonic 3). Kitten is banned. Supertonic 3 →
    the delivery note says the audio is machine-generated (OpenRAIL-M).
-6. Gates (above), then render the vertical film (`make.mjs … --speed 1.06 --fps 25`; preflight runs first), cover still, English .srt.
+6. Gates (above), then render the vertical film (`make.mjs … --speed 1.0 --fps 25`; preflight runs first), cover still, English .srt.
 7. Deliver (PROTOCOL §5): `bash tools/ship.sh <slug>` (names, cover, srt, stories zip, upload of the masters); write
    `jobs/deliveries/<slug>.md` from `jobs/deliveries/_TEMPLATE.md`;
    STATUS → DELIVERED; `node tools/variety.mjs <story> --record`; `node tools/bank.mjs catalog` (commit BANK.md); INBOX line; commit and push `main`. Never commit video or zip files.

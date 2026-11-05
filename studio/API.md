@@ -54,6 +54,12 @@ Every timing is `lt` = seconds inside the beat. `c[k] = [start, end, text]` hold
 - **Layers:** `IFM.layer('rain'|'snow'|…, lt, seed)` · `IFM.withLook('blueprint'|…, () => draw())`
 - **Camera inside an act:** `IFM.cam('push'|'pull'|'truckL'|'truckR'|'crane'|'drop'|'tilt'|'orbit'|'whip'|'dutch'|'float', lt, dur)`
 
+## Illustrations and the explainer kit (owner, 4 Nov 2026 evening)
+- `IFM.emoji(name, cx, cy, size, {ground, rot, flip, alpha, sx, line})` — an OpenMoji illustration centred at (cx, cy); names in `EMOJI.md`
+  ('bread', 'cow', 'coin', 'money bag', 'bank', 'flag kenya', …); `IFM.emojiFind('word')`. Credit: OpenMoji, CC BY-SA 4.0.
+- Kit acts for 2D beats: `ex_show ex_compare ex_flow ex_list ex_stat ex_chapter ex_quote ex_timeline` (`references/explainer-kit.md`).
+- Sound: a beat asks for a one-shot with `sfx=name@k`; acts make no sound by themselves (minimal sound).
+
 ## Bank and acts
 - **Add an item:** `IFM.bank.add({ id, kind, tags:[], ep:'<slug>', desc, asp, draw:(x,yBase,h,lt,o)=>{…} })`
   - kind: person creature object vehicle place machine nature food body fx

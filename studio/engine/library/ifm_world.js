@@ -210,11 +210,17 @@
     ctx.beginPath(); ctx.roundRect(x, y, w, h, 22 * u); ctx.clip(); { const r = w / h; let sw = W, sh = W / r; if (sh > H) { sh = H; sw = H * r; } ctx.drawImage(P2.cv, (W - sw) / 2, (H - sh) / 2, sw, sh, x, y, w, h); } ctx.restore();
     ctx.save(); ctx.strokeStyle = '#F6F1E7'; ctx.lineWidth = 5 * u; ctx.beginPath(); ctx.roundRect(x, y, w, h, 22 * u); ctx.stroke(); ctx.restore(); }
   let beatN = 0;
-  VIS.K.w = (o, c, Pal, dur, i) => { const S = segs(o, c), idx = i ?? beatN++; const B = S.map((sg, j) => ({ ...sg, b: (A[sg.o.act] || A.globe)(sg.o, c, dur), cam: sg.o.cam || CAMS[(idx * 3 + j * 4) % CAMS.length] }));
+  VIS.K.w = (o, c, Pal, dur, i) => { const S = segs(o, c), idx = i ?? beatN++; const B = S.map((sg, j) => ({ ...sg, b: (A[sg.o.act] || A.globe)(sg.o, c, dur), cam: sg.o.cam || (/^ex_/.test(sg.o.act || '') ? 'WS.eye.push' : CAMS[(idx * 3 + j * 4) % CAMS.length]) }));   // explainer kit: a gentle push, titles never cropped
+    // minimal sound (owner, 4 Nov 2026: 'too many sound effects, too loud'): the picture makes no sound by itself; a beat asks for a
+    // one-shot with sfx="name@k|name@k" (k = caption index, or 2.5s). Story header `sound: full` restores the old automatic design.
+    if (IFM.soundFull !== true) { const sfx = String(o.sfx || '').split('|').filter(Boolean).map((x, j) => { const m = x.trim().match(/^(.*?)@(\d+(?:\.\d+)?)(s?)$/); return m ? [m[3] ? +m[2] : T0(c, +m[2], .5), m[1]] : [.4 + j, x.trim()]; });
+      return drawW(B, sfx, o, c, dur); }
     const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j && IFM.calm === false) sfx.push([sg.at, 'whoosh_small']); });
     // motivated sound only (owner, 3 Nov 2026: 'too many, too random'): a quiet bed per scene; a hit only where the picture hits (twist / data / gold lettering)
     const fam = SFAM[o.act] || {}; if (fam.bed && !o.nobed) sfx.push([.05, fam.bed]);
     String(o.words || '').split('|').filter(Boolean).forEach((w, j) => { const m = w.match(/@(\d+)$/), at = T0(c, m ? +m[1] : j, .3 + j), snd = { '!': 'ifm_motion_impact_slam', '~': 'ifm_sci_ui_confirm', '^': 'ifm_machine_chime' }[w[0]]; if (snd) sfx.push([at, snd]); });
+    return drawW(B, sfx, o, c, dur); };
+  const drawW = (B, sfx, o, c, dur) => {
     return { sfx, draw: lt => { let k = 0; for (let j = 0; j < B.length; j++) if (lt >= B[j].at) k = j; const sg = B[k], q = lt - sg.at;
       IFM.seg = { at: sg.at, end: B[k + 1] ? B[k + 1].at : dur }; { const ps = sg.o.pipPos || 'tr', pw = W * .44; IFM.pipBox = sg.o.pip ? [ps[1] === 'l' ? W * .04 : W * .52, H * ({ t: .1, m: .36, b: .5 }[ps[0]] || .1), pw, pw * 1.2] : null; } ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split' && !sg.b.is3d) { if (k && q < .22 && IFM.calm === false) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } if (/^(EWS|WS|MCU|MS|ECU|CU)/.test(sg.cam)) shot(sg.cam, q, (B[k + 1] ? B[k + 1].at : dur) - sg.at); else cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore(); if (!sg.b.is3d && /\.ots/.test(sg.cam)) IFM.otsFg(/:0?\.[0-4]/.test(sg.cam) ? -1 : 1);
       if (k && q < .12 && IFM.calm === false) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }

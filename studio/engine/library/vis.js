@@ -188,8 +188,10 @@
       fgBokeh(lt, i); } }; };
 
   // ---------- recipe
-  SB.recipes.vis = (o, b) => { const kind = K[o.kind] ? o.kind : 'hero'; const { caps, end } = timeCaps(b.caps, .25, .06, b.capStyle); /* owner, 4 Nov 2026: back to the setup pacing (am_puck at 1.06) */ const idx = (SB._visN = (SB._visN || 0) + 1);
-    const P = palOf(o, idx); const dur0 = Math.max(num(o.dur, 0), end + .35, 3); const R = K[kind](o, caps, P, dur0, idx);
+  SB.recipes.vis = (o, b) => { const kind = K[o.kind] ? o.kind : 'hero'; /* pacing (owner, 4 Nov 2026 evening: 'too fast, it just starts talking'): The If Machine breathes — a real pause between lines
+       (gap=, default .34 s), a longer one between beats (≈ 1.2 s), and pause=<s> adds a held beat after a section, the hook or a reveal */
+    const ifmP = !!(window.IFM && IFM.on), { caps, end } = timeCaps(b.caps, ifmP ? .35 : .25, ifmP ? num(o.gap, .34) : .06, b.capStyle); const idx = (SB._visN = (SB._visN || 0) + 1);
+    const P = palOf(o, idx); const dur0 = Math.max(num(o.dur, 0), end + (ifmP ? .85 + num(o.pause, 0) : .35), 3); const R = K[kind](o, caps, P, dur0, idx);
     return { dur: dur0, place: 'studio', placeOpts: { color: P.bg, floor: false }, light: 'none', layers: [{ type: 'fn', screen: true, draw: lt => { CUR = o; o._dur = dur0; o._i = idx; o._pushed = false; ctx.save(); R.draw(lt); ctx.restore(); if (o._pushed) { o._pushed = false; } } }], captions: caps, sfx: R.sfx.filter(s => s[0] >= 0 && s[0] < dur0), vis: kind };
   };
   window.VIS = { kinds: Object.keys(K), zones: Z, headline, tag: priceTag, K, BUILD, h: { st, field, push, rim, hero, fgBokeh, label, stamp, fmt, split, num, crumbs, drop } };

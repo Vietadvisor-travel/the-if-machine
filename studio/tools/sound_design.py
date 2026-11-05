@@ -806,6 +806,7 @@ def sweeteners(scenes, dur, foley_off):
     return out
 
 # ================================================================ 3. scheduler
+MINIMAL = False   # set per story in main() (IFM default: minimal sound)
 LIMITS = {'vertical': dict(t1=4., gap=1.5, density={'hook': 10, 'body': 9, 'dialogue': 6, 'payoff': 11}, target={'hook': 14, 'body': 13, 'dialogue': 9, 'payoff': 15}),
           'youtube': dict(t1=6., gap=2.5, density={'hook': 8, 'body': 6, 'dialogue': 5, 'payoff': 9}, target={'hook': 11, 'body': 10, 'dialogue': 7, 'payoff': 13})}
 class VAD:
@@ -1121,7 +1122,13 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     beats, score = parse_story(story) if story and os.path.exists(story) else ([], None)
     _st = open(story, encoding='utf-8').read() if story and os.path.exists(story) else ''
     ifm = not re.search(r'^\s*channel\s*:\s*(vietadvisor|poison\s*pill)\s*$', _st, re.M | re.I)   # The If Machine is the default channel
-    pp = ifm or bool(re.search(r'^\s*channel\s*:\s*poison\s*pill\s*$', _st, re.M | re.I))     # both use the real-track music library (tools/music_lib.py)
+    pp = ifm or bool(re.search(r'^\s*channel\s*:\s*poison\s*pill\s*$', _st, re.M | re.I))
+    # The If Machine, owner 4 Nov 2026: 'too many sound effects and too loud — remove them, keep very few, only when needed'.
+    # Minimal sound (default for IFM; story header `sound: full` restores the old design): no ambience beds, no sweeteners, only the
+    # one-shots a beat asks for with sfx= (max one per 30 s), music lower under the voice, master at −16 LUFS.
+    global MINIMAL; MINIMAL = ifm and not re.search(r'^\s*sound\s*:\s*full\b', _st, re.M | re.I)
+    if MINIMAL and lufs is None and 'lufs' not in D: target = -16.
+    if MINIMAL: D = {**{'music_db': -19.5, 'duck_db': -14., 'stingers': False}, **D}; stingers = False     # both use the real-track music library (tools/music_lib.py)
     if len(beats) < len(scenes): beats = beats + [('end', {})] * (len(scenes) - len(beats))
     V = read(base + '_vo.wav'); pad = lambda x: np.zeros((2, n), np.float32) if x is None else np.pad(x, ((0, 0), (0, max(0, n - x.shape[1]))))[:, :n].astype(np.float32)
     V = pad(V); has_vo = np.abs(V).max() > 1e-4
@@ -1133,7 +1140,14 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
         tx = str(sb.get('text', ''))
         if '\u200b' in tx: dips.append((sb['t0'] + (sb['t1'] - sb['t0']) * tx.index('\u200b') / max(1, len(tx)), 'hard'))
     foley_off = {i for i, (bt, o) in enumerate(beats[:len(scenes)]) if o.get('foley') == 'no'}
-    if D.get('auto', True): cands += bed_sounds(scenes, dur) + ([] if ifm else sweeteners(scenes, dur, foley_off))   # IFM: no random sweeteners
+    if D.get('auto', True) and not MINIMAL: cands += bed_sounds(scenes, dur) + ([] if ifm else sweeteners(scenes, dur, foley_off))   # IFM: no random sweeteners
+    if MINIMAL:   # only what the story asked for, at most one every 30 s, a little quieter
+        keep, last = [], -1e9
+        for c in sorted(cands, key=lambda c: getattr(c, 'start', getattr(c, 't', 0))):
+            t = getattr(c, 'start', getattr(c, 't', 0))
+            if t - last >= 30.: keep.append(c); last = t
+        if not quiet: print(f'  minimal sound: {len(cands)} requested one-shots → {len(keep)} kept (≤ 1 per 30 s), no beds')
+        cands = keep
     calm = ifm and not (story and os.path.exists(story) and re.search(r'^calm\s*:\s*off\b', open(story).read(), re.M))
     if calm: n0 = len(cands); cands = [c for c in cands if calm_ok(c)]; print(f'  calm sound: {n0 - len(cands)} hiss beds / automatic whooshes removed') if not quiet else None
     # ---- 3. schedule
@@ -1281,7 +1295,8 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
 
 # ================================================================ 6. QA
 def qa_report(acc, log, evs, scenes, dur, vad, fmt, buses, mix, target, unknown, flags, drops, C):
-    lim = LIMITS[fmt]; ev_s = [s for s in acc if s.bus != 'AMB' and s.tier <= 3]
+    lim = LIMITS[fmt] if not MINIMAL else {**LIMITS[fmt], 'gap': 1e9, 'density': {}, 'target': {}};   # minimal sound: few hits is the goal, not a failure
+    ev_s = [s for s in acc if s.bus != 'AMB' and s.tier <= 3]
     w = lambda s: 1. if s.tier <= 2 else .5
     per10 = []
     for w0 in np.arange(0, dur, 10.):

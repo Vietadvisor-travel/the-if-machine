@@ -74,6 +74,6 @@
 
   // ---------------------------------------------------------------- hook the layers into the world dispatcher
   const K = VIS.K.w; VIS.K.w = (o, c, Pal, dur, i) => { const B = K({ ...o, _noWords: 1 }, c, Pal, dur, i); const fx = String(o.fx || '').split('+').filter(Boolean);
-    const sfx = B.sfx.slice(); fx.forEach(f => { const s = { rain: 'ifm_world_rain', snow: 'ifm_world_wind_snow', glitch: 'ifm_sci_glitch_zap', confetti: 'crowd_cheer', sparks: 'magic_sparkle', holo: 'ifm_sci_hologram' }[f]; if (s) sfx.push([.1, s]); });
+    const sfx = B.sfx.slice(); if (IFM.soundFull === true) fx.forEach(f => { const s = { rain: 'ifm_world_rain', snow: 'ifm_world_wind_snow', glitch: 'ifm_sci_glitch_zap', confetti: 'crowd_cheer', sparks: 'magic_sparkle', holo: 'ifm_sci_hologram' }[f]; if (s) sfx.push([.1, s]); });
     return { sfx, draw: lt => { IFM.withLook(o.look, () => B.draw(lt)); fx.forEach((f, j) => layer(f, lt, (i || 0) + j)); if (IFM.lifeHook) IFM.lifeHook(o, lt, i); B.letters(lt); } }; };
 })();

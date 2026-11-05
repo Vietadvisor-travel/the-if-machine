@@ -74,7 +74,7 @@
   // ---------------------------------------------------------------- wrap a vis beat
   let BUF = null; const buffer = () => { if (!BUF || BUF.width !== W || BUF.height !== H) BUF = mkCanvas(W, H); return BUF; };
   IFM.direct = (B, o, c, dur) => { const ev = parse(o.dir, c); if (!ev.length) return B; const texts = ev.filter(e => e.v === 'text').sort((a, b) => a.a - b.a);
-    const sfx = B.sfx.slice(); ev.forEach(e => { if (e.v === 'sfx' && e.args[0]) sfx.push([e.a, e.args[0]]); if (e.v === 'flip') sfx.push([e.a, 'whoosh_small']); if (e.v === 'shock') sfx.push([e.a, 'ifm_motion_impact_soft']); if (e.v === 'freeze') sfx.push([e.a, 'world_camera_shutter'.replace('world', 'ifm_world')]); });
+    const sfx = B.sfx.slice(); ev.forEach(e => { if (e.v === 'sfx' && e.args[0]) sfx.push([e.a, e.args[0]]); if (IFM.soundFull !== true) return; if (e.v === 'flip') sfx.push([e.a, 'whoosh_small']); if (e.v === 'shock') sfx.push([e.a, 'ifm_motion_impact_soft']); if (e.v === 'freeze') sfx.push([e.a, 'world_camera_shutter'.replace('world', 'ifm_world')]); });
     const scene = (lt, g) => { const main = ctx; ctx = g; ctx.save(); camera(ev, lt); B.draw(remap(ev, lt)); ctx.restore(); ctx = main; };
     return { ...B, sfx, draw: lt => { const buf = buffer(), g = buf.getContext('2d'); g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, W, H); scene(lt, g);
       const cb = cardBack(ev, lt); if (cb > 0) { IFM.nightBg(lt); const s = lerp(1, .68, cb), u = U(); ctx.save(); ctx.translate(W / 2, H / 2); ctx.transform(s, -.04 * cb, .05 * cb, s, 0, 0); ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(-W / 2 + 18 * u, -H / 2 + 26 * u, W, H); ctx.beginPath(); ctx.roundRect(-W / 2, -H / 2, W, H, 40 * u * cb); ctx.clip(); ctx.drawImage(buf, -W / 2, -H / 2); ctx.restore(); }

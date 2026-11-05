@@ -11,6 +11,8 @@ await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate
 const r = await page.evaluate((t) => { const out = { unknown: [], throws: [] };
   const acts = [...t.matchAll(/^#\s*vis\b[^\n]*?\bact=(\w+)/gm)].map(m => m[1]), then = [...t.matchAll(/act=(\w+)@/g)].map(m => m[1]), scenes = [...t.matchAll(/scene="(\w+)/g)].map(m => m[1]);
   [...acts, ...then, ...scenes].forEach(a => { if (!(IFM.ACT && IFM.ACT[a]) && !['hook'].includes(a)) out.unknown.push(a); });
+  // explainer kit: every illustration name must resolve (owner, 4 Nov 2026: pictures must show a recognisable thing)
+  out.noEmoji = []; for (const m of t.matchAll(/^#\s*vis\b[^\n]*$/gm)) { if (!/act=ex_/.test(m[0])) continue; for (const k of ['e', 'around']) { const v = (m[0].match(new RegExp('\\b' + k + '=("([^"]*)"|\\S+)')) || []); const val = v[2] ?? v[1]; if (!val) continue; val.split('|').map(x => x.trim()).filter(Boolean).forEach(n => { if (!IFM.emojiFind || !IFM.emojiFind(n)) out.noEmoji.push(n); }); } }
   SB.compile(t, { collect: 1 }); out.lines = (SB._lines || []).map(l => l.text);
   const epi = SB.compile(t); out.calm = IFM.calm; out.grade = epi.look && epi.look.grade; out.bloom = (typeof GRADES !== 'undefined' && GRADES[out.grade]) ? GRADES[out.grade].bloom : null;
   out.trans = epi.scenes.map(s => s.transition && s.transition.type).filter(Boolean); out.CALM = IFM.CALM_TR || [];
@@ -21,6 +23,7 @@ const r = await page.evaluate((t) => { const out = { unknown: [], throws: [] };
 await browser.close();
 // caption lines in the story text (after the header, non-comment, non-beat lines)
 const body = txt.split('\n'); let started = false; const storyLines = []; for (const ln of body) { const s = ln.trim(); if (/^#\s*\w/.test(s)) { started = true; continue; } if (!started || !s || s.startsWith('//')) continue; storyLines.push(s.replace(/^[A-Z][A-Za-z0-9]{1,11}:\s+/, '')); }
+if (r.noEmoji && r.noEmoji.length) errs.push(`unknown illustration name(s): ${[...new Set(r.noEmoji)].join(', ')} — see EMOJI.md`);
 if (r.unknown.length) errs.push(`unknown act(s): ${[...new Set(r.unknown)].join(', ')} — the engine would silently draw a fallback picture`);
 if (!r.lines.length) errs.push('no voice lines collected — the render would reuse an old voice track');
 else if (r.lines.length !== storyLines.length) errs.push(`voice lines collected (${r.lines.length}) ≠ caption lines in the story (${storyLines.length})`);

@@ -35,3 +35,4 @@
 2026-11-04 13:05 · claude → muse · [ai-runs-a-country] DROPPED by the owner (no remake). Engine 3.0 final: 2D+3D combined (3D sets, shot grammar, pins/pip/split), director script with SHOT + LOOK, sim_check gate
 2026-11-04 14:08 · claude → muse · [money-disappears] IN_PRODUCTION (Nếu tiền biến mất): research pack +3 facts (POW-camp cigarette money, barter myth, Inca mit'a), director's script next
 2026-11-04 16:19 · claude → muse · [money-disappears] DELIVERED (vertical 6:15, review 87, gate PASS) · Drive TheIfMachine_Media/money-disappears/money-disappears_vertical_9x16.mp4 · waiting for owner: đăng tập Nếu tiền biến mất
+2026-11-05 00:03 · claude → muse · [money-disappears] REJECTED by the owner (do not post). Engine upgraded: neutral explainer rules, real hook/conclusion, slower pace, minimal sound (−16 LUFS), glare bug fixed, OpenMoji explainer kit. Voice samples on Drive voice_samples_2026-11-04 — waiting for the owner's pick

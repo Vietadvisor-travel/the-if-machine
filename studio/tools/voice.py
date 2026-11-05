@@ -133,7 +133,7 @@ def tts_expr(text, voice, speed=1.0):
         if c in ('…', '...', ' — ', ' – '): out.append(('gap', .38)); continue
         if not c.strip(): continue
         for k, sent in enumerate([x for x in re.split(r'(?<=[.!?])\s+', c.strip()) if x.strip()]):
-            if k: out.append(('gap', .14))
+            if k: out.append(('gap', .26))   # a breath between sentences (owner, 4 Nov 2026: slower, clearer)
             if not re.search(r'[A-Za-z0-9À-ỹ]', sent): continue
             x, sr0 = tts(sent, voice, sp); out.append(('sig', x))
     while out and out[-1][0] == 'gap': out.pop()
