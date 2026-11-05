@@ -1,24 +1,23 @@
-# Delivery — Nếu tiền biến mất (money-disappears) · RUN #1 · REMAKE v2 · 5 Nov 2026
+# Delivery — Nếu tiền biến mất (money-disappears) · RUN #1 · REMAKE v5 (premium 2D) · 5 Nov 2026
 
-v1 (4 Nov, 6:15) was rejected by the owner on 5 Nov (content/sound/pace/voice/2D). This is a full remake on the new engine
-standard: neutral explainer (no invented character, no "day one"), real hook and conclusion, af_heart at --speed 1.0,
-music bed only, theme banknote, every 2D picture in a real place, 2D + 3D combined. The Drive files were replaced in place
-(same file ids).
+v1 rejected; v2 (7:09, 2D+3D) got the owner's notes (pins jumping, music unrelated, slow/disconnected narration, no 3D, plainer
+than wanted); demos v3 (2D) and v5 (premium) were shown; the owner approved v5 and made it the engine standard. This is v5:
+2D only, drawn subjects (IFM.PX), motion typography, flowing narration (one utterance per beat), music named per section.
+The Drive files were replaced in place.
 
 ## Files (Drive TheIfMachine_Media/money-disappears/)
-- money-disappears_vertical_9x16.mp4 · 7:09 · 1080x1920 · 25 fps · 314 MB master (CRF 17) — https://drive.google.com/file/d/1Pdb4XKM4NiWllwh8EHRn3HUs7LP4n74X/view
-- money-disappears_cover.jpg · 1080x1920 — https://drive.google.com/file/d/1JIU3-bhyBlXApeANLvvArwSbPJgwiPkJ/view
-- money-disappears.srt (English) — https://drive.google.com/file/d/1Oo7TZU2FZpLwWpCH52MRG6lZsKSAPgV6/view
-- money-disappears_stories.zip (story + director's script) — https://drive.google.com/file/d/1Pje1k5FgoPpU_jiujxxvwzOabW6ALBny/view
-- Folder: https://drive.google.com/drive/folders/1FjNpe5FWgjA46TxQQKqp3WCPcyEz2OE6
+- money-disappears_vertical_9x16.mp4 · 7:10 · 1080x1920 · 25 fps · 465 MB master (CRF 17) — https://drive.google.com/file/d/1Pdb4XKM4NiWllwh8EHRn3HUs7LP4n74X/view
+- money-disappears_cover.jpg · money-disappears.srt (English) · money-disappears_stories.zip — folder https://drive.google.com/drive/folders/1FjNpe5FWgjA46TxQQKqp3WCPcyEz2OE6
 
 ## Production
-- Voices (Kokoro, Apache-2.0): af_heart narrates; af_nicole reads the two quotations (Radford, Humphrey); am_santa reads the Inca lines.
-- Music credits: Music: Public domain via FreePD, no attribution required — CC0 1.0 (2 tracks: "Midnight in the Green House", "Traveler's Notebook").
-- Illustrations: Microsoft Fluent Emoji Flat (MIT) and OpenMoji (openmoji.org), CC BY-SA 4.0 — put the OpenMoji credit in the description. 3D models: Kenney, KayKit, Quaternius (CC0).
-- Gates: gate.mjs PASS · review 91/100 · lint 0 errors (9:16) · render cost max 651 ms/frame · sim OK · qa.py --lean 2 rounds (round 2 fixed 4 shots).
-- Sound: master −16.0 LUFS, TP −3.9 dBTP, no sound effects. Sound QA flags the music bed as very quiet on a phone speaker (−45.8 LUFS); the voice is clear.
-- Length: 7:09 (vertical 9:16, target 6–10 min), 45 shots, about 960 words.
+- Voices (Kokoro, Apache-2.0): af_heart narrates (each beat one utterance); af_nicole the two quotations; am_santa the Inca lines.
+- Music (score: per section): Easy Lemon (hook + ch.1), Deliberate Thought (ch.2), Nostalgic Piano (ch.3), Gymnopédie No. 1 (ch.4–5 + end).
+  Credit line for the description: "Easy Lemon", "Deliberate Thought", "Gymnopedie No 1" — Kevin MacLeod (incompetech.com), Licensed under
+  Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/ · "Nostalgic Piano" — FreePD, CC0.
+- Illustrations: drawn in code (IFM.PX); a few OpenMoji/Fluent details remain (OpenMoji CC BY-SA 4.0 — credit in the description).
+- Gates: lint 0 errors · review 90 (after in-beat cuts; the first gate scored 76) · render cost max 506 ms · qa.py --lean round 2 checked.
+- Sound: −16.0 LUFS, TP −4.1 dBTP, no sound effects. Sound QA: music bed very quiet on a phone speaker (voice clear).
+- Length: 7:10, 44 shots, ≈ 1130 words.
 
 ## Facts on screen (each with its source from the research pack)
 - No pure barter economy has ever been described — Caroline Humphrey, Man 1985 (F12; ERA, History News Network)
