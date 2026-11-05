@@ -1,5 +1,12 @@
 # NHẬN DIỆN KÊNH THE IF MACHINE (bản 1, 03/11/2026)
 
+> **Owner, 5 Nov 2026 (overrides this file and the 4 Nov note where they differ):** "an entertainment channel that is objective
+> and plain, not this". The If Machine is an OBJECTIVE explainer channel: one interesting question, answered with what science,
+> history, data and experts actually say — clearly, calmly, entertainingly. No storyline, no invented characters, no simulated
+> "run" of the world, no machine persona: drop "Let's run it", "But that's not what the machine printed", "That's the run",
+> "The Operator", "the machine has spoken". Entertainment comes from the facts themselves (surprising, well chosen, well
+> compared), clear pictures and a good hook and ending. Where the facts run out, say so plainly.
+
 > **Owner, 4 Nov 2026 (overrides this file where they differ):** no host character and no machine identity in the films
 > (no lever hook, no machine face, no answer ticket, no SIM clock). An objective documentary voice; entertainment from the
 > content: a strong hook, surprising sourced facts, vivid full-frame pictures that act out every line. One vertical 9:16

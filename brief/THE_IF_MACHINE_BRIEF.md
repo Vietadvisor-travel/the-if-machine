@@ -1,5 +1,12 @@
 # BRIEF KÊNH MỚI: THE IF MACHINE (sếp chốt 03/11/2026)
 
+> **Owner, 5 Nov 2026 (overrides this file and the 4 Nov note where they differ):** "an entertainment channel that is objective
+> and plain, not this". The If Machine is an OBJECTIVE explainer channel: one interesting question, answered with what science,
+> history, data and experts actually say — clearly, calmly, entertainingly. No storyline, no invented characters, no simulated
+> "run" of the world, no machine persona: drop "Let's run it", "But that's not what the machine printed", "That's the run",
+> "The Operator", "the machine has spoken". Entertainment comes from the facts themselves (surprising, well chosen, well
+> compared), clear pictures and a good hook and ending. Where the facts run out, say so plainly.
+
 Brief này là căn cứ duy nhất cho kênh mới. Claude Code đọc brief này là hiểu toàn bộ, không cần hỏi lại sếp những gì đã ghi ở đây.
 
 ## 1. Kênh này là gì

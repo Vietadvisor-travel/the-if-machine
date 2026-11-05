@@ -6,6 +6,8 @@ Open `references/ifm-director.md` or `IFM_HOUSE.md` only for a specific question
 Token rules are at the end.
 
 ## 00. The house look (owner, 4 Nov 2026 evening — overrides anything below that disagrees)
+- **Objective, plain entertainment (owner, 5 Nov 2026: "a channel that is objective and plain, not this").** A what-if
+  question is answered with what science, history, data and experts actually say. No machine persona, no "run", no story.
 - **Neutral explainer, not a story.** No fictional protagonist, no named invented character, no "imagined city", no "day one"
   simulation plot. The narrator explains the question plainly and clearly, like a good documentary explainer: what the
   question really asks, how it works, what real evidence and history say, what experts expect, what is uncertain, the answer.
