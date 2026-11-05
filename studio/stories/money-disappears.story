@@ -86,7 +86,7 @@ on every shelf and every menu.
 When money disappears, the messages disappear with it.
 
 // 1:58 SUBJECT: the last loaf on a kitchen counter — S13
-# vis kind=w act=s3 set=stage dress=kitchen models="food/loaf_round@0,0,20,h.3" cam=MS.high.push on=item trans=fade pins="item:THE LAST LOAF@0" then="cam=WS.low.push on=item@1"
+# vis kind=w act=ex_stat place=kitchen v=1 unit="loaf left" e="bread" gn=12 hi=1 title="THE LAST LOAF" cam=WS.top.push trans=fade then="cam=EWS.eye.pull@1" dir="0-9 zoom 1.06 .5,.45 ease=io"
 Without those messages, how does anyone know what is running out?
 And what decides who gets the last loaf?
 
@@ -102,7 +102,7 @@ the first answer is usually the queue.
 You pay with time instead of money.
 
 // 2:22 SUBJECT: people with and without spare time at the stop — S16
-# vis kind=w act=s3 set=street time=dusk do=phone n=12 on=crossing cam=WS.low.push trans=cut pins="stop:SPARE TIME@0|crossing:NO TIME@1" then="cam=MS.eye.pull on=crossing@1"
+# vis kind=w act=s3 set=street time=dusk do=walk n=18 on=street cam=WS.high.push trans=cut pins="street:SPARE TIME@0|block:NO TIME@1" then="cam=WS.high.orbit on=street@1"
 Queues favour people with spare hours.
 Someone with a shift to get to, or children to collect, loses out.
 Free things often end up cheapest for the people with the most time.
@@ -159,7 +159,7 @@ A sharper case comes from the Second World War.
 In prisoner-of-war camps, nobody had money at all.
 
 // 4:08 SUBJECT: an open parcel crate: food, chocolate, cigarettes — S26
-# vis kind=w act=s3 set=stage dress=treasure models="props/crate_wooden@0,-.3,10,h.6|food/carton@-.8,.6,20,h.35|food/bag@.8,.6,-15,h.4|food/loaf@.1,.9,40,h.25" floor=#6B5A45 back=#3A2E25 cam=WS.high.drop on=wide trans=zoom pins="item:RED CROSS PARCEL@0|wide:CIGARETTES@1" then="cam=MS.eye.pull on=wide@1"
+# vis kind=w act=s3 set=stage dress=treasure models="props/crate_wooden@0,-.3,10,h.6|food/carton@-.8,.6,20,h.35|food/bag@.8,.6,-15,h.4|food/loaf@.1,.9,40,h.25" floor=#A08868 back=#6A5848 cam=WS.high.drop on=wide trans=zoom pins="item:RED CROSS PARCEL@0|wide:CIGARETTES@1" then="cam=MS.eye.pull on=wide@1"
 Red Cross parcels arrived with food, chocolate and cigarettes.
 And people began to trade.
 

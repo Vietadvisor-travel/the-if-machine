@@ -142,6 +142,6 @@
       rr(px + 30 * u, y - ph * .045, pw - 60 * u, ph * .09, 14 * u, '#FFFFFF', 0); IFM.emoji(e, px + 70 * u, y, ph * .06, {}); T(l, px + 110 * u, y, { size: 22 * u, font: 'display', weight: 800, fill: '#1B1F3A', lw: 0, align: 'left' });
       T(v, px + pw - 50 * u, y, { size: 22 * u, font: 'display', weight: 900, fill: v[0] === '+' ? '#2A9D8F' : '#1B1F3A', lw: 0, align: 'right' }); ctx.restore(); });
     const a = K(lt, tk, .6); if (a > 0) { ctx.save(); ctx.globalAlpha *= a; ctx.translate(W / 2, py + ph * .8); ctx.scale(.7 + .3 * E.back(clamp((lt - tk) / .6)), .7 + .3 * E.back(clamp((lt - tk) / .6))); IFM.emoji('check mark button', 0, 0, ph * .12, {}); ctx.restore();
-      ctx.save(); ctx.globalAlpha *= a; IFM.tag('ACCEPTED', W / 2, py + ph + 50 * u, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); }
+      ctx.save(); ctx.globalAlpha *= a; IFM.tag('ACCEPTED', W / 2, py - 40 * u, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); }
     PF(q, lt); } }; };
 })();
