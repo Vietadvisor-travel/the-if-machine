@@ -113,3 +113,17 @@ Dropped in wave 2, with reasons:
 - Kenney 2D and unDraw and Poly Pizza are not in any zip above.
 
 Each zip holds assets.json (file, category, license, credit, source_url), the original LICENSE file, and preview.png.
+
+## Wave 2 fix (2026-11-05): texture and format repack, same zip names, overwritten on Drive
+
+Bug found in the first wave 2 upload: the packer kept only .gltf/.bin and dropped the texture PNGs the .gltf files point to, so every KayKit model and Quaternius nature/props model rendered grey. All 12 zips below were repacked and verified: every .gltf image/buffer reference resolves inside its zip (0 missing), every .glb opens with a valid glTF header, and 1 model per set was rendered to PNG and checked by eye for real texture colour.
+
+- KayKit (6 zips, CC0): repacked from the original GitHub zips keeping the full gltf folder tree, so each .gltf sits next to its .bin and its texture PNG (citybits_texture.png, furniturebits_texture.png, restaurantbits_texture.png, spacebits_texture.png, hexagons_medieval.png, knight/rogue/mage/barbarian_texture.png). City 86 files, furniture 110, restaurant 292, space 118, medieval 458, adventurers 70 (includes the 5 self-contained character .glb files).
+- Quaternius nature (160 files, 43.5 MB, CC0): repacked keeping the whole glTF/ folder, textures included. Leaves use alphaMode MASK (alpha cutout), which plain renderers must honour or the foliage looks streaked.
+- Quaternius props (204 files, 40.4 MB, CC0): repacked keeping Exports/glTF/ plus the Textures/*.png files copied next to the .gltf files, because the .gltf files reference the texture names bare.
+- Quaternius characters (9 files, 7.7 MB, CC0): replaced FBX with the official self-contained .gltf files from Quaternius's own Google Drive folder (6 characters, textures embedded, 11-15 animation clips each). Drive download quota blocked the first attempts and lifted later the same day.
+- Quaternius spaceships (14 files, 33.6 MB, CC0): replaced FBX with the official self-contained .gltf files from Quaternius's Drive folder (11 ships, one texture embedded per ship).
+- Quaternius buildings (47 files, 1.4 MB, CC0): replaced FBX with GLB converted from the pack's own FBX files with Blender 4.2 (FBX import + glTF export). The old Medieval Village Pack has no official glTF anywhere (its Drive folder holds Blends/FBX/OBJ only; only the newer Medieval Village MegaKit has glTF). The pack carries no texture files at all, so the conversion loses nothing: 44/44 models.
+- Quaternius food (106 files, 0.9 MB, CC0): replaced FBX with GLB converted from the pack's own FBX files with Blender 4.2. Same situation as buildings: no official glTF for this pack, no texture files in the pack. Poly Pizza's Ultimate Food Pack bundle was checked as an alternative GLB source but covers only 48 of the 103 models (variants merged), so Blender conversion was used for full 103/103 coverage. Poly Pizza GLBs for the covered models were kept as spares under ~/workspace/ifm-staging/assets2/pp_spares/ (not shipped).
+
+Render check tool: ~/workspace/ifm-staging/assets2/render_check.py (pure-Python software rasterizer, numpy+PIL, honours baseColorTexture and alpha MASK cutout). Renders saved under ~/workspace/ifm-staging/assets2/renders/v2/.
