@@ -86,3 +86,11 @@ Every timing is `lt` = seconds inside the beat. `c[k] = [start, end, text]` hold
 - Music: header `score: <track_id|mood>@<beat> …`.
 - Example scenes made for one topic, 2D: `engine/library/bank/money-v3.js` (city, facts, market, signal, queue, planner, qullqa,
   parcel, reborn, belief, promise).
+
+## Premium (house standard since 5 Nov 2026 night) — `IFM.PX` (ifm_premium.js) + ifm_premium_kit.js
+- Type: `X.kicker(t,x,y,lt,at)` · `X.headline('LINE|A *GOLD* WORD', x, y, lt, at, {s, col, hi})` · `X.counter(v,x,y,lt,at,{s,dec,pre,post,unit})` ·
+  `X.callout(t, ax, ay, lx, ly, lt, at, {dark})` · `X.quote(q, by, x, y, lt, at, dur)` · `X.text(t,x,y,{f:'disp|ui|mono|serif', w, s, fill})` · `X.head(o, lt, dark)`.
+- Light: `X.lit(pathFn, col, {box:[x,y,w,h], drop, rim})` · `X.contact(x,y,rx)` · `X.glint` · `X.rays(x,y,len,lt,a)` · `X.haze(y0,y1,col,a)` ·
+  `X.backdrop(top,bot,{pool})` · `X.cache(key, fn, blur)` · finish: `X.grain()` `X.vignette()` `X.motes(lt)` `X.finish(lt)`.
+- Drawn: `X.coin(x,y,r,lt,{sx})` · `X.note(x,y,w,lt)` · `X.tag(x,y,w,text,lt)` · `X.loaf` · `X.person(x,yFeet,h,lt,{col,pose:stand|walk|hold|raise,hat:chef|farmer,item,flip,seed})` ·
+  `X.cow` · `X.sack(...,{label})` · `X.shell` · `X.cigarette` · `X.box(...,{open,label})` · `X.clock` · `X.bubble(x,y,w,h,tx,ty,{think})`. Name map: `X.DRAW[name](x,y,size,lt)`.

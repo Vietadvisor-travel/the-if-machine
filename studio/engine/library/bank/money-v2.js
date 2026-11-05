@@ -71,7 +71,7 @@
     IFM.exTitle({ ...o, theme: 'paper' }, lt);
     for (let i = 0; i < 4; i++) IFM.emoji('hut', W * (.62 + i * .09), H * (.5 + (i % 2) * .012), H * .05, {});
     for (let i = 0; i < 4; i++) { const q = ((lt * .035 + i * .2) % 1), x = lerp(W * 1.05, -W * .05, q), y = q < .5 ? lerp(H * .53, H * .64, q * 2) : lerp(H * .64, H * .77, (q - .5) * 2), s = H * (.04 + q * .05); IFM.emoji('llama', x, y - s * .45, s, {}); }
-    const k = K(lt, tk, .8); if (k > 0) { ctx.save(); ctx.globalAlpha *= k; IFM.tag('NO COINS · NO MARKETS', W / 2, H * .25, 30 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
+    const k = K(lt, tk, .8); if (k > 0) { ctx.save(); ctx.globalAlpha *= k; IFM.tag('NO COINS · NO MARKETS', W / 2, H * .3, 30 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
 
   // ================================================================ remake (5 Nov 2026): five more scenes made for the film, each in a real place
   const PB = (o, name, lt) => { const q = { ...o, place: o.place || name }; IFM.exBg(q, lt); return q; }, PF = (q, lt) => IFM.placeFore(q.place, lt, q);
@@ -106,14 +106,14 @@
     PF(q, lt); IFM.exTitle(o, lt); } }; };
 
   // x_mv_khipu  an Inca khipu in a library: a main cord, pendant cords drop in, knots tie one by one, it sways
-  A.x_mv_khipu = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .5); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'library', lt), x0 = W * .1, x1 = W * .9, y0 = H * .24, WOOL = ['#C8553D', '#E9C46A', '#2A9D8F', '#F4EEDC', '#8A6A44', '#264653', '#D4A373', '#9C6644', '#B5838D'];
+  A.x_mv_khipu = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .5); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'library', lt), x0 = W * .1, x1 = W * .9, y0 = o.title ? H * .31 : H * .24, WOOL = ['#C8553D', '#E9C46A', '#2A9D8F', '#F4EEDC', '#8A6A44', '#264653', '#D4A373', '#9C6644', '#B5838D'];
     ctx.save(); ctx.globalAlpha = .22; ell(W / 2, H * .7, W * .38, H * .02, '#000', 0); ctx.restore();
     ctx.lineCap = 'round'; ctx.strokeStyle = '#6B4F30'; ctx.lineWidth = 14 * u; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.quadraticCurveTo(W / 2, y0 + H * .03, x1, y0); ctx.stroke();
     const N = 9; for (let i = 0; i < N; i++) { const t = (i + .5) / N, x = lerp(x0, x1, t), y = y0 + H * .03 * 4 * t * (1 - t) * .5, d = K(lt, .2 + i * .25, 1.2), len = H * (.3 + ((i * 37) % 9) / 60) * d, sw = Math.sin(lt * .9 + i * .7) * 10 * u * d, col = WOOL[i % WOOL.length];
       if (d <= 0) continue; ctx.strokeStyle = col; ctx.lineWidth = 9 * u; ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + sw * .3, y + len * .5, x + sw, y + len); ctx.stroke();
       const nk = 2 + (i * 5) % 4; for (let k = 0; k < nk; k++) { const kt = .25 + k * .17, a = K(lt, 1.5 + i * .3 + k * .45, .4); if (a <= 0 || kt * H * .3 > len) continue; const kx = x + sw * kt * kt, ky = y + len * kt;
         ctx.save(); ctx.translate(kx, ky); ctx.scale(a, a); ell(0, 0, 13 * u, 10 * u, shade(col, -.25), 0); ell(-3 * u, -3 * u, 5 * u, 4 * u, shade(col, .2), 0); ctx.restore(); } }
-    const a = K(lt, tk, .6); if (a > 0) { ctx.save(); ctx.globalAlpha *= a; IFM.tag('KHIPU', W / 2, H * .17, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); }
+    const a = K(lt, tk, .6); if (a > 0 && !o.title) { ctx.save(); ctx.globalAlpha *= a; IFM.tag('KHIPU', W / 2, H * .17, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); }
     PF(q, lt); } }; };
 
   // x_mv_board  a prison-camp notice board inside a barrack: notes with prices in cigarettes; the prices tick up on caption k
@@ -122,7 +122,7 @@
       g.fillStyle = '#2B221C'; g.fillRect(0, H * .8, W, H * .2); for (let k = 0; k < 3; k++) { g.fillStyle = '#5A4636'; g.fillRect(W * (.05 + k * .33), H * .74, W * .26, H * .025); }
       const gl = g.createRadialGradient(W * .5, H * .1, 10, W * .5, H * .1, W * .7); gl.addColorStop(0, 'rgba(255,214,150,.45)'); gl.addColorStop(1, 'rgba(255,214,150,0)'); g.fillStyle = gl; g.fillRect(0, 0, W, H); }), 0, 0);
     ctx.save(); ctx.globalAlpha = .5 + .05 * Math.sin(lt * 2); glow(W * .5, H * .1, W * .2, '#FFD9A0', .3); ctx.restore(); IFM.emoji('light bulb', W * .5, H * .07, H * .06, {});
-    const bx = W * .1, by = H * .17, bw = W * .8, bh = H * .5; rr(bx - 10 * u, by - 10 * u, bw + 20 * u, bh + 20 * u, 8 * u, '#6B4F30', 0); rr(bx, by, bw, bh, 4 * u, '#C9A27A', 0);
+    const bx = W * .1, by = o.title ? H * .29 : H * .17, bw = W * .8, bh = o.title ? H * .38 : H * .5; rr(bx - 10 * u, by - 10 * u, bw + 20 * u, bh + 20 * u, 8 * u, '#6B4F30', 0); rr(bx, by, bw, bh, 4 * u, '#C9A27A', 0);
     { const r = rng(4); ctx.save(); ctx.globalAlpha = .18; for (let i = 0; i < 260; i++) circ(bx + r() * bw, by + r() * bh, (1 + r() * 2) * u, '#7A5A3A', 0); ctx.restore(); }
     T('EXCHANGE & MART', W / 2, by + bh * .08, { size: 40 * u, font: 'display', weight: 900, fill: '#3A2E25', lw: 0 });
     const rows = [['honey pot', 'JAM', 6, 8], ['bread', 'BREAD', 4, 5], ['soap', 'SOAP', 2, 3]], up = K(lt, tk, .8);
@@ -130,10 +130,10 @@
       rr(-bw * .42, -bh * .1, bw * .84, bh * .2, 4 * u, '#F7F3E8', 0); IFM.emoji('round pushpin', -bw * .4, -bh * .09, 34 * u, {});
       IFM.emoji(e, -bw * .3, 0, bh * .13, {}); T(l, -bw * .1, 0, { size: 38 * u, font: 'display', weight: 900, fill: '#1B1F3A', lw: 0, align: 'left' });
       T('= ' + (up > .5 ? v1 : v0), bw * .16, 0, { size: 46 * u, font: 'display', weight: 900, fill: up > .5 ? '#A23B2E' : '#1B1F3A', lw: 0 }); IFM.emoji('smoking symbol', bw * .32, 0, bh * .1, {}); ctx.restore(); });
-    const tg = K(lt, Math.max(tk - 1.5, 2), .6); if (tg > 0) { ctx.save(); ctx.globalAlpha *= tg; IFM.tag('PRICES IN CIGARETTES', W / 2, H * .135, 32 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
+    const tg = o.title ? 0 : K(lt, Math.max(tk - 1.5, 2), .6); if (tg > 0) { ctx.save(); ctx.globalAlpha *= tg; IFM.tag('PRICES IN CIGARETTES', W / 2, H * .135, 32 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
 
   // x_mv_digits  a phone on an office desk: the bank balance, digits roll as a payment goes out, a tick: ACCEPTED on caption k
-  A.x_mv_digits = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .6); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'office', lt), pw = W * .5, ph = pw * 1.9, px = W / 2 - pw / 2, py = H * .16;
+  A.x_mv_digits = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .6); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'office', lt), pw = W * .5, ph = pw * 1.9, px = W / 2 - pw / 2, py = H * .16; if (o.title) { ctx.save(); ctx.translate(W / 2, H * .27); ctx.scale(.76, .76); ctx.translate(-W / 2, -H * .16); }
     ctx.save(); ctx.globalAlpha = .3; rr(px + 16 * u, py + 20 * u, pw, ph, 40 * u, '#000', 0); ctx.restore(); rr(px, py, pw, ph, 40 * u, '#1E2433', 0); rr(px + 14 * u, py + 14 * u, pw - 28 * u, ph - 28 * u, 30 * u, '#F4F6F1', 0);
     rr(px + 14 * u, py + 14 * u, pw - 28 * u, ph * .2, 30 * u, '#2F5B43', 0); T('BALANCE', W / 2, py + ph * .08, { size: 24 * u, font: 'display', weight: 800, fill: '#E7EBD6', lw: 0 });
     const pay = K(lt, 1.6, 1.8), bal = 1250 - 12.4 * pay, s = bal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); T(s, W / 2, py + ph * .155, { size: 50 * u, font: 'display', weight: 900, fill: '#FFFFFF', lw: 0 });
@@ -142,6 +142,6 @@
       rr(px + 30 * u, y - ph * .045, pw - 60 * u, ph * .09, 14 * u, '#FFFFFF', 0); IFM.emoji(e, px + 70 * u, y, ph * .06, {}); T(l, px + 110 * u, y, { size: 22 * u, font: 'display', weight: 800, fill: '#1B1F3A', lw: 0, align: 'left' });
       T(v, px + pw - 50 * u, y, { size: 22 * u, font: 'display', weight: 900, fill: v[0] === '+' ? '#2A9D8F' : '#1B1F3A', lw: 0, align: 'right' }); ctx.restore(); });
     const a = K(lt, tk, .6); if (a > 0) { ctx.save(); ctx.globalAlpha *= a; ctx.translate(W / 2, py + ph * .8); ctx.scale(.7 + .3 * E.back(clamp((lt - tk) / .6)), .7 + .3 * E.back(clamp((lt - tk) / .6))); IFM.emoji('check mark button', 0, 0, ph * .12, {}); ctx.restore();
-      ctx.save(); ctx.globalAlpha *= a; IFM.tag('ACCEPTED', W / 2, py - 40 * u, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); }
-    PF(q, lt); } }; };
+      if (!o.title) { ctx.save(); ctx.globalAlpha *= a; IFM.tag('ACCEPTED', W / 2, py - 40 * u, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } }
+    if (o.title) ctx.restore(); PF(q, lt); } }; };
 })();

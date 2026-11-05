@@ -16,6 +16,7 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 - A NEUTRAL EXPLAINER that entertains through content: no invented protagonist, no plot, no simulated "day one". A real HOOK
   (question, surprising fact, why it matters, what the video answers) and a real CONCLUSION (recap, the answer, a closing thought).
 - Engine 4.0 (owner, 5 Nov 2026 evening): **2D only** (no 3D sets for now), polished and clear (soft places, subjects in the light, nothing in the caption band), every picture shows its line, transitions planned in the script (morph/match/zoomthru/push2/wipe), narration that flows (one utterance per beat, joined sentences), music named per section (`score:`). `studio/EPISODE.md` §000.
+- **PREMIUM is the standard** (owner, 5 Nov 2026 night): drawn objects and people (IFM.PX), not emoji; motion typography (`kick=` + `title=` with `*gold*` words, callouts, counters); grain/vignette finish; a gentle 2D camera. `studio/EPISODE.md` §0000.
 - Unhurried: `--speed 1.0`, real pauses (engine default), one idea per beat. Minimal sound: music bed only, `sfx=` where it matters
   (≤ 1 per 30 s), master −16 LUFS. 2D = recognisable illustrations (explainer kit + OpenMoji), never vague shapes.
 - Voices (owner, 5 Nov 2026, only these three): **af_heart** narrates every episode; **af_nicole** = second female voice (slow,

@@ -109,7 +109,7 @@
       ctx.strokeStyle = '#D8C49A'; ctx.lineWidth = W * .045; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-W * .1, H * .66); ctx.quadraticCurveTo(W * .5, H * .54, W * 1.1, H * .6); ctx.stroke(); }), 0, 0);
     IFM.exTitle({ ...o, theme: 'paper' }, lt);
     for (let i = 0; i < 5; i++) { const q = ((lt * .045 + i * .17) % 1), x = lerp(-W * .08, W * 1.08, q), y = H * .62 - Math.sin(q * Math.PI) * H * .055 - q * H * .01, s = H * .07; ctx.save(); ctx.translate(x, y - s * .45); ctx.scale(-1, 1); em('llama', 0, 0, s, {}); ctx.restore(); if (i % 2 === 0) em('package', x + W * .005, y - s * .82, s * .4, {}); }
-    tagAt("MIT'A: WORK, NOT COINS", W / 2, H * .25, lt, T0(c, 0, .6) + .6); tagAt('QULLQA: STOREHOUSES', W * .5, H * .665, lt, tk); } }; };
+    tagAt("MIT'A: TURNS OF WORK", W / 2, H * .3, lt, T0(c, 0, .6) + .6); tagAt('QULLQA: STOREHOUSES', W * .5, H * .665, lt, tk); } }; };
 
   // ================================================================ x_mv_parcel: what was in the parcel
   A.x_mv_parcel = (o, c, dur) => { const t0 = T0(c, 0, .4); return { sfx: [], draw: lt => { const u = U();

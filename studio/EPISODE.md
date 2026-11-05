@@ -5,6 +5,21 @@ claims, then commit it. For an episode, read THIS page, `API.md` (when writing c
 Open `references/ifm-director.md` or `IFM_HOUSE.md` only for a specific question; grep, don't cat.
 Token rules are at the end.
 
+## 0000. PREMIUM is the house standard (owner, 5 Nov 2026 night — overrides everything below about the look)
+- **Drawn, not emoji.** Subjects are drawn in code with `IFM.PX` (engine/library/ifm_premium.js): lit vector objects (gradient
+  light, rim, contact and drop shadows, specular sweeps), faceless posed people (`X.person`), coins, notes, tags, loaves, cows, sacks,
+  shells, boxes, clocks … `IFM.emoji(name)` now draws the PX object when one exists (`IFM.PX.DRAW`, ifm_premium_kit.js) and falls
+  back to the illustration otherwise; add a drawn object there whenever a topic needs a new subject. Emoji only as small details.
+- **Motion typography.** Every scene: `kick=` (Space Mono kicker with a gold rule) + `title=`/`head=` (Unbounded 900, lines revealed
+  through a mask, `*gold words*` with a marker sweep; `|` breaks lines). Labels = `X.callout` (pulsing anchor, animated leader, clean
+  pill); numbers = `X.counter`; quotations = `X.quote` (Playfair, word by word). Fonts: Unbounded, Inter, Space Mono, Playfair Display.
+- **The kit is premium** (ex_show/compare/flow/list/stat/chapter/quote/timeline redrawn: lit cards, gold numbering, drawn heroes).
+  Chapter cards: `ex_chapter n= title= obj=scale|coin|note|ticket|shell|bubble|hands|<drawn name>`.
+- **Finish.** Grain + soft vignette on every 2D frame; light rays, motes and haze where they help; the 2D camera is gentle
+  (`IFM._camSoft`) so the title band is never cropped. Layout: kicker 11 %, headline 15–25 %, subject 28–68 %, captions clear.
+- **Bespoke scenes** for the ideas that matter, built from PX parts (examples: engine/library/bank/money-v5.js — x_px_hook city,
+  x_px_barter, x_px_signal, x_px_queue, x_px_parcel, x_px_reborn, x_px_stat, x_px_promise). `look: classic` turns it off.
+
 ## 000. Engine 4.0 — 2D only, polished, flowing (owner, 5 Nov 2026 evening — overrides §0b and anything about 3D below)
 - **2D only for now.** No `act=s3`, no 3D in `split=`/`pip=`/`then=` (variety ERROR; header `allow3d: yes` lifts it). Depth comes
   from layered 2D (2.5D: parallax layers, soft places). The 3D notes below are kept for later.

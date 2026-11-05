@@ -367,3 +367,13 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 - script_check: flow (≥ 9 words a sentence on average, warns on strings of short sentences and cold starts), ≥ 40 % connecting
   transitions, focus points for match/morph/zoomthru.
 - Tested on the money episode (remake v3): 44 beats, 24 bespoke 2D scenes, 0 % 3D.
+
+## 5 Nov 2026 night — PREMIUM becomes the house standard (owner: "5/10 → make it much better"; then "OK, make that the engine standard")
+- New `ifm_premium.js` (IFM.PX): drawn lit objects, faceless posed people, motion typography (kicker, masked headline with gold marker
+  words, counter, animated callouts, serif quotes), light (lit gradients, rim, contact shadows, glints, rays, haze), finish (grain,
+  vignette, motes). Fonts Unbounded / Inter / Space Mono / Playfair Display.
+- New `ifm_premium_kit.js`: IFM.emoji draws the PX object when one exists (PX.DRAW); every title is a premium headline (kick=, *gold*);
+  IFM.tag is a clean pill; the explainer kit is redrawn (show, compare, flow, list, stat, chapter, quote, timeline); every x_ act gets
+  the premium title (if it has none) and the finish; the 2D camera is gentle so the title band is never cropped. `look: classic` = off.
+- variety: warns on scenes without kick= and on kit beats whose main subject is an emoji with no drawn version.
+- Bank: money-v5.js (x_px_hook with money/signals/tags, barter, signal, queue, parcel, reborn, stat, promise). Tested on the money episode.
