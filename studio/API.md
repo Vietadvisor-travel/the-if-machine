@@ -75,3 +75,14 @@ Every timing is `lt` = seconds inside the beat. `c[k] = [start, end, text]` hold
   - used as `kind=w act=x_<name>`; it gets `then=` `dir=` `fx=` `look=` `words=` `cam=` for free.
 - **Sounds:** `ifm_*` (Muse's pack, `ifm_machine_*` `ifm_motion_*` `ifm_sci_*` `ifm_world_*`) plus `whoosh_*` `impact_*` `ui_*`
   `glitch_*` `magic_*` `nature_*` `crowd_*` (`python3 tools/sfx_pro.py list | grep <word>`).
+
+## Engine 4.0 (owner, 5 Nov 2026 evening): 2D only, polished, flowing
+- `IFM.emoji(name, x, y, s, { hero: 1 })` — the subject in the light (soft glow behind, contact shadow). Kit subjects use it.
+- `IFM.place(name, lt, o)` is soft by default (depth of field, cached blur, veil, light motes, no foreground clutter); `{ sharp: 1 }`
+  draws it crisp with its life layer. `IFM.exBg({ ...o, place: 'street' }, lt)` in a bespoke act = the soft place + theme tint.
+- Transitions (story keys): `trans=morph tc=x,y tc2=x,y tr1=.2 tr2=.2` · `trans=match tc= tc2=` · `trans=zoomthru tc= tc2=` ·
+  `trans=push2 [tdir=up]` · `trans=wipe` · `trans=dissolve` (+ slide iris zoom paper fold ink fade cut).
+- Narration: lines of one beat are one utterance; `lead=` (.2) / `gap=` (.3) / `tail=` (.45) / `pause=` on a beat tune the timing.
+- Music: header `score: <track_id|mood>@<beat> …`.
+- Example scenes made for one topic, 2D: `engine/library/bank/money-v3.js` (city, facts, market, signal, queue, planner, qullqa,
+  parcel, reborn, belief, promise).

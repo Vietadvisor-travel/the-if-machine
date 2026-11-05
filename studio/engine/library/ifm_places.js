@@ -75,9 +75,19 @@
 
   // ---------------------------------------------------------------- API
   IFM.PLACES = P;
+  // depth of field (owner, 5 Nov 2026: 'clear pictures, nothing overlapping'): by default a place sits BEHIND the subject, soft —
+  // far and mid layers blurred once (cached), contrast lowered by a veil, its life replaced by slow light motes, so the subject in
+  // front reads in one second. A bespoke scene whose subject IS the place passes { sharp: 1 } (or the beat dof=0).
+  IFM.softPlaces = true;
   IFM.place = (name, lt, o = {}) => { const p = P[name]; if (!p) return false; const tint = (IFM.THEMES && IFM.themeOf && (IFM.THEMES[IFM.themeOf(o)] || {}).acc) || '';
-    ctx.drawImage(cached('pl_far_' + name, () => p.far(o), 6), 0, 0); ctx.drawImage(cached('pl_mid_' + name + (o.props || ''), () => p.mid(o)), 0, 0); if (p.life) p.life(lt, o);
+    const soft = !o.sharp && String(o.dof) !== '0' && IFM.softPlaces, u = U();
+    if (soft) { const bl = Math.max(4, Math.round(9 * u)); ctx.save(); const z = 1.04 + .015 * Math.sin(lt * .15); ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2 + Math.sin(lt * .11) * 10 * u, -H / 2);
+      ctx.drawImage(cached('pl_far_' + name, () => p.far(o), 6 + bl), 0, 0); ctx.drawImage(cached('pl_mid_' + name + (o.props || ''), () => p.mid(o), bl), 0, 0); ctx.restore();
+      const dk = !!(IFM.PLACE_DARK || {})[name]; ctx.save(); ctx.globalAlpha = dk ? .28 : .3; ctx.fillStyle = dk ? '#10142A' : '#F7F2E6'; ctx.fillRect(0, 0, W, H); ctx.restore();
+      for (let i = 0; i < 14; i++) { const r = rng(i * 31 + name.length), x = W * r() + Math.sin(lt * .2 + i) * 30 * u, y = (H * r() - lt * (8 + 10 * r()) * u) % H; ctx.save(); ctx.globalAlpha = .1 + .08 * Math.sin(lt + i); circ(x, y < 0 ? y + H : y, (14 + 36 * r()) * u, dk ? '#FFE6B0' : '#FFFFFF', 0); ctx.restore(); }
+    } else { ctx.drawImage(cached('pl_far_' + name, () => p.far(o), 6), 0, 0); ctx.drawImage(cached('pl_mid_' + name + (o.props || ''), () => p.mid(o)), 0, 0); if (p.life) p.life(lt, o); }
     if (tint) { ctx.save(); ctx.globalCompositeOperation = 'soft-light'; ctx.globalAlpha = .18; ctx.fillStyle = tint; ctx.fillRect(0, 0, W, H); ctx.restore(); }
     const g = ctx.createRadialGradient(W / 2, H * .42, W * .05, W / 2, H * .42, W * .7); g.addColorStop(0, 'rgba(255,248,232,.38)'); g.addColorStop(1, 'rgba(255,248,232,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); return true; };   // a soft pool of light where the subject goes
-  IFM.placeFore = (name, lt, o = {}) => { const p = P[name]; if (!p || !p.fore) return; ctx.drawImage(cached('pl_fore_' + name, () => p.fore(0, o), 10), Math.sin(lt * .3) * 8 * u0(), 0); };
+  IFM.PLACE_DARK = { library: 1, space: 1, ocean: 1 };
+  IFM.placeFore = (name, lt, o = {}) => { const p = P[name]; if (!p || !p.fore) return; if (!o.sharp && String(o.dof) !== '0' && IFM.softPlaces && !o.fore) return; /* soft places: no foreground clutter unless fore=1 */ ctx.drawImage(cached('pl_fore_' + name, () => p.fore(0, o), 10), Math.sin(lt * .3) * 8 * u0(), 0); };
 })();

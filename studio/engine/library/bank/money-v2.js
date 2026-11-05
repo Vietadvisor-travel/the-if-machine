@@ -130,7 +130,7 @@
       rr(-bw * .42, -bh * .1, bw * .84, bh * .2, 4 * u, '#F7F3E8', 0); IFM.emoji('round pushpin', -bw * .4, -bh * .09, 34 * u, {});
       IFM.emoji(e, -bw * .3, 0, bh * .13, {}); T(l, -bw * .1, 0, { size: 38 * u, font: 'display', weight: 900, fill: '#1B1F3A', lw: 0, align: 'left' });
       T('= ' + (up > .5 ? v1 : v0), bw * .16, 0, { size: 46 * u, font: 'display', weight: 900, fill: up > .5 ? '#A23B2E' : '#1B1F3A', lw: 0 }); IFM.emoji('smoking symbol', bw * .32, 0, bh * .1, {}); ctx.restore(); });
-    const tg = K(lt, Math.max(tk - 1.5, 2), .6); if (tg > 0) { ctx.save(); ctx.globalAlpha *= tg; IFM.tag('PRICES IN CIGARETTES', W / 2, H * .72, 32 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
+    const tg = K(lt, Math.max(tk - 1.5, 2), .6); if (tg > 0) { ctx.save(); ctx.globalAlpha *= tg; IFM.tag('PRICES IN CIGARETTES', W / 2, H * .135, 32 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
 
   // x_mv_digits  a phone on an office desk: the bank balance, digits roll as a payment goes out, a tick: ACCEPTED on caption k
   A.x_mv_digits = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .6); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'office', lt), pw = W * .5, ph = pw * 1.9, px = W / 2 - pw / 2, py = H * .16;

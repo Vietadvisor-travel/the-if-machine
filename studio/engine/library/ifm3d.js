@@ -237,8 +237,10 @@
       // free column: the whole width, or the side away from an inset
       const c0 = pb ? (pb[0] > W * .3 ? W * .04 : pb[0] + pb[2] + 16 * u) : W * .04, c1 = pb ? (pb[0] > W * .3 ? pb[0] - 16 * u : W * .96) : W * .96;
       let fs = 34 * u; setFont(fs, 'display', 900); let tw = ctx.measureText(m[3]).width + 36 * u; if (tw > c1 - c0) { fs *= (c1 - c0) / tw; setFont(fs, 'display', 900); tw = ctx.measureText(m[3]).width + 36 * u; } const th = fs * 1.6;
-      let ly = pb ? H * (.16 + j * .075) : clamp(y - H * .08, H * .14, H * .66); while (placed.some(p => Math.abs(p - ly) < th * 1.2)) ly += pb ? th * 1.3 : -th * 1.3; ly = clamp(ly, H * .1, H * .7); placed.push(ly);
-      const side = pb ? (pb[0] > W * .3 ? -1 : 1) : (x > W * .5 ? -1 : 1) * (j % 2 ? -1 : 1), bx = clamp(pb ? (side < 0 ? c0 : c1 - tw) : x + side * W * .12 - (side < 0 ? tw : 0), c0, c1 - tw), ax = x < bx ? bx : x > bx + tw ? bx + tw : bx + tw / 2, ay = ly + (y > ly ? th / 2 : -th / 2);
+      // owner, 5 Nov 2026: the label used to follow the subject frame by frame and flip sides — it jumped about. Now the label box
+      // sits in a FIXED slot (row j, alternate sides); only the dot and the leader line follow the subject.
+      const ly = H * (.16 + j * .085); placed.push(ly);
+      const side = pb ? (pb[0] > W * .3 ? -1 : 1) : (j % 2 ? 1 : -1), bx = side < 0 ? c0 : c1 - tw, ax = x < bx ? bx : x > bx + tw ? bx + tw : bx + tw / 2, ay = ly + (y > ly ? th / 2 : -th / 2);
       ctx.save(); ctx.globalAlpha = e; ctx.strokeStyle = '#F6F1E7'; ctx.lineWidth = 3 * u; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(lerp(x, ax, e), lerp(y, ay, e)); ctx.stroke(); circ(x, y, 9 * u, col, 0); circ(x, y, 4 * u, '#0F1226', 0);
       ctx.fillStyle = 'rgba(15,18,38,.88)'; ctx.beginPath(); ctx.roundRect(bx, ly - th / 2, tw, th, 12 * u); ctx.fill(); ctx.fillStyle = col; ctx.fillRect(bx, ly - th / 2, 6 * u, th); ctx.fillStyle = '#F6F1E7'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(m[3], bx + 20 * u, ly + 2 * u); ctx.restore(); }); }
   IFM.s3 = { SETS, world, shot3, TOD };

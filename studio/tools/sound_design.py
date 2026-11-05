@@ -1187,7 +1187,7 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
                 t0 = scenes[si]['start'] - .35 if k else 0; t1 = scenes[pm_segs[k + 1][0]]['start'] - .35 if k + 1 < len(pm_segs) else dur + 1
                 try: LIBSEG[k] = PM.arrange(tid, max(0, t0), t1, n, first=(k == 0)); used_tracks.append(tid); print(f'  music {m:10} {tid}  {t0:6.1f}–{t1:6.1f} s')
                 except Exception as e: print('warn: library track', tid, 'failed:', e)
-        D['music'] = [[si, PM.FALLBACK.get(m, m)] for si, m in pm_segs]
+        D['music'] = [[si, PM.FALLBACK.get(m, m) if m not in PM.load() else (PM.load()[m].get('moods') or ['curious'])[0]] for si, m in pm_segs]
         json.dump(used_tracks, open(base + '_music_used.json', 'w'))
     D.setdefault('music', auto_music(scenes, beats, score, C.get('music')))
     segs = D['music']; stems = {}; seed = slug.replace('-yt', '')

@@ -5,6 +5,25 @@ claims, then commit it. For an episode, read THIS page, `API.md` (when writing c
 Open `references/ifm-director.md` or `IFM_HOUSE.md` only for a specific question; grep, don't cat.
 Token rules are at the end.
 
+## 000. Engine 4.0 — 2D only, polished, flowing (owner, 5 Nov 2026 evening — overrides §0b and anything about 3D below)
+- **2D only for now.** No `act=s3`, no 3D in `split=`/`pip=`/`then=` (variety ERROR; header `allow3d: yes` lifts it). Depth comes
+  from layered 2D (2.5D: parallax layers, soft places). The 3D notes below are kept for later.
+- **Polished and clear.** Places sit BEHIND the subject in soft focus (blurred once and cached, a light veil, slow light motes;
+  `sharp=1`/`dof=0` when the place IS the subject). Subjects stand in the light (`IFM.emoji(..., { hero: 1 })`: a soft pool of light
+  and a contact shadow) and spring in (`E.back`). Nothing in the caption band 74.5–79 %: every scene is laid out in the title band
+  (13–24 %) and the subject band (28–68 %); labels sit in FIXED places, never following moving things.
+- **Every picture shows its line.** Bespoke scenes are built for the idea (the queue in front of a FREE shop, the ration list being
+  written, the parcel opening …) from illustrations and code-drawn sets — no unrelated simulation.
+- **Transitions are written in the script** and carry the idea: `morph` (the subject of the last shot lifts out and becomes the
+  subject of the next: tc= tc2= tr1= tr2=), `match` (shared element, tc= tc2=), `zoomthru` (into a window, a crate, a hand), `push2`
+  (B pushes A along the argument, `tdir=up`), `wipe` (soft diagonal), `dissolve` (time passes), `slide`, `iris`, `zoom`; `fade` only
+  into chapter cards. script_check: ≥ 40 % connecting transitions, match/morph/zoomthru need their focus points.
+- **Narration flows.** Each beat's lines by one voice are spoken as ONE utterance (voice.py cuts it at the natural pauses for the
+  captions); ≈ 0.3 s between lines, ≈ 0.65 s between beats, `pause=` only after the hook, the chapter cards and the recap. Write
+  joined sentences (because, so, which means, and that is why); script_check errors below 9 words a sentence on average.
+- **Music fits the content.** The header names the track per section: `score: <track_id>@<beat> …` (tracks in music/library.json:
+  `python3 -c "import json;print(*json.load(open('music/library.json')))"`); variety warns without it.
+
 ## 00. The house look (owner, 4 Nov 2026 evening — overrides anything below that disagrees)
 - **Objective, plain entertainment (owner, 5 Nov 2026: "a channel that is objective and plain, not this").** A what-if
   question is answered with what science, history, data and experts actually say. No machine persona, no "run", no story.

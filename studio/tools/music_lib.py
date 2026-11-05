@@ -59,7 +59,9 @@ def add(src, id_, moods, credit='', lic=''):
 ACT_MOOD = {'setup': 'curious', 'rise': 'rise', 'doubt': 'tension', 'fall': 'dark', 'after': 'sad', 'lesson': 'reflective', 'flash': 'archive', 'thumb': 'curious'}
 FALLBACK = {'wonder': 'wonder', 'momentum': 'upbeat', 'warm': 'emotional', 'curious': 'wonder', 'rise': 'upbeat', 'tension': 'tension', 'dark': 'mystery', 'sad': 'emotional', 'reflective': 'emotional', 'epic': 'epic', 'comedy': 'sneaky', 'archive': 'chill', 'tech': 'night'}
 def pick(mood, used, seed):
-    L = load(); c = [k for k, v in L.items() if mood in v.get('moods', [])]
+    L = load()
+    if mood in L: return mood   # owner, 5 Nov 2026: the director names the exact track per section (score: <track_id>@<beat>)
+    c = [k for k, v in L.items() if mood in v.get('moods', [])]
     try:   # v5.2: avoid tracks the last 3 OTHER episodes used, when the mood has alternatives
         H = [h for h in json.load(open(os.path.join(ROOT, 'history.json'))) if not seed.startswith(h.get('ep', '#'))][-3:]; recent = {t for h in H for t in h.get('tracks', [])}
         if [k for k in c if k not in recent]: c = [k for k in c if k not in recent]

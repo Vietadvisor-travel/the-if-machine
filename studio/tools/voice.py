@@ -145,6 +145,32 @@ def tts_expr(text, voice, speed=1.0):
     parts = [np.zeros(int(sr0 * v), np.float32) if t == 'gap' else v for t, v in out]
     return np.concatenate(parts), sr0
 
+def tts_flow(text, voice, speed=1.0):
+    """One utterance for a whole beat: Kokoro reads it in one go (natural sentence pauses, continuous intonation);
+    only '…' and ' — ' still insert a held beat (0.38 s)."""
+    chunks = [c for c in re.split(r'(…|\.\.\.| — | – )', text)]; out = []; sr0 = 24000
+    for c in chunks:
+        if c in ('…', '...', ' — ', ' – '): out.append(np.zeros(int(sr0 * .38), np.float32)); continue
+        if not re.search(r'[A-Za-z0-9À-ỹ]', c): continue
+        x, sr0 = tts(c.strip(), voice, speed); out.append(x)
+    return (np.concatenate(out), sr0) if out else tts(text, voice, speed)
+
+def split_at_pauses(x, sr, weights):
+    """Cut one utterance into len(weights) pieces: each cut goes to the quietest moment within ±0.6 s of the point where that
+    line's share of the text (weights = characters) ends. The pieces are contiguous, so placed end to end they ARE the utterance."""
+    n = len(weights)
+    if n == 1: return [x]
+    hop = max(1, sr // 100); fr = len(x) // hop
+    rms = np.array([np.sqrt(np.mean(x[i * hop:(i + 1) * hop] ** 2)) for i in range(fr)]) if fr else np.zeros(1)
+    sm = np.convolve(rms, np.ones(5) / 5, 'same'); tot = float(sum(weights)); cuts = []; acc = 0; last = 0
+    for w in weights[:-1]:
+        acc += w; c = int(acc / tot * fr); a, b = max(last + 20, c - 60), min(fr - 20, c + 60)
+        if b <= a: c2 = min(max(c, last + 1), fr - 1)
+        else: c2 = a + int(np.argmin(sm[a:b] + np.abs(np.arange(a, b) - c) * (sm.max() * .002)))
+        cuts.append(c2); last = c2
+    edges = [0] + [c * hop for c in cuts] + [len(x)]
+    return [x[edges[i]:edges[i + 1]] for i in range(n)]
+
 def resample(x, sr, to=SR_OUT):
     if sr == to: return x
     n = int(len(x) * to / sr); return np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x).astype(np.float32)
@@ -167,13 +193,24 @@ def synth(lines_path, outdir, voice=None, speed=1.0):
         speed = min(1.2, max(.85, round(3.15 / wps, 2)))
         print(f'  narrator {narr}: {wps:.2f} words/s at speed 1.0 → speed {speed}')
     speed = float(speed)
+    # flow (owner, 5 Nov 2026: 'the sentences feel disconnected'): the lines of one beat by one voice are spoken as ONE utterance,
+    # so the intonation runs on from line to line; the clip is then cut at the pauses nearest each line's share of the text.
+    groups = []
     for ln in L['lines']:
-        v = voice_for(ln.get('spk'), narr); key = hashlib.md5(f"{ln['text']}|{v}|{speed}|x2".encode()).hexdigest()[:12]
-        cp = os.path.join(outdir, f'c_{key}.wav'); out = os.path.join(outdir, f"vo_{ln['k']}.wav")
+        v = voice_for(ln.get('spk'), narr)
+        if groups and groups[-1]['v'] == v and groups[-1]['b'] == ln.get('b', -1) and ln.get('b') is not None and len(groups[-1]['lines']) < 6: groups[-1]['lines'].append(ln)
+        else: groups.append({'v': v, 'b': ln.get('b'), 'lines': [ln]})
+    durs = [None] * len(L['lines']); kidx = {ln['k']: i for i, ln in enumerate(L['lines'])}
+    for g in groups:
+        v, lines = g['v'], g['lines']; text = ' '.join(ln['text'].strip() for ln in lines)
+        key = hashlib.md5(f"{text}|{v}|{speed}|flow1".encode()).hexdigest()[:12]; cp = os.path.join(outdir, f'c_{key}.wav')
         if not os.path.exists(cp):
-            x, sr = tts_expr(ln['text'], v, speed); write_wav(cp, resample(x, sr), SR_OUT)
-        x, sr = read_wav(cp); write_wav(out, x, sr); durs.append(round(len(x) / sr, 3))
-        print(f"  [{ln['k']:>3}] {v:<11} {durs[-1]:5.2f}s  {speakable(ln['text'])[:70]}")
+            x, sr = tts_flow(text, v, speed); write_wav(cp, resample(x, sr), SR_OUT)
+        x, sr = read_wav(cp); segs = split_at_pauses(x, sr, [len(speakable(ln['text'])) + 1 for ln in lines])
+        for j, (ln, seg) in enumerate(zip(lines, segs)):
+            write_wav(os.path.join(outdir, f"vo_{ln['k']}.wav"), seg, sr); d = round(len(seg) / sr, 3)
+            durs[kidx[ln['k']]] = [d, 1] if j < len(lines) - 1 else d
+            print(f"  [{ln['k']:>3}] {v:<11} {d:5.2f}s{' ↴' if j < len(lines) - 1 else '  '} {speakable(ln['text'])[:68]}")
     json.dump(durs, open(os.path.join(outdir, 'durs.json'), 'w'))
     envs = []   # mouth-openness envelope per line at 30 fps (for lip sync)
     for ln in L['lines']:
@@ -188,7 +225,7 @@ def synth(lines_path, outdir, voice=None, speed=1.0):
         except Exception: ph = ''
         vis.append(visemes(ph, e[::2]))
     json.dump(vis, open(os.path.join(outdir, 'visemes.json'), 'w'))
-    print('voice-over:', len(durs), 'lines,', round(sum(durs), 1), 's total')
+    print('voice-over:', len(durs), 'lines,', round(sum(d[0] if isinstance(d, list) else d for d in durs), 1), 's total')
 
 def place(cues_path, vodir, out_path):
     C = json.load(open(cues_path, encoding='utf-8')); D = C.get('duration') or max(s['t1'] for s in C['subs']) + 1

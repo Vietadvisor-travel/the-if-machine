@@ -16,6 +16,22 @@
   // shared-element match: A's focus scales/moves onto B's focus while they cross-dissolve (round bowl → round sun)
   FX.match = (A, B, p, t, c, tr) => { const [x, y] = P(c), [x2, y2] = c2(tr) || [W / 2, H / 2]; const e = E.inOut(p); const kA = lerp(1, 1.8, e), kB = lerp(.55, 1, e);
     ctx.save(); ctx.translate(lerp(0, x2 - x, e), lerp(0, y2 - y, e)); draw(A, x, y, kA, 0, 1 - E.in(clamp((p - .3) / .5))); ctx.restore(); ctx.save(); ctx.translate(lerp(x - x2, 0, e), lerp(y - y2, 0, e)); draw(B, x2, y2, kB, 0, E.out(clamp((p - .25) / .5))); ctx.restore(); };
+  // ---- continuity transitions (owner, 5 Nov 2026: 'transitions, morphs and animation scripted from the start, flowing into each other')
+  // morph: the SUBJECT of A (a disc around tc, radius tr = tcr, default .2 W) lifts out of its scene, flies and scales onto the subject
+  // of B (tc2) while A's background dissolves into B's; at the end the disc dissolves into B's subject — the coin becomes the planet.
+  FX.morph = (A, B, p, t, c, tr) => { const [x, y] = P(c), [x2, y2] = c2(tr) || [W / 2, H / 2], u = U(), R1 = (tr && tr.r1 || .2) * W, R2 = (tr && tr.r2 || .2) * W, e = E.inOut(p);
+    ctx.drawImage(A, 0, 0); ctx.save(); ctx.globalAlpha = E.inOut(clamp((p - .15) / .6)); draw(B, x2, y2, lerp(1.08, 1, e)); ctx.restore();
+    const cx = lerp(x, x2, e), cy = lerp(y, y2, e) - Math.sin(e * Math.PI) * H * .04, R = lerp(R1, R2, e), k = R / R1, a = 1 - E.in(clamp((p - .6) / .4));
+    if (a > 0) { ctx.save(); ctx.globalAlpha = .25 * a; ell(cx, cy + R * 1.05, R * .8, R * .14, '#000', 0); ctx.restore(); ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.clip(); ctx.translate(cx, cy); ctx.scale(k, k); ctx.drawImage(A, -x, -y); ctx.restore(); } };
+  // push: B pushes A out of frame with a little parallax (A moves slower and dims) — a calm page turn along the story (tdir= left|up)
+  FX.push2 = (A, B, p, t, c, tr) => { const e = E.inOut(p), up = tr && tr.dir === 'up', d = up ? H : W; ctx.save(); ctx.translate(up ? 0 : -e * d * .35, up ? -e * d * .35 : 0); ctx.drawImage(A, 0, 0); ctx.globalAlpha = .35 * e; ctx.fillStyle = '#0B0E1C'; ctx.fillRect(0, 0, W, H); ctx.restore();
+    ctx.save(); ctx.translate(up ? 0 : (1 - e) * d, up ? (1 - e) * d : 0); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 40 * U(); ctx.drawImage(B, 0, 0); ctx.restore(); };
+  // wipe: a soft-edged diagonal reveal that travels with the motion of the story
+  FX.wipe = (A, B, p, t, c, tr) => { const e = E.inOut(p); ctx.drawImage(A, 0, 0); const g = ctx.createLinearGradient(0, H, W, 0), q = lerp(-.25, 1.25, e); ctx.save(); const m = mkCanvas(W, H), mg = m.getContext('2d'); mg.drawImage(B, 0, 0); mg.globalCompositeOperation = 'destination-in';
+    const gg = mg.createLinearGradient(0, H, W, 0); gg.addColorStop(clamp(q - .12), 'rgba(0,0,0,1)'); gg.addColorStop(clamp(q + .12), 'rgba(0,0,0,0)'); mg.fillStyle = gg; mg.fillRect(0, 0, W, H); ctx.drawImage(m, 0, 0); ctx.restore(); };
+  // dissolve: a cross-dissolve while both frames drift a little toward the viewer — softer than a fade, never static
+  FX.dissolve = (A, B, p) => { const e = E.inOut(p); draw(A, W / 2, H / 2, 1 + .06 * e); ctx.save(); ctx.globalAlpha = e; draw(B, W / 2, H / 2, 1.06 - .06 * e); ctx.restore(); };
+  Object.assign(TR2, { morph: 1.0, push2: .8, wipe: .8, dissolve: .9 });
   // liquid flood: a wavy fill (coffee, broth, beer) rises and drains, revealing B
   FX.liquid = (A, B, p, t, c, tr) => { const col = (tr && tr.col) || '#6a3a1e'; const up = p < .55, q = up ? E.inOut(p / .55) : E.inOut((p - .55) / .45); ctx.drawImage(up ? A : B, 0, 0);
     const lvl = up ? lerp(H * 1.1, -H * .1, q) : lerp(-H * .1, -H * 1.3, q); const wave = (yy, amp, ph) => { ctx.beginPath(); ctx.moveTo(0, H * 2); ctx.lineTo(0, yy); for (let x = 0; x <= W; x += W / 24) ctx.lineTo(x, yy + Math.sin(x / W * 7 + t * 6 + ph) * amp); ctx.lineTo(W, H * 2); ctx.closePath(); };

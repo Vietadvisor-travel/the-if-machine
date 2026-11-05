@@ -348,3 +348,22 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
   scene, ERROR at 3 (frozen). Calibrated: an empty static room = 2.2, the 1-minute sample median 7.5 (it flags the slow map
   push and the static phone close-up, which were indeed too still).
 - Docs: the 2D half = the existing living 2D acts and bank, cut with the 3D sets.
+
+## 5 Nov 2026 evening — engine 4.0: 2D only, polished, flowing (owner's notes on the money remake v2)
+- Owner: pins jumped about; music unrelated to the content; narration slow and disconnected; drop the 3D; 2D scenes realistic,
+  polished, clear and relevant; transitions, morphs and animation scripted and flowing; no overlaps.
+- pins= (3D labels): the label box sits in a fixed slot; only the dot and leader follow the subject (no more side flips).
+- Narration flow: storyboard groups each beat's lines; voice.py speaks a beat (one voice) as ONE Kokoro utterance (`tts_flow`) and
+  cuts it at the quietest point near each line's share of the text (`split_at_pauses`); durs entries `[d, 1]` chain the lines with
+  no added gap. Beat padding .35 + .85 s → .2 + .45 s (`lead=`, `tail=`); line gap .34 → .3 s.
+- Music: `score: <track_id>@<beat>` names exact library tracks per section (music_lib.pick, sound_design); variety checks it.
+- 2D only: variety ERROR on any act=s3 (header `allow3d: yes` lifts it); script_check errors on 3D cuts, drops the 3D-per-minute
+  and hybrid rules, asks for one 2.5D picture a minute.
+- Soft places: depth of field (cached blur, veil, light motes, no foreground clutter); `sharp=1` for the old look.
+- Subjects in the light: `IFM.emoji(…, { hero: 1 })`; kit pop-in is a gentle spring (E.back); kit flow and stat grids end above the
+  caption band.
+- New transitions: morph (shared subject lifts out and lands on the next subject), push2 (parallax push, `tdir=up`), wipe (soft
+  diagonal), dissolve (drifting cross-dissolve); story keys `tr1= tr2= tdir=`. All in the calm set.
+- script_check: flow (≥ 9 words a sentence on average, warns on strings of short sentences and cold starts), ≥ 40 % connecting
+  transitions, focus points for match/morph/zoomthru.
+- Tested on the money episode (remake v3): 44 beats, 24 bespoke 2D scenes, 0 % 3D.

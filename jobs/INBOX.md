@@ -44,3 +44,4 @@
 2026-11-05 07:16 · claude → muse · [assets wave 2 fix] all 17 model packs integrated (1,337 CC0 models). Thanks.
 2026-11-05 15:10 · claude → muse · [money-disappears] IN_PRODUCTION again (remake on the owner's word, new engine standard: neutral explainer, theme banknote, places, 2D+3D). Research +2 facts (UK rationing 1940–54, 97 % of UK money is bank deposits)
 2026-11-05 10:40 · claude → muse · [money-disappears] DELIVERED remake v2 (vertical 7:09, review 91, gate PASS) · Drive TheIfMachine_Media/money-disappears/ (files replaced in place) · waiting for owner: đăng tập Nếu tiền biến mất
+2026-11-05 13:00 · claude → muse · [money-disappears] v2 notes from the owner (pins jumping, music unrelated, slow/disconnected narration, no 3D, polished 2D, scripted transitions) → engine 4.0 (2D only, soft places, flowing narration, score: per section, morph/push2/wipe/dissolve) + remake v3 in production

@@ -12,7 +12,7 @@ for (const ln of txt.split('\n')) { const t = ln.trim(); if (!t || t.startsWith(
 const BRAND = b => b.o.kind === 'ifm'; const key = b => [b.o.kind || b.type, b.o.act || '', b.o.set || b.o.view || b.o.screen || b.o.planet || (/^ex_/.test(b.o.act || '') ? (b.o.e || b.o.title || '') : '')].join(':'); const actKey = b => (b.o.kind || b.type) + ':' + (b.o.act || '') + (b.o.set ? ':' + b.o.set : '') + (/^ex_/.test(b.o.act || '') ? ':' + (b.o.e || b.o.title || b.o.v || '') : '');   // explainer kit: a different illustration is a different picture
 const E = [], Wn = []; const err = m => E.push(m), warn = m => Wn.push(m);
 // calm house look (owner, 4 Nov 2026): no glare, no jerky or flickering effects; effects only where the scene needs one
-const CALM_TR = ['cut', 'fade', 'match', 'slide', 'ink', 'zoomthru', 'paper', 'iris', 'fold', 'liquid', 'cube', 'drop', 'zoom', 'flip3d'], BADFX = /\bfx\s+(flash|shake|glitch|chroma|speed|zblur|shock|mblur|strobe)\b/;
+const CALM_TR = ['cut', 'fade', 'match', 'slide', 'ink', 'zoomthru', 'paper', 'iris', 'fold', 'liquid', 'cube', 'drop', 'zoom', 'flip3d', 'morph', 'push2', 'wipe', 'dissolve'], BADFX = /\bfx\s+(flash|shake|glitch|chroma|speed|zblur|shock|mblur|strobe)\b/;
 
 const calmOff = /^calm\s*:\s*off\b/m.test(txt);
 if (!calmOff) { beats.forEach((b, i) => { if (b.o.trans && !CALM_TR.includes(b.o.trans)) err(`beat ${i + 1}: transition "${b.o.trans}" is not in the calm set (${CALM_TR.join(' ')})`); if (BADFX.test(b.o.dir || '')) err(`beat ${i + 1}: jerky/flashing effect in dir= (${(b.o.dir.match(BADFX) || [])[1]}) — removed by the calm look; use a camera move instead`); if (((b.o.then || '').match(/cam=/g) || []).length > 2) err(`beat ${i + 1}: ${(b.o.then.match(/cam=/g) || []).length} camera changes in one beat — at most a wide → close → wide pair (owner: no jerk every second)`); if (/cam=(whip|dutch|snap)/.test(b.o.then || '')) warn(`beat ${i + 1}: cam whip/dutch is jarring — push, pull, truck, crane, float, tilt`); }); }
@@ -45,7 +45,7 @@ if (!beats.length || !(beats[0].o.act === 'hook' || beats[0].o.hook || (/^ex_/.t
   const g = cuts.filter(c => c.sz); const share = g.length / Math.max(1, cuts.length), d3 = cuts.filter(c => c.d3).length / Math.max(1, cuts.length);
   if (cuts.length > 20 && share < .5) warn(`only ${(share * 100) | 0} % of cuts use the shot grammar cam=<SIZE>.<angle>.<move> (aim ≥ 70 %)`);
   if (cuts.length > 20 && d3 > .6) err(`3D is ${(d3 * 100) | 0} % of cuts — 2D and 3D combined (owner 4 Nov 2026), at most 60 %`);
-  if (cuts.length > 20 && d3 < .15) warn(`3D shots ${(d3 * 100) | 0} % of cuts (act=s3; aim 20–50 %)`);
+  if (/^yes$/i.test(hdr.allow3d || "") && cuts.length > 20 && d3 < .15) warn(`3D shots ${(d3 * 100) | 0} % of cuts (act=s3; aim 20–50 %)`);
   for (let i = 2; i < g.length; i++) if (g[i].sz === g[i - 1].sz && g[i].sz === g[i - 2].sz) { warn(`shot size ${g[i].sz} three times in a row (cut ${i + 1})`); break; } }
 // 3D variety inside the film (owner, 4 Nov 2026: creative and varied, nothing repeated in a video or across episodes)
 { const seen = {}, sets = {}; let n3 = 0; body.forEach((b, bi) => { let cur = { ...b.o }; [b.o.cam, ...String(b.o.then || '').split('|')].forEach((seg, j) => { if (j) { seg.replace(/(\w+)=("([^"]*)"|\S+)/g, (q, k, v, qq) => { cur[k] = qq != null ? qq : v; return ''; }); } if (cur.act !== 's3') return; n3++;
@@ -65,6 +65,12 @@ if (borrowed.length) warn(`bespoke acts borrowed from other episodes: ${borrowed
 if (!vert && body.length >= 20 && new Set(own).size < 4) err(`only ${new Set(own).size} pictures made for this episode (x_ acts): every episode needs its own scenes (≥ 4), the kit is building blocks`);
 { const bare = body.filter(b => /^ex_(show|compare|flow|stat|timeline|list)$/.test(b.o.act || '') && !b.o.place && b.o.bare !== 'ok'); if (bare.length) err(`${bare.length} explainer beats without a place (${[...new Set(bare.map(b => b.o.act))].join(', ')}): every scene needs a real setting with details — place=street|market|kitchen|office|bank|farm|classroom|lab|harbor|library|space|village|desert|ocean (or bare=ok with a reason)`); }
 const st3 = body.filter(b => b.o.act === 's3' && b.o.set === 'stage' && !b.o.dress); if (st3.length) warn(`${st3.length} stage shots without dress=: add props around the subject (dress=market|kitchen|city|nature|space|village|treasure)`);
+// 2D only (owner, 5 Nov 2026: 'drop the complex 3D scenes, only 2D for now'): header allow3d: yes lifts it
+if (!/^yes$/i.test(hdr.allow3d || '')) body.forEach((b, i) => { const t = [b.o.act, b.o.a, b.o.b, b.o.pip, b.o.then].join(' '); if (/\bs3\b/.test(t)) err(`beat ${i + 1}: 3D (act=s3) is off — build it in 2D`); });
+// music chosen by the director (owner, 5 Nov 2026: 'the music has nothing to do with the content'): score: <track_id|mood>@<beat> …
+{ let LIB = {}; try { LIB = JSON.parse(fs.readFileSync('music/library.json', 'utf8')); } catch (e) {} const MOODS = ['curious', 'wonder', 'momentum', 'tension', 'comedy', 'warm', 'tech', 'epic', 'rise', 'dark', 'sad', 'reflective', 'archive'];
+  if (!hdr.score) warn('no `score:` in the header: name the music for each section (score: <track_id>@<beat> …, tracks in music/library.json) so it fits the content');
+  else String(hdr.score).split(/\s+/).filter(Boolean).forEach(t => { const m = t.split('@')[0]; if (!LIB[m] && !MOODS.includes(m)) err(`score: "${m}" is neither a library track nor a mood`); }); }
 if (!hdr.theme) warn('no `theme:` in the header: give the episode its own visual world (banknote, museum, chalk, blueprint, noir, desert, ocean, cosmos …)');
 const prev = hist.episodes.filter(e => e.slug !== slug && e.vert === vert).slice(-3);
 if (prev.length && hdr.theme && prev.some(e => e.theme === hdr.theme)) err(`theme "${hdr.theme}" was used in the last 3 episodes: each episode its own visual world`);

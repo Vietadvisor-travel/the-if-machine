@@ -10,7 +10,7 @@
 (function () {
   if (typeof SB === 'undefined' || !window.IFM) return;
   // smooth transitions only (no blur streaks, flashes, shards, pixels, glitches); used in rotation so the film is varied
-  const SMOOTH = ['slide', 'ink', 'zoomthru', 'paper', 'iris', 'fold', 'liquid', 'cube', 'drop', 'zoom', 'flip3d']; // no full-screen colour wipes (stripes, blobs): they read as flashes
+  const SMOOTH = ['slide', 'ink', 'zoomthru', 'paper', 'iris', 'fold', 'liquid', 'cube', 'drop', 'zoom', 'flip3d', 'morph', 'push2', 'wipe', 'dissolve']; // no full-screen colour wipes (stripes, blobs): they read as flashes
   const CALM_TR = ['cut', 'fade', 'match', ...SMOOTH];
   const BAD_FX = /^(flash|shake|glitch|chroma|speed|zblur|shock|mblur|strobe)$/;
   IFM.CALM_TR = CALM_TR; IFM.SMOOTH_TR = SMOOTH; IFM.BAD_FX = BAD_FX; IFM.calm = true;

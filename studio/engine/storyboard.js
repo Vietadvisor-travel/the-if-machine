@@ -38,12 +38,15 @@ const WPS = 2.6; // narration pace (≈150 wpm)
 // pass 2 (SB._vo = {durs:[…]}) times each caption to its real audio length. Without VO: 2.6 words/s estimate.
 SB._vo = null;
 function capDur(s, spk) { const est = Math.max(1.3, String(s).replace(/[\*\[\]]/g, '').split(/\s+/).filter(Boolean).length / WPS + .35); const V = SB._vo; if (!V) return est; const k = V.i++; V.last = k;
-  if (V.durs) return V.durs[k] !== undefined ? Math.max(.6, V.durs[k] + .08) : est; V.list.push({ k, text: String(s), spk: spk || 'narrator' }); return est; }
+  // flow (owner, 5 Nov 2026: 'the sentences feel disconnected'): voice.py speaks a beat's lines as ONE utterance and cuts it at the
+  // pauses; a durs entry [d, 1] means 'this line runs straight into the next' (no added gap, the audio is contiguous)
+  if (V.durs) { const x = V.durs[k]; V.join = Array.isArray(x) && !!x[1]; const d = Array.isArray(x) ? x[0] : x; return d !== undefined ? Math.max(.6, d + .08) : est; }
+  V.list.push({ k, text: String(s), spk: spk || 'narrator', b: V.b || 0 }); return est; }
 const voIdx = () => SB._vo ? SB._vo.last : undefined;
 // cast lines (4 Nov 2026): story header `cast: IFFY=am_puck MAI=af_bella` → a line `MAI: Wait, what?` is spoken by MAI's voice;
 // the caption carries m.who (the name tag) and acts/cameos read it (talking mouths). Only names declared in cast: count.
 function castLine(c) { const m = String(c).match(/^([A-Z][A-Za-z0-9]{1,11}):\s+(.+)$/); const C = SB._cast || {}; return m && C[m[1].toUpperCase()] ? { who: m[1].toUpperCase(), text: m[2], spk: C[m[1].toUpperCase()] } : null; }
-function timeCaps(caps, start = .15, gap = .12, style) { const out = []; let t = start; for (const c0 of caps) { const cl = castLine(c0), c = cl ? cl.text : c0; const d = capDur(c, cl ? cl.spk : undefined); const m = style ? { style } : {}; if (cl) m.who = cl.who; if (SB._vo) m.vo = voIdx(); out.push([+t.toFixed(2), +(t + d).toFixed(2), c, m]); t += d + gap; } return { caps: out, end: t }; }
+function timeCaps(caps, start = .15, gap = .12, style) { const out = []; let t = start; if (SB._vo) SB._vo.b = (SB._vo.b || 0) + 1; for (const c0 of caps) { const cl = castLine(c0), c = cl ? cl.text : c0; const d = capDur(c, cl ? cl.spk : undefined); const m = style ? { style } : {}; if (cl) m.who = cl.who; if (SB._vo) m.vo = voIdx(); out.push([+t.toFixed(2), +(t + d).toFixed(2), c, m]); t += d + (SB._vo && SB._vo.join ? -.08 : gap); if (SB._vo) SB._vo.join = false; } return { caps: out, end: t }; }
 const pick = (arr, i) => arr[i % arr.length];
 const num = (v, d) => v === undefined ? d : +v;
 const chr = id => (id && CHAR[id]) ? id : null;
@@ -193,7 +196,7 @@ SB.compile = (text) => {
     if (o.art && window.TYPE) { const prev = sc.post; const ao = { at: o.artAt !== undefined ? +o.artAt : .3, out: o.artOut !== undefined ? +o.artOut : undefined, x: o.artX !== undefined ? +o.artX : undefined, y: o.artY !== undefined ? +o.artY : undefined, col: o.artCol, size: o.artSize ? +o.artSize : 1, role: o.artRole };
       sc.post = (lt, S) => { if (prev) prev(lt, S); TYPE.draw(o.artfx || 'slam', o.art, lt, ao); }; sc.art = { fx: o.artfx || 'slam', at: ao.at }; } // art-directed lettering on any beat (engine/library/typekit.js)
     if (o.capY !== undefined && b.type !== 'moment') sc.capY = { v: +o.capY, h: Math.min(.88, +o.capY + .02) }; // per-beat caption height override
-    if (i > 0) { const alts = (o.trans ? [o.trans] : TRANS[b.type] || ['whip']); const prev = used[used.length - 1]; const tt = alts.find(a => a !== prev) || alts[0]; sc.transition = { type: tt, dur: tt === 'cut' ? 0 : (['circles', 'stripes', 'iris', 'ink', 'inkbleed', 'burn', 'lightleak', 'fgwipe', 'tear'].includes(tt) ? .7 : .45) }; if (o.tc) sc.transition.center = String(o.tc).split(',').map(Number); if (o.tc2) sc.transition.center2 = String(o.tc2).split(',').map(Number); if (o.tcol) sc.transition.col = o.tcol; if ((window.TR2_DUR || {})[tt]) sc.transition.dur = window.TR2_DUR[tt]; if (o.tdur) sc.transition.dur = +o.tdur; used.push(tt); }
+    if (i > 0) { const alts = (o.trans ? [o.trans] : TRANS[b.type] || ['whip']); const prev = used[used.length - 1]; const tt = alts.find(a => a !== prev) || alts[0]; sc.transition = { type: tt, dur: tt === 'cut' ? 0 : (['circles', 'stripes', 'iris', 'ink', 'inkbleed', 'burn', 'lightleak', 'fgwipe', 'tear'].includes(tt) ? .7 : .45) }; if (o.tc) sc.transition.center = String(o.tc).split(',').map(Number); if (o.tc2) sc.transition.center2 = String(o.tc2).split(',').map(Number); if (o.tcol) sc.transition.col = o.tcol; if (o.tr1) sc.transition.r1 = +o.tr1; if (o.tr2) sc.transition.r2 = +o.tr2; if (o.tdir) sc.transition.dir = o.tdir; if ((window.TR2_DUR || {})[tt]) sc.transition.dur = window.TR2_DUR[tt]; if (o.tdur) sc.transition.dur = +o.tdur; used.push(tt); }
     if (!sc.render) { sc.moves = sc.moves || []; if (!sc.moves.some(m => ['drift', 'handheld'].includes(m.type))) sc.moves.unshift({ type: pick(CAMS, i) }); if (o.cam) String(o.cam).split('+').forEach(c => { if (MOVES[c]) sc.moves.push({ type: c, t0: 0, t1: sc.dur }); }); }
     scenes.push(sc); });
   if (!scenes.length || sb.beats[sb.beats.length - 1].type !== 'end') scenes.push({ id: 'end', dur: ifm ? +(H_.enddur || 6) : 2, transition: { type: 'brand', dur: .6 }, layers: [{ type: 'ui', name: 'endFrame', screen: true, always: 1, o: {} }] });
