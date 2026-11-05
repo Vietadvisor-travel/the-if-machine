@@ -25,13 +25,27 @@
   IFM.emojiFind = q => { if (!IFM.EMOJI_DATA) return null; const s = String(q || '').toLowerCase().trim(); const N = IFM.EMOJI_NAMES || {};
     if (IFM.EMOJI_DATA[q]) return q; if (N[s]) return N[s]; const ks = Object.keys(N).filter(n => n.includes(s)).sort((a, b) => a.length - b.length); return ks.length ? N[ks[0]] : null; };
   function paths(key) { if (P2D[key]) return P2D[key]; const recs = IFM.EMOJI_DATA[key] || []; P2D[key] = recs.map(r => ({ p: new Path2D(r[0]), fill: r[1], stroke: r[2], sw: +r[3] || 1, x: r[4] || {} })); return P2D[key]; }
-  function paint(g, key, s, o = {}) { const lineCol = o.lineCol || '#1E2233', lwK = o.lw ?? .9; g.save(); g.scale(s / 72, s / 72); g.lineCap = 'round'; g.lineJoin = 'round';
+  // House rendering (owner, 5 Nov 2026: "the emoji look off, they break the style"). The brand look is flat colour, soft gradients, rim
+  // light and NO black outlines (BRAND §4) — the same family as the facet people and the 3D toon world. So every illustration is
+  // re-drawn: colours pulled into a calmer house palette (no neon yellow/red), the black sticker outline replaced by a thin soft line in a
+  // deep tone, a soft light-to-shade gradient and a facet light plane across it, and a thin rim light. o.style='raw' draws the original.
+  const HEX = h => { h = h.replace('#', ''); if (h.length === 3) h = h.split('').map(c => c + c).join(''); const n = parseInt(h, 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; };
+  const toHsl = ([r, g, b]) => { r /= 255; g /= 255; b /= 255; const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2; let h = 0, s = 0; if (mx !== mn) { const d = mx - mn; s = l > .5 ? d / (2 - mx - mn) : d / (mx + mn); h = mx === r ? (g - b) / d + (g < b ? 6 : 0) : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h /= 6; } return [h, s, l]; };
+  const fromHsl = ([h, s, l]) => { const f = (p, q, t) => { t = (t + 1) % 1; return t < 1 / 6 ? p + (q - p) * 6 * t : t < .5 ? q : t < 2 / 3 ? p + (q - p) * (2 / 3 - t) * 6 : p; }; if (!s) { const v = Math.round(l * 255); return `rgb(${v},${v},${v})`; } const q = l < .5 ? l * (1 + s) : l + s - l * s, p = 2 * l - q; return `rgb(${Math.round(f(p, q, h + 1 / 3) * 255)},${Math.round(f(p, q, h) * 255)},${Math.round(f(p, q, h - 1 / 3) * 255)})`; };
+  const TONE = {}; const tone = (hex, tint) => { const k = hex + tint; if (TONE[k]) return TONE[k]; let [h, s, l] = toHsl(HEX(hex)); s = Math.min(s, .66) * .95; l = clamp(l, .2, .8);
+    if (tint) { const [th, ts] = toHsl(HEX(tint)); const dh = ((th - h + 1.5) % 1) - .5; h = (h + dh * .08 + 1) % 1; s = s * .9 + ts * .06; } return (TONE[k] = fromHsl([h, s, l])); };
+  function paint(g, key, s, o = {}) { const raw = o.style === 'raw', tint = o.tint || '', lineCol = o.lineCol || (raw ? '#1E2233' : '#2A2E4A'), lwK = o.lw ?? (raw ? .9 : .45); g.save(); g.scale(s / 72, s / 72); g.lineCap = 'round'; g.lineJoin = 'round';
     for (const r of paths(key)) { g.save(); if (r.x.m) g.transform(...r.x.m); if (r.x.o) g.globalAlpha *= +r.x.o;
-      if (r.fill) { g.fillStyle = r.fill; g.fill(r.p, r.x.e ? 'evenodd' : 'nonzero'); }
-      if (r.stroke && o.line !== false) { const blk = /^#0{3}(0{3})?$/.test(r.stroke); g.strokeStyle = blk ? lineCol : r.stroke; g.lineWidth = r.sw * (blk ? lwK : 1); g.stroke(r.p); }
-      g.restore(); } g.restore(); }
-  IFM.emoji = (name, cx, cy, size, o = {}) => { const key = IFM.emojiFind(name); if (!key || size < 2) return false; const q = Math.max(16, Math.round(size / 8) * 8), ck = key + '|' + q + (o.line === false ? 'n' : '');
-    let b = BMP[ck]; if (!b) { b = mkCanvas(q, q); const g = b.getContext('2d'); paint(g, key, q, o); BMP[ck] = b; }
+      if (r.fill) { g.fillStyle = raw || !/^#/.test(r.fill) ? r.fill : tone(r.fill, tint); g.fill(r.p, r.x.e ? 'evenodd' : 'nonzero'); }
+      if (r.stroke && o.line !== false) { const blk = /^#0{3}(0{3})?$/.test(r.stroke); g.strokeStyle = blk ? lineCol : (raw ? r.stroke : tone(r.stroke, tint)); if (blk && !raw) g.globalAlpha *= .55; g.lineWidth = r.sw * (blk ? lwK : 1); g.stroke(r.p); }
+      g.restore(); } g.restore();
+    if (raw) return; g.save(); g.globalCompositeOperation = 'source-atop';
+    const gr = g.createLinearGradient(0, 0, s, s); gr.addColorStop(0, 'rgba(255,250,235,.26)'); gr.addColorStop(.45, 'rgba(255,250,235,0)'); gr.addColorStop(1, 'rgba(20,18,40,.22)'); g.fillStyle = gr; g.fillRect(0, 0, s, s);
+    g.fillStyle = 'rgba(255,255,255,.07)'; g.beginPath(); g.moveTo(0, 0); g.lineTo(s * .62, 0); g.lineTo(0, s * .7); g.fill();                     // the facet light plane
+    g.globalCompositeOperation = 'source-atop'; g.strokeStyle = 'rgba(255,244,214,.35)'; g.lineWidth = s * .018; g.beginPath(); g.arc(s * .5, s * .5, s * .44, Math.PI * .95, Math.PI * 1.55); g.stroke();   // a thin rim light, top left
+    g.restore(); }
+  IFM.emoji = (name, cx, cy, size, o = {}) => { const key = IFM.emojiFind(name); if (!key || size < 2) return false; const q = Math.max(16, Math.round(size / 8) * 8), tint = o.tint || (IFM.THEMES && IFM.themeOf && (IFM.THEMES[IFM.themeOf(o)] || {}).acc) || '', ck = key + '|' + q + (o.line === false ? 'n' : '') + (o.style || 'h') + tint;
+    let b = BMP[ck]; if (!b) { b = mkCanvas(q, q); const g = b.getContext('2d'); paint(g, key, q, { ...o, tint }); BMP[ck] = b; }
     if (o.ground) { ctx.save(); ctx.globalAlpha *= .18 * (o.alpha ?? 1); ell(cx, cy + size * .44, size * .36 * (o.sx ?? 1), size * .06, '#000', 0); ctx.restore(); }
     ctx.save(); ctx.globalAlpha *= o.alpha ?? 1; ctx.translate(cx, cy); if (o.rot) ctx.rotate(o.rot); ctx.scale((o.flip ? -1 : 1) * (o.sx ?? 1), o.sy ?? 1); ctx.drawImage(b, -size / 2, -size / 2, size, size); ctx.restore(); return true; };
 

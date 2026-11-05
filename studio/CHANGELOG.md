@@ -1,5 +1,12 @@
 # Motion Studio — changelog
 
+## 2026-11-05 · illustrations re-drawn in the house style (owner: "the emoji break the style")
+- `IFM.emoji` now renders OpenMoji in the BRAND §4 look by default: colours pulled into a calmer palette (saturation ≤ .66, light
+  .2–.8, a slight pull toward the theme accent), the black sticker outline replaced by a thin soft line (45 % width, 55 % alpha, deep
+  navy), a soft light-to-shade gradient, a facet light plane and a thin rim light. `style: 'raw'` draws the original. Tested on
+  stories/style-money.story (before/after on Drive style_frames_money_2026-11-05/emoji_before_after.jpg). Interim: house-style stock
+  requested from Muse (flat, no outlines, low-poly 3D) to replace emoji where possible.
+
 ## 2026-11-05 · voices locked, per-episode visual worlds, anti-repetition, style frames for the money topic
 - **Voices (owner)**: af_heart narrates every episode; af_nicole = second female voice (slow, eerie: quotes); am_santa = old male
   storyteller (legends). voice.py defaults, new_episode.mjs header (`voice: af_heart`, `cast: QUOTE=af_nicole LEGEND=am_santa`),
