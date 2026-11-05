@@ -69,7 +69,7 @@ because a price is also a message.
 When bread starts to run short, its price goes up,
 
 // S10 SUBJECT: a bread price tag rising 2.00 → 2.60, its message travelling to a baker (BAKE MORE) and a shopper (BUY LESS)
-# vis kind=w act=x_mv_signal title="A PRICE IS A MESSAGE" kb=0 ks=0 cam=WS.eye.crane trans=match tc=.5,.42 tc2=.5,.36
+# vis kind=w act=x_mv_signal title="A PRICE IS A MESSAGE" kb=0 ks=0 cam=WS.eye.crane trans=match tc=.12,.5 tc2=.5,.36
 and that small change tells bakers to bake more and tells shoppers to buy a little less,
 without anyone having to give an order.
 
@@ -172,7 +172,7 @@ One of the prisoners, an economist named Radford, wrote it down.
 QUOTE: Cigarettes rose from the status of a normal commodity to that of currency.
 
 // S28 SUBJECT: things that became money orbiting (cattle, shells, cigarettes, rice, notes) and fusing into one coin
-# vis kind=w act=x_mv_reborn title="IT KEEPS COMING BACK" k=1 cam=WS.eye.push trans=morph tc=.2,.25 tc2=.5,.47 tr1=.18 tr2=.2
+# vis kind=w act=x_mv_reborn title="IT KEEPS COMING BACK" k=1 cam=WS.eye.push trans=morph tc=.16,.2 tc2=.5,.47 tr1=.09 tr2=.17
 Take money away from people and they invent it again, often within weeks,
 and history shows this over and over with very different things.
 
@@ -241,7 +241,7 @@ and those numbers work for one reason only: everyone agrees to accept them,
 your employer, your shop, your landlord, and you.
 
 // S41 SUBJECT: a ring of people around a banknote, a thread of light joining them
-# vis kind=w act=x_mv_promise title="WHAT MONEY IS" k=1 cam=WS.eye.pull trans=morph tc=.5,.8 tc2=.5,.47 tr1=.12 tr2=.22
+# vis kind=w act=x_mv_promise title="WHAT MONEY IS" k=1 cam=WS.eye.pull trans=morph tc=.5,.59 tc2=.5,.47 tr1=.08 tr2=.2
 A banknote is paper and an account is a number,
 so what is real is the trust behind them,
 a promise that millions of strangers keep every day.
