@@ -84,11 +84,13 @@
     else if (th === 'desert') { g.fillStyle = C[2]; for (let k = 0; k < 3; k++) { g.globalAlpha = .35 + k * .2; g.beginPath(); g.moveTo(0, H * (.62 + k * .05)); for (let x = 0; x <= W; x += W / 20) g.lineTo(x, H * (.62 + k * .05) - Math.sin(x / W * 4 + k) * H * .03); g.lineTo(W, H); g.lineTo(0, H); g.fill(); } g.globalAlpha = 1; }
     else if (th === 'ocean') { for (let k = 0; k < 60; k++) { g.globalAlpha = .04 + r() * .05; g.strokeStyle = L; g.lineWidth = 2 + r() * 4; g.beginPath(); const y = r() * H; for (let x = 0; x <= W; x += W / 30) g.lineTo(x, y + Math.sin(x / W * 10 + k) * 8); g.stroke(); } g.globalAlpha = 1; }
     else if (th === 'cosmos') { for (let i = 0; i < 260; i++) { g.globalAlpha = .2 + r() * .7; g.fillStyle = '#FFFFFF'; g.fillRect(r() * W, r() * H, 1 + r() * 2.5, 1 + r() * 2.5); } g.globalAlpha = .12; const gr = g.createRadialGradient(W * .7, H * .25, 0, W * .7, H * .25, W * .6); gr.addColorStop(0, '#8A5CD6'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(0, 0, W, H); g.globalAlpha = 1; } }
-  const isDark = o => { const tn = themeOf(o); return tn === 'paper' ? (!!o._chapter && !BG[o.bg]) || o.bg === 'night' || o.bg === 'dusk' : !!(o._chapter || THEMES[tn].dark); };
+  const DARKPLACE = { library: 1, space: 1, ocean: 1 };
+  const isDark = o => { if (o.place && !o._chapter && IFM.PLACES && IFM.PLACES[o.place]) return !!DARKPLACE[o.place]; const tn = themeOf(o); return tn === 'paper' ? (!!o._chapter && !BG[o.bg]) || o.bg === 'night' || o.bg === 'dusk' : !!(o._chapter || THEMES[tn].dark); };
   const dark = isDark, ink = o => { const tn = themeOf(o); return tn === 'paper' ? (isDark(o) ? '#F6F1E7' : INK) : (o._chapter && !THEMES[tn].dark ? '#F4EEDC' : THEMES[tn].ink); },
     soft = o => { const tn = themeOf(o); return tn === 'paper' ? (isDark(o) ? '#C9CDE8' : '#5A6283') : (o._chapter && !THEMES[tn].dark ? '#D9CFB2' : THEMES[tn].soft); };
   IFM.themeOf = themeOf; IFM.THEMES = THEMES; IFM.exBg = (o, lt) => bg(o, lt); IFM.exStage = (o, cx, cy, S, lt) => stage(o, cx, cy, S, lt);
-  const BGC = {}; function bg(o, lt) { const tn = themeOf(o), TH = THEMES[tn], chap = !!o._chapter, palette = tn === 'paper' ? (BG[o.bg] ? o.bg : chap ? 'night' : 'paper') : null;
+  const BGC = {}; function bg(o, lt) { if (o.place && !o._chapter && IFM.place && IFM.place(o.place, lt, o)) return;   // a real, detailed place behind the subject (ifm_places.js)
+ const tn = themeOf(o), TH = THEMES[tn], chap = !!o._chapter, palette = tn === 'paper' ? (BG[o.bg] ? o.bg : chap ? 'night' : 'paper') : null;
     const C = palette ? BG[palette] : chap ? TH.chapter : TH.base, k = tn + (palette || '') + (chap ? 'c' : '') + W + 'x' + H; let cv = BGC[k];
     if (!cv) { cv = mkCanvas(W, H); const g = cv.getContext('2d'), gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, C[0]); gr.addColorStop(.7, C[1]); gr.addColorStop(1, C[2]); g.fillStyle = gr; g.fillRect(0, 0, W, H);
       const r = rng(7), dk = isDark(o); g.globalAlpha = dk ? .05 : .035; for (let i = 0; i < 2600; i++) { g.fillStyle = r() < .5 ? '#000' : '#fff'; g.fillRect(r() * W, r() * H, 2, 2); }
@@ -174,4 +176,6 @@
     ctx.save(); ctx.strokeStyle = dark(o) ? '#4A5288' : '#C9BFA8'; ctx.lineWidth = 8 * u; ctx.beginPath(); ctx.moveTo(0, ly + H * .12); ctx.lineTo(W, ly + H * .12); ctx.stroke(); ctx.restore();
     for (let i = 0; i < n; i++) { const x = W / 2 + i * sp + off; if (x < -W * .5 || x > W * 1.5) continue; const p = pop(lt, at[i] - .3), hl = i === cur ? 1 : .45; ctx.save(); ctx.globalAlpha *= Math.max(.25, p.k) * hl; circ(x, ly + H * .12, 16 * u, P.yellow, 0); IFM.emoji(e[i], x, ly - H * .02 + idle(lt, i), H * .17, { ground: true });
       if (d[i]) T(d[i], x, ly + H * .17, { size: 40 * u, font: 'display', weight: 900, fill: ink(o), lw: 0 }); if (l[i]) T(l[i], x, ly - H * .14, { size: Math.min(44 * u, W * .5 / Math.max(.01, textW(l[i], 100, 'display', 900) / 100)), font: 'display', weight: 900, fill: ink(o), lw: 0 }); ctx.restore(); } } }; };
+  // every kit act: the place's soft foreground framing on top (depth), when a place is set
+  Object.keys(A).filter(k => /^ex_/.test(k)).forEach(k => { const f = A[k]; A[k] = (o, c, d) => { const B = f(o, c, d); if (!o.place || !IFM.placeFore) return B; return { ...B, draw: lt => { B.draw(lt); IFM.placeFore(o.place, lt, o); } }; }; });
 })();

@@ -1,5 +1,19 @@
 # Motion Studio — changelog
 
+## 2026-11-05 · no bare scenes: places, foregrounds, stage dressing, a detail measure
+Owner: "don't build sketchy scenes; every scene needs details and a lively, visual composition that fits the content; assets supplement,
+they are not the only thing".
+- `engine/library/ifm_places.js` (new): 14 places drawn in code in layers — street, market, kitchen, office, bank, farm, classroom, lab,
+  harbor, library, space, village, desert, ocean: a blurred far layer, a detailed mid layer (shopfronts, stalls, shelves, desks,
+  columns, crops, containers, books…), calm life (walkers, traffic, birds, steam, dust, bubbles), a soft pool of light for the subject,
+  the episode theme as a tint, and a blurred foreground framing object. `props=` puts the content's own things into the place.
+- Explainer kit: `place=` on any kit act (bg replaced by the place; ink adapts; foreground drawn on top).
+- 3D `set=stage`: `dress=` places related props around the subject at real proportions (per-prop height ratios: packs differ in scale).
+- variety.mjs: ERROR on explainer beats without place= (bare=ok to override); WARN on stage shots without dress=.
+- cost.mjs: detail % (cells of the picture zone holding real drawing); WARN < 30 %, ERROR < 18 %. Coarse: patterned backgrounds count
+  as detail, so the place rule above is the main guard.
+- Tested: stories/test-places.story (14 places × kit acts), stories/test-models2.story (stage with dress=city/village).
+
 ## 2026-11-05 · Muse wave 2 fix: all 17 model packs (1,337 low-poly CC0 models)
 - Muse re-packed KayKit ×6 and Quaternius ×6 with textures (buildings/food converted FBX→GLB). `tools/model_build.py` now bakes all 17
   packs: 1,337 models, `models_data.js` 25 MB (+≈ 3 s page load per render job, measured). Transparent texels (leaf cards) take the mean

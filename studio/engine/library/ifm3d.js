@@ -185,6 +185,14 @@
   SETS.stage = (o) => { const g = new THREE.Group(), col = o.floor || '#D8CBB0', back = o.back || '#E6DCC6';
     const set = { g, B: [], subj: { item: { p: [0, .6, 0], h: 1.4, az: 25, obj: 1 }, wide: { p: [0, .8, 0], h: 4.5, az: 20, obj: 1 } }, tick(t) { (set._ms || []).forEach((m, i) => { m.m.rotation.y = m.r0 + Math.sin(t * .35 + i) * .12; }); } };
     const ms = addModels(set, o.models); ms.forEach(m => { m.r0 = m.m.rotation.y; m.m.userData.dyn = 1; }); set._ms = ms;
+    // dress=<kind>: supporting props around the plinth edge, related to the content (owner: no bare scenes; assets supplement)
+    // dress=<kind>: supporting props around the plinth edge, sized as real things relative to the main subject (name:height ratio)
+    const DRESS = { market: ['food/apple:.06', 'food/carrot:.08', 'building/crate:.18', 'building/barrel:.22', 'food/cheese:.08', 'food/bread:.07', 'building/marketstand_1:.7'], kitchen: ['restaurant/bowl:.08', 'restaurant/chair_a:.45', 'food/loaf:.1', 'food/cheese:.08', 'food/apple:.06'],
+      city: ['city/bench:.12', 'city/box_a:.1', 'nature/commontree_1:.55', 'car/taxi:.22', 'city/trafficlight_a:.45', 'city/firehydrant:.08'], nature: ['nature/commontree_1:1', 'nature/bush_common_flowers:.25', 'nature/rock_medium_1:.2', 'nature/commontree_2:.85', 'nature/clover_1:.06', 'nature/bush_common:.3'],
+      space: ['space/basemodule_a:.6', 'space/rover:.3', 'ship/bob:.35', 'space/basemodule_b:.6'], village: ['building/well:.35', 'building/cart:.25', 'building/hay:.18', 'building/barrel:.13', 'building/house_1:.6', 'building/fence:.12'], treasure: ['pirate/barrel:.45', 'pirate/crate:.4', 'survival/chest:.35', 'pirate/cannon:.4'] };
+    if (o.dress && DRESS[o.dress]) { const hm0 = ms.length ? Math.max(...ms.map(m => m.h)) : 1, sp0 = ms.length ? Math.max(...ms.map(m => Math.hypot(m.x, m.z) + m.h * .6)) : 2, r = rng(7), L = DRESS[o.dress].map(x => x.split(':')).filter(([nm]) => IFM.modelFind(nm)), n = 7;
+      const spec = Array.from({ length: n }, (_, i) => { const a = Math.PI * (.95 + i / (n - 1) * 1.1), rad = sp0 * 1.05 + hm0 * .25, [nm, ratio] = L[i % L.length]; return `${nm}@${(Math.cos(a) * rad).toFixed(2)},${(Math.sin(a) * rad * .8).toFixed(2)},${Math.round(r() * 360)},h${(hm0 * +ratio * (.9 + r() * .2)).toFixed(3)}`; }).join('|');
+      addModels(set, spec); }
     const hm = ms.length ? Math.max(...ms.map(m => m.h)) : 1, spread = ms.length ? Math.max(...ms.map(m => Math.hypot(m.x, m.z) + m.h * .6)) : 2, R = Math.max(1.6, spread * 1.25);
     g.add(at(cyl(R, R * 1.03, R * .07, col, 48), 0, -R * .035, 0)); g.add(at(box(R * 40, .05, R * 40, shade(back, -.1)), 0, -R * .07, 0));
     const dome = mesh(new THREE.SphereGeometry(R * 9, 32, 16), M(back, { side: THREE.BackSide })); g.add(dome);   // a closed seamless backdrop: no sky, no wall edge

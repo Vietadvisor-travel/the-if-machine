@@ -32,6 +32,12 @@ Token rules are at the end.
   `engine/library/bank/<slug>.js`, built from illustrations on the theme); each kit act at most twice (section cards ≤ 5); the
   same illustration is the main subject once; acts from other episodes only when the topic really needs them (`reuse=ok`).
   `variety.mjs` enforces it, inside the episode and against the last 3.
+- **No bare scenes (owner, 5 Nov 2026).** Every picture is a composed scene in layers: a real PLACE behind (far + mid, drawn in code
+  with its own details: `place=street|market|kitchen|office|bank|farm|classroom|lab|harbor|library|space|village|desert|ocean`,
+  details steered with `props=`), the SUBJECT of the line in the light, 2–4 supporting details that belong to the content, a soft
+  out-of-focus FOREGROUND, and calm life. Assets (illustrations, 3D models) supplement the place; they are never the whole picture.
+  3D `set=stage` takes `dress=` (props around the subject at real proportions). `variety.mjs` ERRORS on explainer beats without
+  `place=` (`bare=ok` only with a reason); `cost.mjs` measures how much of each frame is really drawn (detail %).
 - **Pictures you can read in one second.** Every 2D picture shows the SUBJECT of its line as a recognisable thing — an
   OpenMoji illustration (2,000+ named, `IFM.emoji`), a bank item, a map, a number made visible — big (25–60 % of the frame
   height), labelled when it is not obvious, on a clean background. No tiny figures, no abstract blobs, no hand-drawn shapes

@@ -17,6 +17,12 @@ Credit line in every delivery note and video description: **Illustrations: OpenM
 | `ex_quote` | a real quotation, typed | `q=line|line|line` `by=Name, year` |
 | `ex_timeline` | dates along a line | `e=a|b|c` `l=A|B|C` `d=DATE|DATE|DATE` (the camera moves to each date on its caption) |
 
+## Places (required on show/compare/flow/stat/timeline/list beats — owner: no bare scenes)
+`place=` street · market · kitchen · office · bank · farm · classroom · lab · harbor · library · space · village · desert · ocean.
+Each is drawn in code in layers (blurred far layer, a detailed mid layer, calm life, a soft foreground framing object) and tinted by the
+episode theme; `props="bread|cheese"` puts the content's own things on its shelves/stalls/desks. Code: `engine/library/ifm_places.js`
+(`IFM.place(name, lt, o)`, `IFM.placeFore(name, lt, o)` for bespoke acts). Add a new place there when a topic needs one.
+
 ## Themes (the episode's own visual world — header `theme:`)
 `paper` (default) · `banknote` (guilloche engraving, green and gold, an engraved frame) · `museum` (dark gallery, spotlight, plinths) ·
 `chalk` (blackboard) · `blueprint` (grid) · `noir` (dark, film-like) · `desert` (dunes) · `ocean` (deep water) · `cosmos` (stars).

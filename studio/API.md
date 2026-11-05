@@ -63,6 +63,8 @@ Every timing is `lt` = seconds inside the beat. `c[k] = [start, end, text]` hold
 - **3D models (CC0, `MODELS.md`):** `IFM.model('food/bread')` → a THREE.Group (flat-shaded vertex colours). In any 3D set:
   `models="name@x,z,rot,scale|…"` (scale `h1.2` = height in metres). `set=stage` = a studio diorama for objects (subjects `item`, `wide`;
   `floor=` `back=` colours), e.g. `act=s3 set=stage models="food/loaf@0,0,20,h1|car/taxi@2,0,-30,h.8" cam=WS.high.orbit on=wide`.
+- **Places:** `IFM.place(name, lt, o)` draws a detailed layered environment (far, mid, life), `IFM.placeFore(name, lt, o)` its soft
+  foreground; kit beats take `place=` and `props=` (`references/explainer-kit.md`). 3D stage: `dress=market|kitchen|city|nature|space|village|treasure`.
 - Sound: a beat asks for a one-shot with `sfx=name@k`; acts make no sound by themselves (minimal sound).
 
 ## Bank and acts

@@ -63,6 +63,8 @@ if (fs.existsSync(bankDir)) for (const f of fs.readdirSync(bankDir)) { const src
 const borrowed = [...new Set(own.filter(a => defs[a] && !defs[a].startsWith(slug.replace(/^style-/, '').split('-')[0])))].filter(a => !body.some(b => b.o.act === a && b.o.reuse === 'ok'));
 if (borrowed.length) warn(`bespoke acts borrowed from other episodes: ${borrowed.map(a => a + ' (' + defs[a] + ')').join(', ')} — reuse only when the topic really needs it (reuse=ok on the beat)`);
 if (!vert && body.length >= 20 && new Set(own).size < 4) err(`only ${new Set(own).size} pictures made for this episode (x_ acts): every episode needs its own scenes (≥ 4), the kit is building blocks`);
+{ const bare = body.filter(b => /^ex_(show|compare|flow|stat|timeline|list)$/.test(b.o.act || '') && !b.o.place && b.o.bare !== 'ok'); if (bare.length) err(`${bare.length} explainer beats without a place (${[...new Set(bare.map(b => b.o.act))].join(', ')}): every scene needs a real setting with details — place=street|market|kitchen|office|bank|farm|classroom|lab|harbor|library|space|village|desert|ocean (or bare=ok with a reason)`); }
+const st3 = body.filter(b => b.o.act === 's3' && b.o.set === 'stage' && !b.o.dress); if (st3.length) warn(`${st3.length} stage shots without dress=: add props around the subject (dress=market|kitchen|city|nature|space|village|treasure)`);
 if (!hdr.theme) warn('no `theme:` in the header: give the episode its own visual world (banknote, museum, chalk, blueprint, noir, desert, ocean, cosmos …)');
 const prev = hist.episodes.filter(e => e.slug !== slug && e.vert === vert).slice(-3);
 if (prev.length && hdr.theme && prev.some(e => e.theme === hdr.theme)) err(`theme "${hdr.theme}" was used in the last 3 episodes: each episode its own visual world`);
