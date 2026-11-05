@@ -124,3 +124,16 @@ Notes:
 - BPM is null (not measured; the engine's music_lib.py analyses tempo on import). Energy is an editorial low/mid/high tag for the mixer.
 - Excluded for heavy sub-bass risk (the QA flags bass phones lose): Black Vortex, verified but not packed. Other verified spares not packed: Killers, Oppressive Gloom, House of Leaves, Montauk Point, Samba Isobel, Meditation Impromptu 01/02, Bumba Crossing, Folk Round.
 - New-mood candidates among spares for when the engine adds those moods: space (Lightless Dawn is already in wave 1 as wonder), retro (Local Forecast tracks are packed as tech; Spazzmatica Polka was not found), lofi (Chill Wave is packed as tech; Jazz Brunch is packed as comedy), orchestral-light (Danse Macabre, Toccata and Fugue in D Minor, Gymnopedie No 1 are packed as epic/warm; these are MacLeod recordings of public-domain compositions, still CC BY 4.0 as recordings).
+
+## Wave 2 (2026-11-05): ifm_music_11.zip, 31 documentary background tracks, all verified by ffprobe (duration at least 120 s, bitrate at least 192 kbps), no lyrics, light, no strong drums
+
+FreePD, CC0 1.0, no attribution required (23 tracks, via the SoundSafari CC0-1.0-Music mirror of freepd.com):
+Travelers Notebook (curious), Journey of Hope (warm), Romantic Inspiration (warm), Bavarian Seascape (warm), Midnight in the Green House (mysterious), The Lagoon (mysterious), Nostalgic Piano (solemn), Burt's Requiem (solemn), The Crown (solemn), The Celebrated Minuet for Piano (historical), The Vikings (historical), The Britons (historical), La Citadelle (historical), Space Ambience (space), Mothership (space), Shining Stars (space), Infinite Wonder (space), Parhelion (space), Kalimba Relaxation Music (warm), Study and Relax (curious), Relaxing Ballad (warm), Aquarium (curious), Pond (curious).
+
+Kevin MacLeod, CC BY 4.0, credit line below (8 tracks, from staged candidates verified in earlier waves plus one fresh download):
+Bumba Crossing (curious), Folk Round (historical), Montauk Point (warm), Samba Isobel (warm), Meditation Impromptu 01 (solemn), Meditation Impromptu 02 (solemn), The House of Leaves (mysterious), Gregorian Chant (historical, 194.1 s, 256 kbps, fresh incompetech download).
+
+Credit line for any MacLeod track used in a video description:
+Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/
+
+Dropped: Deep Relaxation (51 minutes, too long, same rule as wave 1 Peace of Mind); Ethereal Relaxation and Space Jazz (160 kbps, below the gate); Evening Melodrama, Heartbreaking, Reaching Out (under 120 s); Ancient Rite (113.2 s, below the gate); Black Vortex (kept excluded, heavy sub-bass risk); Scott Buckley via free-stock-music.com direct MP3 URLs (they return an HTML page, not audio, and the official site blocks scripted downloads).

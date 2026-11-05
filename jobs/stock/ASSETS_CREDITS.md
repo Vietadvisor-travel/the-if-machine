@@ -75,3 +75,41 @@ No Lottie files were fetched in wave 1: LottieFiles downloads need an account
 and the licence of each file has to be checked individually. Left for a later
 pass with an account, per the task's "only with a licence that allows
 commercial use and modification" rule.
+
+## Wave 2 (2026-11-05): graphic assets, style-checked against BRAND section 4
+
+3D low-poly, CC0 1.0, glTF unless noted:
+- ifm_assets_kaykit_city.zip (82 files): KayKit City Builder Bits 1.0, https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0
+- ifm_assets_kaykit_furniture.zip (106 files): KayKit Furniture Bits 1.0
+- ifm_assets_kaykit_restaurant.zip (288 files): KayKit Restaurant Bits 1.0
+- ifm_assets_kaykit_medieval.zip (443 files): KayKit Medieval Hexagon Pack 1.0, glTF only (OBJ files in the source were not packed)
+- ifm_assets_kaykit_space.zip (114 files): KayKit Space Base Bits 1.0
+- ifm_assets_kaykit_adventurers.zip (58 files): KayKit Character Pack Adventures 1.0
+- ifm_assets_kenney_roads3d.zip (73 files): Kenney City Kit Roads, GLB + colormap
+- ifm_assets_kenney_food3d.zip (201 files): Kenney Food Kit, GLB + colormap
+- ifm_assets_kenney_car3d.zip (46 files): Kenney Car Kit, GLB + colormap
+- ifm_assets_kenney_survival3d.zip (81 files): Kenney Survival Kit, GLB + colormap
+- ifm_assets_kenney_pirate3d.zip (67 files): Kenney Pirate Kit, GLB + colormap
+- ifm_assets_quaternius_nature.zip (136 files): Quaternius Stylized Nature Megakit, glTF
+- ifm_assets_quaternius_props.zip (205 files): Quaternius Fantasy Props Megakit, glTF + textures
+- ifm_assets_quaternius_buildings.zip (44 files): Quaternius Medieval Village Pack, FBX only (no glTF in the source pack)
+- ifm_assets_quaternius_food.zip (103 files): Quaternius Ultimate Food Pack, FBX only
+- ifm_assets_quaternius_characters.zip (12 files): Quaternius RPG Characters, FBX only
+- ifm_assets_quaternius_spaceships.zip (11 files): Quaternius Ultimate Spaceships, FBX only
+All 3D sets above are CC0 1.0, no attribution required. Kenney and Quaternius files came via OpenGameArt mirrors (kenney.nl per-pack downloads now route through the itch.io All-in-1 bundle).
+
+2D flat SVG, no black outlines (verified by scan: 0 black-stroke files):
+- ifm_assets_fluent_flat.zip (3145 files): Microsoft Fluent Emoji, FLAT version only, MIT licence, https://github.com/microsoft/fluentui-emoji. Use as small UI symbols only, not as channel characters.
+- ifm_assets_humaaans.zip (32 files): Humaaans by Pablo Stanley, CC0, https://www.humaaans.com/ (standing 1-24, sitting 1-8, via Wikimedia Commons).
+
+Textures, CC0 1.0, colour map only:
+- ifm_assets_textures2.zip (14 files): ambientCG Paper005, Paper006, Fabric086, Fabric001, Wood001, Wood002, WoodFloor001, WoodFloor002, Concrete049, Plaster002, Plaster003, Metal001, Metal002, plus one procedural chalkboard texture made locally (no ambientCG chalkboard asset exists). Stone coverage is concrete/plaster based; metal is not verified as scratched.
+
+Dropped in wave 2, with reasons:
+- Kenney City Kit Commercial, Suburban, Nature, Furniture, Space (3D): not downloadable per pack (itch.io bundle only); covered by KayKit/Quaternius.
+- Kenney 2D packs: PNG, not SVG, so they fail this task's SVG requirement.
+- unDraw: licence bans distributing the assets in packs, which is exactly this delivery format.
+- Poly Pizza: API requires a key the project does not hold; Quaternius models cover the same ground.
+- Kenney 2D and unDraw and Poly Pizza are not in any zip above.
+
+Each zip holds assets.json (file, category, license, credit, source_url), the original LICENSE file, and preview.png.
