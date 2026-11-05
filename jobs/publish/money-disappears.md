@@ -5,6 +5,7 @@
 - Video ID: tuOXwDNr390
 - Uploaded: 2026-11-05 22:32 +07, privacy private (app unverified, API can only upload private)
 - Made public: 2026-11-05 22:38 +07 via Muse browser in YouTube Studio (Visibility Private -> Public, 'Changes saved', verified Public on the Video details page)
+- Verified public from outside: 2026-11-05 22:42 +07, signed-out browser opened the watch page, title shown, player playing 0:01 / 7:10, no 'Private video' notice
 - Title: What If Money Disappeared Tomorrow?
 - Description: BRAND.md §7 template + sources from jobs/research/money-disappears.md + music credits (3 Kevin MacLeod CC BY 4.0 + Nostalgic Piano CC0) + OpenMoji CC BY-SA 4.0 note + AI narration disclosure
 - Tags: whatif, theifmachine, money, economics, history
