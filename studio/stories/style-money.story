@@ -22,7 +22,7 @@ It sounds like everything would be free.
 History says something stranger would happen.
 
 // SECTION 1 card
-# vis kind=w act=ex_chapter n=1 title="WHAT MONEY DOES" sub="it's not the paper" e="scales" pause=1.2
+# vis kind=w act=ex_chapter n=1 title="WHAT MONEY DOES" sub="it's not the paper" e="balance scale" pause=1.2
 So first, what does money actually do?
 
 // barter's problem
