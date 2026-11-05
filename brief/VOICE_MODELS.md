@@ -1,3 +1,7 @@
+> **Owner, 5 Nov 2026 (final pick, overrides this file):** The If Machine uses three Kokoro voices only — **af_heart** (main
+> narrator, every episode), **af_nicole** (second female voice: slow, eerie), **am_santa** (old male storyteller for legends),
+> chosen by ear from Drive `voice_samples_2026-11-04`.
+
 # VOICE MODELS: the best FREE narrator voice for Poison Pill
 
 Date: 26 Oct 2026. Task: jobs/MUSE_VOICE_TASK.md (parts A-D).

@@ -8,7 +8,8 @@ channel: ifm
 format: ${fmt}
 run: ${run}
 next: <the next question>
-voice: am_puck
+voice: af_heart
+cast: QUOTE=af_nicole LEGEND=am_santa
 people: facet
 sources: <from jobs/research/${slug}.md, one per claim>
 `;

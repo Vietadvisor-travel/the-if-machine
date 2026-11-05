@@ -17,7 +17,8 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
   (question, surprising fact, why it matters, what the video answers) and a real CONCLUSION (recap, the answer, a closing thought).
 - Unhurried: `--speed 1.0`, real pauses (engine default), one idea per beat. Minimal sound: music bed only, `sfx=` where it matters
   (≤ 1 per 30 s), master −16 LUFS. 2D = recognisable illustrations (explainer kit + OpenMoji), never vague shapes.
-- Narrator voice: the one the owner picks from Drive `voice_samples_2026-11-04` (until he picks, ask; am_puck is the old default).
+- Voices (owner, 5 Nov 2026, only these three): **af_heart** narrates every episode; **af_nicole** = second female voice (slow,
+  eerie: quotes, chilling lines); **am_santa** = old male storyteller (legends) when needed. `cast: QUOTE=af_nicole LEGEND=am_santa`.
 
 ## The engine
 - `studio/` is the Vietadvisor Motion Studio **v11 canvas cartoon engine** (imported 3 Nov 2026), converted to The If Machine.

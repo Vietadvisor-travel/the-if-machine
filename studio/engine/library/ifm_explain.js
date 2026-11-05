@@ -39,18 +39,60 @@
   // light themes stay ≤ ~230 so the calm grade's contrast never blows them out to white (owner: no glare)
   const BG = { paper: ['#E6D9C0', '#DCCBAB', '#CFBB97'], sky: ['#CADDF0', '#B0CBE6', '#B9D1AE'], night: ['#1B2140', '#252C55', '#2E3563'], sand: ['#E4D0A8', '#D8BD88', '#C9A670'],
     mint: ['#CFE7DA', '#B8DBC8', '#A2CDB6'], blush: ['#EDD2CA', '#E4BCB1', '#D9A597'], dusk: ['#3B3561', '#6E5A8C', '#E8A87C'] };
-  const BGC = {}; function bg(o, lt) { const th = BG[o.bg] ? o.bg : 'paper', C = BG[th], k = th + W + 'x' + H; let cv = BGC[k];
+  // ---------------------------------------------------------------- per-episode visual worlds (owner, 5 Nov 2026: "each episode its own visuals; never the same
+  // scenes again and again"). Story header `theme: <name>` (or theme= on a beat) dresses every kit act; variety.mjs refuses a theme used
+  // in the last 3 episodes. Themes: paper (default) · banknote · museum · chalk · blueprint · noir · desert · ocean · cosmos.
+  const THEMES = {
+    paper: { dark: 0, ink: INK, soft: '#5A6283' },
+    banknote: { dark: 0, ink: '#1E3A2C', soft: '#4E6B57', acc: '#B8923C', base: ['#DCE4CC', '#CFDABD', '#BFCDA9'], line: '#3E6B4F', chapter: ['#17301F', '#1E3A2C', '#244531'] },
+    museum: { dark: 1, ink: '#F2E8D6', soft: '#B9BCD4', acc: '#E3B55A', base: ['#1E2236', '#252A42', '#2C2F45'], line: '#3A4060', chapter: ['#14172A', '#1B1F36', '#22263E'] },
+    chalk: { dark: 1, ink: '#F1F1E6', soft: '#BFD1C4', acc: '#F2D16B', base: ['#24372E', '#203229', '#1B2B23'], line: '#E9F0E6', chapter: ['#1B2B23', '#1E3027', '#22362C'] },
+    blueprint: { dark: 1, ink: '#F4F8FF', soft: '#B8CCEA', acc: '#FFD36A', base: ['#1F4A82', '#1B4176', '#173868'], line: '#CFE0FF', chapter: ['#132C52', '#16325C', '#193866'] },
+    noir: { dark: 1, ink: '#F3EEE6', soft: '#B3ADA6', acc: '#E0654F', base: ['#1A1A1E', '#202024', '#26262B'], line: '#5A5A62', chapter: ['#101012', '#151518', '#1A1A1E'] },
+    desert: { dark: 0, ink: '#3B2414', soft: '#7A5236', acc: '#C8562E', base: ['#EBC796', '#E2B57E', '#D49E62'], line: '#A8703F', chapter: ['#4A2A16', '#5A331B', '#6B3D21'] },
+    ocean: { dark: 1, ink: '#EAF7FA', soft: '#A8D3DE', acc: '#FFC56B', base: ['#0F4C63', '#0D3F55', '#0A3346'], line: '#6FB6C9', chapter: ['#082A3A', '#0A3246', '#0C3A51'] },
+    cosmos: { dark: 1, ink: '#F2F0FF', soft: '#B9B4E6', acc: '#FFD36A', base: ['#120F2A', '#18143A', '#1E1847'], line: '#5E56A8', chapter: ['#0B0920', '#100D2A', '#151134'] } };
+  const themeOf = o => { const t = o.theme || (IFM.hdr && IFM.hdr.theme); return THEMES[t] ? t : 'paper'; };
+  function motif(g, th, C, chapter) { const r = rng(11), L = THEMES[th].line;
+    if (th === 'banknote') { // guilloche rosettes, fine wave fields and an engraved frame, like the face of a banknote
+      g.lineWidth = Math.max(1, W / 900); for (const [cx, cy, R] of [[W * .5, H * .44, W * .46], [W * .1, H * .08, W * .22], [W * .92, H * .66, W * .26]]) for (let k = 0; k < 26; k++) { g.strokeStyle = chapter ? THEMES[th].acc : L; g.globalAlpha = chapter ? .14 : .12; g.beginPath();
+        for (let a = 0; a <= TAU + .01; a += .02) { const rr2 = R * (.55 + k * .017) * (1 + .1 * Math.sin(9 * a + k * .35)); const x = cx + Math.cos(a) * rr2, y = cy + Math.sin(a) * rr2 * .9; a ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); }
+      g.strokeStyle = chapter ? THEMES[th].acc : L; g.globalAlpha = chapter ? .06 : .08; for (let y = 0; y < H; y += H / 140) { g.beginPath(); for (let x = 0; x <= W; x += W / 60) g.lineTo(x, y + Math.sin(x / W * 18 + y * .05) * H * .004); g.stroke(); }
+      g.globalAlpha = .55; g.strokeStyle = THEMES[th].acc; g.lineWidth = W / 220; g.strokeRect(W * .035, H * .02, W * .93, H * .96); g.lineWidth = W / 600; g.strokeRect(W * .05, H * .028, W * .9, H * .944);
+      for (const [x, y] of [[W * .05, H * .028], [W * .95, H * .028], [W * .05, H * .972], [W * .95, H * .972]]) { g.beginPath(); g.arc(x, y, W * .03, 0, TAU); g.stroke(); } g.globalAlpha = 1; }
+    else if (th === 'museum') { for (let i = 0; i < 6; i++) { g.fillStyle = i % 2 ? 'rgba(255,255,255,.025)' : 'rgba(0,0,0,.06)'; g.fillRect(i * W / 5 - W * .05, H * .04, W / 5 - 10, H * .64); }
+      g.fillStyle = 'rgba(0,0,0,.25)'; g.fillRect(0, H * .7, W, H); g.fillStyle = 'rgba(255,240,210,.08)'; g.beginPath(); g.moveTo(W * .38, 0); g.lineTo(W * .62, 0); g.lineTo(W * .86, H * .72); g.lineTo(W * .14, H * .72); g.fill(); }
+    else if (th === 'chalk') { g.strokeStyle = '#E9F0E6'; for (let i = 0; i < 120; i++) { g.globalAlpha = .03 + r() * .04; g.lineWidth = 6 + r() * 30; g.beginPath(); const x = r() * W, y = r() * H; g.moveTo(x, y); g.lineTo(x + (r() - .5) * W * .4, y + (r() - .5) * 40); g.stroke(); } g.globalAlpha = 1;
+      g.fillStyle = '#6B4A33'; g.fillRect(0, H * .985, W, H * .015); }
+    else if (th === 'blueprint') { g.strokeStyle = L; g.lineWidth = 1; for (let x = 0; x < W; x += W / 24) { g.globalAlpha = (Math.round(x / (W / 24)) % 4) ? .08 : .18; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke(); } for (let y = 0; y < H; y += W / 24) { g.globalAlpha = (Math.round(y / (W / 24)) % 4) ? .08 : .18; g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); } g.globalAlpha = 1; }
+    else if (th === 'noir') { const gr = g.createRadialGradient(W / 2, H * .42, W * .1, W / 2, H * .42, H * .7); gr.addColorStop(0, 'rgba(255,240,220,.10)'); gr.addColorStop(1, 'rgba(0,0,0,.35)'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+      g.globalAlpha = .06; for (let i = 0; i < 14; i++) { g.fillStyle = '#000'; g.fillRect(0, i * H / 14, W, H / 50); } g.globalAlpha = 1; }
+    else if (th === 'desert') { g.fillStyle = C[2]; for (let k = 0; k < 3; k++) { g.globalAlpha = .35 + k * .2; g.beginPath(); g.moveTo(0, H * (.62 + k * .05)); for (let x = 0; x <= W; x += W / 20) g.lineTo(x, H * (.62 + k * .05) - Math.sin(x / W * 4 + k) * H * .03); g.lineTo(W, H); g.lineTo(0, H); g.fill(); } g.globalAlpha = 1; }
+    else if (th === 'ocean') { for (let k = 0; k < 60; k++) { g.globalAlpha = .04 + r() * .05; g.strokeStyle = L; g.lineWidth = 2 + r() * 4; g.beginPath(); const y = r() * H; for (let x = 0; x <= W; x += W / 30) g.lineTo(x, y + Math.sin(x / W * 10 + k) * 8); g.stroke(); } g.globalAlpha = 1; }
+    else if (th === 'cosmos') { for (let i = 0; i < 260; i++) { g.globalAlpha = .2 + r() * .7; g.fillStyle = '#FFFFFF'; g.fillRect(r() * W, r() * H, 1 + r() * 2.5, 1 + r() * 2.5); } g.globalAlpha = .12; const gr = g.createRadialGradient(W * .7, H * .25, 0, W * .7, H * .25, W * .6); gr.addColorStop(0, '#8A5CD6'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(0, 0, W, H); g.globalAlpha = 1; } }
+  const isDark = o => { const tn = themeOf(o); return tn === 'paper' ? (!!o._chapter && !BG[o.bg]) || o.bg === 'night' || o.bg === 'dusk' : !!(o._chapter || THEMES[tn].dark); };
+  const dark = isDark, ink = o => { const tn = themeOf(o); return tn === 'paper' ? (isDark(o) ? '#F6F1E7' : INK) : (o._chapter && !THEMES[tn].dark ? '#F4EEDC' : THEMES[tn].ink); },
+    soft = o => { const tn = themeOf(o); return tn === 'paper' ? (isDark(o) ? '#C9CDE8' : '#5A6283') : (o._chapter && !THEMES[tn].dark ? '#D9CFB2' : THEMES[tn].soft); };
+  IFM.themeOf = themeOf; IFM.THEMES = THEMES; IFM.exBg = (o, lt) => bg(o, lt); IFM.exStage = (o, cx, cy, S, lt) => stage(o, cx, cy, S, lt);
+  const BGC = {}; function bg(o, lt) { const tn = themeOf(o), TH = THEMES[tn], chap = !!o._chapter, palette = tn === 'paper' ? (BG[o.bg] ? o.bg : chap ? 'night' : 'paper') : null;
+    const C = palette ? BG[palette] : chap ? TH.chapter : TH.base, k = tn + (palette || '') + (chap ? 'c' : '') + W + 'x' + H; let cv = BGC[k];
     if (!cv) { cv = mkCanvas(W, H); const g = cv.getContext('2d'), gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, C[0]); gr.addColorStop(.7, C[1]); gr.addColorStop(1, C[2]); g.fillStyle = gr; g.fillRect(0, 0, W, H);
-      const r = rng(7); g.globalAlpha = th === 'night' || th === 'dusk' ? .05 : .035; for (let i = 0; i < 2600; i++) { g.fillStyle = r() < .5 ? '#000' : '#fff'; g.fillRect(r() * W, r() * H, 2, 2); }
-      g.globalAlpha = 1; g.fillStyle = 'rgba(0,0,0,.05)'; g.fillRect(0, H * .72, W, H); g.fillStyle = 'rgba(255,255,255,.18)'; g.fillRect(0, H * .72, W, 3); BGC[k] = cv; }
-    ctx.drawImage(cv, 0, 0); const u = U(), dark = th === 'night' || th === 'dusk';
-    for (let i = 0; i < 6; i++) { const r = rng(i * 13 + 3), x = W * r() + Math.sin(lt * .12 + i) * 40 * u, y = H * (.08 + r() * .6) + Math.cos(lt * .1 + i * 2) * 30 * u; ctx.save(); ctx.globalAlpha = dark ? .06 : .07; circ(x, y, (60 + r() * 110) * u, dark ? '#9FB4FF' : shade(C[1], -.12), 0); ctx.restore(); }
-    if (dark) for (let i = 0; i < 40; i++) { const r = rng(i * 7 + 1); ctx.save(); ctx.globalAlpha = .35 + .25 * Math.sin(lt * .8 + i); circ(W * r(), H * r() * .6, (1 + r() * 2) * u, '#FFFFFF', 0); ctx.restore(); } }
-  const dark = o => o.bg === 'night' || o.bg === 'dusk', ink = o => dark(o) ? '#F6F1E7' : INK, soft = o => dark(o) ? '#C9CDE8' : '#5A6283';
+      const r = rng(7), dk = isDark(o); g.globalAlpha = dk ? .05 : .035; for (let i = 0; i < 2600; i++) { g.fillStyle = r() < .5 ? '#000' : '#fff'; g.fillRect(r() * W, r() * H, 2, 2); }
+      g.globalAlpha = 1; if (!palette) motif(g, tn, C, chap); else { g.fillStyle = 'rgba(0,0,0,.05)'; g.fillRect(0, H * .72, W, H); g.fillStyle = 'rgba(255,255,255,.18)'; g.fillRect(0, H * .72, W, 3); } BGC[k] = cv; }
+    ctx.drawImage(cv, 0, 0); const u = U(), dk = isDark(o);
+    if (tn === 'banknote') { const x = ((lt * .04) % 1.6 - .3) * W; ctx.save(); ctx.globalAlpha = .07; const gr = ctx.createLinearGradient(x - W * .2, 0, x + W * .2, H * .3); gr.addColorStop(0, 'rgba(255,255,240,0)'); gr.addColorStop(.5, '#FFFFF0'); gr.addColorStop(1, 'rgba(255,255,240,0)'); ctx.fillStyle = gr; ctx.fillRect(0, 0, W, H); ctx.restore(); }
+    else for (let i = 0; i < 6; i++) { const r = rng(i * 13 + 3), x = W * r() + Math.sin(lt * .12 + i) * 40 * u, y = H * (.08 + r() * .6) + Math.cos(lt * .1 + i * 2) * 30 * u; ctx.save(); ctx.globalAlpha = dk ? .05 : .07; circ(x, y, (60 + r() * 110) * u, dk ? '#9FB4FF' : shade(C[1], -.12), 0); ctx.restore(); }
+    if (dk && (tn === 'paper' || tn === 'cosmos')) for (let i = 0; i < 40; i++) { const r = rng(i * 7 + 1); ctx.save(); ctx.globalAlpha = .3 + .25 * Math.sin(lt * .8 + i); circ(W * r(), H * r() * .6, (1 + r() * 2) * u, '#FFFFFF', 0); ctx.restore(); } }
+  // a stage under the main subject (depth, light): an engraved medallion, a museum plinth, a chalk outline …
+  function stage(o, cx, cy, S, lt) { const tn = themeOf(o), TH = THEMES[tn], u = U();
+    if (tn === 'banknote') { ctx.save(); ctx.globalAlpha = .9; ctx.strokeStyle = TH.acc; ctx.lineWidth = 4 * u; ctx.beginPath(); ctx.arc(cx, cy, S * .62, 0, TAU); ctx.stroke(); ctx.lineWidth = 1.5 * u; for (let k = 0; k < 48; k++) { const a = k / 48 * TAU + lt * .05; ctx.beginPath(); ctx.arc(cx + Math.cos(a) * S * .66, cy + Math.sin(a) * S * .66, S * .05, 0, TAU); ctx.stroke(); } ctx.restore(); }
+    else if (tn === 'museum') { rr(cx - S * .5, cy + S * .48, S, H * .3, 4 * u, '#3A3F5C', 0); rr(cx - S * .56, cy + S * .44, S * 1.12, 16 * u, 4 * u, '#4A5070', 0); ctx.save(); ctx.globalCompositeOperation = 'screen'; ctx.globalAlpha = .1; poly([[cx - S * .2, 0], [cx + S * .2, 0], [cx + S * .7, cy + S * .5], [cx - S * .7, cy + S * .5]], '#FFE9C0', 0); ctx.restore(); }
+    else if (tn === 'chalk' || tn === 'blueprint') { ctx.save(); ctx.strokeStyle = TH.line; ctx.globalAlpha = .5; ctx.setLineDash([10 * u, 10 * u]); ctx.lineWidth = 3 * u; ctx.beginPath(); ctx.ellipse(cx, cy + S * .46, S * .55, S * .1, 0, 0, TAU); ctx.stroke(); ctx.restore(); } }
   const split = s => String(s ?? '').split('|').map(x => x.trim()).filter(x => x !== ''), ats = (o, c, n, from = 0) => { const a = split(o.at); return Array.from({ length: n }, (_, i) => a[i] != null ? T0(c, +a[i], .4 + i) : T0(c, from + i, .4 + i * 1.5)); };
   const label = (t, x, y, s, o2, col) => { if (!t) return; const sz = Math.min(s, W * .34 / Math.max(.01, textW(t, 100, 'display', 900) / 100)); T(t, x, y, { size: sz, font: 'display', weight: 900, fill: col, lw: 0 }); };
   const title = (o, lt) => { const u = U(); if (o.title && o.title !== 'none') { const k = K(lt, .15, .7), sz = Math.min(64 * u, W * .7 / Math.max(.01, textW(o.title, 100, 'display', 900) / 100)); ctx.save(); ctx.globalAlpha *= k; T(o.title, W / 2, H * .17 + (1 - k) * 14 * u, { size: sz, font: 'display', weight: 900, fill: ink(o), lw: 0 }); ctx.restore(); }
     if (o.sub) { const k = K(lt, .5, .7); ctx.save(); ctx.globalAlpha *= k; T(o.sub, W / 2, H * .22, { size: Math.min(34 * u, W * .72 / Math.max(.01, textW(o.sub, 100, 'body', 700) / 100)), font: 'body', weight: 700, fill: soft(o), lw: 0 }); ctx.restore(); } };
+  IFM.exTitle = (o, lt) => title(o, lt); IFM.exInk = o => ink(o);
   const pop = (lt, at) => { const k = K(lt, at, .7); return { k, s: .6 + .4 * E.out(clamp((lt - at) / .7)) }; };
   const arrow = (x1, y1, x2, y2, k, col, w) => { if (k <= 0) return; const u = U(), x = lerp(x1, x2, k), y = lerp(y1, y2, k), a = Math.atan2(y2 - y1, x2 - x1); ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = w || 8 * u; ctx.lineCap = 'round'; ctx.setLineDash([2 * u, 16 * u]); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x, y); ctx.stroke(); ctx.setLineDash([]);
     if (k > .9) { ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(x2 + Math.cos(a) * 6 * u, y2 + Math.sin(a) * 6 * u); ctx.lineTo(x2 - Math.cos(a - .5) * 30 * u, y2 - Math.sin(a - .5) * 30 * u); ctx.lineTo(x2 - Math.cos(a + .5) * 30 * u, y2 - Math.sin(a + .5) * 30 * u); ctx.fill(); } ctx.restore(); };
@@ -62,10 +104,10 @@
   // ---------------------------------------------------------------- ex_show: one thing, big and clear
   A.ex_show = (o, c, dur) => ({ sfx: kitSfx(o), draw: lt => { const u = U(), v = V(); bg(o, lt); title(o, lt); const cx = W / 2, cy = H * (o.title ? .47 : .44), S = H * (+o.size || (v ? .3 : .42));
     const pa = pop(lt, .2), d = o.do || 'float'; let y = cy + idle(lt, 0), sx = 1, rot = 0, s = S * pa.s;
-    if (d === 'spin') sx = Math.cos(lt * 1.2); else if (d === 'grow') s = S * (.5 + .5 * ease(lt / Math.max(1, dur * .8))); else if (d === 'drop') y = lerp(-S, cy, E.out(clamp((lt - .2) / .9))); else if (d === 'pulse') s = S * (1 + .04 * Math.sin(lt * 3));
+    if (d === 'spin') sx = .55 + .45 * Math.cos(lt * 1.2); else if (d === 'grow') s = S * (.5 + .5 * ease(lt / Math.max(1, dur * .8))); else if (d === 'drop') y = lerp(-S, cy, E.out(clamp((lt - .2) / .9))); else if (d === 'pulse') s = S * (1 + .04 * Math.sin(lt * 3));
     const ar = split(o.around); ar.forEach((n, i) => { const a = lt * .35 + i * TAU / ar.length, rr2 = S * .82; ctx.save(); ctx.globalAlpha *= K(lt, .6 + i * .25, .6); IFM.emoji(n, cx + Math.cos(a) * rr2, cy + Math.sin(a) * rr2 * .55, S * .3, {}); ctx.restore(); });
     if (+o.pile) { const n = +o.pile, r = rng(5); for (let i = 0; i < n; i++) { const k = K(lt, .3 + i * .08, .5); if (k <= 0) continue; const row = Math.floor(Math.sqrt(i * 2)), px = cx + (r() - .5) * S * 1.4 * (1 - row * .12), py = cy + S * .35 - row * S * .1; IFM.emoji(o.e, px, py - (1 - k) * 60 * u, S * .32, { rot: (r() - .5) * .6 }); } }
-    else { ctx.save(); ctx.globalAlpha *= pa.k; IFM.emoji(o.e || 'question', cx, y, s, { sx, ground: true }); ctx.restore(); }
+    else { ctx.save(); ctx.globalAlpha *= pa.k; stage(o, cx, cy, S, lt); IFM.emoji(o.e || 'question', cx, y, s, { sx, ground: themeOf(o) !== 'banknote' }); ctx.restore(); }
     cross(cx, cy, S, K(lt, fx(o, c, o.x), .4));
     if (o.l) { const k = K(lt, .6, .6); ctx.save(); ctx.globalAlpha *= k; label(o.l, cx, cy + S * .62, 56 * u, o, ink(o)); ctx.restore(); }
     if (o.tag) { const m = String(o.tag).match(/^(.*?)(?:@(\d+))?$/), k = K(lt, m[2] != null ? T0(c, +m[2], 1) : 1, .5); if (k > 0) { ctx.save(); ctx.globalAlpha *= k; IFM.tag(m[1], cx + S * .38, cy - S * .48, 30 * u, { bg: P.yellow, t: 1 }); ctx.restore(); } } } });
@@ -100,7 +142,7 @@
     else if (o.e) { const p = pop(lt, at); ctx.save(); ctx.globalAlpha *= p.k; IFM.emoji(o.e, W / 2, H * .53 + idle(lt, 0), H * .2 * p.s, { ground: true }); ctx.restore(); } } }; };
 
   // ---------------------------------------------------------------- ex_chapter: a section card (signpost and a breath)
-  A.ex_chapter = (o, c, dur) => ({ sfx: kitSfx(o), draw: lt => { const u = U(); bg({ bg: o.bg || 'night' }, lt); const k = K(lt, .2, .8), o2 = { bg: o.bg || 'night' };
+  A.ex_chapter = (o, c, dur) => ({ sfx: kitSfx(o), draw: lt => { const u = U(), o2 = { ...o, _chapter: 1 }; bg(o2, lt); const k = K(lt, .2, .8);
     ctx.save(); ctx.globalAlpha *= k; if (o.n) { circ(W / 2, H * .3, 70 * u, P.yellow, 0); T(String(o.n), W / 2, H * .3 + 4 * u, { size: 80 * u, font: 'display', weight: 900, fill: INK, lw: 0 }); }
     T(o.title || '', W / 2, H * .42, { size: Math.min(80 * u, W * .72 / Math.max(.01, textW(o.title || '', 100, 'display', 900) / 100)), font: 'display', weight: 900, fill: ink(o2), lw: 0 }); if (o.sub) T(o.sub, W / 2, H * .47, { size: 34 * u, font: 'body', weight: 700, fill: soft(o2), lw: 0 }); ctx.restore();
     if (o.e) { const p = pop(lt, .6); ctx.save(); ctx.globalAlpha *= p.k; IFM.emoji(o.e, W / 2, H * .6 + idle(lt, 0), H * .14 * p.s, { ground: true }); ctx.restore(); } } });

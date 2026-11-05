@@ -14,7 +14,10 @@ CACHE = os.path.expanduser(os.environ.get('VA_VOICE_DIR', '~/.cache/va-voice'))
 MODEL, VOICES = os.path.join(CACHE, 'kokoro-v1.0.int8.onnx'), os.path.join(CACHE, 'voices-v1.0.bin')
 URL = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
 SR_OUT = 44100
-DEFAULT_SPK = {'narrator': 'am_puck', 'a': 'af_bella', 'b': 'am_adam', 'c': 'af_nova', 'd': 'am_liam'}   # The If Machine (owner, 3 Nov 2026): am_puck narrates, af_bella is the second voice
+# The If Machine voices (owner, 5 Nov 2026 — the only three): af_heart narrates every episode; af_nicole is the second female voice
+# (slow, eerie: quotes, chilling lines); am_santa is the old male storyteller (legends, history told as a tale). Story: `voice: af_heart`,
+# `cast: QUOTE=af_nicole LEGEND=am_santa` and lines starting "QUOTE: …" / "LEGEND: …".
+DEFAULT_SPK = {'narrator': 'af_heart', 'a': 'af_nicole', 'b': 'am_santa', 'c': 'af_nicole', 'd': 'am_santa', 'quote': 'af_nicole', 'legend': 'am_santa'}
 
 def setup():
     subprocess.call([sys.executable, '-m', 'pip', 'install', '-q', 'kokoro-onnx', 'soundfile', '--break-system-packages'])
@@ -87,7 +90,7 @@ def visemes(ph, env):
 def voice_for(spk, narrator):
     if re.match(r'^[abefhijpz][fm]_\w+$', spk or '') or str(spk or '').startswith('supertonic:'): return spk
     if spk in (None, '', 'narrator'): return narrator
-    return DEFAULT_SPK.get(spk, 'af_bella' if narrator.startswith('am') or narrator.startswith('bm') else 'am_puck')
+    return DEFAULT_SPK.get(spk, 'af_nicole')
 
 # Supertonic 3 (Supertone; weights OpenRAIL-M: every post must say the narration is AI-generated, brief/BRAND.md §7).
 # Spec "supertonic:M1" … "supertonic:F5". Weights: Drive _voice/supertonic (python3 tools/voice.py setup-supertonic), never git.

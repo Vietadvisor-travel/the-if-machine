@@ -203,7 +203,7 @@
     sky: { bed: 'ifm_world_wind_forest', acc: ['nature_bird_chirp', 'ifm_world_clock_tick', 'ifm_motion_whoosh_airy'] }, space: { bed: 'ifm_sci_force_field', acc: ['ifm_sci_radar_ping', 'ifm_sci_hologram', 'ifm_motion_whoosh_deep'] },
     money: { acc: ['foley_coins', 'ifm_machine_printer', 'ifm_sci_ui_error', 'foley_paper'] } };
   // pip="<act> key=val …" [pipAt=k]: an inset card (top right) with another picture — a 2D detail over a 3D wide, or a 3D view over a 2D chart
-  const PIPS = new Map(); function pip(sg, c, lt, dur) { let P2 = PIPS.get(sg); if (!P2) { const so = parseSub(sg.o.pip); P2 = { b: (A[so.act] || A.globe)(so, c, dur), cv: mkCanvas(W, H), so }; PIPS.set(sg, P2); }
+  const PIPS = new Map(); function pipInset(sg, c, lt, dur) { /* was also named pip(): it shadowed the globe's point-in-polygon pip() and broke night lights */ let P2 = PIPS.get(sg); if (!P2) { const so = parseSub(sg.o.pip); P2 = { b: (A[so.act] || A.globe)(so, c, dur), cv: mkCanvas(W, H), so }; PIPS.set(sg, P2); }
     const at = sg.o.pipAt != null && c && c[+sg.o.pipAt] ? c[+sg.o.pipAt][0] : sg.at + .4, q = clamp((lt - at) / .6); if (q <= 0) return; const e = E.out(q), u = U();
     if (P2.cv.width !== W) P2.cv = mkCanvas(W, H); const g = P2.cv.getContext('2d'), main = ctx; ctx = g; ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, W, H); const sv = IFM.seg; IFM.seg = { at: sg.at, end: dur }; if (/^(EWS|WS|MCU|MS|ECU|CU)/.test(P2.so.cam || '') && !P2.b.is3d) shot(P2.so.cam, lt - sg.at, dur - sg.at); P2.b.draw(lt); IFM.seg = sv; ctx.restore(); ctx = main;
     const w = W * .44, h = w * 1.2, pos = sg.o.pipPos || 'tr', x = (pos[1] === 'l' ? W * .04 : W * .52) + (1 - e) * W * .5 * (pos[1] === 'l' ? -1 : 1), y = H * ({ t: .1, m: .36, b: .5 }[pos[0]] || .1); ctx.save(); ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.beginPath(); ctx.roundRect(x + 8 * u, y + 12 * u, w, h, 22 * u); ctx.fill();
@@ -224,6 +224,6 @@
     return { sfx, draw: lt => { let k = 0; for (let j = 0; j < B.length; j++) if (lt >= B[j].at) k = j; const sg = B[k], q = lt - sg.at;
       IFM.seg = { at: sg.at, end: B[k + 1] ? B[k + 1].at : dur }; { const ps = sg.o.pipPos || 'tr', pw = W * .44; IFM.pipBox = sg.o.pip ? [ps[1] === 'l' ? W * .04 : W * .52, H * ({ t: .1, m: .36, b: .5 }[ps[0]] || .1), pw, pw * 1.2] : null; } ctx.save(); if (sg.o.act !== 'zoom' && sg.o.act !== 'split' && !sg.b.is3d) { if (k && q < .22 && IFM.calm === false) { const e = 1 - E.out(q / .22); ctx.translate(W / 2, H / 2); ctx.scale(1 + .12 * e, 1 + .12 * e); ctx.translate(-W / 2, -H / 2); } if (/^(EWS|WS|MCU|MS|ECU|CU)/.test(sg.cam)) shot(sg.cam, q, (B[k + 1] ? B[k + 1].at : dur) - sg.at); else cam(sg.cam, lt, dur); } sg.b.draw(lt); ctx.restore(); if (!sg.b.is3d && /\.ots/.test(sg.cam)) IFM.otsFg(/:0?\.[0-4]/.test(sg.cam) ? -1 : 1);
       if (k && q < .12 && IFM.calm === false) { ctx.save(); ctx.globalAlpha = .55 * (1 - q / .12); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.restore(); }
-      if (sg.o.pip) pip(sg, c, lt, dur);
+      if (sg.o.pip) pipInset(sg, c, lt, dur);
       if (!o._noWords) words(o, c, lt); if (sg.b.post) sg.b.post(lt); }, letters: lt => words(o, c, lt) }; };
 })();

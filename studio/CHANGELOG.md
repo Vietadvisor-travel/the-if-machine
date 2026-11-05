@@ -1,5 +1,23 @@
 # Motion Studio — changelog
 
+## 2026-11-05 · voices locked, per-episode visual worlds, anti-repetition, style frames for the money topic
+- **Voices (owner)**: af_heart narrates every episode; af_nicole = second female voice (slow, eerie: quotes); am_santa = old male
+  storyteller (legends). voice.py defaults, new_episode.mjs header (`voice: af_heart`, `cast: QUOTE=af_nicole LEGEND=am_santa`),
+  EPISODE.md, CLAUDE.md, a note in brief/VOICE_MODELS.md.
+- **Themes** (owner: "each episode its own visuals; don't repeat scenes in an episode or across episodes"): header `theme:` dresses
+  every kit act — paper, banknote, museum, chalk, blueprint, noir, desert, ocean, cosmos (background motif, ink colours, section-card
+  variant, a stage under the main subject). `IFM.exBg/exTitle/exStage` for bespoke acts. ex_show spin never edge-on.
+- **variety.mjs**: kit act ≤ 2 per episode (section cards ≤ 5) ERROR; the same illustration as main subject twice WARN; < 4 scenes
+  made for the episode ERROR (films ≥ 20 beats); bespoke acts borrowed from other episodes WARN (reuse=ok); theme missing WARN, a
+  theme from the last 3 episodes ERROR; > 30 % main illustrations repeated from the last 3 episodes WARN; history.json records theme,
+  main illustrations and own acts. Kit acts with different illustrations count as different scene types.
+- **Bug fixed**: two functions named pip() in ifm_world.js — the inset painter shadowed the globe's point-in-polygon test, so every
+  globe with night lights threw. The inset is now pipInset().
+- **Style frames** (not the episode): stories/style-money.story (theme banknote) + bank/money-v2.js — x_mv_note (an engraved generic
+  banknote crumbling to dust), x_mv_shelf (a supermarket aisle in perspective, the price tags fall), x_mv_camp (a WWII camp at dusk,
+  jam and cigarettes trade on a crate), x_mv_andes (paper-cut Andes, terraces, llamas, storehouses). 38 frames at 1080×1920 on Drive
+  `style_frames_money_2026-11-05/`.
+
 ## 2026-11-05 · engine upgrade after the owner rejected "Nếu tiền biến mất" (content, sound, pace, voice, 2D pictures)
 Owner: "content bad, storyline silly; neutral explanation, no storyline, entertaining; far too many sound effects and too loud;
 too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what the shapes are". For every episode from now on:

@@ -17,10 +17,17 @@ Credit line in every delivery note and video description: **Illustrations: OpenM
 | `ex_quote` | a real quotation, typed | `q=line|line|line` `by=Name, year` |
 | `ex_timeline` | dates along a line | `e=a|b|c` `l=A|B|C` `d=DATE|DATE|DATE` (the camera moves to each date on its caption) |
 
+## Themes (the episode's own visual world — header `theme:`)
+`paper` (default) · `banknote` (guilloche engraving, green and gold, an engraved frame) · `museum` (dark gallery, spotlight, plinths) ·
+`chalk` (blackboard) · `blueprint` (grid) · `noir` (dark, film-like) · `desert` (dunes) · `ocean` (deep water) · `cosmos` (stars).
+Section cards take the theme's dark variant. In a bespoke act: `IFM.exBg(o, lt)`, `IFM.exTitle(o, lt)`, `IFM.exStage(o, cx, cy, S, lt)`.
+Example of scenes made for one topic on its theme: `engine/library/bank/money-v2.js` (x_mv_note, x_mv_shelf, x_mv_camp, x_mv_andes).
+
 ## Rules
 - The picture is the SUBJECT of the line. If the line says "a cow for some wheat", the frame shows a cow, an arrow, wheat.
 - 1–4 things per frame; each thing ≥ 9 % of the frame height; labels in capitals, ≤ 18 characters.
 - Use `ex_chapter` to open every section and add `pause=1.2` to that beat; use `ex_list n=1` for the recap in the conclusion.
+- The kit is building blocks, not the film: each kit act at most twice per episode (section cards ≤ 5); ≥ 4 scenes made for the topic.
 - Mix with 3D (places, scale) and maps; never four 2D kit beats of the same act in a row.
 - In a bespoke act: `IFM.emoji('<name>', cx, cy, size, {ground, rot, flip, alpha})` draws any illustration; `IFM.emojiFind('word')`.
 - No logos, no real people's likeness (OpenMoji people are generic), no flags as decoration where a country is not meant.

@@ -18,12 +18,20 @@ Token rules are at the end.
 - **A real hook and a real ending.** HOOK 15–25 s (the question → one surprising fact → why it matters → what this video will
   answer), then a held pause before the first section. CONCLUSION 25–45 s (recap the 3 key ideas → the answer in one sentence →
   a closing thought), then the end card. Never start explaining in the first line without setting up the question.
+- **Voices (owner, 5 Nov 2026 — only these three):** `voice: af_heart` narrates every episode; `af_nicole` is the second
+  female voice (slow, eerie: quotations, chilling lines); `am_santa` the old male storyteller (legends, history told as a tale),
+  only when the content calls for it: header `cast: QUOTE=af_nicole LEGEND=am_santa`, lines `QUOTE: …` / `LEGEND: …`.
 - **Unhurried.** Voice at `--speed 1.0` (never faster), ≈ 135–150 words a minute; the engine leaves 0.34 s between lines and
   ≈ 1.2 s between beats; `pause=1.2` after the hook, after each section card and before the conclusion. One idea per beat.
 - **Calm sound.** Music is a low bed under the voice; sound effects only where one really matters (`sfx=name@k`, at most one
   every 30 s); master −16 LUFS. The picture makes no sound by itself (minimal sound is the IFM default).
 - **No glare, no flicker.** No flashes, shakes, glitches, colour splits, strobing, white blow-outs (the GL post pass now has a
   real calm grade: no bloom, no halation). Only calm transitions (cut, fade, slide, match, zoom, zoomthru, ink).
+- **Every episode looks like itself (owner, 5 Nov 2026).** Header `theme: <world>` (banknote, museum, chalk, blueprint, noir, desert,
+  ocean, cosmos …; never one used in the last 3 episodes) dresses every kit act; ≥ 4 scenes made for THIS topic (`x_` acts in
+  `engine/library/bank/<slug>.js`, built from illustrations on the theme); each kit act at most twice (section cards ≤ 5); the
+  same illustration is the main subject once; acts from other episodes only when the topic really needs them (`reuse=ok`).
+  `variety.mjs` enforces it, inside the episode and against the last 3.
 - **Pictures you can read in one second.** Every 2D picture shows the SUBJECT of its line as a recognisable thing — an
   OpenMoji illustration (2,000+ named, `IFM.emoji`), a bank item, a map, a number made visible — big (25–60 % of the frame
   height), labelled when it is not obvious, on a clean background. No tiny figures, no abstract blobs, no hand-drawn shapes
@@ -108,7 +116,7 @@ node tools/new_episode.mjs <slug> "<Vietnamese name>"   # → stories/<slug>.sto
   lettering; no sound unless `sfx=` asks for it.
 - **Words:** objective voice, "you" for the viewer, present tense, short sentences; sourced numbers; "about" for estimates;
   contractions; rhetorical questions; never: mind-blowing, you won't believe, shocking, insane.
-- **Header:** `title: · channel: ifm · run: N · next: … · voice: <owner's pick> · people: facet · sources: …`
+- **Header:** `title: · channel: ifm · run: N · next: … · voice: af_heart · cast: QUOTE=af_nicole LEGEND=am_santa · people: facet · sources: …`
   (credit line for OpenMoji in the delivery note).
 
 ## 2. Picture menu (pick the most surprising one for the line, then direct it)
