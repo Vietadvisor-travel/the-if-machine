@@ -2,7 +2,8 @@
    (IFM.emoji) on the episode's own visual world (theme: banknote). Not reused elsewhere unless the topic really needs it.
    x_mv_note   an engraved banknote (no real currency design) that turns to dust on caption k (o.k, default 1)
    x_mv_shelf  a supermarket aisle in perspective; the price tags drop off one by one (o.k = caption when they start)
-   x_mv_camp   a WWII prison camp at dusk: barracks, fence, a crate where a jar of jam and cigarettes change hands */
+   x_mv_camp   a WWII prison camp at dusk: barracks, fence, a crate where a jar of jam and cigarettes change hands
+   remake 5 Nov: x_mv_window (shop window, price tags) · x_mv_ration (ration book) · x_mv_khipu (knotted cords) · x_mv_board (camp price board) · x_mv_digits (bank balance) */
 'use strict';
 (function () {
   if (!window.IFM || !IFM.ACT || !IFM.emoji) return; const A = IFM.ACT, T0 = (c, k, d) => c && c[k] ? c[k][0] + .05 : d, ease = t => E.inOut(clamp(t)), K = (lt, a, d = .6) => ease((lt - a) / d);
@@ -71,4 +72,76 @@
     for (let i = 0; i < 4; i++) IFM.emoji('hut', W * (.62 + i * .09), H * (.5 + (i % 2) * .012), H * .05, {});
     for (let i = 0; i < 4; i++) { const q = ((lt * .035 + i * .2) % 1), x = lerp(W * 1.05, -W * .05, q), y = q < .5 ? lerp(H * .53, H * .64, q * 2) : lerp(H * .64, H * .77, (q - .5) * 2), s = H * (.04 + q * .05); IFM.emoji('llama', x, y - s * .45, s, {}); }
     const k = K(lt, tk, .8); if (k > 0) { ctx.save(); ctx.globalAlpha *= k; IFM.tag('NO COINS · NO MARKETS', W / 2, H * .25, 30 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
+
+  // ================================================================ remake (5 Nov 2026): five more scenes made for the film, each in a real place
+  const PB = (o, name, lt) => { const q = { ...o, place: o.place || name }; IFM.exBg(q, lt); return q; }, PF = (q, lt) => IFM.placeFore(q.place, lt, q);
+  // x_mv_window  a shop window on the street: a loaf and a pair of shoes, swinging price tags, a ruler slides under them on caption k
+  A.x_mv_window = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), 2.5); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'street', lt), cx = W / 2, cy = H * .47, ww = W * .86, wh = H * .3;
+    rr(cx - ww / 2 - 14 * u, cy - wh / 2 - 14 * u, ww + 28 * u, wh + 28 * u, 10 * u, '#3E4A3A', 0); rr(cx - ww / 2, cy - wh / 2, ww, wh, 6 * u, 'rgba(232,240,228,.88)', 0);
+    ctx.save(); ctx.globalAlpha = .18; poly([[cx - ww * .3, cy - wh / 2], [cx - ww * .12, cy - wh / 2], [cx - ww * .38, cy + wh / 2], [cx - ww * .5, cy + wh / 2]], '#FFFFFF', 0); ctx.restore();
+    rr(cx - ww / 2, cy + wh * .3, ww, wh * .06, 2 * u, '#B8923C', 0);
+    const it = [['bread', -.24, '2', 0], ['running shoe', .24, '60', .9]];
+    it.forEach(([nm, dx, pr, d], i) => { const a = K(lt, d * .6, .7), x = cx + dx * ww, y = cy + wh * .12, s = wh * .5 * (.85 + .15 * a); ctx.save(); ctx.globalAlpha *= a; IFM.emoji(nm, x, y - s * .2, s, {});
+      const sw = Math.sin(lt * 1.6 + i) * .12 * (1 - K(lt, 4, 3) * .6), tx = x + s * .32, ty = cy - wh * .38; line(tx, cy - wh / 2, tx, ty, 2 * u, '#3E4A3A');
+      ctx.translate(tx, ty); ctx.rotate(sw); rr(-34 * u, 0, 68 * u, 46 * u, 6 * u, '#FFD84D', 0); T(pr, 0, 24 * u, { size: 30 * u, font: 'display', weight: 900, fill: '#1B1F3A', lw: 0 }); ctx.restore(); });
+    const r = K(lt, tk, 1.2); if (r > 0) { const rw = ww * .7, rx = lerp(-rw, cx - rw / 2, r), ry = cy + wh / 2 + 40 * u; rr(rx, ry, rw, 34 * u, 4 * u, '#E9C46A', 0);
+      for (let k = 0; k <= 20; k++) line(rx + k * rw / 20, ry, rx + k * rw / 20, ry + (k % 5 ? 10 : 18) * u, 2 * u, '#5B4A2A'); }
+    PF(q, lt); IFM.exTitle(o, lt); } }; };
+
+  // x_mv_ration  a wartime ration book on a kitchen table: coupons cut out one by one (scissors), a date stamp lands on caption s
+  A.x_mv_ration = (o, c, dur) => { const tk = T0(c, +(o.k ?? 0), .8), ts = T0(c, +(o.s ?? 1), dur * .55); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'kitchen', lt), bw = W * .74, bh = H * .4, bx = W / 2 - bw / 2, by = H * .26;
+    ctx.save(); ctx.globalAlpha = .25; rr(bx + 14 * u, by + 18 * u, bw, bh, 10 * u, '#000', 0); ctx.restore();
+    rr(bx, by, bw, bh, 10 * u, '#EFE6CF', 0); rr(bx, by, bw, bh * .17, 10 * u, '#8A6A44', 0);
+    T('RATION BOOK', W / 2, by + bh * .09, { size: 40 * u, font: 'display', weight: 900, fill: '#F4EEDC', lw: 0 });
+    const C = 5, R = 4, gx = bx + bw * .06, gy = by + bh * .23, cw = bw * .88 / C, chh = bh * .72 / R, N = C * R, per = Math.max(.5, (dur - tk - 1) / N); let cut = -1;
+    for (let j = 0; j < R; j++) for (let i = 0; i < C; i++) { const n = j * C + i, t0 = tk + n * per, qq = clamp((lt - t0) / 1.4), x = gx + i * cw, y = gy + j * chh;
+      ctx.save(); ctx.setLineDash([6 * u, 6 * u]); ctx.strokeStyle = 'rgba(90,70,40,.45)'; ctx.lineWidth = 2 * u; ctx.strokeRect(x + 4 * u, y + 4 * u, cw - 8 * u, chh - 8 * u); ctx.restore();
+      if (qq >= 1) continue; if (qq > 0) cut = n;
+      ctx.save(); ctx.globalAlpha *= 1 - qq * qq; ctx.translate(x + cw / 2 + qq * qq * W * .25, y + chh / 2 - qq * H * .12); ctx.rotate(qq * .8);
+      rr(-cw / 2 + 6 * u, -chh / 2 + 6 * u, cw - 12 * u, chh - 12 * u, 4 * u, ['#F7F0DC', '#EADFC2'][n % 2], 0);
+      T(['MEAT', 'SUGAR', 'BUTTER', 'TEA', 'BACON'][i], 0, -chh * .12, { size: 18 * u, font: 'display', weight: 800, fill: '#5B4A2A', lw: 0 }); T(String(j + 1), 0, chh * .2, { size: 24 * u, font: 'display', weight: 900, fill: '#8A6A44', lw: 0 }); ctx.restore(); }
+    if (cut >= 0 && lt < tk + N * per) { const i = cut % C, j = (cut / C) | 0; IFM.emoji('scissors', gx + (i + .9) * cw, gy + (j + .5) * chh, H * .07, { rot: Math.sin(lt * 9) * .15 }); }
+    const st = K(lt, ts, .5); if (st > 0) { ctx.save(); ctx.translate(W * .64, by + bh * .62); ctx.rotate(-.18); ctx.scale(1.6 - .6 * st, 1.6 - .6 * st); ctx.globalAlpha *= st * .85; ctx.strokeStyle = '#A23B2E'; ctx.lineWidth = 6 * u; ctx.strokeRect(-150 * u, -42 * u, 300 * u, 84 * u);
+      T('1940–1954', 0, 0, { size: 52 * u, font: 'display', weight: 900, fill: '#A23B2E', lw: 0 }); ctx.restore(); }
+    PF(q, lt); IFM.exTitle(o, lt); } }; };
+
+  // x_mv_khipu  an Inca khipu in a library: a main cord, pendant cords drop in, knots tie one by one, it sways
+  A.x_mv_khipu = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .5); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'library', lt), x0 = W * .1, x1 = W * .9, y0 = H * .24, WOOL = ['#C8553D', '#E9C46A', '#2A9D8F', '#F4EEDC', '#8A6A44', '#264653', '#D4A373', '#9C6644', '#B5838D'];
+    ctx.save(); ctx.globalAlpha = .22; ell(W / 2, H * .7, W * .38, H * .02, '#000', 0); ctx.restore();
+    ctx.lineCap = 'round'; ctx.strokeStyle = '#6B4F30'; ctx.lineWidth = 14 * u; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.quadraticCurveTo(W / 2, y0 + H * .03, x1, y0); ctx.stroke();
+    const N = 9; for (let i = 0; i < N; i++) { const t = (i + .5) / N, x = lerp(x0, x1, t), y = y0 + H * .03 * 4 * t * (1 - t) * .5, d = K(lt, .2 + i * .25, 1.2), len = H * (.3 + ((i * 37) % 9) / 60) * d, sw = Math.sin(lt * .9 + i * .7) * 10 * u * d, col = WOOL[i % WOOL.length];
+      if (d <= 0) continue; ctx.strokeStyle = col; ctx.lineWidth = 9 * u; ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + sw * .3, y + len * .5, x + sw, y + len); ctx.stroke();
+      const nk = 2 + (i * 5) % 4; for (let k = 0; k < nk; k++) { const kt = .25 + k * .17, a = K(lt, 1.5 + i * .3 + k * .45, .4); if (a <= 0 || kt * H * .3 > len) continue; const kx = x + sw * kt * kt, ky = y + len * kt;
+        ctx.save(); ctx.translate(kx, ky); ctx.scale(a, a); ell(0, 0, 13 * u, 10 * u, shade(col, -.25), 0); ell(-3 * u, -3 * u, 5 * u, 4 * u, shade(col, .2), 0); ctx.restore(); } }
+    const a = K(lt, tk, .6); if (a > 0) { ctx.save(); ctx.globalAlpha *= a; IFM.tag('KHIPU', W / 2, H * .17, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); }
+    PF(q, lt); } }; };
+
+  // x_mv_board  a prison-camp notice board inside a barrack: notes with prices in cigarettes; the prices tick up on caption k
+  A.x_mv_board = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .55); return { sfx: [], draw: lt => { const u = U();
+    ctx.drawImage(cached('mvbarrack', () => { const g = ctx; g.fillStyle = '#3A2E25'; g.fillRect(0, 0, W, H); for (let i = 0; i < 14; i++) { g.fillStyle = i % 2 ? '#4A3B2F' : '#43362B'; g.fillRect(i * W / 13, 0, W / 13 - 3, H); }
+      g.fillStyle = '#2B221C'; g.fillRect(0, H * .8, W, H * .2); for (let k = 0; k < 3; k++) { g.fillStyle = '#5A4636'; g.fillRect(W * (.05 + k * .33), H * .74, W * .26, H * .025); }
+      const gl = g.createRadialGradient(W * .5, H * .1, 10, W * .5, H * .1, W * .7); gl.addColorStop(0, 'rgba(255,214,150,.45)'); gl.addColorStop(1, 'rgba(255,214,150,0)'); g.fillStyle = gl; g.fillRect(0, 0, W, H); }), 0, 0);
+    ctx.save(); ctx.globalAlpha = .5 + .05 * Math.sin(lt * 2); glow(W * .5, H * .1, W * .2, '#FFD9A0', .3); ctx.restore(); IFM.emoji('light bulb', W * .5, H * .07, H * .06, {});
+    const bx = W * .1, by = H * .17, bw = W * .8, bh = H * .5; rr(bx - 10 * u, by - 10 * u, bw + 20 * u, bh + 20 * u, 8 * u, '#6B4F30', 0); rr(bx, by, bw, bh, 4 * u, '#C9A27A', 0);
+    { const r = rng(4); ctx.save(); ctx.globalAlpha = .18; for (let i = 0; i < 260; i++) circ(bx + r() * bw, by + r() * bh, (1 + r() * 2) * u, '#7A5A3A', 0); ctx.restore(); }
+    T('EXCHANGE & MART', W / 2, by + bh * .08, { size: 40 * u, font: 'display', weight: 900, fill: '#3A2E25', lw: 0 });
+    const rows = [['honey pot', 'JAM', 6, 8], ['bread', 'BREAD', 4, 5], ['soap', 'SOAP', 2, 3]], up = K(lt, tk, .8);
+    rows.forEach(([e, l, v0, v1], i) => { const a = K(lt, .3 + i * 1.6, .7), y = by + bh * (.25 + i * .25); if (a <= 0) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(W / 2, y); ctx.rotate((i - 1) * .025);
+      rr(-bw * .42, -bh * .1, bw * .84, bh * .2, 4 * u, '#F7F3E8', 0); IFM.emoji('round pushpin', -bw * .4, -bh * .09, 34 * u, {});
+      IFM.emoji(e, -bw * .3, 0, bh * .13, {}); T(l, -bw * .1, 0, { size: 38 * u, font: 'display', weight: 900, fill: '#1B1F3A', lw: 0, align: 'left' });
+      T('= ' + (up > .5 ? v1 : v0), bw * .16, 0, { size: 46 * u, font: 'display', weight: 900, fill: up > .5 ? '#A23B2E' : '#1B1F3A', lw: 0 }); IFM.emoji('smoking symbol', bw * .32, 0, bh * .1, {}); ctx.restore(); });
+    const tg = K(lt, Math.max(tk - 1.5, 2), .6); if (tg > 0) { ctx.save(); ctx.globalAlpha *= tg; IFM.tag('PRICES IN CIGARETTES', W / 2, H * .72, 32 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); } } }; };
+
+  // x_mv_digits  a phone on an office desk: the bank balance, digits roll as a payment goes out, a tick: ACCEPTED on caption k
+  A.x_mv_digits = (o, c, dur) => { const tk = T0(c, +(o.k ?? 1), dur * .6); return { sfx: [], draw: lt => { const u = U(), q = PB(o, 'office', lt), pw = W * .5, ph = pw * 1.9, px = W / 2 - pw / 2, py = H * .16;
+    ctx.save(); ctx.globalAlpha = .3; rr(px + 16 * u, py + 20 * u, pw, ph, 40 * u, '#000', 0); ctx.restore(); rr(px, py, pw, ph, 40 * u, '#1E2433', 0); rr(px + 14 * u, py + 14 * u, pw - 28 * u, ph - 28 * u, 30 * u, '#F4F6F1', 0);
+    rr(px + 14 * u, py + 14 * u, pw - 28 * u, ph * .2, 30 * u, '#2F5B43', 0); T('BALANCE', W / 2, py + ph * .08, { size: 24 * u, font: 'display', weight: 800, fill: '#E7EBD6', lw: 0 });
+    const pay = K(lt, 1.6, 1.8), bal = 1250 - 12.4 * pay, s = bal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); T(s, W / 2, py + ph * .155, { size: 50 * u, font: 'display', weight: 900, fill: '#FFFFFF', lw: 0 });
+    const rows = [['bread', 'BAKERY', '-12.40', 1.4], ['house', 'RENT', '-640.00', -9], ['briefcase', 'SALARY', '+1,900.00', -9]];
+    rows.forEach(([e, l, v, t0], i) => { const a = t0 < 0 ? 1 : K(lt, t0, .6), y = py + ph * (.32 + i * .12) + (t0 < 0 ? ph * .12 * K(lt, 1.4, .6) : 0) - (t0 < 0 ? 0 : ph * .03 * (1 - a)); if (a <= 0) return; ctx.save(); ctx.globalAlpha *= a;
+      rr(px + 30 * u, y - ph * .045, pw - 60 * u, ph * .09, 14 * u, '#FFFFFF', 0); IFM.emoji(e, px + 70 * u, y, ph * .06, {}); T(l, px + 110 * u, y, { size: 22 * u, font: 'display', weight: 800, fill: '#1B1F3A', lw: 0, align: 'left' });
+      T(v, px + pw - 50 * u, y, { size: 22 * u, font: 'display', weight: 900, fill: v[0] === '+' ? '#2A9D8F' : '#1B1F3A', lw: 0, align: 'right' }); ctx.restore(); });
+    const a = K(lt, tk, .6); if (a > 0) { ctx.save(); ctx.globalAlpha *= a; ctx.translate(W / 2, py + ph * .8); ctx.scale(.7 + .3 * E.back(clamp((lt - tk) / .6)), .7 + .3 * E.back(clamp((lt - tk) / .6))); IFM.emoji('check mark button', 0, 0, ph * .12, {}); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= a; IFM.tag('ACCEPTED', W / 2, py + ph + 50 * u, 34 * u, { bg: '#F4EEDC', t: 1 }); ctx.restore(); }
+    PF(q, lt); } }; };
 })();
