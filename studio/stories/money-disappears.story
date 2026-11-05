@@ -80,7 +80,7 @@ and shoppers to buy a little less.
 Nobody has to give an order.
 
 // 1:47 SUBJECT: the same city with and without its messages — S12
-# vis kind=w act=split a="s3 set=city time=day cam=MS.high.orbit on=center" b="s3 set=city time=night dark=1 cam=MS.high.orbit on=center" la="WITH PRICES" lb="WITHOUT" at=1.5 trans=drop
+# vis kind=w act=s3 set=city time=day cam=MS.high.orbit on=center trans=drop pins="center:WITH PRICES@0" then="act=s3 set=city time=night dark=1 cam=WS.high.orbit on=center@2"
 A city sends millions of these signals every day,
 on every shelf and every menu.
 When money disappears, the messages disappear with it.
