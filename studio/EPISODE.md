@@ -31,6 +31,24 @@ Token rules are at the end.
 - The house act: `act=crew set=street|market|shops|stage actors="bun:idle:happy>think@1:think>cheer@2:laugh|cap:crossed:bored"
   props="coin|note|cow|sack|iffy" kick= title="LINE|*GOLD*"`. New places and props are added to cast.js in the same language
   (F / ovalF / rectF / polyF / tube, sticker()). Demo: stories/test-cast.story.
+- COMIC layer, FINAL STANDARD (owner, 7 Nov 2026: "entertaining, funny and a bit weird, on top of IF CREW; lock it"): the base stays
+  clean and trustworthy, the jokes sit on top. Poses `take` (body jolts back) and `slump`; faces `take` (eyes pop, jaw drops; the
+  crew act adds impact lines, sweat and "!!"), `cry` (two fountains), `deadpan` (stares at the viewer). Props `runcoin` (coins grow
+  legs and run off), `melt` (a banknote melting like ice cream), `cow|tie` (a cow in a tie), `weird` (jelly Iffy with a third eye).
+  Rules: every gag is a VISUAL METAPHOR of the line it sits on (inflation = a melting note, barter = a cow at the bank), never a random
+  joke; about 1 gag per 20–30 s; the punchline lands after a real pause; the facts are never bent for a laugh. Each episode invents
+  2–3 NEW gags of its own in cast.js (same language), so episodes stay varied. Demo: stories/test-gag.story.
+
+## 0. CONTENT FIRST — the most important rule (owner, 7 Nov 2026: "quan trọng nhất là phần nội dung")
+The look serves the content; a beautiful film with a thin script fails. Before any drawing, the script must pass these:
+1. ONE sharp question in the title and the first 3 s, and the video really answers it (no bait).
+2. Every 45–60 s a NEW surprising, sourced fact or turn (a number, a real case, a counter-intuitive cause), never filler or repetition.
+3. Concrete over abstract: a real place, year, price or person-type for every idea (e.g. "Zimbabwe 2008: a 100-trillion note"),
+   2 sources for heavy claims, no invented numbers.
+4. A clear arc: hook → why it matters → 3–5 steps that build (each step raises the stakes) → the twist answer → recap → closing thought.
+5. Explain like a smart friend: short sentences, one idea per beat, every term explained in plain words the first time.
+6. The humour comes FROM the content (the absurd consequence, the real oddity), drawn as a gag on that line.
+7. Read the script aloud once as a viewer: cut every line that does not add a fact, a step or a laugh.
 
 ## 000000. Transitions and type like a premium brand film (owner, 5 Nov 2026 night: "ElevenLabs videos — very premium transitions")
 - **42 GL shader transitions** (gl-transitions.com, MIT) built in: `trans=gl<Name>` (`glCrossWarp`, `glInkBleed`, `glBokehDissolve`,

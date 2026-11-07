@@ -52,12 +52,16 @@
     crossed:{ lean: -.03, tilt: -.05, aL: .35, fL: -1.75, aR: .35, fR: -1.65, sq: 0 },
     wave:   { lean: 0, tilt: -.08, aL: .12, fL: .05, aR: 2.2, fR: 2.9, sq: 0 },
     hold:   { lean: 0, tilt: .04, aL: .35, fL: -1.2, aR: .35, fR: -1.2, sq: 0 },
+    take:   { lean: -.16, tilt: -.14, aL: 2.2, fL: 2.3, aR: 2.2, fR: 2.3, sq: .12 },
+    slump:  { lean: .1, tilt: .3, aL: .05, fL: .02, aR: .05, fR: .02, sq: -.1 },
   };
   const FACE = {
     happy: { mouth: 'smile', lid: .12, brow: .04, look: [0, 0] }, grin: { mouth: 'open', lid: .1, brow: .12, look: [0, 0] }, laugh: { mouth: 'open', closed: 1, brow: .14, look: [0, 0] },
     shock: { mouth: 'o', lid: 0, brow: .38, look: [0, -.1], small: 1 }, think: { mouth: 'side', lid: .22, browL: .32, browR: -.04, look: [.45, -.5] },
     bored: { mouth: 'flat', lid: .5, brow: -.06, look: [-.3, .1] }, smirk: { mouth: 'smirk', lid: .3, brow: .02, browL: .2, look: [.3, 0] }, wink: { mouth: 'open', lid: .1, wink: 1, brow: .1, look: [.2, 0] },
     worried: { mouth: 'wobble', lid: .15, brow: .22, inner: 1, look: [0, .2] },
+    take: { mouth: 'drop', lid: 0, brow: .6, look: [0, 0], small: 1, big: 1.55 }, deadpan: { mouth: 'flat', lid: .48, brow: -.02, look: [0, 0] },
+    cry: { mouth: 'wobble', closed: 1, brow: .2, inner: 1, look: [0, 0], tears: 1 },
   };
   const mix = (a, b, k) => { const o = {}; for (const key in a) o[key] = typeof a[key] === 'number' ? lerp(a[key], b[key] ?? a[key], k) : (k < .5 ? a[key] : b[key]); return o; };
   const backEase = t => { const c = 1.4; t = clamp(t); return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
@@ -114,7 +118,7 @@
     // freckles, cheeks
     if (C.freckles) [-1, 1].forEach(sd => { for (let k = 0; k < 3; k++) circ(x + sd * r * (.45 + k * .08) + turn * r * .2, y + r * (.22 + (k % 2) * .06), r * .025, shade(sk, -.25), 0); });
     // eyes
-    const ex = r * .38, ey = y - r * .02, rx = r * .23, ry = r * .3, blink = ((lt + seed) % 3.7) < .12, look = Fc.look || [0, 0];
+    const big = Fc.big || 1, ex = r * .38 * (big > 1 ? 1.08 : 1), ey = y - r * .02 - (big - 1) * r * .12, rx = r * .23 * big, ry = r * .3 * big, blink = ((lt + seed) % 3.7) < .12, look = Fc.look || [0, 0];
     [-1, 1].forEach(sd => { const cx = x + sd * ex + turn * r * .3, closed = Fc.closed || blink || (Fc.wink && sd > 0);
       if (closed) { ctx.save(); ctx.strokeStyle = INK; ctx.lineWidth = r * .07; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(cx, ey + r * .06, rx * .85, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke(); ctx.restore(); return; }
       ctx.save(); ctx.beginPath(); ctx.ellipse(cx, ey, rx, ry, 0, 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.clip();
@@ -128,6 +132,8 @@
     ovalF(x + turn * r * .45, y + r * .2, r * .11, r * .09, skD, { plane: 0 });
     // mouth
     const mx = x + turn * r * .35, my = y + r * .5, m = Fc.mouth || 'smile'; ctx.save(); ctx.lineCap = 'round'; ctx.strokeStyle = MOUTH; ctx.lineWidth = r * .07;
+    if (Fc.tears) [-1, 1].forEach(sd => { const tx = x + sd * ex, k = (lt * 3) % 1; ctx.save(); ctx.globalAlpha = .9; tube(tx, ey + r * .1, tx + sd * r * .5, ey + r * .55, r * .14, '#7FD3FF'); for (let j = 0; j < 3; j++) { const q = (k + j / 3) % 1; ovalF(tx + sd * r * (.5 + q * .8), ey + r * (.55 + q * q * 1.4), r * .09, r * .11, '#7FD3FF', { plane: 0 }); } ctx.restore(); });
+    if (m === 'drop') { const jw = r * .3, jh = r * .95; ctx.beginPath(); ctx.ellipse(mx, my + jh * .4, jw, jh * .55, 0, 0, TAU); ctx.fillStyle = MOUTH; ctx.fill(); ctx.save(); ctx.clip(); ell(mx, my + jh * .85, jw * .8, jh * .3, TONGUE, 0); rr(mx - jw * .75, my - jh * .18, jw * 1.5, r * .1, r * .03, '#FFFFFF', 0); ctx.restore(); } else
     if (m === 'open' || m === 'o') { const w = m === 'o' ? r * .13 : r * .26, hgt = m === 'o' ? r * .22 : r * .26; ctx.beginPath(); if (m === 'o') ctx.ellipse(mx, my + r * .02, w, hgt * .7, 0, 0, TAU); else { ctx.moveTo(mx - w, my - r * .04); ctx.quadraticCurveTo(mx, my - r * .08, mx + w, my - r * .04); ctx.quadraticCurveTo(mx + w * .8, my + hgt, mx, my + hgt); ctx.quadraticCurveTo(mx - w * .8, my + hgt, mx - w, my - r * .04); }
       ctx.fillStyle = MOUTH; ctx.fill(); ctx.save(); ctx.clip(); ell(mx, my + hgt * .85, w * .7, hgt * .4, TONGUE, 0); if (m === 'open') rr(mx - w * .7, my - r * .08, w * 1.4, r * .07, r * .02, '#FFFFFF', 0); ctx.restore(); }
     else if (m === 'smile') { ctx.beginPath(); ctx.arc(mx, my - r * .14, r * .22, .22 * Math.PI, .78 * Math.PI); ctx.stroke(); }
@@ -192,6 +198,30 @@
   function bunting(y, cols) { ctx.save(); ctx.strokeStyle = '#2B3A55'; ctx.lineWidth = 2 * U(); ctx.beginPath(); ctx.moveTo(0, y); ctx.quadraticCurveTo(W / 2, y + H * .04, W, y); ctx.stroke(); ctx.restore(); for (let k = 0; k < 9; k++) { const t = (k + .5) / 9, x = W * t, yy = y + Math.sin(t * Math.PI) * H * .02 * 2; polyF([[x - W * .035, yy], [x + W * .035, yy], [x, yy + H * .035]], cols[k % cols.length], { plane: 0 }); } }
 
   // ---------------------------------------------------------------- demo scenes (full environments)
+
+  // ---------------------------------------------------------------- the COMIC layer (owner, 7 Nov 2026: "entertaining, funny and a bit weird, on top of IF CREW")
+  // takes (eyes pop, jaw drops) with impact lines and sweat, money that grows legs and runs, a note that melts like ice cream,
+  // a cow in a tie, a deadpan stare at the viewer, a weird jelly Iffy with three eyes. Rule: the gag illustrates the LINE, ≤ 1 per 20–30 s.
+  function zing(x, y, r, lt, col = INK) { ctx.save(); ctx.strokeStyle = col; ctx.lineCap = 'round'; ctx.lineWidth = r * .045; const p = .5 + .5 * Math.sin(lt * 14);
+    for (let k = 0; k < 10; k++) { const a = k * TAU / 10 + .15, r1 = r * (1 + p * .08), r2 = r * (1.28 + (k % 2) * .14 + p * .1); ctx.beginPath(); ctx.moveTo(x + Math.cos(a) * r1, y + Math.sin(a) * r1); ctx.lineTo(x + Math.cos(a) * r2, y + Math.sin(a) * r2); ctx.stroke(); } ctx.restore(); }
+  function sweat(x, y, s, lt) { const d = ((lt * .9) % 1) * s * .6; ctx.save(); ctx.translate(x, y + d); F(() => { ctx.moveTo(0, -s * .5); ctx.quadraticCurveTo(s * .38, 0, 0, s * .3); ctx.quadraticCurveTo(-s * .38, 0, 0, -s * .5); }, '#7FD3FF', [-s * .4, -s * .5, s * .8, s * .8], { plane: 0 }); ctx.restore(); }
+  function marks(x, y, s, lt, txt = '!!') { ctx.save(); ctx.translate(x, y); ctx.rotate(-.12 + Math.sin(lt * 10) * .05); ctx.font = `400 ${s}px "Paytone One"`; ctx.textAlign = 'center'; ctx.lineJoin = 'round'; ctx.lineWidth = s * .16; ctx.strokeStyle = '#FFFFFF'; ctx.strokeText(txt, 0, 0); ctx.fillStyle = '#FF4D6D'; ctx.fillText(txt, 0, 0); ctx.restore(); }
+  function speed(x, y, w, h, lt) { ctx.save(); ctx.strokeStyle = 'rgba(38,35,58,.5)'; ctx.lineCap = 'round'; ctx.lineWidth = h * .06; for (let k = 0; k < 4; k++) { const yy = y + (k - 1.5) * h * .28, o = ((lt * 3 + k * .3) % 1) * w * .2; ctx.beginPath(); ctx.moveTo(x + o, yy); ctx.lineTo(x + w * (.5 + (k % 2) * .25) + o, yy); ctx.stroke(); } ctx.restore(); }
+  // a coin that grew legs and runs (dir -1 = to the left); face panics
+  function legcoin(x, y, r, lt, dir = 1) { const ph = lt * 13; ctx.save(); ctx.translate(x, y); ctx.scale(dir, 1); speed(-r * 2.6, -r * .1, r * 2.2, r, lt);
+    [-1, 1].forEach(sd => { const a = Math.sin(ph + (sd > 0 ? Math.PI : 0)) * .8; const kx = Math.sin(a) * r * .55, ky = r * .55 + Math.cos(a) * r * .5; tube(sd * r * .25, r * .7, sd * r * .25 + kx, r * .7 + ky, r * .14, INK); rectF(sd * r * .25 + kx - r * .05, r * .7 + ky - r * .06, r * .32, r * .14, r * .07, '#FF4D6D', { plane: 0 }); });
+    ctx.rotate(Math.sin(ph) * .06 + .12); ovalF(r * .08, r * .1, r, r, '#D9961F', { plane: 0 }); ovalF(0, 0, r, r, '#FFC93C', { plane: .62 }); ovalF(0, 0, r * .72, r * .72, '#FFD966', { plane: .62, hi: 0 });
+    [-1, 1].forEach(sd => { ell(sd * r * .28 + r * .12, -r * .12, r * .2, r * .26, '#FFFFFF', 0); circ(sd * r * .28 + r * .2, -r * .1, r * .09, INK, 0); });
+    ctx.fillStyle = MOUTH; ctx.beginPath(); ctx.ellipse(r * .14, r * .34, r * .14, r * .17, 0, 0, TAU); ctx.fill(); [-1, 1].forEach(sd => tube(sd * r * .85, 0, sd * r * 1.35, -r * (.4 + Math.sin(ph * 1.3 + sd) * .25), r * .12, INK)); ctx.restore(); }
+  // a banknote on a stick that melts like ice cream; k 0..1 = how far gone
+  function meltnote(x, y, w, lt, k = .5) { const h = w * .5, d = h * (.15 + k * .9); rectF(x - w * .045, y + h * .1, w * .09, h * 1.6, w * .04, '#E3C58F');
+    F(() => { ctx.moveTo(x - w / 2, y - h / 2); ctx.lineTo(x + w / 2, y - h / 2); ctx.lineTo(x + w / 2, y + h * .2); for (let j = 6; j >= 0; j--) { const xx = x - w / 2 + j * w / 6, dd = d * (.35 + .65 * Math.abs(Math.sin(j * 1.7 + 1))) * (1 + .05 * Math.sin(lt * 2 + j)); ctx.quadraticCurveTo(xx + w / 12, y + h * .2 + dd, xx, y + h * .2); } ctx.closePath(); }, '#7BD389', [x - w / 2, y - h / 2, w, h + d]);
+    rectF(x - w * .42, y - h * .4, w * .84, h * .55, h * .08, '#9BE0A8', { plane: 0 }); ovalF(x, y - h * .12, h * .24, h * .24, '#B8EFC4', { plane: 0 }); ctx.save(); ctx.fillStyle = '#2F8A4A'; ctx.font = `400 ${h * .34}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('$', x, y - h * .1); ctx.font = `400 ${h * .16}px "Paytone One"`; ctx.fillText('100', x - w * .32, y - h * .3); ctx.fillText('100', x + w * .32, y - h * .3); ctx.restore(); const q = (lt * .7) % 1; ovalF(x + w * .2, y + h * .2 + d + q * h * 1.4, h * .06, h * .08 * (1 + q), '#7BD389', { plane: 0 }); ctx.save(); ctx.globalAlpha = .22; ell(x, y + h * 1.5, w * .4 * (.4 + k), h * .08, '#3FA35A', 0); ctx.restore(); }
+  // a cow in a tie (for when the cow becomes "money" or joins the bank queue)
+  function cowtie(x, y, s, lt) { cow(x, y, s, lt); const b = Math.sin(lt * 1.5) * s * .008, tx = x + s * .36, ty = y - s * .5 + b; polyF([[tx - s * .04, ty], [tx + s * .04, ty], [tx + s * .025, ty + s * .03], [tx + s * .05, ty + s * .19], [tx, ty + s * .24], [tx - s * .05, ty + s * .19], [tx - s * .025, ty + s * .03]], '#E63950', { plane: .6 }); rr(tx - s * .045, ty - s * .015, s * .09, s * .04, s * .015, '#B5243A', 0); }
+  // the weird Iffy: jelly wobble, a third eye that blinks on its own
+  function weirdIffy(x, y, s, lt, o = {}) { const w = Math.sin(lt * 5) * .07; ctx.save(); ctx.translate(x, y); ctx.scale(1 + w, 1 - w); iffy(0, 0, s, lt, o); const bl = ((lt + 1.3) % 2.6) < .15; if (!bl) { ell(0, -s * .58, s * .1, s * .08, '#FFFFFF', 0); circ(Math.sin(lt * 1.7) * s * .04, -s * .58, s * .045, INK, 0); } else line(-s * .08, -s * .58, s * .08, -s * .58, s * .025, INK); ctx.restore(); }
+  const GAG = { zing, sweat, marks, speed, legcoin, meltnote, cowtie, weirdIffy };
   const SC = {
     lineup(lt) { burst('#FF7A45', '#FFC48A'); [[.82, .3, 22], [.9, .38, 14], [.12, .26, 16]].forEach(([x, y, s], k) => sparkle(W * x, H * y, s * U(), lt, k)); title(['MEET THE', 'IF CREW'], 1, 'THE IF MACHINE', 1);
       draw('prof', W * .22, H * .6, H * .3, lt, { keys: [[0, 'shrug', 'laugh']] }); draw('beard', W * .52, H * .58, H * .32, lt, { keys: [[0, 'crossed', 'smirk']] }); draw('hijab', W * .8, H * .6, H * .29, lt, { keys: [[0, 'point', 'wink']], flip: 1 });
@@ -211,13 +241,30 @@
       sticker(() => clock(W * .3, H * .38, W * .08, lt), 5); lamp(W * .38, H * .71, H * .2); road(H * .7, '#4A4E69'); tree(-W * .02, H * .71, H * .17, '#3FB984');
       draw('cap', W * .1, H * .82, H * .23, lt, { keys: [[0, 'think', 'bored']] }); draw('prof', W * .25, H * .825, H * .25, lt, { keys: [[0, 'idle', 'worried']] }); draw('braids', W * .4, H * .825, H * .22, lt, { keys: [[0, 'crossed', 'bored']] }); draw('beard', W * .56, H * .83, H * .28, lt, { keys: [[0, 'watch', 'think']] });
       bush(W * .95, H * 1.0, W * .28, '#2E9E6E'); title(['FREE COSTS', 'TIME'], 1, 'ANSWER 1 · THE QUEUE'); },
+
+    w_hook(lt) { sky('#FF9A6B', '#FFE0B8', 'h'); cloud(W * .2, H * .27, W * .16); [['#E9A88C', .0, .28], ['#D99A86', .22, .36], ['#E9A88C', .5, .3], ['#D99A86', .74, .38]].forEach(([c, x, h]) => facade(W * x, H * .62, W * .26, H * h, c, { rows: 3 })); haze('#FFD9B8', .35); road(H * .68);
+      const run = (lt * .22) % 1; sticker(() => legcoin(W * (.66 + run * .5), H * .7, W * .075, lt, 1)); sticker(() => legcoin(W * (.78 + run * .45), H * .88, W * .065, lt + .4, 1)); sticker(() => legcoin(W * (.3 - run * .5), H * .9, W * .07, lt + .2, -1));
+      zing(W * .46, H * .55, H * .14, lt); draw('prof', W * .46, H * .82, H * .38, lt, { keys: [[0, 'take', 'take']] }); sweat(W * .6, H * .5, W * .04, lt); marks(W * .2, H * .44, H * .07, lt);
+      title(['YOUR MONEY', 'JUST LEFT'], 1, 'THE IF MACHINE'); },
+    w_bank(lt) { sky('#B9A6FF', '#F2EDFF', 'q'); facade(-W * .06, H * .7, W * 1.12, H * .48, '#E6E0FF', { rows: 2 }); sticker(() => { rectF(W * .2, H * .33, W * .6, H * .06, H * .02, '#2B3A55'); ctx.save(); ctx.fillStyle = '#FFC93C'; ctx.font = `400 ${H * .038}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('BANK OF COWS', W * .5, H * .362); ctx.restore(); }, 5); road(H * .7, '#4A4E69');
+      draw('cap', W * .14, H * .83, H * .24, lt, { keys: [[0, 'watch', 'bored']] }); sticker(() => cowtie(W * .47, H * .83, W * .4, lt)); draw('hijab', W * .82, H * .83, H * .25, lt, { keys: [[0, 'crossed', 'deadpan']], flip: 1 });
+      sticker(() => { bubble(W * .64, H * .5, W * .36, H * .08, W * .55, H * .6); ctx.save(); ctx.fillStyle = INK; ctx.font = `400 ${H * .03}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('1 COW, PLEASE', W * .64, H * .502); ctx.restore(); });
+      title(['A COW', 'AS CASH'], 1, 'BARTER, BUT FORMAL'); },
+    w_melt(lt) { burst('#FF9F43', '#FFE29A', .5, .32); ctx.save(); ctx.globalAlpha = .9; circ(W * .78, H * .2, W * .1, '#FFF4C2', 0); ctx.restore(); floor('#F3E3C3');
+      sticker(() => meltnote(W * .32, H * .44, W * .44, lt, .35 + .3 * Math.sin(lt * .6) ** 2)); draw('braids', W * .7, H * .82, H * .34, lt, { keys: [[0, 'shock', 'cry']], flip: 1 });
+      title(['SAVINGS', 'THAT MELT'], 1, 'INFLATION, VISUALISED'); },
+    w_stare(lt) { sky('#7FD1F5', '#E9F7FF', 'b'); hills('#9ED99A', '#7BC97A', H * .55); floor('#F3E3C3');
+      draw('beard', W * .38, H * .84, H * .44, lt, { keys: [[0, 'hold', 'deadpan']], item: (x, y, h) => sack(x, y + h * .14, h * .26) }); sticker(() => weirdIffy(W * .78, H * .52, W * .2, lt));
+      sticker(() => { bubble(W * .72, H * .3, W * .36, H * .08, W * .8, H * .4); ctx.save(); ctx.fillStyle = INK; ctx.font = `400 ${H * .034}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('…seriously?', W * .72, H * .302); ctx.restore(); });
+      title(['ONE SACK', 'OF RICE'], 1, 'FOR ONE HAIRCUT'); },
     motion(lt) { sky('#FF9A6B', '#FFE0B8', 'm'); facade(-W * .05, H * .66, W * .5, H * .32, '#E9A88C', { rows: 3 }); facade(W * .55, H * .66, W * .5, H * .36, '#D99A86', { rows: 3 }); haze('#FFE0B8', .4); road(H * .68);
       draw('bun', W * .5, H * .82, H * .42, lt, { keys: [[0, 'idle', 'happy'], [.8, 'think', 'think'], [2.0, 'point', 'grin'], [3.0, 'cheer', 'laugh']] }); title(['REAL', 'ACTING'], 1, 'IDLE → THINK → IDEA → CHEER'); },
   };
   // ---------------------------------------------------------------- the house act for stories (owner, 7 Nov 2026: "lock this version for the engine")
   // # vis kind=w act=crew set=street|market|shops|stage kick="…" title="LINE|*GOLD*"
   //       actors="prof:idle>shock@1:shock|bun:think@0:think>cheer@2:laugh"   (name:pose[@caption][:expr] steps joined by >)
-  //       props="coin|note|cow|sack|iffy"   (money flies for coin/note; a cow, a rice sack or Iffy join the cast)
+  //       props="coin|note|cow|tie|sack|iffy|weird|runcoin|melt"   (money flies for coin/note; a cow (in a tie with tie), a rice sack or Iffy (weird = jelly, 3 eyes) join;
+  //       runcoin = coins grow legs and run off; melt = a banknote melting like ice cream). Gags: pose/face take (eyes pop, jaw drops + impact lines), cry, deadpan, slump.
   const SETS = {
     street(lt) { sky('#FF9A6B', '#FFE0B8', 'h'); cloud(W * .2, H * .27, W * .16); cloud(W * .78, H * .2, W * .12); [['#E9A88C', .0, .28], ['#D99A86', .22, .36], ['#E9A88C', .5, .3], ['#D99A86', .74, .38]].forEach(([c, x, h]) => facade(W * x, H * .62, W * .26, H * h, c, { rows: 3 })); haze('#FFD9B8', .35);
       facade(-W * .04, H * .68, W * .36, H * .3, '#5BC0EB', { shop: 1, awning: '#FF7A45' }); facade(W * .66, H * .68, W * .38, H * .32, '#8E6CEF', { shop: 1, awning: '#FFC93C' }); lamp(W * .36, H * .69, H * .2); tree(W * .58, H * .69, H * .16); road(H * .68); },
@@ -229,11 +276,15 @@
   A.crew = (o, c, dur) => { const actors = parseActors(o.actors, c), props = String(o.props || '').split('|'), set = SETS[o.set] || SETS.street; return { sfx: [], draw: lt => { set(lt);
     if (props.includes('coin') || props.includes('note')) [[.2, .42, -.3, 0], [.78, .4, .4, 1], [.32, .32, .2, 1], [.7, .3, -.2, 0], [.88, .52, .1, 0], [.12, .55, -.1, 1]].forEach(([x, y, r, k], j) => { const yy = H * y - ((lt * .1 + j * .17) % 1) * H * .05; sticker(() => k ? coin(W * x, yy, W * .042, lt, r) : note(W * x, yy, W * .17, r + Math.sin(lt + j) * .2), 5); });
     const n = actors.length + (props.includes('cow') ? 1 : 0) + (props.includes('sack') ? 1 : 0); let slot = 0; const xs = n <= 1 ? [.5] : n === 2 ? [.3, .7] : Array.from({ length: n }, (_, i) => .18 + i * .64 / (n - 1)), hh = H * (n <= 1 ? .34 : n <= 2 ? .29 : .25);
-    if (props.includes('cow')) sticker(() => cow(W * xs[slot++] + W * .05, H * .79, W * .4, lt));
-    actors.forEach((a, i) => draw(a.name, W * xs[slot++], H * .8, hh, lt, { keys: a.keys, flip: xs[slot - 1] > .6 }));
+    if (props.includes('cow')) sticker(() => (props.includes('tie') ? cowtie : cow)(W * xs[slot++] + W * .05, H * .79, W * .4, lt));
+    if (props.includes('runcoin')) { const run = (lt * .22) % 1; sticker(() => legcoin(W * (.66 + run * .5), H * .7, W * .07, lt, 1)); sticker(() => legcoin(W * (.3 - run * .5), H * .9, W * .065, lt + .2, -1)); }
+    if (props.includes('melt')) sticker(() => meltnote(W * .3, H * .42, W * .36, lt, .3 + .3 * Math.sin(lt * .6) ** 2));
+    actors.forEach((a, i) => { const ax = W * xs[slot++], cur = a.keys.filter(k => k[0] <= lt).pop() || a.keys[0];
+      if (cur[1] === 'take' || cur[2] === 'take') { zing(ax, H * .8 - hh * .7, hh * .38, lt); sweat(ax + hh * .3, H * .8 - hh * .95, hh * .1, lt); marks(ax - hh * .35, H * .8 - hh * 1.05, hh * .17, lt); }
+      draw(a.name, ax, H * .8, hh, lt, { keys: a.keys, flip: xs[slot - 1] > .6 }); });
     if (props.includes('sack')) sticker(() => sack(W * xs[slot++], H * .79, W * .16));
-    if (props.includes('iffy')) sticker(() => iffy(W * .84, H * .4, W * .12, lt, { expr: o.iffy || 'happy' }));
+    if (props.includes('iffy') || props.includes('weird')) sticker(() => (props.includes('weird') ? weirdIffy : iffy)(W * .84, H * .4, W * .12, lt, { expr: o.iffy || 'happy' }));
     if (o.set !== 'stage') bush(-W * .02, H * 1.0, W * .28); const T = String(o.title || '').split('|').filter(Boolean); if (T.length) title(T.map(t => t.replace(/\*/g, '')), T.findIndex(t => t.includes('*')), o.kick, o.set === 'stage'); } }; };
   A.x_cast = (o, c, dur) => ({ sfx: [], draw: lt => (SC[o.v] || SC.lineup)(lt) });
-  IFM.CAST = { draw, iffy, CAST, POSE, FACE, props: { coin, note, cow, sack, shoe, bubble, building, shop, clock }, F, ovalF, rectF, polyF, tube };
+  IFM.CAST = { draw, iffy, GAG, CAST, POSE, FACE, props: { coin, note, cow, sack, shoe, bubble, building, shop, clock }, F, ovalF, rectF, polyF, tube };
 })();

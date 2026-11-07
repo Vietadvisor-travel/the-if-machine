@@ -405,3 +405,9 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 - cast.js: 6 original characters + Iffy, signature shading (crescent shadow with halftone dots, light rim), cut-out sticker border,
   pose/face library with eased acting and follow-through, props and layered environments (street, market, shop row) in the same
   language; house act `act=crew` (set=, actors= with timed pose/face steps, props=). Tested in stories/test-cast.story.
+
+## 7 Nov 2026 — IF CREW comic layer + content-first rules (FINAL STANDARD)
+- cast.js: poses `take`, `slump`; faces `take` (eyes pop, jaw drop), `cry`, `deadpan`; gag kit `IFM.CAST.GAG` (zing impact lines,
+  sweat, marks, speed lines, legcoin, meltnote, cowtie, weirdIffy); `act=crew` props `runcoin|melt|tie|weird`, take → impact lines.
+- EPISODE.md: comic layer rules (gag = visual metaphor of its line, ~1 per 20–30 s, 2–3 new gags per episode) and §0 CONTENT FIRST.
+- Tested: stories/test-gag.story (4 demo scenes + one act=crew beat).
