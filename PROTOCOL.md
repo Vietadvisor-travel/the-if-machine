@@ -116,6 +116,8 @@ produced until the owner says so. Muse may build the topic bank and research pac
   2. Claude writes the delivery note, sets STATUS → DELIVERED and reports the Drive link to the owner.
   3. If the research pack is missing, Claude researches it itself (the same template, 2 sources for heavy claims) and goes on.
      It does not stop to ask.
+- **If the owner says "làm tập …" to Muse instead** (owner, 7 Nov 2026), Muse makes it end to end on its own machine per
+  `jobs/tasks/MUSE_PRODUCTION.md` (same rules, same gates; first episode is a trial Claude reviews).
 - **The owner watches the video on Drive.** He tells Claude what to change (same chat), or tells Muse "đăng tập …".
 - **Muse posts only on the owner's "đăng tập …"** (that message is the approval, STATUS → APPROVED → PUBLISHED). Nothing is posted otherwise.
 - The scheduled routine "IFM auto-production" exists but is **off** (owner chose manual starts). It can be switched on again on his word.
