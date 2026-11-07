@@ -411,3 +411,7 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
   sweat, marks, speed lines, legcoin, meltnote, cowtie, weirdIffy); `act=crew` props `runcoin|melt|tie|weird`, take → impact lines.
 - EPISODE.md: comic layer rules (gag = visual metaphor of its line, ~1 per 20–30 s, 2–3 new gags per episode) and §0 CONTENT FIRST.
 - Tested: stories/test-gag.story (4 demo scenes + one act=crew beat).
+
+## 7 Nov 2026 — IF CREW v3 construction
+- cast.js: new draw()/head3() (big head, 3/4 view, big close eyes, bold nose, wide mouth, hair volumes, flat hard shadow, tapered
+  limbs, mitten hands); old body kept as drawV2 (`o.v2`). Tested: test-cast.story, test-gag.story.

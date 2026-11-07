@@ -70,7 +70,7 @@
   function faceAt(keys, t) { let i = 0; while (i < keys.length - 1 && t >= keys[i + 1][0]) i++; const f = FACE[keys[i][2] || 'happy'] || FACE.happy, p = i > 0 ? FACE[keys[i - 1][2] || 'happy'] || FACE.happy : f, k = i > 0 ? clamp((t - keys[i][0]) / .25) : 1; return k >= 1 ? f : { ...f, brow: lerp(p.brow ?? 0, f.brow ?? 0, k) }; }
 
   // ---------------------------------------------------------------- one character
-  function draw(name, x, y, h, lt, o = {}) { if (o.sticker !== 0 && !draw._in) { draw._in = 1; try { sticker(() => draw(name, x, y, h, lt, o)); } finally { draw._in = 0; } return; } const C = CAST[name] || CAST.bun, keys = o.keys || [[0, o.pose || 'idle', o.expr || 'happy']], b = C.build || 1;
+  function drawV2(name, x, y, h, lt, o = {}) { if (o.sticker !== 0 && !drawV2._in) { drawV2._in = 1; try { sticker(() => drawV2(name, x, y, h, lt, o)); } finally { drawV2._in = 0; } return; } const C = CAST[name] || CAST.bun, keys = o.keys || [[0, o.pose || 'idle', o.expr || 'happy']], b = C.build || 1;
     const P = poseAt(keys, lt), Ph = poseAt(keys, lt, .09), Fc = faceAt(keys, lt), seed = name.length * 1.7;
     const breath = Math.sin(lt * 2.1 + seed) * .012, wave = keys.some(k => k[1] === 'wave') && P.aR > 2 ? Math.sin(lt * 9) * .35 : 0;
     const rh = h * .235, tW = h * .34 * b, tH = h * .27, legL = h * .21; ctx.save(); ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
@@ -145,6 +145,104 @@
     if (C.facial === 'mustache') F(() => { ctx.moveTo(mx - r * .38, my - r * .02); ctx.quadraticCurveTo(mx - r * .2, my - r * .26, mx, my - r * .14); ctx.quadraticCurveTo(mx + r * .2, my - r * .26, mx + r * .38, my - r * .02); ctx.quadraticCurveTo(mx + r * .2, my - r * .06, mx, my - r * .04); ctx.quadraticCurveTo(mx - r * .2, my - r * .06, mx - r * .38, my - r * .02); }, C.hairCol, [mx - r * .4, my - r * .3, r * .8, r * .3]);
     if (C.glasses) { ctx.save(); ctx.strokeStyle = INK; ctx.lineWidth = r * .06; [-1, 1].forEach(sd => { ctx.beginPath(); ctx.arc(x + sd * ex + turn * r * .3, ey, r * .27, 0, TAU); ctx.stroke(); }); ctx.beginPath(); ctx.moveTo(x - ex + r * .27 + turn * r * .3, ey); ctx.lineTo(x + ex - r * .27 + turn * r * .3, ey); ctx.stroke(); ctx.restore(); } }
 
+
+  // ================================================================ IF CREW v3 — clean construction (owner, 7 Nov 2026: "careful, exact lines,
+  // our own fixed style"). Rules: big head (≈ 43 % of the height), 3/4 view (features cluster toward the facing side, the far eye narrower,
+  // the far ear shows), big eyes nearly touching with big pupils, flat lids, thick rounded brows, a bold nose, a wide asymmetric mouth;
+  // flat colour + ONE hard shadow plane (no dots on people), tapered limbs, mitten hands, smooth curves only, a white sticker cut.
+  const CHAR = '#34313F', CHEEK = 'rgba(255,120,120,.28)';
+  function flat(path, col, box, sh = .1) { ctx.save(); ctx.beginPath(); path(); ctx.fillStyle = col; ctx.fill(); if (box && sh) { ctx.clip(); const [bx, by, bw, bh] = box, m = Math.min(bw, bh); ctx.fillStyle = shade(col, -sh); ctx.fillRect(bx - bw, by - bh, bw * 3, bh * 3); ctx.translate(-m * .16, -m * .1); ctx.beginPath(); path(); ctx.fillStyle = col; ctx.fill(); } ctx.restore(); }
+  const fo = (x, y, rx, ry, col, sh, rot = 0) => flat(() => ctx.ellipse(x, y, rx, ry, rot, 0, TAU), col, [x - rx, y - ry, rx * 2, ry * 2], sh);
+  // a tapered limb: a capsule from (x1,y1) width w1 to (x2,y2) width w2, with a darker underside
+  function limb(x1, y1, x2, y2, w1, w2, col) { const a = Math.atan2(y2 - y1, x2 - x1), n = a + Math.PI / 2, p = (w, sx, sy, s) => [sx + Math.cos(n) * w / 2 * s, sy + Math.sin(n) * w / 2 * s];
+    const path = () => { ctx.arc(x1, y1, w1 / 2, n, n + Math.PI); const q = p(w2, x2, y2, -1); ctx.lineTo(q[0], q[1]); ctx.arc(x2, y2, w2 / 2, n + Math.PI, n + TAU); ctx.closePath(); };
+    flat(path, col, [Math.min(x1, x2) - w1, Math.min(y1, y2) - w1, Math.abs(x2 - x1) + w1 * 2, Math.abs(y2 - y1) + w1 * 2], .1); }
+  function mitten(x, y, s, col, sd, ang) { ctx.save(); ctx.translate(x, y); ctx.rotate(ang); fo(0, 0, s, s * 1.1, col, .08); fo(sd * s * .75, -s * .25, s * .38, s * .5, col, .08, sd * .5); ctx.restore(); }
+
+  function head3(C, r, Fc, lt, t, seed) { const sk = C.skin, skD = shade(sk, -.1), dark = C.hairCol, hw = C.head === 'square' ? r * 1.0 : r * .94, hh = C.head === 'long' ? r * 1.1 : r * 1.0, fx = t * r * .3;
+    const headPath = () => { if (C.head === 'square') ctx.roundRect(-hw, -hh, hw * 2, hh * 2, r * .7); else ctx.ellipse(0, 0, hw, hh, 0, 0, TAU); };
+    const box = [-hw, -hh, hw * 2, hh * 2], back = t >= 0 ? -1 : 1;
+    const hairTop = (col, a, b, mid = -.35, ext = 1.07) => { ctx.save(); ctx.beginPath(); ctx.moveTo(-r * 2, -r * 3); ctx.lineTo(r * 2, -r * 3); ctx.lineTo(r * 2, r * b); ctx.bezierCurveTo(r * .9, r * mid, -r * .5 + fx, r * (mid - .1), -r * 2, r * a); ctx.closePath(); ctx.clip(); flat(() => ctx.ellipse(-t * r * .05, -r * .06, hw * ext, hh * ext, 0, 0, TAU), col, box, .12); ctx.restore(); };
+    const hairMass = (col, line, cx = -t * r * .06, cy = -r * .18, sx = 1.12, sy = .95) => { ctx.save(); ctx.beginPath(); ctx.moveTo(-r * 3, -r * 3); ctx.lineTo(r * 3, -r * 3); line(); ctx.closePath(); ctx.clip(); flat(() => ctx.ellipse(cx, cy, hw * sx, hh * sy, 0, 0, TAU), col, [cx - hw * sx, cy - hh * sy, hw * sx * 2, hh * sy * 2], .12); ctx.restore(); };
+    const B = back; // the hairline runs from the back (covers to the ear) to a swoop over the front of the brow
+    const swoop = (front = -.32, rear = .35) => { ctx.lineTo(r * 3 * -B * -1, r * rear); ctx.lineTo(B * r * 1.05, r * rear); ctx.bezierCurveTo(B * r * .7, r * .05, B * r * .1, -r * .2, fx + -B * r * .05, r * (front - .18)); ctx.bezierCurveTo(fx - B * r * .45, r * (front + .02), fx - B * r * .8, r * front, -B * r * 1.3, r * (front + .25)); ctx.lineTo(-B * r * 3, r * (front + .25)); };
+    const part = (top = -.62, side = .25) => { ctx.lineTo(r * 3, r * side); ctx.lineTo(r * 1.05, r * side); ctx.bezierCurveTo(r * .9, -r * .2, fx + r * .4, r * top, fx + r * .02, r * top); ctx.bezierCurveTo(fx - r * .4, r * top, -r * .9, -r * .2, -r * 1.05, r * side); ctx.lineTo(-r * 3, r * side); };
+    // behind the head
+    if (C.hair === 'hijab') { flat(() => { ctx.moveTo(-r * 1.18, r * .2); ctx.quadraticCurveTo(-r * 1.3, r * 1.55, -r * .2, r * 1.85); ctx.quadraticCurveTo(r * .9, r * 1.95, r * 1.25, r * 1.2); ctx.lineTo(r * 1.18, r * .2); ctx.closePath(); }, shade(dark, -.06), [-r * 1.3, 0, r * 2.6, r * 1.9], .1); flat(() => ctx.ellipse(-t * r * .08, r * .05, r * 1.2, r * 1.24, 0, 0, TAU), dark, [-r * 1.2, -r * 1.2, r * 2.4, r * 2.5], .12); }
+    if (C.hair === 'braids') [-1, 1].forEach(sd => { for (let k = 0; k < 4; k++) fo(sd * r * (1.0 + k * .02) - t * r * .1, r * (.35 + k * .34), r * .21, r * .19, dark, .12); fo(sd * r * 1.04 - t * r * .1, r * 1.72, r * .1, r * .1, '#FF8FA3', .1); });
+    if (C.hair === 'bun') fo(back * r * .55, -r * 1.02, r * .44, r * .4, dark, .12);
+    // the far ear (back of the head)
+    if (C.hair !== 'hijab') { fo(back * hw * .92, r * .12, r * .2, r * .24, sk, .1); fo(back * hw * .95, r * .12, r * .09, r * .12, skD, 0); }
+    // the face
+    if (C.hair === 'hijab') { flat(() => ctx.ellipse(fx * .4, r * .12, r * .82, r * .9, 0, 0, TAU), sk, [-r * .8, -r * .8, r * 1.6, r * 1.8], .1); hairMass(dark, () => part(-.5, -.05), -t * r * .05, -r * .25, 1.2, .95); } else flat(headPath, sk, box, .09);
+    // cheeks
+    ctx.save(); ctx.fillStyle = CHEEK; [-1, 1].forEach(sd => { ctx.beginPath(); ctx.ellipse(fx + sd * r * .52 * (sd === Math.sign(t || 1) ? 1 : .8), r * .38, r * .16, r * .1, 0, 0, TAU); ctx.fill(); }); ctx.restore();
+    if (C.freckles) [-1, 1].forEach(sd => { for (let k = 0; k < 3; k++) circ(fx + sd * r * (.42 + k * .09), r * (.3 + (k % 2) * .07), r * .03, shade(sk, -.28), 0); });
+    // hair / hats on top
+    if (C.hair === 'bun') { hairMass(dark, () => swoop(-.36, .4)); flat(() => { ctx.moveTo(B * r * .5, -r * .95); ctx.quadraticCurveTo(fx, -r * .75, fx - B * r * .7, -r * .42); ctx.quadraticCurveTo(fx - B * r * .1, -r * .82, B * r * .5, -r * .95); }, shade(dark, .1), null, 0); }
+    if (C.hair === 'braids') hairMass(dark, () => part(-.55, .3), -t * r * .04, -r * .12, 1.1, 1.0);
+    if (C.hair === 'bald') { [-1, 1].forEach(sd => fo(sd * hw * .9, -r * .05, r * .22, r * .38, C.hairCol, .1)); ctx.save(); ctx.globalAlpha = .3; ell(-r * .35, -r * .6, r * .24, r * .1, '#FFFFFF', 0, -.4); ctx.restore(); }
+    if (C.hair === 'beanie') { flat(() => { ctx.moveTo(-hw * 1.08, -r * .3); ctx.bezierCurveTo(-hw * 1.05, -r * 1.55, hw * 1.05, -r * 1.55, hw * 1.08, -r * .3); ctx.closePath(); }, dark, [-hw, -r * 1.5, hw * 2, r * 1.2], .12); flat(() => ctx.roundRect(-hw * 1.12, -r * .5, hw * 2.24, r * .34, r * .17), shade(dark, -.1), null, 0); fo(-t * r * .1, -r * 1.42, r * .2, r * .18, '#FFFFFF', .08); }
+    if (C.hair === 'spiky') { for (let k = -2; k <= 2; k++) flat(() => { ctx.moveTo(fx + k * r * .3 - r * .2, -r * .5); ctx.quadraticCurveTo(fx + k * r * .34 + r * .15, -r * .95, fx + k * r * .38 + r * .1, -r * 1.22); ctx.quadraticCurveTo(fx + k * r * .3 + r * .1, -r * .8, fx + k * r * .3 + r * .25, -r * .5); }, dark, null, 0);
+      flat(() => { ctx.moveTo(-hw * 1.06, -r * .35); ctx.bezierCurveTo(-hw * 1.02, -r * 1.3, hw * 1.02, -r * 1.3, hw * 1.06, -r * .35); ctx.closePath(); }, C.capCol, [-hw, -r * 1.25, hw * 2, r * .95], .12); flat(() => ctx.roundRect(back > 0 ? hw * .5 : -hw * 1.5, -r * .52, hw, r * .2, r * .1), shade(C.capCol, -.15), null, 0); }
+    // beard under the features
+    if (C.facial === 'beard') flat(() => { ctx.moveTo(-hw, r * .0); ctx.bezierCurveTo(-hw * 1.02, r * 1.45, hw * 1.02, r * 1.45, hw, r * .0); ctx.bezierCurveTo(hw * .6, r * .45, fx + r * .3, r * .35, fx, r * .38); ctx.bezierCurveTo(fx - r * .3, r * .35, -hw * .6, r * .45, -hw, r * .0); }, C.beardCol, [-hw, 0, hw * 2, r * 1.4], .12);
+    // eyes: big, close together, near eye fuller
+    const big = Fc.big || 1, look = Fc.look || [0, 0], blink = ((lt + seed) % 3.9) < .11, ey = -r * .02 - (big - 1) * r * .1;
+    [-1, 1].forEach(sd => { const near = sd === Math.sign(t || 1), ex = fx + sd * r * .25 * (near ? 1.05 : .92), rx = r * .23 * big * (near ? 1 : 1 - Math.abs(t) * .28), ry = r * .29 * big, closed = Fc.closed || blink || (Fc.wink && near);
+      if (closed) { ctx.save(); ctx.strokeStyle = CHAR; ctx.lineWidth = r * .085; ctx.lineCap = 'round'; ctx.beginPath(); if (Fc.closed && Fc.mouth === 'open') ctx.arc(ex, ey + r * .08, rx * .8, Math.PI * 1.15, Math.PI * 1.85); else ctx.arc(ex, ey - r * .02, rx * .8, Math.PI * .15, Math.PI * .85); ctx.stroke(); ctx.restore(); return; }
+      ctx.save(); ctx.beginPath(); ctx.ellipse(ex, ey, rx, ry, 0, 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.clip();
+      const pr = ry * (Fc.small ? .36 : .6), px = ex + (look[0] + t * .35) * rx * .42, py = ey + look[1] * ry * .4 + ry * .08; circ(px, py, pr, CHAR, 0); circ(px - pr * .3, py - pr * .35, pr * .3, '#FFFFFF', 0);
+      const lid = Fc.lid ?? .12; if (lid > .02) { ctx.fillStyle = skD; ctx.beginPath(); ctx.rect(ex - rx * 1.3, ey - ry * 1.3, rx * 2.6, ry * .3 + ry * 2 * lid); ctx.fill(); }
+      ctx.restore(); });
+    // brows
+    [-1, 1].forEach(sd => { const near = sd === Math.sign(t || 1), raise = (sd < 0 ? Fc.browL : Fc.browR) ?? Fc.brow ?? 0, bx = fx + sd * r * .27, by = ey - r * .29 * big - r * .2 - raise * r * .32, ang = (Fc.inner ? -.4 : 0) * sd + (raise < 0 ? -raise * .9 * sd : -raise * .45 * sd);
+      ctx.save(); ctx.translate(bx, by); ctx.rotate(ang); rr(-r * .19 * (near ? 1 : .8), -r * .065, r * .38 * (near ? 1 : .8), r * .13, r * .065, C.hair === 'bald' ? '#8E889C' : (C.browCol || (C.hair === 'hijab' || C.hair === 'beanie' || C.hair === 'spiky' ? CHAR : shade(dark, -.1))), 0); ctx.restore(); });
+    // glasses
+    if (C.glasses) { ctx.save(); ctx.strokeStyle = CHAR; ctx.lineWidth = r * .07; [-1, 1].forEach(sd => { const near = sd === Math.sign(t || 1); ctx.beginPath(); ctx.ellipse(fx + sd * r * .25 * (near ? 1.05 : .92), ey, r * .3 * (near ? 1 : .8), r * .3, 0, 0, TAU); ctx.stroke(); }); ctx.restore(); }
+    // the nose: bold, toward the facing side
+    const nx = fx + t * r * .2; flat(() => { ctx.ellipse(nx, r * .22, r * .17, r * .14, 0, 0, TAU); }, shade(sk, -.04), [nx - r * .17, r * .08, r * .34, r * .28], .12);
+    // the mouth: wide, asymmetric, under the nose
+    const mx = fx + t * r * .1, my = r * .55, m = Fc.mouth || 'smile'; ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = MOUTH; ctx.lineWidth = r * .085;
+    const cavity = (path, hgt) => { ctx.beginPath(); path(); ctx.fillStyle = MOUTH; ctx.fill(); ctx.save(); ctx.clip(); ell(mx + t * r * .05, my + hgt * .9, r * .2, hgt * .45, TONGUE, 0); rr(mx - r * .32, my - r * .1, r * .64, hgt * .26, r * .03, '#FFFFFF', 0); ctx.restore(); };
+    if (m === 'open') cavity(() => { ctx.moveTo(mx - r * .3, my - r * .04); ctx.quadraticCurveTo(mx, my - r * .1, mx + r * .32, my - r * .06); ctx.bezierCurveTo(mx + r * .3, my + r * .3, mx - r * .25, my + r * .34, mx - r * .3, my - r * .04); }, r * .3);
+    else if (m === 'o') cavity(() => ctx.ellipse(mx, my + r * .06, r * .12, r * .17, 0, 0, TAU), r * .2);
+    else if (m === 'drop') cavity(() => ctx.ellipse(mx, my + r * .35, r * .26, r * .5, 0, 0, TAU), r * .8);
+    else if (m === 'smile') { ctx.beginPath(); ctx.moveTo(mx - r * .26, my - r * .02); ctx.quadraticCurveTo(mx, my + r * .2, mx + r * .3, my - r * .08); ctx.stroke(); }
+    else if (m === 'smirk') { ctx.beginPath(); ctx.moveTo(mx - r * .18, my + r * .04); ctx.quadraticCurveTo(mx + r * .1, my + r * .08, mx + r * .26, my - r * .1); ctx.stroke(); }
+    else if (m === 'side') { ctx.beginPath(); ctx.moveTo(mx, my + r * .04); ctx.lineTo(mx + r * .2, my); ctx.stroke(); }
+    else if (m === 'wobble') { ctx.beginPath(); ctx.moveTo(mx - r * .22, my + r * .05); for (let k = 1; k <= 4; k++) ctx.lineTo(mx - r * .22 + k * r * .11, my + r * .05 + (k % 2 ? -r * .05 : 0)); ctx.stroke(); }
+    else { ctx.beginPath(); ctx.moveTo(mx - r * .17, my + r * .03); ctx.lineTo(mx + r * .17, my + r * .01); ctx.stroke(); }
+    ctx.restore();
+    if (Fc.tears) [-1, 1].forEach(sd => { const tx = fx + sd * r * .27, k = (lt * 3) % 1; tube(tx, ey + r * .15, tx + sd * r * .55, ey + r * .6, r * .15, '#7FD3FF'); for (let j = 0; j < 3; j++) { const q = (k + j / 3) % 1; fo(tx + sd * r * (.55 + q * .8), ey + r * (.6 + q * q * 1.4), r * .09, r * .11, '#7FD3FF', 0); } });
+    if (C.facial === 'mustache') flat(() => { ctx.moveTo(mx - r * .44, my); ctx.bezierCurveTo(mx - r * .3, my - r * .32, mx - r * .05, my - r * .25, mx, my - r * .14); ctx.bezierCurveTo(mx + r * .05, my - r * .25, mx + r * .3, my - r * .32, mx + r * .46, my - r * .02); ctx.quadraticCurveTo(mx + r * .2, my - r * .06, mx, my - r * .04); ctx.quadraticCurveTo(mx - r * .2, my - r * .06, mx - r * .44, my); }, C.hairCol, [mx - r * .45, my - r * .32, r * .9, r * .32], .12);
+  }
+
+  function draw(name, x, y, h, lt, o = {}) { if (o.sticker !== 0 && !draw._in) { draw._in = 1; try { sticker(() => draw(name, x, y, h, lt, o)); } finally { draw._in = 0; } return; }
+    if (o.v2) return drawV2(name, x, y, h, lt, o);
+    const C = CAST[name] || CAST.bun, keys = o.keys || [[0, o.pose || 'idle', o.expr || 'happy']], b = C.build || 1, P = poseAt(keys, lt), Ph = poseAt(keys, lt, .09), Fc = faceAt(keys, lt), seed = name.length * 1.7;
+    const breath = Math.sin(lt * 2.1 + seed) * .012, wave = keys.some(k => k[1] === 'wave') && P.aR > 2 ? Math.sin(lt * 9) * .35 : 0, t = o.turn ?? .42;
+    const r = h * .2, legL = h * .15, tH = h * .27, tW = h * .3 * b; ctx.save(); ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
+    ctx.save(); ctx.globalAlpha = .16; ell(0, 0, h * .24 * b, h * .035, '#1B1530', 0); ctx.restore();
+    // legs: short, slightly apart; rounded shoes pointing toward the facing side
+    [-1, 1].forEach(sd => { limb(sd * tW * .2, -legL - h * .02, sd * tW * .22, -h * .05, h * .1, h * .085, C.pants); flat(() => ctx.roundRect(sd * tW * .22 - h * .06 + h * .02, -h * .075, h * .14, h * .075, h * .037), C.shoes, [sd * tW * .22 - h * .05, -h * .075, h * .14, h * .075], .14); });
+    ctx.save(); ctx.translate(0, -legL); ctx.rotate(P.lean); ctx.scale(1, 1 + (P.sq || 0) + breath);
+    const neckY = -tH, shY = neckY + h * .05, upA = h * .13, foA = h * .12;
+    const arm = sd => { const a = sd < 0 ? P.aL : P.aR, f = (sd < 0 ? P.fL : P.fR) + (sd > 0 ? wave : 0), sx = sd * tW * .42, ex = sx + sd * Math.sin(a) * upA, ey = shY + Math.cos(a) * upA, hx = ex + sd * Math.sin(f) * foA, hy = ey + Math.cos(f) * foA;
+      limb(sx, shY, ex, ey, h * .095, h * .08, C.top); limb(ex, ey, hx, hy, h * .08, h * .066, C.overalls ? C.skin : C.top); mitten(hx, hy, h * .045, C.skin, sd, Math.atan2(hy - ey, hx - ex) - Math.PI / 2); };
+    const crossL = P.fL < -1, crossR = P.fR < -1; if (!crossL) arm(-1); if (!crossR) arm(1);
+    // torso: a soft trapezoid, wider at the hem
+    const torso = () => { ctx.moveTo(-tW * .42, neckY + h * .01); ctx.quadraticCurveTo(0, neckY - h * .025, tW * .42, neckY + h * .01); ctx.quadraticCurveTo(tW * .56, neckY + tH * .4, tW * .54, -h * .005); ctx.quadraticCurveTo(0, h * .025, -tW * .54, -h * .005); ctx.quadraticCurveTo(-tW * .56, neckY + tH * .4, -tW * .42, neckY + h * .01); ctx.closePath(); };
+    flat(torso, C.top, [-tW * .56, neckY, tW * 1.12, tH], .1);
+    if (C.vest) { flat(() => { ctx.moveTo(-tW * .42, neckY + h * .01); ctx.lineTo(-tW * .08, neckY + h * .02); ctx.lineTo(-tW * .02, -h * .01); ctx.quadraticCurveTo(-tW * .3, h * .015, -tW * .54, -h * .005); ctx.quadraticCurveTo(-tW * .56, neckY + tH * .4, -tW * .42, neckY + h * .01); }, C.vest, null, 0); flat(() => { ctx.moveTo(tW * .42, neckY + h * .01); ctx.lineTo(tW * .08, neckY + h * .02); ctx.lineTo(tW * .02, -h * .01); ctx.quadraticCurveTo(tW * .3, h * .015, tW * .54, -h * .005); ctx.quadraticCurveTo(tW * .56, neckY + tH * .4, tW * .42, neckY + h * .01); }, shade(C.vest, -.1), null, 0); }
+    if (C.hood) { fo(0, neckY + h * .015, tW * .3, h * .035, shade(C.top, -.1), 0); rr(-tW * .26, neckY + tH * .58, tW * .52, tH * .24, h * .03, shade(C.top, -.07), 0); }
+    if (C.overalls) { flat(() => ctx.roundRect(-tW * .3, neckY + tH * .36, tW * .6, tH * .66, h * .03), C.overalls, [-tW * .3, neckY + tH * .36, tW * .6, tH * .66], .1); [-1, 1].forEach(sd => { limb(sd * tW * .26, neckY + h * .01, sd * tW * .24, neckY + tH * .42, h * .03, h * .03, C.overalls); circ(sd * tW * .22, neckY + tH * .45, h * .013, '#FFC93C', 0); }); }
+    if (crossL) arm(-1); if (crossR) arm(1);
+    if (o.item) o.item(0, neckY + tH * .55, h);
+    // neck + head (the head lags the body)
+    flat(() => ctx.roundRect(-h * .04, neckY - h * .04, h * .08, h * .06, h * .02), shade(C.skin, -.12), null, 0);
+    ctx.save(); ctx.translate(0, neckY - r * .86); ctx.rotate(Ph.tilt - P.lean * .5); head3(C, r, Fc, lt, t, seed); ctx.restore();
+    ctx.restore(); ctx.restore(); }
   // ---------------------------------------------------------------- the mascot: IFFY, a small floating machine with a screen face and the if-spark
   function iffy(x, y, s, lt, o = {}) { const b = Math.sin(lt * 2) * s * .05, tl = Math.sin(lt * 1.3) * .08; ctx.save(); ctx.translate(x, y + b); ctx.rotate(tl); ctx.save(); ctx.globalAlpha = .14; ell(0, s * .9 - b, s * .4, s * .06, '#1B1530', 0); ctx.restore();
     [-1, 1].forEach(sd => { tube(sd * s * .46, s * .05, sd * s * .7, s * (.2 + Math.sin(lt * 4 + sd) * .06), s * .1, '#2AB39A'); ovalF(sd * s * .72, s * (.22 + Math.sin(lt * 4 + sd) * .06), s * .08, s * .08, '#FFC93C', { plane: .5 }); });

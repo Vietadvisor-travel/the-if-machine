@@ -26,6 +26,11 @@ Token rules are at the end.
 - The cast (engine/library/cast.js): prof (bald, glasses, moustache, vest) · bun (red bun, freckles, yellow hoodie) · beard (beanie,
   big beard) · braids (twin braids, overalls) · hijab (orange scarf) · cap (spiky hair, backwards cap) · Iffy (the channel's robot,
   screen face, if-spark). They are ILLUSTRATION ACTORS (people at the market, in the queue …): never named in the narration, no plot.
+- v3 CONSTRUCTION (owner, 7 Nov 2026: "careful, exact lines, our own fixed style"): big head (~43 % of the height), 3/4 view (features
+  cluster to the facing side, far eye narrower, far ear shows), big eyes nearly touching with big pupils, flat lids, thick rounded
+  brows, a bold nose, a wide asymmetric mouth (teeth + tongue), hair as a volume bigger than the skull with a styled hairline,
+  flat colour + one hard shadow plane (no dots on people), tapered limbs, mitten hands, smooth curves only. `o.turn` (−1..1, default
+  .42), `o.v2` = the old body. New characters follow the same construction in head3()/draw().
 - Acting: poses idle cheer shock think point shrug watch crossed wave hold; faces happy grin laugh shock think bored smirk wink
   worried; blended with anticipation/overshoot, the head lags the body, breathing and blinks.
 - The house act: `act=crew set=street|market|shops|stage actors="bun:idle:happy>think@1:think>cheer@2:laugh|cap:crossed:bored"
