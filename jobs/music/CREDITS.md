@@ -137,3 +137,43 @@ Credit line for any MacLeod track used in a video description:
 Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/
 
 Dropped: Deep Relaxation (51 minutes, too long, same rule as wave 1 Peace of Mind); Ethereal Relaxation and Space Jazz (160 kbps, below the gate); Evening Melodrama, Heartbreaking, Reaching Out (under 120 s); Ancient Rite (113.2 s, below the gate); Black Vortex (kept excluded, heavy sub-bass risk); Scott Buckley via free-stock-music.com direct MP3 URLs (they return an HTML page, not audio, and the official site blocks scripted downloads).
+
+## Wave 3 (2026-11-07, weekly stock top-up): ifm_music_12.zip and ifm_music_13.zip, 20 new tracks
+
+All Kevin MacLeod (incompetech.com), all CC BY 4.0, fresh downloads from the incompetech catalog (pieces.json).
+Every track verified by ffprobe: duration at least 120 s and bitrate at least 192 kbps. Split into two zips
+because the 20 tracks total about 150 MB (90 MB cap per zip). Each zip carries its own library.json
+(file, moods, bpm null, energy, title, artist, license, credit, source_url, duration_s).
+Library total now 143 tracks. Next zip number is 14.
+
+Credit line for every track (keep in video description credits):
+
+Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/
+
+| file | mood | energy | title | duration (s) | source |
+|---|---|---|---|---|---|
+| comedy_allada.mp3 | comedy | mid | Allada | 223.4 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Allada.mp3 |
+| comedy_android_sock_hop.mp3 | comedy | mid | Android Sock Hop | 284.8 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Android%20Sock%20Hop.mp3 |
+| curious_aftermath.mp3 | curious | mid | Aftermath | 192.7 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Aftermath.mp3 |
+| curious_almost_new.mp3 | curious | mid | Almost New | 202.6 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Almost%20New.mp3 |
+| curious_anamalie.mp3 | curious | mid | Anamalie | 208.3 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Anamalie.mp3 |
+| epic_action.mp3 | epic | high | Action | 195.2 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Action.mp3 |
+| epic_all_this.mp3 | epic | high | All This | 228.9 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/All%20This.mp3 |
+| momentum_aggressor.mp3 | momentum | high | Aggressor | 238.9 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Aggressor.mp3 |
+| momentum_balzan_groove.mp3 | momentum | high | Balzan Groove | 124.8 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Balzan%20Groove.mp3 |
+| momentum_bet_you_can.mp3 | momentum | high | Bet You Can ver 2 | 156.1 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bet%20You%20Can%20ver%202.mp3 |
+| tech_balloon_game.mp3 | tech | mid | Balloon Game | 221.8 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Balloon%20Game.mp3 |
+| tech_bit_quest.mp3 | tech | mid | Bit Quest | 192.1 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bit%20Quest.mp3 |
+| tension_8bit_dungeon_boss.mp3 | tension | mid | 8bit Dungeon Boss | 172.0 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/8bit%20Dungeon%20Boss.mp3 |
+| tension_8bit_dungeon_level.mp3 | tension | mid | 8bit Dungeon Level | 217.4 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/8bit%20Dungeon%20Level.mp3 |
+| tension_achaidh_cheide.mp3 | tension | mid | Achaidh Cheide | 134.1 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Achaidh%20Cheide.mp3 |
+| warm_ahdah.mp3 | warm | low | AhDah | 171.6 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/AhDah.mp3 |
+| warm_andreas_theme.mp3 | warm | low | Andreas Theme | 217.4 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Andreas%20Theme.mp3 |
+| wonder_airship_serenity.mp3 | wonder | low | Airship Serenity | 240.1 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Airship%20Serenity.mp3 |
+| wonder_almost_bliss.mp3 | wonder | low | Almost Bliss | 316.6 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Almost%20Bliss.mp3 |
+| wonder_amazing_grace_2011.mp3 | wonder | low | Amazing Grace 2011 | 189.2 | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Amazing%20Grace%202011.mp3 |
+
+Notes:
+- Dropped for failing the 192 kbps gate (verified by ffprobe, durations were fine): Adding the Sun (134 kbps), Air Prelude (162 kbps), Adventures in Adventureland (160 kbps), Aerosol of my Love (160 kbps). Replaced with Amazing Grace 2011, Anamalie, Aggressor, Andreas Theme.
+- Only 2 staged spares remained unused (Killers, Oppressive Gloom); both stay spares. All 20 here are fresh catalog picks, none previously downloaded.
+- Aggressor is an orchestral speed-metal piece; kept as momentum/high, not a sub-bass track.

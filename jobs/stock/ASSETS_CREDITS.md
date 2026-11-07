@@ -127,3 +127,17 @@ Bug found in the first wave 2 upload: the packer kept only .gltf/.bin and droppe
 - Quaternius food (106 files, 0.9 MB, CC0): replaced FBX with GLB converted from the pack's own FBX files with Blender 4.2. Same situation as buildings: no official glTF for this pack, no texture files in the pack. Poly Pizza's Ultimate Food Pack bundle was checked as an alternative GLB source but covers only 48 of the 103 models (variants merged), so Blender conversion was used for full 103/103 coverage. Poly Pizza GLBs for the covered models were kept as spares under ~/workspace/ifm-staging/assets2/pp_spares/ (not shipped).
 
 Render check tool: ~/workspace/ifm-staging/assets2/render_check.py (pure-Python software rasterizer, numpy+PIL, honours baseColorTexture and alpha MASK cutout). Renders saved under ~/workspace/ifm-staging/assets2/renders/v2/.
+
+## Wave 3 (2026-11-07, weekly stock top-up): Carbon icons
+
+- icons_carbon.zip (2,611 SVG, 1.0 MB): Carbon Design System icons v11.92.0, Apache-2.0,
+  https://github.com/carbon-design-system/carbon (via npm @carbon/icons tarball).
+  Original folder structure kept: svg/16, svg/20, svg/24, svg/32 plus 18 size-less root icons
+  (caret/chevron/caution/severity shapes). assets.json inside (file, category, license, credit,
+  source_url) and the Apache-2.0 LICENSE file. No attribution required.
+- Excluded 289 brand/product files per the no-logos rule: all logo--* (49), apple* (2),
+  ibm--* product icons, and the svg/32/Q and svg/32/watson-health subfolders (135 files).
+- Queue note: Poly Haven API retried first and still returns HTTP 522, so item (a) is still
+  not done; Carbon (item b) was packed instead. Next queue item remains (a) Poly Haven retry,
+  then (b) Fluent UI icons / Ant Design icons, (c) Lottie (needs an account), (d) Kenney SVG,
+  (e) new ambientCG set or OpenMoji-style SVG set.

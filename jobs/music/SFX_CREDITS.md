@@ -116,3 +116,125 @@ These wave-1 files carry CC BY-SA and must NOT be baked into videos (a video usi
 | world_heartbeat_2.wav | CC BY-SA 4.0 | world_heartbeat_1..3.wav (synth, wave 2) |
 
 Wave-1 files that stay cleared: all syntheses, all CC0 engine reuse, world_crowd_mall_1/2 (Public domain), world_crowd_walla_1 (CC0), world_clock_tick_1 (Public domain), world_heartbeat_1 (CC BY 4.0, keep the credit line).
+
+## Wave 3 (2026-11-07, weekly stock top-up): ifm_sfx_3.zip on _sfx/
+
+100 files, all WAV 44.1 kHz mono, all original syntheses (Python stdlib, new sha256 seed scheme
+'w3:' + name, new family names, zero filename collisions with waves 1 and 2). Royalty-free, no
+attribution required. sfx.json inside (file, category, duration_s, license, credit, source_url).
+Library total now 507 files (76 + 331 + 100). Next SFX zip is 4.
+
+Families (2-5 takes per type): transitions 20 (swoosh thin/deep/metallic, sweep risers 1s/2s/4s,
+dropper, rewind, scratch); impacts 16 (thud soft/heavy, crack wood/glass, clang metal, bonk, splat,
+snap); UI/machine 20 (blip click/beep, clack key/toggle, dial tick, buzz error/alarm, ping sonar/radar);
+sci-fi 12 (phase teleport/hologram, beam laser, orb shield, pulse data/power); world 20 (amb rain
+drizzle, wind gust, ocean wave, thunder roll, forest dawn, city rush, cafe murmur, crowd cheer,
+applause, door slam); animals stylized 6 (critter dog yip, cat purr, owl hoot); musical stings 6
+(cue reveal, twist, success).
+
+Sonniss GDC bundle: NOT included this week. The direct download URL returns HTTP 403 (Cloudflare
+bot block) to scripted requests, and each part is GB-scale; left for a later pass with a working
+download route. No Sonniss licence text was saved because no files were fetched.
+
+| file | category | duration (s) | license | credit |
+|---|---|---|---|---|
+| amb_applause_1.wav | world | 4.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_applause_2.wav | world | 4.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_cafe_murmur_1.wav | world | 5.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_cafe_murmur_2.wav | world | 5.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_city_rush_1.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_city_rush_2.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_crowd_cheer_1.wav | world | 4.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_crowd_cheer_2.wav | world | 4.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_door_slam_1.wav | world | 0.4 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_door_slam_2.wav | world | 0.4 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_forest_dawn_1.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_forest_dawn_2.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_ocean_wave_1.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_ocean_wave_2.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_rain_drizzle_1.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_rain_drizzle_2.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_thunder_roll_1.wav | world | 3.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_thunder_roll_2.wav | world | 3.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_wind_gust_1.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| amb_wind_gust_2.wav | world | 6.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| beam_laser_1.wav | scifi | 0.35 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| beam_laser_2.wav | scifi | 0.35 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| blip_beep_1.wav | ui | 0.1 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| blip_beep_2.wav | ui | 0.1 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| blip_click_1.wav | ui | 0.05 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| blip_click_2.wav | ui | 0.05 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| blip_click_3.wav | ui | 0.05 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| blip_click_4.wav | ui | 0.05 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| bonk_1.wav | impact | 0.35 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| bonk_2.wav | impact | 0.35 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| buzz_alarm_1.wav | ui | 0.96 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| buzz_alarm_2.wav | ui | 0.96 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| buzz_error_1.wav | ui | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| buzz_error_2.wav | ui | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| clack_key_1.wav | ui | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| clack_key_2.wav | ui | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| clack_toggle_1.wav | ui | 0.09 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| clack_toggle_2.wav | ui | 0.09 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| clang_metal_1.wav | impact | 0.35 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| clang_metal_2.wav | impact | 0.35 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| crack_glass_1.wav | impact | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| crack_glass_2.wav | impact | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| crack_wood_1.wav | impact | 0.22 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| crack_wood_2.wav | impact | 0.22 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| critter_cat_purr_1.wav | animal | 1.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| critter_cat_purr_2.wav | animal | 1.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| critter_dog_yip_1.wav | animal | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| critter_dog_yip_2.wav | animal | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| critter_owl_hoot_1.wav | animal | 1.15 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| critter_owl_hoot_2.wav | animal | 1.15 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| cue_reveal_1.wav | sting | 1.2 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| cue_reveal_2.wav | sting | 1.2 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| cue_success_1.wav | sting | 1.4 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| cue_success_2.wav | sting | 1.4 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| cue_twist_1.wav | sting | 1.2 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| cue_twist_2.wav | sting | 1.2 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| dial_tick_1.wav | ui | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| dial_tick_2.wav | ui | 0.45 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| dropper_1.wav | transition | 0.8 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| dropper_2.wav | transition | 0.8 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| orb_shield_1.wav | scifi | 0.7 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| orb_shield_2.wav | scifi | 0.7 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| phase_hologram_1.wav | scifi | 1.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| phase_hologram_2.wav | scifi | 1.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| phase_teleport_1.wav | scifi | 0.9 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| phase_teleport_2.wav | scifi | 0.9 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| ping_radar_1.wav | ui | 1.15 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| ping_radar_2.wav | ui | 1.15 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| ping_sonar_1.wav | ui | 0.9 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| ping_sonar_2.wav | ui | 0.9 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| pulse_data_1.wav | scifi | 0.8 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| pulse_data_2.wav | scifi | 0.8 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| pulse_power_1.wav | scifi | 0.8 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| pulse_power_2.wav | scifi | 0.8 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| rewind_1.wav | transition | 0.7 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| rewind_2.wav | transition | 0.7 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| scratch_1.wav | transition | 0.4 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| scratch_2.wav | transition | 0.4 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| snap_1.wav | impact | 0.08 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| snap_2.wav | impact | 0.08 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| splat_1.wav | impact | 0.3 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| splat_2.wav | impact | 0.3 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| sweep_riser_1s_1.wav | transition | 1.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| sweep_riser_1s_2.wav | transition | 1.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| sweep_riser_2s_1.wav | transition | 2.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| sweep_riser_2s_2.wav | transition | 2.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| sweep_riser_4s_1.wav | transition | 4.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| sweep_riser_4s_2.wav | transition | 4.0 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_deep_1.wav | transition | 0.9 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_deep_2.wav | transition | 0.9 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_deep_3.wav | transition | 0.9 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_metallic_1.wav | transition | 0.7 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_metallic_2.wav | transition | 0.7 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_thin_1.wav | transition | 0.65 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_thin_2.wav | transition | 0.8 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| swoosh_thin_3.wav | transition | 0.95 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| thud_heavy_1.wav | impact | 0.55 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| thud_heavy_2.wav | impact | 0.55 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| thud_soft_1.wav | impact | 0.3 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+| thud_soft_2.wav | impact | 0.3 | Royalty-free (original synthesis) | Synthesized for The If Machine |
