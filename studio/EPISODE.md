@@ -20,6 +20,18 @@ Token rules are at the end.
 - **Bespoke scenes** for the ideas that matter, built from PX parts (examples: engine/library/bank/money-v5.js — x_px_hook city,
   x_px_barter, x_px_signal, x_px_queue, x_px_parcel, x_px_reborn, x_px_stat, x_px_promise). `look: classic` turns it off.
 
+## 0. IF CREW — the house look for people and places (owner, 7 Nov 2026: "lock this version for the engine"; overrides the drawn-object notes below)
+- One graphic language for EVERYTHING: flat shapes, no outlines, a crescent shadow with a halftone dot screen on the side away
+  from the top-left light, a thin light rim; foreground actors and key props are cut-out stickers (white border + soft drop shadow).
+- The cast (engine/library/cast.js): prof (bald, glasses, moustache, vest) · bun (red bun, freckles, yellow hoodie) · beard (beanie,
+  big beard) · braids (twin braids, overalls) · hijab (orange scarf) · cap (spiky hair, backwards cap) · Iffy (the channel's robot,
+  screen face, if-spark). They are ILLUSTRATION ACTORS (people at the market, in the queue …): never named in the narration, no plot.
+- Acting: poses idle cheer shock think point shrug watch crossed wave hold; faces happy grin laugh shock think bored smirk wink
+  worried; blended with anticipation/overshoot, the head lags the body, breathing and blinks.
+- The house act: `act=crew set=street|market|shops|stage actors="bun:idle:happy>think@1:think>cheer@2:laugh|cap:crossed:bored"
+  props="coin|note|cow|sack|iffy" kick= title="LINE|*GOLD*"`. New places and props are added to cast.js in the same language
+  (F / ovalF / rectF / polyF / tube, sticker()). Demo: stories/test-cast.story.
+
 ## 000000. Transitions and type like a premium brand film (owner, 5 Nov 2026 night: "ElevenLabs videos — very premium transitions")
 - **42 GL shader transitions** (gl-transitions.com, MIT) built in: `trans=gl<Name>` (`glCrossWarp`, `glInkBleed`, `glBokehDissolve`,
   `glFold`, `glGridFlip`, `glCircleOpen` …), eased, rendered at half size (cost < 800 ms a frame). Pick by MEANING from

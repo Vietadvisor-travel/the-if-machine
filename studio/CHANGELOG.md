@@ -399,3 +399,9 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
   `references/transitions.md`: the curated list with "use it for". Test: `stories/test-gl.story` (CrossWarp, InkBleed, Doorway→dropped,
   BokehDissolve): render cost max 708 ms.
 - Not adopted: Remotion and its Agent Skills (React-based renderer; adopting it would replace the canvas engine).
+
+## 7 Nov 2026 — IF CREW locked as the house look (owner)
+- Rejected first: a geometric style lab (6 graphic styles, "ugly") and a cartoon style lab (6 drawing styles; BEANS liked but "not ours").
+- cast.js: 6 original characters + Iffy, signature shading (crescent shadow with halftone dots, light rim), cut-out sticker border,
+  pose/face library with eased acting and follow-through, props and layered environments (street, market, shop row) in the same
+  language; house act `act=crew` (set=, actors= with timed pose/face steps, props=). Tested in stories/test-cast.story.

@@ -19,6 +19,7 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 - **PREMIUM is the standard** (owner, 5 Nov 2026 night): drawn objects and people (IFM.PX), not emoji; motion typography (`kick=` + `title=` with `*gold*` words, callouts, counters); grain/vignette finish; a gentle 2D camera. `studio/EPISODE.md` §0000.
 - **Hook and ending** (owner, 5 Nov 2026 night): open cold with `ex_cold` (3–4 punch lines, one per caption, `…` before the last); end out loud with `ex_outro` (closing thought + "Next time on The If Machine: …", `tail=2.4`). `studio/EPISODE.md` §00000.
 - **Transitions** (owner, 5 Nov 2026 night): 42 GL shader transitions (`trans=gl<Name>`) plus the shape ones, picked by meaning from `studio/references/transitions.md`; skills `.claude/skills/ifm-motion` + `gl-transitions`.
+- **IF CREW is the house look** (owner, 7 Nov 2026): people, props and places in one flat language (crescent halftone shadows, sticker cut-outs), the cast in `studio/engine/library/cast.js`, house act `act=crew`; illustration actors only, never named. `studio/EPISODE.md` §0 IF CREW.
 - Unhurried: `--speed 1.0`, real pauses (engine default), one idea per beat. Minimal sound: music bed only, `sfx=` where it matters
   (≤ 1 per 30 s), master −16 LUFS. 2D = recognisable illustrations (explainer kit + OpenMoji), never vague shapes.
 - Voices (owner, 5 Nov 2026, only these three): **af_heart** narrates every episode; **af_nicole** = second female voice (slow,

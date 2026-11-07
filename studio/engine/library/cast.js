@@ -214,6 +214,26 @@
     motion(lt) { sky('#FF9A6B', '#FFE0B8', 'm'); facade(-W * .05, H * .66, W * .5, H * .32, '#E9A88C', { rows: 3 }); facade(W * .55, H * .66, W * .5, H * .36, '#D99A86', { rows: 3 }); haze('#FFE0B8', .4); road(H * .68);
       draw('bun', W * .5, H * .82, H * .42, lt, { keys: [[0, 'idle', 'happy'], [.8, 'think', 'think'], [2.0, 'point', 'grin'], [3.0, 'cheer', 'laugh']] }); title(['REAL', 'ACTING'], 1, 'IDLE → THINK → IDEA → CHEER'); },
   };
+  // ---------------------------------------------------------------- the house act for stories (owner, 7 Nov 2026: "lock this version for the engine")
+  // # vis kind=w act=crew set=street|market|shops|stage kick="…" title="LINE|*GOLD*"
+  //       actors="prof:idle>shock@1:shock|bun:think@0:think>cheer@2:laugh"   (name:pose[@caption][:expr] steps joined by >)
+  //       props="coin|note|cow|sack|iffy"   (money flies for coin/note; a cow, a rice sack or Iffy join the cast)
+  const SETS = {
+    street(lt) { sky('#FF9A6B', '#FFE0B8', 'h'); cloud(W * .2, H * .27, W * .16); cloud(W * .78, H * .2, W * .12); [['#E9A88C', .0, .28], ['#D99A86', .22, .36], ['#E9A88C', .5, .3], ['#D99A86', .74, .38]].forEach(([c, x, h]) => facade(W * x, H * .62, W * .26, H * h, c, { rows: 3 })); haze('#FFD9B8', .35);
+      facade(-W * .04, H * .68, W * .36, H * .3, '#5BC0EB', { shop: 1, awning: '#FF7A45' }); facade(W * .66, H * .68, W * .38, H * .32, '#8E6CEF', { shop: 1, awning: '#FFC93C' }); lamp(W * .36, H * .69, H * .2); tree(W * .58, H * .69, H * .16); road(H * .68); },
+    market(lt) { sky('#7FD1F5', '#E9F7FF', 'b'); cloud(W * .25, H * .26, W * .14); cloud(W * .82, H * .32, W * .1); hills('#9ED99A', '#7BC97A', H * .5); stall(W * .02, H * .62, W * .3, '#FF6B6B'); stall(W * .68, H * .62, W * .3, '#5BC0EB', ['#7BD389', '#FFD966', '#C9A0FF']); bunting(H * .4, ['#FF7A45', '#FFC93C', '#3FB984', '#5BC0EB', '#8E6CEF']); rectF(-20, H * .66, W + 40, H, 0, '#F3E3C3', { plane: 0 }); },
+    shops(lt) { sky('#B9A6FF', '#F2EDFF', 'q'); cloud(W * .15, H * .24, W * .12); facade(-W * .1, H * .62, W * .4, H * .3, '#D7CCFF', { rows: 3 }); haze('#F2EDFF', .3); facade(W * .48, H * .7, W * .56, H * .46, '#FF8FA3', { shop: 1, awning: '#FFC93C', rows: 2 }); lamp(W * .38, H * .71, H * .2); road(H * .7, '#4A4E69'); tree(-W * .02, H * .71, H * .17); },
+    stage(lt) { burst('#FF7A45', '#FFC48A'); },
+  };
+  const parseActors = (str, c) => String(str || '').split('|').filter(Boolean).map(a => { const [name, rest] = a.split(/:(.+)/); const keys = String(rest || 'idle').split('>').map(st => { const m = st.match(/^(\w+)(?:@(\d+))?(?::(\w+))?$/) || []; const t = m[2] != null && c && c[+m[2]] ? c[+m[2]][0] : 0; return [t, m[1] || 'idle', m[3] || 'happy']; }); return { name, keys }; });
+  A.crew = (o, c, dur) => { const actors = parseActors(o.actors, c), props = String(o.props || '').split('|'), set = SETS[o.set] || SETS.street; return { sfx: [], draw: lt => { set(lt);
+    if (props.includes('coin') || props.includes('note')) [[.2, .42, -.3, 0], [.78, .4, .4, 1], [.32, .32, .2, 1], [.7, .3, -.2, 0], [.88, .52, .1, 0], [.12, .55, -.1, 1]].forEach(([x, y, r, k], j) => { const yy = H * y - ((lt * .1 + j * .17) % 1) * H * .05; sticker(() => k ? coin(W * x, yy, W * .042, lt, r) : note(W * x, yy, W * .17, r + Math.sin(lt + j) * .2), 5); });
+    const n = actors.length + (props.includes('cow') ? 1 : 0) + (props.includes('sack') ? 1 : 0); let slot = 0; const xs = n <= 1 ? [.5] : n === 2 ? [.3, .7] : Array.from({ length: n }, (_, i) => .18 + i * .64 / (n - 1)), hh = H * (n <= 1 ? .34 : n <= 2 ? .29 : .25);
+    if (props.includes('cow')) sticker(() => cow(W * xs[slot++] + W * .05, H * .79, W * .4, lt));
+    actors.forEach((a, i) => draw(a.name, W * xs[slot++], H * .8, hh, lt, { keys: a.keys, flip: xs[slot - 1] > .6 }));
+    if (props.includes('sack')) sticker(() => sack(W * xs[slot++], H * .79, W * .16));
+    if (props.includes('iffy')) sticker(() => iffy(W * .84, H * .4, W * .12, lt, { expr: o.iffy || 'happy' }));
+    if (o.set !== 'stage') bush(-W * .02, H * 1.0, W * .28); const T = String(o.title || '').split('|').filter(Boolean); if (T.length) title(T.map(t => t.replace(/\*/g, '')), T.findIndex(t => t.includes('*')), o.kick, o.set === 'stage'); } }; };
   A.x_cast = (o, c, dur) => ({ sfx: [], draw: lt => (SC[o.v] || SC.lineup)(lt) });
   IFM.CAST = { draw, iffy, CAST, POSE, FACE, props: { coin, note, cow, sack, shoe, bubble, building, shop, clock }, F, ovalF, rectF, polyF, tube };
 })();
