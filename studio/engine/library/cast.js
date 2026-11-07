@@ -12,14 +12,24 @@
   const cache = (k, fn) => { const key = k + W + 'x' + H; if (!CH[key]) { const cv = mkCanvas(W, H); withCtx(cv.getContext('2d'), fn); CH[key] = cv; } return CH[key]; };
 
   // ---------------------------------------------------------------- flat primitives: fill + a darker plane on the shadow side + a soft highlight
+  // SIGNATURE SHADING (owner, 7 Nov 2026: "its own graphic signature"): a crescent shadow on the side away from the light (top-left),
+  // filled with a fine halftone dot screen like old print, plus a thin light rim on the lit edge
+  const PAT = {}; function dotShade(col) { const u = Math.max(1, U()), k = col + u; if (!PAT[k]) { const s = Math.round(7 * u), c = mkCanvas(s, s), g = c.getContext('2d'); g.fillStyle = shade(col, -.12); g.fillRect(0, 0, s, s); g.fillStyle = shade(col, -.24); g.beginPath(); g.arc(s / 2, s / 2, s * .2, 0, TAU); g.fill(); PAT[k] = ctx.createPattern(c, 'repeat'); } return PAT[k]; }
   function F(path, col, box, o = {}) { ctx.save(); ctx.beginPath(); path(); ctx.fillStyle = col; ctx.fill();
-    if (o.plane !== 0 && box) { ctx.clip(); const [x, y, w, h] = box, s = o.plane ?? .6; ctx.fillStyle = shade(col, o.dark ?? -.13); ctx.beginPath(); ctx.moveTo(x + w * s, y - 9e3 * 0 - h); ctx.lineTo(x + w + h, y - h); ctx.lineTo(x + w + h, y + h * 2); ctx.lineTo(x + w * (s - .18), y + h * 2); ctx.closePath(); ctx.fill();
-      if (o.hi !== 0) { ctx.fillStyle = rgba('#FFFFFF', .18); ctx.beginPath(); ctx.ellipse(x + w * .28, y + h * .2, w * .12, h * .06, -.5, 0, TAU); ctx.fill(); } }
+    if (o.plane !== 0 && box) { ctx.clip(); const [x, y, w, h] = box, d = o.depth ?? .16, m = Math.min(w, h);
+      ctx.fillStyle = o.dots === 0 ? shade(col, -.13) : dotShade(col); ctx.fillRect(x - w, y - h, w * 3, h * 3);
+      ctx.save(); ctx.translate(-m * d * 1.1, -m * d * .8); ctx.beginPath(); path(); ctx.fillStyle = col; ctx.fill(); ctx.restore();
+      if (o.hi !== 0) { ctx.save(); ctx.translate(m * .05, m * .05); ctx.beginPath(); path(); ctx.restore(); ctx.save(); ctx.translate(-m * .02, -m * .02); ctx.globalAlpha = .35; ctx.strokeStyle = shade(col, .3); ctx.lineWidth = Math.max(2, m * .05); ctx.beginPath(); path(); ctx.stroke(); ctx.restore(); } }
     ctx.restore(); }
   const ovalF = (x, y, rx, ry, col, o) => F(() => ctx.ellipse(x, y, rx, ry, (o && o.rot) || 0, 0, TAU), col, [x - rx, y - ry, rx * 2, ry * 2], o);
   const rectF = (x, y, w, h, r, col, o) => F(() => ctx.roundRect(x, y, w, h, Math.max(0, Math.min(r, w / 2, h / 2))), col, [x, y, w, h], o);
   const polyF = (pts, col, o) => { const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]); F(() => { ctx.moveTo(...pts[0]); pts.slice(1).forEach(p => ctx.lineTo(...p)); ctx.closePath(); }, col, [Math.min(...xs), Math.min(...ys), Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)], o); };
-  const tube = (x1, y1, x2, y2, w, col) => { ctx.save(); ctx.lineCap = 'round'; ctx.strokeStyle = shade(col, -.12); ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); const nx = -(y2 - y1), ny = x2 - x1, l = Math.hypot(nx, ny) || 1; ctx.strokeStyle = col; ctx.lineWidth = w * .7; ctx.beginPath(); ctx.moveTo(x1 - nx / l * w * .12, y1 - ny / l * w * .12); ctx.lineTo(x2 - nx / l * w * .12, y2 - ny / l * w * .12); ctx.stroke(); ctx.restore(); };
+  const tube = (x1, y1, x2, y2, w, col) => { ctx.save(); ctx.lineCap = 'round'; ctx.strokeStyle = dotShade(col); ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.strokeStyle = col; ctx.lineWidth = w * .68; ctx.beginPath(); ctx.moveTo(x1 - w * .12, y1 - w * .1); ctx.lineTo(x2 - w * .12, y2 - w * .1); ctx.stroke(); ctx.restore(); };
+  // the cut-out sticker: whatever fn draws gets a white border and a soft drop shadow (drawn off-screen at the current transform)
+  let L1 = null, L2 = null; function sticker(fn, pad = 7) { const main = ctx, u = U(), p = pad * u; if (!L1 || L1.width !== main.canvas.width || L1.height !== main.canvas.height) { L1 = mkCanvas(main.canvas.width, main.canvas.height); L2 = mkCanvas(main.canvas.width, main.canvas.height); }
+    const g1 = L1.getContext('2d'), g2 = L2.getContext('2d'); g1.setTransform(1, 0, 0, 1, 0, 0); g1.clearRect(0, 0, L1.width, L1.height); g1.setTransform(main.getTransform()); ctx = g1; try { fn(); } finally { ctx = main; }
+    g2.setTransform(1, 0, 0, 1, 0, 0); g2.clearRect(0, 0, L2.width, L2.height); g2.globalCompositeOperation = 'source-over'; for (let a = 0; a < TAU; a += TAU / 14) g2.drawImage(L1, Math.cos(a) * p, Math.sin(a) * p); g2.drawImage(L1, 0, 0); g2.globalCompositeOperation = 'source-in'; g2.fillStyle = '#FFFFFF'; g2.fillRect(0, 0, L2.width, L2.height); g2.globalCompositeOperation = 'source-over';
+    main.save(); main.setTransform(1, 0, 0, 1, 0, 0); main.globalAlpha *= .22; main.filter = 'brightness(0)'; main.drawImage(L2, 4 * u, 9 * u); main.filter = 'none'; main.globalAlpha /= .22; main.drawImage(L2, 0, 0); main.drawImage(L1, 0, 0); main.restore(); }
 
   // ---------------------------------------------------------------- the cast (original designs)
   const CAST = {
@@ -56,19 +66,19 @@
   function faceAt(keys, t) { let i = 0; while (i < keys.length - 1 && t >= keys[i + 1][0]) i++; const f = FACE[keys[i][2] || 'happy'] || FACE.happy, p = i > 0 ? FACE[keys[i - 1][2] || 'happy'] || FACE.happy : f, k = i > 0 ? clamp((t - keys[i][0]) / .25) : 1; return k >= 1 ? f : { ...f, brow: lerp(p.brow ?? 0, f.brow ?? 0, k) }; }
 
   // ---------------------------------------------------------------- one character
-  function draw(name, x, y, h, lt, o = {}) { const C = CAST[name] || CAST.bun, keys = o.keys || [[0, o.pose || 'idle', o.expr || 'happy']], b = C.build || 1;
+  function draw(name, x, y, h, lt, o = {}) { if (o.sticker !== 0 && !draw._in) { draw._in = 1; try { sticker(() => draw(name, x, y, h, lt, o)); } finally { draw._in = 0; } return; } const C = CAST[name] || CAST.bun, keys = o.keys || [[0, o.pose || 'idle', o.expr || 'happy']], b = C.build || 1;
     const P = poseAt(keys, lt), Ph = poseAt(keys, lt, .09), Fc = faceAt(keys, lt), seed = name.length * 1.7;
     const breath = Math.sin(lt * 2.1 + seed) * .012, wave = keys.some(k => k[1] === 'wave') && P.aR > 2 ? Math.sin(lt * 9) * .35 : 0;
-    const rh = h * .2, tW = h * .32 * b, tH = h * .3, legL = h * .27; ctx.save(); ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
+    const rh = h * .235, tW = h * .34 * b, tH = h * .27, legL = h * .21; ctx.save(); ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
     ctx.save(); ctx.globalAlpha = .16; ell(0, 0, h * .26 * b, h * .04, '#1B1530', 0); ctx.restore();
     const hipY = -legL, sq = 1 + (P.sq || 0) + breath;
     // legs + shoes
-    [-1, 1].forEach(sd => { tube(sd * tW * .2, hipY, sd * tW * .24, -h * .03, h * .1, C.pants); rectF(sd * tW * .24 - h * .065 + sd * h * .02, -h * .06, h * .13, h * .06, h * .03, C.shoes, { plane: .65 }); });
+    [-1, 1].forEach(sd => { tube(sd * tW * .2, hipY, sd * tW * .24, -h * .04, h * .12, C.pants); rectF(sd * tW * .24 - h * .075 + sd * h * .025, -h * .075, h * .15, h * .075, h * .035, C.shoes, { depth: .2 }); });
     // upper body pivots at the hips
     ctx.save(); ctx.translate(0, hipY); ctx.rotate(P.lean); ctx.scale(1, sq);
-    const neckY = -tH, shY = neckY + h * .045, upA = h * .17, foA = h * .16, armW = h * .085, skinD = shade(C.skin, -.12);
+    const neckY = -tH, shY = neckY + h * .045, upA = h * .15, foA = h * .14, armW = h * .1, skinD = shade(C.skin, -.12);
     const arm = (sd, a, f, front) => { const sx = sd * tW * .44, ex = sx + sd * Math.sin(a) * upA, ey = shY + Math.cos(a) * upA, hx = ex + sd * Math.sin(f + (sd > 0 ? wave : 0)) * foA, hy = ey + Math.cos(f + (sd > 0 ? wave : 0)) * foA;
-      tube(sx, shY, ex, ey, armW, C.top); tube(ex, ey, hx, hy, armW * .9, C.overalls ? C.skin : C.top); ovalF(hx, hy, h * .05, h * .05, C.skin, { plane: .55 }); return [hx, hy]; };
+      tube(sx, shY, ex, ey, armW, C.top); tube(ex, ey, hx, hy, armW * .9, C.overalls ? C.skin : C.top); ovalF(hx, hy, h * .06, h * .06, C.skin, { plane: 0 }); ovalF(hx - sd * h * .04, hy - h * .02, h * .025, h * .03, C.skin, { plane: 0 }); return [hx, hy]; };
     // back arm first when it crosses the body
     const crossL = P.fL < -1, crossR = P.fR < -1; if (!crossL) arm(-1, P.aL, P.fL); if (!crossR) arm(1, P.aR, P.fR);
     // torso
@@ -104,7 +114,7 @@
     // freckles, cheeks
     if (C.freckles) [-1, 1].forEach(sd => { for (let k = 0; k < 3; k++) circ(x + sd * r * (.45 + k * .08) + turn * r * .2, y + r * (.22 + (k % 2) * .06), r * .025, shade(sk, -.25), 0); });
     // eyes
-    const ex = r * .36, ey = y - r * .04, rx = r * .2, ry = r * .25, blink = ((lt + seed) % 3.7) < .12, look = Fc.look || [0, 0];
+    const ex = r * .38, ey = y - r * .02, rx = r * .23, ry = r * .3, blink = ((lt + seed) % 3.7) < .12, look = Fc.look || [0, 0];
     [-1, 1].forEach(sd => { const cx = x + sd * ex + turn * r * .3, closed = Fc.closed || blink || (Fc.wink && sd > 0);
       if (closed) { ctx.save(); ctx.strokeStyle = INK; ctx.lineWidth = r * .07; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(cx, ey + r * .06, rx * .85, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke(); ctx.restore(); return; }
       ctx.save(); ctx.beginPath(); ctx.ellipse(cx, ey, rx, ry, 0, 0, TAU); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.clip();
@@ -162,20 +172,47 @@
     lines.forEach((l, i) => { const y = H * .155 + i * s * 1.02; ctx.font = `400 ${s}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(38,35,58,.25)'; ctx.fillText(l, W / 2, y + 6 * u); ctx.fillStyle = i === hi ? '#FFFFFF' : (dark ? '#FFF4E2' : INK); if (i === hi) { ctx.lineJoin = 'round'; ctx.lineWidth = 14 * u; ctx.strokeStyle = '#FF5A36'; ctx.strokeText(l, W / 2, y); } ctx.fillText(l, W / 2, y); }); ctx.restore(); }
   function floor(col) { const gy = H * .68; rectF(-20, gy, W + 40, H * .4, col, { plane: 0 }); ctx.save(); ctx.fillStyle = shade(col, -.08); ctx.beginPath(); ctx.ellipse(W / 2, gy + H * .02, W * .6, H * .03, 0, 0, TAU); ctx.fill(); ctx.restore(); }
 
-  // ---------------------------------------------------------------- demo scenes
+  // ---------------------------------------------------------------- ENVIRONMENTS in the same language (layered: far haze → mid detail → actors → dark foreground)
+  const haze = (col, a) => { ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = col; ctx.fillRect(0, 0, W, H); ctx.restore(); };
+  function sky(top, bot, key) { ctx.drawImage(cache('sky' + key + top + bot, () => { const g = ctx.createLinearGradient(0, 0, 0, H * .7); g.addColorStop(0, top); g.addColorStop(1, bot); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); }), 0, 0); }
+  function cloud(x, y, s, col = '#FFFFFF') { [[-.5, .05, .32], [-.15, -.12, .42], [.25, -.05, .36], [.55, .08, .26]].forEach(([dx, dy, r]) => ovalF(x + dx * s, y + dy * s, r * s, r * s * .9, col, { depth: .08, hi: 0, dots: 0 })); rectF(x - .75 * s, y + .02 * s, 1.5 * s, .3 * s, .15 * s, col, { plane: 0 }); }
+  function tree(x, yb, s, col = '#3FB984') { rectF(x - s * .07, yb - s * .55, s * .14, s * .55, s * .05, '#8B5A3C'); ovalF(x - s * .2, yb - s * .75, s * .3, s * .28, shade(col, -.06)); ovalF(x + s * .18, yb - s * .8, s * .28, s * .26, col); ovalF(x, yb - s * 1.0, s * .32, s * .3, shade(col, .05)); }
+  function bush(x, yb, s, col = '#2E9E6E') { ovalF(x - s * .3, yb - s * .2, s * .32, s * .26, shade(col, -.05)); ovalF(x + s * .25, yb - s * .22, s * .3, s * .27, col); ovalF(x, yb - s * .35, s * .34, s * .3, shade(col, .06)); }
+  function lamp(x, yb, s) { rectF(x - s * .03, yb - s, s * .06, s, s * .03, '#2B3A55', { plane: 0 }); rectF(x - s * .1, yb - s * 1.08, s * .2, s * .12, s * .04, '#2B3A55'); ovalF(x, yb - s * .98, s * .07, s * .05, '#FFE7A3', { plane: 0 }); }
+  function facade(x, yb, w, h, col, o = {}) { rectF(x, yb - h, w, h, w * .03, col); rectF(x - w * .02, yb - h - h * .05, w * 1.04, h * .07, w * .02, shade(col, -.2), { plane: 0 });
+    const rows = o.rows ?? 2; for (let r = 0; r < rows; r++) for (let c = 0; c < 3; c++) { const wx = x + w * (.1 + c * .3), wy = yb - h + h * (.12 + r * .2); rectF(wx, wy, w * .2, h * .13, w * .02, '#BFE3F5', { depth: .2 }); rectF(wx - w * .015, wy + h * .12, w * .23, h * .025, w * .01, '#FFFFFF', { plane: 0 }); }
+    if (o.shop) { const sy = yb - h * .36; rectF(x + w * .06, sy, w * .88, h * .36, w * .02, '#2B3A55', { plane: 0 }); rectF(x + w * .1, sy + h * .05, w * .5, h * .27, w * .02, '#BFE3F5', { depth: .25 }); rectF(x + w * .66, sy + h * .05, w * .24, h * .31, w * .02, shade(col, -.3), { plane: 0 });
+      for (let k = 0; k < 6; k++) F(() => { const ax = x + k * w / 6; ctx.moveTo(ax, sy - h * .1); ctx.lineTo(ax + w / 6, sy - h * .1); ctx.lineTo(ax + w / 6, sy); ctx.arc(ax + w / 12, sy, w / 12, 0, Math.PI); ctx.closePath(); }, k % 2 ? '#FFFFFF' : o.awning || '#FF7A45', [x + k * w / 6, sy - h * .1, w / 6, h * .15], { plane: 0 }); } }
+  function road(top, col = '#3D4660') { rectF(-20, top, W + 40, H, 0, '#E9DCC7', { plane: 0 }); rectF(-20, top, W + 40, H * .02, 0, '#CDBFA8', { plane: 0 }); rectF(-20, top + H * .1, W + 40, H, 0, col, { plane: 0 }); for (let k = 0; k < 5; k++) rr(k * W * .26 - W * .05, top + H * .16, W * .14, H * .012, 6, '#F4EEDC', 0); }
+  function stall(x, yb, w, col, goods) { rectF(x, yb - w * .45, w, w * .45, w * .03, '#C68B59'); rectF(x - w * .04, yb - w * .5, w * 1.08, w * .07, w * .03, '#A86F42', { plane: 0 }); [x + w * .05, x + w * .9].forEach(px => rectF(px, yb - w * 1.15, w * .05, w * .7, w * .02, '#8B5A3C', { plane: 0 }));
+    for (let k = 0; k < 5; k++) F(() => { const ax = x - w * .06 + k * w * 1.12 / 5; ctx.moveTo(ax, yb - w * 1.2); ctx.lineTo(ax + w * 1.12 / 5, yb - w * 1.2); ctx.lineTo(ax + w * 1.12 / 5, yb - w * 1.05); ctx.arc(ax + w * 1.12 / 10, yb - w * 1.05, w * 1.12 / 10, 0, Math.PI); ctx.closePath(); }, k % 2 ? '#FFF4E2' : col, [x, yb - w * 1.2, w, w * .25], { plane: 0 });
+    (goods || ['#FF6B6B', '#FFC93C', '#7BD389']).forEach((g, k) => { for (let n = 0; n < 4; n++) ovalF(x + w * (.18 + k * .32) + (n % 2) * w * .07 - w * .035, yb - w * .5 - (n > 1 ? w * .08 : 0) - w * .04, w * .055, w * .05, g, { depth: .25, hi: 0 }); }); }
+  function hills(col1, col2, y) { F(() => { ctx.moveTo(-20, y); ctx.quadraticCurveTo(W * .25, y - H * .12, W * .55, y - H * .02); ctx.quadraticCurveTo(W * .8, y - H * .1, W + 20, y - H * .03); ctx.lineTo(W + 20, H); ctx.lineTo(-20, H); ctx.closePath(); }, col1, [0, y - H * .12, W, H * .3], { plane: 0 });
+    F(() => { ctx.moveTo(-20, y + H * .05); ctx.quadraticCurveTo(W * .4, y - H * .06, W + 20, y + H * .04); ctx.lineTo(W + 20, H); ctx.lineTo(-20, H); ctx.closePath(); }, col2, [0, y - H * .06, W, H * .3], { plane: 0 }); }
+  function bunting(y, cols) { ctx.save(); ctx.strokeStyle = '#2B3A55'; ctx.lineWidth = 2 * U(); ctx.beginPath(); ctx.moveTo(0, y); ctx.quadraticCurveTo(W / 2, y + H * .04, W, y); ctx.stroke(); ctx.restore(); for (let k = 0; k < 9; k++) { const t = (k + .5) / 9, x = W * t, yy = y + Math.sin(t * Math.PI) * H * .02 * 2; polyF([[x - W * .035, yy], [x + W * .035, yy], [x, yy + H * .035]], cols[k % cols.length], { plane: 0 }); } }
+
+  // ---------------------------------------------------------------- demo scenes (full environments)
   const SC = {
     lineup(lt) { burst('#FF7A45', '#FFC48A'); [[.82, .3, 22], [.9, .38, 14], [.12, .26, 16]].forEach(([x, y, s], k) => sparkle(W * x, H * y, s * U(), lt, k)); title(['MEET THE', 'IF CREW'], 1, 'THE IF MACHINE', 1);
-      draw('prof', W * .2, H * .62, H * .3, lt, { keys: [[0, 'shrug', 'laugh']] }); draw('beard', W * .5, H * .58, H * .32, lt, { keys: [[0, 'crossed', 'smirk']] }); draw('hijab', W * .8, H * .62, H * .29, lt, { keys: [[0, 'point', 'wink']], flip: 1 });
-      draw('braids', W * .12, H * .8, H * .26, lt, { keys: [[0, 'shock', 'shock']] }); draw('bun', W * .38, H * .8, H * .27, lt, { keys: [[0, 'cheer', 'grin']] }); draw('cap', W * .88, H * .8, H * .26, lt, { keys: [[0, 'think', 'bored']], flip: 1 }); iffy(W * .64, H * .7, W * .17, lt); },
-    hook(lt) { burst('#5B8DEF', '#BFD7FF', .5, .55); [['#7E9CF2', .0, .22], ['#9DB4F5', .2, .3], ['#7E9CF2', .42, .2], ['#9DB4F5', .62, .27], ['#7E9CF2', .82, .23]].forEach(([c, x, h]) => building(W * x, H * .68, W * .2, H * h, c)); floor('#F3D9B1');
-      [[.18, .42, -.3, 0], [.8, .4, .4, 1], [.3, .3, .2, 1], [.72, .3, -.2, 0], [.86, .55, .1, 0], [.12, .58, -.1, 1]].forEach(([x, y, r, c], j) => { const yy = H * y - ((lt * .1 + j * .17) % 1) * H * .05; c ? coin(W * x, yy, W * .04, lt, r) : note(W * x, yy, W * .16, r + Math.sin(lt + j) * .2); });
-      draw('prof', W * .48, H * .76, H * .4, lt, { keys: [[0, 'idle', 'happy'], [.6, 'shock', 'shock']] }); iffy(W * .82, H * .56, W * .15, lt, { expr: 'shock' }); title(['WHAT IF MONEY', 'DISAPPEARED?'], 1, 'THE IF MACHINE'); },
-    barter(lt) { burst('#3FB984', '#B8F0CF', .5, .5); floor('#F3E3C3'); title(['THE BARTER', 'PROBLEM'], 1, 'DOUBLE COINCIDENCE OF WANTS');
-      cow(W * .34, H * .74, W * .42, lt); draw('beard', W * .1, H * .75, H * .3, lt, { keys: [[0, 'think', 'think']] }); sack(W * .7, H * .74, W * .16); draw('hijab', W * .88, H * .75, H * .3, lt, { keys: [[0, 'shrug', 'worried']], flip: 1 });
-      bubble(W * .28, H * .33, W * .36, H * .1, W * .12, H * .44); sack(W * .28, H * .37, W * .14); bubble(W * .72, H * .33, W * .36, H * .1, W * .88, H * .44); shoe(W * .72, H * .355, W * .2); },
-    queue(lt) { burst('#8E6CEF', '#D9CCFF', .7, .5); floor('#EBDDF7'); title(['FREE COSTS', 'TIME'], 1, 'ANSWER 1 · THE QUEUE'); shop(W * .64, H * .7, W * .34, H * .27); clock(W * .2, H * .38, W * .09, lt);
-      draw('cap', W * .08, H * .75, H * .22, lt, { keys: [[0, 'think', 'bored']] }); draw('prof', W * .22, H * .755, H * .24, lt, { keys: [[0, 'idle', 'worried']] }); draw('braids', W * .36, H * .755, H * .22, lt, { keys: [[0, 'crossed', 'bored']] }); draw('beard', W * .5, H * .76, H * .27, lt, { keys: [[0, 'watch', 'think']] }); },
-    motion(lt) { burst('#FF7A45', '#FFC48A'); title(['REAL', 'ACTING'], 1, 'IDLE → THINK → IDEA → CHEER'); floor('#FFE2C2'); draw('bun', W * .5, H * .76, H * .42, lt, { keys: [[0, 'idle', 'happy'], [.8, 'think', 'think'], [2.0, 'point', 'grin'], [3.0, 'cheer', 'laugh']] }); },
+      draw('prof', W * .22, H * .6, H * .3, lt, { keys: [[0, 'shrug', 'laugh']] }); draw('beard', W * .52, H * .58, H * .32, lt, { keys: [[0, 'crossed', 'smirk']] }); draw('hijab', W * .8, H * .6, H * .29, lt, { keys: [[0, 'point', 'wink']], flip: 1 });
+      draw('braids', W * .14, H * .8, H * .26, lt, { keys: [[0, 'shock', 'shock']] }); draw('bun', W * .4, H * .8, H * .27, lt, { keys: [[0, 'cheer', 'grin']] }); draw('cap', W * .86, H * .8, H * .26, lt, { keys: [[0, 'think', 'bored']], flip: 1 }); sticker(() => iffy(W * .64, H * .72, W * .17, lt)); },
+    hook(lt) { sky('#FF9A6B', '#FFE0B8', 'h'); cloud(W * .2, H * .27, W * .16); cloud(W * .78, H * .2, W * .12);
+      ctx.save(); [['#E9A88C', .0, .28], ['#D99A86', .22, .36], ['#E9A88C', .5, .3], ['#D99A86', .74, .38]].forEach(([c, x, h]) => facade(W * x, H * .62, W * .26, H * h, c, { rows: 3 })); ctx.restore(); haze('#FFD9B8', .35);
+      facade(-W * .04, H * .68, W * .36, H * .3, '#5BC0EB', { shop: 1, awning: '#FF7A45' }); facade(W * .66, H * .68, W * .38, H * .32, '#8E6CEF', { shop: 1, awning: '#FFC93C' }); lamp(W * .36, H * .69, H * .2); tree(W * .58, H * .69, H * .16, '#3FB984');
+      road(H * .68); [[.2, .42, -.3, 0], [.78, .4, .4, 1], [.32, .32, .2, 1], [.7, .3, -.2, 0], [.88, .52, .1, 0], [.12, .55, -.1, 1]].forEach(([x, y, r, c], j) => { const yy = H * y - ((lt * .1 + j * .17) % 1) * H * .05; sticker(() => c ? coin(W * x, yy, W * .042, lt, r) : note(W * x, yy, W * .17, r + Math.sin(lt + j) * .2), 5); });
+      draw('prof', W * .5, H * .8, H * .36, lt, { keys: [[0, 'idle', 'happy'], [.6, 'shock', 'shock']] }); sticker(() => iffy(W * .82, H * .56, W * .14, lt, { expr: 'shock' })); bush(-W * .02, H * 1.0, W * .3); bush(W * 1.0, H * .98, W * .26, '#2A8A62'); title(['WHAT IF MONEY', 'DISAPPEARED?'], 1, 'THE IF MACHINE'); },
+    barter(lt) { sky('#7FD1F5', '#E9F7FF', 'b'); cloud(W * .25, H * .26, W * .14); cloud(W * .82, H * .32, W * .1); hills('#9ED99A', '#7BC97A', H * .5); haze('#E9F7FF', .15);
+      stall(W * .02, H * .62, W * .3, '#FF6B6B', ['#FF6B6B', '#FFC93C', '#FF9F43']); stall(W * .68, H * .62, W * .3, '#5BC0EB', ['#7BD389', '#FFD966', '#C9A0FF']); bunting(H * .4, ['#FF7A45', '#FFC93C', '#3FB984', '#5BC0EB', '#8E6CEF']);
+      rectF(-20, H * .66, W + 40, H, 0, '#F3E3C3', { plane: 0 }); for (let k = 0; k < 14; k++) { const r = rng(k + 9); ovalF(W * r(), H * (.72 + r() * .2), W * .03, H * .006, '#E2CFA8', { plane: 0 }); }
+      sticker(() => cow(W * .36, H * .79, W * .44, lt)); draw('beard', W * .12, H * .8, H * .31, lt, { keys: [[0, 'think', 'think']] }); sticker(() => sack(W * .7, H * .79, W * .17)); draw('hijab', W * .89, H * .8, H * .31, lt, { keys: [[0, 'shrug', 'worried']], flip: 1 });
+      sticker(() => { bubble(W * .3, H * .36, W * .38, H * .11, W * .14, H * .47); sack(W * .3, H * .4, W * .13); bubble(W * .72, H * .36, W * .38, H * .11, W * .88, H * .47); shoe(W * .72, H * .385, W * .2); }); bush(W * .5, H * 1.02, W * .3, '#3FB984'); title(['THE BARTER', 'PROBLEM'], 1, 'DOUBLE COINCIDENCE OF WANTS'); },
+    queue(lt) { sky('#B9A6FF', '#F2EDFF', 'q'); cloud(W * .15, H * .24, W * .12); facade(-W * .1, H * .62, W * .4, H * .3, '#D7CCFF', { rows: 3 }); haze('#F2EDFF', .3);
+      facade(W * .48, H * .7, W * .56, H * .46, '#FF8FA3', { shop: 1, awning: '#FFC93C', rows: 2 }); sticker(() => { rectF(W * .56, H * .4, W * .38, H * .065, H * .03, '#FFC93C'); ctx.save(); ctx.fillStyle = INK; ctx.font = `400 ${H * .042}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('ALL FREE', W * .75, H * .434); ctx.restore(); }, 5);
+      sticker(() => clock(W * .3, H * .38, W * .08, lt), 5); lamp(W * .38, H * .71, H * .2); road(H * .7, '#4A4E69'); tree(-W * .02, H * .71, H * .17, '#3FB984');
+      draw('cap', W * .1, H * .82, H * .23, lt, { keys: [[0, 'think', 'bored']] }); draw('prof', W * .25, H * .825, H * .25, lt, { keys: [[0, 'idle', 'worried']] }); draw('braids', W * .4, H * .825, H * .22, lt, { keys: [[0, 'crossed', 'bored']] }); draw('beard', W * .56, H * .83, H * .28, lt, { keys: [[0, 'watch', 'think']] });
+      bush(W * .95, H * 1.0, W * .28, '#2E9E6E'); title(['FREE COSTS', 'TIME'], 1, 'ANSWER 1 · THE QUEUE'); },
+    motion(lt) { sky('#FF9A6B', '#FFE0B8', 'm'); facade(-W * .05, H * .66, W * .5, H * .32, '#E9A88C', { rows: 3 }); facade(W * .55, H * .66, W * .5, H * .36, '#D99A86', { rows: 3 }); haze('#FFE0B8', .4); road(H * .68);
+      draw('bun', W * .5, H * .82, H * .42, lt, { keys: [[0, 'idle', 'happy'], [.8, 'think', 'think'], [2.0, 'point', 'grin'], [3.0, 'cheer', 'laugh']] }); title(['REAL', 'ACTING'], 1, 'IDLE → THINK → IDEA → CHEER'); },
   };
   A.x_cast = (o, c, dur) => ({ sfx: [], draw: lt => (SC[o.v] || SC.lineup)(lt) });
   IFM.CAST = { draw, iffy, CAST, POSE, FACE, props: { coin, note, cow, sack, shoe, bubble, building, shop, clock }, F, ovalF, rectF, polyF, tube };
