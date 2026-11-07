@@ -20,6 +20,8 @@ Token rules are at the end.
 - **Bespoke scenes** for the ideas that matter, built from PX parts (examples: engine/library/bank/money-v5.js — x_px_hook city,
   x_px_barter, x_px_signal, x_px_queue, x_px_parcel, x_px_reborn, x_px_stat, x_px_promise). `look: classic` turns it off.
 
+> STYLE DECISION (owner, 7 Nov 2026, final): IF CREW v3 (below) for every episode. Blocks (`x_vox`) = parked for a separate series; pixel (`x_pixel`) = lab only. One style per episode, never mixed.
+
 ## 0. IF CREW — the house look for people and places (owner, 7 Nov 2026: "lock this version for the engine"; overrides the drawn-object notes below)
 - One graphic language for EVERYTHING: flat shapes, no outlines, a crescent shadow with a halftone dot screen on the side away
   from the top-left light, a thin light rim; foreground actors and key props are cut-out stickers (white border + soft drop shadow).

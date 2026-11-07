@@ -425,3 +425,6 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 ## 7 Nov 2026 — VOXEL LAB (demo, not the standard)
 - engine/library/voxel_lab.js: an original block style in 2D isometric (culled unit blocks with pixel grain, painter sort, IF CREW as block people with painted pixel faces). Act `x_vox v=village|planet|ocean|chart`; `IFM.VOX` (box, render, Vox, person). Demo: stories/test-vox.story.
 - Voxel lab v2: floating island village (river, houses with windows, market, trees, flowers, 3 block people), 12×12 pixel faces, hands and shoes, edge rims, 3D block titles, rays, sparks, fog; ocean (palms, boat, shells) and chart (city, onlookers, rising coins) richer.
+
+## 7 Nov 2026 — style decision (final)
+- IF CREW v3 is the house look for every episode; voxel_lab parked for a possible "Blocks" series; pixel_lab lab only.
