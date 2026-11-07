@@ -418,3 +418,6 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 
 ## 7 Nov 2026 — FINAL look: IF CREW v3 for the whole world
 - cast.js: six world demos in the v3 language (space, ocean, tech, map, body, data); EPISODE.md §0 "THE WORLD in the same language".
+
+## 7 Nov 2026 — PIXEL LAB (demo, not the standard)
+- engine/library/pixel_lab.js: act `x_pixel s=nes|gb|bit16|arcade v=<IF CREW scene>` re-renders any scene as pixel art (palette snap, Bayer dither, ink outline, scanlines; crisper title grid). Demo: stories/test-pixel.story.
