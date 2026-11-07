@@ -36,6 +36,11 @@ Token rules are at the end.
 - The house act: `act=crew set=street|market|shops|stage actors="bun:idle:happy>think@1:think>cheer@2:laugh|cap:crossed:bored"
   props="coin|note|cow|sack|iffy" kick= title="LINE|*GOLD*"`. New places and props are added to cast.js in the same language
   (F / ovalF / rectF / polyF / tube, sticker()). Demo: stories/test-cast.story.
+- THE WORLD in the same language, FINAL (owner, 7 Nov 2026: "not only people — our content is everything"): planets, oceans, animals,
+  phones, maps, organs, charts are all drawn with the v3 tools (flat()/fo()/limb()/mitten(), one hard shadow plane, smooth curves,
+  the key subject as a sticker). Objects and animals get a face only when it serves the line (a sweating whale, a sleepy brain).
+  Charts are built from real things (coin stacks, a red trend line, a counting number). Backgrounds stay calm (gradient, sunburst,
+  grid map, sky + floor). Demo: stories/test-world.story (x_cast v=s_moon|s_ocean|s_net|s_map|s_brain|s_chart).
 - COMIC layer, FINAL STANDARD (owner, 7 Nov 2026: "entertaining, funny and a bit weird, on top of IF CREW; lock it"): the base stays
   clean and trustworthy, the jokes sit on top. Poses `take` (body jolts back) and `slump`; faces `take` (eyes pop, jaw drops; the
   crew act adds impact lines, sweat and "!!"), `cry` (two fountains), `deadpan` (stares at the viewer). Props `runcoin` (coins grow

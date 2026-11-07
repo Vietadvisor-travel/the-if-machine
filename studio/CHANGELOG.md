@@ -415,3 +415,6 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 ## 7 Nov 2026 — IF CREW v3 construction
 - cast.js: new draw()/head3() (big head, 3/4 view, big close eyes, bold nose, wide mouth, hair volumes, flat hard shadow, tapered
   limbs, mitten hands); old body kept as drawV2 (`o.v2`). Tested: test-cast.story, test-gag.story.
+
+## 7 Nov 2026 — FINAL look: IF CREW v3 for the whole world
+- cast.js: six world demos in the v3 language (space, ocean, tech, map, body, data); EPISODE.md §0 "THE WORLD in the same language".
