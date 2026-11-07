@@ -1202,7 +1202,7 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
         t0 = scenes[si]['start'] - .35 if k else 0; t1 = scenes[segs[k + 1][0]]['start'] - .35 if k + 1 < len(segs) else dur + 2
         tt = np.arange(n) / SR; up = np.clip((tt - (t0 - xf / 2)) / xf, 0, 1) if k else np.ones(n); dn = np.clip(((t1 + xf / 2) - tt) / xf, 0, 1) if k + 1 < len(segs) else np.ones(n)
         M += s * np.sin(np.minimum(up, dn) * np.pi / 2)[None, :]
-    had_stems = bool(stems) or bool(LIBSEG); stems.clear(); gc.collect()
+    had_stems = bool(stems) or bool(LIBSEG); stems.clear(); LIBSEG.clear(); gc.collect()
     STG = np.zeros((2, n), np.float32); used = []
     if stingers and D.get('stingers', True) and had_stems:
         mood_at = lambda t: next((m for si, m in reversed(segs) if scenes[si]['start'] <= t + .01), segs[0][1])
@@ -1217,7 +1217,7 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
             j = min(n, i0 + x.shape[1]); STG[:, i0:j] += x[:, :j - i0]; used.append(t)
     # ---- 5. bus processing
     key = vad.m if has_vo else np.zeros_like(vad.m)   # no voice → nothing to duck under (captions only)
-    Vp = eq(V, [HPF(90, 3), biquad('lshelf', 180, .7, -3.), biquad('peak', 300, 1.2, -2.5), biquad('peak', 3200, .9, 4.), biquad('hshelf', 10000, .7, 2.), LPF(16000)])
+    Vp = eq(V, [HPF(90, 3), biquad('lshelf', 180, .7, -3.), biquad('peak', 300, 1.2, -2.5), biquad('peak', 3200, .9, 4.), biquad('hshelf', 10000, .7, 2.), LPF(16000)]); del V; gc.collect()
     if has_vo:
         sib = sosfiltfilt(butter(2, [5500, 8000], btype='band', fs=SR, output='sos'), Vp, axis=-1); lvl = np.sqrt(np.maximum(uniform_filter1d(np.mean(sib ** 2, 0), 441), 0)) + 1e-9
         ref = np.sqrt(np.maximum(uniform_filter1d(np.mean(Vp ** 2, 0), 441), 0)) + 1e-9; gds = np.clip(-(20 * np.log10(lvl / ref) + 12), -5, 0); Vp = Vp + sib * (db(gds)[None, :] - 1)
@@ -1231,13 +1231,14 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     Mp = eq(M, [HPF(35), biquad('peak', 2500, .8, -2.), LPF(16000)]); Mp = dyn_band(Mp * duck_m[None, :], dyn_m, 1500, 4000)
     if np.abs(Mp).max() > 1e-5:   # score peak-to-loudness ≤ 11 dB (drum transients) so the master limiter stays light
         Lm = integrated(M); gm_, _ = tp_limit(M, Lm + 11., .003, .08, want_gain=True); Mp = Mp * gm_[None, :]
-    Mp *= dip_curve(dips, n, -20., -6.)[None, :]
+    Mp *= dip_curve(dips, n, -20., -6.)[None, :]; del M; gc.collect()
     FG = eq(B['FG'], [HPF(40)]); FG = dyn_band(FG, env_curve(key, -5., .01, .05, .2, n), 1500, 4500); FG, fg_gr = compress(FG, -14., 4., .001, .06, max_gr=3.)
     BG = eq(B['BG'], [HPF(120), biquad('peak', 2500, .8, -2.)]) * env_curve(key, -6., .02, .1, .35, n)[None, :]
     AMB = eq(B['AMB'], [HPF(80), biquad('lshelf', 200, .7, -3.), biquad('peak', 2500, .7, -4.), LPF(10000)]) * env_curve(key, -8., .04, .15, .6, n)[None, :]
     AMB = dyn_band(AMB, env_curve(key, -4., .02, .1, .3, n), 1000, 4000) * dip_curve(dips, n, -8., -4.)[None, :]
     STGp = eq(STG, [HPF(60)])
-    if np.abs(STGp).max() > 1e-5: STGp, _ = tp_limit(STGp, (integrated(M) if np.abs(M).max() > 1e-5 else -16.) + 11., .003, .08)
+    if np.abs(STGp).max() > 1e-5: STGp, _ = tp_limit(STGp, (integrated(Mp) if np.abs(Mp).max() > 1e-5 else -16.) + 11., .003, .08)
+    del STG; gc.collect()
     # ---- solved faders (relative to the voice; §5.2 of the grammar). design.json music_db / amb_db shift them.
     fad = {'MUS': 0., 'FG': 0., 'BG': 0., 'AMB': 0.}
     if has_vo:
@@ -1262,6 +1263,7 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
         S0, A0 = pad(read(base + '_sfx.wav')), pad(read(base + '_amb.wav')); FG = FG + S0 * .3; AMB = AMB + A0 * .3
     mus = Mp * db(fad['MUS']); stg = STGp * db(fad['MUS'])  # stingers: score loudness +3 LU, in speech gaps (the bed is ducked, they are not)
     fg, bg, amb = FG * db(fad['FG']), BG * db(fad['BG']), AMB * db(fad['AMB'])
+    del Mp, STGp, FG, BG, AMB, B; gc.collect()
     ref_pk = (20 * np.log10(np.percentile(np.abs(Vp), 99.95) + 1e-9) + 3.) if has_vo else (20 * np.log10(np.percentile(np.abs(mus), 99.95) + 1e-9) + 4. if np.abs(mus).max() > 1e-5 else None)
     if ref_pk is not None:   # hits may peak at most +3 dB over the voice's peaks (+4 over the score without voice): keeps the master limiter light (LRA, punch)
         sc_, sfx_gr = tp_limit(fg + bg, ref_pk, .003, .08, want_gain=True); fg, bg = fg * sc_[None, :], bg * sc_[None, :]

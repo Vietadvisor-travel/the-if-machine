@@ -8,10 +8,10 @@ Places are soft (depth of field) behind the subjects; subjects in the light with
 REAL: Chicxulub, Yucatan, Archaeopteryx, Liaoning, Sinosauropteryx, Microraptor, Anchiornis, Triassic, Cretaceous, Palaeogene, Mexico, Germany, China, Earth
 
 ## Music (score:, chosen for the content, from music/library.json)
-- Hook + chapter 1 (deep time, curious): curious_easy_lemon (Kevin MacLeod, CC BY 4.0)
-- Chapter 2 (the shadows, nocturnal, pensive): tension_deliberate_thought
-- Chapter 3 (the survivors, wonder): nostalgic_piano
-- Chapter 4 + conclusion (what is known, the answer, reflective, warm): warm_gymnopedie_no_1
+- Hook + chapter 1 (deep time, curious): curious_mystery_bazaar (Kevin MacLeod, CC BY 4.0)
+- Chapter 2 (the shadows, nocturnal, pensive): tension_darkling
+- Chapter 3 (the survivors, wonder): wonder_lightless_dawn
+- Chapter 4 + conclusion (what is known, the answer, reflective, warm): warm_autumn_day
 
 ## Spine
 - Hook: one rock, 10 kilometres wide, 66 million years ago → dinosaurs ruled 165 million years, humans only 300,000 →

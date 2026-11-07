@@ -157,6 +157,92 @@
     "morph"
    ],
    "bank": []
+  },
+  {
+   "slug": "dinosaurs-survive",
+   "vert": false,
+   "date": "2026-11-07",
+   "keys": [
+    "w:ex_cold:",
+    "w:ex_show:comet",
+    "w:ex_compare:dino|person",
+    "w:x_dino_facts:",
+    "w:ex_show:dino",
+    "w:ex_chapter:THE RULERS",
+    "w:ex_timeline:egg|dino|bone",
+    "w:ex_stat:dino",
+    "w:x_dino_impact:",
+    "w:map:flat",
+    "w:x_dino_dark:",
+    "w:ex_chapter:THE SHADOWS",
+    "w:x_dino_burrow:",
+    "w:x_dino_daynight:",
+    "w:x_dino_miss:",
+    "w:x_dino_ages:",
+    "w:x_dino_wait:",
+    "w:ex_chapter:THE SURVIVORS",
+    "w:ex_flow:dino|egg|bird",
+    "w:x_dino_archae:",
+    "w:x_dino_liaoning:",
+    "w:ex_list:dino|bird|egg",
+    "w:x_dino_chicken:",
+    "w:ex_chapter:WHAT PEOPLE SAY",
+    "w:x_dino_pet:",
+    "w:x_dino_bus:",
+    "w:ex_stat:bear",
+    "w:x_dino_empty:",
+    "w:x_dino_room:",
+    "w:ex_list:comet|mouse|bird",
+    "w:x_dino_egg:",
+    "w:ex_outro:dino"
+   ],
+   "open": "w:ex_cold:",
+   "music": "",
+   "people": "facet",
+   "theme": "museum",
+   "mains": [
+    "comet",
+    "dino",
+    "egg",
+    "bear"
+   ],
+   "own": [
+    "x_dino_facts",
+    "x_dino_impact",
+    "x_dino_dark",
+    "x_dino_burrow",
+    "x_dino_daynight",
+    "x_dino_miss",
+    "x_dino_ages",
+    "x_dino_wait",
+    "x_dino_archae",
+    "x_dino_liaoning",
+    "x_dino_chicken",
+    "x_dino_pet",
+    "x_dino_bus",
+    "x_dino_empty",
+    "x_dino_room",
+    "x_dino_egg"
+   ],
+   "trans": [
+    "zoomthru",
+    "push2",
+    "wipe",
+    "slide",
+    "fade",
+    "match",
+    "zoom",
+    "dissolve",
+    "morph",
+    "iris"
+   ],
+   "bank": [
+    "comet",
+    "dino",
+    "egg",
+    "bird",
+    "bone"
+   ]
   }
  ]
 }

@@ -319,7 +319,24 @@
   function cowtie(x, y, s, lt) { cow(x, y, s, lt); const b = Math.sin(lt * 1.5) * s * .008, tx = x + s * .36, ty = y - s * .5 + b; polyF([[tx - s * .04, ty], [tx + s * .04, ty], [tx + s * .025, ty + s * .03], [tx + s * .05, ty + s * .19], [tx, ty + s * .24], [tx - s * .05, ty + s * .19], [tx - s * .025, ty + s * .03]], '#E63950', { plane: .6 }); rr(tx - s * .045, ty - s * .015, s * .09, s * .04, s * .015, '#B5243A', 0); }
   // the weird Iffy: jelly wobble, a third eye that blinks on its own
   function weirdIffy(x, y, s, lt, o = {}) { const w = Math.sin(lt * 5) * .07; ctx.save(); ctx.translate(x, y); ctx.scale(1 + w, 1 - w); iffy(0, 0, s, lt, o); const bl = ((lt + 1.3) % 2.6) < .15; if (!bl) { ell(0, -s * .58, s * .1, s * .08, '#FFFFFF', 0); circ(Math.sin(lt * 1.7) * s * .04, -s * .58, s * .045, INK, 0); } else line(-s * .08, -s * .58, s * .08, -s * .58, s * .025, INK); ctx.restore(); }
-  const GAG = { zing, sweat, marks, speed, legcoin, meltnote, cowtie, weirdIffy };
+  // a wall calendar with a huge number on it (for waiting a very long time); txt lines split by '|'
+  function waitcal(x, y, w, lt, txt = '100,000,000|YEARS') { const h = w * 1.05, u = U(); ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(lt * .8) * .02);
+    ctx.save(); ctx.shadowColor = 'rgba(10,20,14,.3)'; ctx.shadowBlur = 22 * u; ctx.shadowOffsetY = 8 * u; rectF(-w / 2, -h / 2, w, h, w * .04, '#FFFDF4', { plane: 0 }); ctx.restore();
+    rectF(-w / 2, -h / 2, w, h * .16, w * .04, '#E63950', { plane: 0 }); [-.3, 0, .3].forEach(dx => { circ(dx * w, -h / 2 - h * .02, w * .025, '#B5243A', 0); circ(dx * w, -h / 2 - h * .02, w * .012, '#FFF4E2', 0); });
+    const lines = String(txt).split('|'); let s = w * .2; for (const l of lines) { ctx.save(); ctx.font = `400 ${w * .2}px "Paytone One"`; const tw = ctx.measureText(l).width; ctx.restore(); s = Math.min(s, (w * .2) * w * .78 / Math.max(1, tw)); }
+    lines.forEach((l, i) => { const yy = -h * .08 + i * s * 1.15; ctx.save(); ctx.font = `400 ${s}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = i === 0 ? INK : '#B5243A'; ctx.fillText(l, 0, yy); ctx.restore(); }); ctx.restore(); }
+  // a tiny gold crown (for the heir to the throne); x, y = centre of the band, s = width
+  function crown(x, y, s, lt) { const u = U(); ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(lt * 2) * .03);
+    polyF([[-s / 2, s * .18], [-s / 2, -s * .28], [-s * .26, s * .02], [0, -s * .42], [s * .26, s * .02], [s / 2, -s * .28], [s / 2, s * .18]], '#F2B33D', { plane: .6 });
+    rr(-s / 2, s * .12, s, s * .12, s * .04, '#D9961F', 0);
+    [[-.32, -.06, '#E63950'], [0, -.16, '#3E6A8A'], [.32, -.06, '#2A9D8F']].forEach(([dx, dy, col]) => circ(dx * s, dy * s, s * .05, col, 0));
+    ctx.save(); ctx.globalAlpha = .7 + .3 * Math.sin(lt * 3); circ(s * .28, -s * .34, s * .05, '#FFF6D8', 0); ctx.restore(); ctx.restore(); }
+  // a tiny paper ticket, held up proudly; txt = the word on it
+  function ticket(x, y, w, lt, txt = 'ADMIT ONE') { const h = w * .44, u = U(); ctx.save(); ctx.translate(x, y); ctx.rotate(-.18 + Math.sin(lt * 1.5) * .04);
+    ctx.save(); ctx.shadowColor = 'rgba(10,20,14,.25)'; ctx.shadowBlur = 12 * u; ctx.shadowOffsetY = 4 * u; rectF(-w / 2, -h / 2, w, h, h * .18, '#FFF3D6', { plane: 0 }); ctx.restore();
+    ctx.save(); ctx.strokeStyle = '#C9A44C'; ctx.lineWidth = 2 * u; ctx.setLineDash([4 * u, 5 * u]); ctx.beginPath(); ctx.moveTo(-w * .28, -h / 2 + 4 * u); ctx.lineTo(-w * .28, h / 2 - 4 * u); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
+    ctx.save(); ctx.fillStyle = '#E63950'; ctx.font = `400 ${h * .34}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('★', -w * .38, 0); ctx.fillStyle = INK; ctx.font = `700 ${h * .26}px "Space Mono", monospace`; ctx.fillText(txt, w * .08, 0); ctx.restore(); ctx.restore(); }
+  const GAG = { zing, sweat, marks, speed, legcoin, meltnote, cowtie, weirdIffy, waitcal, crown, ticket };
   const SC = {
     lineup(lt) { burst('#FF7A45', '#FFC48A'); [[.82, .3, 22], [.9, .38, 14], [.12, .26, 16]].forEach(([x, y, s], k) => sparkle(W * x, H * y, s * U(), lt, k)); title(['MEET THE', 'IF CREW'], 1, 'THE IF MACHINE', 1);
       draw('prof', W * .22, H * .6, H * .3, lt, { keys: [[0, 'shrug', 'laugh']] }); draw('beard', W * .52, H * .58, H * .32, lt, { keys: [[0, 'crossed', 'smirk']] }); draw('hijab', W * .8, H * .6, H * .29, lt, { keys: [[0, 'point', 'wink']], flip: 1 });
