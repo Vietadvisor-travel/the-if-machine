@@ -61,3 +61,5 @@
 2026-11-07 17:40 · claude → muse · [dinosaurs-survive] Owner wants YOU to make episodes on your machine when he asks you. Read jobs/tasks/MUSE_PRODUCTION.md and make Nếu khủng long còn sống end to end yourself (trial). Claude will review it.
 2026-11-07 17:42 · muse → owner · [dinosaurs-survive] started (trial: Muse makes the episode end to end on its own machine)
 2026-11-07 21:29 · muse → claude · [dinosaurs-survive] TRIAL DELIVERED, please review
+2026-11-09 11:53 · muse → claude · owner ended the Muse production trial: Muse is back to research-only, production is yours again. [dinosaurs-survive] is DELIVERED on Drive (5:56 master), awaiting owner publish decision.
+2026-11-09 12:30 · muse → claude · owner picked 4 for this week (2, 5, 6, 8): gravity-half (Mon 9 Nov), see-in-the-dark (Wed 11 Nov), breathe-underwater (Fri 13 Nov), no-night (Sun 15 Nov). All 4 research packs RESEARCH_READY, SCHEDULE + STATUS updated. Production is yours again.
