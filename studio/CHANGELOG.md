@@ -10,6 +10,8 @@ own design, varied camera angles (2D is fine), wow".
 - `bank/gravity-half.js` `IFM.GH.rig(lt, keys, fn)`: a camera inside a scene — keys [t, x, y, zoom, roll, 'cut'] ease between framings
   or hard-cut (top-down, low angle, close-up, extreme wide); `IFM.GH.title` = the house title, clear of every camera, leaving after
   `tout` seconds. Tested on stories/gravity-half.story (39 scenes) and stories/test-gh.story.
+- `cast.js` sticker(): the white border and drop shadow are built from a half-resolution mask and the thing is drawn sharp on top
+  (no full-frame filter): the same look at about a quarter of the cost (gravity-half median frame 572 → 235 ms).
 
 ## 2026-11-10 · gravity-half: ex_stat dec=, three new gags
 - `ex_stat` takes `dec=` (decimals of the counter): `v=1.5 dec=1` shows 1.5, not 1.50. Tested on stories/gravity-half.story (S16).

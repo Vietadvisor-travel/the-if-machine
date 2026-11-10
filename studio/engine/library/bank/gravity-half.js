@@ -23,7 +23,7 @@
   const title = (o, lt, dark, key = 'tt') => { const s = o[key]; if (!s) return; const tout = o.tout != null ? +o.tout : 3.6, a = clamp(lt / .45) * (tout > 0 ? 1 - clamp((lt - tout) / .5) : 1); if (a <= 0) return;
     const L = String(s).split('|'), hi = L.findIndex(l => l.includes('*')), cs = IFM.camState || { x: 0, y: 0, z: 1 }, z = cs.z || 1;
     ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(1 / z, 1 / z); ctx.translate(-W / 2 - (cs.x || 0), -H / 2 - (cs.y || 0)); ctx.globalAlpha *= a; ctx.translate(0, (1 - a) * -H * .03);
-    CR.title(L.map(l => l.replace(/\*/g, '')), hi, o.kick, dark); ctx.restore(); };
+    CR.title(L.map(l => l.replace(/\*/g, '')), hi, o.kk, dark); ctx.restore(); };
   const fin = (lt, v = .3) => X.finish(lt, { vig: v });
   const txt = (t, x, y, s, col = INK, f = 'Paytone One', w = 400) => { ctx.save(); ctx.font = `${w} ${s}px "${f}"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = col; ctx.fillText(t, x, y); ctx.restore(); };
   const mono = (t, x, y, s, col = INK) => txt(t, x, y, s, col, 'Space Mono', 700);
@@ -220,7 +220,7 @@
       sticker(() => rocket(W * .5 + shake, H * .68 - up, H * .34, lt, { flame: lt > tL }), 6);
       sticker(() => { rectF(W * .06, H * .3, W * .36, H * .16, 18 * u, '#26233A', { plane: 0 }); mono('ORBIT SPEED', W * .24, H * .33, 22 * u, '#7FF5DD'); const k2 = ph(lt, t2 - .4, .6); txt('7.9 KM/S', W * .24, H * .39, 46 * u, k2 > .5 ? '#6E6A86' : '#FFFFFF'); if (k2 > 0) { line(W * .09, H * .39, W * (.09 + .3 * k2), H * .39, 6 * u, '#FF4D6D'); ctx.save(); ctx.globalAlpha = k2; txt('5.6 KM/S', W * .24, H * .435, 46 * u, '#FFC93C'); ctx.restore(); } }); ctx.restore();
       // the crowd in the foreground (over the shoulders), from behind, dark
-      [['bun', .14], ['prof', .5], ['cap', .88]].forEach(([nm, x], j) => { ctx.save(); ctx.filter = 'brightness(.35) saturate(.6)'; CREW(nm, W * x, H * 1.2, H * .5, lt, { keys: [[0, 'watch', 'think'], [tL + .3 + j * .2, 'cheer', 'laugh']], turn: -.9, sticker: 0 }); ctx.restore(); }); });
+      [[.14, '#C2562E'], [.5, '#2B211C'], [.88, '#FF4D6D']].forEach(([x, hair], j) => { const cheer = lt > tL + .3 + j * .2, X0 = W * x, bob = cheer ? Math.abs(Math.sin(lt * 6 + j)) * H * .015 : 0; ctx.fillStyle = '#1B1530'; ctx.beginPath(); ctx.ellipse(X0, H * .98 - bob, W * .2, H * .09, 0, Math.PI, 0); ctx.fill(); ctx.beginPath(); ctx.arc(X0, H * .86 - bob, W * .1, 0, TAU); ctx.fill(); ctx.fillStyle = shade(hair, -.45); ctx.beginPath(); ctx.arc(X0, H * .845 - bob, W * .1, Math.PI * 1.05, Math.PI * 1.95); ctx.fill(); if (cheer) [-1, 1].forEach(sd => { ctx.save(); ctx.strokeStyle = '#1B1530'; ctx.lineCap = 'round'; ctx.lineWidth = W * .05; ctx.beginPath(); ctx.moveTo(X0 + sd * W * .14, H * .93 - bob); ctx.lineTo(X0 + sd * W * .2, H * .78 - bob + Math.sin(lt * 8 + sd) * H * .01); ctx.stroke(); ctx.restore(); }); }); });
     title(o, lt, 0); fin(lt, .25); } }; };
 
   // ================================================================ S13 x_gh_holiday — TOP-DOWN on the beach: towel, umbrella, a beach ball's shadow drifting slow → CUT to a CLOSE-UP: the sunglasses come down, the body sends a message

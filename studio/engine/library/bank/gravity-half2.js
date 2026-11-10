@@ -216,7 +216,7 @@
       if (s === 0) sticker(() => { tube(0, H * .2, 0, -H * .05, 12 * u, '#8B5A3C'); for (let i = 0; i < 8; i++) flat(() => { ctx.moveTo(0, -H * .12); ctx.arc(0, -H * .05, W * .3, Math.PI + i * Math.PI / 8, Math.PI + (i + 1) * Math.PI / 8); ctx.closePath(); }, i % 2 ? '#FFFFFF' : '#FF4D6D', null, 0); });
       if (s === 1) { const un = ph(lt, t[1] + .2, 1.2); sticker(() => { flat(() => ctx.roundRect(-W * .2, -H * .2, W * .4, H * (.12 + .3 * un), 10 * u), '#FFFDF4', [-W * .2, -H * .2, W * .4, H * .42], .1); for (let i = 0; i < 6 * un; i++) { rr(-W * .15, -H * .15 + i * H * .05, W * .18, 10 * u, 5 * u, '#C9CED9', 0); rr(W * .06, -H * .15 + i * H * .05, W * .08, 10 * u, 5 * u, '#FF4D6D', 0); } txt('BILL', 0, -H * .17, 40 * u); }); }
       if (s === 2) { sticker(() => earth(0, 0, W * .25, lt, { face: 'o' }), 8); GAG.sweat(W * .2, -W * .2, 50 * u, lt); GAG.sweat(-W * .22, -W * .1, 40 * u, lt + .5); }
-      ctx.restore(); sign(['A HOLIDAY FOR YOUR LEGS', 'A SLOW BILL FOR YOUR BODY', 'A REAL PROBLEM FOR THE PLANET'][s], W / 2, H * .76 - H * .04, 32 * u, lt, t[s] + .3, { bg: '#26233A', col: '#FFC93C' }); });
+      ctx.restore(); sign(['A HOLIDAY FOR YOUR LEGS', 'A SLOW BILL FOR YOUR BODY', 'A REAL PROBLEM FOR THE PLANET'][s], W / 2, H * .68, 32 * u, lt, t[s] + .3, { bg: '#26233A', col: '#FFC93C' }); });
     title(o, lt, 0); fin(lt, .3); } }; };
 
   // ================================================================ S39 x_gh_outro — morning: an alarm, he heaves himself out of bed (heavy!), stands, stretches and smiles at the Sun in the window → the light goes out: one big eye opens in the dark — next time
