@@ -33,6 +33,18 @@ word / push2 and wipe along the argument / GL shaders where the meaning fits (gl
 glDirectionalWarp up the mountain, glSwirl for the snapping string, glCircleOpen for the answer) / dissolve when time passes /
 fade only into chapter cards. Montage: none needed beyond S28–S30 (air → kettle → village), a match cut at S10, S19, S29.
 
+## v2 (owner, 10 Nov 2026: "a real cartoon, every scene its own design, varied 2D camera angles") — the build per shot
+VO unchanged. Every shot is an animated scene with an in-scene camera rig (IFM.GH.rig); BUILD per shot:
+S01 x_gh_cold (top-down scale → low-angle launch → CU balloon → EWS Sun string snaps) · S02 x_gh_hook (wide street, dial drops → low
+angle leaps overhead) · S03 x_gh_station (EWS over Earth → CU visor) · S04 x_gh_kelly (ECU heart → pull back to treadmill runner) ·
+S05 x_gh_promise (strip of three living panels) · S06/S14/S25/S31 x_gh_chapter v=spring|stairs|balloon|sun · S07 x_gh_scale (walk-in
+→ giant CU take → low close receipt → pull back hop) · S08 x_gh_jump (low angle, tilt up) · S09 x_gh_trolley (top-down aisle → CU
+bump) · S10 x_gh_moon (tracking hops + kangaroo → EWS) · S11 x_gh_treadmill (CU display → two treadmills → push in) · S12 x_gh_rocket
+(over the crowd, tilt up with the rocket) · S13 x_gh_holiday (top-down beach → CU face) · S15 x_gh_xray · S16 x_gh_months · S17
+x_gh_landing · S18 x_gh_muscle · S19 x_gh_body · S20 x_gh_road · S21 x_gh_centrifuge · S22 x_gh_mousegym · S23 x_gh_guess · S24
+x_gh_lookup · S26 x_gh_airstack · S27 x_gh_climb · S28 x_gh_breath · S29 x_gh_tea · S30 x_gh_village · S32 x_gh_orbit · S33
+x_gh_gauge · S34 x_gh_snap · S35 x_gh_star · S36 x_gh_freeze · S37 x_gh_promise (recap labels) · S38 x_gh_answer · S39 x_gh_outro.
+
 ## Shots
 
 ### S01 · HOOK COLD OPEN
