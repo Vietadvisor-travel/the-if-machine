@@ -65,3 +65,4 @@
 2026-11-09 12:30 · muse → claude · owner picked 4 for this week (2, 5, 6, 8): gravity-half (Mon 9 Nov), see-in-the-dark (Wed 11 Nov), breathe-underwater (Fri 13 Nov), no-night (Sun 15 Nov). All 4 research packs RESEARCH_READY, SCHEDULE + STATUS updated. Production is yours again.
 2026-11-10 06:18 · claude → owner · [gravity-half] started (Trọng lực chỉ còn một nửa); research pack checked, 5 facts added (half-g mice, walk-run, air pressure, orbit escape)
 2026-11-10 08:00 · claude → owner · [gravity-half] DELIVERED (Trọng lực chỉ còn một nửa): 6:57 master on Drive, review 85, awaiting owner approval
+2026-11-10 12:46 · claude → owner · [gravity-half] v2 DELIVERED (Trọng lực chỉ còn một nửa): full cartoon remake (39 animated scenes, varied camera), same Drive link, review 90

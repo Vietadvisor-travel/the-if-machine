@@ -1,8 +1,8 @@
-# Delivery — Trọng lực chỉ còn một nửa (gravity-half) · RUN #4 · 2026-11-10
+# Delivery — Trọng lực chỉ còn một nửa (gravity-half) · RUN #4 · v2 · 2026-11-10
 
 ## Files (Drive TheIfMachine_Media/gravity-half/)
-- gravity-half_vertical_9x16.mp4 · 6:57 · 1080x1920 · 25 fps · 454 MB master — https://drive.google.com/file/d/1ml89IBLgXYp48vj5DQUwKHJfMIpPES2U/view
-- gravity-half_cover.jpg · 232K · 1080x1920 (cover frame t=62 s, S07 the bathroom scale at 35 KG, "HALF THE WEIGHT")
+- gravity-half_vertical_9x16.mp4 · 6:57 · 1080x1920 · 25 fps · 621 MB master (v2, replaced v1 at the same link, 10 Nov 12:45 UTC) — https://drive.google.com/file/d/1ml89IBLgXYp48vj5DQUwKHJfMIpPES2U/view
+- gravity-half_cover.jpg · 228K · 1080x1920 (cover frame t=44 s, S07 the giant close-up take on the scale)
 - gravity-half.srt (English) · 12K
 - gravity-half_stories.zip · 24K
 
@@ -10,7 +10,8 @@
 - Voices: af_heart (narrator, Kokoro, Apache-2.0). No quote/legend lines in this episode.
 - Music credits (CC BY lines go in the YouTube description): "Easy Lemon", "Aftermath", "Airship Serenity", "Andreas Theme" — Kevin MacLeod (incompetech.com), CC BY 4.0 · "Infinite Wonder" — FreePD, CC0 1.0.
 - Illustrations: OpenMoji (openmoji.org), CC BY-SA 4.0 (a few kit icons); everything else drawn in code (IF CREW).
-- Gates: script_check PASS · gate: lint 0 errors (9:16), review 85/100, render cost max 665 ms · variety PASS after fixes · preflight OK · qa.py round 2 (417 frames, 7 sheets) read, fixes applied and re-rendered · sound −16.0 LUFS, TP −4.09 dBTP.
+- v2 (owner, 10 Nov: v1 was static pictures with text — "make it a real cartoon, every scene designed, varied 2D camera angles, wow"): all 39 scenes rebuilt as animated shots with an in-scene camera rig (top-down, low angle, close-ups, extreme wides, cuts), crew walk cycles, actions on every line; the VO and the mix are unchanged.
+- Gates (v2): script_check PASS · variety PASS · review 90/100 · lint 0 errors (9:16) · render cost median 235 ms, max 647 ms · preflight OK · QA round 2 from the rendered file (417 frames, 6 sheets) read; two text overlaps on captions fixed and re-rendered · sound −16.0 LUFS, TP −4.09 dBTP.
 - Length: 6:57 (vertical 9:16).
 
 ## Facts on screen (each with its source from the research pack)
@@ -32,7 +33,7 @@
 - The two sfx= cues in the story did not land in the mix (sound design reported 0 events): the film has the music bed only.
 - S30 (people adapt) uses the OpenMoji mountain, the plainest picture in the film.
 - The 29 MB _FINAL file is only the chat-size preview; the master on Drive is the full-quality file.
-- Engine changes this episode: ex_stat dec=, 3 new gags in cast.js, preflight now accepts GL transitions and PX drawn names (CHANGELOG).
+- Engine changes this episode (CHANGELOG): crew walk/run cycles (walk=, stride=, tuck=), IFM.CAST.kit exported, an in-scene camera rig (IFM.GH.rig), sticker() 4x cheaper (all episodes; same look), ex_stat dec=, 3 new gags, preflight accepts GL transitions and PX drawn names.
 
 ## For Muse
 - Title options: 1) What If Gravity Were Only Half as Strong? (used) 2) Half Gravity: Jump Higher, Fall Apart? 3) What Half Gravity Would Do to Your Body (and the Sun)
