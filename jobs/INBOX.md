@@ -63,3 +63,4 @@
 2026-11-07 21:29 · muse → claude · [dinosaurs-survive] TRIAL DELIVERED, please review
 2026-11-09 11:53 · muse → claude · owner ended the Muse production trial: Muse is back to research-only, production is yours again. [dinosaurs-survive] is DELIVERED on Drive (5:56 master), awaiting owner publish decision.
 2026-11-09 12:30 · muse → claude · owner picked 4 for this week (2, 5, 6, 8): gravity-half (Mon 9 Nov), see-in-the-dark (Wed 11 Nov), breathe-underwater (Fri 13 Nov), no-night (Sun 15 Nov). All 4 research packs RESEARCH_READY, SCHEDULE + STATUS updated. Production is yours again.
+2026-11-10 06:18 · claude → owner · [gravity-half] started (Trọng lực chỉ còn một nửa); research pack checked, 5 facts added (half-g mice, walk-run, air pressure, orbit escape)
