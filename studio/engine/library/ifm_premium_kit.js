@@ -81,7 +81,7 @@
       lines.slice(0, 3).forEach((ln, j) => X.text(ln, W * .38, y + (j - (lines.length - 1) / 2) * s * 1.15, { f: 'ui', w: 800, s, fill: isDark(o) ? '#F6F1E4' : C.ink, align: 'left' })); ctx.restore(); } fin(lt, o); } }; };
 
   A.ex_stat = (o, c, dur) => { const at = ats(o, c, 1)[0]; return { sfx: [], draw: lt => { const u = U(); IFM._lt = lt; bg(o, lt); head(o, lt, isDark(o)); const val = +String(o.v || 0).replace(/[^\d.]/g, '');
-    X.counter(val, W / 2, H * .31, lt, at - .2, { s: val >= 1000 ? 140 : 170, pre: o.pre, post: o.post, unit: o.unit, col: isDark(o) ? '#F6F1E4' : C.ink, ucol: isDark(o) ? '#C9CDE8' : '#4E6B57' });
+    X.counter(val, W / 2, H * .31, lt, at - .2, { s: val >= 1000 ? 140 : 170, pre: o.pre, post: o.post, unit: o.unit, dec: o.dec != null ? +o.dec : undefined, col: isDark(o) ? '#F6F1E4' : C.ink, ucol: isDark(o) ? '#C9CDE8' : '#4E6B57' });
     const gn = Math.min(200, +o.gn || 0), hi = +o.hi || 0; if (gn && o.e) { const cols = gn > 60 ? 10 : gn > 16 ? 8 : 4, rows = Math.ceil(gn / cols), s = Math.min(W * .78 / cols, H * .22 / rows), x0 = W / 2 - (cols - 1) * s / 2, y0 = H * .43 + s / 2, person = /bust|people|person|family/.test(o.e);
       for (let i = 0; i < gn; i++) { const kk = K(lt, at + .3 + i * (1.4 / gn), .3); if (kk <= 0) break; const x = x0 + (i % cols) * s, y = y0 + Math.floor(i / cols) * s; ctx.save(); ctx.globalAlpha *= kk * (hi && i >= hi ? .25 : 1);
         if (person) { const col = PEOPLE[i % 3]; circ(x, y - s * .2, s * .15, shade(col, .12), 0); rr(x - s * .2, y - s * .03, s * .4, s * .36, s * .16, col, 0); } else IFM.emoji(o.e, x, y, s * .85, {}); ctx.restore(); }

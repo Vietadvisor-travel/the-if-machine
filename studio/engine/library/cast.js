@@ -336,7 +336,26 @@
     ctx.save(); ctx.shadowColor = 'rgba(10,20,14,.25)'; ctx.shadowBlur = 12 * u; ctx.shadowOffsetY = 4 * u; rectF(-w / 2, -h / 2, w, h, h * .18, '#FFF3D6', { plane: 0 }); ctx.restore();
     ctx.save(); ctx.strokeStyle = '#C9A44C'; ctx.lineWidth = 2 * u; ctx.setLineDash([4 * u, 5 * u]); ctx.beginPath(); ctx.moveTo(-w * .28, -h / 2 + 4 * u); ctx.lineTo(-w * .28, h / 2 - 4 * u); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
     ctx.save(); ctx.fillStyle = '#E63950'; ctx.font = `400 ${h * .34}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('★', -w * .38, 0); ctx.fillStyle = INK; ctx.font = `700 ${h * .26}px "Space Mono", monospace`; ctx.fillText(txt, w * .08, 0); ctx.restore(); ctx.restore(); }
-  const GAG = { zing, sweat, marks, speed, legcoin, meltnote, cowtie, weirdIffy, waitcal, crown, ticket };
+  // ---- gravity-half gags (owner rule: 2–3 new gags per episode, each a visual metaphor of its line)
+  // a bathroom scale that prints a little receipt reading -50 % (weight halves); x, y = the slot, w = the paper width, k = 0..1 how far it has curled out
+  function receipt(x, y, w, lt, k = 1, txt = '−50 %') { const u = U(), h = w * 1.5 * clamp(k); if (h <= 1) return; ctx.save(); ctx.translate(x, y); ctx.rotate(-.08 + Math.sin(lt * 2.2) * .03);
+    ctx.save(); ctx.shadowColor = 'rgba(10,20,14,.22)'; ctx.shadowBlur = 10 * u; ctx.shadowOffsetY = 4 * u; F(() => { ctx.moveTo(-w / 2, 0); ctx.lineTo(w / 2, 0); ctx.lineTo(w / 2, -h); for (let i = 0; i <= 6; i++) ctx.lineTo(w / 2 - i * w / 6, -h + (i % 2 ? w * .06 : 0)); ctx.closePath(); }, '#FFFDF4', [-w / 2, -h, w, h], { plane: 0 }); ctx.restore();
+    if (k > .55) { ctx.save(); ctx.globalAlpha = clamp((k - .55) / .3); ctx.fillStyle = '#E63950'; ctx.font = `400 ${w * .3}px "Paytone One"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(txt, 0, -h * .62); ctx.fillStyle = INK; ctx.font = `700 ${w * .12}px "Space Mono", monospace`; ctx.fillText('THANK YOU', 0, -h * .3); ctx.restore(); }
+    ctx.restore(); }
+  // a dumbbell labelled GRAVITY that grows tiny wings and floats away (the workout leaves); x, y = centre, s = width
+  function floatbell(x, y, s, lt, txt = 'GRAVITY') { const u = U(), fl = Math.sin(lt * 14) * .5; ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(lt * 1.7) * .08);
+    [-1, 1].forEach(sd => { ctx.save(); ctx.translate(sd * s * .12, -s * .1); ctx.rotate(sd * (-.5 + fl)); ovalF(sd * s * .12, -s * .06, s * .14, s * .07, '#FFFFFF', { plane: .3, rot: sd * .3 }); ctx.restore(); });
+    rectF(-s * .36, -s * .03, s * .72, s * .06, s * .03, '#9AA3B5', { plane: .4 });
+    [-1, 1].forEach(sd => { rectF(sd * s * .36 - s * .07, -s * .16, s * .14, s * .32, s * .04, '#3D3D5C', { plane: .5 }); rectF(sd * s * .48 - s * .05, -s * .12, s * .1, s * .24, s * .03, '#4A4A6E', { plane: .5 }); });
+    ctx.fillStyle = '#FFC93C'; ctx.font = `700 ${s * .09}px "Space Mono", monospace`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(txt, 0, s * .1); ctx.restore(); }
+  // a teabag with a deadpan face hanging out of a mug (lukewarm tea at 81 °C); x, y = the mug rim, s = mug width
+  function sadtea(x, y, s, lt, stare = 1) { const u = U(), sw = Math.sin(lt * 1.4) * s * .02; ctx.save(); ctx.translate(x, y);
+    rectF(-s / 2, 0, s, s * .8, s * .14, '#F4EEDC', { plane: .5 }); ctx.save(); ctx.lineWidth = s * .08; ctx.strokeStyle = '#E3D9C2'; ctx.beginPath(); ctx.arc(s * .5, s * .38, s * .18, -1.3, 1.3); ctx.stroke(); ctx.restore();
+    ovalF(0, s * .04, s * .44, s * .06, '#B5743C', { plane: 0 });
+    line(s * .12, s * .02, s * .26 + sw, -s * .32, 2 * u, '#E3D9C2'); rectF(s * .2 + sw, -s * .62, s * .32, s * .34, s * .05, '#C99A5E', { plane: .4 });
+    const ex = s * .36 + sw, ey = -s * .48; rectF(ex - s * .09, ey - s * .02, s * .06, s * .02 + s * .025 * (1 - stare * .4), s * .01, INK, { plane: 0 }); rectF(ex + s * .03, ey - s * .02, s * .06, s * .02 + s * .025 * (1 - stare * .4), s * .01, INK, { plane: 0 });
+    rectF(ex - s * .06, ey + s * .07, s * .12, s * .018, s * .009, INK, { plane: 0 }); ctx.restore(); }
+  const GAG = { zing, sweat, marks, speed, legcoin, meltnote, cowtie, weirdIffy, waitcal, crown, ticket, receipt, floatbell, sadtea };
   const SC = {
     lineup(lt) { burst('#FF7A45', '#FFC48A'); [[.82, .3, 22], [.9, .38, 14], [.12, .26, 16]].forEach(([x, y, s], k) => sparkle(W * x, H * y, s * U(), lt, k)); title(['MEET THE', 'IF CREW'], 1, 'THE IF MACHINE', 1);
       draw('prof', W * .22, H * .6, H * .3, lt, { keys: [[0, 'shrug', 'laugh']] }); draw('beard', W * .52, H * .58, H * .32, lt, { keys: [[0, 'crossed', 'smirk']] }); draw('hijab', W * .8, H * .6, H * .29, lt, { keys: [[0, 'point', 'wink']], flip: 1 });

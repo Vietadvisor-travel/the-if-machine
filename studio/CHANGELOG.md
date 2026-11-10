@@ -1,5 +1,10 @@
 # Motion Studio — changelog
 
+## 2026-11-10 · gravity-half: ex_stat dec=, three new gags
+- `ex_stat` takes `dec=` (decimals of the counter): `v=1.5 dec=1` shows 1.5, not 1.50. Tested on stories/gravity-half.story (S16).
+- New IF CREW gags in `engine/library/cast.js` (GAG): `receipt` (a bathroom scale prints a −50 % receipt), `floatbell` (a dumbbell
+  labelled GRAVITY grows wings and floats off), `sadtea` (a deadpan teabag in lukewarm tea). Used in bank/gravity-half.js.
+
 ## 2026-11-05 · no bare scenes: places, foregrounds, stage dressing, a detail measure
 Owner: "don't build sketchy scenes; every scene needs details and a lively, visual composition that fits the content; assets supplement,
 they are not the only thing".
