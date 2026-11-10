@@ -8,7 +8,8 @@
   const { ovalF, rectF, polyF, tube } = IFM.CAST, GAG = IFM.CAST.GAG, CREW = IFM.CAST.draw;
   const INK = '#26233A', GOLD = '#F2B33D', CREAM = '#F6F1E4';
   const GY = () => H * .68;
-  const head = (o, lt, dark) => { if (o.kick) X.kicker(o.kick, W / 2, H * .115, lt, .05, { col: dark ? C.gold2 : C.goldD }); if (o.head) X.headline(o.head, W / 2, H * .195, lt, .2, { s: +o.hs || 58, maxW: .7, col: dark ? CREAM : C.ink, hi: dark ? C.gold2 : C.gold, shadow: dark ? 'rgba(0,0,0,.4)' : null }); };
+  const head = (o, lt, dark) => { const cs = IFM.camState || { x: 0, y: 0, z: 1 }, z = cs.z || 1; ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(1 / z, 1 / z); ctx.translate(-W / 2 - (cs.x || 0), -H / 2 - (cs.y || 0)); head0(o, lt, dark); ctx.restore(); };
+  const head0 = (o, lt, dark) => { if (o.hk) X.kicker(o.hk, W / 2, H * .115, lt, .05, { col: dark ? C.gold2 : C.goldD }); if (o.hh) X.headline(o.hh, W / 2, H * .195, lt, .2, { s: +o.hs || 58, maxW: .7, col: dark ? CREAM : C.ink, hi: dark ? C.gold2 : C.gold, shadow: dark ? 'rgba(0,0,0,.4)' : null }); };
   const lbl = (t, x, y, s, col = INK, f = 'mono', w = 700) => X.text(t, x, y, { f, w, s: s * U(), fill: col });
   const pill = (t, x, y, lt, at, o = {}) => { const k = KB(lt, at, .6); if (k <= 0) return; const u = U(), s = (o.s || 30) * u; ctx.save(); ctx.translate(x, y); ctx.scale(k, k);
     ctx.font = `700 ${s}px "Space Mono", monospace`; const tw = ctx.measureText(t).width + s * 1.4; ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.28)'; ctx.shadowBlur = 14 * u; ctx.shadowOffsetY = 5 * u;
