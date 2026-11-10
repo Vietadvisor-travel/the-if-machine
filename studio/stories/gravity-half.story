@@ -14,7 +14,7 @@ sources: jobs/research/gravity-half.md — F1 Moon 1/6 g · F2 bone 1–1.5 %/mo
 // Director's script: jobs/scripts/gravity-half.md (S01–S39). One beat per shot, VO verbatim, one smooth camera move per shot.
 
 // S01 SUBJECT: the cold open — a bathroom scale, a spring, a balloon, the Earth, one punch per line, then gold dust
-# vis kind=w act=ex_cold w="HALF YOUR|*WEIGHT.*;TWICE YOUR|*JUMP.*;HALF THE|*AIR.*;AND THE SUN|*LETS GO.*" items="bathroom scale|spring|balloon|earth" end="WHAT IF GRAVITY WERE HALF?" cam=MS.eye.static hook=1 pause=.8
+# vis kind=w act=ex_cold e="bathroom scale" w="HALF YOUR|*WEIGHT.*;TWICE YOUR|*JUMP.*;HALF THE|*AIR.*;AND THE SUN|*LETS GO.*" items="bathroom scale|spring|balloon|earth" end="WHAT IF GRAVITY WERE HALF?" cam=MS.eye.static hook=1 pause=.8
 Half your weight.
 Twice your jump.
 Half the air.
@@ -32,9 +32,10 @@ But we already know what too little gravity does to a body,
 because astronauts live it every day on the space station.
 
 // S04 SUBJECT: a heart on a lit card beating and slowly shrinking, −0.74 g a week
-# vis kind=w act=x_gh_iss v=heart kick="SCOTT KELLY · 340 DAYS IN SPACE" head="THE HEART *SHRANK*" cam=MCU.eye.push trans=zoomthru tc=.52,.46 tc2=.5,.44 then="cam=CU.eye.static@2"
+# vis kind=w act=x_gh_iss v=heart same=ok kick="SCOTT KELLY · 340 DAYS IN SPACE" head="THE HEART *SHRANK*" cam=MCU.eye.push trans=zoomthru tc=.52,.46 tc2=.5,.44 then="cam=CU.eye.static@2"
 Scott Kelly spent 340 days up there,
-and the main pumping chamber of his heart lost about three quarters of a gram every week,
+and the main pumping chamber of his heart
+lost about three quarters of a gram every week,
 even though he exercised six days a week.
 
 // S05 SUBJECT: three numbered cards — what you gain, what it takes, what it does to the planet
@@ -75,12 +76,14 @@ gave up on normal steps and loped, skipped and hopped like kangaroos instead.
 # vis kind=w act=ex_compare place=lab e="pedestrian|runner" l="EARTH: ~7 KM/H|HALF G: ~5 KM/H" sign="→" kick="KRAM ET AL. · 1997" title="WALK → *RUN*" cam=MS.eye.trackR trans=wipe then="cam=WS.high.static@2"
 Lab studies with people in harnesses found that in weaker gravity,
 we switch from walking to running at slower speeds,
-so at half gravity you would break into a run at about seven tenths of today's pace.
+so at half gravity you would break into a run
+at about seven tenths of today's pace.
 
 // S12 SUBJECT: a rocket lifting off at dawn — 7.9 KM/S crossed out, 5.6 KM/S lit
 # vis kind=w act=x_gh_rocket kick="THE SPEED TO STAY IN ORBIT" head="SPACE GETS *CHEAPER*" cam=WS.low.crane trans=glCrossWarp then="cam=MS.eye.static@2" sfx=ifm_motion_whoosh_airy@1
 Even rockets get a break,
-because the speed you need to stay in orbit would fall from about 7.9 to about 5.6 kilometres a second,
+because the speed you need to stay in orbit
+would fall from about 7.9 to about 5.6 kilometres a second,
 which makes space far cheaper to reach.
 
 // S13 SUBJECT: a woman on a sunny stage relaxing, then thinking, worried
@@ -102,7 +105,8 @@ the body starts taking apart bone it no longer seems to need.
 
 // S16 SUBJECT: the number 1.5 % a month, big, beside a bone
 # vis kind=w act=ex_stat place=lab v=1.5 dec=1 unit="% of bone density a month" e=bone kick="NASA · LONG MISSIONS" title="EVERY *MONTH*" cam=MS.eye.pull trans=push2 then="cam=WS.eye.static@2"
-On long space missions, astronauts have lost about one to one and a half percent of their bone density every month,
+On long space missions, astronauts have lost
+about one to one and a half percent of their bone density every month,
 mostly in the hips, legs and spine.
 
 // S17 SUBJECT: a grid of 17 people, 9 of them highlighted — not recovered a year later
@@ -136,7 +140,7 @@ when Japan's space agency spun them in a centrifuge on the space station,
 for about a month, at four different levels of gravity.
 
 // S22 SUBJECT: two mice — 2/3 g flexing, strong; 1/3 g slumped, weaker
-# vis kind=w act=x_gh_mice v=result kick="THE RESULT · 2026" head="TWO THIRDS *HELD*" cam=MS.eye.trackL trans=push2 then="cam=MCU.eye.static@1"
+# vis kind=w act=x_gh_mice v=result same=ok kick="THE RESULT · 2026" head="TWO THIRDS *HELD*" cam=MS.eye.trackL trans=push2 then="cam=MCU.eye.static@1"
 At two thirds of Earth's gravity, their muscles stayed strong,
 while at one third, the loss slowed down,
 but their muscles still got weaker.
@@ -160,13 +164,15 @@ and that air has weight of its own.
 
 // S26 SUBJECT: a woman under a tall column of stacked air blocks; the blocks lighten and the pressure dial drops from 1 to ½
 # vis kind=w act=x_gh_air v=stack kick="AIR PRESSURE = THE WEIGHT OF AIR" head="THE WEIGHT|OF *AIR*" cam=WS.low.tilt trans=morph tc=.5,.4 tc2=.5,.3 tr1=.1 tr2=.2 then="cam=MS.eye.push@2"
-The pressure you feel at sea level is simply the weight of all the air stacked above you,
+The pressure you feel at sea level
+is simply the weight of all the air stacked above you,
 so if that air weighed half as much,
 the pressure at the ground would drop to about half.
 
 // S27 SUBJECT: a snowy mountain with a dashed line at 5,500 m, a climber resting by a tent on the line
 # vis kind=w act=x_gh_mountain kick="TODAY, AIR THAT THIN IS UP HERE" head="LIKE LIVING AT|*5,500 M*" cam=EWS.low.crane trans=glDirectionalWarp then="cam=MS.eye.static@2"
-Today you only find air that thin about five and a half kilometres up, higher than any town on Earth,
+Today you only find air that thin about five and a half kilometres up,
+higher than any town on Earth,
 where most people feel short of breath,
 and climbers stop for days to let their bodies adjust.
 
@@ -220,7 +226,8 @@ and our Moon would be in the same position around the Earth.
 # vis kind=w act=x_gh_freeze kick="IF EARTH ESCAPED" head="THE DANGER IS|IN THE *SKY*" cam=WS.eye.static trans=dissolve pause=1 then="cam=MS.low.push@2"
 If Earth escaped, the Sun would shrink in the sky year by year,
 and the oceans would slowly freeze over,
-which is why the real danger of half gravity is not in your bones, it is in the sky.
+which is why the real danger of half gravity is not in your bones,
+it is in the sky.
 
 // S37 SUBJECT: a numbered recap of three ideas — a spring, a bone, the Sun
 # vis kind=w act=ex_list place=classroom n=1 e="spring|bone|gh sun" l="Twice the jump|The body shrinks to match|The air and the orbit change" kick="THE RECAP" title="SO, WHAT|*HAPPENS?*" cam=MS.eye.pull trans=wipe pause=1 then="cam=WS.high.static@1|cam=MS.eye.pull@3"

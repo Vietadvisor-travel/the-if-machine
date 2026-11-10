@@ -93,7 +93,7 @@
     room('#DCE3EC', '#C3CCD8', '#AEB8C6', 'iss', () => { ctx.strokeStyle = 'rgba(60,70,90,.12)'; ctx.lineWidth = 3; for (let i = 1; i < 6; i++) { ctx.beginPath(); ctx.moveTo(W * i / 6, 0); ctx.lineTo(W * i / 6, H); ctx.stroke(); } });
     const pen = Math.sin(lt * .8); ctx.save(); ctx.translate(W * .84, H * .3 + pen * H * .02); ctx.rotate(lt * .3); rectF(-W * .05, -6 * u, W * .1, 12 * u, 6 * u, '#3E8EDE', { plane: .3 }); ctx.restore();
     ctx.save(); ctx.shadowColor = 'rgba(30,40,60,.3)'; ctx.shadowBlur = 30 * u; ctx.shadowOffsetY = 10 * u; rectF(W * .12, H * .28, W * .76, H * .38, 28 * u, '#FFFDF4', { plane: 0 }); ctx.restore();
-    const shrink = 1 - .15 * E.inOut(clamp((lt - 1) / Math.max(2, dur - 2))), beat = 1 + .05 * Math.max(0, Math.sin(lt * 7)) ; heart(W / 2, H * .44, W * .3 * shrink * beat);
+    X.motes && X.motes(lt); const shrink = 1 - .15 * E.inOut(clamp((lt - 1) / Math.max(2, dur - 2))), beat = 1 + .05 * Math.max(0, Math.sin(lt * 7)) ; heart(W / 2, H * .44, W * .3 * shrink * beat);
     if (lt > t1) pill('340 DAYS', W * .3, H * .32, lt, t1, { s: 24 }); if (lt > t2) X.counter(0.74, W / 2, H * .55, lt, t2, { s: 64, pre: '−', unit: 'G A WEEK', dec: 2, col: INK });
     if (lt > t3) pill('6 DAYS A WEEK OF EXERCISE', W / 2, H * .625, lt, t3, { s: 22, bg: '#26233A', col: CREAM });
     head(o, lt, false); X.finish(lt, { vig: .25 }); } }; };
