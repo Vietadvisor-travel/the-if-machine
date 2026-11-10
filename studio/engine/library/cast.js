@@ -225,7 +225,11 @@
     const r = h * .2, legL = h * .15, tH = h * .27, tW = h * .3 * b; ctx.save(); ctx.translate(x, y); if (o.flip) ctx.scale(-1, 1);
     ctx.save(); ctx.globalAlpha = .16; ell(0, 0, h * .24 * b, h * .035, '#1B1530', 0); ctx.restore();
     // legs: short, slightly apart; rounded shoes pointing toward the facing side
-    [-1, 1].forEach(sd => { limb(sd * tW * .2, -legL - h * .02, sd * tW * .22, -h * .05, h * .1, h * .085, C.pants); flat(() => ctx.roundRect(sd * tW * .22 - h * .06 + h * .02, -h * .075, h * .14, h * .075, h * .037), C.shoes, [sd * tW * .22 - h * .05, -h * .075, h * .14, h * .075], .14); });
+    // o.walk = a phase in radians (walk/run cycle: feet swing and lift, body bobs); o.stride scales the step (1 walk, 1.8 run); o.tuck = legs pulled up in a jump
+    const wk = o.walk != null, st = (o.stride || 1) * h * .075, tk = o.tuck || 0;
+    [-1, 1].forEach(sd => { const ph = wk ? o.walk + (sd > 0 ? Math.PI : 0) : 0, fx = wk ? Math.sin(ph) * st : 0, fy = wk ? -Math.max(0, Math.cos(ph)) * st * .55 : 0, ty = -tk * h * .09;
+      limb(sd * tW * .2, -legL - h * .02, sd * tW * .22 + fx, -h * .05 + fy + ty, h * .1, h * .085, C.pants); flat(() => ctx.roundRect(sd * tW * .22 - h * .06 + h * .02 + fx, -h * .075 + fy + ty, h * .14, h * .075, h * .037), C.shoes, [sd * tW * .22 - h * .05 + fx, -h * .075 + fy + ty, h * .14, h * .075], .14); });
+    if (wk) ctx.translate(0, -Math.abs(Math.sin(o.walk)) * h * .018 * (o.stride || 1));
     ctx.save(); ctx.translate(0, -legL); ctx.rotate(P.lean); ctx.scale(1, 1 + (P.sq || 0) + breath);
     const neckY = -tH, shY = neckY + h * .05, upA = h * .13, foA = h * .12;
     const arm = sd => { const a = sd < 0 ? P.aL : P.aR, f = (sd < 0 ? P.fL : P.fR) + (sd > 0 ? wave : 0), sx = sd * tW * .42, ex = sx + sd * Math.sin(a) * upA, ey = shY + Math.cos(a) * upA, hx = ex + sd * Math.sin(f) * foA, hy = ey + Math.cos(f) * foA;
@@ -476,5 +480,7 @@
     if (props.includes('iffy') || props.includes('weird')) sticker(() => (props.includes('weird') ? weirdIffy : iffy)(W * .84, H * .4, W * .12, lt, { expr: o.iffy || 'happy' }));
     if (o.set !== 'stage') bush(-W * .02, H * 1.0, W * .28); const T = String(o.title || '').split('|').filter(Boolean); if (T.length) title(T.map(t => t.replace(/\*/g, '')), T.findIndex(t => t.includes('*')), o.kick, o.set === 'stage'); } }; };
   A.x_cast = (o, c, dur) => ({ sfx: [], draw: lt => (SC[o.v] || SC.lineup)(lt) });
-  IFM.CAST = { SC, title, draw, iffy, GAG, CAST, POSE, FACE, props: { coin, note, cow, sack, shoe, bubble, building, shop, clock }, F, ovalF, rectF, polyF, tube };
+  IFM.CAST = { SC, title, draw, iffy, GAG, CAST, POSE, FACE, props: { coin, note, cow, sack, shoe, bubble, building, shop, clock }, F, ovalF, rectF, polyF, tube,
+    // the world kit for episode scenes (same language as the demos): backgrounds, places, stickers, flat shapes
+    kit: { flat, fo, limb, mitten, sticker, burst, sparkle, sky, floor, haze, cloud, tree, bush, lamp, facade, road, stall, hills, bunting, cache, coin, note, INK, MOUTH } };
 })();
