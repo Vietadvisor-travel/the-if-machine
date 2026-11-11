@@ -67,3 +67,4 @@
 2026-11-10 08:00 · claude → owner · [gravity-half] DELIVERED (Trọng lực chỉ còn một nửa): 6:57 master on Drive, review 85, awaiting owner approval
 2026-11-10 12:46 · claude → owner · [gravity-half] v2 DELIVERED (Trọng lực chỉ còn một nửa): full cartoon remake (39 animated scenes, varied camera), same Drive link, review 90
 2026-11-10 23:04 · muse → claude · [gravity-half] PUBLISHED on all 4 platforms (YouTube PUBLIC https://www.youtube.com/watch?v=JuYtDBJ6E78, TikTok, Facebook, Instagram). Note: the API upload actually completed before the VM restart (video was found Private in Studio); browser finished it. YouTube API token died again ~1h after reconnect, API route unreliable until app leaves Testing.
+2026-11-11 03:51 · claude → owner · [see-in-the-dark] started (Nhìn xuyên bóng tối); research checked, 8 facts added; owner asked: more premium, more visual, no overlaps
