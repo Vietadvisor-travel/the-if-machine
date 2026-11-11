@@ -1,5 +1,18 @@
 # Motion Studio — changelog
 
+## 2026-11-11 (night) · the listening pass: music that survives a phone, a steadier voice, light foley
+Owner: "what else would make the audio and the voice better? … do whatever is within reach."
+- sound_design.py MINIMAL (IFM): music bed −19.5 → −16.5 dB under a −13 dB duck, and an EQ that keeps it audible on phone
+  speakers (HPF 70, low shelf −2.5 dB @140, +1.5 dB @900, −2 dB @2.5 k so it never fights the voice). Tested on
+  see-in-the-dark: phone-band music drop 8.4 dB (FAIL) → 5.8 dB (ok), master −16.0 LUFS, TP −3.9.
+- VO: a slow leveller (1.6:1, 250 ms / 1.2 s) before the fast compressor, so quiet and loud lines sit at one level.
+- voice.py: a short punchline (≤ 6 words) after a held `…` is read at ×0.92 speed (lands instead of rushing).
+- `sfx=name@k` (at caption k of the beat) and `sfx=name@2.5s` (seconds into the beat) were silently dropped by the mixer,
+  which only knew `offset:name[:gain[:pan]]`; both forms now work (the old form still does).
+- Header `sound: light` = light cartoon foley: `sfx=` cues may come every 4 s instead of the 30 s minimal gap. Use soft
+  names (cartoon_pop, cartoon_plop, cartoon_boing, cartoon_spring, ifm_motion_pop, ui_tick); whoosh/riser/amb names are still
+  removed in calm mode.
+
 ## 2026-11-11 (later) · the opening is the title question; *word* stresses the voice
 Owner: "from now on drop the scenes at the start: the hook scene must be the scene of the title question; can the voice stress
 and intone each line properly?"

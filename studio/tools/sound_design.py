@@ -687,7 +687,12 @@ def collect(C, beats, D):
     else: evs += legacy_events(C)
     for i, sc in enumerate(scenes):
         bt, o = beats[i] if i < len(beats) else ('end', {})
+        subs_i = [sb for sb in C.get('subs', []) if sc['start'] - .01 <= sb.get('t0', -1) < sc['start'] + sc.get('dur', 1e9) - .01]
         for item in filter(None, (o.get('sfx') or '').split('|')):
+            m = re.match(r'^\s*([\w-]+)@(\d+(?:\.\d+)?)(s?)\s*$', item)
+            if m:   # the story form (EPISODE.md): name@k = at caption k of this beat · name@2.5s = 2.5 s into the beat (fixed 11 Nov 2026: was silently dropped)
+                t = sc['start'] + float(m.group(2)) if m.group(3) else (subs_i[int(float(m.group(2)))]['t0'] if int(float(m.group(2))) < len(subs_i) else sc['start'] + .5)
+                evs.append(Ev(t, 'explicit', i, {'name': m.group(1), 'gain': .45, 'pan': 0.}, 'explicit')); continue
             p = item.split(':')
             try: evs.append(Ev(sc['start'] + float(p[0]), 'explicit', i, {'name': p[1], 'gain': float(p[2]) if len(p) > 2 else .5, 'pan': float(p[3]) if len(p) > 3 else 0.}, 'explicit'))
             except (ValueError, IndexError): print('warn: bad sfx cue', item)
@@ -1128,7 +1133,7 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     # one-shots a beat asks for with sfx= (max one per 30 s), music lower under the voice, master at −16 LUFS.
     global MINIMAL; MINIMAL = ifm and not re.search(r'^\s*sound\s*:\s*full\b', _st, re.M | re.I)
     if MINIMAL and lufs is None and 'lufs' not in D: target = -16.
-    if MINIMAL: D = {**{'music_db': -19.5, 'duck_db': -14., 'stingers': False}, **D}; stingers = False     # both use the real-track music library (tools/music_lib.py)
+    if MINIMAL: D = {**{'music_db': -16.5, 'duck_db': -13., 'stingers': False}, **D}; stingers = False   # owner, 11 Nov 2026: music was lost on phone speakers (−45 LUFS); a little up, ducked a little less     # both use the real-track music library (tools/music_lib.py)
     if len(beats) < len(scenes): beats = beats + [('end', {})] * (len(scenes) - len(beats))
     V = read(base + '_vo.wav'); pad = lambda x: np.zeros((2, n), np.float32) if x is None else np.pad(x, ((0, 0), (0, max(0, n - x.shape[1]))))[:, :n].astype(np.float32)
     V = pad(V); has_vo = np.abs(V).max() > 1e-4
@@ -1142,11 +1147,15 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     foley_off = {i for i, (bt, o) in enumerate(beats[:len(scenes)]) if o.get('foley') == 'no'}
     if D.get('auto', True) and not MINIMAL: cands += bed_sounds(scenes, dur) + ([] if ifm else sweeteners(scenes, dur, foley_off))   # IFM: no random sweeteners
     if MINIMAL:   # only what the story asked for, at most one every 30 s, a little quieter
+        # `sound: light` (owner, 11 Nov 2026: the films are cartoons now): the story's soft cartoon foley (sfx=) every few seconds
+        light = bool(story and os.path.exists(story) and re.search(r'^\s*sound\s*:\s*light\b', open(story).read(), re.M | re.I)); gap = 4. if light else 30.
+        if ifm and not (story and os.path.exists(story) and re.search(r'^calm\s*:\s*off\b', open(story).read(), re.M)):
+            cands = [c for c in cands if calm_ok(c)]   # drop the auto whooshes BEFORE spacing, or they take the story's slots
         keep, last = [], -1e9
         for c in sorted(cands, key=lambda c: getattr(c, 'start', getattr(c, 't', 0))):
             t = getattr(c, 'start', getattr(c, 't', 0))
-            if t - last >= 30.: keep.append(c); last = t
-        if not quiet: print(f'  minimal sound: {len(cands)} requested one-shots → {len(keep)} kept (≤ 1 per 30 s), no beds')
+            if t - last >= gap: keep.append(c); last = t
+        if not quiet: print(f'  minimal sound{" (light foley)" if light else ""}: {len(cands)} requested one-shots → {len(keep)} kept (≤ 1 per {gap:g} s), no beds')
         cands = keep
     calm = ifm and not (story and os.path.exists(story) and re.search(r'^calm\s*:\s*off\b', open(story).read(), re.M))
     if calm: n0 = len(cands); cands = [c for c in cands if calm_ok(c)]; print(f'  calm sound: {n0 - len(cands)} hiss beds / automatic whooshes removed') if not quiet else None
@@ -1222,13 +1231,14 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
         sib = sosfiltfilt(butter(2, [5500, 8000], btype='band', fs=SR, output='sos'), Vp, axis=-1); lvl = np.sqrt(np.maximum(uniform_filter1d(np.mean(sib ** 2, 0), 441), 0)) + 1e-9
         ref = np.sqrt(np.maximum(uniform_filter1d(np.mean(Vp ** 2, 0), 441), 0)) + 1e-9; gds = np.clip(-(20 * np.log10(lvl / ref) + 12), -5, 0); Vp = Vp + sib * (db(gds)[None, :] - 1)
         thr = 20 * np.log10(np.percentile(np.sqrt(np.mean(Vp ** 2, 0))[np.sqrt(np.mean(Vp ** 2, 0)) > 1e-3], 90) + 1e-9) - 2 if np.any(np.abs(Vp) > 1e-3) else -20
+        Vp, _ = compress(Vp, thr - 3, 1.6, .25, 1.2)   # a slow leveller first (owner, 11 Nov 2026: a studio voice): every line sits at the same loudness
         Vp, vo_gr = compress(Vp, thr + 1, 2.5, .010, .080)
         Vp = Vp * db(-16 - integrated(Vp))   # VO bus ≈ −16 LUFS
         Vp, vo_lim = tp_limit(Vp, -16 + 10.5, .003, .06)   # voice peak-to-loudness ≤ 10.5 dB so the master limiter barely works
     else: vo_gr = 0.
     yt = fmt == 'youtube'
     duck_m = env_curve(key, D.get('duck_db', -12. if yt else -10.), .025, .15, .40, n); dyn_m = env_curve(key, -4., .015, .1, .25, n)
-    Mp = eq(M, [HPF(35), biquad('peak', 2500, .8, -2.), LPF(16000)]); Mp = dyn_band(Mp * duck_m[None, :], dyn_m, 1500, 4000)
+    Mp = eq(M, [HPF(70), biquad('lshelf', 140, .7, -2.5), biquad('peak', 900, .9, 1.5), biquad('peak', 2500, .8, -2.), LPF(16000)]);   # owner, 11 Nov 2026: less sub a phone cannot play, a little more of the body it can Mp = dyn_band(Mp * duck_m[None, :], dyn_m, 1500, 4000)
     if np.abs(Mp).max() > 1e-5:   # score peak-to-loudness ≤ 11 dB (drum transients) so the master limiter stays light
         Lm = integrated(M); gm_, _ = tp_limit(M, Lm + 11., .003, .08, want_gain=True); Mp = Mp * gm_[None, :]
     Mp *= dip_curve(dips, n, -20., -6.)[None, :]; del M; gc.collect()

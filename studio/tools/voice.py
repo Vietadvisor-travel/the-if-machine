@@ -190,7 +190,9 @@ def tts_flow(text, voice, speed=1.0):
     for c in chunks:
         if c in ('…', '...', ' — ', ' – '): out.append(np.zeros(int(sr0 * .38), np.float32)); continue
         if not re.search(r'[A-Za-z0-9À-ỹ]', c): continue
-        x, sr0 = tts(c.strip(), voice, speed); out.append(x)
+        held = bool(out) and isinstance(out[-1], np.ndarray) and not np.any(out[-1])   # this chunk follows a held beat: it is the punchline
+        short = len(re.sub(r'[*\[\]]', '', c).split()) <= 6
+        x, sr0 = tts(c.strip(), voice, speed * (.92 if held and short else 1.0)); out.append(x)   # owner, 11 Nov 2026: punchlines land a touch slower
     return (np.concatenate(out), sr0) if out else tts(text, voice, speed)
 
 def split_at_pauses(x, sr, weights):
