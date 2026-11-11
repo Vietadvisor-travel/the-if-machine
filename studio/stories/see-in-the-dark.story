@@ -72,6 +72,12 @@ But there is a price, because a cat's world is blurrier and less colourful than 
 and in a room with no light at all,
 it sees exactly what you see, which is nothing.
 
+// S10b SUBJECT: a garden at dusk: the red, yellow and blue flowers fade to grey as the light drops; on a card, the colour cones fall asleep and the rods wake up
+# vis kind=w act=x_sd_grey kk="WHY NIGHT LOOKS GREY" tt="COLOUR NEEDS|*BRIGHT LIGHT*" cam=WS.eye.static trans=dissolve time=dusk then="cam=WS.eye.static@1"
+And that grey look of the world at night happens to you too,
+because colour comes from your cone cells, which need bright light,
+so after dark your eyes hand over to the rods, which see only light and shade.
+
 // S11 SUBJECT: chapter 2 — a huge eye opening, stars in it
 # vis kind=w act=x_sd_chapter v=eye n=2 tt="WHAT YOU|*ALREADY HAVE*" cam=CU.eye.static trans=glFold pause=1 same=ok time=night
 Now for the surprise,
@@ -94,6 +100,12 @@ In a 2016 experiment, people sitting in total darkness
 could even tell, slightly better than chance,
 when a single particle of light hit their eye.
 
+// S14b SUBJECT: two particles of light: the first lands and leaves the eye glowing a little awake, the second is caught with a bigger sparkle
+# vis kind=w act=x_sd_prime kk="THE SAME EXPERIMENT" tt="THE EYE|*WAKES UP*" cam=CU.eye.static trans=zoom tc=.5,.45 time=night
+Even stranger, a particle that arrived a few seconds earlier
+made the next one easier to notice,
+as if the first one had woken the eye up.
+
 // S15 SUBJECT: the starry field; he lifts his phone: a white blast, the pigment drains, the stars go out, the clock snaps to 00:00
 # vis kind=w act=x_sd_phone kk="THE CATCH" tt="ONE *GLANCE*" cam=MS.eye.static trans=wipe time=night then="cam=CU.eye.static@1"
 The catch is that one glance at a bright phone screen
@@ -105,6 +117,13 @@ and the thirty-minute clock starts again.
 That is why astronomers and pilots use dim red lamps,
 because the rods barely respond to deep red light,
 so the night vision survives.
+
+// S16b SUBJECT: a telescope eyepiece view: a faint star vanishes when stared at and reappears when the gaze slides to the side; a cut-away retina with no rods in the centre
+# vis kind=w act=x_sd_averted kk="AN ASTRONOMER'S TRICK" tt="LOOK A LITTLE|*TO THE SIDE*" cam=MCU.eye.static trans=iris tc=.5,.45 time=night then="cam=CU.eye.static@1"
+Astronomers have one more trick,
+because the very centre of your eye has almost no rods,
+so a faint star can vanish when you stare straight at it,
+and reappear when you look slightly to one side.
 
 // S17 SUBJECT: a cartoon poster of a carrot in flying goggles; the poster peels and behind it a radar dish sweeps
 # vis kind=w act=x_sd_carrot kk="WHAT PEOPLE SAY" tt="THE *CARROT*|STORY" cam=MS.eye.static trans=glInkBleed time=night then="cam=WS.low.static@3"
@@ -157,6 +176,12 @@ between the eye and the nostril, that feel that glow.
 # vis kind=w act=x_sd_wasabi kk="THE SENSOR" tt="THOUSANDTHS OF|A *DEGREE*" cam=ECU.eye.static trans=zoomthru tc=.6,.5 tc2=.5,.5 then="cam=MCU.eye.static@1"
 The membrane inside each pit reacts to changes of a few thousandths of a degree,
 using the same kind of sensor that makes wasabi burn your nose.
+
+// S25b SUBJECT: a podium with confetti: the snake's heat gate takes gold, with a tiny crown; LOW ANGLE push
+# vis kind=w act=x_sd_podium kk="A RECORD" tt="THE MOST|*HEAT-SENSITIVE*" cam=WS.low.static trans=slide
+In pit vipers, that sensor is tuned so finely
+that it is the most heat-sensitive one ever found
+in any animal with a backbone.
 
 // S26 SUBJECT: a little cinema inside the snake's head: projector EYES and projector PITS throw two images that click into one
 # vis kind=w act=x_sd_cinema kk="INSIDE THE SNAKE'S BRAIN" tt="TWO SENSES,|*ONE PICTURE*" cam=WS.eye.static trans=push2 time=night then="cam=MS.eye.static@1"

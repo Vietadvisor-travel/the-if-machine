@@ -167,6 +167,20 @@ REAL: Britain, Second World War, Vitamin A
 - SOUND: music bed only
 - BUILD: NEW x_sd_price
 
+### S10b · SECTION 1
+- VO: And that grey look of the world at night happens to you too, because colour comes from your cone cells, which need bright light, so after dark your eyes hand over to the rods, which see only light and shade.
+- LINK: continues the line before: the picture carries over through the transition named in FX
+- PICTURE: SUBJECT a garden at dusk whose red, yellow and blue flowers fade to grey as the light drops; on a card above, the colour-hatted cones fall asleep while the rods wake up / BACKGROUND a garden at dusk / FOREGROUND grass / LIFE the sky darkens, the flowers grey out, the cones nod off
+- ACTION: none (flowers and cells)
+- SHOT: WS eye trackR 2D
+- CAMERA: slow drift across the garden
+- LOOK: sunset warm to night grey
+- TIMELINE: 0 sunset, full colour · 3.6 the light drops · 7.2 the colours drain · 10.8 the cones fall asleep · 14.4 the rods wake: grey
+- TEXT: COLOUR NEEDS *BRIGHT LIGHT*
+- FX: trans=dissolve
+- SOUND: music bed only
+- BUILD: NEW x_sd_grey
+
 ### S11 · SECTION 2 CHAPTER
 - VO: Now for the surprise, because your own eyes are far better in the dark than you think.
 - LINK: continues the line before: the picture carries over through the transition named in FX
@@ -223,6 +237,20 @@ REAL: Britain, Second World War, Vitamin A
 - SOUND: music bed only
 - BUILD: NEW x_sd_photon
 
+### S14b · SECTION 2
+- VO: Even stranger, a particle that arrived a few seconds earlier made the next one easier to notice, as if the first one had woken the eye up.
+- LINK: continues the line before: the picture carries over through the transition named in FX
+- PICTURE: SUBJECT one big eye in the dark: a first particle lands with a small flicker and the eye glows a little awake; a second particle is caught with a bigger sparkle / BACKGROUND black / FOREGROUND none / LIFE the particles arrive, the glow rises
+- ACTION: none (eye)
+- SHOT: CU eye push 2D
+- CAMERA: slow push to the eye
+- LOOK: black, teal glow, gold sparks
+- TIMELINE: 0 the eye in the dark · 3.1 particle 1: a flicker · 6.2 the eye glows awake · 9.4 particle 2: a bigger sparkle
+- TEXT: THE EYE *WAKES UP*
+- FX: trans=zoom tc=.5,.45
+- SOUND: music bed only
+- BUILD: NEW x_sd_prime
+
 ### S15 · SECTION 2
 - VO: The catch is that one glance at a bright phone screen bleaches that pigment in seconds, and the thirty-minute clock starts again.
 - LINK: continues the line before: the picture carries over through the transition named in FX
@@ -250,6 +278,20 @@ REAL: Britain, Second World War, Vitamin A
 - FX: trans=glCrossWarp
 - SOUND: music bed only
 - BUILD: NEW x_sd_red
+
+### S16b · SECTION 2
+- VO: Astronomers have one more trick, because the very centre of your eye has almost no rods, so a faint star can vanish when you stare straight at it, and reappear when you look slightly to one side.
+- LINK: continues the line before: the picture carries over through the transition named in FX
+- PICTURE: SUBJECT a telescope eyepiece view where a faint star vanishes under the stare and returns when the gaze ring slides aside; a little retina card with no rods in its centre / BACKGROUND the night sky through an eyepiece / FOREGROUND the eyepiece rim / LIFE the gaze ring slides, the star fades and returns
+- ACTION: none (sky and gaze)
+- SHOT: MCU eye static 2D
+- CAMERA: hold on the eyepiece, a slow push
+- LOOK: black rim, starry blue
+- TIMELINE: 0 the faint star · 4.2 the retina card: no rods in the centre · 8.4 stare: the star is gone · 12.6 look aside: it is back
+- TEXT: LOOK A LITTLE *TO THE SIDE*
+- FX: trans=iris tc=.5,.45
+- SOUND: music bed only
+- BUILD: NEW x_sd_averted
 
 ### S17 · SECTION 2 WHAT PEOPLE SAY
 - VO: And carrots? People still say they help you see in the dark, a claim that spread in the Second World War, when Britain credited its night pilots' carrots while its radar stayed secret. Vitamin A keeps eyes healthy, but extra carrots add no night vision.
@@ -301,7 +343,7 @@ REAL: Britain, Second World War, Vitamin A
 - SHOT: WS eye trackR 2D
 - CAMERA: track down into the cave with her
 - LOOK: starlit mouth, then brown rock going to black
-- TIMELINE: 0 the cave mouth, starlight · 2.5 first bend: the view dims · 5 bats blink · 7.5 the deep: the view is black, NO LIGHT
+- TIMELINE: 0 the cave mouth, starlight · 2.4 first bend: the view dims · 4.8 bats blink · 7.1 the deep: the view is black, NO LIGHT
 - TEXT: NO LIGHT · NO PICTURE
 - FX: trans=glDirectionalWarp
 - SOUND: music bed only
@@ -376,6 +418,20 @@ REAL: Britain, Second World War, Vitamin A
 - FX: trans=zoomthru tc=.5,.5 tc2=.5,.5
 - SOUND: music bed only
 - BUILD: NEW x_sd_wasabi
+
+### S25b · SECTION 4
+- VO: In pit vipers, that sensor is tuned so finely that it is the most heat-sensitive one ever found in any animal with a backbone.
+- LINK: continues the line before: the picture carries over through the transition named in FX
+- PICTURE: SUBJECT a podium with confetti where the snake's heat gate climbs to gold and gets a tiny crown / BACKGROUND a purple sunburst / FOREGROUND none / LIFE the gate rises, the crown lands, confetti falls
+- ACTION: none (podium)
+- SHOT: WS low push 2D
+- CAMERA: low angle push to the gold step
+- LOOK: purple burst, gold podium, confetti
+- TIMELINE: 0 the podium · 2.8 the gate climbs to gold · 5.6 the crown lands · 8.4 TRPA1 · PIT VIPER
+- TEXT: THE MOST *HEAT-SENSITIVE*
+- FX: trans=slide
+- SOUND: music bed only
+- BUILD: NEW x_sd_podium
 
 ### S26 · SECTION 4
 - VO: Those signals travel to the same part of the brain as the snake's eyes, so the snake gets one picture, with the heat laid over the view.
