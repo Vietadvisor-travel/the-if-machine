@@ -128,7 +128,7 @@ before they hit a glowing green screen.
 // S20 SUBJECT: a caver in goggles walks down into a cave; the round green view in the corner dims until it reads NO LIGHT
 # vis kind=w act=x_sd_cave kk="A SEALED CAVE" tt="NO LIGHT,|NO *PICTURE*" cam=EWS.eye.static trans=glDirectionalWarp time=night
 They still need a little starlight to work with, though,
-so in a sealed cave, even the best goggles show nothing.
+so in a sealed cave, even top-quality goggles show nothing.
 
 // S21 SUBJECT: inside a mouse's eye crystals turn a dark red beam into green sparks; then a maze from above: the mouse picks the infrared triangle
 # vis kind=w act=x_sd_mice kk="2019 · A LAB EXPERIMENT" tt="MICE THAT SEE|*INFRARED*" cam=ECU.eye.static trans=slide then="cam=WS.top.static@3"

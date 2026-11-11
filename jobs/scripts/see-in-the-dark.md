@@ -294,7 +294,7 @@ REAL: Britain, Second World War, Vitamin A
 - BUILD: NEW x_sd_tube
 
 ### S20 · SECTION 3
-- VO: They still need a little starlight to work with, though, so in a sealed cave, even the best goggles show nothing.
+- VO: They still need a little starlight to work with, though, so in a sealed cave, even top-quality goggles show nothing.
 - LINK: continues the line before: the picture carries over through the transition named in FX
 - PICTURE: SUBJECT a caver in goggles walking down into a cave; with every bend the round green view in the corner gets dimmer until it is black and reads NO LIGHT / BACKGROUND a cave in cross-section / FOREGROUND rock / LIFE she walks down, bats blink, the green view fades
 - ACTION: a woman in goggles walks down the cave passage with her hand on the wall
