@@ -8,8 +8,9 @@ Owner: "no need for a sound every 4 s, that's mechanical. 4–5 extra hours: dro
   the rest of the sentence steps down 0.7 st), statements settle (−1.6 st into the full stop, starting after a final focus word),
   questions lift (+2.2 st), Kokoro's own pitch movement is widened ×1.15. Measured on 10 lines: the marked words +1.9…+2.6 st,
   pitch range 10.4 → 11.3 st.
-- Exact timing: voice.py now loads the timestamped export of the same Kokoro v1.0 int8 weights (onnx-community
-  Kokoro-82M-v1.0-ONNX-timestamped, from huggingface.co; `setup` fetches it, falls back to the plain model if unreachable).
+- Exact timing: `voice.py setup` builds kokoro-v1.0-dur.int8.onnx from the model we already use, exposing its internal
+  phoneme durations (/encoder/Clip) as a 2nd output: same audio bit for bit, no new download, no new host (owner: one
+  environment only).
   Two fixes make its times right: phoneme edges from the model's rounded frame durations, and a 0.12 s acoustic lag
   (KOKORO_LAG). Checked against Whisper word times: 12/13 accents inside their word (was 2/13 with letter-share estimates).
 - Voice cache key flow1 → flow2 (old clips re-read with intonation). IFM_PROSODY=0 = the old reading.

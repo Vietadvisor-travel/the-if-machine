@@ -12,10 +12,16 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.expanduser(os.environ.get('VA_VOICE_DIR', '~/.cache/va-voice'))
 MODEL, VOICES = os.path.join(CACHE, 'kokoro-v1.0.int8.onnx'), os.path.join(CACHE, 'voices-v1.0.bin')
-# timestamped export of the same Kokoro v1.0 weights (int8): also returns each phoneme's duration, so a *word*'s pitch accent and
-# each sentence ending can be placed exactly (tools/prosody.py). Optional: without it the plain model reads the line.
-TS_MODEL = os.path.join(CACHE, 'kokoro-v1.0-ts.int8.onnx')
-TS_URL = 'https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX-timestamped/resolve/main/onnx/model_quantized.onnx'
+# the same Kokoro model with its internal phoneme durations exposed as a 2nd output (built locally from MODEL by setup(), same
+# audio bit for bit): lets a *word*'s pitch accent and each sentence ending be placed exactly (tools/prosody.py).
+TS_MODEL = os.path.join(CACHE, 'kokoro-v1.0-dur.int8.onnx')
+def build_ts():
+    import onnx
+    m = onnx.load(MODEL)
+    if 'duration' not in {o.name for o in m.graph.output}:
+        m.graph.node.append(onnx.helper.make_node('Identity', ['/encoder/Clip_output_0'], ['duration'], name='expose_duration'))
+        m.graph.output.append(onnx.helper.make_tensor_value_info('duration', onnx.TensorProto.FLOAT, None))
+    onnx.save(m, TS_MODEL + '.part'); os.replace(TS_MODEL + '.part', TS_MODEL)
 URL = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
 SR_OUT = 44100
 # The If Machine voices (owner, 5 Nov 2026 — the only three): af_heart narrates every episode; af_nicole is the second female voice
@@ -29,11 +35,12 @@ def setup():
     for f in ['kokoro-v1.0.int8.onnx', 'voices-v1.0.bin']:
         p = os.path.join(CACHE, f)
         if not os.path.exists(p) or os.path.getsize(p) < 1e6: subprocess.check_call(['curl', '-sSL', '-o', p, URL + f])
+    for mod, pkg in (('parselmouth', 'praat-parselmouth'), ('onnx', 'onnx')):   # Praat (intonation pass), onnx (build_ts)
+        try: __import__(mod)
+        except ImportError: subprocess.call([sys.executable, '-m', 'pip', 'install', '-q', pkg, '--break-system-packages'])
     if not os.path.exists(TS_MODEL) or os.path.getsize(TS_MODEL) < 1e6:
-        if subprocess.call(['curl', '-sSLf', '-o', TS_MODEL + '.part', TS_URL]) == 0: os.replace(TS_MODEL + '.part', TS_MODEL)
-        else: print('  (timestamped Kokoro not reachable: lines are read without placed pitch accents)')
-    try: import parselmouth   # noqa: F401  (Praat, for the intonation pass)
-    except ImportError: subprocess.call([sys.executable, '-m', 'pip', 'install', '-q', 'praat-parselmouth', '--break-system-packages'])
+        try: build_ts()
+        except Exception as e: print('  (timed Kokoro not built, lines are read without placed pitch accents:', e, ')')
     print('voice ready:', CACHE)
 
 _k = None
@@ -45,7 +52,6 @@ def kokoro():
         ts = os.path.exists(TS_MODEL) and os.path.getsize(TS_MODEL) > 1e6 and os.environ.get('IFM_PROSODY', '1') != '0'
         _k = Kokoro(TS_MODEL if ts else MODEL, VOICES)
         if ts:
-            _k.has_timings = True   # its output is named 'durations'; kokoro_onnx looks for 'duration'
             import kokoro_onnx as _ko   # the model rounds each phoneme to whole 25 ms frames: spreading the raw float durations
             def _edges(d, n):           # evenly over the clip drifts ~0.2 s late by the end of a line (measured 11 Nov 2026)
                 f = np.concatenate([[0], np.cumsum(np.maximum(np.round(d), 1))]); return np.round(f * (n / f[-1])).astype(np.int64)
