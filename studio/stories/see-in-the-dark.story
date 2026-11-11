@@ -39,7 +39,7 @@ what your own eyes can secretly do,
 and what it really takes to see when the light is gone.
 
 // S05 SUBJECT: chapter 1 — a cat padding down a dark staircase, eyes glowing
-# vis kind=w act=x_sd_chapter v=cat n=1 tt="THE CAT|*UPGRADE*" cam=MS.low.static trans=glFold pause=1 time=night
+# vis kind=w act=x_sd_chapter v=cat n=1 tt="THE CAT|*UPGRADE*" cam=MS.low.static trans=glFold pause=1.8 time=night
 Let's start with the animal everyone thinks of first,
 the cat on the stairs at midnight.
 
@@ -79,7 +79,7 @@ because colour comes from your cone cells, which need bright light,
 so after dark your eyes hand over to the rods, which see only light and shade.
 
 // S11 SUBJECT: chapter 2 — a huge eye opening, stars in it
-# vis kind=w act=x_sd_chapter v=eye n=2 tt="WHAT YOU|*ALREADY HAVE*" cam=CU.eye.static trans=glFold pause=1 same=ok time=night
+# vis kind=w act=x_sd_chapter v=eye n=2 tt="WHAT YOU|*ALREADY HAVE*" cam=CU.eye.static trans=glFold pause=1.8 same=ok time=night
 Now for the surprise,
 because your own eyes are far better in the dark than you think.
 
@@ -134,7 +134,7 @@ when Britain credited its night pilots' carrots while its radar stayed secret.
 Vitamin A keeps eyes healthy, but extra carrots add no night vision.
 
 // S18 SUBJECT: chapter 3 — night goggles drop onto a face and power up green
-# vis kind=w act=x_sd_chapter v=goggles n=3 tt="BORROWED|*EYES*" cam=MCU.eye.static trans=glFold pause=1 same=ok time=night
+# vis kind=w act=x_sd_chapter v=goggles n=3 tt="BORROWED|*EYES*" cam=MCU.eye.static trans=glFold pause=1.8 same=ok time=night
 So what happens when we build night vision instead?
 
 // S19 SUBJECT: track along a cut-away goggle tube: gold particles, blue electrons, a storm, a green screen; then the forest through the goggles
@@ -157,13 +157,13 @@ which turned invisible infrared light into green light the mice could see,
 and the mice could pick out infrared shapes while their normal vision carried on as before.
 
 // S22 SUBJECT: the lamp clicks off over a kitchen; in the black the kettle, the cat, the radiator and the person start to shine by themselves
-# vis kind=w act=x_sd_glow kk="NO LAMP AT ALL" tt="THE GLOW OF|*HEAT*" cam=WS.eye.static trans=dissolve time=night
+# vis kind=w act=x_sd_glow pause=1.2 kk="NO LAMP AT ALL" tt="THE GLOW OF|*HEAT*" cam=WS.eye.static trans=dissolve time=night
 But that is still light from a lamp.
 To see with no lamp at all,
 you need the one glow that everything warm gives off by itself, heat.
 
 // S23 SUBJECT: chapter 4 — a snake uncoils, its tongue flicking
-# vis kind=w act=x_sd_chapter v=snake n=4 tt="SEEING|*HEAT*" cam=MS.low.static trans=glFold pause=1 same=ok time=night
+# vis kind=w act=x_sd_chapter v=snake n=4 tt="SEEING|*HEAT*" cam=MS.low.static trans=glFold pause=1.8 same=ok time=night
 And one animal has been reading that glow for millions of years.
 
 // S24 SUBJECT: a huge front close-up of a pit viper: the two pits pulse as waves of warmth arrive
@@ -219,6 +219,8 @@ And to see in true darkness, you would have to see heat.
 In one sentence, seeing in the dark is not about brighter eyes,
 it is about a different kind of light,
 and the dark was never empty.
+Right now, somewhere, a snake is reading the warmth of the world,
+and a cat is quietly collecting starlight.
 
 // S32 SUBJECT: the lamp clicks off, the phone goes face down, the window fills with stars; then the room floods with blue water: next time
 # vis kind=w act=x_sd_outro next="WHAT IF YOU COULD|*BREATHE UNDERWATER?*" cam=WS.eye.static trans=glCrossZoom tail=2.4 then="cam=MS.eye.static@3"

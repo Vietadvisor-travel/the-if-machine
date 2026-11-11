@@ -504,14 +504,14 @@ REAL: Britain, Second World War, Vitamin A
 - BUILD: x_sd_lenses (recap labels)
 
 ### S31 · CONCLUSION ANSWER
-- VO: In one sentence, seeing in the dark is not about brighter eyes, it is about a different kind of light, and the dark was never empty.
+- VO: In one sentence, seeing in the dark is not about brighter eyes, it is about a different kind of light, and the dark was never empty. Right now, somewhere, a snake is reading the warmth of the world, and a cat is quietly collecting starlight.
 - LINK: continues the line before: the picture carries over through the transition named in FX
 - PICTURE: SUBJECT a black frame that fills, layer by layer, with everything that was there all along: faint starlight, then the warm glow of every living thing in a valley / BACKGROUND a valley at night / FOREGROUND none / LIFE the layers switch on as the camera pulls back
 - ACTION: none (valley)
 - SHOT: CU eye pull 2D
 - CAMERA: pull back from black to the whole glowing valley
 - LOOK: black to starlight to a valley of warm lights
-- TIMELINE: 0 black · 3 starlight arrives · 6 the warm glows appear · 9 the whole valley: NEVER EMPTY
+- TIMELINE: 0 black · 4 starlight arrives · 8.1 the warm glows appear · 12.1 the whole valley: NEVER EMPTY · 16.1 glowing birds cross, a shooting star
 - TEXT: THE DARK WAS|*NEVER EMPTY*
 - FX: trans=glCircleOpen
 - SOUND: music bed only
