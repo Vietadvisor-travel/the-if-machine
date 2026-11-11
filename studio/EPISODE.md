@@ -70,6 +70,16 @@ The look serves the content; a beautiful film with a thin script fails. Before a
 - **Headlines come into focus**: each line rises through a mask from a soft blur to sharp while its tracking closes in
   (`reveal: 'mask'` keeps the plain rise). **Orbs**: `X.orbs(lt, colours, a)` soft colour fields behind dark cards.
 
+## 0000000. The opening IS the title question (owner, 11 Nov 2026 — overrides the cold open below)
+- No cold open, no punch lines before the question. The FIRST shot is the scene of the title: the narrator asks the title
+  question ("What if you could see in the dark?") over the most striking picture of exactly that question, then lands the
+  surprising fact and the promise. `script_check` errors when shot 1 does not start with "What if" or is built with a cold act;
+  `variety` errors on a cold-open act in beat 1.
+- Delivery (owner, 11 Nov 2026: "stress and intonation that fit each line"): mark the word to stress with `*word*` in the story
+  line (one or two per line, the word that carries the idea: the number, the twist, the contrast). `voice.py` stresses it
+  (primary stress, a longer vowel) and softens the other stresses in that sentence; questions keep their rising "?", `…` holds a
+  beat, short punch lines are read a touch slower. Captions show the words without the stars.
+
 ## 00000. Hook, ending and finish (owner, 5 Nov 2026 night: "7/10 — the hook needs punch, the ending feels cut, the frame drifts and shows the background")
 - **Cold open first** (`ex_cold`): 3–4 punch lines of ≤ 6 words, one per caption, with `…` before the last for a held beat
   ("Every coin. / Every banknote. / Every number in every bank account. / … Gone."); one drawn thing slams in per line

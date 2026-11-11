@@ -111,6 +111,42 @@ def setup_supertonic():
         for z in glob.glob(os.path.join(dl, '_voice', 'supertonic', '*.zip')): zipfile.ZipFile(z).extractall(ST_DIR)
     print('supertonic ready:', ST_DIR)
 
+# ---------------------------------------------------------------- delivery: *word* = stress this word (owner, 11 Nov 2026: "stress and intonation that fit each line")
+# Kokoro reads IPA with stress marks: the marked word gets a primary stress and a longer stressed vowel; the other stresses in the
+# same sentence are softened to secondary, so the marked word carries the line. Questions keep their rising '?', '…' holds a beat.
+_VOW = set('aeiouɑɐɒæəɘɚɛɜɝɞɤɨɪʊʉʌɔøœɵɯɶʏyIEAOW')
+def _emph(pw):
+    pw = pw.replace('ˌ', '')
+    if 'ˈ' not in pw:
+        i = next((k for k, ch in enumerate(pw) if ch in _VOW), 0); pw = pw[:i] + 'ˈ' + pw[i:]
+    i = pw.index('ˈ') + 1
+    while i < len(pw) and pw[i] not in _VOW: i += 1
+    j = i
+    while j < len(pw) and (pw[j] in _VOW or pw[j] == 'ː'): j += 1
+    return pw[:j] + ('ːː' if 'ː' not in pw[i:j] else 'ː') + pw[j:]
+def emphasis_phonemes(text, lang='en-us'):
+    """Phonemes for a line with *marked* words, or None when nothing could be placed (then the plain text is read)."""
+    K = kokoro(); marked = re.findall(r'\*([^*]+)\*', text)
+    if not marked: return None
+    full = K.tokenizer.phonemize(speakable(text.replace('*', '')), lang)
+    norm, idx = '', []
+    for k, ch in enumerate(full):
+        if ch in 'ˈˌ': continue
+        norm += ch; idx.append(k)
+    out, cur, spans = full, 0, []
+    for w in marked:
+        pw = K.tokenizer.phonemize(speakable(w), lang).strip(' .,!?;:')
+        key = pw.replace('ˈ', '').replace('ˌ', '')
+        if not key: continue
+        p = norm.find(key, cur)
+        if p < 0: continue
+        a, b = idx[p], idx[p + len(key) - 1] + 1; spans.append((a, b, pw)); cur = p + len(key)
+    if not spans: return None
+    res, last = '', 0
+    for a, b, pw in sorted(spans):
+        res += out[last:a].replace('ˈ', 'ˌ').rstrip('ˌ') + _emph(out[a:b] if 'ˈ' in out[a:b] else pw); last = b
+    return res + out[last:].replace('ˈ', 'ˌ')
+
 def tts(text, voice, speed=1.0):
     if (voice or '').startswith('supertonic:'):
         T = supertonic(); name = voice.split(':', 1)[1]; key = 'st_' + name
@@ -120,7 +156,9 @@ def tts(text, voice, speed=1.0):
         a = np.abs(s); thr = max(1e-3, a.max() * .02); idx = np.where(a > thr)[0]
         if len(idx): s = s[max(0, idx[0] - int(sr * .03)): idx[-1] + int(sr * .08)]
         return s, sr
-    s, sr = kokoro().create(speakable(text), voice=voice, speed=speed, lang='en-gb' if voice.startswith('b') else 'en-us')
+    lang = 'en-gb' if voice.startswith('b') else 'en-us'
+    ph = emphasis_phonemes(text, lang) if '*' in text else None
+    s, sr = kokoro().create(ph, voice=voice, speed=speed, lang=lang, is_phonemes=True) if ph else kokoro().create(speakable(text), voice=voice, speed=speed, lang=lang)
     s = np.asarray(s, dtype=np.float32)
     a = np.abs(s); thr = max(1e-3, a.max() * .02); idx = np.where(a > thr)[0]   # trim silence
     if len(idx): s = s[max(0, idx[0] - int(sr * .03)): idx[-1] + int(sr * .08)]

@@ -1,5 +1,14 @@
 # Motion Studio — changelog
 
+## 2026-11-11 (later) · the opening is the title question; *word* stresses the voice
+Owner: "from now on drop the scenes at the start: the hook scene must be the scene of the title question; can the voice stress
+and intone each line properly?"
+- script_check: shot 1 must start with "What if" and may not be a cold-open build; variety: a cold-open act in beat 1 is an ERROR.
+  EPISODE.md §0000000 and CLAUDE.md updated (the cold open rule is retired).
+- voice.py: `*word*` in a story line = stress it. Kokoro reads IPA: the marked word gets a primary stress and a longer stressed
+  vowel, the other stresses in that sentence drop to secondary (emphasis_phonemes). Captions already show *word* highlighted.
+  A/B sample (same 6 lines, plain vs stressed) on Drive voice_ab_2026-11-11 for the owner's ear.
+
 ## 2026-11-11 · IFM.CT, the cartoon toolkit (engine/library/ifm_cartoon.js) — no overlaps, looking through other eyes
 Owner on see-in-the-dark: "more premium, more visual and creative; avoid overlapping elements and captions".
 - `CT.begin / CT.end`: a scene owns its camera (`CT.rig`; the beat's cam= only declares the shot for the gates); the caption band
