@@ -12,6 +12,10 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.expanduser(os.environ.get('VA_VOICE_DIR', '~/.cache/va-voice'))
 MODEL, VOICES = os.path.join(CACHE, 'kokoro-v1.0.int8.onnx'), os.path.join(CACHE, 'voices-v1.0.bin')
+# timestamped export of the same Kokoro v1.0 weights (int8): also returns each phoneme's duration, so a *word*'s pitch accent and
+# each sentence ending can be placed exactly (tools/prosody.py). Optional: without it the plain model reads the line.
+TS_MODEL = os.path.join(CACHE, 'kokoro-v1.0-ts.int8.onnx')
+TS_URL = 'https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX-timestamped/resolve/main/onnx/model_quantized.onnx'
 URL = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
 SR_OUT = 44100
 # The If Machine voices (owner, 5 Nov 2026 — the only three): af_heart narrates every episode; af_nicole is the second female voice
@@ -25,6 +29,11 @@ def setup():
     for f in ['kokoro-v1.0.int8.onnx', 'voices-v1.0.bin']:
         p = os.path.join(CACHE, f)
         if not os.path.exists(p) or os.path.getsize(p) < 1e6: subprocess.check_call(['curl', '-sSL', '-o', p, URL + f])
+    if not os.path.exists(TS_MODEL) or os.path.getsize(TS_MODEL) < 1e6:
+        if subprocess.call(['curl', '-sSLf', '-o', TS_MODEL + '.part', TS_URL]) == 0: os.replace(TS_MODEL + '.part', TS_MODEL)
+        else: print('  (timestamped Kokoro not reachable: lines are read without placed pitch accents)')
+    try: import parselmouth   # noqa: F401  (Praat, for the intonation pass)
+    except ImportError: subprocess.call([sys.executable, '-m', 'pip', 'install', '-q', 'praat-parselmouth', '--break-system-packages'])
     print('voice ready:', CACHE)
 
 _k = None
@@ -33,7 +42,14 @@ def kokoro():
     if _k is None:
         if not os.path.exists(MODEL): setup()
         from kokoro_onnx import Kokoro
-        _k = Kokoro(MODEL, VOICES)
+        ts = os.path.exists(TS_MODEL) and os.path.getsize(TS_MODEL) > 1e6 and os.environ.get('IFM_PROSODY', '1') != '0'
+        _k = Kokoro(TS_MODEL if ts else MODEL, VOICES)
+        if ts:
+            _k.has_timings = True   # its output is named 'durations'; kokoro_onnx looks for 'duration'
+            import kokoro_onnx as _ko   # the model rounds each phoneme to whole 25 ms frames: spreading the raw float durations
+            def _edges(d, n):           # evenly over the clip drifts ~0.2 s late by the end of a line (measured 11 Nov 2026)
+                f = np.concatenate([[0], np.cumsum(np.maximum(np.round(d), 1))]); return np.round(f * (n / f[-1])).astype(np.int64)
+            _ko.token_edges = _edges
     return _k
 
 # ---------------------------------------------------------------- text normalisation for speech
@@ -124,6 +140,9 @@ def _emph(pw):
     j = i
     while j < len(pw) and (pw[j] in _VOW or pw[j] == 'ː'): j += 1
     return pw[:j] + ('ːː' if 'ː' not in pw[i:j] else 'ː') + pw[j:]
+KOKORO_LAG = .12
+EMPH_AT = []   # phoneme-index spans of the marked words in the last emphasis_phonemes() result
+LAST_MARKS = []   # tts(): (kind, t0, t1) of the last line: ('word', start, end) for *words*, ('.'|'?'|'!', t, t) for sentence ends
 def emphasis_phonemes(text, lang='en-us'):
     """Phonemes for a line with *marked* words, or None when nothing could be placed (then the plain text is read)."""
     K = kokoro(); marked = re.findall(r'\*([^*]+)\*', text)
@@ -142,9 +161,14 @@ def emphasis_phonemes(text, lang='en-us'):
         if p < 0: continue
         a, b = idx[p], idx[p + len(key) - 1] + 1; spans.append((a, b, pw)); cur = p + len(key)
     if not spans: return None
-    res, last = '', 0
+    res, last = '', 0; EMPH_AT.clear()
     for a, b, pw in sorted(spans):
-        res += out[last:a].replace('ˈ', 'ˌ').rstrip('ˌ') + _emph(out[a:b] if 'ˈ' in out[a:b] else pw); last = b
+        res += out[last:a].replace('ˈ', 'ˌ').rstrip('ˌ'); e = _emph(out[a:b] if 'ˈ' in out[a:b] else pw)
+        v0 = e.index('ˈ') + 1 if 'ˈ' in e else 0
+        while v0 < len(e) and e[v0] not in _VOW: v0 += 1
+        v1 = v0
+        while v1 < len(e) and (e[v1] in _VOW or e[v1] == 'ː'): v1 += 1
+        EMPH_AT.append((len(res), len(res) + len(e), len(res) + v0, len(res) + max(v1, v0 + 1))); res += e; last = b
     return res + out[last:].replace('ˈ', 'ˌ')
 
 def tts(text, voice, speed=1.0):
@@ -157,11 +181,24 @@ def tts(text, voice, speed=1.0):
         if len(idx): s = s[max(0, idx[0] - int(sr * .03)): idx[-1] + int(sr * .08)]
         return s, sr
     lang = 'en-gb' if voice.startswith('b') else 'en-us'
+    K = kokoro(); LAST_MARKS.clear()
     ph = emphasis_phonemes(text, lang) if '*' in text else None
-    s, sr = kokoro().create(ph, voice=voice, speed=speed, lang=lang, is_phonemes=True) if ph else kokoro().create(speakable(text), voice=voice, speed=speed, lang=lang)
+    if ph is None and K.has_timings: ph = K.tokenizer.phonemize(speakable(text.replace('*', '')), lang); EMPH_AT.clear()
+    tim = []
+    if ph and K.has_timings:
+        s, sr, tim = K.create_timed(ph, voice=voice, speed=speed, lang=lang, is_phonemes=True)
+        if len(tim) != len(ph): tim = []
+    elif ph: s, sr = K.create(ph, voice=voice, speed=speed, lang=lang, is_phonemes=True)
+    else: s, sr = K.create(speakable(text), voice=voice, speed=speed, lang=lang)
     s = np.asarray(s, dtype=np.float32)
     a = np.abs(s); thr = max(1e-3, a.max() * .02); idx = np.where(a > thr)[0]   # trim silence
-    if len(idx): s = s[max(0, idx[0] - int(sr * .03)): idx[-1] + int(sr * .08)]
+    off = 0.
+    if len(idx): i0 = max(0, idx[0] - int(sr * .03)); s = s[i0: idx[-1] + int(sr * .08)]; off = i0 / sr
+    if tim:
+        off += KOKORO_LAG   # the sound of a phoneme comes ~0.12 s before its aligned frames (checked against Whisper word times)
+        for a0, b0, v0, v1 in EMPH_AT: LAST_MARKS.append(('word', tim[a0].start - off, tim[min(v1, len(tim)) - 1].end - off))   # word onset → end of its stressed vowel
+        for k, t in enumerate(tim):
+            if t.phoneme in '.?!' and (k == len(tim) - 1 or tim[k + 1].phoneme == ' ' or k + 1 == len(tim)): LAST_MARKS.append((t.phoneme, t.start - off, t.start - off))
     return s, sr
 
 def tts_expr(text, voice, speed=1.0):
@@ -186,14 +223,22 @@ def tts_expr(text, voice, speed=1.0):
 def tts_flow(text, voice, speed=1.0):
     """One utterance for a whole beat: Kokoro reads it in one go (natural sentence pauses, continuous intonation);
     only '…' and ' — ' still insert a held beat (0.38 s)."""
-    chunks = [c for c in re.split(r'(…|\.\.\.| — | – )', text)]; out = []; sr0 = 24000
+    chunks = [c for c in re.split(r'(…|\.\.\.| — | – )', text)]; out = []; sr0 = 24000; marks = []
     for c in chunks:
         if c in ('…', '...', ' — ', ' – '): out.append(np.zeros(int(sr0 * .38), np.float32)); continue
         if not re.search(r'[A-Za-z0-9À-ỹ]', c): continue
         held = bool(out) and isinstance(out[-1], np.ndarray) and not np.any(out[-1])   # this chunk follows a held beat: it is the punchline
         short = len(re.sub(r'[*\[\]]', '', c).split()) <= 6
+        t_at = sum(len(o) for o in out) / sr0
         x, sr0 = tts(c.strip(), voice, speed * (.92 if held and short else 1.0)); out.append(x)   # owner, 11 Nov 2026: punchlines land a touch slower
-    return (np.concatenate(out), sr0) if out else tts(text, voice, speed)
+        marks += [(k, a + t_at, b + t_at) for k, a, b in LAST_MARKS]
+    if not out: return tts(text, voice, speed)
+    y = np.concatenate(out)
+    if not (voice or '').startswith('supertonic:') and os.environ.get('IFM_PROSODY', '1') != '0':
+        try:
+            import prosody; y = prosody.shape(y, sr0, text, marks=marks)
+        except Exception as e: print('  (intonation pass skipped:', e, ')')
+    return y, sr0
 
 def split_at_pauses(x, sr, weights):
     """Cut one utterance into len(weights) pieces: each cut goes to the quietest moment within ±0.6 s of the point where that
@@ -243,7 +288,7 @@ def synth(lines_path, outdir, voice=None, speed=1.0):
     durs = [None] * len(L['lines']); kidx = {ln['k']: i for i, ln in enumerate(L['lines'])}
     for g in groups:
         v, lines = g['v'], g['lines']; text = ' '.join(ln['text'].strip() for ln in lines)
-        key = hashlib.md5(f"{text}|{v}|{speed}|flow1".encode()).hexdigest()[:12]; cp = os.path.join(outdir, f'c_{key}.wav')
+        key = hashlib.md5(f"{text}|{v}|{speed}|flow2".encode()).hexdigest()[:12]; cp = os.path.join(outdir, f'c_{key}.wav')
         if not os.path.exists(cp):
             x, sr = tts_flow(text, v, speed); write_wav(cp, resample(x, sr), SR_OUT)
         x, sr = read_wav(cp); segs = split_at_pauses(x, sr, [len(speakable(ln['text'])) + 1 for ln in lines])

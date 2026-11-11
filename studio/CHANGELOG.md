@@ -1,5 +1,20 @@
 # Motion Studio — changelog
 
+## 2026-11-11 (late night) · the voice gets real intonation; foley without a rhythm; Chatterbox dropped
+Owner: "no need for a sound every 4 s, that's mechanical. 4–5 extra hours: drop it. Just add expressive stress so it sounds better."
+- Chatterbox Turbo dropped (CPU ≈ 38× slower than real time).
+- tools/prosody.py (new): an intonation pass on every Kokoro utterance with Praat PSOLA (praat-parselmouth), timbre and timing
+  untouched: each `*word*` gets a pitch accent (+2.2 st rise from the word onset, held through its stressed vowel, released;
+  the rest of the sentence steps down 0.7 st), statements settle (−1.6 st into the full stop, starting after a final focus word),
+  questions lift (+2.2 st), Kokoro's own pitch movement is widened ×1.15. Measured on 10 lines: the marked words +1.9…+2.6 st,
+  pitch range 10.4 → 11.3 st.
+- Exact timing: voice.py now loads the timestamped export of the same Kokoro v1.0 int8 weights (onnx-community
+  Kokoro-82M-v1.0-ONNX-timestamped, from huggingface.co; `setup` fetches it, falls back to the plain model if unreachable).
+  Two fixes make its times right: phoneme edges from the model's rounded frame durations, and a 0.12 s acoustic lag
+  (KOKORO_LAG). Checked against Whisper word times: 12/13 accents inside their word (was 2/13 with letter-share estimates).
+- Voice cache key flow1 → flow2 (old clips re-read with intonation). IFM_PROSODY=0 = the old reading.
+- `sound: light`: no cadence; a sound only where the story places one for a visible action (1.5 s only stops collisions).
+
 ## 2026-11-11 (night) · the listening pass: music that survives a phone, a steadier voice, light foley
 Owner: "what else would make the audio and the voice better? … do whatever is within reach."
 - sound_design.py MINIMAL (IFM): music bed −19.5 → −16.5 dB under a −13 dB duck, and an EQ that keeps it audible on phone
@@ -9,9 +24,10 @@ Owner: "what else would make the audio and the voice better? … do whatever is 
 - voice.py: a short punchline (≤ 6 words) after a held `…` is read at ×0.92 speed (lands instead of rushing).
 - `sfx=name@k` (at caption k of the beat) and `sfx=name@2.5s` (seconds into the beat) were silently dropped by the mixer,
   which only knew `offset:name[:gain[:pan]]`; both forms now work (the old form still does).
-- Header `sound: light` = light cartoon foley: `sfx=` cues may come every 4 s instead of the 30 s minimal gap. Use soft
-  names (cartoon_pop, cartoon_plop, cartoon_boing, cartoon_spring, ifm_motion_pop, ui_tick); whoosh/riser/amb names are still
-  removed in calm mode.
+- Header `sound: light` = light cartoon foley: the story's `sfx=` cues play where they are written, with no cadence (owner,
+  11 Nov 2026: "why every 4 s, that is mechanical"). A sound only when something on screen physically makes it (a sticker lands
+  = pop, a bounce = boing, a spring, a tick of a dial); never on text, never on a rhythm; sparse and irregular. Soft names:
+  cartoon_pop, cartoon_plop, cartoon_boing, cartoon_spring, ifm_motion_pop, ui_tick; whoosh/riser/amb are still removed.
 
 ## 2026-11-11 (later) · the opening is the title question; *word* stresses the voice
 Owner: "from now on drop the scenes at the start: the hook scene must be the scene of the title question; can the voice stress

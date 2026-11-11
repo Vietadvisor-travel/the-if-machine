@@ -8,6 +8,7 @@ echo "· Chromium"; node -e "import('./tools/browser.mjs').then(async m=>{const 
 echo "· ffmpeg"; command -v ffmpeg >/dev/null && echo "  ok" || { echo "  FAIL ffmpeg missing"; ok=0; }
 echo "· Google Drive"; if env | grep -q '^GDRIVE_CLIENT_ID='; then python3 tools/pp_drive.py check 2>&1 | tail -2 | sed 's/^/  /'; else echo "  keys not in this session (needed only to deliver): jobs/DRIVE_SETUP.md step 3"; fi
 echo "· stock library from Muse (music, SFX, icon packs, textures, fonts, maps)"; bash tools/stock_sync.sh
+echo "· intonation (timestamped Kokoro + Praat)"; [ -s ~/.cache/va-voice/kokoro-v1.0-ts.int8.onnx ] && python3 -c "import parselmouth" 2>/dev/null && echo "  ok" || echo "  MISSING: *word* accents off (needs huggingface.co + us.aws.cdn.hf.co; environment the-if-machine has them)"
 echo "· Supertonic voices (optional)"; [ -d ~/.cache/pp-voice/supertonic/onnx ] && echo "  ok" || { python3 tools/voice.py setup-supertonic >/dev/null 2>&1 && echo "  ok" || echo "  skipped (Kokoro am_puck / af_bella are the channel voices)"; }
 [ -f engine/library/ifm_icons_tabler.js ] || { D=$(mktemp -d); (cd $D && npm pack @tabler/icons --silent >/dev/null 2>&1 && tar xzf tabler-icons-*.tgz) && python3 tools/icons.py $D/package/icons/outline tabler >/dev/null; rm -rf $D; }
 [ $ok = 1 ] && echo "ALL OK" || echo "SETUP INCOMPLETE"

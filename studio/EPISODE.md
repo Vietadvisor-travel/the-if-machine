@@ -132,6 +132,10 @@ The look serves the content; a beautiful film with a thin script fails. Before a
   ≈ 1.2 s between beats; `pause=1.2` after the hook, after each section card and before the conclusion. One idea per beat.
 - **Calm sound.** Music is a low bed under the voice; sound effects only where one really matters (`sfx=name@k`, at most one
   every 30 s); master −16 LUFS. The picture makes no sound by itself (minimal sound is the IFM default).
+  `sound: light` in the header (owner, 11 Nov 2026) opens soft cartoon foley: a sound ONLY where something on screen physically
+  makes it (a sticker lands = `cartoon_pop`, a bounce = `cartoon_boing`, a spring, a dial tick), placed by hand at that moment
+  (`sfx=name@2.4s` or `@k`). Never a rhythm, never on text or captions, sparse and irregular (owner: "not every 4 s, that is
+  mechanical"). Delivery: `*word*` gets a pitch accent and the line's endings fall/rise (tools/prosody.py).
 - **No glare, no flicker.** No flashes, shakes, glitches, colour splits, strobing, white blow-outs (the GL post pass now has a
   real calm grade: no bloom, no halation). Only calm transitions (cut, fade, slide, match, zoom, zoomthru, ink).
 - **Every episode looks like itself (owner, 5 Nov 2026).** Header `theme: <world>` (banknote, museum, chalk, blueprint, noir, desert,

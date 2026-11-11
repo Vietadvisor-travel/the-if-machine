@@ -1148,7 +1148,7 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     if D.get('auto', True) and not MINIMAL: cands += bed_sounds(scenes, dur) + ([] if ifm else sweeteners(scenes, dur, foley_off))   # IFM: no random sweeteners
     if MINIMAL:   # only what the story asked for, at most one every 30 s, a little quieter
         # `sound: light` (owner, 11 Nov 2026: the films are cartoons now): the story's soft cartoon foley (sfx=) every few seconds
-        light = bool(story and os.path.exists(story) and re.search(r'^\s*sound\s*:\s*light\b', open(story).read(), re.M | re.I)); gap = 4. if light else 30.
+        light = bool(story and os.path.exists(story) and re.search(r'^\s*sound\s*:\s*light\b', open(story).read(), re.M | re.I)); gap = 1.5 if light else 30.   # light: no cadence (owner, 11 Nov 2026: "why every 4 s, it is mechanical") — a sound only where the story puts one; 1.5 s only stops two from colliding
         if ifm and not (story and os.path.exists(story) and re.search(r'^calm\s*:\s*off\b', open(story).read(), re.M)):
             cands = [c for c in cands if calm_ok(c)]   # drop the auto whooshes BEFORE spacing, or they take the story's slots
         keep, last = [], -1e9
