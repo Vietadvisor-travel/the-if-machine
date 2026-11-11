@@ -1,5 +1,15 @@
 # Motion Studio — changelog
 
+## 2026-11-11 · IFM.CT, the cartoon toolkit (engine/library/ifm_cartoon.js) — no overlaps, looking through other eyes
+Owner on see-in-the-dark: "more premium, more visual and creative; avoid overlapping elements and captions".
+- `CT.begin / CT.end`: a scene owns its camera (`CT.rig`; the beat's cam= only declares the shot for the gates); the caption band
+  (72–81 %) gets a calm shade and is reserved; the house title is drawn clear of every camera and leaves after `tout` s.
+- `CT.sign`: sticker labels placed through a layout registry in screen space: never over the title, the caption band or another
+  label (nudged to the nearest free place); a label whose anchor leaves the frame is dropped.
+- Looks: `CT.dark` (real darkness with pools and cones of light), `CT.thermal` (heat-sight silhouettes), `CT.tint('cat'|'nvg'|'grey')`,
+  `CT.soft` (out of focus), `CT.photon`, `CT.stars`. `CT.at(c, phrase)` = the time a spoken phrase starts (captions are cut at pauses,
+  so caption indices are not story lines). Tested on stories/see-in-the-dark.story (32 scenes).
+
 ## 2026-11-10 (later) · a real cartoon: crew walk cycles, the world kit for episode scenes, the in-scene camera rig
 Owner on gravity-half v1: "static pictures with a little movement and text; it must be a cartoon: everything flows, every scene its
 own design, varied camera angles (2D is fine), wow".
