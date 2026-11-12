@@ -1,4 +1,4 @@
-# Muse — the standard Saturday run (owner, 12 Nov 2026). Every Saturday, start ≈ 09:00 Vietnam time.
+# Muse — the standard Saturday run (owner, 12 Nov 2026). Every Saturday 09:20 Vietnam time (the existing weekly cron).
 
 The channel (being renamed by the owner; working name ODDLY TRUE) makes one 60-second animated TRUE story a day.
 Claude produces the clips (`studio/CLIP.md`, writing standard `studio/STORY.md`). Muse keeps the asset library growing and

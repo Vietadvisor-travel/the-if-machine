@@ -92,6 +92,8 @@ Nothing is posted before `APPROVED`. Claude never posts anything anywhere.
 produced until the owner says so. Muse may build the topic bank and research packs meanwhile.
 
 ## 8. Weekly rhythm (owner, 3 Nov 2026): 4 episodes a week, the owner approves every video
+- **Saturday (Muse) — from 12 Nov 2026 the whole Saturday run is `jobs/tasks/MUSE_SATURDAY.md`** (3D asset top-up → true-story
+  shortlist → owner picks → research packs). The text below is the old what-if version, kept for reference only.
 - **Saturday (Muse): the shortlist.** Muse writes `jobs/topics/WEEK_<yyyy-mm-dd>.md` (the Monday it is for) with about
   **15 candidates already researched lightly**. This shortlist runs in the same Saturday run as the weekly stock
   top-up cron (Sat 09:20), after the stock parts, and is committed and pushed with them. The shortlist scan follows
