@@ -1,6 +1,6 @@
 # Making a 60-second clip — the only page to read (owner, 12 Nov 2026: "build everything, then 'làm tập' just works")
 
-Format: ONE vertical 9:16 clip, 50–65 s, an animated TRUE micro-story. Picture: realistic real-time 3D (IFM.L3: HDRI light,
+Format: ONE vertical 9:16 clip, about 60 s (a target, not a limit: a few seconds over or under is fine; owner 12 Nov 2026: never re-render just for length), an animated TRUE micro-story. Picture: realistic real-time 3D (IFM.L3: HDRI light,
 glTF people with animation, PBR materials, depth of field) + minimal 2D only where it explains the invisible. Voice: am_adam
 (Kokoro), speed 1.0, slightly synthetic and deadpan. Writing: `studio/STORY.md` (read it every time). No titles, no kickers,
 no spoken outro.

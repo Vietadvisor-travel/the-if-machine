@@ -11,7 +11,7 @@ Decided from Muse's market scan (`jobs/research/_market/ANALYSIS.md`): animated 
 explainers do not. The channel is now **ODDLY TRUE** (owner, 12 Nov 2026; brief/REBRAND.md) — tagline *Strange things that really happened.*
 When the owner says "làm tập <tên>" / "làm tập tiếp" / "làm clip …", make ONE clip:
 - **Read:** `studio/CLIP.md` (the workflow, the shot grammar, the commands) + `studio/STORY.md` (the writing standard). Nothing else up front.
-- **Format:** vertical 9:16, 50–65 s (150–190 words), opens MID-ACTION (verb first, no "What if", no title card), no spoken outro,
+- **Format:** vertical 9:16, about 60 s (150–190 words; a few seconds over or under is fine — owner, 12 Nov 2026: never re-render for length), opens MID-ACTION (verb first, no "What if", no title card), no spoken outro,
   short brand end (`enddur: 1.5`). One sentence = one shot.
 - **Picture:** realistic real-time 3D, house look IFM.L3 (`act=l3` shots: HDRI light, glTF people + animation clips, PBR, DOF)
   + minimal 2D only to explain the invisible. Assets: `python3 tools/assets3d.py sync` (Drive `_assets3d`, built by Muse).
