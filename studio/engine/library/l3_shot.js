@@ -21,7 +21,7 @@
     let root, mixer = null, clips = {}, kind = 'glb', F = null;
     if (id.startsWith('vinyl/')) { F = L.figure(L.CAST && L.CAST[id.slice(6)] || {}); root = F.root; kind = 'vinyl'; }
     else { const a = L.A[id]; if (!a) { F = L.figure({}); root = F.root; kind = 'vinyl'; console.warn('L3 actor fallback (asset not loaded): ' + id); }
-      else { root = X.SkeletonUtils.clone(a.gltf.scene); root.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.frustumCulled = false; if (o.material && o.material.envMapIntensity != null) o.material.envMapIntensity = 1; } }); mixer = new THREE.AnimationMixer(root); clips = a.clips; } }
+      else { root = X.SkeletonUtils.clone(a.gltf.scene); root.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.frustumCulled = false; [].concat(o.material || []).forEach(m => { if (m.envMapIntensity != null) m.envMapIntensity = 1; if (m.map && (m.transparent || m.alphaTest > 0 || /hair|brow|lash|eyebrow|eyelash|teeth|tongue/i.test((m.name || '') + ' ' + (o.name || '')))) { m.alphaTest = .5; m.transparent = false; m.depthWrite = true; m.side = THREE.DoubleSide; m.needsUpdate = true; } }); } }); mixer = new THREE.AnimationMixer(root); clips = Object.assign({}, ...L.ANIMLIBS.map(k => (L.A[k] && L.A[k].clips) || {}), a.clips); } }
     root.position.set(p[0] || 0, p[3] || 0, p[1] || 0); root.rotation.y = (p[2] || 0) * Math.PI / 180;
     const keys = String(anim).split('>').filter(Boolean).map((k, i) => { const [n, t] = k.split('@'); return [i ? num(t, i * 2) : 0, n]; });
     const acts = {}; const act = n => acts[n] || (acts[n] = (() => { const c = clips[n] || Object.values(clips).find(x => x.name.toLowerCase() === String(n).toLowerCase()); if (!c) return null; const a = mixer.clipAction(c); a.play(); a.setEffectiveWeight(0); return a; })());
@@ -32,7 +32,8 @@
           if (look && head) { const q0 = head.quaternion.clone(); head.lookAt(look); const q1 = head.quaternion.clone(); head.quaternion.copy(q0).slerp(q1, .55); } }
         else if (F && keys.length) { const pz = L.POSES && L.POSES[keys[0][1]]; if (pz) F.pose(pz); } },
       box() { root.updateMatrixWorld(true); if (head) { const hp = head.getWorldPosition(V3()), b = new THREE.Box3(); b.expandByPoint(V3(root.position.x - .25, root.position.y, root.position.z - .25)); b.expandByPoint(V3(hp.x + .25, hp.y + .14, hp.z + .25)); return b; } return new THREE.Box3().setFromObject(root); } }; };
-  L.clips = id => L.A[id] ? Object.keys(L.A[id].clips) : [];
+  L.ANIMLIBS = ['glb/quaternius_animations_mixamo_rig', 'glb/mixamo_animations_mixamo_rig'];   // shared clip libraries (Muse's library: one mixamo skeleton)
+  L.clips = id => Object.keys(Object.assign({}, ...L.ANIMLIBS.map(k => (L.A[k] && L.A[k].clips) || {}), (L.A[id] && L.A[id].clips) || {}));
   L.POSES = L.POSES || {};
   // ---------------------------------------------------------------- sets (presets): build(sc, o) adds ground/rooms/fx; assets listed for preload
   const SETS = L.SETS; const tex = (id, rep, fb) => L.pbr(id, { repeat: rep, fallback: fb });
@@ -85,7 +86,7 @@
       if (kind === 'gauge' && IFM.BU && IFM.BU.gauge) { const [lb, rng = '.6>.4'] = rest, [a, b] = rng.split('>').map(Number); IFM.BU.gauge(W * x, H * y, W * .1, lerp(a, b, clamp(lt / Math.max(1, dur))), lt, { label: lb, col: /co/i.test(lb) ? '#FF6B5B' : '#2EC4B6', red: /co/i.test(lb) ? 'high' : 'low' }); }
       if (kind === 'count') { const [rng, unit = ''] = rest, [a, b] = rng.split('>').map(Number), v = lerp(a, b, E.inOut(clamp((lt - .3) / Math.max(1, dur - 1)))); CT.sign(Math.round(v) + (unit ? ' ' + unit : ''), W * x, H * y, 44 * u, lt, 0, { bg: '#FFC93C' }); } }); }
   // ---------------------------------------------------------------- the act
-  A.l3 = (o, c, dur) => { L.REQ = L.REQ || new Set(); Object.values(o).forEach(v => (String(v).match(/\b(?:hdr|glb|tex)\/[a-z0-9_\-]+/gi) || []).forEach(x => L.REQ.add(x))); if (SETS[o.set] && SETS[o.set].assets) SETS[o.set].assets.forEach(x => L.REQ.add(x)); return { sfx: [], draw: lt => { CT.begin({}, lt); const S = build(o), r = L.renderer();
+  A.l3 = (o, c, dur) => { L.REQ = L.REQ || new Set(); Object.values(o).forEach(v => (String(v).match(/\b(?:hdr|glb|tex)\/[a-z0-9_\-]+/gi) || []).forEach(x => L.REQ.add(x))); if (/glb\//.test(String(o.actors || ''))) L.ANIMLIBS.forEach(x => L.REQ.add(x)); if (SETS[o.set] && SETS[o.set].assets) SETS[o.set].assets.forEach(x => L.REQ.add(x)); return { sfx: [], draw: lt => { CT.begin({}, lt); const S = build(o), r = L.renderer();
     if (S.fx.pts) L.drift(S.fx.pts, lt, /bubbles/.test(o.fx) ? .25 : .03); if (S.fx.rays) L.sway(S.fx.rays, lt); if (S.fx.rain) S.fx.rain.position.y = -((lt * 14) % 6); if (o.light === 'underwater') L.causticsAt(lt);
     const tgt = camAt(S, o, lt, dur), lookAt = o.look ? (S.actors[o.look] ? S.actors[o.look].box().getCenter(V3()) : V3(...String(o.look).split(',').map(Number))) : S.cam.position.clone(); Object.values(S.actors).forEach(a => a.at(lt, lookAt));
     r.toneMappingExposure = num(o.exposure, 1.0); const post = String(o.post || 'dof bloom'); if (L.renderPost && window.L3_POST !== 0) L.renderPost(S, { ao: /ao/.test(post) ? { radius: .4, samples: 8 } : null, dof: /dof/.test(post) ? { focus: S.cam.position.distanceTo(tgt), aperture: num(o.aperture, .0012), maxblur: .006 } : null, bloom: /bloom/.test(post) ? { strength: .18, radius: .45, threshold: .95 } : null }); else r.render(S.sc, S.cam);

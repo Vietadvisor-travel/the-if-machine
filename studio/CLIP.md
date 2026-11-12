@@ -8,8 +8,9 @@ no spoken outro.
 ## 0. Setup (once per session)
 ```
 bash ../setup.sh | tail -12
-python3 tools/assets3d.py sync      # Drive _assets3d → engine/assets3d (HDRIs, people, props, materials)
-python3 tools/assets3d.py list      # ids for the story: hdr/… glb/… tex/…
+python3 tools/assets3d.py sync      # Drive _assets3d → assets3d_src/ (≈ 1.9 GB, unzipped); names: jobs/stock/ASSETS3D.md
+# after writing the story:
+python3 tools/assets3d.py story stories/<slug>.story   # builds only the HDRIs/people/props/materials the story names
 ```
 
 ## 1. Story and research (15–20 min)
@@ -27,7 +28,9 @@ python3 tools/assets3d.py list      # ids for the story: hdr/… glb/… tex/…
 <the sentence>
 ```
 - Room set keys: `w= d= h= wall=tex/… ground=tex/… window=1`; outdoor: `ground=tex/…`; any set: `bg=none bgk= blur=` (HDRI backdrop).
-- Clips: the glTF animation names (`L3.clips('glb/<id>')`; Muse's library lists them in jobs/stock/ASSETS3D.md).
+- People: `glb/<file>` from ASSETS3D.md §4a (wa-man, ea-woman …). Clips: any name from the shared libraries (Mixamo: Idle,
+  Scared, Treading_Water, Swimming, Reaching_Out, Falling_Down …; Quaternius: Walk_Loop_Rig …) — full lists in ASSETS3D.md §4b–c.
+- Missing asset → add a line to ASSETS3D.md "Wanted" (Muse fulfils it on Saturday) and use the closest existing one.
 - Camera frames the `on` actor by size; move over the beat; a new shot every sentence, never the same cam twice in a row.
 - Story-specific objects that no asset covers: a bespoke act `x3_<name>` in `engine/library/bank/<slug>.js` (see bank/okene.js),
   built from IFM.L3 helpers (L.tug, L.rock, L.seabed, L.particles, L.rays, L.figure …). Add it to the library for reuse.

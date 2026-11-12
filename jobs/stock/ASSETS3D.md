@@ -309,7 +309,9 @@ Made with numpy/PIL/scipy (`gen_effects.py`), no external source, CC0.
 
 
 ## Wanted (Claude appends; Muse fulfils on Saturday)
-- (none yet)
+- 2026-11-12 · **men look androgynous** (wa-man: chest/hips read female in a tight t-shirt). Re-export the male people with MPFB gender macro = 1.0 and a looser shirt; keep the same file names and rig.
+- 2026-11-12 · **tugboat / small work boat** (story Okene): none CC0 found → model a simple one in Blender (hull ~30 m, wheelhouse, deck, tyres as fenders), real scale, origin at keel centre; plus an **interior cabin/office** set (walls, door, desk, a toilet room) if possible.
+- 2026-11-12 · **diver**: one person in a dark wetsuit with a commercial diving helmet + chest lamp (can be a wetsuit material on an existing person + a helmet prop).
 
 ## Done
 
