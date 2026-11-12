@@ -1,6 +1,6 @@
 # Đổi tên và định vị kênh (12/11/2026)
 
-> **ĐÃ CHỐT (owner, 12/11/2026): ODDLY TRUE** · định vị: *Strange things that really happened.* · bộ ảnh ở Drive `_brand/` · việc của Muse: `jobs/tasks/MUSE_REBRAND.md`. Phần dưới là bản đề xuất gốc, chỉ để tham khảo.
+> **ĐÃ CHỐT (owner, 12/11/2026): ODDLY TRUE** · định vị: *Strange things that really happened.* · bộ ảnh ở Drive `_brand/` · bộ nhận diện: `brief/ODDLY_TRUE_BRAND.md` · anh tự đổi tên trên các nền tảng. Phần dưới là bản đề xuất gốc, chỉ để tham khảo.
 
 ## 1. Tên đề xuất (đã tra sơ bộ, chưa thấy kênh video nào trùng)
 

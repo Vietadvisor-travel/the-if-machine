@@ -56,5 +56,5 @@
 - Câu view sai sự thật, số liệu bịa.
 - Đặt tên na ná "Actually Happened": kênh đó nổi tiếng vì bịa chuyện thật.
 
-## 7. Đổi tên trên các nền tảng (Muse)
-Kiểm tên và handle còn trống (thử theo thứ tự @oddlytrue → @oddlytruetv → @oddlytrue.tv, cố dùng cùng một handle ở cả 4 nơi), tra nhanh thương hiệu, rồi đổi tên, handle và bio. Ẩn 2 video giải thích cũ. Ảnh đại diện, ảnh bìa và banner do anh làm và gửi Muse. Chi tiết: `jobs/tasks/MUSE_REBRAND.md`.
+## 7. Đổi tên trên các nền tảng
+Anh tự làm: kiểm tên/handle còn trống (gợi ý thứ tự @oddlytrue → @oddlytruetv → @oddlytrue.tv), đổi tên, bio, ảnh; ẩn 2 video giải thích cũ.

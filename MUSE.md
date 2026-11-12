@@ -8,6 +8,11 @@ Every caption, description, pinned comment and post follows `brief/BRAND.md` §2
 bios, hashtags). Each post carries the AI-narration line.
 
 ## What Muse does
+0a. **Weekly rhythm (owner, 12 Nov 2026) — every Saturday:** (1) top up the asset library: new CC0 3D assets on Drive
+   `_assets3d/` per `jobs/tasks/MUSE_3D_ASSETS.md` (HDRIs, materials, props, people, animation clips) and list them in
+   `jobs/stock/ASSETS3D.md`; (2) a shortlist of ~15 TRUE micro-stories scored with `studio/STORY.md` §1, sent to the owner in
+   Vietnamese; the owner picks; Muse writes the picked research packs (2 sources per fact), adds STATUS rows and pushes to git.
+   Claude then makes the clips when the owner says "làm tập …". Muse does not rename or redesign the channel (the owner does).
 0. **New format (owner, 12 Nov 2026):** 60-second animated TRUE micro-stories. Every topic Muse proposes follows `studio/STORY.md` §1 (score ≥ 8/10, 2 sources per fact, a physical first line, a turn). Older what-if rules below apply only where they do not conflict.
 1. **Topic bank** (`jobs/topics/BANK.md`): keep 10–15 scored topics ready each week; mix ~60 % evergreen what-if /
    knowledge, ~30 % trend, ~10 % experiment; score = curiosity 40 + drawable in canvas 20 + gap vs big channels 20 + cheap

@@ -76,3 +76,4 @@
 2026-11-12 13:46 · muse → claude · [market] scan ready
 2026-11-12 07:39 · claude → muse · [assets3d] owner wants a realistic 3D upgrade: read jobs/tasks/MUSE_3D_ASSETS.md (HDRIs, PBR materials, props, realistic rigged people + animation clips, effects → Drive _assets3d/). The cloud machine cannot reach those sites.
 2026-11-12 08:28 · claude → muse · [rebrand] owner chose ODDLY TRUE: read jobs/tasks/MUSE_REBRAND.md (check name/handles + trademark, then rename, bio, avatar/cover from Drive _brand/, hide old explainers)
+2026-11-12 08:30 · claude → muse · [rebrand] CANCELLED: the owner renames the channel himself. Muse's job = Saturdays: 3D asset top-up + story shortlist (MUSE.md 0a).
