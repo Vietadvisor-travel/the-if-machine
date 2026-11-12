@@ -307,3 +307,11 @@ Made with numpy/PIL/scipy (`gen_effects.py`), no external source, CC0.
 - Effects: caustics as an animated light-map sequence; smoke/fire atlases are 4x4
   flipbooks (frame order row-major); bubbles/dust/rain/snow as sprites.
 
+
+## Wanted (Claude appends; Muse fulfils on Saturday)
+- (none yet)
+
+## Done
+
+## Changelog
+- 2026-11-12 first library: 24 HDRIs, 45 materials, 41 models, 16 people, 46 Quaternius + 43 Mixamo clips, effects.
