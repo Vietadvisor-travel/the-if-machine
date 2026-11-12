@@ -35,7 +35,7 @@
         swim('cap', sx, sy, H * .26, lt, { kick: 5, rot: Math.PI / 2, keys: [[0, 'idle', 'happy'], [tE + 1, 'idle', 'worried'], [tB + .6, 'cheer', 'shock']] }); ctx.save(); ctx.translate(sx - H * .005, sy - H * .085); gills(0, 0, H * .035, lt, {}); ctx.restore(); bubbles(sx + H * .14, sy, lt, { n: 3, s: 8 * u });
         const cx = sx - W * .02, cy = H * .33 + Math.sin(lt * 1.6) * H * .01; if (bu < 1) { ctx.save(); ctx.globalAlpha = 1 - bu; sticker(() => { [[-.12, .01, .1], [0, -.03, .13], [.12, .01, .1], [0, .04, .1]].forEach(([dx, dy, r]) => fo(cx + W * dx, cy + W * dy, W * r, W * r * .8, '#E8586A', .12)); }, 4); const r = rng(6); for (let i = 0; i < 9; i++) circ(cx + W * (r() - .5) * .3, cy + W * (r() - .5) * .1, 7 * u, '#FFD0D6', 0); txt('CO₂', cx, cy + W * .01, 40 * u, '#FFFFFF'); ctx.restore(); }
         if (bu > 0) { ctx.save(); ctx.translate(cx, cy); ctx.scale(bu, bu); ctx.rotate(lt * .4); sticker(() => { ctx.save(); ctx.lineWidth = W * .05; for (let k = 0; k < 8; k++) { ctx.strokeStyle = k % 2 ? '#FFFFFF' : '#FF6B35'; ctx.beginPath(); ctx.arc(0, 0, W * .1, k * TAU / 8, (k + 1) * TAU / 8 + .01); ctx.stroke(); } ctx.restore(); }, 5); ctx.restore(); }
-        if (lt > tE + .4 && bu < .5) sign('THE REAL ENEMY', W * .3, H * .22, 30 * u, lt, tE + .4, { bg: CO2, col: '#FFFFFF' }); if (bu > .5) sign('…AND THE GUARD', W * .62, H * .62, 30 * u, lt, tB + .6, { bg: GOLD }); });
+        if (lt > Math.max(tE + .4, 3.6) && bu < .5) sign('CO₂ FOLLOWS YOU', W * .3, H * .22, 30 * u, lt, tE + .4, { bg: CO2, col: '#FFFFFF' }); if (bu > .5) sign('…AND THE GUARD', W * .62, H * .62, 30 * u, lt, tB + .6, { bg: GOLD }); });
       CT.end(o, lt, 1, .3); } }; };
 
   // ================================================================ S22 x_bu_door — inside the lung: two doors, IN (teal walkers stroll in) and OUT (a growing coral queue, jammed)
@@ -69,7 +69,7 @@
       CT.end(o, lt, 0, .3); } }; }
     const tC = Math.max(CT.at(c, 'flush out', 1), .6), tP = Math.max(CT.at(c, 'switched off', 3.5), 2.5), tO = Math.max(CT.at(c, 'keeps falling', tP + 1.5), tP + 1), tB = CT.at(c, 'shallow water', dur - 3);
     return { sfx: [], draw: lt => { const u = U(), co = lerp(.55, .03, ph(lt, tC, 2.5)), ox = lerp(.97, .22, ph(lt, tO, Math.max(2, dur - tO - .8))), plug = ph(lt, tP, .7), dim = ph(lt, tO + 1.5, dur - tO - 1.5); CT.begin(o, lt);
-      rig(lt, [[0, W * .45, H * .43, 1.3, -.04], [dur * .6, W * .55, H * .45, 1.1, .03], [dur, W / 2, H * .48, 1.0, -.02]], () => { sea(lt, { top: mix('#3F9CC8', '#123A5C', dim), bot: '#04112B', rays: 1 - dim }); swim('beard', W * .5, H * .62, H * .16, lt, { kick: 1.2, rot: Math.PI / 2 - .2, keys: [[0, 'idle', 'happy']] });
+      rig(lt, [[0, W * .45, H * .43, 1.3, -.04], [dur * .6, W * .55, H * .45, 1.1, .03], [dur, W / 2, H * .48, 1.0, -.02]], () => { sea(lt, { top: mix('#3F9CC8', '#123A5C', dim), bot: '#04112B', rays: 1 - dim }); swim('beard', W * .5, H * .58, H * .16, lt, { kick: 1.2, rot: Math.PI / 2 - .2, keys: [[0, 'idle', 'happy']] });
         gauge(W * .28, H * .42, W * .17, co, lt, { label: 'CO₂', col: CO2, val: Math.round(co * 100) }); gauge(W * .72, H * .42, W * .17, ox, lt, { label: 'OXYGEN', col: O2, red: 'low', val: Math.round(ox * 100) + ' %' });
         const ax = W * .5, ay = H * .27; alarm(ax, ay, W * .08, lt, { label: 'CO₂' }); ctx.save(); ctx.strokeStyle = '#26233A'; ctx.lineWidth = 6 * u; ctx.beginPath(); ctx.moveTo(ax + W * .07, ay + H * .01); ctx.quadraticCurveTo(ax + W * .14, ay + H * .06 + plug * H * .06, ax + W * .12, ay + H * .07 + plug * H * .1); ctx.stroke(); ctx.restore(); rectF(ax + W * .1, ay + H * .07 + plug * H * .1, W * .04, H * .02, 4 * u, '#5C5C70', { plane: 0 });
         if (plug > .5) { ctx.save(); ctx.globalAlpha = .9; txt('…', ax, ay - H * .045, 40 * u, '#FFFFFF'); ctx.restore(); }
@@ -106,7 +106,7 @@
     rig(lt, [[0, W / 2, H * .48, 1.04, 0], [tS - .2, W / 2, H * .47, 1.1, 0], [tS + .3, W * .52, H * .44, 1.32, 0], [dur, W * .52, H * .46, 1.12, 0]], () => { burst('#F2E6CF', '#FFF8EA', .5, .45); ctx.fillStyle = '#E4D3B4'; ctx.fillRect(-W, H * .66, W * 3, H * 2);
       CREW('braids', W * .36, H * .68, H * .4, lt, { keys: [[0, 'hold', 'happy'], [tS, 'take', 'take'], [tX + .6, 'shrug', 'smirk']] });
       if (sw < 1) { ctx.save(); ctx.translate(W * .62, H * .68); ctx.scale(1 - sw, 1 - sw); tank(0, 0, H * .36, lt, { heart: 1 }); ctx.restore(); } if (sw > 0) { const k = E.back(sw); ctx.save(); ctx.translate(W * .64, H * .5); ctx.scale(k, k); alarm(0, 0, W * .1, lt, { label: 'CO₂', ring: .4 }); ctx.restore(); }
-      sign('BELIEF: MORE OXYGEN', W * .36, H * .25, 30 * u, lt, 1.2, { bg: '#FFFFFF' });
+      if (st <= 0) sign('BELIEF: MORE OXYGEN', W * .36, H * .25, 30 * u, lt, 1.2, { bg: '#FFFFFF' });
       if (st > 0) { ctx.save(); ctx.translate(W * .5, H * .29); ctx.rotate(-.12); ctx.scale(2 - st, 2 - st); ctx.globalAlpha = clamp(st * 1.5); ctx.strokeStyle = '#E63946'; ctx.lineWidth = 10 * u; ctx.strokeRect(-W * .3, -H * .05, W * .6, H * .1); txt('KNOWN: CO₂', 0, 4 * u, 62 * u, '#E63946'); ctx.restore(); CT.reserve(W * .18, H * .23, W * .64, H * .12); } });
     CT.end(o, lt, 0, .3); } }; };
 
@@ -128,7 +128,7 @@
       sticker(() => { rectF(W * .04, rim, W * .92, H * .16, H * .06, '#FFFFFF'); rectF(W * .04, rim, W * .92, H * .02, H * .01, '#E8EEF6', { plane: 0 }); rectF(W * .14, rim + H * .15, W * .05, H * .03, 6 * u, '#C9A227', { plane: 0 }); rectF(W * .8, rim + H * .15, W * .05, H * .03, 6 * u, '#C9A227', { plane: 0 }); }, 5);
       const dkx = W * .78 + Math.sin(lt * .6) * W * .02; sticker(() => { fo(dkx, rim - H * .02 + Math.sin(lt * 2) * 3 * u, W * .05, W * .035, '#FFD23F', .1); fo(dkx + W * .035, rim - H * .05 + Math.sin(lt * 2) * 3 * u, W * .028, W * .028, '#FFD23F', .1); polyF([[dkx + W * .058, rim - H * .052], [dkx + W * .08, rim - H * .048], [dkx + W * .058, rim - H * .042]], '#FF9F1C'); fo(dkx + W * .04, rim - H * .055, 4 * u, 4 * u, INK, 0); }, 4);
       if (lt > tU + 1.2 && lt < tN) sign('AN OLD ALARM, DOING ITS JOB', W * .5, H * .22, 26 * u, lt, tU + 1.2, { bg: '#FFFFFF' }); });
-    if (lt > tN) { const a = ph(lt, tN, .6); CT.punch(next, a, .9 + .1 * E.back(a)); scr(() => { ctx.globalAlpha = a * .85; mono('NEXT TIME ON THE IF MACHINE', W / 2, H * .085, 26 * u, INK); }); }
+    if (lt > tN) { const a = ph(lt, tN, .6); scr(() => { ctx.globalAlpha = a; ctx.translate(W / 2, H * .17); const k = .9 + .1 * E.back(a); ctx.scale(k, k); ctx.translate(-W / 2, -H * .17); IFM.CAST.title(next.map(l => l.replace(/\*/g, '')), next.findIndex(l => l.includes('*')), null, 0); }); scr(() => { ctx.globalAlpha = a * .85; mono('NEXT TIME ON THE IF MACHINE', W / 2, H * .085, 26 * u, INK); }); }
     CT.end({}, lt, 0, .3); } }; };
 })();
 
