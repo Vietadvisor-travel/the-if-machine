@@ -72,3 +72,4 @@
 2026-11-11 08:45 · claude → owner · [engine] audio pass: music audible on phones, VO leveller, punchline pacing, sfx=name@k fixed, `sound: light` foley; A/B on Drive audio_ab_2026-11-11 (mix before/after, Kokoro vs Chatterbox Turbo ≈38× slower than real time on CPU), owner decides
 2026-11-12 01:23 · claude → owner · [breathe-underwater] started (Thở được dưới nước); research pack checked (10 facts), director's script next
 2026-11-12 04:01 · claude → owner · [breathe-underwater] DELIVERED (Thở được dưới nước): 6:27 master on Drive, review 91, awaiting owner approval
+2026-11-12 06:24 · claude → muse · [market] owner asks for a data scan before changing the channel's direction: read jobs/tasks/MUSE_MARKET_SCAN.md (our own stats per episode/platform + 60 top Facebook videos in 4 niches, animation vs real footage). Read only, no posting.
