@@ -123,3 +123,30 @@
   const GL = {}; L.gltf = (name, b64) => { if (GL[name]) return GL[name].ready ? GL[name] : null; GL[name] = { ready: false }; const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0)); new X.GLTFLoader().parse(bin.buffer, '', g => { GL[name] = { ready: true, gltf: g }; }, e => console.warn('gltf', name, e)); return null; };
   L.cloneSkinned = g => X.SkeletonUtils.clone(g);
 })();
+
+/* L3 assets — on-demand CC0 assets (HDRI, glTF people/props, PBR material sets) stored as data scripts in engine/assets3d/
+   (built by tools/assets3d.py from Muse's Drive pack; never in git). A story's assets are preloaded when the episode loads
+   (window.L3_WAIT, awaited by every render tool), then used synchronously: L.A[id].
+   Story keys that name assets: assets="hdr/x glb/y tex/z" · env=hdr/x · actor specs "glb/<id>:<clip>" · set presets (L.SETS). */
+(function () {
+  if (typeof THREE === 'undefined' || !window.THREE_X || !IFM.L3) return;
+  const L = IFM.L3, X = window.THREE_X; L.ASSET_DATA = L.ASSET_DATA || {}; L.A = L.A || {}; const LOADING = {};
+  const script = id => LOADING[id] || (LOADING[id] = new Promise(res => { if (L.ASSET_DATA[id]) return res(); const s = document.createElement('script'); s.src = 'engine/assets3d/' + id.replace(/\//g, '__') + '.js'; s.onload = () => res(); s.onerror = () => { console.warn('L3 asset missing: ' + id); res(); }; document.head.appendChild(s); }));
+  const bin = b64 => Uint8Array.from(atob(b64), c => c.charCodeAt(0)).buffer;
+  const img = (mime, b64) => new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = 'data:' + mime + ';base64,' + b64; });
+  async function decode(id) { if (L.A[id]) return L.A[id]; await script(id); const d = L.ASSET_DATA[id]; if (!d) return null;
+    if (d.type === 'hdr') { const t = new X.RGBELoader().parse(bin(d.b64)); const tex = new THREE.DataTexture(t.data, t.width, t.height, THREE.RGBAFormat, t.type); tex.mapping = THREE.EquirectangularReflectionMapping; tex.colorSpace = THREE.LinearSRGBColorSpace; tex.minFilter = tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = false; tex.flipY = true; tex.needsUpdate = true; L.A[id] = { type: 'hdr', tex }; }
+    else if (d.type === 'glb') { const g = await new Promise(res => new X.GLTFLoader().parse(bin(d.b64), '', res, e => { console.warn('gltf ' + id, e); res(null); })); L.A[id] = g && { type: 'glb', gltf: g, clips: Object.fromEntries((g.animations || []).map(a => [a.name, a])) }; }
+    else if (d.type === 'tex') { const maps = {}; for (const [k, v] of Object.entries(d.maps)) { const im = await img(v.mime, v.b64); if (!im) continue; const t = new THREE.Texture(im); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = k === 'color' ? THREE.SRGBColorSpace : THREE.NoColorSpace; t.anisotropy = 4; t.needsUpdate = true; maps[k] = t; } L.A[id] = { type: 'tex', maps }; }
+    delete L.ASSET_DATA[id]; return L.A[id]; }
+  L.need = ids => Promise.all([...new Set(ids.filter(Boolean))].map(decode));
+  // collect asset ids named by an episode
+  L.SETS = L.SETS || {}; L.assetsOf = ep => { const ids = []; (ep.scenes || []).forEach(s => { const o = (s.layers || []).reduce((a, l) => Object.assign(a, l.o || l), Object.assign({}, s.o || {}, s.vis || {}));
+      const raw = JSON.stringify(s); (raw.match(/\b(?:hdr|glb|tex)\/[a-z0-9_\-]+/gi) || []).forEach(x => ids.push(x)); const set = (raw.match(/\bset=([a-z0-9_]+)/i) || [])[1]; if (set && L.SETS[set] && L.SETS[set].assets) ids.push(...L.SETS[set].assets); }); return ids; };
+  const _load = window.loadEpisode; if (typeof _load === 'function' && !_load._l3) { window.loadEpisode = function (ep) { const t = _load.apply(this, arguments); try { const ids = [...L.assetsOf(ep), ...(L.REQ || [])]; window.L3_WAIT = ids.length ? L.need(ids) : null; } catch (e) { console.warn('L3 preload', e); } return t; }; window.loadEpisode._l3 = 1; }
+  // material from a PBR set: L.pbr('tex/rusty_metal', { repeat: 2, color })
+  const PB = {}; L.pbr = (id, o = {}) => { const k = id + JSON.stringify(o); if (PB[k]) return PB[k]; const a = L.A[id]; const m = new THREE.MeshStandardMaterial({ color: o.color || '#FFFFFF', roughness: 1, metalness: o.metal ?? 0 }); if (a) { const rp = o.repeat || 1, tx = t => { if (!t) return null; const c = t.clone(); c.repeat.set(rp, rp * (o.aspect || 1)); c.needsUpdate = true; return c; };
+      m.map = tx(a.maps.color); m.normalMap = tx(a.maps.normal); m.roughnessMap = tx(a.maps.rough); m.aoMap = tx(a.maps.ao); if (a.maps.metal) { m.metalnessMap = tx(a.maps.metal); m.metalness = 1; } if (o.normalScale) m.normalScale.set(o.normalScale, o.normalScale); } else m.color = new THREE.Color(o.fallback || '#888888'); return (PB[k] = m); };
+  // image-based light + visible background from an HDRI (falls back to the neutral room)
+  const PM = {}; L.env = id => { if (PM[id]) return PM[id]; const a = L.A[id]; if (!a) return L.envRoom ? L.envRoom() : null; const pm = new THREE.PMREMGenerator(L.renderer()); PM[id] = pm.fromEquirectangular(a.tex).texture; pm.dispose(); return PM[id]; };
+})();

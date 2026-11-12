@@ -7,8 +7,8 @@
 import { launch } from './browser.mjs'; import fs from 'fs';
 const ep = process.argv[2]; const txt = fs.readFileSync(ep, 'utf8'); const errs = [], notes = [];
 const browser = await launch(); const page = await browser.newPage(); const pageErr = []; page.on('pageerror', e => pageErr.push(e.message));
-await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(() => window.READY);
-const r = await page.evaluate((t) => { const out = { unknown: [], throws: [] };
+await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(async () => window.READY);
+const r = await page.evaluate(async (t) => { const out = { unknown: [], throws: [] };
   const acts = [...t.matchAll(/^#\s*vis\b[^\n]*?\bact=(\w+)/gm)].map(m => m[1]), then = [...t.matchAll(/act=(\w+)@/g)].map(m => m[1]), scenes = [...t.matchAll(/scene="(\w+)/g)].map(m => m[1]);
   [...acts, ...then, ...scenes].forEach(a => { if (!(IFM.ACT && IFM.ACT[a]) && !['hook'].includes(a)) out.unknown.push(a); });
   // explainer kit: every illustration name must resolve (owner, 4 Nov 2026: pictures must show a recognisable thing)
@@ -16,7 +16,7 @@ const r = await page.evaluate((t) => { const out = { unknown: [], throws: [] };
   SB.compile(t, { collect: 1 }); out.lines = (SB._lines || []).map(l => l.text);
   const epi = SB.compile(t); out.calm = IFM.calm; out.grade = epi.look && epi.look.grade; out.bloom = (typeof GRADES !== 'undefined' && GRADES[out.grade]) ? GRADES[out.grade].bloom : null;
   out.trans = epi.scenes.map(s => s.transition && s.transition.type).filter(Boolean); out.CALM = IFM.CALM_TR || [];
-  const c = document.getElementById('c'); c.width = 270; c.height = 480; W = 270; H = 480; ctx = c.getContext('2d'); loadEpisode(epi); let t0 = 0;
+  const c = document.getElementById('c'); c.width = 270; c.height = 480; W = 270; H = 480; ctx = c.getContext('2d'); loadEpisode(epi); await (window.L3_WAIT || 0); let t0 = 0;
   epi.scenes.forEach((s, i) => { const mid = t0 + s.dur / 2; try { renderEpisode(mid); } catch (e) { out.throws.push(`${s.id} @${mid.toFixed(1)}s: ${e.message}`); } t0 += s.dur; });
   try { const cues = episodeCues(); const names = new Set(); const walk = (x, k) => { if (Array.isArray(x)) x.forEach(y => walk(y, k)); else if (x && typeof x === 'object') Object.entries(x).forEach(([kk, v]) => walk(v, kk)); else if (typeof x === 'string' && (k === 'sfx' || k === 'name') && /^[a-z][a-z0-9_]+$/.test(x)) names.add(x); }; walk(cues); out.sounds = [...names]; } catch (e) { out.sounds = []; out.cueErr = e.message; }
   return out; }, txt);

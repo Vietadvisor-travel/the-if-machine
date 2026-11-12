@@ -4,12 +4,12 @@
 //   budget per frame: ERROR > 800 ms (fix the shot: cache static layers with mkCanvas/withCtx, no live ctx.filter over many paths)
 //                     WARN  > 400 ms     normal is ~100–250 ms
 import { launch } from './browser.mjs'; import fs from 'fs';
-const ep = process.argv[2], ai = process.argv.indexOf('--every'), every = ai > 0 ? +process.argv[ai + 1] : 1.5, ERR = 800, WARN = 400, MOT = +(process.env.MOT || 3);
+const ep = process.argv[2], ai = process.argv.indexOf('--every'), every = ai > 0 ? +process.argv[ai + 1] : 1.5, ERR = +(process.env.COST_ERR || 800), WARN = +(process.env.COST_WARN || 400), MOT = +(process.env.MOT || 3);
 const browser = await launch(); const page = await browser.newPage(); page.on('pageerror', e => console.log('ERR:', e.message));
-await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(() => window.READY);
+await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(async () => window.READY);
 let bad = false;
 for (const [fmt, w, h] of process.argv.includes('--both') ? [['16x9', 1920, 1080], ['9x16', 1080, 1920]] : [['9x16', 1080, 1920]]) {
-  const r = await page.evaluate(([txt, w, h, every]) => { const ep = SB.compile(txt); const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(ep);
+  const r = await page.evaluate(async ([txt, w, h, every]) => { const ep = SB.compile(txt); const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(ep); await (window.L3_WAIT || 0);
     const sc = []; let t = 0; for (const s of ep.scenes) { sc.push([t, s.id]); t += s.dur || 0; } const idAt = x => { let id = sc[0][1]; for (const [t0, i] of sc) if (x >= t0) id = i; return id; };
     const sm = mkCanvas(48, 64), sg = sm.getContext('2d', { willReadFrequently: true }); // emptiness of the picture zone (top 74 %, above the captions): 6 × 8 cells, a cell is dead when nearly flat
     const empty = () => { sg.drawImage(c, 0, 0, w, h * .74, 0, 0, 48, 64); const d = sg.getImageData(0, 0, 48, 64).data; let dead = 0; for (let cy = 0; cy < 8; cy++) for (let cx = 0; cx < 6; cx++) { let n = 0, s1 = 0, s2 = 0; for (let y = cy * 8; y < cy * 8 + 8; y++) for (let x = cx * 8; x < cx * 8 + 8; x++) { const i = (y * 48 + x) * 4, l = .3 * d[i] + .59 * d[i + 1] + .11 * d[i + 2]; n++; s1 += l; s2 += l * l; } if (Math.sqrt(Math.max(0, s2 / n - (s1 / n) ** 2)) < 5) dead++; } return Math.round(dead / 48 * 100); };

@@ -6,19 +6,19 @@ fs.mkdirSync(path.dirname(outBase), { recursive: true });
 const browser = await launch();
 const page = await browser.newPage(); page.on('pageerror', e => console.log('ERR:', e.message));
 const isStory = /\.(story|txt)$/.test(ep);
-await page.goto('file://' + process.cwd() + '/studio.html' + (isStory ? '' : '?ep=' + encodeURIComponent(ep))); await page.evaluate(() => window.READY);
+await page.goto('file://' + process.cwd() + '/studio.html' + (isStory ? '' : '?ep=' + encodeURIComponent(ep))); await page.evaluate(async () => window.READY);
 const voi = process.argv.indexOf('--vo'); const VO = voi > 0 && fs.existsSync(process.argv[voi + 1]) ? JSON.parse(fs.readFileSync(process.argv[voi + 1], 'utf8')) : null;
 const ENVP = voi > 0 ? path.join(path.dirname(process.argv[voi + 1]), 'envs.json') : null; const ENV = ENVP && fs.existsSync(ENVP) ? JSON.parse(fs.readFileSync(ENVP, 'utf8')) : null; const VISP = ENVP && ENVP.replace(/envs\.json$/, 'visemes.json'); const VIS = VISP && fs.existsSync(VISP) ? JSON.parse(fs.readFileSync(VISP, 'utf8')) : null;
-if (isStory) await page.evaluate(([t, vo, env, vis]) => { window.VOENV = env; window.VOVIS = vis; window.EPISODE = SB.compile(t, vo ? { vo } : {}); }, [fs.readFileSync(ep, 'utf8'), VO, ENV, VIS]);
+if (isStory) await page.evaluate(async ([t, vo, env, vis]) => { window.VOENV = env; window.VOVIS = vis; window.EPISODE = SB.compile(t, vo ? { vo } : {}); }, [fs.readFileSync(ep, 'utf8'), VO, ENV, VIS]);
 await page.addScriptTag({ path: 'engine/lint.js' });
 const tiles = []; let report = '';
 const FMTS = process.argv.includes('--both') ? [[1080, 1920, '9x16'], [1920, 1080, '16x9']] : process.argv.includes('--16x9') ? [[1920, 1080, '16x9']] : [[1080, 1920, '9x16']];
 for (const [w, h, f] of FMTS) {
-  const r = await page.evaluate(([w, h]) => { const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(window.EPISODE); return lintEpisode(); }, [w, h]);
+  const r = await page.evaluate(async ([w, h]) => { const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(window.EPISODE); await (window.L3_WAIT || 0); return lintEpisode(); }, [w, h]);
   report += `\n[${f}] ${r.summary.duration}s · ${r.summary.scenes} scenes · ${r.summary.errors} errors · ${r.summary.warnings} warnings · ${r.summary.info} info\n`;
   for (const i of r.issues.filter(i => f === FMTS[0][2] || !/caption too|banned|price|transition|over 12|camera move|end frame|first 0.4/.test(i.msg))) report += `  ${i.sev.toUpperCase().padEnd(5)} ${String(i.t).padStart(6)}s ${i.scene.padEnd(14)} ${i.msg}${i.n > 1 ? ` (×${i.n})` : ''}\n`;
   // one frame per scene at 55% of its length
-  const dv = FMTS.length === 1 ? 4 : 5; const shots = await page.evaluate(([w, h, dv]) => { const res = []; let st = 0; for (const s of EP.scenes) { const t = st + s.dur * .55; renderEpisode(t); const c = mkCanvas(w / dv, h / dv); c.getContext('2d').drawImage(document.getElementById('c'), 0, 0, w / dv, h / dv); res.push({ id: s.id, t: +t.toFixed(1), d: c.toDataURL('image/jpeg', .8) }); st += s.dur; } return res; }, [w, h, dv]);
+  const dv = FMTS.length === 1 ? 4 : 5; const shots = await page.evaluate(async ([w, h, dv]) => { const res = []; let st = 0; for (const s of EP.scenes) { const t = st + s.dur * .55; renderEpisode(t); const c = mkCanvas(w / dv, h / dv); c.getContext('2d').drawImage(document.getElementById('c'), 0, 0, w / dv, h / dv); res.push({ id: s.id, t: +t.toFixed(1), d: c.toDataURL('image/jpeg', .8) }); st += s.dur; } return res; }, [w, h, dv]);
   tiles.push({ f, w: w / dv, h: h / dv, shots });
 }
 // compose contact sheet: 16:9 tiles 6 per row, then 9:16 tiles 12 per row

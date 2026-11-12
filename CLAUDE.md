@@ -6,6 +6,21 @@ Token-lean reading (owner, 3 Nov 2026: as cheap as possible, same quality):
   and `brief/BRAND.md` §2 (tone).
 - Everything else (`PROTOCOL.md`, the brief, `IFM_HOUSE.md`, `references/`) only when a question needs it, with grep.
 
+## PHASE 2 — 60-second true stories (owner, 12 Nov 2026) — OVERRIDES everything below about format, look, voice and length
+Decided from Muse's market scan (`jobs/research/_market/ANALYSIS.md`): animated TRUE micro-stories win on Facebook; long what-if
+explainers do not. When the owner says "làm tập <tên>" / "làm tập tiếp" / "làm clip …", make ONE clip:
+- **Read:** `studio/CLIP.md` (the workflow, the shot grammar, the commands) + `studio/STORY.md` (the writing standard). Nothing else up front.
+- **Format:** vertical 9:16, 50–65 s (150–190 words), opens MID-ACTION (verb first, no "What if", no title card), no spoken outro,
+  short brand end (`enddur: 1.5`). One sentence = one shot.
+- **Picture:** realistic real-time 3D, house look IFM.L3 (`act=l3` shots: HDRI light, glTF people + animation clips, PBR, DOF)
+  + minimal 2D only to explain the invisible. Assets: `python3 tools/assets3d.py sync` (Drive `_assets3d`, built by Muse).
+  Real people appear as generic figures (no likeness); the post says "animated reenactment".
+- **Voice:** am_adam (Kokoro), speed 1.0 — replaces af_heart / af_nicole / am_santa for this format.
+- **Gates:** `node tools/clip_gate.mjs stories/<slug>.story` (clip_check + 3D render cost ≤ 9 s/frame + sheet); render with
+  make.mjs (≈ 25–35 min for 60 s); ship.sh; delivery note; report ≤ 8 Vietnamese lines + "đăng tập <tên>".
+- **Still valid from below:** Vietnamese messages to the owner, facts with 2 sources, no invented numbers, Drive masters, git rules,
+  watchdogs, `bash setup.sh`. The long-film rules below (6–10 min, IF CREW 2D, af_heart, What-if opening, outro) are LEGACY.
+
 ## Current phase: PRODUCTION (from 3 Nov 2026, PROTOCOL §8)
 The owner starts each episode in a new chat ("làm tập <tên tập>" / "làm tập tiếp") and approves each video himself.
 Push to `main` (owner's standing authorization, PROTOCOL §1). The scheduled routine is off.

@@ -8,9 +8,9 @@ const ep = process.argv[2]; if (!ep) { console.log('usage: node tools/review.mjs
 const base = 'out/' + path.basename(ep).replace(/\.\w+$/, ''); fs.mkdirSync('out', { recursive: true });
 const FPS = 4, w = 216, h = 384;
 const browser = await launch(); const page = await browser.newPage(); page.on('pageerror', e => console.log('ERR:', e.message));
-await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(() => window.READY);
-const data = await page.evaluate(([txt, w, h, FPS]) => {
-  const ep = SB.compile(txt); const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(ep);
+await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(async () => window.READY);
+const data = await page.evaluate(async ([txt, w, h, FPS]) => {
+  const ep = SB.compile(txt); const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(ep); await (window.L3_WAIT || 0);
   if (typeof postFrame === 'function') window.postFrame = () => false;
   const D = episodeDuration(), sm = mkCanvas(24, 42), sg = sm.getContext('2d', { willReadFrequently: true }); let prev = null; const energy = [], thumbs = [];
   let st = 0; const want = []; ep.scenes.forEach(s => { for (let k = 0; k < 6; k++) want.push(st + s.dur * (k + .5) / 6); st += s.dur; });

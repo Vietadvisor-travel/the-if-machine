@@ -4,9 +4,9 @@ import { launch } from './browser.mjs'; import fs from 'fs'; import path from 'p
 const [ep, fmt = 'v', per = '3'] = process.argv.slice(2); const base = 'out/' + path.basename(ep).replace(/\.\w+$/, '');
 const [w, h] = fmt === 'v' ? [540, 960] : [960, 540];
 const browser = await launch(); const page = await browser.newPage(); page.on('pageerror', e => console.log('ERR:', e.message)); page.on('console', m => { if (/warn|unknown|no prop/i.test(m.text())) console.log('PAGE:', m.text()); });
-await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(() => window.READY);
+await page.goto('file://' + process.cwd() + '/studio.html'); await page.evaluate(async () => window.READY);
 const url = await page.evaluate(async ([txt, w, h, per]) => {
-  const ep = SB.compile(txt); const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(ep);
+  const ep = SB.compile(txt); const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); loadEpisode(ep); await (window.L3_WAIT || 0);
   const ts = []; let st = 0; ep.scenes.forEach(s => { for (let k = 0; k < per; k++) ts.push([st + s.dur * (k + 1) / (per + .4), s.id]); st += s.dur; });
   const cols = Math.min(ts.length, w < h ? 6 : 4), rows = Math.ceil(ts.length / cols), tw = w / 2, th = h / 2;
   const out = mkCanvas(cols * tw, rows * (th + 18)); const o = out.getContext('2d'); o.fillStyle = '#111'; o.fillRect(0, 0, out.width, out.height);

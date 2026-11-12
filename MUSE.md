@@ -29,6 +29,13 @@ bios, hashtags). Each post carries the AI-narration line.
    research packs, set STATUS → RESEARCH_READY, add an INBOX line and push. Post only when the owner says
    "đăng tập …".
 
+## Posting a 60-second clip (owner, 12 Nov 2026)
+- Only after the owner says "đăng tập <tên>". Platforms: Facebook Reels (main), TikTok, Instagram Reels, YouTube Shorts.
+- Caption: line 1 = the clip's hook line (exact); line 2 = one short line of context (place, year); line 3 = "Animated
+  reenactment of a true story."; 3–5 hashtags. No "follow for more" begging, no clickbait words (BRAND §2).
+- Pinned comment: "Sources:" + the 2–3 source links from `jobs/deliveries/<slug>.md`.
+- One clip a day at the same hour (US evening). Record each post in `jobs/publish/<slug>.md`.
+
 ## Naming (PROTOCOL §6)
 
 - The owner speaks plain Vietnamese and never uses slugs. Muse and Claude turn his words into the slug themselves.

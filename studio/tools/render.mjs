@@ -10,16 +10,16 @@ const voi = process.argv.indexOf('--vo'); const VO = voi > 0 && fs.existsSync(pr
 const ENVP = voi > 0 ? path.join(path.dirname(process.argv[voi + 1]), 'envs.json') : null; const ENV = ENVP && fs.existsSync(ENVP) ? JSON.parse(fs.readFileSync(ENVP, 'utf8')) : null; const VISP = ENVP && ENVP.replace(/envs\.json$/, 'visemes.json'); const VIS = VISP && fs.existsSync(VISP) ? JSON.parse(fs.readFileSync(VISP, 'utf8')) : null;
 async function openPage() { const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
   page.on('console', m => { const t = m.text(); if (!/ERR_FILE|missing|GL Driver|swiftshader|GroupMarker/i.test(t)) console.log('PAGE:', t); }); page.on('pageerror', e => console.log('ERR:', e.message));
-  await page.goto('file://' + process.cwd() + '/studio.html' + (isStory ? '' : '?ep=' + encodeURIComponent(ep))); await page.evaluate(() => window.READY);
-  if (isStory) await page.evaluate(([t, vo, env, vis]) => { window.VOENV = env; window.VOVIS = vis; window.EPISODE = SB.compile(t, vo ? { vo } : {}); }, [fs.readFileSync(ep, 'utf8'), VO, ENV, VIS]);
-  const d = await page.evaluate(([w, h]) => { const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); return loadEpisode(window.EPISODE); }, [w, h]);
+  await page.goto('file://' + process.cwd() + '/studio.html' + (isStory ? '' : '?ep=' + encodeURIComponent(ep))); await page.evaluate(async () => window.READY);
+  if (isStory) await page.evaluate(async ([t, vo, env, vis]) => { window.VOENV = env; window.VOVIS = vis; window.EPISODE = SB.compile(t, vo ? { vo } : {}); }, [fs.readFileSync(ep, 'utf8'), VO, ENV, VIS]);
+  const d = await page.evaluate(async ([w, h]) => { const c = document.getElementById('c'); c.width = w; c.height = h; W = w; H = h; ctx = c.getContext('2d'); const _d = loadEpisode(window.EPISODE); await (window.L3_WAIT || 0); return _d; }, [w, h]);
   return { page, dur: d }; }
 const { page, dur } = await openPage();
 const frameOn = async (pg, t, type = 'image/jpeg', q = .95) => { const d = await pg.evaluate(([t, type, q]) => { renderEpisode(t); return document.getElementById('c').toDataURL(type, q); }, [t, type, q]); return Buffer.from(d.split(',')[1], 'base64'); };
 const frame = (t, type, q) => frameOn(page, t, type, q);
 if (opt('lines')) { const L = await page.evaluate(t => { SB.compile(t, { collect: 1 }); return { lines: SB._lines, voice: EPISODE.voice, music: EPISODE.music, format: EPISODE.format }; }, fs.readFileSync(ep, 'utf8')); const e = await page.evaluate(t => { const x = SB.compile(t); return { voice: x.voice, music: x.music, format: x.format }; }, fs.readFileSync(ep, 'utf8')); fs.writeFileSync(opt('lines'), JSON.stringify({ ...L, ...e }, null, 1)); console.log('lines', L.lines.length); }
 else if (opt('stills')) { const dir = opt('out') || 'out/stills'; fs.mkdirSync(dir, { recursive: true }); for (const t of opt('stills').split(',').map(Number)) fs.writeFileSync(`${dir}/${fmt}_t${t.toFixed(2)}.jpg`, await frame(t, 'image/jpeg', .85)); }
-else if (opt('cues')) { const cues = await page.evaluate(() => episodeCues()); fs.writeFileSync(opt('cues'), JSON.stringify(cues, null, 2)); console.log('duration', dur); }
+else if (opt('cues')) { const cues = await page.evaluate(async () => episodeCues()); fs.writeFileSync(opt('cues'), JSON.stringify(cues, null, 2)); console.log('duration', dur); }
 else {
   const out = opt('out') || `out/episode_${fmt}.mp4`; const f0 = Math.round((+(opt('from') || 0)) * fps), f1 = Math.round((+(opt('to') || dur)) * fps);
   const jobs = Math.max(1, Math.min(+(opt('jobs') || Math.min(8, (await import('os')).cpus().length)), Math.ceil((f1 - f0) / 90)));
@@ -45,7 +45,7 @@ else {
   fs.rmSync(cacheDir, { recursive: true, force: true }); // video done: drop the frame cache
   if (args.includes('--audio')) { // procedural SFX track from the cue sheet, muxed into the MP4
     const { execFileSync } = await import('child_process'); const cj = out.replace(/\.mp4$/, '_cues.json'), wav = out.replace(/\.mp4$/, '_sfx.wav'), tmp = out.replace(/\.mp4$/, '_tmp.mp4');
-    fs.writeFileSync(cj, JSON.stringify(await page.evaluate(() => episodeCues()), null, 1));
+    fs.writeFileSync(cj, JSON.stringify(await page.evaluate(async () => episodeCues()), null, 1));
     execFileSync('python3', [path.join(path.dirname(new URL(import.meta.url).pathname), 'sfx.py'), 'mix', cj, wav], { stdio: 'inherit' });
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', out, '-i', wav, '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-shortest', '-movflags', '+faststart', tmp]); fs.renameSync(tmp, out);
   }
