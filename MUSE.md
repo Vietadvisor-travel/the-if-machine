@@ -8,6 +8,7 @@ Every caption, description, pinned comment and post follows `brief/BRAND.md` §2
 bios, hashtags). Each post carries the AI-narration line.
 
 ## What Muse does
+0. **New format (owner, 12 Nov 2026):** 60-second animated TRUE micro-stories. Every topic Muse proposes follows `studio/STORY.md` §1 (score ≥ 8/10, 2 sources per fact, a physical first line, a turn). Older what-if rules below apply only where they do not conflict.
 1. **Topic bank** (`jobs/topics/BANK.md`): keep 10–15 scored topics ready each week; mix ~60 % evergreen what-if /
    knowledge, ~30 % trend, ~10 % experiment; score = curiosity 40 + drawable in canvas 20 + gap vs big channels 20 + cheap
    and verifiable 20; only topics ≥ 70. Avoid: topics a big channel already did above 10 M views (unless the angle is
