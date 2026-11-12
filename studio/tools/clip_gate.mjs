@@ -5,7 +5,7 @@ const out = []; const cc = run(['tools/clip_check.mjs', ep]).trim().split('\n');
 // real voice + sound BEFORE any frame (owner, 12 Nov 2026: measure first, render once): real length (info: ≈ 60 s is a target, never
 // a reason to re-render) and every sound the story names must exist (an unknown sound is silently dropped by the mix)
 { const au = run(['tools/make.mjs', ep, '--audio-only', '--skip-lint', '--skip-review', '--speed', '1.0']); const len = (au.match(/real length ([\d.]+) s/) || [])[1], unk = ((au.match(/unknown: \[([^\]]*)\]/) || [])[1] || '').trim();
-  out.push(len ? `audio  real length ${len} s (target ≈ 60 s, info only) · mix ready → render with --reuse-mix` : '  ERROR audio-only failed: ' + au.split('\n').filter(l => /FAIL|Error/.test(l)).slice(0, 2).join(' | '));
+  out.push(len ? `audio  real length ${len} s (target 1:30–2:00, info only) · mix ready → render with --reuse-mix` : '  ERROR audio-only failed: ' + au.split('\n').filter(l => /FAIL|Error/.test(l)).slice(0, 2).join(' | '));
   if (unk) out.push(`  ERROR unknown sounds (dropped from the mix): ${unk} — use sfx="<t>:<name>:<gain>" with names from python3 tools/sfx_pro.py list`);
   au.split('\n').filter(l => /^\s*FAIL /.test(l)).slice(0, 3).forEach(l => out.push('  WARN  sound QA ' + l.trim())); }
 const cost = run(['tools/cost.mjs', ep], { COST_ERR: '9000', COST_WARN: '6000', MOT: '4' }).split('\n').filter(l => /^cost|ERROR|frozen/.test(l)).slice(0, 8); out.push(...cost);
