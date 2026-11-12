@@ -52,7 +52,7 @@ Mỗi tập có số thứ tự riêng: **RUN #001, #002…** Số này ghi tron
 
 ## 2. Tính cách và giọng văn
 
-> **Giai đoạn 2 (owner, 12/11/2026):** kênh làm chuyện thật 60 giây, giọng am_adam (hơi máy, tỉnh bơ). Chuẩn viết là `studio/STORY.md`. Các câu cửa miệng "What if…", "Let's run it", "That's the run" bên dưới là của dạng cũ, không dùng cho clip 60 giây.
+> **Giai đoạn 2 (owner, 12/11/2026):** kênh đổi tên thành **ODDLY TRUE** (định vị *Strange things that really happened.*, xem brief/REBRAND.md), làm chuyện thật 60 giây, giọng am_adam (hơi máy, tỉnh bơ). Chuẩn viết là `studio/STORY.md`. Các câu cửa miệng "What if…", "Let's run it", "That's the run" bên dưới là của dạng cũ, không dùng cho clip 60 giây.
 
 
 **Tính cách:** như một người bạn rất thông minh, đọc đủ thứ mà vẫn hào hứng như trẻ con. Tò mò, tinh nghịch, thông minh mà không lên lớp, trung thực.

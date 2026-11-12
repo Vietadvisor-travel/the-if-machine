@@ -8,7 +8,8 @@ Token-lean reading (owner, 3 Nov 2026: as cheap as possible, same quality):
 
 ## PHASE 2 — 60-second true stories (owner, 12 Nov 2026) — OVERRIDES everything below about format, look, voice and length
 Decided from Muse's market scan (`jobs/research/_market/ANALYSIS.md`): animated TRUE micro-stories win on Facebook; long what-if
-explainers do not. When the owner says "làm tập <tên>" / "làm tập tiếp" / "làm clip …", make ONE clip:
+explainers do not. The channel is now **ODDLY TRUE** (owner, 12 Nov 2026; brief/REBRAND.md) — tagline *Strange things that really happened.*
+When the owner says "làm tập <tên>" / "làm tập tiếp" / "làm clip …", make ONE clip:
 - **Read:** `studio/CLIP.md` (the workflow, the shot grammar, the commands) + `studio/STORY.md` (the writing standard). Nothing else up front.
 - **Format:** vertical 9:16, 50–65 s (150–190 words), opens MID-ACTION (verb first, no "What if", no title card), no spoken outro,
   short brand end (`enddur: 1.5`). One sentence = one shot.

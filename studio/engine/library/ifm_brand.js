@@ -94,6 +94,9 @@
   const _end = UI.endFrame;
   // end card (owner, 4 Nov 2026: no machine identity, no ticket): the next question big, one call to action, the channel name small
   UI.endFrame = (p, o, t) => { if (!IFM.on) return _end(p, o, t); if (p <= 0) return; const u = U(), v = H > W, h = IFM.hdr; ctx.save(); ctx.globalAlpha *= clamp(p * 2);
+    if (/^yes$/i.test(String(h.clip || ''))) { /* 60 s clips (owner, 12 Nov 2026): a short brand sting, the Oddly True wordmark */ const g0 = ctx.createRadialGradient(W / 2, H * .45, 0, W / 2, H * .45, H * .7); g0.addColorStop(0, '#1F2A5C'); g0.addColorStop(.5, '#101633'); g0.addColorStop(1, '#05070F'); ctx.fillStyle = g0; ctx.fillRect(0, 0, W, H);
+      const k = E.back(clamp(t / .5)), fs = (v ? 120 : 110) * u; ctx.translate(W / 2, H * .46); ctx.scale(.85 + .15 * k, .85 + .15 * k); ctx.globalAlpha *= clamp(t / .3); ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = `900 ${fs}px "Unbounded"`; ctx.fillStyle = '#FFFFFF'; ctx.fillText('ODDLY', 0, -fs * .55); ctx.fillStyle = '#FFC93C'; ctx.fillText('TRUE', 0, fs * .55);
+      ctx.font = `700 ${26 * u}px "Space Mono"`; ctx.fillStyle = 'rgba(232,228,216,.8)'; ctx.fillText('STRANGE THINGS THAT REALLY HAPPENED', 0, fs * 1.55); ctx.restore(); return; }
     const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#101633'); g.addColorStop(1, '#05070F'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     for (let i = 0; i < 14; i++) { const r = rng(i * 7 + 5), bx = r() * W, by = r() * H * .8, br = (80 + r() * 220) * u * (1 + .08 * Math.sin(t + i)); const bg = ctx.createRadialGradient(bx, by, 0, bx, by, br); bg.addColorStop(0, [P.teal, P.yellow, P.coral, '#6C7BFF'][i % 4] + '55'); bg.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = bg; ctx.fillRect(bx - br, by - br, br * 2, br * 2); }
     for (let i = 0; i < 40; i++) { const r = rng(i * 13 + 1), x = r() * W, y = (r() * H - t * (10 + r() * 30) * u) % H, a = .15 + r() * .35; ctx.save(); ctx.globalAlpha *= a; circ(x, y < 0 ? y + H : y, (1.5 + r() * 3) * u, r() < .3 ? P.yellow : P.paper, 0); ctx.restore(); }
@@ -101,7 +104,7 @@
     if (next) { ctx.save(); ctx.globalAlpha *= k2; T('NEXT', cx, H * (v ? .3 : .26), { size: 30 * u, font: 'mono', fill: P.teal, lw: 0, ls: 8 * u }); ctx.restore();
       const fsz = (v ? 76 : 70) * u, L = wrap(next.toUpperCase(), fsz, 'display', W * (v ? .82 : .7), 900); L.slice(0, 4).forEach((ln, i) => { const kk = E.back(clamp((t - .7 - i * .15) / .45)); if (kk <= 0) return; ctx.save(); ctx.translate(cx, H * (v ? .38 : .38) + i * fsz * 1.12); ctx.scale(kk, kk); T(ln, 0, 0, { size: fsz, font: 'display', fill: '#FFFFFF', lw: 0, shadow: 6 * u }); ctx.restore(); }); }
     const ca = E.back(clamp((t - 1.6) / .45)); if (ca > 0) tag('FOLLOW FOR MORE', cx, H * (v ? .62 : .72), (v ? 44 : 40) * u, { s: ca * (1 + .03 * Math.sin(t * 5)), t });
-    if (h.title) { ctx.save(); ctx.globalAlpha *= clamp((t - 2) / .5) * .7; T(String(h.channelName || 'THE IF MACHINE'), cx, H * (v ? .68 : .82), { size: 22 * u, font: 'mono', fill: P.steel, lw: 0, ls: 6 * u }); ctx.restore(); }
+    if (h.title) { ctx.save(); ctx.globalAlpha *= clamp((t - 2) / .5) * .7; T(String(h.channelName || 'ODDLY TRUE'), cx, H * (v ? .68 : .82), { size: 22 * u, font: 'mono', fill: P.steel, lw: 0, ls: 6 * u }); ctx.restore(); }
     ctx.restore(); };
 
   // ---------------------------------------------------------------- transitions
