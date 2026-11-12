@@ -102,3 +102,24 @@
   L.cam = (fov = 38) => new THREE.PerspectiveCamera(fov, W / H, .05, 300);
   L.look = (cam, p, t, roll = 0) => { cam.aspect = W / H; cam.position.copy(p); cam.lookAt(t); cam.rotateZ(roll); cam.updateProjectionMatrix(); };
 })();
+
+/* L3 v2 — realistic pipeline (owner, 12 Nov 2026: "full upgrade, simulation level"): image-based light (PMREM), a post chain
+   (ambient occlusion → depth of field → bloom → output/tone mapping, SMAA), glTF loading with skeletal animation. */
+(function () {
+  if (typeof THREE === 'undefined' || !window.THREE_X || !IFM.L3) return;
+  const L = IFM.L3, X = window.THREE_X;
+  // image-based light: a neutral room (always available) or an HDRI decoded from base64 (Muse's Poly Haven pack)
+  const ENV = {}; L.envRoom = (k = .04) => { const r = L.renderer(); if (!ENV.room) { const pm = new THREE.PMREMGenerator(r); ENV.room = pm.fromScene(new X.RoomEnvironment(r), k).texture; pm.dispose(); } return ENV.room; };
+  L.envHDR = (name, b64) => { if (ENV[name]) return ENV[name]; const r = L.renderer(), bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0)); const tex = new X.RGBELoader().parse(bin.buffer); const t = new THREE.DataTexture(tex.data, tex.width, tex.height, THREE.RGBAFormat, tex.type); t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.LinearSRGBColorSpace; t.needsUpdate = true; t.flipY = true; const pm = new THREE.PMREMGenerator(r); ENV[name] = pm.fromEquirectangular(t).texture; pm.dispose(); return ENV[name]; };
+  // post chain per scene (cached): o.ao (GTAO), o.dof {focus, aperture, maxblur}, o.bloom {strength, radius, threshold}
+  L.composer = (S, o = {}) => { const r = L.renderer(), w = r.domElement.width, h = r.domElement.height; if (S._cmp && S._cmpW === w) { if (o.dof && S._bokeh) { S._bokeh.uniforms.focus.value = o.dof.focus; S._bokeh.uniforms.aperture.value = o.dof.aperture; } return S._cmp; }
+    const c = new X.EffectComposer(r); c.setPixelRatio(1); c.setSize(w, h); c.addPass(new X.RenderPass(S.sc, S.cam));
+    if (o.ao) { const ao = new X.GTAOPass(S.sc, S.cam, w, h); ao.updateGtaoMaterial({ radius: o.ao.radius ?? .5, distanceExponent: 1, thickness: 1, scale: 1, samples: o.ao.samples ?? 8 }); ao.blendIntensity = o.ao.k ?? 1; c.addPass(ao); }
+    if (o.dof) { const b = new X.BokehPass(S.sc, S.cam, { focus: o.dof.focus, aperture: o.dof.aperture, maxblur: o.dof.maxblur ?? .008 }); c.addPass(b); S._bokeh = b; }
+    if (o.bloom) c.addPass(new X.UnrealBloomPass(new THREE.Vector2(w, h), o.bloom.strength ?? .35, o.bloom.radius ?? .5, o.bloom.threshold ?? .85));
+    c.addPass(new X.OutputPass()); if (o.smaa !== 0) c.addPass(new X.SMAAPass(w, h)); S._cmp = c; S._cmpW = w; return c; };
+  L.renderPost = (S, o = {}) => { const r = L.renderer(); if (window.L3_POST === 0) { r.render(S.sc, S.cam); return; } L.composer(S, o).render(); };
+  // glTF from base64 (sync API over async parse: the act calls L.gltf every frame; the first frames wait until it is ready)
+  const GL = {}; L.gltf = (name, b64) => { if (GL[name]) return GL[name].ready ? GL[name] : null; GL[name] = { ready: false }; const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0)); new X.GLTFLoader().parse(bin.buffer, '', g => { GL[name] = { ready: true, gltf: g }; }, e => console.warn('gltf', name, e)); return null; };
+  L.cloneSkinned = g => X.SkeletonUtils.clone(g);
+})();

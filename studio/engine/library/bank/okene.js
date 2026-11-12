@@ -56,7 +56,7 @@
         s.beam.position.copy(lp.clone().lerp(lf, .5)); s.beam.lookAt(lf); s.beam.rotateX(-Math.PI / 2); s.beam.material.opacity = .12 * rise; }
       else { s.lamp.intensity = 0; s.beam.material.opacity = 0; }
       if (hand) L.look(s.cam, V3(lerp(-1.25, -1.05, k), 1.7, lerp(2.7, 2.45, k)), V3(.55, 1.6, .25), -.03); else L.look(s.cam, V3(lerp(.25, .05, k), lerp(1.45, 1.55, k), lerp(2.75, 2.25, k)), V3(0, 1.95, 0), .015);
-      r.render(s.sc, s.cam); L.present({ bloom: .32, grade: ['#3FD0D6', '#02080C'], gradeA: .3 }); }
+      if (!s.sc.environment && L.envRoom) { s.sc.environment = L.envRoom(); s.sc.environmentIntensity = .08; } if (L.renderPost && window.L3_POST) L.renderPost(s, { ao: { radius: .35, samples: 8 }, dof: { focus: s.cam.position.distanceTo(V3(0, 1.85, 0)), aperture: .0015, maxblur: .006 }, bloom: { strength: .22, radius: .5, threshold: .92 } }); else r.render(s.sc, s.cam); L.present({ bloom: .12, grade: ['#3FD0D6', '#02080C'], gradeA: .3 }); }
     if (v === 'pocket' && IFM.BU && IFM.BU.gauge) { const u = U(), t = clamp(lt / Math.max(1, dur)); IFM.BU.gauge(W * .8, H * .2, W * .1, lerp(.62, .48, t), lt, { label: 'O₂', col: '#2EC4B6', }); IFM.BU.gauge(W * .8, H * .37, W * .1, lerp(.08, .32, t), lt, { label: 'CO₂', col: '#FF6B5B', red: 'high'}); }
     CT.end({}, lt, 1, .34); } }; };
 })();
