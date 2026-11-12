@@ -3,11 +3,11 @@ import fs from 'fs';
 const p = process.argv[2], t = fs.readFileSync(p, 'utf8'), E = [], Wn = [];
 const hdr = Object.fromEntries((t.split(/\n\s*\n/)[0] || '').split('\n').map(l => l.match(/^([a-z0-9_]+):\s*(.*)$/i)).filter(Boolean).map(m => [m[1].toLowerCase(), m[2].trim()]));
 const beats = []; let cur = null; t.split('\n').forEach(l => { if (/^#\s*vis\b/.test(l)) { cur = { vis: l, lines: [] }; beats.push(cur); } else if (cur && l.trim() && !/^\/\//.test(l) && !/^[a-z0-9_]+:\s/i.test(l)) cur.lines.push(l.trim()); });
-const lines = beats.flatMap(b => b.lines), words = lines.join(' ').split(/\s+/).filter(Boolean).length, secs = words / 3.1;
+const lines = beats.flatMap(b => b.lines), words = lines.join(' ').split(/\s+/).filter(Boolean).length, secs = words / 2.7 + beats.length * .45;   // am_adam 1.0 measured: ≈ 2.7 words/s + the cut gaps
 if (!/^yes$/i.test(hdr.clip || '')) E.push('header needs "clip: yes"'); if ((hdr.voice || '') !== 'am_adam') Wn.push(`voice is "${hdr.voice}" (house voice: am_adam)`);
-if (words < 140 || words > 200) E.push(`${words} words ≈ ${secs.toFixed(0)} s: aim 150–190 (50–65 s)`);
-const first = (lines[0] || '').replace(/\*/g, ''); if (/^(what if|in this video|today|have you|did you know|imagine)/i.test(first)) E.push(`hook "${first.slice(0, 50)}…" starts with setup: open MID-ACTION, verb first`);
-if (first.split(/\s+/).length > 22) Wn.push('hook line is long (> 22 words): cut it to the action');
+if (words < 220 || words > 350) Wn.push(`${words} words ≈ ${secs.toFixed(0)} s: aim 240–330 (1:30–2:00; owner 12 Nov 2026, a target not a limit)`);
+const first = (lines[0] || '').replace(/\*/g, ''); if (/^(what if|in this video|today|have you|did you know|imagine)/i.test(first)) E.push(`opening "${first.slice(0, 50)}…" is a setup/question: open with the story itself (who, what happened, the unbelievable number)`);
+if (first.split(/\s+/).length > 26) Wn.push('opening line is long (> 26 words)');
 const banned = /\b(incredible|you won'?t believe|shocking|insane|mind-?blowing|in this video|let'?s|follow for more)\b/i; lines.forEach(l => { const m = l.match(banned); if (m) E.push(`banned phrase "${m[0]}" in: ${l.slice(0, 60)}`); });
 lines.forEach(l => { const n = l.replace(/\*/g, '').split(/\s+/).length; if (n > 24) Wn.push(`long sentence (${n} words): ${l.slice(0, 50)}…`); });
 beats.forEach((b, i) => { if (!/act=(l3|x[0-9a-z_]*)/.test(b.vis)) E.push(`beat ${i + 1}: use act=l3 (or a bespoke x_ act)`); if (/act=l3/.test(b.vis) && !/\bcam=/.test(b.vis)) Wn.push(`beat ${i + 1}: no cam= (SIZE.angle.move)`); if (b.lines.length > 2) Wn.push(`beat ${i + 1}: ${b.lines.length} lines — one sentence per shot`); });

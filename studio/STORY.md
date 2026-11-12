@@ -1,4 +1,4 @@
-# The 60-second true story — writing standard (owner, 12 Nov 2026: "content matters as much as the picture: gripping")
+# The 90–120-second true story — writing standard (owner, 12 Nov 2026: "content matters as much as the picture: gripping")
 
 Built from what actually wins on Facebook (Muse's scan, `jobs/research/_market/`): the top videos are short animated TRUE
 micro-stories; one creator (Zack D. Films) has a median of 95K likes vs 4K for everyone else with one formula. This page
@@ -13,20 +13,20 @@ turns that formula into rules. Voice: am_adam (deadpan, slightly synthetic). Pic
 6. Can be understood with the SOUND OFF (every beat is a picture, not an idea).
 7. One strong EMOTION: awe, anxiety, warmth, or deadpan absurdity. Never sadness for its own sake.
 8. Most people have NOT heard it (or know only the headline).
-9. Fits 150–190 spoken words (≈ 50–65 s with am_adam at speed 1.0).
+9. Fits 240–330 spoken words (≈ 1:30–2:00 with am_adam at speed 1.0); length is a target, never a reason to re-render.
 10. Safe: no instruction for anything dangerous; tragedy told with respect, never as a joke.
 
 Winning families (from the data): survival with an ingenious trick · history under your feet / how people did it before
 technology · strange-but-true events · your body in one concrete situation ("you lay on your arm…") · quiet heroism.
 
-## 2. The shape (≈ 170 words)
+## 2. The shape (owner, 12 Nov 2026: 1:30–2:00, ≈ 240–330 words — 60 s was too thin: "bland, no opening, no ending")
 | time | beat | rule |
 |---|---|---|
-| 0–3 s | HOOK | Start MID-ACTION, verb first, no setup, no question, no "In this video": "Was in the bathroom when his tugboat flipped over and sank." One concrete, slightly absurd image. The picture shows exactly that line. |
-| 3–10 s | ANCHOR | One sentence of who / where / when + the number that sets the stakes ("4:50 a.m., off Nigeria, 30 metres down"). |
-| 10–40 s | ESCALATION | 3–4 turns. Each turn = a new problem → what he did → what it cost. A concrete sensory detail every 5–8 s (cold water, a bottle of Coke, two tiny flashlights). Plant an open loop ("but the bubble had a problem"). |
-| 40–52 s | CLIMAX | The turn: the reveal, the rescue, the trick working, the cost. Slow down: shorter sentences, a held beat (…). |
-| 52–60 s | PAYOFF | The aftermath in one line + one kicker fact (a number, an irony), then a closing line that echoes the hook so the loop invites a rewatch. No spoken "follow", no outro. |
+| 0–8 s | OPENING = THE STORY ITSELF | Say the whole extraordinary thing in one or two lines, plainly and vividly: who, what happened, the number that makes it unbelievable, and the promise ("In May 2013, a ship's cook spent almost three days at the bottom of the sea… and lived. Trapped in an upside-down tugboat, breathing from one bubble of air."). The picture shows exactly that. NEVER a flash-forward to the climax (owner: "silly"), no "What if", no question, no "In this video". |
+| 8–20 s | HOW IT STARTED | Where / when / the absurd or human detail that sets it off (he was on the toilet when the boat rolled over). |
+| 20–75 s | THREE TURNS, each with a "but" | Each turn = a new problem → what he did → what it cost. Sensory detail from the sources every 5–8 s (cold water, a life vest with two torches, salt water that took the skin off his tongue). His own words where a source quotes them. Plant an open loop ("but the bubble had a problem"). |
+| 75–95 s | CLIMAX, slowed down | Shorter sentences, one held beat (…), the moment told in order (the first diver swims past… the second… the hand… "He's alive!"). |
+| 95–120 s | ENDING with meaning | The aftermath (cost, who did not survive, what happened next) + what became of him + ONE closing line that gives the story its meaning and echoes the opening ("The man who waited three days for a diver's light… now carries one."). No spoken "follow", no outro. |
 
 ## 3. Line craft
 - One sentence = one shot. 6–16 words. Concrete nouns and verbs; numbers instead of adjectives ("30 metres", not "very deep").

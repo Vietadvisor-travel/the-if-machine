@@ -1,6 +1,6 @@
-# Making a 60-second clip — the only page to read (owner, 12 Nov 2026: "build everything, then 'làm tập' just works")
+# Making a 90–120-second clip — the only page to read (owner, 12 Nov 2026: "build everything, then 'làm tập' just works")
 
-Format: ONE vertical 9:16 clip, about 60 s (a target, not a limit: a few seconds over or under is fine; owner 12 Nov 2026: never re-render just for length), an animated TRUE micro-story. Picture: realistic real-time 3D (IFM.L3: HDRI light,
+Format: ONE vertical 9:16 clip, 1:30–2:00 (owner, 12 Nov 2026 evening; a target, not a limit: never re-render just for length), an animated TRUE micro-story. Picture: realistic real-time 3D (IFM.L3: HDRI light,
 glTF people with animation, PBR materials, depth of field) + minimal 2D only where it explains the invisible. Voice: am_adam
 (Kokoro), speed 1.0, slightly synthetic and deadpan. Writing: `studio/STORY.md` (read it every time). No titles, no kickers,
 no spoken outro.
@@ -16,7 +16,7 @@ python3 tools/assets3d.py story stories/<slug>.story   # builds only the HDRIs/p
 ## 1. Story and research (15–20 min)
 - From the owner's pick or Muse's list. Score it with STORY.md §1 (≥ 8/10). Two sources per fact on screen.
 - `node tools/new_clip.mjs <slug> "<tên tiếng Việt>"` → `jobs/scripts/<slug>.md` + `stories/<slug>.story`.
-- Fill the script file: sources, score, the 4 tests, the table (time · VO · SHOT · 2D · SFX · src). 150–190 words.
+- Fill the script file: sources, score, the 4 tests, the table (time · VO · SHOT · 2D · SFX · src). 240–330 words.
 
 ## 2. Shots — the story file (one beat = one shot = one sentence)
 ```
@@ -39,11 +39,11 @@ python3 tools/assets3d.py story stories/<slug>.story   # builds only the HDRIs/p
 ```
 node tools/clip_gate.mjs stories/<slug>.story     # script rules + REAL voice/mix (length, unknown sounds) + 3D cost + contact sheet
 ```
-It voices the story and builds the mix BEFORE any frame (≈ 2 min): the real length is printed (≈ 60 s is a target, never a reason to
+It voices the story and builds the mix BEFORE any frame (≈ 2 min): the real length is printed (1:30–2:00 is a target, never a reason to
 re-render), and an unknown sound is an ERROR here instead of a silent hole in the film. Fix what it lists; look at the ONE sheet.
 Render cost budget for L3: ERROR > 9 s/frame (normal 2–5 s). Never run two make/gate commands on the same slug at once (they share out/<slug>_*).
 
-## 4. Render (background, ≈ 40–60 min for 60 s) — once
+## 4. Render (background, ≈ 35 min per minute of film at 2 s/frame) — once
 ```
 node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed 1.0 --fps 25 --reuse-mix > out/<slug>.log 2>&1
 grep -aE "deliver →|FAIL|Error" out/<slug>.log
