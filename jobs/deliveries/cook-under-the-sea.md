@@ -1,15 +1,19 @@
 # Delivery — Người đàn ông sống 3 ngày dưới đáy biển (cook-under-the-sea) · ODDLY TRUE clip · 2026-11-12
 
 ## Files (Drive TheIfMachine_Media/cook-under-the-sea/)
-_SHIP_BLOCK_
+- cook-under-the-sea_vertical_9x16.mp4 · 112 MB (CRF-17 master) · 66 s · 1080x1920 · https://drive.google.com/file/d/1JZ6fjHWZ_LLz5Ii3_MBWzOQ9gpgF7KEE/view
+- cook-under-the-sea_cover.jpg · 1080x1920 (frame 0.8 s: the man on the toilet)
+- cook-under-the-sea.srt (English)
+- cook-under-the-sea_stories.zip (story + bank file)
+- Music: Kevin MacLeod (incompetech.com), CC BY 4.0 http://creativecommons.org/licenses/by/4.0/ — credit line goes in the description.
 
 ## Production
 - Format: vertical 9:16, 60 s true micro-story (CLAUDE.md phase 2), realistic real-time 3D (IFM.L3) + two small 2D tags.
 - Voice: am_adam (Kokoro, Apache-2.0), speed 1.0. Narration is machine-generated.
-- People: Muse's CC0 MakeHuman figures (wa-man as the cook; eu-man / la-man in a neoprene material as the divers), Mixamo clips
+- People: Muse's CC0 MakeHuman figures (wa-man as the cook; me-man / la-man in a neoprene material as the divers), Mixamo clips
   (Adobe royalty-free), Poly Haven CC0 materials, local CC0 toilet and sink models. Bespoke scenes: `engine/library/bank/cook-under-the-sea.js`.
-- Gates: _GATES_
-- Length: _LEN_
+- Gates: clip_gate PASS (clip_check PASS · render cost median 2.1 s/frame, max 4.3 s · sheet checked) · real-audio check: no unknown sounds · master −16.0 LUFS · QA: full-video contact sheet checked.
+- Length: 1:06 (vertical 9:16; target ≈ 60 s, a target not a limit — owner 12 Nov 2026).
 
 ## Facts on screen / in the VO (each with its source; numbers from the research pack)
 - Tug flipped and sank while he was on the toilet; "the toilet was now on the ceiling" — Guardian 12 Jun 2013; Dive Magazine (book extract)
@@ -29,7 +33,9 @@ _SHIP_BLOCK_
 ## Honest notes
 - Animated reenactment: every person is a generic 3D figure, not a likeness; the tug, washroom and cabin are reconstructions from
   the descriptions (no photos used). The real rescue is DCN helmet-cam footage; this is not that footage.
-- The figure wears shorts and a T-shirt (the library has no underwear model); the VO says "in his underwear".
+- The figure wears shorts and a T-shirt (the library body has holes under the clothes, so no shirtless option); the VO says "in his underwear".
+- The library male figures read somewhat androgynous (Wanted in ASSETS3D.md for Muse); a light bone-scale pass softens it, not fully.
+- The tug is a simple procedural model (no CC0 tugboat exists yet; Wanted). One automatic 0.2 s swing transition at 0:40 (eyes → divers).
 - The can is plain red with no logo. The 1.2 M tag and the hour counter are explanatory graphics, not records.
 - Respect: the 11 dead are one plain line; no bodies, no fish (quote 5 of the pack not used).
 

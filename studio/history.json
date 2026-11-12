@@ -524,6 +524,22 @@
     "glCircleOpen"
    ],
    "bank": []
+  },
+  {
+   "slug": "cook-under-the-sea",
+   "vert": false,
+   "date": "2026-11-12",
+   "keys": [
+    "w:x3_cook:"
+   ],
+   "open": "w:x3_cook:",
+   "music": "",
+   "people": "facet",
+   "theme": "",
+   "mains": [],
+   "own": [],
+   "trans": [],
+   "bank": []
   }
  ]
 }
