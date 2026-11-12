@@ -10,6 +10,12 @@ Research pack: `jobs/research/cook-under-the-sea.md` (Muse, 12 Nov 2026). Supers
 4. Dive Magazine, review of *The Diver and the Cook* (Lasse Spang Olsen) — https://divemagazine.com/scuba-diving-book-film-reviews/review-the-diver-and-the-cook-by-lasse-spang-olsen
 5. Gizmodo, "The dramatic rescue of a survivor trapped three days in a sunken ship", 2 Dec 2013 — https://gizmodo.com/the-dramatic-rescue-of-a-survivor-trapped-three-days-in-1474934415
 6. TODAY, "'He's alive!' Video shows dramatic rescue…", Dec 2013 — https://www.today.com/news/hes-alive-video-shows-dramatic-rescue-man-who-survived-days-2D11687554
+7. NBC News / Live Science, "Undersea Miracle: How Man in Sunken Ship Survived 3 Days" — https://www.nbcnews.com/id/wbna53739456 (life vest with two small flashlights, Coke; physicist's ≈ 60 h air estimate)
+8. Slate, "Harrison Okene's shipwreck air bubble: how could he survive underwater…", Jun 2013 — https://www.slate.com/articles/health_and_science/science/2013/06/harrison_okene_s_shipwreck_air_bubble_how_could_he_survive_underwater_for.html
+9. ABC News, "Man Survives Nearly 3 Days Submerged in Capsized Boat", Jun 2013 — https://abcnews.go.com/blogs/headlines/2013/06/man-survives-nearly-3-days-submerged-in-capsized-boat
+10. Fox News / Reuters, "Nigerian cook trapped for nearly 3 days in sunken ship tells … story of survival", Jun 2013 — https://www.foxnews.com/world/nigerian-cook-trapped-for-nearly-3-days-in-sunken-ship-tells-incredible-story-of-survival (water rising; "the salt water took the skin off my tongue")
+11. Explorersweb, "Great Survival Stories: Harrison Okene, the Accidental Aquanaut", 2021 (+ "An Update on Harrison Okene") — https://explorersweb.com/great-survival-stories-harrison-okene-the-accidental-aquanaut/ (qualified as a commercial diver, 2015)
+12. LADbible, "Harrison Okene…", 2024 — https://www.ladbible.com/news/world-news/harrison-okene-ocean-three-days-nigeria-658798-20240605 (now a commercial diver)
 
 ## Score 9/10 (STORY.md §1)
 1 true, every line on 2 sources ✔ · 2 one man ✔ · 3 physical first line (on the toilet as the boat flips) ✔ · 4 stakes rise
@@ -26,26 +32,38 @@ words ✔ · 10 respectful: the 11 dead in one plain line, no bodies shown, no j
 4. Truth: sources per line below. Time in the pocket: "almost sixty hours" (1, 3); capsize time "around five in the morning" (1; the
    pack says do not fix a minute). Depth 30 m (1, 2). The quote "He's alive!" is from the helmet-cam audio (4, 6).
 
-## Script (am_adam, speed 1.0, ≈ 178 words)
-| time | VO | SHOT (set · actors · action · cam) | 2D | SFX | src |
-|---|---|---|---|---|---|
-| 0:00 | He was on the toilet when his tugboat flipped over and sank. | tug washroom, tiles, toilet booth; the whole room rolls ~110°, he falls, the sea floods in level · MS handheld, camera stays level while the room turns | — | metal groan | 1,4 |
-| 0:04 | Around five in the morning, twenty miles off the coast of Nigeria. | night sea before dawn, a tanker's lit hull and a platform far off; the tug heels and rolls over · WS low over the swell | — | — | 1,2 |
-| 0:08 | The boat hit the seabed upside down, thirty metres down. | the hull, keel up, settles onto the sand, a cloud rises; fish, light shafts · EWS crane down | tag 30 M | thud | 1,2 |
-| 0:12 | The toilet was now on the ceiling. | the washroom upside down: toilet and sinks hang from above, water at chest height, a dim green glow · MS low, push | — | drip | 1,4 |
-| 0:14 | Harrison Okene, the ship's cook, felt his way through black water in his underwear. | flooded dark corridor, upside down; he swims along the wall, hand over hand · MCU track left | — | — | 1,3 |
-| 0:19 | In an engineer's cabin, his head broke into a pocket of trapped air. | camera at the water line: his head breaks up through the surface into air · CU low | — | gasp | 1,2 |
-| 0:23 | A bubble of air, just over a metre high. | the cabin upside down (desk and bunk on the ceiling), a thin layer of air, he treads water in it · WS | measure 1.2 M | — | 1,2 |
-| 0:27 | Eleven of the twelve crew never made it out. | outside: the wreck alone on the seabed, quiet, fish, slow push · EWS | — | — | 1,3 |
-| 0:30 | In total darkness, he had one can of Coke. | a plain red can (no logo) bobbing on black water, his hand closes on it · ECU | — | — | 1,3 |
-| 0:33 | He kept thinking the water would fill the room… it never did. | across the water surface: the water line ripples a hand's width from the ceiling, his face beyond · MS over the water | — | — | 2 (his words) |
-| 0:37 | One day passed. Then a second. | his eyes in the dark, the faint glow fades and returns · ECU static | count 0 → 48 H | breath | 1 |
-| 0:40 | Almost sixty hours in, a team of divers came down to recover the bodies. | outside: two divers with lamps descend toward the hull, bubbles streaming up · WS crane | — | bubbles | 1,4 |
-| 0:45 | The first diver swam right past him. | inside the dark cabin: a lamp beam sweeps across the wall and moves on, he is in the dark beyond · MS orbit | — | — | 2,4 |
-| 0:47 | Okene reached into the light and grabbed the second diver's hand. | the next beam; his hand shoots into it and grips the glove · CU | — | — | 2,4 |
-| 0:51 | "He's alive! He's alive!" | the diver jerks back; the man's face in the lamp light · MCU | — | — | 4,6 |
-| 0:53 | He rose in a diving bell, then spent three days in a decompression chamber. | a yellow diving bell rising through blue water toward the light · WS low | — | — | 1,3 |
-| 0:58 | It all began with a trip to the toilet, at five in the morning. | back in the washroom, upright and calm, morning light; the booth door swings shut · MS push | — | door | 1 |
+## v2 (owner, 12 Nov 2026 evening: 1:30–2:00; opening = the story itself, never a climax flash-forward; a real ending)
+Score 9/10 · the 4 tests: 1) Opening: the whole unbelievable fact in two lines + the promise ("This is how…"). 2) Turn: divers sent for
+bodies, one swims past, a hand grabs the next; then the ending turn: two years later he becomes a diver himself. 3) Sound-off: one picture
+per line. 4) Truth: every line below has 2 sources (numbers in the src column).
 
-Notes: every person is a generic figure (no likeness); the post caption says "animated reenactment". The 11 who died are named only as a
-number; no bodies, no fish (quote 5 of the pack is not used). The last line echoes the hook (sequence, not cause).
+## Script (am_adam, speed 1.0, 292 words)
+| # | VO | SHOT | 2D | SFX | src |
+|---|---|---|---|---|---|
+| 1 | In May 2013, a ship's cook spent almost three days at the bottom of the sea… and lived. | descend through light shafts to the upside-down wreck, a faint glow inside | — | — | 1,3 |
+| 2 | He was trapped inside an upside-down tugboat, thirty metres down, breathing from one bubble of air. | the upside-down cabin, him in the air layer | — | — | 1,2 |
+| 3 | This is how Harrison Okene made it out. | across the water line to his face | — | — | 1,3 |
+| 4 | It was about five in the morning, twenty miles off the coast of Nigeria. | night sea, tanker lights, the tug heels over | — | — | 1,2 |
+| 5 | Okene, the ship's cook, was on the toilet when the tugboat rolled over. | the washroom rolls, he falls, the sea comes in | — | creak | 1,4 |
+| 6 | Water rushed in, and the boat sank upside down to the seabed. | the hull settles keel-up, sand cloud | 30 M | sub drop | 1,2 |
+| 7 | The toilet was now on the ceiling. | flipped washroom, toilet hanging above | — | — | 1,4 |
+| 8 | In total darkness, he felt his way along a flooded corridor in his underwear. | flooded corridor, he swims along | — | — | 1,3 |
+| 9 | In an engineer's cabin, his head broke into a pocket of trapped air. | head breaks the surface | — | — | 1,2 |
+| 10 | A bubble just over a metre high, under the upside-down floor. | cabin wide | 1.2 M | — | 1,2 |
+| 11 | Of the twelve men on board, eleven never made it out. | the wreck alone, quiet | — | — | 1,3 |
+| 12 | In the black water, he found a life vest with two small torches… and a Coke. | vest floats, two torches switch on, a red can (no logo) | — | — | 7,9 |
+| 13 | But the bubble had a problem: the water was cold, and it was rising. | eye level at the water line, the water creeping up | — | — | 2,10 |
+| 14 | A physicist later worked out that the bubble held about sixty hours of air. | cabin from above | AIR gauge · ≈ 60 H | — | 7,8 |
+| 15 | He was so thirsty, he said, the salt water took the skin off his tongue. | the can on the water | — | — | 2,10 |
+| 16 | He prayed for one thing: to see some kind of light. | his eyes in the dark | — | — | 1 (his words) |
+| 17 | One day passed. Then a second. | his face, the hours counting | 0 → 48 H | — | 1,3 |
+| 18 | On the third day, a team of divers came down, sent to recover the bodies. | divers descend to the hull | — | — | 1,4 |
+| 19 | The first diver swam right past him. | a lamp passes under the water, moves on | — | — | 2,4 |
+| 20 | Okene reached into the light and grabbed the second diver's hand. | his hand reaches into the beam | — | — | 2,4 |
+| 21 | "He's alive! He's alive!" | over the diver's shoulder onto his face | — | — | 4,6 |
+| 22 | He rose in a diving bell, then spent three days in a decompression chamber. | yellow bell rising to the light | — | — | 1,3 |
+| 23 | Two years later, he went back under the sea… as a qualified commercial diver. | a diver (him) descending in blue water | — | — | 11,12 |
+| 24 | The man who waited in the dark for a diver's light now carries one. | behind his helmet, his lamp switches on into the dark | — | — | 11,12 (closing line) |
+
+Notes: no likeness, generic figures; post caption says "animated reenactment". "Coke": the Guardian says a can, NBC a bottle — the
+VO says "a Coke". The diploma detail (rescue diver handing it over) is reported but not double-sourced: not used.
