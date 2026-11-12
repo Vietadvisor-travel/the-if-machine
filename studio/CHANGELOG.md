@@ -497,3 +497,14 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 
 ## 7 Nov 2026 — style decision (final)
 - IF CREW v3 is the house look for every episode; voxel_lab parked for a possible "Blocks" series; pixel_lab lab only.
+
+## 12 Nov 2026 — first act=l3-era clip: cook-under-the-sea (ODDLY TRUE, 60 s)
+- `engine/library/bank/cook-under-the-sea.js`: act `x3_cook v=flip|night|sink|wreck|upside|corridor|surface|cabin|can|waterline|eyes|divers|pass|hand|alive|bell|echo`
+  on Muse's glTF people + Mixamo clips. Reusable pieces: `washroom()` (tug washroom, one booth, toilet/sinks/washers), `cabinRoom()`
+  (upside-down cabin with an air layer), `seabedScene()`, `diver()` (any person in neoprene + helmet + chest lamp), in-place swim/tread
+  clips (horizontal root motion stripped), a light bone-scale pass that reads more male on the MPFB bodies (narrower hips, broader torso).
+- Lessons: a bespoke act must add its asset ids to `L.REQ` (vis keys like `assets=` are not kept by the compiler, so `L.assetsOf` misses
+  them); 9:16 has a narrow horizontal view, so interiors need a wide lens (fov 46–54) and exteriors 40–50 m of distance.
+- `tools/assets3d.py`: PBR map detection fixed (underscores defeated `\b`, so every Poly Haven set was skipped as "no colour map").
+- `tools/cost.mjs`: the brand end card is skipped by the empty-frame check (it was already skipped by the motion/detail checks).
+- Tested on stories/cook-under-the-sea.story: clip_gate PASS, render cost median 2.1 s/frame, max 4.3 s.

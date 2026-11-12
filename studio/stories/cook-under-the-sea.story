@@ -9,7 +9,7 @@ enddur: 1.5
 sources: jobs/scripts/cook-under-the-sea.md
 
 // ODDLY TRUE · 60 s · one sentence = one shot. Bespoke act x3_cook (engine/library/bank/cook.js); generic figures, no likeness.
-# vis kind=w act=x3_cook v=flip cam=MS.eye.handheld assets="glb/wa-man glb/eu-man glb/la-man glb/local_toilet glb/local_bathroom_sink tex/white_plaster_02 tex/floor_tiles_08 tex/laminate_floor_02 tex/rubber_tiles glb/mixamo_animations_mixamo_rig glb/quaternius_animations_mixamo_rig" sfx=battle_creak@.2
+# vis kind=w act=x3_cook v=flip cam=MS.eye.handheld assets="glb/wa-man glb/me-man glb/la-man glb/local_toilet glb/local_bathroom_sink tex/white_plaster_02 tex/floor_tiles_08 tex/laminate_floor_02 tex/rubber_tiles glb/mixamo_animations_mixamo_rig glb/quaternius_animations_mixamo_rig" sfx=battle_creak@.2
 He was on the toilet when his tugboat flipped over and sank.
 
 # vis kind=w act=x3_cook v=night cam=WS.low.push

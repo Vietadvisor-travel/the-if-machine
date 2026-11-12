@@ -13,7 +13,8 @@ Kinds: hdr (equirect .hdr), glb (people, props, animation libraries), tex (PBR s
 import base64, io, json, os, re, shutil, subprocess, sys, zipfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC, OUT = os.path.join(ROOT, 'assets3d_src'), os.path.join(ROOT, 'engine', 'assets3d')
-MAPS = {'color': r'(basecolor|base_color|albedo|diff(use)?|color|col)\b', 'normal': r'(nor(mal)?_?gl|normalgl|normal|nor)\b', 'rough': r'(rough(ness)?|rgh)\b', 'ao': r'(ambientocclusion|ao|occlusion)\b', 'metal': r'(metal(ness|lic)?)\b'}
+MAPS = {'color': r'\b(basecolor|base color|albedo|diff(use)?|color|col)\b', 'normal': r'\b(nor(mal)? ?gl|normalgl|normal|nor)\b', 'rough': r'\b(rough(ness)?|rgh)\b', 'ao': r'\b(ambientocclusion|ao|occlusion)\b', 'metal': r'\b(metal(ness|lic)?)\b'}
+tok = lambda f: re.sub(r'[_\-. ]+', ' ', os.path.basename(f).lower())   # 'floor_tiles_08_2k_Diffuse.jpg' -> 'floor tiles 08 2k diffuse jpg' (underscores used to defeat \b)
 slug = lambda s: re.sub(r'[^a-z0-9_\-]+', '_', s.lower()).strip('_')
 
 def write(aid, data):
@@ -37,7 +38,7 @@ def add(path, aid=None, size=1024):
         files = [os.path.join(r, f) for r, _, fs in os.walk(path) for f in fs if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
         maps = {}
         for k, rx in MAPS.items():
-            hits = [f for f in files if re.search(rx, os.path.basename(f).lower().replace('-', '_').replace('.', '_ '))]
+            hits = [f for f in files if re.search(rx, tok(f))]
             if k == 'normal': hits = sorted(hits, key=lambda f: (('_gl' not in f.lower() and 'normalgl' not in f.lower()), len(f)))
             if hits: maps[k] = tex_map(hits[0], size)
         if 'color' not in maps: print('  skip (no colour map):', path); return None
@@ -51,7 +52,7 @@ def build(size=1024):
     n = 0
     for r, ds, fs in os.walk(SRC):
         if '_unz' in r: continue
-        if any(re.search(MAPS['color'], f.lower()) for f in fs if f.lower().endswith(('.jpg', '.png'))) and not any(f.lower().endswith(('.glb', '.gltf')) for f in fs):
+        if any(re.search(MAPS['color'], tok(f)) for f in fs if f.lower().endswith(('.jpg', '.png'))) and not any(f.lower().endswith(('.glb', '.gltf')) for f in fs):
             res = add(r, size=size); n += bool(res); ds[:] = []; continue
         for f in fs:
             p = os.path.join(r, f)
