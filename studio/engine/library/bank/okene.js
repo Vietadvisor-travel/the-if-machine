@@ -9,7 +9,7 @@
   function wreck() { if (S.wreck) return S.wreck; const sc = new THREE.Scene(), col = '#0B3A48'; sc.background = new THREE.Color(col); sc.fog = new THREE.FogExp2(col, .02);
     sc.add(new THREE.HemisphereLight('#8FE3F0', '#06202A', 1.3)); const sun = new THREE.DirectionalLight('#CFF6FF', 2.2); sun.position.set(6, 30, 8); sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -18, right: 18, top: 18, bottom: -18, near: 1, far: 70 }); sun.shadow.bias = -.0015; sc.add(sun);
     const cau = new THREE.SpotLight('#FFFFFF', 5, 0, .75, .7, 0); cau.position.set(-2, 26, 2); cau.target.position.set(0, 0, 0); cau.map = L.caustics(); cau.castShadow = true; cau.shadow.mapSize.set(512, 512); sc.add(cau, cau.target);
-    sc.add(L.seabed({ col: '#B3A27C' })); const tug = L.tug(); tug.rotation.set(0, .35, Math.PI + .14); tug.position.set(0, 5.4, 0); sc.add(tug);
+    sc.add(L.seabed({ col: '#B3A27C' })); const tug = L.tug(); tug.rotation.set(0, .35, Math.PI + .14); tug.position.set(0, 6.6, 0); sc.add(tug);
     [[-9, 6, 1.4], [8, -5, 1.1], [-5, -9, .8], [11, 7, 1.6], [3, 9, .7], [-13, -2, 1]].forEach(([x, z, s], i) => { const r = L.rock(i + 3, s); r.position.set(x, s * .3, z); sc.add(r); });
     const weed = new THREE.Group(); for (let i = 0; i < 18; i++) { const r = L.rnd(i + 11), x = (r() - .5) * 30, z = (r() - .5) * 26, h = 1 + r() * 2.2, pts = [V3(0, 0, 0), V3((r() - .5) * .4, h * .35, 0), V3((r() - .5) * .6, h * .7, (r() - .5) * .3), V3((r() - .5) * .7, h, 0)]; const m = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 12, .06 + r() * .05, 6), L.mat(r() < .5 ? '#2E7D4F' : '#4E8F3A', { rough: .8 })); m.position.set(x, 0, z); m.userData.ph = r() * 6; weed.add(m); } sc.add(weed);
     const fish = L.fishSchool(36, 5); sc.add(fish); const pts = L.particles(700, [40, 18, 40], 9, .07); pts.position.set(0, 0, 0); sc.add(pts); const rays = L.rays(9, 4, 26, 24); sc.add(rays);
@@ -48,7 +48,7 @@
 
   A.x3_okene = (o, c, dur) => { const v = o.v || 'wreck'; return { sfx: [], draw: lt => { CT.begin({}, lt); const r = L.renderer(); L.causticsAt(lt);
     if (v === 'wreck') { const s = wreck(), k = clamp(lt / Math.max(1, dur)); s.weed.children.forEach(m => { m.rotation.z = Math.sin(lt * .8 + m.userData.ph) * .12; m.rotation.x = Math.cos(lt * .6 + m.userData.ph) * .08; }); L.swim(s.fish, lt, V3(-3, 7, 2), 9); L.drift(s.pts, lt, .12); L.sway(s.rays, lt);
-      L.look(s.cam, V3(lerp(-25, -21, k), lerp(5.5, 5, k), lerp(4, 6, k)), V3(0, lerp(2.4, 2.8, k), 0), .02); r.render(s.sc, s.cam); L.present({ bloom: .3, grade: ['#2BC0C8', '#04121A'], gradeA: .28 }); }
+      L.look(s.cam, V3(lerp(-4, -2, k), lerp(3, 3.6, k), lerp(25, 21, k)), V3(0, lerp(4.2, 4.6, k), 0), .02); r.render(s.sc, s.cam); L.present({ bloom: .3, grade: ['#2BC0C8', '#04121A'], gradeA: .28 }); }
     else { const s = pocket(), hand = v === 'hand', k = clamp(lt / Math.max(1, dur)); waves(s.water, lt, hand ? .035 : .02); L.drift(s.pts, lt, .02);
       const mp = hand ? L.keys([[0, P.look], [1.6, P.reach]], lt) : L.keys([[0, P.ceiling], [2.5, { ...P.ceiling, head: [-.15, .25, 0], mouth: .15 }], [5, P.ceiling]], lt); mp.spine = [.04 + Math.sin(lt * 2) * .02, 0, 0]; s.man.pose(mp); s.man.root.position.y = .05 + Math.sin(lt * 1.6) * .015;
       s.diver.root.visible = hand; if (hand) { const rise = E.out(clamp(lt / 1.4)); s.diver.root.position.y = lerp(-1.2, -.18, rise); s.diver.pose(DV.rise); s.diver.head.updateWorldMatrix(true, true);
