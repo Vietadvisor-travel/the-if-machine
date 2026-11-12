@@ -1,0 +1,5753 @@
+[
+ {
+  "drive": "_assets3d/hdris/approaching_storm_1k.hdr",
+  "group": "hdris",
+  "category": "storm-sky",
+  "name": "approaching_storm",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/approaching_storm",
+  "size": 1602599
+ },
+ {
+  "drive": "_assets3d/hdris/approaching_storm_2k.hdr",
+  "group": "hdris",
+  "category": "storm-sky",
+  "name": "approaching_storm",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/approaching_storm",
+  "size": 6388690
+ },
+ {
+  "drive": "_assets3d/hdris/autoshop_01_1k.hdr",
+  "group": "hdris",
+  "category": "interior-warehouse-garage",
+  "name": "autoshop_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/autoshop_01",
+  "size": 1622432
+ },
+ {
+  "drive": "_assets3d/hdris/autoshop_01_2k.hdr",
+  "group": "hdris",
+  "category": "interior-warehouse-garage",
+  "name": "autoshop_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/autoshop_01",
+  "size": 6451683
+ },
+ {
+  "drive": "_assets3d/hdris/autumn_field_puresky_1k.hdr",
+  "group": "hdris",
+  "category": "clear-midday-sky",
+  "name": "autumn_field_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/autumn_field_puresky",
+  "size": 1092974
+ },
+ {
+  "drive": "_assets3d/hdris/autumn_field_puresky_2k.hdr",
+  "group": "hdris",
+  "category": "clear-midday-sky",
+  "name": "autumn_field_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/autumn_field_puresky",
+  "size": 4374736
+ },
+ {
+  "drive": "_assets3d/hdris/bathroom_1k.hdr",
+  "group": "hdris",
+  "category": "interior-bathroom",
+  "name": "bathroom",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/bathroom",
+  "size": 1621157
+ },
+ {
+  "drive": "_assets3d/hdris/bathroom_2k.hdr",
+  "group": "hdris",
+  "category": "interior-bathroom",
+  "name": "bathroom",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/bathroom",
+  "size": 6473273
+ },
+ {
+  "drive": "_assets3d/hdris/blue_grotto_1k.hdr",
+  "group": "hdris",
+  "category": "cave-tunnel",
+  "name": "blue_grotto",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/blue_grotto",
+  "size": 1789553
+ },
+ {
+  "drive": "_assets3d/hdris/blue_grotto_2k.hdr",
+  "group": "hdris",
+  "category": "cave-tunnel",
+  "name": "blue_grotto",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/blue_grotto",
+  "size": 7193972
+ },
+ {
+  "drive": "_assets3d/hdris/brown_photostudio_02_1k.hdr",
+  "group": "hdris",
+  "category": "photo-studio",
+  "name": "brown_photostudio_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brown_photostudio_02",
+  "size": 1648130
+ },
+ {
+  "drive": "_assets3d/hdris/brown_photostudio_02_2k.hdr",
+  "group": "hdris",
+  "category": "photo-studio",
+  "name": "brown_photostudio_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brown_photostudio_02",
+  "size": 6492863
+ },
+ {
+  "drive": "_assets3d/hdris/fireplace_1k.hdr",
+  "group": "hdris",
+  "category": "interior-living-room",
+  "name": "fireplace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/fireplace",
+  "size": 1529229
+ },
+ {
+  "drive": "_assets3d/hdris/fireplace_2k.hdr",
+  "group": "hdris",
+  "category": "interior-living-room",
+  "name": "fireplace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/fireplace",
+  "size": 6012743
+ },
+ {
+  "drive": "_assets3d/hdris/goegap_1k.hdr",
+  "group": "hdris",
+  "category": "desert-canyon",
+  "name": "goegap",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/goegap",
+  "size": 1361485
+ },
+ {
+  "drive": "_assets3d/hdris/goegap_2k.hdr",
+  "group": "hdris",
+  "category": "desert-canyon",
+  "name": "goegap",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/goegap",
+  "size": 5445362
+ },
+ {
+  "drive": "_assets3d/hdris/hotel_room_1k.hdr",
+  "group": "hdris",
+  "category": "interior-bedroom",
+  "name": "hotel_room",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/hotel_room",
+  "size": 1572830
+ },
+ {
+  "drive": "_assets3d/hdris/hotel_room_2k.hdr",
+  "group": "hdris",
+  "category": "interior-bedroom",
+  "name": "hotel_room",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/hotel_room",
+  "size": 6186669
+ },
+ {
+  "drive": "_assets3d/hdris/je_gray_02_1k.hdr",
+  "group": "hdris",
+  "category": "forest",
+  "name": "je_gray_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/je_gray_02",
+  "size": 1857839
+ },
+ {
+  "drive": "_assets3d/hdris/je_gray_02_2k.hdr",
+  "group": "hdris",
+  "category": "forest",
+  "name": "je_gray_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/je_gray_02",
+  "size": 7367180
+ },
+ {
+  "drive": "_assets3d/hdris/kiara_interior_1k.hdr",
+  "group": "hdris",
+  "category": "interior-kitchen",
+  "name": "kiara_interior",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/kiara_interior",
+  "size": 1716307
+ },
+ {
+  "drive": "_assets3d/hdris/kiara_interior_2k.hdr",
+  "group": "hdris",
+  "category": "interior-kitchen",
+  "name": "kiara_interior",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/kiara_interior",
+  "size": 6724948
+ },
+ {
+  "drive": "_assets3d/hdris/kloppenheim_06_puresky_1k.hdr",
+  "group": "hdris",
+  "category": "golden-hour-sunset",
+  "name": "kloppenheim_06_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/kloppenheim_06_puresky",
+  "size": 1173154
+ },
+ {
+  "drive": "_assets3d/hdris/kloppenheim_06_puresky_2k.hdr",
+  "group": "hdris",
+  "category": "golden-hour-sunset",
+  "name": "kloppenheim_06_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/kloppenheim_06_puresky",
+  "size": 4434394
+ },
+ {
+  "drive": "_assets3d/hdris/modern_evening_street_1k.hdr",
+  "group": "hdris",
+  "category": "dusk-city",
+  "name": "modern_evening_street",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_evening_street",
+  "size": 1651202
+ },
+ {
+  "drive": "_assets3d/hdris/modern_evening_street_2k.hdr",
+  "group": "hdris",
+  "category": "dusk-city",
+  "name": "modern_evening_street",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_evening_street",
+  "size": 6418864
+ },
+ {
+  "drive": "_assets3d/hdris/moonless_golf_1k.hdr",
+  "group": "hdris",
+  "category": "night-rural-moon",
+  "name": "moonless_golf",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/moonless_golf",
+  "size": 1672754
+ },
+ {
+  "drive": "_assets3d/hdris/moonless_golf_2k.hdr",
+  "group": "hdris",
+  "category": "night-rural-moon",
+  "name": "moonless_golf",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/moonless_golf",
+  "size": 6688317
+ },
+ {
+  "drive": "_assets3d/hdris/overcast_soil_puresky_1k.hdr",
+  "group": "hdris",
+  "category": "overcast",
+  "name": "overcast_soil_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/overcast_soil_puresky",
+  "size": 1195816
+ },
+ {
+  "drive": "_assets3d/hdris/overcast_soil_puresky_2k.hdr",
+  "group": "hdris",
+  "category": "overcast",
+  "name": "overcast_soil_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/overcast_soil_puresky",
+  "size": 4568000
+ },
+ {
+  "drive": "_assets3d/hdris/poly_haven_studio_1k.hdr",
+  "group": "hdris",
+  "category": "interior-office",
+  "name": "poly_haven_studio",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/poly_haven_studio",
+  "size": 1682195
+ },
+ {
+  "drive": "_assets3d/hdris/poly_haven_studio_2k.hdr",
+  "group": "hdris",
+  "category": "interior-office",
+  "name": "poly_haven_studio",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/poly_haven_studio",
+  "size": 6602301
+ },
+ {
+  "drive": "_assets3d/hdris/qwantani_dusk_2_puresky_1k.hdr",
+  "group": "hdris",
+  "category": "blue-hour",
+  "name": "qwantani_dusk_2_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/qwantani_dusk_2_puresky",
+  "size": 1166018
+ },
+ {
+  "drive": "_assets3d/hdris/qwantani_dusk_2_puresky_2k.hdr",
+  "group": "hdris",
+  "category": "blue-hour",
+  "name": "qwantani_dusk_2_puresky",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/qwantani_dusk_2_puresky",
+  "size": 4612798
+ },
+ {
+  "drive": "_assets3d/hdris/school_hall_1k.hdr",
+  "group": "hdris",
+  "category": "interior-school-classroom",
+  "name": "school_hall",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/school_hall",
+  "size": 1693261
+ },
+ {
+  "drive": "_assets3d/hdris/school_hall_2k.hdr",
+  "group": "hdris",
+  "category": "interior-school-classroom",
+  "name": "school_hall",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/school_hall",
+  "size": 6640427
+ },
+ {
+  "drive": "_assets3d/hdris/small_cathedral_1k.hdr",
+  "group": "hdris",
+  "category": "interior-church-hall",
+  "name": "small_cathedral",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/small_cathedral",
+  "size": 1665438
+ },
+ {
+  "drive": "_assets3d/hdris/small_cathedral_2k.hdr",
+  "group": "hdris",
+  "category": "interior-church-hall",
+  "name": "small_cathedral",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/small_cathedral",
+  "size": 6567642
+ },
+ {
+  "drive": "_assets3d/hdris/snowy_hillside_1k.hdr",
+  "group": "hdris",
+  "category": "snow-mountain",
+  "name": "snowy_hillside",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/snowy_hillside",
+  "size": 1609728
+ },
+ {
+  "drive": "_assets3d/hdris/snowy_hillside_2k.hdr",
+  "group": "hdris",
+  "category": "snow-mountain",
+  "name": "snowy_hillside",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/snowy_hillside",
+  "size": 6356734
+ },
+ {
+  "drive": "_assets3d/hdris/spiaggia_di_mondello_1k.hdr",
+  "group": "hdris",
+  "category": "beach-sea",
+  "name": "spiaggia_di_mondello",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/spiaggia_di_mondello",
+  "size": 1533242
+ },
+ {
+  "drive": "_assets3d/hdris/spiaggia_di_mondello_2k.hdr",
+  "group": "hdris",
+  "category": "beach-sea",
+  "name": "spiaggia_di_mondello",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/spiaggia_di_mondello",
+  "size": 6230981
+ },
+ {
+  "drive": "_assets3d/hdris/surgery_1k.hdr",
+  "group": "hdris",
+  "category": "interior-hospital-lab",
+  "name": "surgery",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/surgery",
+  "size": 1412776
+ },
+ {
+  "drive": "_assets3d/hdris/surgery_2k.hdr",
+  "group": "hdris",
+  "category": "interior-hospital-lab",
+  "name": "surgery",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/surgery",
+  "size": 5662692
+ },
+ {
+  "drive": "_assets3d/hdris/the_sky_is_on_fire_1k.hdr",
+  "group": "hdris",
+  "category": "harbour-pier",
+  "name": "the_sky_is_on_fire",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/the_sky_is_on_fire",
+  "size": 1526564
+ },
+ {
+  "drive": "_assets3d/hdris/the_sky_is_on_fire_2k.hdr",
+  "group": "hdris",
+  "category": "harbour-pier",
+  "name": "the_sky_is_on_fire",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/the_sky_is_on_fire",
+  "size": 5996454
+ },
+ {
+  "drive": "_assets3d/hdris/vignaioli_night_1k.hdr",
+  "group": "hdris",
+  "category": "night-city-street",
+  "name": "vignaioli_night",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/vignaioli_night",
+  "size": 1702679
+ },
+ {
+  "drive": "_assets3d/hdris/vignaioli_night_2k.hdr",
+  "group": "hdris",
+  "category": "night-city-street",
+  "name": "vignaioli_night",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/vignaioli_night",
+  "size": 6757096
+ },
+ {
+  "drive": "_assets3d/materials/Metal009/Metal009_2k_Color.jpg",
+  "group": "materials",
+  "category": "brushed-steel",
+  "name": "Metal009",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Metal009",
+  "size": 2439272,
+  "map": "Color"
+ },
+ {
+  "drive": "_assets3d/materials/Metal009/Metal009_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "brushed-steel",
+  "name": "Metal009",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Metal009",
+  "size": 2738842,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/Metal009/Metal009_2k_Metalness.jpg",
+  "group": "materials",
+  "category": "brushed-steel",
+  "name": "Metal009",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Metal009",
+  "size": 16545,
+  "map": "Metalness"
+ },
+ {
+  "drive": "_assets3d/materials/Metal009/Metal009_2k_NormalGL.jpg",
+  "group": "materials",
+  "category": "brushed-steel",
+  "name": "Metal009",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Metal009",
+  "size": 4120356,
+  "map": "NormalGL"
+ },
+ {
+  "drive": "_assets3d/materials/Metal009/Metal009_2k_Roughness.jpg",
+  "group": "materials",
+  "category": "brushed-steel",
+  "name": "Metal009",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Metal009",
+  "size": 1891607,
+  "map": "Roughness"
+ },
+ {
+  "drive": "_assets3d/materials/Plastic010/Plastic010_2k_Color.jpg",
+  "group": "materials",
+  "category": "plastic",
+  "name": "Plastic010",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Plastic010",
+  "size": 638778,
+  "map": "Color"
+ },
+ {
+  "drive": "_assets3d/materials/Plastic010/Plastic010_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "plastic",
+  "name": "Plastic010",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Plastic010",
+  "size": 2302259,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/Plastic010/Plastic010_2k_NormalGL.jpg",
+  "group": "materials",
+  "category": "plastic",
+  "name": "Plastic010",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Plastic010",
+  "size": 3220864,
+  "map": "NormalGL"
+ },
+ {
+  "drive": "_assets3d/materials/Plastic010/Plastic010_2k_Roughness.jpg",
+  "group": "materials",
+  "category": "plastic",
+  "name": "Plastic010",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Plastic010",
+  "size": 2011305,
+  "map": "Roughness"
+ },
+ {
+  "drive": "_assets3d/materials/Rope001/Rope001_2k_Color.jpg",
+  "group": "materials",
+  "category": "rope",
+  "name": "Rope001",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Rope001",
+  "size": 2109415,
+  "map": "Color"
+ },
+ {
+  "drive": "_assets3d/materials/Rope001/Rope001_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rope",
+  "name": "Rope001",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Rope001",
+  "size": 627327,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/Rope001/Rope001_2k_Metalness.jpg",
+  "group": "materials",
+  "category": "rope",
+  "name": "Rope001",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Rope001",
+  "size": 8353,
+  "map": "Metalness"
+ },
+ {
+  "drive": "_assets3d/materials/Rope001/Rope001_2k_NormalGL.jpg",
+  "group": "materials",
+  "category": "rope",
+  "name": "Rope001",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Rope001",
+  "size": 3494870,
+  "map": "NormalGL"
+ },
+ {
+  "drive": "_assets3d/materials/Rope001/Rope001_2k_Roughness.jpg",
+  "group": "materials",
+  "category": "rope",
+  "name": "Rope001",
+  "license": "CC0",
+  "source": "https://ambientcg.com/view?id=Rope001",
+  "size": 901933,
+  "map": "Roughness"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_02/asphalt_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "asphalt-wet",
+  "name": "asphalt_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_02",
+  "size": 2039487,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_02/asphalt_02_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "asphalt-wet",
+  "name": "asphalt_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_02",
+  "size": 3075676,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_02/asphalt_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "asphalt-wet",
+  "name": "asphalt_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_02",
+  "size": 1131595,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_02/asphalt_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "asphalt-wet",
+  "name": "asphalt_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_02",
+  "size": 2230457,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_02/asphalt_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "asphalt-wet",
+  "name": "asphalt_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_02",
+  "size": 4943950,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_04/asphalt_04_2k_AO.jpg",
+  "group": "materials",
+  "category": "asphalt-dry",
+  "name": "asphalt_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_04",
+  "size": 2143804,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_04/asphalt_04_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "asphalt-dry",
+  "name": "asphalt_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_04",
+  "size": 3999385,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_04/asphalt_04_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "asphalt-dry",
+  "name": "asphalt_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_04",
+  "size": 1812846,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_04/asphalt_04_2k_Rough.jpg",
+  "group": "materials",
+  "category": "asphalt-dry",
+  "name": "asphalt_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_04",
+  "size": 2281861,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/asphalt_04/asphalt_04_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "asphalt-dry",
+  "name": "asphalt_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/asphalt_04",
+  "size": 4581129,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/blue_metal_plate/blue_metal_plate_2k_AO.jpg",
+  "group": "materials",
+  "category": "painted-metal-blue",
+  "name": "blue_metal_plate",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/blue_metal_plate",
+  "size": 101861,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/blue_metal_plate/blue_metal_plate_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "painted-metal-blue",
+  "name": "blue_metal_plate",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/blue_metal_plate",
+  "size": 1518621,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/blue_metal_plate/blue_metal_plate_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "painted-metal-blue",
+  "name": "blue_metal_plate",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/blue_metal_plate",
+  "size": 124881,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/blue_metal_plate/blue_metal_plate_2k_Rough.jpg",
+  "group": "materials",
+  "category": "painted-metal-blue",
+  "name": "blue_metal_plate",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/blue_metal_plate",
+  "size": 1588770,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/blue_metal_plate/blue_metal_plate_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "painted-metal-blue",
+  "name": "blue_metal_plate",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/blue_metal_plate",
+  "size": 948237,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/brown_mud_leaves_01/brown_mud_leaves_01_2k_AO.jpg",
+  "group": "materials",
+  "category": "soil-mud",
+  "name": "brown_mud_leaves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brown_mud_leaves_01",
+  "size": 3813568,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/brown_mud_leaves_01/brown_mud_leaves_01_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "soil-mud",
+  "name": "brown_mud_leaves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brown_mud_leaves_01",
+  "size": 4539452,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/brown_mud_leaves_01/brown_mud_leaves_01_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "soil-mud",
+  "name": "brown_mud_leaves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brown_mud_leaves_01",
+  "size": 1788400,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/brown_mud_leaves_01/brown_mud_leaves_01_2k_Rough.jpg",
+  "group": "materials",
+  "category": "soil-mud",
+  "name": "brown_mud_leaves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brown_mud_leaves_01",
+  "size": 2421908,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/brown_mud_leaves_01/brown_mud_leaves_01_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "soil-mud",
+  "name": "brown_mud_leaves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brown_mud_leaves_01",
+  "size": 5688696,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/ceramic_roof_01/ceramic_roof_01_2k_AO.jpg",
+  "group": "materials",
+  "category": "ceramic",
+  "name": "ceramic_roof_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ceramic_roof_01",
+  "size": 1301232,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/ceramic_roof_01/ceramic_roof_01_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "ceramic",
+  "name": "ceramic_roof_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ceramic_roof_01",
+  "size": 1718697,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/ceramic_roof_01/ceramic_roof_01_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "ceramic",
+  "name": "ceramic_roof_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ceramic_roof_01",
+  "size": 487347,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/ceramic_roof_01/ceramic_roof_01_2k_Rough.jpg",
+  "group": "materials",
+  "category": "ceramic",
+  "name": "ceramic_roof_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ceramic_roof_01",
+  "size": 919148,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/ceramic_roof_01/ceramic_roof_01_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "ceramic",
+  "name": "ceramic_roof_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ceramic_roof_01",
+  "size": 2357322,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/concrete_floor_02/concrete_floor_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "concrete-rough",
+  "name": "concrete_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/concrete_floor_02",
+  "size": 1692305,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/concrete_floor_02/concrete_floor_02_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "concrete-rough",
+  "name": "concrete_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/concrete_floor_02",
+  "size": 3310792,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/concrete_floor_02/concrete_floor_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "concrete-rough",
+  "name": "concrete_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/concrete_floor_02",
+  "size": 438795,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/concrete_floor_02/concrete_floor_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "concrete-rough",
+  "name": "concrete_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/concrete_floor_02",
+  "size": 1417673,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/concrete_floor_02/concrete_floor_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "concrete-rough",
+  "name": "concrete_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/concrete_floor_02",
+  "size": 935810,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/corrugated_iron/corrugated_iron_2k_AO.jpg",
+  "group": "materials",
+  "category": "corrugated-metal",
+  "name": "corrugated_iron",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/corrugated_iron",
+  "size": 884922,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/corrugated_iron/corrugated_iron_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "corrugated-metal",
+  "name": "corrugated_iron",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/corrugated_iron",
+  "size": 2605861,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/corrugated_iron/corrugated_iron_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "corrugated-metal",
+  "name": "corrugated_iron",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/corrugated_iron",
+  "size": 781870,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/corrugated_iron/corrugated_iron_2k_Rough.jpg",
+  "group": "materials",
+  "category": "corrugated-metal",
+  "name": "corrugated_iron",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/corrugated_iron",
+  "size": 1680186,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/corrugated_iron/corrugated_iron_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "corrugated-metal",
+  "name": "corrugated_iron",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/corrugated_iron",
+  "size": 3453777,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/cotton_jersey/cotton_jersey_2k_AO.jpg",
+  "group": "materials",
+  "category": "fabric-cotton",
+  "name": "cotton_jersey",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/cotton_jersey",
+  "size": 3084210,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/cotton_jersey/cotton_jersey_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "fabric-cotton",
+  "name": "cotton_jersey",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/cotton_jersey",
+  "size": 3009673,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/cotton_jersey/cotton_jersey_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "fabric-cotton",
+  "name": "cotton_jersey",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/cotton_jersey",
+  "size": 3468978,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/cotton_jersey/cotton_jersey_2k_Rough.jpg",
+  "group": "materials",
+  "category": "fabric-cotton",
+  "name": "cotton_jersey",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/cotton_jersey",
+  "size": 4038839,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/cotton_jersey/cotton_jersey_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "fabric-cotton",
+  "name": "cotton_jersey",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/cotton_jersey",
+  "size": 3302722,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/damp_sand/damp_sand_2k_AO.jpg",
+  "group": "materials",
+  "category": "sand-wet",
+  "name": "damp_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/damp_sand",
+  "size": 2747717,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/damp_sand/damp_sand_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "sand-wet",
+  "name": "damp_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/damp_sand",
+  "size": 3944799,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/damp_sand/damp_sand_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "sand-wet",
+  "name": "damp_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/damp_sand",
+  "size": 1466331,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/damp_sand/damp_sand_2k_Rough.jpg",
+  "group": "materials",
+  "category": "sand-wet",
+  "name": "damp_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/damp_sand",
+  "size": 2331934,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/damp_sand/damp_sand_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "sand-wet",
+  "name": "damp_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/damp_sand",
+  "size": 5318803,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/dark_wood/dark_wood_2k_AO.jpg",
+  "group": "materials",
+  "category": "fine-wood",
+  "name": "dark_wood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dark_wood",
+  "size": 1946688,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/dark_wood/dark_wood_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "fine-wood",
+  "name": "dark_wood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dark_wood",
+  "size": 2894186,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/dark_wood/dark_wood_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "fine-wood",
+  "name": "dark_wood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dark_wood",
+  "size": 2423747,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/dark_wood/dark_wood_2k_Rough.jpg",
+  "group": "materials",
+  "category": "fine-wood",
+  "name": "dark_wood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dark_wood",
+  "size": 2325418,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/dark_wood/dark_wood_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "fine-wood",
+  "name": "dark_wood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dark_wood",
+  "size": 1603278,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/denmin_fabric_02/denmin_fabric_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "denim",
+  "name": "denmin_fabric_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/denmin_fabric_02",
+  "size": 3632745,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/denmin_fabric_02/denmin_fabric_02_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "denim",
+  "name": "denmin_fabric_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/denmin_fabric_02",
+  "size": 4732095,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/denmin_fabric_02/denmin_fabric_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "denim",
+  "name": "denmin_fabric_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/denmin_fabric_02",
+  "size": 1923529,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/denmin_fabric_02/denmin_fabric_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "denim",
+  "name": "denmin_fabric_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/denmin_fabric_02",
+  "size": 3475986,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/denmin_fabric_02/denmin_fabric_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "denim",
+  "name": "denmin_fabric_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/denmin_fabric_02",
+  "size": 3799091,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/dirty_carpet/dirty_carpet_2k_AO.jpg",
+  "group": "materials",
+  "category": "carpet",
+  "name": "dirty_carpet",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dirty_carpet",
+  "size": 4914366,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/dirty_carpet/dirty_carpet_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "carpet",
+  "name": "dirty_carpet",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dirty_carpet",
+  "size": 3818108,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/dirty_carpet/dirty_carpet_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "carpet",
+  "name": "dirty_carpet",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dirty_carpet",
+  "size": 1544997,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/dirty_carpet/dirty_carpet_2k_Rough.jpg",
+  "group": "materials",
+  "category": "carpet",
+  "name": "dirty_carpet",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dirty_carpet",
+  "size": 1856051,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/dirty_carpet/dirty_carpet_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "carpet",
+  "name": "dirty_carpet",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dirty_carpet",
+  "size": 4376244,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/floor_tiles_08/floor_tiles_08_2k_AO.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-2",
+  "name": "floor_tiles_08",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/floor_tiles_08",
+  "size": 1216015,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/floor_tiles_08/floor_tiles_08_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-2",
+  "name": "floor_tiles_08",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/floor_tiles_08",
+  "size": 1781345,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/floor_tiles_08/floor_tiles_08_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-2",
+  "name": "floor_tiles_08",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/floor_tiles_08",
+  "size": 427589,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/floor_tiles_08/floor_tiles_08_2k_Rough.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-2",
+  "name": "floor_tiles_08",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/floor_tiles_08",
+  "size": 775045,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/floor_tiles_08/floor_tiles_08_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-2",
+  "name": "floor_tiles_08",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/floor_tiles_08",
+  "size": 1606014,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/granite_tile/granite_tile_2k_AO.jpg",
+  "group": "materials",
+  "category": "rock-granite",
+  "name": "granite_tile",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/granite_tile",
+  "size": 1827481,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/granite_tile/granite_tile_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rock-granite",
+  "name": "granite_tile",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/granite_tile",
+  "size": 2938829,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/granite_tile/granite_tile_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rock-granite",
+  "name": "granite_tile",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/granite_tile",
+  "size": 1249779,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/granite_tile/granite_tile_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rock-granite",
+  "name": "granite_tile",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/granite_tile",
+  "size": 2738066,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/granite_tile/granite_tile_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rock-granite",
+  "name": "granite_tile",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/granite_tile",
+  "size": 2486724,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/gravelly_sand/gravelly_sand_2k_AO.jpg",
+  "group": "materials",
+  "category": "gravel",
+  "name": "gravelly_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/gravelly_sand",
+  "size": 3569842,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/gravelly_sand/gravelly_sand_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "gravel",
+  "name": "gravelly_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/gravelly_sand",
+  "size": 4402825,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/gravelly_sand/gravelly_sand_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "gravel",
+  "name": "gravelly_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/gravelly_sand",
+  "size": 1266994,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/gravelly_sand/gravelly_sand_2k_Rough.jpg",
+  "group": "materials",
+  "category": "gravel",
+  "name": "gravelly_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/gravelly_sand",
+  "size": 1825952,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/gravelly_sand/gravelly_sand_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "gravel",
+  "name": "gravelly_sand",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/gravelly_sand",
+  "size": 5955314,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/green_metal_rust/green_metal_rust_2k_AO.jpg",
+  "group": "materials",
+  "category": "painted-metal-green",
+  "name": "green_metal_rust",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/green_metal_rust",
+  "size": 1488796,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/green_metal_rust/green_metal_rust_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "painted-metal-green",
+  "name": "green_metal_rust",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/green_metal_rust",
+  "size": 787402,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/green_metal_rust/green_metal_rust_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "painted-metal-green",
+  "name": "green_metal_rust",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/green_metal_rust",
+  "size": 1013126,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/green_metal_rust/green_metal_rust_2k_Rough.jpg",
+  "group": "materials",
+  "category": "painted-metal-green",
+  "name": "green_metal_rust",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/green_metal_rust",
+  "size": 690649,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/green_metal_rust/green_metal_rust_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "painted-metal-green",
+  "name": "green_metal_rust",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/green_metal_rust",
+  "size": 357436,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/laminate_floor_02/laminate_floor_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-1",
+  "name": "laminate_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/laminate_floor_02",
+  "size": 1845680,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/laminate_floor_02/laminate_floor_02_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-1",
+  "name": "laminate_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/laminate_floor_02",
+  "size": 3225117,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/laminate_floor_02/laminate_floor_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-1",
+  "name": "laminate_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/laminate_floor_02",
+  "size": 2051856,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/laminate_floor_02/laminate_floor_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-1",
+  "name": "laminate_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/laminate_floor_02",
+  "size": 2545321,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/laminate_floor_02/laminate_floor_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-1",
+  "name": "laminate_floor_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/laminate_floor_02",
+  "size": 2420220,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/leafy_grass/leafy_grass_2k_AO.jpg",
+  "group": "materials",
+  "category": "grass",
+  "name": "leafy_grass",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leafy_grass",
+  "size": 4175463,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/leafy_grass/leafy_grass_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "grass",
+  "name": "leafy_grass",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leafy_grass",
+  "size": 4766204,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/leafy_grass/leafy_grass_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "grass",
+  "name": "leafy_grass",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leafy_grass",
+  "size": 2545281,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/leafy_grass/leafy_grass_2k_Rough.jpg",
+  "group": "materials",
+  "category": "grass",
+  "name": "leafy_grass",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leafy_grass",
+  "size": 2274652,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/leafy_grass/leafy_grass_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "grass",
+  "name": "leafy_grass",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leafy_grass",
+  "size": 6047262,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/leather_red_02/leather_red_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "leather",
+  "name": "leather_red_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leather_red_02",
+  "size": 3241491,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/leather_red_02/leather_red_02_2k_Color.jpg",
+  "group": "materials",
+  "category": "leather",
+  "name": "leather_red_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leather_red_02",
+  "size": 4160234,
+  "map": "Color (coll1)"
+ },
+ {
+  "drive": "_assets3d/materials/leather_red_02/leather_red_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "leather",
+  "name": "leather_red_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leather_red_02",
+  "size": 2691783,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/leather_red_02/leather_red_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "leather",
+  "name": "leather_red_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leather_red_02",
+  "size": 3529399,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/leather_red_02/leather_red_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "leather",
+  "name": "leather_red_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/leather_red_02",
+  "size": 4324549,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/marble_01/marble_01_2k_AO.jpg",
+  "group": "materials",
+  "category": "marble",
+  "name": "marble_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/marble_01",
+  "size": 999921,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/marble_01/marble_01_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "marble",
+  "name": "marble_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/marble_01",
+  "size": 1269188,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/marble_01/marble_01_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "marble",
+  "name": "marble_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/marble_01",
+  "size": 231514,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/marble_01/marble_01_2k_Rough.jpg",
+  "group": "materials",
+  "category": "marble",
+  "name": "marble_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/marble_01",
+  "size": 281388,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/marble_01/marble_01_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "marble",
+  "name": "marble_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/marble_01",
+  "size": 409581,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/painted_plaster_wall/painted_plaster_wall_2k_AO.jpg",
+  "group": "materials",
+  "category": "plaster-wall-1",
+  "name": "painted_plaster_wall",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/painted_plaster_wall",
+  "size": 2176195,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/painted_plaster_wall/painted_plaster_wall_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "plaster-wall-1",
+  "name": "painted_plaster_wall",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/painted_plaster_wall",
+  "size": 3132937,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/painted_plaster_wall/painted_plaster_wall_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "plaster-wall-1",
+  "name": "painted_plaster_wall",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/painted_plaster_wall",
+  "size": 1565195,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/painted_plaster_wall/painted_plaster_wall_2k_Rough.jpg",
+  "group": "materials",
+  "category": "plaster-wall-1",
+  "name": "painted_plaster_wall",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/painted_plaster_wall",
+  "size": 1595466,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/painted_plaster_wall/painted_plaster_wall_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "plaster-wall-1",
+  "name": "painted_plaster_wall",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/painted_plaster_wall",
+  "size": 4048392,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/plywood/plywood_2k_AO.jpg",
+  "group": "materials",
+  "category": "plywood",
+  "name": "plywood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/plywood",
+  "size": 3215322,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/plywood/plywood_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "plywood",
+  "name": "plywood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/plywood",
+  "size": 4009658,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/plywood/plywood_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "plywood",
+  "name": "plywood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/plywood",
+  "size": 2050091,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/plywood/plywood_2k_Rough.jpg",
+  "group": "materials",
+  "category": "plywood",
+  "name": "plywood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/plywood",
+  "size": 3316046,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/plywood/plywood_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "plywood",
+  "name": "plywood",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/plywood",
+  "size": 2836023,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/poly_wool_herringbone/poly_wool_herringbone_2k_AO.jpg",
+  "group": "materials",
+  "category": "wool",
+  "name": "poly_wool_herringbone",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/poly_wool_herringbone",
+  "size": 3289574,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/poly_wool_herringbone/poly_wool_herringbone_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "wool",
+  "name": "poly_wool_herringbone",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/poly_wool_herringbone",
+  "size": 3650614,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/poly_wool_herringbone/poly_wool_herringbone_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "wool",
+  "name": "poly_wool_herringbone",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/poly_wool_herringbone",
+  "size": 2870580,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/poly_wool_herringbone/poly_wool_herringbone_2k_Rough.jpg",
+  "group": "materials",
+  "category": "wool",
+  "name": "poly_wool_herringbone",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/poly_wool_herringbone",
+  "size": 3674893,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/poly_wool_herringbone/poly_wool_herringbone_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "wool",
+  "name": "poly_wool_herringbone",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/poly_wool_herringbone",
+  "size": 4048573,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick_03/red_brick_03_2k_AO.jpg",
+  "group": "materials",
+  "category": "brick-2",
+  "name": "red_brick_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick_03",
+  "size": 1666638,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick_03/red_brick_03_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "brick-2",
+  "name": "red_brick_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick_03",
+  "size": 2969950,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick_03/red_brick_03_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "brick-2",
+  "name": "red_brick_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick_03",
+  "size": 595929,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick_03/red_brick_03_2k_Rough.jpg",
+  "group": "materials",
+  "category": "brick-2",
+  "name": "red_brick_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick_03",
+  "size": 1329161,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick_03/red_brick_03_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "brick-2",
+  "name": "red_brick_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick_03",
+  "size": 3684630,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick/red_brick_2k_AO.jpg",
+  "group": "materials",
+  "category": "brick-1",
+  "name": "red_brick",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick",
+  "size": 2989135,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick/red_brick_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "brick-1",
+  "name": "red_brick",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick",
+  "size": 3169072,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick/red_brick_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "brick-1",
+  "name": "red_brick",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick",
+  "size": 1005806,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick/red_brick_2k_Rough.jpg",
+  "group": "materials",
+  "category": "brick-1",
+  "name": "red_brick",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick",
+  "size": 552848,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/red_brick/red_brick_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "brick-1",
+  "name": "red_brick",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/red_brick",
+  "size": 4327452,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/rock_boulder_dry/rock_boulder_dry_2k_AO.jpg",
+  "group": "materials",
+  "category": "rock-limestone",
+  "name": "rock_boulder_dry",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_boulder_dry",
+  "size": 2182922,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/rock_boulder_dry/rock_boulder_dry_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rock-limestone",
+  "name": "rock_boulder_dry",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_boulder_dry",
+  "size": 3437626,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/rock_boulder_dry/rock_boulder_dry_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rock-limestone",
+  "name": "rock_boulder_dry",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_boulder_dry",
+  "size": 785931,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/rock_boulder_dry/rock_boulder_dry_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rock-limestone",
+  "name": "rock_boulder_dry",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_boulder_dry",
+  "size": 2706723,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/rock_boulder_dry/rock_boulder_dry_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rock-limestone",
+  "name": "rock_boulder_dry",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_boulder_dry",
+  "size": 3307320,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/rock_face_03/rock_face_03_2k_AO.jpg",
+  "group": "materials",
+  "category": "rock-basalt",
+  "name": "rock_face_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_face_03",
+  "size": 2645424,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/rock_face_03/rock_face_03_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rock-basalt",
+  "name": "rock_face_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_face_03",
+  "size": 3814362,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/rock_face_03/rock_face_03_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rock-basalt",
+  "name": "rock_face_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_face_03",
+  "size": 798149,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/rock_face_03/rock_face_03_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rock-basalt",
+  "name": "rock_face_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_face_03",
+  "size": 2601552,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/rock_face_03/rock_face_03_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rock-basalt",
+  "name": "rock_face_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_face_03",
+  "size": 4473242,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/roof_09/roof_09_2k_AO.jpg",
+  "group": "materials",
+  "category": "roof-tiles",
+  "name": "roof_09",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_09",
+  "size": 599507,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/roof_09/roof_09_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "roof-tiles",
+  "name": "roof_09",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_09",
+  "size": 2059711,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/roof_09/roof_09_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "roof-tiles",
+  "name": "roof_09",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_09",
+  "size": 340947,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/roof_09/roof_09_2k_Rough.jpg",
+  "group": "materials",
+  "category": "roof-tiles",
+  "name": "roof_09",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_09",
+  "size": 1889815,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/roof_09/roof_09_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "roof-tiles",
+  "name": "roof_09",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_09",
+  "size": 1055465,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/roof_slates_03/roof_slates_03_2k_AO.jpg",
+  "group": "materials",
+  "category": "rock-slate",
+  "name": "roof_slates_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_slates_03",
+  "size": 2772007,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/roof_slates_03/roof_slates_03_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rock-slate",
+  "name": "roof_slates_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_slates_03",
+  "size": 2083015,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/roof_slates_03/roof_slates_03_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rock-slate",
+  "name": "roof_slates_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_slates_03",
+  "size": 588742,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/roof_slates_03/roof_slates_03_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rock-slate",
+  "name": "roof_slates_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_slates_03",
+  "size": 49508,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/roof_slates_03/roof_slates_03_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rock-slate",
+  "name": "roof_slates_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/roof_slates_03",
+  "size": 2741713,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/rubber_tiles/rubber_tiles_2k_AO.jpg",
+  "group": "materials",
+  "category": "rubber",
+  "name": "rubber_tiles",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rubber_tiles",
+  "size": 1329661,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/rubber_tiles/rubber_tiles_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rubber",
+  "name": "rubber_tiles",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rubber_tiles",
+  "size": 1685204,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/rubber_tiles/rubber_tiles_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rubber",
+  "name": "rubber_tiles",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rubber_tiles",
+  "size": 493915,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/rubber_tiles/rubber_tiles_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rubber",
+  "name": "rubber_tiles",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rubber_tiles",
+  "size": 2752062,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/rubber_tiles/rubber_tiles_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rubber",
+  "name": "rubber_tiles",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rubber_tiles",
+  "size": 2359393,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/rust_coarse_01/rust_coarse_01_2k_AO.jpg",
+  "group": "materials",
+  "category": "rusty-metal-2",
+  "name": "rust_coarse_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rust_coarse_01",
+  "size": 2817642,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/rust_coarse_01/rust_coarse_01_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rusty-metal-2",
+  "name": "rust_coarse_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rust_coarse_01",
+  "size": 3519719,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/rust_coarse_01/rust_coarse_01_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rusty-metal-2",
+  "name": "rust_coarse_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rust_coarse_01",
+  "size": 1477214,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/rust_coarse_01/rust_coarse_01_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rusty-metal-2",
+  "name": "rust_coarse_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rust_coarse_01",
+  "size": 2845362,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/rust_coarse_01/rust_coarse_01_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rusty-metal-2",
+  "name": "rust_coarse_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rust_coarse_01",
+  "size": 3685688,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_02/rusty_metal_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "rusty-metal-3",
+  "name": "rusty_metal_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_02",
+  "size": 2103272,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_02/rusty_metal_02_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rusty-metal-3",
+  "name": "rusty_metal_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_02",
+  "size": 1952454,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_02/rusty_metal_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rusty-metal-3",
+  "name": "rusty_metal_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_02",
+  "size": 704302,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_02/rusty_metal_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rusty-metal-3",
+  "name": "rusty_metal_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_02",
+  "size": 411581,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_02/rusty_metal_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rusty-metal-3",
+  "name": "rusty_metal_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_02",
+  "size": 1307478,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_03/rusty_metal_03_2k_AO.jpg",
+  "group": "materials",
+  "category": "rusty-metal-1",
+  "name": "rusty_metal_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_03",
+  "size": 2372295,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_03/rusty_metal_03_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "rusty-metal-1",
+  "name": "rusty_metal_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_03",
+  "size": 2860689,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_03/rusty_metal_03_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "rusty-metal-1",
+  "name": "rusty_metal_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_03",
+  "size": 1063764,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_03/rusty_metal_03_2k_Rough.jpg",
+  "group": "materials",
+  "category": "rusty-metal-1",
+  "name": "rusty_metal_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_03",
+  "size": 1548838,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_metal_03/rusty_metal_03_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "rusty-metal-1",
+  "name": "rusty_metal_03",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_metal_03",
+  "size": 2697389,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_painted_metal/rusty_painted_metal_2k_AO.jpg",
+  "group": "materials",
+  "category": "painted-metal-red",
+  "name": "rusty_painted_metal",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_painted_metal",
+  "size": 1444428,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_painted_metal/rusty_painted_metal_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "painted-metal-red",
+  "name": "rusty_painted_metal",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_painted_metal",
+  "size": 1930544,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_painted_metal/rusty_painted_metal_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "painted-metal-red",
+  "name": "rusty_painted_metal",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_painted_metal",
+  "size": 649694,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_painted_metal/rusty_painted_metal_2k_Rough.jpg",
+  "group": "materials",
+  "category": "painted-metal-red",
+  "name": "rusty_painted_metal",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_painted_metal",
+  "size": 1342923,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/rusty_painted_metal/rusty_painted_metal_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "painted-metal-red",
+  "name": "rusty_painted_metal",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rusty_painted_metal",
+  "size": 2293576,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/sand_01/sand_01_2k_AO.jpg",
+  "group": "materials",
+  "category": "sand-dry",
+  "name": "sand_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sand_01",
+  "size": 1021179,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/sand_01/sand_01_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "sand-dry",
+  "name": "sand_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sand_01",
+  "size": 1984816,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/sand_01/sand_01_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "sand-dry",
+  "name": "sand_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sand_01",
+  "size": 462489,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/sand_01/sand_01_2k_Rough.jpg",
+  "group": "materials",
+  "category": "sand-dry",
+  "name": "sand_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sand_01",
+  "size": 757435,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/sand_01/sand_01_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "sand-dry",
+  "name": "sand_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sand_01",
+  "size": 2503853,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_blocks_05/sandstone_blocks_05_2k_AO.jpg",
+  "group": "materials",
+  "category": "sandstone-2",
+  "name": "sandstone_blocks_05",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_blocks_05",
+  "size": 1622587,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_blocks_05/sandstone_blocks_05_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "sandstone-2",
+  "name": "sandstone_blocks_05",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_blocks_05",
+  "size": 2302231,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_blocks_05/sandstone_blocks_05_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "sandstone-2",
+  "name": "sandstone_blocks_05",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_blocks_05",
+  "size": 475957,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_blocks_05/sandstone_blocks_05_2k_Rough.jpg",
+  "group": "materials",
+  "category": "sandstone-2",
+  "name": "sandstone_blocks_05",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_blocks_05",
+  "size": 803972,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_blocks_05/sandstone_blocks_05_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "sandstone-2",
+  "name": "sandstone_blocks_05",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_blocks_05",
+  "size": 4187323,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_cracks/sandstone_cracks_2k_AO.jpg",
+  "group": "materials",
+  "category": "sandstone-1",
+  "name": "sandstone_cracks",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_cracks",
+  "size": 2043727,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_cracks/sandstone_cracks_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "sandstone-1",
+  "name": "sandstone_cracks",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_cracks",
+  "size": 2870078,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_cracks/sandstone_cracks_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "sandstone-1",
+  "name": "sandstone_cracks",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_cracks",
+  "size": 658141,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_cracks/sandstone_cracks_2k_Rough.jpg",
+  "group": "materials",
+  "category": "sandstone-1",
+  "name": "sandstone_cracks",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_cracks",
+  "size": 1569280,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/sandstone_cracks/sandstone_cracks_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "sandstone-1",
+  "name": "sandstone_cracks",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sandstone_cracks",
+  "size": 4545235,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/smooth_concrete_floor/smooth_concrete_floor_2k_AO.jpg",
+  "group": "materials",
+  "category": "concrete-smooth",
+  "name": "smooth_concrete_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/smooth_concrete_floor",
+  "size": 2960534,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/smooth_concrete_floor/smooth_concrete_floor_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "concrete-smooth",
+  "name": "smooth_concrete_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/smooth_concrete_floor",
+  "size": 3561275,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/smooth_concrete_floor/smooth_concrete_floor_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "concrete-smooth",
+  "name": "smooth_concrete_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/smooth_concrete_floor",
+  "size": 694884,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/smooth_concrete_floor/smooth_concrete_floor_2k_Rough.jpg",
+  "group": "materials",
+  "category": "concrete-smooth",
+  "name": "smooth_concrete_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/smooth_concrete_floor",
+  "size": 2181493,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/smooth_concrete_floor/smooth_concrete_floor_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "concrete-smooth",
+  "name": "smooth_concrete_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/smooth_concrete_floor",
+  "size": 2819837,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/snow_02/snow_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "ice-snow",
+  "name": "snow_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/snow_02",
+  "size": 1356103,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/snow_02/snow_02_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "ice-snow",
+  "name": "snow_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/snow_02",
+  "size": 1314409,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/snow_02/snow_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "ice-snow",
+  "name": "snow_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/snow_02",
+  "size": 432399,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/snow_02/snow_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "ice-snow",
+  "name": "snow_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/snow_02",
+  "size": 628467,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/snow_02/snow_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "ice-snow",
+  "name": "snow_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/snow_02",
+  "size": 4761595,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/tiled_floor_001/tiled_floor_001_2k_AO.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-1",
+  "name": "tiled_floor_001",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tiled_floor_001",
+  "size": 146275,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/tiled_floor_001/tiled_floor_001_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-1",
+  "name": "tiled_floor_001",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tiled_floor_001",
+  "size": 2020168,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/tiled_floor_001/tiled_floor_001_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-1",
+  "name": "tiled_floor_001",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tiled_floor_001",
+  "size": 756693,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/tiled_floor_001/tiled_floor_001_2k_Rough.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-1",
+  "name": "tiled_floor_001",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tiled_floor_001",
+  "size": 1615225,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/tiled_floor_001/tiled_floor_001_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "bathroom-tiles-1",
+  "name": "tiled_floor_001",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tiled_floor_001",
+  "size": 1484004,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/white_plaster_02/white_plaster_02_2k_AO.jpg",
+  "group": "materials",
+  "category": "plaster-wall-2",
+  "name": "white_plaster_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/white_plaster_02",
+  "size": 2141148,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/white_plaster_02/white_plaster_02_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "plaster-wall-2",
+  "name": "white_plaster_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/white_plaster_02",
+  "size": 2568315,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/white_plaster_02/white_plaster_02_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "plaster-wall-2",
+  "name": "white_plaster_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/white_plaster_02",
+  "size": 1007108,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/white_plaster_02/white_plaster_02_2k_Rough.jpg",
+  "group": "materials",
+  "category": "plaster-wall-2",
+  "name": "white_plaster_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/white_plaster_02",
+  "size": 1604444,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/white_plaster_02/white_plaster_02_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "plaster-wall-2",
+  "name": "white_plaster_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/white_plaster_02",
+  "size": 3379814,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/materials/wood_floor/wood_floor_2k_AO.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-2",
+  "name": "wood_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wood_floor",
+  "size": 2826020,
+  "map": "AO"
+ },
+ {
+  "drive": "_assets3d/materials/wood_floor/wood_floor_2k_Diffuse.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-2",
+  "name": "wood_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wood_floor",
+  "size": 2983667,
+  "map": "Diffuse"
+ },
+ {
+  "drive": "_assets3d/materials/wood_floor/wood_floor_2k_Displacement.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-2",
+  "name": "wood_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wood_floor",
+  "size": 2426717,
+  "map": "Displacement"
+ },
+ {
+  "drive": "_assets3d/materials/wood_floor/wood_floor_2k_Rough.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-2",
+  "name": "wood_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wood_floor",
+  "size": 2267559,
+  "map": "Rough"
+ },
+ {
+  "drive": "_assets3d/materials/wood_floor/wood_floor_2k_nor_gl.jpg",
+  "group": "materials",
+  "category": "wood-floor-planks-2",
+  "name": "wood_floor",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wood_floor",
+  "size": 1863576,
+  "map": "nor_gl"
+ },
+ {
+  "drive": "_assets3d/models/Barrel_01/Barrel_01.bin",
+  "group": "models",
+  "category": "barrel",
+  "name": "Barrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Barrel_01",
+  "size": 81756
+ },
+ {
+  "drive": "_assets3d/models/Barrel_01/Barrel_01_2k.gltf",
+  "group": "models",
+  "category": "barrel",
+  "name": "Barrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Barrel_01",
+  "size": 2711
+ },
+ {
+  "drive": "_assets3d/models/Barrel_01/textures/Barrel_01_explosive_arm_2k.jpg",
+  "group": "models",
+  "category": "barrel",
+  "name": "Barrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Barrel_01",
+  "size": 814101
+ },
+ {
+  "drive": "_assets3d/models/Barrel_01/textures/Barrel_01_explosive_diff_2k.jpg",
+  "group": "models",
+  "category": "barrel",
+  "name": "Barrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Barrel_01",
+  "size": 613078
+ },
+ {
+  "drive": "_assets3d/models/Barrel_01/textures/Barrel_01_explosive_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "barrel",
+  "name": "Barrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Barrel_01",
+  "size": 875565
+ },
+ {
+  "drive": "_assets3d/models/GothicBed_01/GothicBed_01.bin",
+  "group": "models",
+  "category": "bed",
+  "name": "GothicBed_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/GothicBed_01",
+  "size": 658648
+ },
+ {
+  "drive": "_assets3d/models/GothicBed_01/GothicBed_01_2k.gltf",
+  "group": "models",
+  "category": "bed",
+  "name": "GothicBed_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/GothicBed_01",
+  "size": 2683
+ },
+ {
+  "drive": "_assets3d/models/GothicBed_01/textures/GothicBed_01_arm_2k.jpg",
+  "group": "models",
+  "category": "bed",
+  "name": "GothicBed_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/GothicBed_01",
+  "size": 560639
+ },
+ {
+  "drive": "_assets3d/models/GothicBed_01/textures/GothicBed_01_diff_2k.jpg",
+  "group": "models",
+  "category": "bed",
+  "name": "GothicBed_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/GothicBed_01",
+  "size": 385789
+ },
+ {
+  "drive": "_assets3d/models/GothicBed_01/textures/GothicBed_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "bed",
+  "name": "GothicBed_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/GothicBed_01",
+  "size": 597156
+ },
+ {
+  "drive": "_assets3d/models/Lantern_01/Lantern_01.bin",
+  "group": "models",
+  "category": "oil-lamp",
+  "name": "Lantern_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Lantern_01",
+  "size": 864852
+ },
+ {
+  "drive": "_assets3d/models/Lantern_01/Lantern_01_2k.gltf",
+  "group": "models",
+  "category": "oil-lamp",
+  "name": "Lantern_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Lantern_01",
+  "size": 4866
+ },
+ {
+  "drive": "_assets3d/models/Lantern_01/textures/Lantern_01_brass_arm_2k.jpg",
+  "group": "models",
+  "category": "oil-lamp",
+  "name": "Lantern_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Lantern_01",
+  "size": 847840
+ },
+ {
+  "drive": "_assets3d/models/Lantern_01/textures/Lantern_01_brass_diff_2k.jpg",
+  "group": "models",
+  "category": "oil-lamp",
+  "name": "Lantern_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Lantern_01",
+  "size": 519828
+ },
+ {
+  "drive": "_assets3d/models/Lantern_01/textures/Lantern_01_brass_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "oil-lamp",
+  "name": "Lantern_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/Lantern_01",
+  "size": 805944
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/book_encyclopedia_set_01.bin",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 2547932
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/book_encyclopedia_set_01_2k.gltf",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 55011
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_cover_arm_2k.jpg",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 663503
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_cover_diff_2k.jpg",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 423488
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_cover_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 75257
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_paper_diff_2k.jpg",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 302108
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_paper_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 566133
+ },
+ {
+  "drive": "_assets3d/models/book_encyclopedia_set_01/textures/book_encyclopedia_set_01_paper_roughness_2k.jpg",
+  "group": "models",
+  "category": "books",
+  "name": "book_encyclopedia_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/book_encyclopedia_set_01",
+  "size": 49548
+ },
+ {
+  "drive": "_assets3d/models/boombox/boombox.bin",
+  "group": "models",
+  "category": "phone-radio",
+  "name": "boombox",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boombox",
+  "size": 328752
+ },
+ {
+  "drive": "_assets3d/models/boombox/boombox_2k.gltf",
+  "group": "models",
+  "category": "phone-radio",
+  "name": "boombox",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boombox",
+  "size": 4656
+ },
+ {
+  "drive": "_assets3d/models/boombox/textures/boombox_arm_2k.jpg",
+  "group": "models",
+  "category": "phone-radio",
+  "name": "boombox",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boombox",
+  "size": 1191344
+ },
+ {
+  "drive": "_assets3d/models/boombox/textures/boombox_diff_2k.jpg",
+  "group": "models",
+  "category": "phone-radio",
+  "name": "boombox",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boombox",
+  "size": 1703290
+ },
+ {
+  "drive": "_assets3d/models/boombox/textures/boombox_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "phone-radio",
+  "name": "boombox",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boombox",
+  "size": 1838529
+ },
+ {
+  "drive": "_assets3d/models/boombox/textures/boombox_speakers_arm_2k.jpg",
+  "group": "models",
+  "category": "phone-radio",
+  "name": "boombox",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boombox",
+  "size": 2238879
+ },
+ {
+  "drive": "_assets3d/models/boombox/textures/boombox_speakers_diff_2k.jpg",
+  "group": "models",
+  "category": "phone-radio",
+  "name": "boombox",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boombox",
+  "size": 1774792
+ },
+ {
+  "drive": "_assets3d/models/boulder_01/boulder_01.bin",
+  "group": "models",
+  "category": "rock-3",
+  "name": "boulder_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boulder_01",
+  "size": 2938808
+ },
+ {
+  "drive": "_assets3d/models/boulder_01/boulder_01_2k.gltf",
+  "group": "models",
+  "category": "rock-3",
+  "name": "boulder_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boulder_01",
+  "size": 2773
+ },
+ {
+  "drive": "_assets3d/models/boulder_01/textures/boulder_01_arm_2k.jpg",
+  "group": "models",
+  "category": "rock-3",
+  "name": "boulder_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boulder_01",
+  "size": 2273068
+ },
+ {
+  "drive": "_assets3d/models/boulder_01/textures/boulder_01_diff_2k.jpg",
+  "group": "models",
+  "category": "rock-3",
+  "name": "boulder_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boulder_01",
+  "size": 3672483
+ },
+ {
+  "drive": "_assets3d/models/boulder_01/textures/boulder_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "rock-3",
+  "name": "boulder_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/boulder_01",
+  "size": 4649207
+ },
+ {
+  "drive": "_assets3d/models/brass_pot_02/brass_pot_02.bin",
+  "group": "models",
+  "category": "pots",
+  "name": "brass_pot_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brass_pot_02",
+  "size": 86816
+ },
+ {
+  "drive": "_assets3d/models/brass_pot_02/brass_pot_02_2k.gltf",
+  "group": "models",
+  "category": "pots",
+  "name": "brass_pot_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brass_pot_02",
+  "size": 2683
+ },
+ {
+  "drive": "_assets3d/models/brass_pot_02/textures/brass_pot_02_arm_2k.jpg",
+  "group": "models",
+  "category": "pots",
+  "name": "brass_pot_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brass_pot_02",
+  "size": 1589716
+ },
+ {
+  "drive": "_assets3d/models/brass_pot_02/textures/brass_pot_02_diff_2k.jpg",
+  "group": "models",
+  "category": "pots",
+  "name": "brass_pot_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brass_pot_02",
+  "size": 1884685
+ },
+ {
+  "drive": "_assets3d/models/brass_pot_02/textures/brass_pot_02_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "pots",
+  "name": "brass_pot_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/brass_pot_02",
+  "size": 1199123
+ },
+ {
+  "drive": "_assets3d/models/coast_land_rocks_04/coast_land_rocks_04.bin",
+  "group": "models",
+  "category": "rock-4",
+  "name": "coast_land_rocks_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/coast_land_rocks_04",
+  "size": 30731664
+ },
+ {
+  "drive": "_assets3d/models/coast_land_rocks_04/coast_land_rocks_04_2k.gltf",
+  "group": "models",
+  "category": "rock-4",
+  "name": "coast_land_rocks_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/coast_land_rocks_04",
+  "size": 2855
+ },
+ {
+  "drive": "_assets3d/models/coast_land_rocks_04/textures/coast_land_rocks_04_arm_2k.jpg",
+  "group": "models",
+  "category": "rock-4",
+  "name": "coast_land_rocks_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/coast_land_rocks_04",
+  "size": 3123559
+ },
+ {
+  "drive": "_assets3d/models/coast_land_rocks_04/textures/coast_land_rocks_04_diff_2k.jpg",
+  "group": "models",
+  "category": "rock-4",
+  "name": "coast_land_rocks_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/coast_land_rocks_04",
+  "size": 3378711
+ },
+ {
+  "drive": "_assets3d/models/coast_land_rocks_04/textures/coast_land_rocks_04_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "rock-4",
+  "name": "coast_land_rocks_04",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/coast_land_rocks_04",
+  "size": 4165150
+ },
+ {
+  "drive": "_assets3d/models/desk_lamp_arm_01/desk_lamp_arm_01.bin",
+  "group": "models",
+  "category": "desk-lamp",
+  "name": "desk_lamp_arm_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/desk_lamp_arm_01",
+  "size": 736804
+ },
+ {
+  "drive": "_assets3d/models/desk_lamp_arm_01/desk_lamp_arm_01_2k.gltf",
+  "group": "models",
+  "category": "desk-lamp",
+  "name": "desk_lamp_arm_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/desk_lamp_arm_01",
+  "size": 4453
+ },
+ {
+  "drive": "_assets3d/models/desk_lamp_arm_01/textures/desk_lamp_arm_01_arm_2k.jpg",
+  "group": "models",
+  "category": "desk-lamp",
+  "name": "desk_lamp_arm_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/desk_lamp_arm_01",
+  "size": 2801607
+ },
+ {
+  "drive": "_assets3d/models/desk_lamp_arm_01/textures/desk_lamp_arm_01_diff_2k.jpg",
+  "group": "models",
+  "category": "desk-lamp",
+  "name": "desk_lamp_arm_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/desk_lamp_arm_01",
+  "size": 2438937
+ },
+ {
+  "drive": "_assets3d/models/desk_lamp_arm_01/textures/desk_lamp_arm_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "desk-lamp",
+  "name": "desk_lamp_arm_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/desk_lamp_arm_01",
+  "size": 2491219
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/dutch_ship_medium.bin",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 2480380
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/dutch_ship_medium_2k.gltf",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 7494
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_hull_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 3901702
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_hull_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 2945586
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_hull_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 3666864
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_rigging_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 2058601
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_rigging_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 2198962
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_rigging_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 1926834
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_sails_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 2506529
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_sails_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 2656547
+ },
+ {
+  "drive": "_assets3d/models/dutch_ship_medium/textures/dutch_ship_medium_sails_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-dutch",
+  "name": "dutch_ship_medium",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/dutch_ship_medium",
+  "size": 3334525
+ },
+ {
+  "drive": "_assets3d/models/electric_stove/electric_stove.bin",
+  "group": "models",
+  "category": "stove",
+  "name": "electric_stove",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/electric_stove",
+  "size": 462956
+ },
+ {
+  "drive": "_assets3d/models/electric_stove/electric_stove_2k.gltf",
+  "group": "models",
+  "category": "stove",
+  "name": "electric_stove",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/electric_stove",
+  "size": 31234
+ },
+ {
+  "drive": "_assets3d/models/electric_stove/textures/electric_stove_arm_2k.jpg",
+  "group": "models",
+  "category": "stove",
+  "name": "electric_stove",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/electric_stove",
+  "size": 2440092
+ },
+ {
+  "drive": "_assets3d/models/electric_stove/textures/electric_stove_diff_2k.jpg",
+  "group": "models",
+  "category": "stove",
+  "name": "electric_stove",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/electric_stove",
+  "size": 1614960
+ },
+ {
+  "drive": "_assets3d/models/electric_stove/textures/electric_stove_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "stove",
+  "name": "electric_stove",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/electric_stove",
+  "size": 1617459
+ },
+ {
+  "drive": "_assets3d/models/food_apple_01/food_apple_01.bin",
+  "group": "models",
+  "category": "food",
+  "name": "food_apple_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/food_apple_01",
+  "size": 170680
+ },
+ {
+  "drive": "_assets3d/models/food_apple_01/food_apple_01_2k.gltf",
+  "group": "models",
+  "category": "food",
+  "name": "food_apple_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/food_apple_01",
+  "size": 2705
+ },
+ {
+  "drive": "_assets3d/models/food_apple_01/textures/food_apple_01_diff_2k.jpg",
+  "group": "models",
+  "category": "food",
+  "name": "food_apple_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/food_apple_01",
+  "size": 643716
+ },
+ {
+  "drive": "_assets3d/models/food_apple_01/textures/food_apple_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "food",
+  "name": "food_apple_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/food_apple_01",
+  "size": 240476
+ },
+ {
+  "drive": "_assets3d/models/food_apple_01/textures/food_apple_01_rough_2k.jpg",
+  "group": "models",
+  "category": "food",
+  "name": "food_apple_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/food_apple_01",
+  "size": 142078
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/island_tree_02.bin",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 40686576
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/island_tree_02_2k.gltf",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 8545
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 2347246
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_branches_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 1523257
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_branches_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 1476655
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_branches_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 2437750
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 2684467
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_leaves_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 1645169
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_leaves_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 661175
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_leaves_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 1378585
+ },
+ {
+  "drive": "_assets3d/models/island_tree_02/textures/island_tree_02_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-3",
+  "name": "island_tree_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/island_tree_02",
+  "size": 4339456
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/jacaranda_tree.bin",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 208307808
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/jacaranda_tree_2k.gltf",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 9526
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_branches_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 1523257
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_branches_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 1483476
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_branches_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 2437750
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_leaves_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 1184148
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_leaves_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 1608661
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_leaves_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 2162002
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_trunk_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 3444454
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_trunk_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 3397103
+ },
+ {
+  "drive": "_assets3d/models/jacaranda_tree/textures/jacaranda_tree_trunk_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-2",
+  "name": "jacaranda_tree",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/jacaranda_tree",
+  "size": 4050519
+ },
+ {
+  "drive": "_assets3d/models/large_castle_door/large_castle_door.bin",
+  "group": "models",
+  "category": "door",
+  "name": "large_castle_door",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/large_castle_door",
+  "size": 422436
+ },
+ {
+  "drive": "_assets3d/models/large_castle_door/large_castle_door_2k.gltf",
+  "group": "models",
+  "category": "door",
+  "name": "large_castle_door",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/large_castle_door",
+  "size": 6111
+ },
+ {
+  "drive": "_assets3d/models/large_castle_door/textures/large_castle_door_arm_2k.jpg",
+  "group": "models",
+  "category": "door",
+  "name": "large_castle_door",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/large_castle_door",
+  "size": 3723833
+ },
+ {
+  "drive": "_assets3d/models/large_castle_door/textures/large_castle_door_diff_2k.jpg",
+  "group": "models",
+  "category": "door",
+  "name": "large_castle_door",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/large_castle_door",
+  "size": 3105682
+ },
+ {
+  "drive": "_assets3d/models/large_castle_door/textures/large_castle_door_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "door",
+  "name": "large_castle_door",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/large_castle_door",
+  "size": 4281351
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/modern_arm_chair_01.bin",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 240728
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/modern_arm_chair_01_2k.gltf",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 5121
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/textures/modern_arm_chair_01_legs_arm_2k.jpg",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 2144468
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/textures/modern_arm_chair_01_legs_diff_2k.jpg",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 1660925
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/textures/modern_arm_chair_01_legs_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 2076117
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/textures/modern_arm_chair_01_pillow_arm_2k.jpg",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 1176399
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/textures/modern_arm_chair_01_pillow_diff_2k.jpg",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 843013
+ },
+ {
+  "drive": "_assets3d/models/modern_arm_chair_01/textures/modern_arm_chair_01_pillow_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "chair",
+  "name": "modern_arm_chair_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "size": 1074878
+ },
+ {
+  "drive": "_assets3d/models/namaqualand_stones_01/namaqualand_stones_01.bin",
+  "group": "models",
+  "category": "rock-5",
+  "name": "namaqualand_stones_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/namaqualand_stones_01",
+  "size": 1599304
+ },
+ {
+  "drive": "_assets3d/models/namaqualand_stones_01/namaqualand_stones_01_2k.gltf",
+  "group": "models",
+  "category": "rock-5",
+  "name": "namaqualand_stones_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/namaqualand_stones_01",
+  "size": 8681
+ },
+ {
+  "drive": "_assets3d/models/namaqualand_stones_01/textures/namaqualand_stones_01_arm_2k.jpg",
+  "group": "models",
+  "category": "rock-5",
+  "name": "namaqualand_stones_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/namaqualand_stones_01",
+  "size": 2462431
+ },
+ {
+  "drive": "_assets3d/models/namaqualand_stones_01/textures/namaqualand_stones_01_diff_2k.jpg",
+  "group": "models",
+  "category": "rock-5",
+  "name": "namaqualand_stones_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/namaqualand_stones_01",
+  "size": 2667129
+ },
+ {
+  "drive": "_assets3d/models/namaqualand_stones_01/textures/namaqualand_stones_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "rock-5",
+  "name": "namaqualand_stones_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/namaqualand_stones_01",
+  "size": 3967288
+ },
+ {
+  "drive": "_assets3d/models/pipe_wrench/pipe_wrench.bin",
+  "group": "models",
+  "category": "wrench",
+  "name": "pipe_wrench",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/pipe_wrench",
+  "size": 284764
+ },
+ {
+  "drive": "_assets3d/models/pipe_wrench/pipe_wrench_2k.gltf",
+  "group": "models",
+  "category": "wrench",
+  "name": "pipe_wrench",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/pipe_wrench",
+  "size": 2756
+ },
+ {
+  "drive": "_assets3d/models/pipe_wrench/textures/pipe_wrench_arm_2k.jpg",
+  "group": "models",
+  "category": "wrench",
+  "name": "pipe_wrench",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/pipe_wrench",
+  "size": 2889323
+ },
+ {
+  "drive": "_assets3d/models/pipe_wrench/textures/pipe_wrench_diff_2k.jpg",
+  "group": "models",
+  "category": "wrench",
+  "name": "pipe_wrench",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/pipe_wrench",
+  "size": 3067542
+ },
+ {
+  "drive": "_assets3d/models/pipe_wrench/textures/pipe_wrench_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "wrench",
+  "name": "pipe_wrench",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/pipe_wrench",
+  "size": 4228959
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/potted_plant_02.bin",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 1852244
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/potted_plant_02_2k.gltf",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 6653
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/textures/potted_plant_02_leaves_diff_2k.jpg",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 584084
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/textures/potted_plant_02_leaves_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 481780
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/textures/potted_plant_02_leaves_rough_2k.jpg",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 435284
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/textures/potted_plant_02_pot_diff_2k.jpg",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 596006
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/textures/potted_plant_02_pot_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 494387
+ },
+ {
+  "drive": "_assets3d/models/potted_plant_02/textures/potted_plant_02_pot_rough_2k.jpg",
+  "group": "models",
+  "category": "plant",
+  "name": "potted_plant_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "size": 426559
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_01/rock_moss_set_01.bin",
+  "group": "models",
+  "category": "rock-2",
+  "name": "rock_moss_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_01",
+  "size": 1466380
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_01/rock_moss_set_01_2k.gltf",
+  "group": "models",
+  "category": "rock-2",
+  "name": "rock_moss_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_01",
+  "size": 9987
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_01/textures/rock_moss_set_01_diff_2k.jpg",
+  "group": "models",
+  "category": "rock-2",
+  "name": "rock_moss_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_01",
+  "size": 649415
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_01/textures/rock_moss_set_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "rock-2",
+  "name": "rock_moss_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_01",
+  "size": 840957
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_01/textures/rock_moss_set_01_rough_2k.jpg",
+  "group": "models",
+  "category": "rock-2",
+  "name": "rock_moss_set_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_01",
+  "size": 293827
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_02/rock_moss_set_02.bin",
+  "group": "models",
+  "category": "rock-1",
+  "name": "rock_moss_set_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_02",
+  "size": 1316572
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_02/rock_moss_set_02_2k.gltf",
+  "group": "models",
+  "category": "rock-1",
+  "name": "rock_moss_set_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_02",
+  "size": 11608
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_02/textures/rock_moss_set_02_diff_2k.jpg",
+  "group": "models",
+  "category": "rock-1",
+  "name": "rock_moss_set_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_02",
+  "size": 750955
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_02/textures/rock_moss_set_02_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "rock-1",
+  "name": "rock_moss_set_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_02",
+  "size": 1000512
+ },
+ {
+  "drive": "_assets3d/models/rock_moss_set_02/textures/rock_moss_set_02_rough_2k.jpg",
+  "group": "models",
+  "category": "rock-1",
+  "name": "rock_moss_set_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rock_moss_set_02",
+  "size": 501755
+ },
+ {
+  "drive": "_assets3d/models/rollershutter_window_01/rollershutter_window_01.bin",
+  "group": "models",
+  "category": "window",
+  "name": "rollershutter_window_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rollershutter_window_01",
+  "size": 54432
+ },
+ {
+  "drive": "_assets3d/models/rollershutter_window_01/rollershutter_window_01_2k.gltf",
+  "group": "models",
+  "category": "window",
+  "name": "rollershutter_window_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rollershutter_window_01",
+  "size": 4991
+ },
+ {
+  "drive": "_assets3d/models/rollershutter_window_01/textures/rollershutter_window_01_arm_2k.jpg",
+  "group": "models",
+  "category": "window",
+  "name": "rollershutter_window_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rollershutter_window_01",
+  "size": 2247637
+ },
+ {
+  "drive": "_assets3d/models/rollershutter_window_01/textures/rollershutter_window_01_diff_2k.jpg",
+  "group": "models",
+  "category": "window",
+  "name": "rollershutter_window_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rollershutter_window_01",
+  "size": 2217772
+ },
+ {
+  "drive": "_assets3d/models/rollershutter_window_01/textures/rollershutter_window_01_graffiti_diff_2k.jpg",
+  "group": "models",
+  "category": "window",
+  "name": "rollershutter_window_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rollershutter_window_01",
+  "size": 2490054
+ },
+ {
+  "drive": "_assets3d/models/rollershutter_window_01/textures/rollershutter_window_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "window",
+  "name": "rollershutter_window_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/rollershutter_window_01",
+  "size": 1413906
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/ship_pinnace.bin",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 7127428
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/ship_pinnace_2k.gltf",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 17175
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_aft_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 1809290
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_aft_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2329237
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_aft_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2632186
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_deck_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 3135239
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_deck_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 3035662
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_deck_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 1705580
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_details_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 3398274
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_details_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2200920
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_details_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2502873
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_hull_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2675855
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_hull_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2131324
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_hull_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2408241
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_interior_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2711026
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_interior_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2722014
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_interior_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 1753161
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_rigging_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2711138
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_rigging_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2623891
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_rigging_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 3000379
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_sails_arm_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2513397
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_sails_diff_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 2714575
+ },
+ {
+  "drive": "_assets3d/models/ship_pinnace/textures/ship_pinnace_sails_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "ship-pinnace",
+  "name": "ship_pinnace",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/ship_pinnace",
+  "size": 3313641
+ },
+ {
+  "drive": "_assets3d/models/shrub_01/shrub_01.bin",
+  "group": "models",
+  "category": "bush-3",
+  "name": "shrub_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_01",
+  "size": 5239664
+ },
+ {
+  "drive": "_assets3d/models/shrub_01/shrub_01_2k.gltf",
+  "group": "models",
+  "category": "bush-3",
+  "name": "shrub_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_01",
+  "size": 2895
+ },
+ {
+  "drive": "_assets3d/models/shrub_01/textures/shrub_01_arm_2k.jpg",
+  "group": "models",
+  "category": "bush-3",
+  "name": "shrub_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_01",
+  "size": 1232008
+ },
+ {
+  "drive": "_assets3d/models/shrub_01/textures/shrub_01_diff_2k.jpg",
+  "group": "models",
+  "category": "bush-3",
+  "name": "shrub_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_01",
+  "size": 1651989
+ },
+ {
+  "drive": "_assets3d/models/shrub_01/textures/shrub_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "bush-3",
+  "name": "shrub_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_01",
+  "size": 2628947
+ },
+ {
+  "drive": "_assets3d/models/shrub_sorrel_01/shrub_sorrel_01.bin",
+  "group": "models",
+  "category": "bush-2",
+  "name": "shrub_sorrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_sorrel_01",
+  "size": 110936
+ },
+ {
+  "drive": "_assets3d/models/shrub_sorrel_01/shrub_sorrel_01_2k.gltf",
+  "group": "models",
+  "category": "bush-2",
+  "name": "shrub_sorrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_sorrel_01",
+  "size": 17428
+ },
+ {
+  "drive": "_assets3d/models/shrub_sorrel_01/textures/shrub_sorrel_01_arm_2k.jpg",
+  "group": "models",
+  "category": "bush-2",
+  "name": "shrub_sorrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_sorrel_01",
+  "size": 613088
+ },
+ {
+  "drive": "_assets3d/models/shrub_sorrel_01/textures/shrub_sorrel_01_diff_2k.jpg",
+  "group": "models",
+  "category": "bush-2",
+  "name": "shrub_sorrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_sorrel_01",
+  "size": 1208902
+ },
+ {
+  "drive": "_assets3d/models/shrub_sorrel_01/textures/shrub_sorrel_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "bush-2",
+  "name": "shrub_sorrel_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/shrub_sorrel_01",
+  "size": 1751781
+ },
+ {
+  "drive": "_assets3d/models/small_plastic_torch/small_plastic_torch.bin",
+  "group": "models",
+  "category": "flashlight",
+  "name": "small_plastic_torch",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/small_plastic_torch",
+  "size": 343384
+ },
+ {
+  "drive": "_assets3d/models/small_plastic_torch/small_plastic_torch_2k.gltf",
+  "group": "models",
+  "category": "flashlight",
+  "name": "small_plastic_torch",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/small_plastic_torch",
+  "size": 4656
+ },
+ {
+  "drive": "_assets3d/models/small_plastic_torch/textures/small_plastic_torch_arm_2k.jpg",
+  "group": "models",
+  "category": "flashlight",
+  "name": "small_plastic_torch",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/small_plastic_torch",
+  "size": 2657899
+ },
+ {
+  "drive": "_assets3d/models/small_plastic_torch/textures/small_plastic_torch_diff_2k.jpg",
+  "group": "models",
+  "category": "flashlight",
+  "name": "small_plastic_torch",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/small_plastic_torch",
+  "size": 1959145
+ },
+ {
+  "drive": "_assets3d/models/small_plastic_torch/textures/small_plastic_torch_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "flashlight",
+  "name": "small_plastic_torch",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/small_plastic_torch",
+  "size": 3081530
+ },
+ {
+  "drive": "_assets3d/models/sofa_02/sofa_02.bin",
+  "group": "models",
+  "category": "sofa",
+  "name": "sofa_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sofa_02",
+  "size": 74864
+ },
+ {
+  "drive": "_assets3d/models/sofa_02/sofa_02_2k.gltf",
+  "group": "models",
+  "category": "sofa",
+  "name": "sofa_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sofa_02",
+  "size": 4183
+ },
+ {
+  "drive": "_assets3d/models/sofa_02/textures/sofa_02_arm_2k.jpg",
+  "group": "models",
+  "category": "sofa",
+  "name": "sofa_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sofa_02",
+  "size": 401876
+ },
+ {
+  "drive": "_assets3d/models/sofa_02/textures/sofa_02_diff_2k.jpg",
+  "group": "models",
+  "category": "sofa",
+  "name": "sofa_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sofa_02",
+  "size": 323319
+ },
+ {
+  "drive": "_assets3d/models/sofa_02/textures/sofa_02_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "sofa",
+  "name": "sofa_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/sofa_02",
+  "size": 463146
+ },
+ {
+  "drive": "_assets3d/models/steel_frame_shelves_01/steel_frame_shelves_01.bin",
+  "group": "models",
+  "category": "shelves",
+  "name": "steel_frame_shelves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/steel_frame_shelves_01",
+  "size": 142312
+ },
+ {
+  "drive": "_assets3d/models/steel_frame_shelves_01/steel_frame_shelves_01_2k.gltf",
+  "group": "models",
+  "category": "shelves",
+  "name": "steel_frame_shelves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/steel_frame_shelves_01",
+  "size": 2766
+ },
+ {
+  "drive": "_assets3d/models/steel_frame_shelves_01/textures/steel_frame_shelves_01_arm_2k.jpg",
+  "group": "models",
+  "category": "shelves",
+  "name": "steel_frame_shelves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/steel_frame_shelves_01",
+  "size": 2393901
+ },
+ {
+  "drive": "_assets3d/models/steel_frame_shelves_01/textures/steel_frame_shelves_01_diff_2k.jpg",
+  "group": "models",
+  "category": "shelves",
+  "name": "steel_frame_shelves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/steel_frame_shelves_01",
+  "size": 1679686
+ },
+ {
+  "drive": "_assets3d/models/steel_frame_shelves_01/textures/steel_frame_shelves_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "shelves",
+  "name": "steel_frame_shelves_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/steel_frame_shelves_01",
+  "size": 1350248
+ },
+ {
+  "drive": "_assets3d/models/street_lamp_01/street_lamp_01.bin",
+  "group": "models",
+  "category": "street-lamp",
+  "name": "street_lamp_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/street_lamp_01",
+  "size": 748908
+ },
+ {
+  "drive": "_assets3d/models/street_lamp_01/street_lamp_01_2k.gltf",
+  "group": "models",
+  "category": "street-lamp",
+  "name": "street_lamp_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/street_lamp_01",
+  "size": 6419
+ },
+ {
+  "drive": "_assets3d/models/street_lamp_01/textures/street_lamp_01_arm_2k.jpg",
+  "group": "models",
+  "category": "street-lamp",
+  "name": "street_lamp_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/street_lamp_01",
+  "size": 2332682
+ },
+ {
+  "drive": "_assets3d/models/street_lamp_01/textures/street_lamp_01_diff_2k.jpg",
+  "group": "models",
+  "category": "street-lamp",
+  "name": "street_lamp_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/street_lamp_01",
+  "size": 993834
+ },
+ {
+  "drive": "_assets3d/models/street_lamp_01/textures/street_lamp_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "street-lamp",
+  "name": "street_lamp_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/street_lamp_01",
+  "size": 1827395
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 2586815
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_branch_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 1147503
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_branch_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 1425692
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_branch_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 1781975
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 3170612
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_leaves_arm_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 2191542
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_leaves_diff_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 961870
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_leaves_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 2395771
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/textures/tree_small_02_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 4555311
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/tree_small_02.bin",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 95102324
+ },
+ {
+  "drive": "_assets3d/models/tree_small_02/tree_small_02_2k.gltf",
+  "group": "models",
+  "category": "tree-1",
+  "name": "tree_small_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/tree_small_02",
+  "size": 9075
+ },
+ {
+  "drive": "_assets3d/models/wild_rooibos_bush/textures/wild_rooibos_bush_arm_2k.jpg",
+  "group": "models",
+  "category": "bush-1",
+  "name": "wild_rooibos_bush",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wild_rooibos_bush",
+  "size": 1415231
+ },
+ {
+  "drive": "_assets3d/models/wild_rooibos_bush/textures/wild_rooibos_bush_diff_2k.jpg",
+  "group": "models",
+  "category": "bush-1",
+  "name": "wild_rooibos_bush",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wild_rooibos_bush",
+  "size": 1383104
+ },
+ {
+  "drive": "_assets3d/models/wild_rooibos_bush/textures/wild_rooibos_bush_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "bush-1",
+  "name": "wild_rooibos_bush",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wild_rooibos_bush",
+  "size": 1916171
+ },
+ {
+  "drive": "_assets3d/models/wild_rooibos_bush/wild_rooibos_bush.bin",
+  "group": "models",
+  "category": "bush-1",
+  "name": "wild_rooibos_bush",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wild_rooibos_bush",
+  "size": 1236928
+ },
+ {
+  "drive": "_assets3d/models/wild_rooibos_bush/wild_rooibos_bush_2k.gltf",
+  "group": "models",
+  "category": "bush-1",
+  "name": "wild_rooibos_bush",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wild_rooibos_bush",
+  "size": 23122
+ },
+ {
+  "drive": "_assets3d/models/wooden_bucket_02/textures/wooden_bucket_02_arm_2k.jpg",
+  "group": "models",
+  "category": "bucket",
+  "name": "wooden_bucket_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_bucket_02",
+  "size": 3098279
+ },
+ {
+  "drive": "_assets3d/models/wooden_bucket_02/textures/wooden_bucket_02_diff_2k.jpg",
+  "group": "models",
+  "category": "bucket",
+  "name": "wooden_bucket_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_bucket_02",
+  "size": 2392805
+ },
+ {
+  "drive": "_assets3d/models/wooden_bucket_02/textures/wooden_bucket_02_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "bucket",
+  "name": "wooden_bucket_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_bucket_02",
+  "size": 2924878
+ },
+ {
+  "drive": "_assets3d/models/wooden_bucket_02/wooden_bucket_02.bin",
+  "group": "models",
+  "category": "bucket",
+  "name": "wooden_bucket_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_bucket_02",
+  "size": 227128
+ },
+ {
+  "drive": "_assets3d/models/wooden_bucket_02/wooden_bucket_02_2k.gltf",
+  "group": "models",
+  "category": "bucket",
+  "name": "wooden_bucket_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_bucket_02",
+  "size": 5625
+ },
+ {
+  "drive": "_assets3d/models/wooden_crate_01/textures/wooden_crate_01_arm_2k.jpg",
+  "group": "models",
+  "category": "crate",
+  "name": "wooden_crate_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_crate_01",
+  "size": 2808807
+ },
+ {
+  "drive": "_assets3d/models/wooden_crate_01/textures/wooden_crate_01_diff_2k.jpg",
+  "group": "models",
+  "category": "crate",
+  "name": "wooden_crate_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_crate_01",
+  "size": 2728494
+ },
+ {
+  "drive": "_assets3d/models/wooden_crate_01/textures/wooden_crate_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "crate",
+  "name": "wooden_crate_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_crate_01",
+  "size": 2553649
+ },
+ {
+  "drive": "_assets3d/models/wooden_crate_01/wooden_crate_01.bin",
+  "group": "models",
+  "category": "crate",
+  "name": "wooden_crate_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_crate_01",
+  "size": 189408
+ },
+ {
+  "drive": "_assets3d/models/wooden_crate_01/wooden_crate_01_2k.gltf",
+  "group": "models",
+  "category": "crate",
+  "name": "wooden_crate_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_crate_01",
+  "size": 5612
+ },
+ {
+  "drive": "_assets3d/models/wooden_hammer_01/textures/wooden_hammer_01_arm_2k.jpg",
+  "group": "models",
+  "category": "hammer",
+  "name": "wooden_hammer_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_hammer_01",
+  "size": 2246560
+ },
+ {
+  "drive": "_assets3d/models/wooden_hammer_01/textures/wooden_hammer_01_diff_2k.jpg",
+  "group": "models",
+  "category": "hammer",
+  "name": "wooden_hammer_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_hammer_01",
+  "size": 1775890
+ },
+ {
+  "drive": "_assets3d/models/wooden_hammer_01/textures/wooden_hammer_01_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "hammer",
+  "name": "wooden_hammer_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_hammer_01",
+  "size": 2410493
+ },
+ {
+  "drive": "_assets3d/models/wooden_hammer_01/wooden_hammer_01.bin",
+  "group": "models",
+  "category": "hammer",
+  "name": "wooden_hammer_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_hammer_01",
+  "size": 101960
+ },
+ {
+  "drive": "_assets3d/models/wooden_hammer_01/wooden_hammer_01_2k.gltf",
+  "group": "models",
+  "category": "hammer",
+  "name": "wooden_hammer_01",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_hammer_01",
+  "size": 2709
+ },
+ {
+  "drive": "_assets3d/models/wooden_table_02/textures/wooden_table_02_arm_2k.jpg",
+  "group": "models",
+  "category": "table",
+  "name": "wooden_table_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_table_02",
+  "size": 681917
+ },
+ {
+  "drive": "_assets3d/models/wooden_table_02/textures/wooden_table_02_diff_2k.jpg",
+  "group": "models",
+  "category": "table",
+  "name": "wooden_table_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_table_02",
+  "size": 711929
+ },
+ {
+  "drive": "_assets3d/models/wooden_table_02/textures/wooden_table_02_nor_gl_2k.jpg",
+  "group": "models",
+  "category": "table",
+  "name": "wooden_table_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_table_02",
+  "size": 543822
+ },
+ {
+  "drive": "_assets3d/models/wooden_table_02/wooden_table_02.bin",
+  "group": "models",
+  "category": "table",
+  "name": "wooden_table_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_table_02",
+  "size": 7576
+ },
+ {
+  "drive": "_assets3d/models/wooden_table_02/wooden_table_02_2k.gltf",
+  "group": "models",
+  "category": "table",
+  "name": "wooden_table_02",
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/wooden_table_02",
+  "size": 2687
+ },
+ {
+  "drive": "_assets3d/models/local_bathroom_sink.glb",
+  "group": "models",
+  "category": "bathroom_sink",
+  "name": "local_bathroom_sink.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 96484
+ },
+ {
+  "drive": "_assets3d/models/local_bathtub.glb",
+  "group": "models",
+  "category": "bathtub",
+  "name": "local_bathtub.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 39020
+ },
+ {
+  "drive": "_assets3d/models/local_fridge.glb",
+  "group": "models",
+  "category": "fridge",
+  "name": "local_fridge.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 56084
+ },
+ {
+  "drive": "_assets3d/models/local_kitchen_sink.glb",
+  "group": "models",
+  "category": "kitchen_sink",
+  "name": "local_kitchen_sink.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 120880
+ },
+ {
+  "drive": "_assets3d/models/local_rope_coil.glb",
+  "group": "models",
+  "category": "rope_coil",
+  "name": "local_rope_coil.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 380016
+ },
+ {
+  "drive": "_assets3d/models/local_toilet.glb",
+  "group": "models",
+  "category": "toilet",
+  "name": "local_toilet.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 177724
+ },
+ {
+  "drive": "_assets3d/people/ea-girl",
+  "group": "people",
+  "category": "",
+  "name": "ea-girl",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 22235988
+ },
+ {
+  "drive": "_assets3d/people/ea-man",
+  "group": "people",
+  "category": "",
+  "name": "ea-man",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 22582756
+ },
+ {
+  "drive": "_assets3d/people/ea-woman",
+  "group": "people",
+  "category": "",
+  "name": "ea-woman",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 25880708
+ },
+ {
+  "drive": "_assets3d/people/eu-boy",
+  "group": "people",
+  "category": "",
+  "name": "eu-boy",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 27134952
+ },
+ {
+  "drive": "_assets3d/people/eu-man-elder",
+  "group": "people",
+  "category": "",
+  "name": "eu-man-elder",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 15703592
+ },
+ {
+  "drive": "_assets3d/people/eu-woman",
+  "group": "people",
+  "category": "",
+  "name": "eu-woman",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 37983584
+ },
+ {
+  "drive": "_assets3d/people/la-man",
+  "group": "people",
+  "category": "",
+  "name": "la-man",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 23433920
+ },
+ {
+  "drive": "_assets3d/people/la-woman",
+  "group": "people",
+  "category": "",
+  "name": "la-woman",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 32734956
+ },
+ {
+  "drive": "_assets3d/people/me-man",
+  "group": "people",
+  "category": "",
+  "name": "me-man",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 14480972
+ },
+ {
+  "drive": "_assets3d/people/me-woman",
+  "group": "people",
+  "category": "",
+  "name": "me-woman",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 17833332
+ },
+ {
+  "drive": "_assets3d/people/sa-man",
+  "group": "people",
+  "category": "",
+  "name": "sa-man",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 26904764
+ },
+ {
+  "drive": "_assets3d/people/sa-woman-elder",
+  "group": "people",
+  "category": "",
+  "name": "sa-woman-elder",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 32099964
+ },
+ {
+  "drive": "_assets3d/people/sea-man",
+  "group": "people",
+  "category": "",
+  "name": "sea-man",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 21441572
+ },
+ {
+  "drive": "_assets3d/people/sea-woman",
+  "group": "people",
+  "category": "",
+  "name": "sea-woman",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 22353516
+ },
+ {
+  "drive": "_assets3d/people/wa-man",
+  "group": "people",
+  "category": "",
+  "name": "wa-man",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 24379348
+ },
+ {
+  "drive": "_assets3d/people/wa-woman",
+  "group": "people",
+  "category": "",
+  "name": "wa-woman",
+  "license": "CC0 (MPFB/MakeHuman assets)",
+  "source": "MakeHuman Community asset packs (CC0) + MPFB 2.0.18",
+  "size": 22167316
+ },
+ {
+  "drive": "_assets3d/animations/quaternius_animations_mixamo_rig.glb",
+  "group": "animations",
+  "category": "animation library",
+  "name": "quaternius_animations_mixamo_rig.glb",
+  "license": "CC0-1.0",
+  "source": "Quaternius Universal Animation Library via github.com/J-Ponzo/gltf-universal-animation-library",
+  "size": 2627684,
+  "clips": 46
+ },
+ {
+  "drive": "_assets3d/animations/quaternius_animations.json",
+  "group": "animations",
+  "category": "animation library",
+  "name": "quaternius_animations.json",
+  "license": "CC0-1.0",
+  "source": "generated by retarget_quaternius.py",
+  "size": 4960
+ },
+ {
+  "drive": "_assets3d/animations/quaternius/gltf-universal-animation-library-main/.gitignore",
+  "group": "animations",
+  "category": "animation library (source)",
+  "name": ".gitignore",
+  "license": "CC0-1.0",
+  "source": "github.com/J-Ponzo/gltf-universal-animation-library",
+  "size": 312
+ },
+ {
+  "drive": "_assets3d/animations/quaternius/gltf-universal-animation-library-main/LICENSE",
+  "group": "animations",
+  "category": "animation library (source)",
+  "name": "LICENSE",
+  "license": "CC0-1.0",
+  "source": "github.com/J-Ponzo/gltf-universal-animation-library",
+  "size": 7048
+ },
+ {
+  "drive": "_assets3d/animations/quaternius/gltf-universal-animation-library-main/Preview.png",
+  "group": "animations",
+  "category": "animation library (source)",
+  "name": "Preview.png",
+  "license": "CC0-1.0",
+  "source": "github.com/J-Ponzo/gltf-universal-animation-library",
+  "size": 2424027
+ },
+ {
+  "drive": "_assets3d/animations/quaternius/gltf-universal-animation-library-main/README.md",
+  "group": "animations",
+  "category": "animation library (source)",
+  "name": "README.md",
+  "license": "CC0-1.0",
+  "source": "github.com/J-Ponzo/gltf-universal-animation-library",
+  "size": 1051
+ },
+ {
+  "drive": "_assets3d/animations/quaternius/gltf-universal-animation-library-main/glTF/AnimationLibrary_Godot_Standard.bin",
+  "group": "animations",
+  "category": "animation library (source)",
+  "name": "AnimationLibrary_Godot_Standard.bin",
+  "license": "CC0-1.0",
+  "source": "github.com/J-Ponzo/gltf-universal-animation-library",
+  "size": 1587224
+ },
+ {
+  "drive": "_assets3d/animations/quaternius/gltf-universal-animation-library-main/glTF/AnimationLibrary_Godot_Standard.gltf",
+  "group": "animations",
+  "category": "animation library (source)",
+  "name": "AnimationLibrary_Godot_Standard.gltf",
+  "license": "CC0-1.0",
+  "source": "github.com/J-Ponzo/gltf-universal-animation-library",
+  "size": 2459987
+ },
+ {
+  "drive": "_assets3d/effects/bubble_00.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_00.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 1639
+ },
+ {
+  "drive": "_assets3d/effects/bubble_01.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_01.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2724
+ },
+ {
+  "drive": "_assets3d/effects/bubble_02.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_02.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 3751
+ },
+ {
+  "drive": "_assets3d/effects/bubble_03.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_03.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2724
+ },
+ {
+  "drive": "_assets3d/effects/bubble_04.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_04.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 1639
+ },
+ {
+  "drive": "_assets3d/effects/bubble_05.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_05.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 3751
+ },
+ {
+  "drive": "_assets3d/effects/bubble_06.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_06.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2724
+ },
+ {
+  "drive": "_assets3d/effects/bubble_07.png",
+  "group": "effects",
+  "category": "bubble",
+  "name": "bubble_07.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 1639
+ },
+ {
+  "drive": "_assets3d/effects/caustics_00.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_00.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 71508
+ },
+ {
+  "drive": "_assets3d/effects/caustics_01.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_01.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 70864
+ },
+ {
+  "drive": "_assets3d/effects/caustics_02.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_02.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 71012
+ },
+ {
+  "drive": "_assets3d/effects/caustics_03.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_03.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 70776
+ },
+ {
+  "drive": "_assets3d/effects/caustics_04.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_04.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 70627
+ },
+ {
+  "drive": "_assets3d/effects/caustics_05.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_05.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 70934
+ },
+ {
+  "drive": "_assets3d/effects/caustics_06.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_06.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 71368
+ },
+ {
+  "drive": "_assets3d/effects/caustics_07.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_07.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 71796
+ },
+ {
+  "drive": "_assets3d/effects/caustics_08.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_08.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 73512
+ },
+ {
+  "drive": "_assets3d/effects/caustics_09.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_09.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 74917
+ },
+ {
+  "drive": "_assets3d/effects/caustics_10.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_10.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 76573
+ },
+ {
+  "drive": "_assets3d/effects/caustics_11.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_11.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 77791
+ },
+ {
+  "drive": "_assets3d/effects/caustics_12.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_12.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 78615
+ },
+ {
+  "drive": "_assets3d/effects/caustics_13.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_13.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 78620
+ },
+ {
+  "drive": "_assets3d/effects/caustics_14.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_14.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 77896
+ },
+ {
+  "drive": "_assets3d/effects/caustics_15.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_15.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 77179
+ },
+ {
+  "drive": "_assets3d/effects/caustics_16.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_16.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 76248
+ },
+ {
+  "drive": "_assets3d/effects/caustics_17.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_17.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 74974
+ },
+ {
+  "drive": "_assets3d/effects/caustics_18.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_18.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 73841
+ },
+ {
+  "drive": "_assets3d/effects/caustics_19.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_19.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 72409
+ },
+ {
+  "drive": "_assets3d/effects/caustics_20.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_20.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 72379
+ },
+ {
+  "drive": "_assets3d/effects/caustics_21.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_21.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 72140
+ },
+ {
+  "drive": "_assets3d/effects/caustics_22.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_22.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 72118
+ },
+ {
+  "drive": "_assets3d/effects/caustics_23.png",
+  "group": "effects",
+  "category": "caustics",
+  "name": "caustics_23.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 71927
+ },
+ {
+  "drive": "_assets3d/effects/dust_00.png",
+  "group": "effects",
+  "category": "dust",
+  "name": "dust_00.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 550
+ },
+ {
+  "drive": "_assets3d/effects/dust_01.png",
+  "group": "effects",
+  "category": "dust",
+  "name": "dust_01.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 974
+ },
+ {
+  "drive": "_assets3d/effects/dust_02.png",
+  "group": "effects",
+  "category": "dust",
+  "name": "dust_02.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 1399
+ },
+ {
+  "drive": "_assets3d/effects/dust_03.png",
+  "group": "effects",
+  "category": "dust",
+  "name": "dust_03.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 628
+ },
+ {
+  "drive": "_assets3d/effects/dust_04.png",
+  "group": "effects",
+  "category": "dust",
+  "name": "dust_04.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 977
+ },
+ {
+  "drive": "_assets3d/effects/dust_05.png",
+  "group": "effects",
+  "category": "dust",
+  "name": "dust_05.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 1510
+ },
+ {
+  "drive": "_assets3d/effects/fire_00.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_00.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 9602
+ },
+ {
+  "drive": "_assets3d/effects/fire_01.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_01.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 11691
+ },
+ {
+  "drive": "_assets3d/effects/fire_02.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_02.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 10943
+ },
+ {
+  "drive": "_assets3d/effects/fire_03.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_03.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 10903
+ },
+ {
+  "drive": "_assets3d/effects/fire_04.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_04.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 11107
+ },
+ {
+  "drive": "_assets3d/effects/fire_05.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_05.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 11161
+ },
+ {
+  "drive": "_assets3d/effects/fire_06.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_06.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 12203
+ },
+ {
+  "drive": "_assets3d/effects/fire_07.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_07.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 12119
+ },
+ {
+  "drive": "_assets3d/effects/fire_08.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_08.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 10935
+ },
+ {
+  "drive": "_assets3d/effects/fire_09.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_09.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 9714
+ },
+ {
+  "drive": "_assets3d/effects/fire_10.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_10.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 8860
+ },
+ {
+  "drive": "_assets3d/effects/fire_11.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_11.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 11778
+ },
+ {
+  "drive": "_assets3d/effects/fire_12.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_12.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 12607
+ },
+ {
+  "drive": "_assets3d/effects/fire_13.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_13.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 11190
+ },
+ {
+  "drive": "_assets3d/effects/fire_14.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_14.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 9516
+ },
+ {
+  "drive": "_assets3d/effects/fire_15.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_15.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 9318
+ },
+ {
+  "drive": "_assets3d/effects/fire_atlas_4x4.png",
+  "group": "effects",
+  "category": "fire",
+  "name": "fire_atlas_4x4.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 171999
+ },
+ {
+  "drive": "_assets3d/effects/lens_dirt.png",
+  "group": "effects",
+  "category": "lens",
+  "name": "lens_dirt.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 502472
+ },
+ {
+  "drive": "_assets3d/effects/rain_00.png",
+  "group": "effects",
+  "category": "rain",
+  "name": "rain_00.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2266
+ },
+ {
+  "drive": "_assets3d/effects/rain_01.png",
+  "group": "effects",
+  "category": "rain",
+  "name": "rain_01.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 1939
+ },
+ {
+  "drive": "_assets3d/effects/rain_02.png",
+  "group": "effects",
+  "category": "rain",
+  "name": "rain_02.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2446
+ },
+ {
+  "drive": "_assets3d/effects/rain_03.png",
+  "group": "effects",
+  "category": "rain",
+  "name": "rain_03.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2048
+ },
+ {
+  "drive": "_assets3d/effects/smoke_00.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_00.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 22736
+ },
+ {
+  "drive": "_assets3d/effects/smoke_01.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_01.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 23484
+ },
+ {
+  "drive": "_assets3d/effects/smoke_02.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_02.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 25250
+ },
+ {
+  "drive": "_assets3d/effects/smoke_03.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_03.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 21352
+ },
+ {
+  "drive": "_assets3d/effects/smoke_04.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_04.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 24083
+ },
+ {
+  "drive": "_assets3d/effects/smoke_05.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_05.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 23020
+ },
+ {
+  "drive": "_assets3d/effects/smoke_06.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_06.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 22074
+ },
+ {
+  "drive": "_assets3d/effects/smoke_07.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_07.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 22508
+ },
+ {
+  "drive": "_assets3d/effects/smoke_08.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_08.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 22899
+ },
+ {
+  "drive": "_assets3d/effects/smoke_09.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_09.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 21237
+ },
+ {
+  "drive": "_assets3d/effects/smoke_10.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_10.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 20500
+ },
+ {
+  "drive": "_assets3d/effects/smoke_11.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_11.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 18780
+ },
+ {
+  "drive": "_assets3d/effects/smoke_12.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_12.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 19141
+ },
+ {
+  "drive": "_assets3d/effects/smoke_13.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_13.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 17025
+ },
+ {
+  "drive": "_assets3d/effects/smoke_14.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_14.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 19331
+ },
+ {
+  "drive": "_assets3d/effects/smoke_15.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_15.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 19750
+ },
+ {
+  "drive": "_assets3d/effects/smoke_atlas_4x4.png",
+  "group": "effects",
+  "category": "smoke",
+  "name": "smoke_atlas_4x4.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 352394
+ },
+ {
+  "drive": "_assets3d/effects/snow_00.png",
+  "group": "effects",
+  "category": "snow",
+  "name": "snow_00.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2187
+ },
+ {
+  "drive": "_assets3d/effects/snow_01.png",
+  "group": "effects",
+  "category": "snow",
+  "name": "snow_01.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2187
+ },
+ {
+  "drive": "_assets3d/effects/snow_02.png",
+  "group": "effects",
+  "category": "snow",
+  "name": "snow_02.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2187
+ },
+ {
+  "drive": "_assets3d/effects/snow_03.png",
+  "group": "effects",
+  "category": "snow",
+  "name": "snow_03.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2187
+ },
+ {
+  "drive": "_assets3d/effects/snow_04.png",
+  "group": "effects",
+  "category": "snow",
+  "name": "snow_04.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2187
+ },
+ {
+  "drive": "_assets3d/effects/snow_05.png",
+  "group": "effects",
+  "category": "snow",
+  "name": "snow_05.png",
+  "license": "CC0 (generated locally for The If Machine)",
+  "source": "generated locally (gen_effects.py)",
+  "size": 2187
+ }
+]
