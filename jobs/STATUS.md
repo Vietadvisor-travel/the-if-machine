@@ -8,5 +8,5 @@
 | dinosaurs-survive | Nếu khủng long còn sống | RESEARCH_READY | DELIVERED (muse, trial, 7 Nov; trial ended by owner 9 Nov, production back to Claude) | 7 Nov · Drive · vertical 5:56 | - | - |
 | gravity-half | Trọng lực chỉ còn một nửa | RESEARCH_READY | DELIVERED (claude, v2 cartoon remake) | 10 Nov · Drive · vertical 6:57 (v2) | APPROVED by owner 10 Nov 21:20 (đăng tập) | 10 Nov · YouTube PUBLIC https://www.youtube.com/watch?v=JuYtDBJ6E78; TikTok PUBLIC https://www.tiktok.com/@theifmachinetv/video/7706552151887056136; Facebook PUBLIC https://facebook.com/reel/1149868774263726/; Instagram PUBLIC (media 18115598939118952); YouTube fully done 23:04 (thumbnail + subtitles + comment pinned) |
 | see-in-the-dark | Nhìn xuyên bóng tối | RESEARCH_READY | DELIVERED (claude) | 11 Nov · Drive · vertical 6:08 | - | - |
-| breathe-underwater | Thở được dưới nước | RESEARCH_READY | - | - | - | - |
+| breathe-underwater | Thở được dưới nước | RESEARCH_READY | IN_PRODUCTION (claude, 12 Nov) | - | - | - |
 | no-night | Không còn ban đêm | RESEARCH_READY | - | - | - | - |
