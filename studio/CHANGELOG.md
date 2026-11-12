@@ -519,3 +519,5 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
   untouched beat reused (its last second re-rendered).
 - `tools/sound_design.py`: story sfx cues ("t:name:gain", "name@k") were also listed as "unknown" renderer cues (false alarm; the
   beat-option path placed them). `tools/ship.sh` drops the shot cache after delivery.
+- Lesson (same day): after editing a shot's code, look at ONE still of that shot (`node tools/still.mjs …`) before `--redo`; a
+  `//` comment pasted mid-line silently cut the rest of a one-line draw function (shot 14 rendered as the fallback sunburst).

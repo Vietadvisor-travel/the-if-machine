@@ -50,7 +50,8 @@ grep -aE "deliver →|FAIL|Error" out/<slug>.log
 ```
 Watchdog with send_later; wait on the PID. QA: `python3 tools/qa.py stories/<slug>.story --every 1 --scale .2 --lean` (one sheet).
 **A fix after QA re-renders only what changed:** frames are cached per shot (out/<slug>_9x16_shots/). Edit a beat's line in the story →
-only that beat renders again. Edited a shot's CODE (bank file)? Add `--redo 4,7` (beat numbers); `--fresh` redoes everything.
+only that beat renders again. Edited a shot's CODE (bank file)? Check one still of it first (`node tools/still.mjs stories/<slug>.story v <t>`), then add
+`--redo 4,7` (beat numbers); `--fresh` redoes everything.
 Length alone is never a reason to re-render.
 
 ## 5. Deliver
