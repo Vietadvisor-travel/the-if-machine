@@ -35,18 +35,23 @@ python3 tools/assets3d.py story stories/<slug>.story   # builds only the HDRIs/p
 - Story-specific objects that no asset covers: a bespoke act `x3_<name>` in `engine/library/bank/<slug>.js` (see bank/okene.js),
   built from IFM.L3 helpers (L.tug, L.rock, L.seabed, L.particles, L.rays, L.figure …). Add it to the library for reuse.
 
-## 3. Gate (one command)
+## 3. Gate (one command) — measure first, render once (owner, 12 Nov 2026: "fast and right, no render after render")
 ```
-node tools/clip_gate.mjs stories/<slug>.story     # script rules (clip_check) + 3D render cost + contact sheet
+node tools/clip_gate.mjs stories/<slug>.story     # script rules + REAL voice/mix (length, unknown sounds) + 3D cost + contact sheet
 ```
-Fix what it lists; look at the ONE sheet it names. Render cost budget for L3: ERROR > 9 s/frame (normal 2–5 s).
+It voices the story and builds the mix BEFORE any frame (≈ 2 min): the real length is printed (≈ 60 s is a target, never a reason to
+re-render), and an unknown sound is an ERROR here instead of a silent hole in the film. Fix what it lists; look at the ONE sheet.
+Render cost budget for L3: ERROR > 9 s/frame (normal 2–5 s). Never run two make/gate commands on the same slug at once (they share out/<slug>_*).
 
-## 4. Render (background, ≈ 25–35 min for 60 s)
+## 4. Render (background, ≈ 40–60 min for 60 s) — once
 ```
-node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed 1.0 --fps 25 > out/<slug>.log 2>&1
-grep -E "deliver →|FAIL|Error" out/<slug>.log
+node tools/make.mjs stories/<slug>.story --fmt 9x16 --skip-lint --skip-review --speed 1.0 --fps 25 --reuse-mix > out/<slug>.log 2>&1
+grep -aE "deliver →|FAIL|Error" out/<slug>.log
 ```
 Watchdog with send_later; wait on the PID. QA: `python3 tools/qa.py stories/<slug>.story --every 1 --scale .2 --lean` (one sheet).
+**A fix after QA re-renders only what changed:** frames are cached per shot (out/<slug>_9x16_shots/). Edit a beat's line in the story →
+only that beat renders again. Edited a shot's CODE (bank file)? Add `--redo 4,7` (beat numbers); `--fresh` redoes everything.
+Length alone is never a reason to re-render.
 
 ## 5. Deliver
 `bash tools/ship.sh <slug> <cover_second>` · `jobs/deliveries/<slug>.md` (files, sources, honest notes, caption with

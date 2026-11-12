@@ -14,3 +14,4 @@ cp out/${S}.srt $O/${S}.srt 2>/dev/null || python3 tools/srt.py out/${S}_cues.js
 python3 tools/pp_drive.py put $O/* --to $S | tail -8
 echo; echo "## files (paste into jobs/deliveries/$S.md)"; for f in $O/*; do d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f" 2>/dev/null | cut -d. -f1); r=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "$f" 2>/dev/null | head -1); echo "- $(basename $f) · $(du -h "$f" | cut -f1)${d:+ · ${d} s}${r:+ · $r}"; done
 echo "- Drive: TheIfMachine_Media/$S/  (ids: python3 tools/pp_drive.py ls | grep $S)"; echo; echo "## music credits"; python3 tools/music_lib.py credits stories/${S}.story
+rm -rf out/${S}_*_shots   # delivered: drop the per-shot frame cache (render.mjs)

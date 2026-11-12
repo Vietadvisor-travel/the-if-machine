@@ -1,6 +1,7 @@
 // One command from storyboard to finished, voiced, scored videos:
 //   node tools/make.mjs stories/my.story [--fmt 9x16 (default) | --both] [--voice am_michael|none] [--speed 1.1]   → out/<slug>_9x16_FINAL.mp4 (< 30 MB, send this)
-//                                        [--speed 1.0] [--draft] [--skip-lint] [--no-audio] [--reuse-mix]
+//                                        [--speed 1.0] [--draft] [--skip-lint] [--no-audio] [--reuse-mix] [--audio-only] [--redo 4,7] [--fresh]
+//   --audio-only: voice + cues + mix + sound QA, prints the REAL length, renders no frames (clip_gate runs it; then make with --reuse-mix)
 // 1) voice-over lines → Kokoro TTS (free, offline) → real durations   2) lint with real timing (aborts on errors)
 // 3) cue sheet → SFX + VO track + music scored to the scenes → mix (music ducked under the voice)
 // 4) render each format, mux audio: two-pass gain-only loudness (9x16 −13 LUFS, 16x9 −14 LUFS, TP ≤ −1.5 dBTP)   5) SRT
@@ -34,13 +35,14 @@ if (!has('no-audio')) {
   if (has('reuse-mix') && fs.existsSync(`${base}_mix.wav`)) console.log('reusing', `${base}_mix.wav`);
   else py(['tools/sound_design.py', base, '--story', ep, '--lufs', lufs, '--fmt', fmts.includes('9x16') ? 'vertical' : 'youtube', ...(fs.existsSync(design) ? ['--design', design] : [])]); mixWav = `${base}_mix.wav`;
 }
+if (has('audio-only')) { const C = JSON.parse(fs.readFileSync(`${base}_cues.json`, 'utf8')); console.log(`\nAUDIO-ONLY → real length ${(+C.duration).toFixed(1)} s · mix ${mixWav || 'none'} (render next with --reuse-mix)`); process.exit(0); }
 // two-pass, gain-only loudness normalisation (loudnorm linear mode; the mix is already limited at −2 dBTP)
 const loudAf = (wav, target) => { const r = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-i', wav, '-af', `loudnorm=I=${target}:TP=-1.5:LRA=20:print_format=json`, '-f', 'null', '-'], { encoding: 'utf8' });
   const m = JSON.parse(r.stderr.slice(r.stderr.lastIndexOf('{'), r.stderr.lastIndexOf('}') + 1));
   return `loudnorm=I=${target}:TP=-1.5:LRA=20:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true`; };
 // 4) video per format (+ mux)
 for (const f of fmts) { const silent = `${base}_${f}_v.mp4`, out = `${base}_${f}.mp4`;
-  node(['tools/render.mjs', ep, '--fmt', f, '--out', silent, ...vo, ...(has('draft') ? ['--scale', '.5'] : []), ...(opt('fps') ? ['--fps', opt('fps')] : []), ...(opt('jobs') ? ['--jobs', opt('jobs')] : [])]);
+  node(['tools/render.mjs', ep, '--fmt', f, '--out', silent, ...vo, ...(has('draft') ? ['--scale', '.5'] : []), ...(opt('fps') ? ['--fps', opt('fps')] : []), ...(opt('jobs') ? ['--jobs', opt('jobs')] : []), ...(opt('redo') ? ['--redo', opt('redo')] : []), ...(has('fresh') ? ['--fresh'] : [])]);
   if (mixWav) { execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', silent, '-i', mixWav, '-c:v', 'copy', '-af', loudAf(mixWav, MIN_SOUND ? -16 : f === '16x9' ? -14 : -13), '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', out]); fs.unlinkSync(silent); }
   // delivery: ONE universal file under 30 MB (H.264, two-pass) — the file you send
   if (!has('draft') && !has('no-deliver')) py(['tools/deliver.py', out]);

@@ -508,3 +508,14 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 - `tools/assets3d.py`: PBR map detection fixed (underscores defeated `\b`, so every Poly Haven set was skipped as "no colour map").
 - `tools/cost.mjs`: the brand end card is skipped by the empty-frame check (it was already skipped by the motion/detail checks).
 - Tested on stories/cook-under-the-sea.story: clip_gate PASS, render cost median 2.1 s/frame, max 4.3 s.
+
+## 12 Nov 2026 — measure first, render once (owner: "render after render takes too long: make it fast AND right")
+- Cause of two wasted renders on cook-under-the-sea: the real length and the sound check were only known AFTER frames had started.
+- `tools/make.mjs --audio-only`: voice + cues + mix + sound QA, prints the real length, no frames (~2 min). `clip_gate.mjs` runs it
+  first: real length (info only; ≈ 60 s is a target, owner: never re-render for length) and unknown sounds = ERROR.
+- `tools/render.mjs` shot cache: frames keyed per beat (header + beat block + duration + format; ±1 s around a cut also keys on the
+  neighbour) in out/<slug>_<fmt>_shots/, kept across renders until ship.sh. A fix after QA re-renders only the changed beat;
+  `--redo 4,7` for a shot whose bank CODE changed, `--fresh` for all. Tested: 2nd run reused 32/32; one beat changed → 19/24 of the
+  untouched beat reused (its last second re-rendered).
+- `tools/sound_design.py`: story sfx cues ("t:name:gain", "name@k") were also listed as "unknown" renderer cues (false alarm; the
+  beat-option path placed them). `tools/ship.sh` drops the shot cache after delivery.

@@ -682,7 +682,7 @@ def collect(C, beats, D):
         evs += [Ev(e['t'], e['ev'], e['scene'], e.get('a'), 'renderer') for e in C['events']]
         for c in C['cues']:
             if c.get('auto'): continue
-            si = next((k for k, s in enumerate(scenes) if s['id'] == c.get('scene')), 0)
+            if re.search(r'[:@]', c['sfx']): continue   # a story sfx= cue ("t:name:gain" / "name@k"): placed by the beat options below, not a sound name (was a false "unknown")
             evs.append(Ev(c['t'], 'cue.' + c['sfx'], si, {'gain': c.get('gain', 1)}, 'cue'))
     else: evs += legacy_events(C)
     for i, sc in enumerate(scenes):
