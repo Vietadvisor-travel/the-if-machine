@@ -35,7 +35,7 @@ words ✔ · 10 respectful: the 11 dead in one plain line, no bodies shown, no j
 | 0:12 | The toilet was now on the ceiling. | the washroom upside down: toilet and sinks hang from above, water at chest height, a dim green glow · MS low, push | — | drip | 1,4 |
 | 0:14 | Harrison Okene, the ship's cook, felt his way through black water in his underwear. | flooded dark corridor, upside down; he swims along the wall, hand over hand · MCU track left | — | — | 1,3 |
 | 0:19 | In an engineer's cabin, his head broke into a pocket of trapped air. | camera at the water line: his head breaks up through the surface into air · CU low | — | gasp | 1,2 |
-| 0:23 | A bubble just over a metre high, under the upside-down floor. | the cabin upside down (desk and bunk on the ceiling), a thin layer of air, he treads water in it · WS | measure 1.2 M | — | 1,2 |
+| 0:23 | A bubble of air, just over a metre high. | the cabin upside down (desk and bunk on the ceiling), a thin layer of air, he treads water in it · WS | measure 1.2 M | — | 1,2 |
 | 0:27 | Eleven of the twelve crew never made it out. | outside: the wreck alone on the seabed, quiet, fish, slow push · EWS | — | — | 1,3 |
 | 0:30 | In total darkness, he had one can of Coke. | a plain red can (no logo) bobbing on black water, his hand closes on it · ECU | — | — | 1,3 |
 | 0:33 | He kept thinking the water would fill the room… it never did. | across the water surface: the water line ripples a hand's width from the ceiling, his face beyond · MS over the water | — | — | 2 (his words) |
@@ -44,7 +44,7 @@ words ✔ · 10 respectful: the 11 dead in one plain line, no bodies shown, no j
 | 0:45 | The first diver swam right past him. | inside the dark cabin: a lamp beam sweeps across the wall and moves on, he is in the dark beyond · MS orbit | — | — | 2,4 |
 | 0:47 | Okene reached into the light and grabbed the second diver's hand. | the next beam; his hand shoots into it and grips the glove · CU | — | — | 2,4 |
 | 0:51 | "He's alive! He's alive!" | the diver jerks back; the man's face in the lamp light · MCU | — | — | 4,6 |
-| 0:53 | He went up in a diving bell, then spent three days in a decompression chamber. | a yellow diving bell rising through blue water toward the light · WS low | — | — | 1,3 |
+| 0:53 | He rose in a diving bell, then spent three days in a decompression chamber. | a yellow diving bell rising through blue water toward the light · WS low | — | — | 1,3 |
 | 0:58 | It all began with a trip to the toilet, at five in the morning. | back in the washroom, upright and calm, morning light; the booth door swings shut · MS push | — | door | 1 |
 
 Notes: every person is a generic figure (no likeness); the post caption says "animated reenactment". The 11 who died are named only as a
