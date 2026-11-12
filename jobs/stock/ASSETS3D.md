@@ -118,7 +118,7 @@ Notes:
 - No basalt/limestone textures exist in Poly Haven; the 4 rock kinds are granite, slate,
   rock face, boulder. No brushed steel in Poly Haven (taken from ambientCG).
 
-## 3. Props & environments — 35 Poly Haven models (glTF + 2k) + 6 local models + 2 ships
+## 3. Props & environments — 35 Poly Haven models (glTF + 2k) + 9 local models + 2 ships
 
 | Item | Slug / file | Source |
 |---|---|---|
@@ -136,6 +136,7 @@ Notes:
 | desk-lamp | desk_lamp_arm_01 | Poly Haven |
 | door | large_castle_door | Poly Haven |
 | flashlight | small_plastic_torch | Poly Haven |
+| fishing-rod | `local_fishing_rod.glb` | modelled locally in Blender, CC0 |
 | food | food_apple_01 | Poly Haven |
 | fridge | `local_fridge.glb` | modelled locally in Blender, CC0 |
 | hammer | wooden_hammer_01 | Poly Haven |
@@ -144,6 +145,7 @@ Notes:
 | phone-radio | boombox | Poly Haven |
 | plant | potted_plant_02 | Poly Haven |
 | pots | brass_pot_02 | Poly Haven |
+| ranger-hat | `local_ranger_hat.glb` | modelled locally in Blender, CC0 |
 | rock-1 | rock_moss_set_02 | Poly Haven |
 | rock-2 | rock_moss_set_01 | Poly Haven |
 | rock-3 | boulder_01 | Poly Haven |
@@ -153,6 +155,7 @@ Notes:
 | shelves | steel_frame_shelves_01 | Poly Haven |
 | ship-dutch | dutch_ship_medium | Poly Haven |
 | ship-pinnace | ship_pinnace | Poly Haven |
+| skiff | `local_skiff.glb` | modelled locally in Blender, CC0 |
 | sofa | sofa_02 | Poly Haven |
 | stove | electric_stove | Poly Haven |
 | street-lamp | street_lamp_01 | Poly Haven |
@@ -167,8 +170,8 @@ Notes:
 Poly Haven models: glTF + 2k textures, 229 files. Local models: simple clean procedural
 Blender builds (white ceramic / stainless), in `models/local_*.glb`.
 Notes:
-- Poly Haven has NO fridge, kitchen sink, bathroom sink, toilet, bathtub or rope coil,
-  so those 6 were modelled locally (see table).
+- Poly Haven has NO fridge, kitchen sink, bathroom sink, toilet, bathtub, rope coil,
+  ranger hat, fishing rod or small fishing skiff, so those 9 were modelled locally (see table).
 - Ships: Poly Haven has sailing ships only, no tugboat/work boat. `dutch_ship_medium` and
   `ship_pinnace` are included; a tugboat was not found under a CC0 licence.
 - `books` is `book_encyclopedia_set_01` (`decorative_book_set_01` has no glTF).
@@ -312,8 +315,12 @@ Made with numpy/PIL/scipy (`gen_effects.py`), no external source, CC0.
 - 2026-11-12 · **men look androgynous** (wa-man: chest/hips read female in a tight t-shirt). Re-export the male people with MPFB gender macro = 1.0 and a looser shirt; keep the same file names and rig.
 - 2026-11-12 · **tugboat / small work boat** (story Okene): none CC0 found → model a simple one in Blender (hull ~30 m, wheelhouse, deck, tyres as fenders), real scale, origin at keel centre; plus an **interior cabin/office** set (walls, door, desk, a toilet room) if possible.
 - 2026-11-12 · **diver**: one person in a dark wetsuit with a commercial diving helmet + chest lamp (can be a wetsuit material on an existing person + a helmet prop).
+- 2026-11-12 · **medieval street set, 1518 Strasbourg** (story dancing-plague-1518): half-timbered facades, cobbled street, horse-market stage; assemble from existing wood/stone materials if no CC0 set is found.
+- 2026-11-12 · **black bear** (story lightning-seven-times): one shot at the edge of frame; no animal models in the library, stage as a shadow if none is found.
+- 2026-11-12 · **fishing clip** (story 438-days-adrift): no fishing motion in the Mixamo or Quaternius libraries; use Reaching_Out + Picking_Up until one is found.
 
 ## Done
 
 ## Changelog
+- 2026-11-12 week 2026-11-16 picks: 3 local models (ranger hat, fishing rod, skiff), 662 files; Wanted += medieval street set, black bear, fishing clip.
 - 2026-11-12 first library: 24 HDRIs, 45 materials, 41 models, 16 people, 46 Quaternius + 43 Mixamo clips, effects.

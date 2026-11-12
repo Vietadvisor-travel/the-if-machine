@@ -10,3 +10,7 @@
 | see-in-the-dark | Nhìn xuyên bóng tối | RESEARCH_READY | DELIVERED (claude) | 11 Nov · Drive · vertical 6:08 | - | - |
 | breathe-underwater | Thở được dưới nước | RESEARCH_READY | DELIVERED (claude) | 12 Nov · Drive · vertical 6:27 | - | - |
 | no-night | Không còn ban đêm | RESEARCH_READY | - | - | - | - |
+| cook-under-the-sea | Người đàn ông sống 3 ngày dưới đáy biển | RESEARCH_READY | - | - | - | - |
+| 438-days-adrift | 438 ngày trôi dạt trên Thái Bình Dương | RESEARCH_READY | - | - | - | - |
+| dancing-plague-1518 | Cơn dịch nhảy múa năm 1518 | RESEARCH_READY | - | - | - | - |
+| lightning-seven-times | Người bị sét đánh 7 lần | RESEARCH_READY | - | - | - | - |

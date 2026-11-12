@@ -12,3 +12,7 @@
 | 2026-11-11 | Wed | see-in-the-dark | Nhìn xuyên bóng tối | RESEARCH_READY | - |
 | 2026-11-13 | Fri | breathe-underwater | Thở được dưới nước | RESEARCH_READY | - |
 | 2026-11-15 | Sun | no-night | Không còn ban đêm | RESEARCH_READY | - |
+| 2026-11-16 | Mon | cook-under-the-sea | Người đàn ông sống 3 ngày dưới đáy biển | RESEARCH_READY | - |
+| 2026-11-17 | Tue | 438-days-adrift | 438 ngày trôi dạt trên Thái Bình Dương | RESEARCH_READY | - |
+| 2026-11-18 | Wed | dancing-plague-1518 | Cơn dịch nhảy múa năm 1518 | RESEARCH_READY | - |
+| 2026-11-19 | Thu | lightning-seven-times | Người bị sét đánh 7 lần | RESEARCH_READY | - |

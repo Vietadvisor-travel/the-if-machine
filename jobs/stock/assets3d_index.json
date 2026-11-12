@@ -6155,5 +6155,32 @@
   "license": "CC0 (generated locally for The If Machine)",
   "source": "generated locally (gen_effects.py)",
   "size": 2187
+ },
+ {
+  "drive": "_assets3d/models/local_ranger_hat.glb",
+  "group": "models",
+  "category": "ranger_hat",
+  "name": "local_ranger_hat.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 96700
+ },
+ {
+  "drive": "_assets3d/models/local_fishing_rod.glb",
+  "group": "models",
+  "category": "fishing_rod",
+  "name": "local_fishing_rod.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 254812
+ },
+ {
+  "drive": "_assets3d/models/local_skiff.glb",
+  "group": "models",
+  "category": "skiff",
+  "name": "local_skiff.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model",
+  "size": 105828
  }
 ]
