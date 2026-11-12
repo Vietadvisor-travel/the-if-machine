@@ -57,14 +57,14 @@ REAL: Stéphane Mifsud, Vitomir Maričić, Alexey Molchanov, Bajau, Netherlands,
 - BUILD: NEW x_bu_lab
 
 ### S03 · HOOK
-- VO: So in this video, we will see how far people already go on one breath, what your body secretly does underwater, and why gills alone would not save you.
+- VO: The answer matters more than it sounds, because the same science decides who comes home safely from a dive. So in this video, we will see how far people already go on one breath, what your body secretly does underwater, and why gills alone would not save you.
 - LINK: the jar's glass becomes the first of three round portholes
 - PICTURE: SUBJECT three round portholes on a ship's hull under water: a stopwatch, a beating heart, a pair of gills / BACKGROUND a hull of riveted plates under blue water / FOREGROUND drifting particles / LIFE each porthole lights as it is named, bubbles rise
 - ACTION: none (three portholes)
 - SHOT: WS eye trackR 2.5D | MS eye push 2D
 - CAMERA: track along the hull from porthole to porthole, a small push into each
 - LOOK: deep blue hull, three warm lit windows, inviting
-- TIMELINE: 0 the hull, three dark portholes · 3 porthole 1 lights: a stopwatch ticks · 7 porthole 2 lights: a heart beats · 10 porthole 3 lights: gills flutter · 12 hold on all three
+- TIMELINE: 0 the hull, three dark portholes, bubbles rise · 3.5 the camera drifts along the hull · 7 porthole 1 lights: a stopwatch ticks · 10.5 porthole 2 lights: a heart beats · 14 porthole 3 lights: gills flutter · 17.5 pull back, hold on all three
 - TEXT: THREE *QUESTIONS*
 - FX: trans=wipe
 - SOUND: music bed only
@@ -127,7 +127,7 @@ REAL: Stéphane Mifsud, Vitomir Maričić, Alexey Molchanov, Bajau, Netherlands,
 - BUILD: x_bu_clock v=oxy
 
 ### S08 · SECTION 1
-- VO: The best freedivers even squeeze extra air into their lungs before a dive, gulping it in mouthful by mouthful, a trick called lung packing.
+- VO: Top freedivers even squeeze extra air into their lungs before a dive, gulping it in mouthful by mouthful, a trick called lung packing.
 - LINK: zoom through the diver's chest into the lungs
 - PICTURE: SUBJECT a pair of cartoon lungs like two balloons being packed by little gulps, a FULL line passed, the lungs straining like an overpacked suitcase / BACKGROUND soft blue inside the chest / FOREGROUND none / LIFE gulps go in, the lungs swell, a seam strains
 - ACTION: none (lungs)
@@ -195,6 +195,20 @@ REAL: Stéphane Mifsud, Vitomir Maričić, Alexey Molchanov, Bajau, Netherlands,
 - FX: trans=zoomthru tc=.5,.5 tc2=.5,.45
 - SOUND: music bed only
 - BUILD: NEW x_bu_reflex (new gag: the sleepy heart)
+
+### S12b · SECTION 2
+- VO: You share this reflex with seals and whales, which have a far stronger version of it, so every time you splash cold water on your face, your body quietly remembers the sea.
+- LINK: slide from the calm diver to a row of swimmers: the diver, a seal, a whale
+- PICTURE: SUBJECT a person, a seal and a whale gliding in a row, each with a small sleepy heart above it / BACKGROUND a deep blue reef / FOREGROUND drifting particles / LIFE they glide, hearts beat slowly, bubbles rise
+- ACTION: a woman (braids) glides horizontally beside a seal and a whale, arms by her sides
+- SHOT: WS low trackR 2.5D
+- CAMERA: track right from the diver to the whale
+- LOOK: deep blue, warm hearts, kinship
+- TIMELINE: 0 the diver glides, a slow heart · 3 a seal joins, its heart · 6 a whale, its heart in a sleeping cap · 9 a tag THEIRS IS STRONGER
+- TEXT: THE SAME *REFLEX*
+- FX: trans=slide
+- SOUND: music bed only
+- BUILD: NEW x_bu_kin
 
 ### S13 · SECTION 2
 - VO: At the same time, the blood vessels in your arms and legs tighten, so the blood is sent where it matters most, to the brain and the heart.
@@ -307,6 +321,20 @@ REAL: Stéphane Mifsud, Vitomir Maričić, Alexey Molchanov, Bajau, Netherlands,
 - FX: trans=morph tc=.5,.5 tc2=.5,.45 tr1=.15 tr2=.2
 - SOUND: music bed only
 - BUILD: NEW x_bu_pump (new gag: gills flapping like a sweaty fan)
+
+### S20b · SECTION 3
+- VO: Fish make it work with a clever layout, because the blood in their gills flows the opposite way to the water, so it keeps picking up oxygen all the way along.
+- LINK: zoom through the man's gills into a fish's gill, opened up
+- PICTURE: SUBJECT a fish with its gill opened into a diagram: a blue water band flowing right, a red blood band flowing left beneath it, teal dots passing from water to blood all the way along / BACKGROUND a teal gradient / FOREGROUND none / LIFE the bands flow, dots cross
+- ACTION: none (a fish, a diagram)
+- SHOT: CU eye pull 2D
+- CAMERA: start close on the fish's gill, pull back to the whole diagram
+- LOOK: teal and coral, clean diagram
+- TIMELINE: 0 close on the fish's gill · 2 it opens into two bands · 4 water flows right, blood flows left · 7 dots cross along the whole length · 10 a tag OXYGEN ALL THE WAY ALONG
+- TEXT: TWO WAYS *AT ONCE*
+- FX: trans=zoomthru tc=.5,.45 tc2=.33,.3
+- SOUND: music bed only
+- BUILD: NEW x_bu_flow
 
 ### S21 · SECTION 3
 - VO: And remember that mouse in the Netherlands, because it breathed salt water loaded with oxygen under high pressure, so oxygen was never the problem.
@@ -421,7 +449,7 @@ REAL: Stéphane Mifsud, Vitomir Maričić, Alexey Molchanov, Bajau, Netherlands,
 - BUILD: NEW x_bu_ascent
 
 ### S29 · SECTION 4
-- VO: That is why freediving safety comes down to one simple rule, which is never hold your breath in water alone.
+- VO: That is why freediving safety comes down to one simple rule, which is never hold your breath in water alone, with a buddy watching from the surface, close enough to reach you.
 - LINK: an iris opens from the dim to a buddy reaching down
 - PICTURE: SUBJECT a buddy at the surface catching the rising diver by the arm and lifting his face out of the water, a big rule sign NEVER ALONE / BACKGROUND the bright surface, a boat / FOREGROUND sparkles on the water / LIFE the buddy reaches, the diver's face breaks the surface, he breathes
 - ACTION: a woman (hijab) at the surface grabs the diver (beard) under the arm and lifts his face out of the water; he coughs and breathes

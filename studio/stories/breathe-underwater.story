@@ -26,6 +26,8 @@ and the thing that finally stopped it was *not* a lack of oxygen.
 
 // S03 SUBJECT: three portholes in a hull under water light up: a stopwatch, a heart, a pair of gills
 # vis kind=w act=x_bu_ports kk="IN THIS VIDEO" tt="THREE *QUESTIONS*" cam=WS.eye.trackR trans=wipe pause=1.2 then="cam=MS.eye.push@1|cam=MS.eye.push@2"
+The answer matters more than it sounds,
+because the same science decides who comes home *safely* from a dive.
 So in this video, we will see how far people already go on *one* breath,
 what your body *secretly* does underwater,
 and why gills *alone* would not save you.
@@ -42,13 +44,13 @@ for about *thirty* to ninety seconds,
 and with real determination, maybe *three* minutes before your body overrules you.
 
 // S06 SUBJECT: a diver floats face down in a night pool; a gold bar runs past 3:00 to 11:35
-# vis kind=w act=x_bu_clock v=air same=ok kk="THE RECORD ON AIR" tt="11:35 ON|*PLAIN AIR*" cam=WS.high.crane trans=slide then="cam=CU.eye.push@1"
+# vis kind=w act=x_bu_clock v=air same=ok kk="THE RECORD ON AIR" tt="11:35 ON|*PLAIN AIR*" cam=WS.high.crane trans=slide then="cam=CU.eye.push@1" time=night
 Now look at the record on plain air,
 because in 2009 the French freediver Stéphane Mifsud
 stayed under for *eleven* minutes and thirty-five seconds.
 
 // S07 SUBJECT: a second track: an oxygen tank, a teal bar to 29:03, a dashed line keeps the two records apart
-# vis kind=w act=x_bu_clock v=oxy same=ok kk="WITH A TRICK" tt="29:03 · *OXYGEN FIRST*" cam=MS.eye.static trans=match tc=.5,.5 tc2=.5,.5 then="cam=WS.eye.pull@2"
+# vis kind=w act=x_bu_clock v=oxy same=ok kk="WITH A TRICK" tt="29:03 · *OXYGEN FIRST*" cam=MS.eye.static trans=match tc=.5,.5 tc2=.5,.5 then="cam=WS.eye.pull@2" time=night
 And there is an even bigger number, *twenty-nine* minutes and three seconds,
 set in 2025 by Vitomir Maričić,
 but that one comes with a trick, because he breathed pure *oxygen* first,
@@ -56,7 +58,7 @@ which is why it is kept as a *separate* kind of record.
 
 // S08 SUBJECT: two lungs at FULL take gulp after gulp, straps strain like an overpacked suitcase
 # vis kind=w act=x_bu_pack kk="AN ELITE TRICK" tt="LUNG|*PACKING*" cam=CU.eye.push trans=zoomthru tc=.5,.45 tc2=.5,.45
-The best freedivers even squeeze *extra* air into their lungs before a dive,
+Top freedivers even squeeze *extra* air into their lungs before a dive,
 gulping it in mouthful by mouthful, a trick called *lung packing*.
 
 // S09 SUBJECT: a diver kicks down a rope past a ghost forty-storey tower; the depth counter runs to 133 M
@@ -66,7 +68,7 @@ and in 2024 Alexey Molchanov swam to *133* metres on one breath,
 which is about as deep as a *forty-storey* tower is tall.
 
 // S10 SUBJECT: two people at dusk with identical see-through lungs: 0:30 and 11:35, a glowing question mark between them
-# vis kind=w act=x_bu_gap kk="THE SAME LUNGS" tt="SO WHAT'S|THE *DIFFERENCE?*" cam=MS.eye.push trans=morph tc=.5,.5 tc2=.5,.45 tr1=.2 tr2=.2
+# vis kind=w act=x_bu_gap kk="THE SAME LUNGS" tt="SO WHAT'S|THE *DIFFERENCE?*" cam=MS.eye.push trans=morph tc=.5,.5 tc2=.5,.45 tr1=.2 tr2=.2 time=dusk
 So the same human lungs can last thirty seconds or *eleven* minutes,
 and the difference is hiding inside the *body* itself.
 
@@ -78,8 +80,15 @@ your body quietly switches into a *different* mode.
 // S12 SUBJECT: a big heart on a monitor slows from 70 to 12, yawns, a sleeping cap drops on; cut wide: a calm diver
 # vis kind=w act=x_bu_reflex kk="THE MAMMALIAN DIVE REFLEX" tt="THE HEART|*SLOWS DOWN*" cam=CU.eye.push trans=zoomthru tc=.5,.5 tc2=.5,.45 then="cam=WS.low.static@2"
 This is the mammalian dive reflex,
-and in elite freedivers it can slow the heart to as few as *ten* to fifteen beats a minute,
+and in elite freedivers it can slow the heart
+to as few as *ten* to fifteen beats a minute,
 which saves oxygen with every beat it *skips*.
+
+// S12b SUBJECT: a person, a seal and a whale glide in a row, each with a slow sleepy heart: the same reflex
+# vis kind=w act=x_bu_kin kk="AN OLD REFLEX" tt="THE SAME|*REFLEX*" cam=WS.low.trackR trans=slide
+You share this reflex with *seals* and whales,
+which have a far *stronger* version of it,
+so every time you splash cold water on your face, your body quietly remembers the *sea*.
 
 // S13 SUBJECT: a see-through body: the vessels in the arms and legs squeeze pale, the flow runs to the brain and the heart
 # vis kind=w act=x_bu_body v=blood kk="AT THE SAME TIME" tt="BRAIN AND|HEART *FIRST*" cam=WS.eye.static trans=wipe then="cam=MCU.eye.push@1"
@@ -126,6 +135,12 @@ And water is about *eight hundred* times denser than air,
 which means your gills would have to pump about *thirty* times more of this heavy stuff
 just to keep up.
 
+// S20b SUBJECT: a fish's gill opened up: water flows one way, blood the other, so the blood picks up oxygen all the way along
+# vis kind=w act=x_bu_flow kk="HOW FISH DO IT" tt="TWO WAYS|*AT ONCE*" cam=CU.eye.pull trans=zoomthru tc=.5,.45 tc2=.33,.3
+Fish make it work with a clever layout,
+because the blood in their gills flows the *opposite* way to the water,
+so it keeps picking up oxygen *all the way* along.
+
 // S21 SUBJECT: back to 1961: the mouse in the pressure jar, the oxygen bar full, the gauge at HIGH PRESSURE
 # vis kind=w act=x_bu_lab v=back kk="BACK TO 1961" tt="OXYGEN WAS|*FINE*" cam=MS.eye.pull trans=glPhotoDevelop
 And remember that mouse in the Netherlands,
@@ -139,7 +154,7 @@ because a liquid simply cannot carry that waste gas out of the lungs
 as *quickly* as air can.
 
 // S23 SUBJECT: a quiet night ward: an incubator glows, a nurse checks the monitor; an inset lung fills with a clear liquid
-# vis kind=w act=x_bu_ward kk="LIQUID BREATHING" tt="IN *HOSPITALS*" cam=WS.eye.dolly trans=dissolve then="cam=MS.eye.push@1"
+# vis kind=w act=x_bu_ward kk="LIQUID BREATHING" tt="IN *HOSPITALS*" cam=WS.eye.dolly trans=dissolve then="cam=MS.eye.push@1" time=night
 Doctors later tried a special oxygen-rich liquid
 in the lungs of very sick premature babies, starting in *1989*,
 and today it is still an *experimental* treatment, not a way to live underwater.
@@ -150,12 +165,13 @@ So even with perfect gills, your real enemy underwater would be *carbon dioxide*
 and that same gas turns out to be what keeps divers *alive*.
 
 // S25 SUBJECT: chapter 4 — a red warning buoy bobs on dark water, its lamp blinking
-# vis kind=w act=x_bu_chapter v=buoy n=4 tt="THE DEADLY|*TRICK*" cam=MS.low.static trans=glFold pause=1.6
+# vis kind=w act=x_bu_chapter v=buoy n=4 tt="THE DEADLY|*TRICK*" cam=MS.low.static trans=glFold pause=3.4
 Which brings us to the most *dangerous* mistake a breath-holder can make.
 
 // S26 SUBJECT: a man pants on a boat deck; the oxygen gauge is already at 97–99 % and barely moves
 # vis kind=w act=x_bu_gauges v=fast kk="BREATHING FAST FIRST" tt="MORE|*OXYGEN?*" cam=MS.eye.static trans=slide then="cam=CU.eye.push@1"
-Some people breathe fast and deep before a dive, thinking they are loading up on oxygen,
+Some people breathe fast and deep before a dive,
+thinking they are loading up on oxygen,
 but your blood is already about *ninety-seven* to ninety-nine percent full.
 
 // S27 SUBJECT: CO2 drains away, the alarm's plug falls out, oxygen falls with no alarm, the edges of the frame dim
@@ -165,7 +181,7 @@ so the alarm is switched off while your oxygen keeps *falling*,
 and that silent drop is called *shallow water blackout*.
 
 // S28 SUBJECT: a diver rises toward the bright surface; pressure falls, oxygen drops in the last metres, the view closes in
-# vis kind=w act=x_bu_ascent kk="THE LEADING CAUSE OF DEATH" tt="ON THE|WAY *UP*" cam=WS.low.crane trans=push2 tdir=up then="cam=MCU.eye.static@2"
+# vis kind=w act=x_bu_ascent kk="THE LEADING CAUSE OF DEATH" tt="ON THE|WAY *UP*" cam=WS.low.crane trans=push2 tdir=up then="cam=MCU.eye.static@2" time=dawn
 It is the *leading* cause of death in breath-hold diving,
 and it often strikes near the surface on the way *up*,
 because as the water pressure falls, the oxygen in your blood suddenly has *less* push.
@@ -173,7 +189,8 @@ because as the water pressure falls, the oxygen in your blood suddenly has *less
 // S29 SUBJECT: at the surface a buddy catches his arm and lifts his face out of the water: NEVER ALONE
 # vis kind=w act=x_bu_buddy kk="THE ONE RULE" tt="A BUDDY|*SAVES LIVES*" cam=MS.eye.static trans=iris tc=.5,.4 then="cam=WS.high.static@1"
 That is why freediving safety comes down to one simple rule,
-which is never hold your breath in water *alone*.
+which is never hold your breath in water *alone*,
+with a buddy watching from the surface, close enough to *reach* you.
 
 // S30 SUBJECT: she hugs a giant oxygen tank (BELIEF); a stamp lands, KNOWN: CO₂, and the tank turns into the little alarm
 # vis kind=w act=x_bu_belief kk="WHAT PEOPLE SAY" tt="BELIEF VS|*WHAT'S KNOWN*" cam=MCU.eye.push trans=glBrushWipe
@@ -195,7 +212,7 @@ it is a *carbon dioxide* problem,
 and your body has been telling you that every time you held your breath.
 
 // S33 SUBJECT: a bath at dusk: she dips her face under, comes up smiling and points at the window, where the sun refuses to set: next time
-# vis kind=w act=x_bu_outro next="WHAT IF THERE WAS|*NEVER ANY NIGHT?*" cam=MS.eye.static trans=glWaterDrop tail=2.4 then="cam=WS.eye.pull@3"
+# vis kind=w act=x_bu_outro next="WHAT IF THERE WAS|*NEVER ANY NIGHT?*" cam=MS.eye.static trans=glWaterDrop tail=2.4 then="cam=WS.eye.pull@3" time=dusk
 So next time you hold your breath in the bath, listen to that *burning* feeling,
 because it is not panic, it is a very *old* alarm doing its job.
 Next time on The If Machine: what if there was *never* any night?
