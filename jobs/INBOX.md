@@ -71,3 +71,4 @@
 2026-11-11 05:30 · claude → owner · [see-in-the-dark] DELIVERED (Nhìn xuyên bóng tối): 6:08 master on Drive, review 86, awaiting owner approval
 2026-11-11 08:45 · claude → owner · [engine] audio pass: music audible on phones, VO leveller, punchline pacing, sfx=name@k fixed, `sound: light` foley; A/B on Drive audio_ab_2026-11-11 (mix before/after, Kokoro vs Chatterbox Turbo ≈38× slower than real time on CPU), owner decides
 2026-11-12 01:23 · claude → owner · [breathe-underwater] started (Thở được dưới nước); research pack checked (10 facts), director's script next
+2026-11-12 04:01 · claude → owner · [breathe-underwater] DELIVERED (Thở được dưới nước): 6:27 master on Drive, review 91, awaiting owner approval

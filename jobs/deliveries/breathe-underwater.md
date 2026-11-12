@@ -1,19 +1,21 @@
 # Delivery — Thở được dưới nước (breathe-underwater) · RUN #6 · 2026-11-12
 
 ## Files (Drive TheIfMachine_Media/breathe-underwater/)
-FILES_BLOCK
+- breathe-underwater_vertical_9x16.mp4 · 6:27 · 1080x1920 · 25 fps · 662 MB master — https://drive.google.com/file/d/1fpA4PnUB7n-QRY1cD8BXSJOd0GQgSryn/view
+- breathe-underwater_cover.jpg · 400K · 1080x1920 (cover frame t=6 s, S01 the swimmer breathing water)
+- breathe-underwater.srt (English) · breathe-underwater_stories.zip
 
 ## Production
 - Voices: af_heart (narrator, Kokoro, Apache-2.0). No quote/legend lines.
-- Music credits (CC BY lines go in the YouTube description): MUSIC_CREDITS
+- Music credits (CC BY lines go in the YouTube description): "Easy Lemon", "Hidden Agenda", "Aftermath", "Almost Bliss" — Kevin MacLeod (incompetech.com), CC BY 4.0; "Aquarium", "The Lagoon" — FreePD, CC0 (no attribution required).
 - Look: IF CREW v3 + comic layer on the IFM.CT toolkit, theme "ocean". 35 animated scenes from 24 bespoke acts
   (x_bu_*): layered 2.5D seas with light rays and rising bubbles, cut-away bodies (heart, blood, spleen, lungs) as flat
   diagrams, and gauges that make the gases visible (oxygen = teal dots, carbon dioxide = coral dots). New gags: the sleepy
   heart in a nightcap (dive reflex), the brain covering its ears at the CO₂ smoke alarm, gills flapping like a sweaty fan,
   the CO₂ cloud that turns into a lifebuoy, the overpacked-suitcase lungs.
 - Opening = the title question over a swimmer breathing water; spoken outro + "Next time on The If Machine: what if there was never any night?".
-- Gates: script_check PASS · variety PASS · review 91/100 · lint 0 errors (9:16) · render cost max 660 ms · preflight OK · QA_LINE
-- Length: LENGTH (vertical 9:16).
+- Gates: script_check PASS · variety PASS · review 91/100 · lint 0 errors (9:16) · render cost max 660 ms · preflight OK · QA round 2 from the rendered file (386 frames, 7 sheets) read, 6 fixes re-rendered · sound −16.0 LUFS, TP −3.62 dBTP.
+- Length: 6:27 (vertical 9:16).
 
 ## Facts on screen (research pack F-numbers)
 - Untrained adult 30–90 s, ~3 min with determination — F9
@@ -34,6 +36,7 @@ FILES_BLOCK
 - The 1989 infant trial is told neutrally without outcomes (the first infants were critically ill; the episode does not dwell on it).
 - The episode never presents breath-holding as a technique; hyperventilation is shown only as the danger.
 - Gills are drawn on the sides of the head (axolotl-style) for readability, not as anatomy.
+- Phone-speaker music check printed FAIL (music −43.5 LUFS on the phone preview) while overall loudness passed: music may sound quiet on phone speakers (same as earlier episodes).
 - Remaining review notes: no close-up coverage counted by the review tool (the 2D acts frame their own close-ups in-scene); one 2.5 s calm stretch in the outro.
 
 ## For Muse
