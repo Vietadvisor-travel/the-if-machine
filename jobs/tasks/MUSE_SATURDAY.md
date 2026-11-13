@@ -61,10 +61,9 @@ Per candidate:
 - the **human thread** (someone he/she loves, a promise, a habit — sourced) and **the true irony or meaning** for the ending (§3b)
 - 2 independent sources (outlet, title, date, URL) — news archive, museum, journal, official record; Reddit/TIL/YouTube
   only as a lead, never as a source
-- asset needs: people (which of the 16 fit), set (HDRI + materials), props, clips — mark what the library lacks
+- asset needs: people (which of the 16 fit), set (HDRI + materials), props, clips, mark what the library lacks. Sound needs: which real_* words the story needs, mark what the library lacks (see jobs/stock/SFX_WANTED.md)
 - risks: real victims (tone), still-living people, contested facts
-Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> — <câu móc dịch ngắn>`
-— `mô hình thật: đủ / thiếu <x>`), and wait.
+Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> - <câu móc dịch ngắn> - mô hình/tiếng thật: đủ / thiếu <x>`), and wait.
 
 ## C. After the owner picks ("chốt 2, 5, 9 …")
 For each pick, same day:
