@@ -1,11 +1,16 @@
-# Delivery — Người đàn ông sống 3 ngày dưới đáy biển (cook-under-the-sea) · ODDLY TRUE clip · v2 · 2026-11-12
+# Delivery — Người đàn ông sống 3 ngày dưới đáy biển (cook-under-the-sea) · ODDLY TRUE clip · v3 · 2026-11-13
 
 v2 (owner, 12 Nov evening: v1 "bland, no opening, no ending"): 1:45, 24 shots — opening = the story itself, three turns, slowed
 climax, ending with meaning (two years later he became a commercial diver). v1 (1:06) is replaced on Drive (same file link).
 
+v3 (owner, 13 Nov: content 5/10; "people, objects, everything real"): 1:51, 25 shots — rewritten per STORY.md §3b (his wife and
+the psalms, her lost phone, clocks, "not looking for survivors", ironic ending: never again → a diver); real models on screen (Poly Haven
+rock scans, sand, crate, bucket, torches, sofa, MakeHuman people), no primitive stand-ins (tug only as a far hazy silhouette; no helmet,
+vest or bell shown — Muse sources real ones on Saturday). Same Drive link.
+
 ## Files (Drive TheIfMachine_Media/cook-under-the-sea/)
-- cook-under-the-sea_vertical_9x16.mp4 · 164 MB (CRF-17 master) · 104.6 s · 1080x1920 · https://drive.google.com/file/d/1JZ6fjHWZ_LLz5Ii3_MBWzOQ9gpgF7KEE/view
-- cook-under-the-sea_cover.jpg · 1080x1920 (frame 20.5 s: the man on the toilet)
+- cook-under-the-sea_vertical_9x16.mp4 · 179 MB (CRF-17 master) · 110.7 s · 1080x1920 · https://drive.google.com/file/d/1JZ6fjHWZ_LLz5Ii3_MBWzOQ9gpgF7KEE/view
+- cook-under-the-sea_cover.jpg · 1080x1920 (8.7 s: the man on the toilet)
 - cook-under-the-sea.srt (English)
 - cook-under-the-sea_stories.zip (story + bank file)
 - Music: Kevin MacLeod (incompetech.com), CC BY 4.0 http://creativecommons.org/licenses/by/4.0/ — credit line goes in the description.
@@ -15,8 +20,8 @@ climax, ending with meaning (two years later he became a commercial diver). v1 (
 - Voice: am_adam (Kokoro, Apache-2.0), speed 1.0. Narration is machine-generated.
 - People: Muse's CC0 MakeHuman figures (wa-man as the cook; me-man / la-man in a neoprene material as the divers), Mixamo clips
   (Adobe royalty-free), Poly Haven CC0 materials, local CC0 toilet and sink models. Bespoke scenes: `engine/library/bank/cook-under-the-sea.js`.
-- Gates: clip_gate PASS (clip_check PASS · real audio 104.6 s, no unknown sounds · render cost median 1.7 s/frame, max 4.1 s · sheet checked) · master −16.0 LUFS · QA: contact sheet of the master; shot 14 fixed after QA via the shot cache (2452/2615 frames reused).
-- Length: 1:45 (vertical 9:16; format 1:30–2:00, owner 12 Nov 2026 evening).
+- Gates: clip_gate (clip_check PASS · real audio 110.7 s, no unknown sounds · fill/motion fixed, cost median 2.4 s/frame, max 5.6 s) · master −16.0 LUFS · QA: contact sheet of the master. Render hung once (memory, 4 jobs) and the container restarted once: resumed from the shot cache both times.
+- Length: 1:51 (vertical 9:16; format 1:30–2:00).
 
 ## Facts on screen / in the VO (each with its source; numbers from the research pack)
 - Tug flipped and sank while he was on the toilet; "the toilet was now on the ceiling" — Guardian 12 Jun 2013; Dive Magazine (book extract)
@@ -37,6 +42,8 @@ climax, ending with meaning (two years later he became a commercial diver). v1 (
 - A physicist's estimate: the bubble held about 60 hours of air — NBC News/Live Science; Slate Jun 2013
 - Two years later (2015) he qualified as a commercial diver — Explorersweb 2021 (+ update); LADbible 2024
 - "He prayed … to see some kind of light" — his words, Guardian 12 Jun 2013
+- His wife had texted him psalms the night before; she had lost her phone and did not know; he worried about her — The Nation (via Christian Post)
+- In Dec 2013 he said he would never go to sea again — AP via Deseret News 11 Dec 2013
 
 ## Honest notes
 - Animated reenactment: every person is a generic 3D figure, not a likeness; the tug, washroom and cabin are reconstructions from
@@ -50,6 +57,7 @@ climax, ending with meaning (two years later he became a commercial diver). v1 (
 
 ## For Muse
 - Title options: 1) Three Days Under the Sea 2) The Cook Who Lived Underwater 3) He Grabbed the Diver's Hand
-- Opening line: "In May 2013, a ship's cook spent almost three days at the bottom of the sea… and lived."
+- Opening line: "In 2013, a ship's cook was trapped at the bottom of the Atlantic for almost three days… and lived."
+- Description credits: Poly Haven models/textures (CC0); Kevin MacLeod music (CC BY 4.0).
 - Caption must say "animated reenactment"; pinned comment: the sources above (Guardian 12 Jun 2013, BBC 13 Jun 2013, Guardian/AP 3 Dec 2013).
 - Post only after the owner says "đăng tập Người đàn ông sống 3 ngày dưới đáy biển".
