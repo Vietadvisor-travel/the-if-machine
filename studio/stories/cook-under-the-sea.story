@@ -4,7 +4,7 @@ format: vertical
 clip: yes
 voice: am_adam
 look: classic
-score: tension@1
+score: infinite_wonder@1
 enddur: 1.5
 sources: jobs/scripts/cook-under-the-sea.md
 

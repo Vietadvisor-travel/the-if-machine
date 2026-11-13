@@ -531,3 +531,9 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 - `tools/render.mjs`: a frame that does not come back within `--stall` s (180) reopens the page and retries (a 4-job render with heavy
   scans hung silently for 40 min); resume reuses the shot cache. Use `--jobs 3` for scenes with many scans (memory).
 - cook-under-the-sea v3 rebuilt on these (rocks, sand, crate, bucket, torch, can, sofa, wa-woman); fake helmet/vest/tug wides reframed.
+
+## 13 Nov 2026 — no ticking music (owner: "a tạch-tạch every 2 seconds, never again")
+- Cause: the bed `tension_darkness_is_coming` carries a double tick every ~1.6 s (120 sharp transients/min) under the voice.
+- `tools/music_ticks.py`: transient rate of the placed bed; > 40/min (or > 20/min on a regular grid) = ticking. `clip_gate.mjs`
+  fails a ticking bed. 58 of 143 library tracks pass; listed in CLIP.md §2b; new clips default to `infinite_wonder` (CC0).
+- cook-under-the-sea's story now scores `infinite_wonder` (owner: no re-render of the delivered v3; rule applies from the next clip).

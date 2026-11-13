@@ -7,7 +7,8 @@ const out = []; const cc = run(['tools/clip_check.mjs', ep]).trim().split('\n');
 { const au = run(['tools/make.mjs', ep, '--audio-only', '--skip-lint', '--skip-review', '--speed', '1.0']); const len = (au.match(/real length ([\d.]+) s/) || [])[1], unk = ((au.match(/unknown: \[([^\]]*)\]/) || [])[1] || '').trim();
   out.push(len ? `audio  real length ${len} s (target 1:30–2:00, info only) · mix ready → render with --reuse-mix` : '  ERROR audio-only failed: ' + au.split('\n').filter(l => /FAIL|Error/.test(l)).slice(0, 2).join(' | '));
   if (unk) out.push(`  ERROR unknown sounds (dropped from the mix): ${unk} — use sfx="<t>:<name>:<gain>" with names from python3 tools/sfx_pro.py list`);
-  au.split('\n').filter(l => /^\s*FAIL /.test(l)).slice(0, 3).forEach(l => out.push('  WARN  sound QA ' + l.trim())); }
+  au.split('\n').filter(l => /^\s*FAIL /.test(l)).slice(0, 3).forEach(l => out.push('  WARN  sound QA ' + l.trim()));
+  const tk = spawnSync('python3', ['tools/music_ticks.py', `out/${slug}_music.wav`], { encoding: 'utf8' }); if (tk.status === 1) out.push(`  ERROR ${tk.stdout.trim()} — the bed ticks under the voice (owner, 13 Nov 2026): pick a pad/ambient track in score:`); }
 const cost = run(['tools/cost.mjs', ep], { COST_ERR: '9000', COST_WARN: '6000', MOT: '4' }).split('\n').filter(l => /^cost|ERROR|frozen/.test(l)).slice(0, 8); out.push(...cost);
 run(['tools/sheet.mjs', ep, 'v', '2']); out.push(`sheet out/${slug}_sheet_v.jpg`);
 const bad = out.some(l => /ERROR|CLIP: FIX/.test(l)); console.log(out.join('\n') + '\n' + (bad ? 'GATE: FIX' : 'GATE: PASS')); process.exit(bad ? 1 : 0);
