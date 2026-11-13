@@ -1,6 +1,13 @@
 # Muse — the standard Saturday run (owner, 12 Nov 2026). Every Saturday 09:20 Vietnam time (the existing weekly cron).
 
-The channel (being renamed by the owner; working name ODDLY TRUE) makes one 60-second animated TRUE story a day.
+The channel (ODDLY TRUE) makes animated TRUE stories of 1:30–2:00 (owner, 12 Nov 2026), realistic 3D.
+
+**Order of the run (owner, 13 Nov 2026):** B (story list for the owner to choose) → A (asset scan: for the strongest candidates,
+find REAL models for every person, object and place each story needs, plus anything the "Wanted" list asks) → C after he picks.
+Asset scan = search the real-model sources (Poly Haven, Smithsonian 3D Open Access, Sketchfab CC0/CC-BY, Fab free with
+commercial use), download, convert to `.glb` with embedded textures (Blender: import glTF/FBX → export GLB), check the
+realism bar (a 1080×1920 close-up must read as a real object, never low-poly/stylised/toy), upload and index. For each story
+in the list, write in one line which of its key objects are found real, which are missing.
 Claude produces the clips (`studio/CLIP.md`, writing standard `studio/STORY.md`). Muse keeps the asset library growing and
 brings the stories. Muse does NOT post, rename, redesign or edit channel pages unless the owner asks in his own words.
 Every message to the owner is Vietnamese. Commits start with `[muse]`. Push to `main`.
@@ -29,13 +36,14 @@ About 15 TRUE micro-stories, each scored with `studio/STORY.md` §1 (produce onl
 events · 3 your body in one concrete situation). Never one already in `jobs/STATUS.md` or `jobs/research/`.
 Per candidate:
 - working title (EN) + **tên tiếng Việt** · pillar · score /10 with one line per criterion that is weak
-- the **hook line** (verb first, mid-action, ≤ 20 words) and **the turn** (what the viewer does not expect)
+- the **opening line** (the story itself, plainly: who, what happened, the unbelievable number — studio/STORY.md §2) and **the turn**
+- the **human thread** (someone he/she loves, a promise, a habit — sourced) and **the true irony or meaning** for the ending (§3b)
 - 2 independent sources (outlet, title, date, URL) — news archive, museum, journal, official record; Reddit/TIL/YouTube
   only as a lead, never as a source
 - asset needs: people (which of the 16 fit), set (HDRI + materials), props, clips — mark what the library lacks
 - risks: real victims (tone), still-living people, contested facts
-Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> — <câu móc dịch ngắn>`),
-and wait.
+Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> — <câu móc dịch ngắn>`
+— `mô hình thật: đủ / thiếu <x>`), and wait.
 
 ## C. After the owner picks ("chốt 2, 5, 9 …")
 For each pick, same day:
