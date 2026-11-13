@@ -311,7 +311,29 @@ Made with numpy/PIL/scipy (`gen_effects.py`), no external source, CC0.
   flipbooks (frame order row-major); bubbles/dust/rain/snow as sprites.
 
 
+## Realism bar (owner, 13 Nov 2026: "people, objects and everything must be REAL, not toys or simple blocks")
+Everything that appears on screen is a real-looking, detailed model: a photogrammetry scan or a hero-quality model with PBR
+textures, at real scale. NOT low-poly, NOT stylised/cartoon, NOT a primitive (box, sphere, cylinder) standing in for an object.
+Procedural is allowed only for terrain, water, particles and light. Sources in order: Poly Haven (CC0) · Smithsonian 3D Open
+Access (CC0) · Sketchfab models with **CC0 or CC-BY** (CC-BY allowed from now on: write author + licence + URL in the index, the
+credit goes in the video description) · Fab free/standard-licence assets that allow commercial video. No NC/ND licences, no ripped
+game assets. Quality check before upload: a 1080×1920 close-up render must read as a real object.
+
 ## Wanted (Claude appends; Muse fulfils on Saturday)
+- 2026-11-13 · **REALISM TOP-UP for cook-under-the-sea (priority 1, owner)** — every item real and detailed (bar above):
+  1. **Offshore tug / anchor-handling tug**, ~30 m, exterior with wheelhouse, deck gear, fenders, propellers/rudders under the hull
+     (it is shown upside down on the seabed); a rusted/fouled texture variant if available.
+  2. **Ship washroom pieces**: steel marine toilet, steel wash basin, ship toilet cubicle partitions + door, an industrial washing
+     machine, pipes/conduits, a fluorescent ceiling fitting, a watertight ship door.
+  3. **Ship cabin pieces**: steel bunk bed with mattress, metal desk + chair, steel locker, porthole, ship corridor module
+     (walls with pipes and cable trays, floor grating or linoleum).
+  4. **Survival props**: orange life jacket (SOLAS type), small flashlight, a plain red drink can (no logo), a mattress.
+  5. **Saturation diver**: commercial diving helmet (Kirby Morgan type), hot-water dive suit / drysuit, harness, umbilical hose,
+     helmet light — ideally a rigged diver on the mixamo skeleton, else the gear as separate glb to attach to our people.
+  6. **Diving bell** (saturation bell, yellow) and a **decompression chamber** (white cylinder with porthole).
+  7. **Distant set dressing**: oil tanker, offshore oil platform, realistic seabed rocks, marine growth, realistic fish (animated).
+  8. **People**: the male figures re-exported with gender macro 1.0 and looser clothes (see 2026-11-12 entry); a realistic adult
+     West African man in underwear/shorts and T-shirt.
 - 2026-11-12 · **men look androgynous** (wa-man: chest/hips read female in a tight t-shirt). Re-export the male people with MPFB gender macro = 1.0 and a looser shirt; keep the same file names and rig.
 - 2026-11-12 · **tugboat / small work boat** (story Okene): none CC0 found → model a simple one in Blender (hull ~30 m, wheelhouse, deck, tyres as fenders), real scale, origin at keel centre; plus an **interior cabin/office** set (walls, door, desk, a toilet room) if possible.
 - 2026-11-12 · **diver**: one person in a dark wetsuit with a commercial diving helmet + chest lamp (can be a wetsuit material on an existing person + a helmet prop).

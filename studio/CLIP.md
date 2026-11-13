@@ -30,7 +30,9 @@ python3 tools/assets3d.py story stories/<slug>.story   # builds only the HDRIs/p
 - Room set keys: `w= d= h= wall=tex/… ground=tex/… window=1`; outdoor: `ground=tex/…`; any set: `bg=none bgk= blur=` (HDRI backdrop).
 - People: `glb/<file>` from ASSETS3D.md §4a (wa-man, ea-woman …). Clips: any name from the shared libraries (Mixamo: Idle,
   Scared, Treading_Water, Swimming, Reaching_Out, Falling_Down …; Quaternius: Walk_Loop_Rig …) — full lists in ASSETS3D.md §4b–c.
-- Missing asset → add a line to ASSETS3D.md "Wanted" (Muse fulfils it on Saturday) and use the closest existing one.
+- **Realism bar (owner, 13 Nov 2026): everything on screen is a REAL model** (scan / detailed PBR model at real scale). Never a box,
+  sphere or cylinder standing in for an object, never a toy-like figure. Procedural only for terrain, water, particles, light.
+  Missing asset → add it to ASSETS3D.md "Wanted" and reframe the shot so the missing thing is not seen; never fake it with primitives.
 - Camera frames the `on` actor by size; move over the beat; a new shot every sentence, never the same cam twice in a row.
 - Story-specific objects that no asset covers: a bespoke act `x3_<name>` in `engine/library/bank/<slug>.js` (see bank/okene.js),
   built from IFM.L3 helpers (L.tug, L.rock, L.seabed, L.particles, L.rays, L.figure …). Add it to the library for reuse.

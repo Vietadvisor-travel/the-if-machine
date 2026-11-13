@@ -15,8 +15,10 @@ Every message to the owner is Vietnamese. Commits start with `[muse]`. Push to `
      names, e.g. `Treading_Water`), plus the clip list JSON with durations. Never a second skeleton.
    - **HDRI:** Poly Haven, `.hdr` 1k + 2k, Poly Haven slug as the name.
    - **Materials:** Poly Haven / ambientCG, 2k JPG: Color, NormalGL, Roughness, AO (+ Displacement, Metalness if any).
-   - **Props / sets:** glTF/glb ≤ 30 MB, real scale in metres, origin at the base centre, +Z forward. CC0; anything else
-     only with an explicit commercial-use licence written next to it.
+   - **Props / sets:** glTF/glb ≤ 30 MB, real scale in metres, origin at the base centre, +Z forward. CC0 or CC-BY (author,
+     licence and URL in the index; credit goes in the description); anything else only with an explicit commercial-use licence.
+   - **Realism bar (owner, 13 Nov 2026):** real, detailed models only (scans / hero-quality PBR), never low-poly, stylised or toy-like;
+     check each with a 1080×1920 close-up render before uploading. `jobs/stock/ASSETS3D.md` "Realism bar".
 3. Upload only the NEW files, as a dated zip: `TheIfMachine_Media/_assets3d/<group>/<group>_<YYYY-MM-DD>.zip`
    (never re-upload a whole pack). Append the new entries to `jobs/stock/assets3d_index.json` (same fields) and add rows
    + one changelog line to `jobs/stock/ASSETS3D.md`. Move fulfilled "Wanted" items to "Done".

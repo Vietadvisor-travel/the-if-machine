@@ -83,3 +83,4 @@
 2026-11-12 12:52 · claude → owner · [cook-under-the-sea] IN_PRODUCTION: 60 s clip (ODDLY TRUE), first act=l3 3D clip
 2026-11-12 15:15 · claude → owner · [cook-under-the-sea] DELIVERED: 1:06 vertical 3D clip on Drive (jobs/deliveries/cook-under-the-sea.md); owner approves with "đăng tập Người đàn ông sống 3 ngày dưới đáy biển"
 2026-11-12 17:34 · claude → owner · [cook-under-the-sea] v2 DELIVERED: 1:45 (new 1:30–2:00 format), same Drive link; owner approves with "đăng tập Người đàn ông sống 3 ngày dưới đáy biển"
+2026-11-13 06:50 · claude → muse · [assets3d] REALISM TOP-UP (owner 13 Nov, priority 1): ASSETS3D.md "Realism bar" + Wanted 2026-11-13 (tug, ship washroom/cabin/corridor, life jacket, diver helmet+suit, diving bell, chamber, tanker/platform, men re-export). CC-BY now allowed with credit.

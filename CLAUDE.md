@@ -16,6 +16,7 @@ When the owner says "làm tập <tên>" / "làm tập tiếp" / "làm clip …",
 - **Picture:** realistic real-time 3D, house look IFM.L3 (`act=l3` shots: HDRI light, glTF people + animation clips, PBR, DOF)
   + minimal 2D only to explain the invisible. Assets: `python3 tools/assets3d.py sync` (Drive `_assets3d`, built by Muse).
   Real people appear as generic figures (no likeness); the post says "animated reenactment".
+  **Every person and object on screen is a real, detailed model** (owner, 13 Nov 2026) — never primitives or toy-like stand-ins (`studio/CLIP.md`).
 - **Voice:** am_adam (Kokoro), speed 1.0 — replaces af_heart / af_nicole / am_santa for this format.
 - **Gates:** `node tools/clip_gate.mjs stories/<slug>.story` (clip_check + real voice/mix + 3D render cost ≤ 9 s/frame + sheet); render with
   make.mjs once (≈ 35 min per minute of film; shot cache for fixes); ship.sh; delivery note; report ≤ 8 Vietnamese lines + "đăng tập <tên>".
