@@ -8,6 +8,12 @@ Asset scan = search the real-model sources (Poly Haven, Smithsonian 3D Open Acce
 commercial use), download, convert to `.glb` with embedded textures (Blender: import glTF/FBX → export GLB), check the
 realism bar (a 1080×1920 close-up must read as a real object, never low-poly/stylised/toy), upload and index. For each story
 in the list, write in one line which of its key objects are found real, which are missing.
+**The scan builds the SHARED library, not one episode's kit (owner, 13 Nov 2026):** every model goes into the common store, tagged by
+category (people · clothing/gear · vehicles · ships & boats · aircraft · buildings & interiors (home, ship, hospital, office, factory,
+mine, cave) · furniture · everyday objects · tools · food · animals · nature & terrain · weapons/historic objects · medical · water/ocean),
+so any future story can reuse it. Each Saturday: first what the candidates need, then widen the categories that are thinnest (aim for
+real coverage of the 4 pillars: survival, history under your feet, strange events, the body). Index fields: id, category, tags,
+real scale (m), licence, author, source URL, credit line. Keep `jobs/stock/ASSETS3D.md` as the browsable catalogue by category.
 Claude produces the clips (`studio/CLIP.md`, writing standard `studio/STORY.md`). Muse keeps the asset library growing and
 brings the stories. Muse does NOT post, rename, redesign or edit channel pages unless the owner asks in his own words.
 Every message to the owner is Vietnamese. Commits start with `[muse]`. Push to `main`.
