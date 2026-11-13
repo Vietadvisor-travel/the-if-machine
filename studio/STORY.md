@@ -28,6 +28,16 @@ technology · strange-but-true events · your body in one concrete situation ("y
 | 75–95 s | CLIMAX, slowed down | Shorter sentences, one held beat (…), the moment told in order (the first diver swims past… the second… the hand… "He's alive!"). |
 | 95–120 s | ENDING with meaning | The aftermath (cost, who did not survive, what happened next) + what became of him + ONE closing line that gives the story its meaning and echoes the opening ("The man who waited three days for a diver's light… now carries one."). No spoken "follow", no outro. |
 
+## 3b. What the winners do that we did not (owner 13 Nov 2026: content 5/10 → study: jobs/research/_market/CONTENT_STUDY.md)
+1. Open on the story's own first concrete action or its single most unbelievable fact, said plainly — never a flash-forward.
+2. Inside, not above: what he saw, heard, felt (from the sources) at least every 10 s — "The water was at his chest. He could not see
+   his own hand." beats "He was trapped in an air pocket."
+3. One human thread from start to end (someone he loves, a promise, a habit), sourced — it is the heart, not decoration.
+4. Withhold one thing and pay it off late; foreshadow once ("He did not know it yet, but…").
+5. Link beats with BUT / SO, never "and then". Re-hook every 15–20 s: a new problem, a clock, a reveal.
+6. Numbers are threats or clocks, not trivia.
+7. End on the true irony or meaning in one line that echoes the opening; no recap.
+
 ## 3. Line craft
 - One sentence = one shot. 6–16 words. Concrete nouns and verbs; numbers instead of adjectives ("30 metres", not "very deep").
 - Close third person for stories ("he", the name after the hook); second person for body/explainer stories ("you").
