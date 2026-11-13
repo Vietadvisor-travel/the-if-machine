@@ -217,6 +217,7 @@
     // minimal sound (owner, 4 Nov 2026: 'too many sound effects, too loud'): the picture makes no sound by itself; a beat asks for a
     // one-shot with sfx="name@k|name@k" (k = caption index, or 2.5s). Story header `sound: full` restores the old automatic design.
     if (IFM.soundFull !== true) { const sfx = String(o.sfx || '').split('|').filter(Boolean).map((x, j) => { const m = x.trim().match(/^(.*?)@(\d+(?:\.\d+)?)(s?)$/); return m ? [m[3] ? +m[2] : T0(c, +m[2], .5), m[1]] : [.4 + j, x.trim()]; });
+      B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; (sg.b.sfx || []).forEach(([t, n, g]) => { if (/^real_/.test(n) && t < end) sfx.push([j ? Math.max(t, sg.at) : t, n, g]); }); });   // clip mode: the act's own recorded action sounds (owner 13 Nov 2026)
       return drawW(B, sfx, o, c, dur); }
     const sfx = []; B.forEach((sg, j) => { const end = B[j + 1] ? B[j + 1].at : 1e9; sg.b.sfx.forEach(([t, n]) => { const tt = j ? Math.max(t, sg.at) : t; if (tt < end) sfx.push([tt, n]); }); if (j && IFM.calm === false) sfx.push([sg.at, 'whoosh_small']); });
     // motivated sound only (owner, 3 Nov 2026: 'too many, too random'): a quiet bed per scene; a hit only where the picture hits (twist / data / gold lettering)

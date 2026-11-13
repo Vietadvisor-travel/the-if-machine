@@ -537,3 +537,14 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
 - `tools/music_ticks.py`: transient rate of the placed bed; > 40/min (or > 20/min on a regular grid) = ticking. `clip_gate.mjs`
   fails a ticking bed. 58 of 143 library tracks pass; listed in CLIP.md §2b; new clips default to `infinite_wonder` (CC0).
 - cook-under-the-sea's story now scores `infinite_wonder` (owner: no re-render of the delivered v3; rule applies from the next clip).
+
+## 13 Nov 2026 — final upgrade: recorded, scene-matched sound + comment guard (owner: "crying when crying… not hisses and ticks")
+- `tools/sound_design.py` clip mode (`clip: yes`): only recorded sounds, only what a shot asks for (amb= bed, the act's sfx, sfx=);
+  no automatic rules, no synthesis, no stingers; `real_*` vocabulary → studio/sfx_ifm/real_<what>_<n>.wav (Muse) with recorded
+  stand-ins (REAL_FALLBACK) or silence; missing words reported. Short beds loop with 1 s crossfades. Restored the scene index of
+  renderer cues (lost in an earlier edit).
+- `engine/library/l3_shot.js`: `L.CLIP_SFX` — every animation clip emits its real sound (Crying → real_cry, Laughing → real_laugh,
+  Falling_Down → real_body_fall, Walking → real_footsteps …); `act=l3` returns them. `ifm_world.js` forwards an act's real_* sounds in
+  minimal mode. cook-under-the-sea: per-shot sounds + amb= beds (test: 11 recorded sounds placed, 18 words missing → SFX_WANTED.md).
+- `tools/comment_guard.py` (in clip_gate): code after a // or # comment (a pasted comment cut a line three times today). 0 hits.
+- CLIP.md: "the standard in one look" + §2c sound; Muse Saturday A2 real sound library; jobs/stock/SFX_WANTED.md.

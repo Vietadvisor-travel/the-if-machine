@@ -36,6 +36,21 @@ Every message to the owner is Vietnamese. Commits start with `[muse]`. Push to `
    (never re-upload a whole pack). Append the new entries to `jobs/stock/assets3d_index.json` (same fields) and add rows
    + one changelog line to `jobs/stock/ASSETS3D.md`. Move fulfilled "Wanted" items to "Done".
 
+## A2. Real sound library (owner, 13 Nov 2026: "sounds that match the scene — crying when crying, laughing when laughing")
+The clips play ONLY recorded sounds named `real_<what>` (studio/CLIP.md §2c). Each Saturday: first the words `clip_gate` listed as
+"missing real" (see the latest delivery notes / jobs/stock/SFX_WANTED.md), then widen the shared library by category.
+- Sources: Freesound **CC0 only**, Sonniss GDC bundles (royalty-free, commercial use), Pixabay Sound Effects (Pixabay licence),
+  BBC Sound Effects only if the licence allows commercial video (it usually does not: skip). Real recordings only, no synth.
+- Files: `real_<what>_<n>.wav` (2–4 takes each, `<what>` = snake_case word from the vocabulary), 48 kHz/24-bit or 44.1/16 WAV,
+  trimmed, peak −1 dBFS, no music, no voices with words. Beds (`real_<place>` ambiences): 45–90 s, seamless, no events in them.
+  Zip as `TheIfMachine_Media/_sfx/real_sfx_<YYYY-MM-DD>.zip`; credits per file in `jobs/music/SFX_CREDITS.md`.
+- Categories to cover over the weeks: people (cry, sob, laugh, giggle, gasp, scream, sigh, breath, breath_heavy, whisper, cough,
+  cheer, crowd) · body (body_fall, footsteps on concrete/wood/gravel/snow/metal, run, jump_land, cloth, punch) · water (underwater bed,
+  bubbles, splash, swim, lap, drip, water_rush, rain, waves, diver_breath regulator) · places (ship_interior, engine_room, room_night,
+  street_day, forest_night, hospital, office, crowd_hall, cave, desert_wind, snow_wind) · objects (door_metal, door_wood, torch_click,
+  glass_break, metal_groan, ship_creak, hull_impact, chain, rope, phone_vibrate, paper) · vehicles (car, truck, train, plane, boat,
+  helicopter) · animals (dog, cat, bird, horse, cow, insects, whale) · weather (thunder, wind, storm).
+
 ## B. Story shortlist (≈ 1–2 h) → `jobs/topics/WEEK_<monday>.md`
 About 15 TRUE micro-stories, each scored with `studio/STORY.md` §1 (produce only ≥ 8/10), mixed across the 4 pillars
 (≈ 4 survival with an ingenious trick · 4 history under your feet / how it was done before technology · 4 strange-but-true

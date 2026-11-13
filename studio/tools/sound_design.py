@@ -387,6 +387,36 @@ def parse_story(path):
 
 # synthetic white-noise beds (spectral flatness ~0.8, centroid 8–9 kHz): they read as a constant hiss ("xèo xèo", owner 4 Nov 2026)
 NOISY = {'ifm_world_office', 'ifm_world_city', 'ifm_world_cafe', 'ifm_world_kitchen', 'ifm_world_traffic', 'ifm_world_rain', 'ifm_world_rain_heavy', 'ifm_world_rain_light', 'ifm_world_wind', 'ifm_world_ocean', 'ifm_world_forest', 'ifm_world_subway', 'ifm_world_airport', 'ifm_world_crowd_small', 'ifm_world_breathing', 'city_bed', 'fan', 'simmer', 'steam'}
+# ---------------------------------------------------------------- CLIP MODE (owner, 13 Nov 2026: "sound that matches the scene — crying
+# when crying, laughing when laughing — not the synthetic hisses and ticks"): in a `clip: yes` story ONLY recorded sounds play, ONLY
+# what a shot asks for (amb= bed, sfx= events, the act's own action sounds); no automatic sounds, no synthesis.
+# Vocabulary `real_<what>` → Muse's recorded files studio/sfx_ifm/real_<what>_<n>.wav (registered as ifm_real_<what>); until a real
+# file exists the closest recorded stand-in below plays, else nothing (silence beats a wrong sound) and it is listed as missing.
+CLIPM = False; MISSING_REAL = set()
+REAL_FALLBACK = {'water_splash': 'ifm_world_splash', 'bubbles': 'ifm_world_bubble', 'sea_night': 'ifm_amb_ocean_wave', 'ocean_waves': 'ifm_amb_ocean_wave',
+    'crash_metal': 'ifm_impact_metalheavy', 'hull_impact': 'ifm_impact_heavy', 'torch_click': 'ifm_clack_toggle', 'door_metal': 'ifm_amb_door_slam',
+    'footsteps': 'ifm_foley_step_concrete', 'rain': 'ifm_amb_rain_drizzle', 'wind': 'ifm_amb_wind_gust', 'thunder': 'ifm_amb_thunder_roll',
+    'crowd': 'ifm_amb_cafe_murmur', 'applause': 'ifm_amb_applause', 'cheer': 'ifm_amb_crowd_cheer', 'glass_break': 'ifm_crack_glass', 'wood_break': 'ifm_crack_wood',
+    'page_turn': 'ifm_foley_page_turn', 'keys': 'ifm_foley_keys', 'coins': 'ifm_foley_coins', 'hammer': 'ifm_foley_hammer', 'dog_bark': 'ifm_animal_dog_bark',
+    'cat_meow': 'ifm_animal_cat_meow', 'horse': 'ifm_animal_horse', 'insects': 'ifm_animal_insects', 'wolf_howl': 'ifm_animal_wolf_howl', 'forest_dawn': 'ifm_amb_forest_dawn', 'city': 'ifm_amb_city_rush'}
+_SAMPLED = None
+def sampled(name):
+    global _SAMPLED
+    if _SAMPLED is None:
+        try: _SAMPLED = {k for k, d in P.describe().items() if d.get('samples')}
+        except Exception: _SAMPLED = set()
+    return name in _SAMPLED
+def realname(n):
+    """clip mode: map a story/act sound name to a recorded sound, or None (skip)."""
+    n = str(n)
+    if n.startswith('real_'):
+        w = n[5:]
+        for c in ('ifm_real_' + w, REAL_FALLBACK.get(w)):
+            if c and c in PRO and sampled(c): return c
+        MISSING_REAL.add(n); return None
+    kind, real = resolve(n)
+    return n if (kind == 'pro' and sampled(real)) else None
+
 def calm_ok(c):
     n = str((c.get('name') if isinstance(c, dict) else getattr(c, 'name', '')) or '')
     return not (n in NOISY or n.startswith(('amb_', 'whoosh', 'riser', 'hit_sub', 'swoosh', 'trans_')))
@@ -548,6 +578,7 @@ CUE_ROTATE = {'whoosh': ['whoosh_med', 'whoosh_swish', 'whoosh_small'], 'pop': [
 REVERB_FOR = {'amb_fan_room': 'S', 'amb_kitchen': 'S', 'amb_cafe': 'S', 'amb_room_tone': 'S', 'amb_night_village': 'S', 'amb_city_traffic': 'M', 'amb_traffic_far': 'M',
               'amb_market': 'M', 'amb_bamboo_wind': 'L', 'amb_countryside': 'L', 'amb_temple': 'L', 'amb_cave': 'L', 'amb_river': 'M', 'amb_waves': 'L'}
 def bed_for(sc, bt, o):
+    if CLIPM: return realname(o['amb']) if o.get('amb') else None
     kind = o.get('kind') if bt == 'moment' else None
     if kind in ('street3d', 'shot_worm', 'shot_ots', 'shot_street', 'crossing'): return 'amb_city_traffic'
     if kind in ('shot_bird',): return 'amb_traffic_far'
@@ -683,6 +714,7 @@ def collect(C, beats, D):
         for c in C['cues']:
             if c.get('auto'): continue
             if re.search(r'[:@]', c['sfx']): continue   # a story sfx= cue ("t:name:gain" / "name@k"): placed by the beat options below, not a sound name (was a false "unknown")
+            si = next((k for k, s_ in enumerate(scenes) if s_['id'] == c.get('scene')), 0)
             evs.append(Ev(c['t'], 'cue.' + c['sfx'], si, {'gain': c.get('gain', 1)}, 'cue'))
     else: evs += legacy_events(C)
     for i, sc in enumerate(scenes):
@@ -738,7 +770,11 @@ def expand(evs, C, beats, ctx, D):
             except KeyError: unknown.append(l['name'])
     for e in evs:
         fam = e.kind.split('.')[0]; L = []
-        if e.kind == 'explicit':
+        if CLIPM and e.kind in ('explicit',) or (CLIPM and fam == 'cue'):
+            nm0 = e.a['name'] if e.kind == 'explicit' else e.kind[4:]; nm = realname(nm0)
+            if not nm: continue
+            L = [Ly(nm, 0, 0, (e.a or {}).get('pan', 0), 2, sync=True, lin=float((e.a or {}).get('gain', .55)), align='start' if nm.startswith(('ifm_amb', 'ifm_real_amb')) else 'peak', opts=(e.a or {}).get('opts') or {})]
+        elif e.kind == 'explicit':
             a = e.a; L = [Ly(a['name'], 0, 0, a.get('pan', 0), 2, sync=True, lin=float(a.get('gain', .5)), opts=a.get('opts') or {})]
             if a['name'] in ('city_bed', 'fan', 'simmer') or (a['name'].startswith('amb_')): L[0]['align'] = 'start'
         elif not auto or e.scene in foley_off: continue
@@ -787,7 +823,12 @@ def bed_sounds(scenes, dur):
         s0 = max(0., t0 - (.4 if t0 > .01 else 0)); s1 = min(dur + .5, t1 + .6)
         try: x, m = render_raw(b, si, {'dur': round(s1 - s0, 2)})
         except KeyError: continue
-        x = x.copy(); n = len(x); a = int(SR * (.4 if t0 > .01 else .005)); r_ = int(SR * .6)
+        x = x.copy(); need = int((s1 - s0) * SR)
+        if len(x) < need and len(x) > SR:   # a short recorded bed (clip mode) loops with 1 s equal-power crossfades
+            xf = SR; seg = x.copy(); ramp = np.sqrt(np.linspace(0, 1, xf))[:, None] if x.ndim > 1 else np.sqrt(np.linspace(0, 1, xf))
+            while len(x) < need: x = np.concatenate([x[:-xf], x[-xf:] * ramp[::-1] + seg[:xf] * ramp, seg[xf:]])
+            x = x[:need]
+        n = len(x); a = int(SR * (.4 if t0 > .01 else .005)); r_ = int(SR * .6)
         x[:a] *= np.linspace(0, 1, a); x[-r_:] *= np.linspace(1, 0, r_)
         gcurve = np.ones(n)
         for (ts, g) in gains: gcurve[max(0, int((ts - s0) * SR)):] = 10 ** (g / 20)
@@ -1131,7 +1172,9 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
     # The If Machine, owner 4 Nov 2026: 'too many sound effects and too loud — remove them, keep very few, only when needed'.
     # Minimal sound (default for IFM; story header `sound: full` restores the old design): no ambience beds, no sweeteners, only the
     # one-shots a beat asks for with sfx= (max one per 30 s), music lower under the voice, master at −16 LUFS.
-    global MINIMAL; MINIMAL = ifm and not re.search(r'^\s*sound\s*:\s*full\b', _st, re.M | re.I)
+    global MINIMAL, CLIPM; MINIMAL = ifm and not re.search(r'^\s*sound\s*:\s*full\b', _st, re.M | re.I)
+    CLIPM = bool(re.search(r'^\s*clip\s*:\s*yes\b', _st, re.M | re.I)); MISSING_REAL.clear()
+    if CLIPM: D = {**D, 'auto': False, 'stingers': False}
     if MINIMAL and lufs is None and 'lufs' not in D: target = -16.
     if MINIMAL: D = {**{'music_db': -16.5, 'duck_db': -13., 'stingers': False}, **D}; stingers = False   # owner, 11 Nov 2026: music was lost on phone speakers (−45 LUFS); a little up, ducked a little less     # both use the real-track music library (tools/music_lib.py)
     if len(beats) < len(scenes): beats = beats + [('end', {})] * (len(scenes) - len(beats))
@@ -1146,7 +1189,10 @@ def main(base, design_path=None, story=None, fmt=None, lufs=None, tp=None, sting
         if '\u200b' in tx: dips.append((sb['t0'] + (sb['t1'] - sb['t0']) * tx.index('\u200b') / max(1, len(tx)), 'hard'))
     foley_off = {i for i, (bt, o) in enumerate(beats[:len(scenes)]) if o.get('foley') == 'no'}
     if D.get('auto', True) and not MINIMAL: cands += bed_sounds(scenes, dur) + ([] if ifm else sweeteners(scenes, dur, foley_off))   # IFM: no random sweeteners
-    if MINIMAL:   # only what the story asked for, at most one every 30 s, a little quieter
+    if CLIPM:   # clip mode: the shots' own beds + their action sounds, recorded only, nothing automatic
+        cands = [c for c in cands if sampled(getattr(c, 'real', '') or getattr(c, 'name', ''))] + bed_sounds(scenes, dur)
+        if not quiet: print(f'  clip sound: {len(cands)} recorded sounds (beds + actions) · missing real: {", ".join(sorted(MISSING_REAL)) or "none"}')
+    elif MINIMAL:   # only what the story asked for, at most one every 30 s, a little quieter
         # `sound: light` (owner, 11 Nov 2026: the films are cartoons now): the story's soft cartoon foley (sfx=) every few seconds
         light = bool(story and os.path.exists(story) and re.search(r'^\s*sound\s*:\s*light\b', open(story).read(), re.M | re.I)); gap = 1.5 if light else 30.   # light: no cadence (owner, 11 Nov 2026: "why every 4 s, it is mechanical") — a sound only where the story puts one; 1.5 s only stops two from colliding
         if ifm and not (story and os.path.exists(story) and re.search(r'^calm\s*:\s*off\b', open(story).read(), re.M)):
@@ -1384,7 +1430,8 @@ if __name__ == '__main__':
     a = sys.argv[1:]; opt = lambda k: a[a.index('--' + k) + 1] if '--' + k in a else None
     if not a: print(__doc__); sys.exit()
     if a[0] == 'qa': qa_file(a[1], opt('stems')); sys.exit()
-    if a[0] == 'names': bad = [n for n in a[1:] if resolve(n)[0] is None or n in NOISY]; print('unknown or hiss sounds: ' + (', '.join(bad) if bad else 'none')); sys.exit(1 if bad else 0)
+    # real_* = recorded vocabulary, resolved (or reported missing) by clip mode
+    if a[0] == 'names': bad = [n for n in a[1:] if not n.startswith('real_') and (resolve(n)[0] is None or n in NOISY)]; print('unknown or hiss sounds: ' + (', '.join(bad) if bad else 'none')); sys.exit(1 if bad else 0)
     q = main(a[0], opt('design'), opt('story'), opt('fmt'), float(opt('lufs')) if opt('lufs') else None, float(opt('tp')) if opt('tp') else None,
              stingers='--no-stingers' not in a, legacy='--legacy-stems' in a, quiet='--quiet' in a)
     print('sound design →', a[0] + '_mix.wav', f'{q["events_scheduled"]} events, {q["unique_sounds"]} sounds, {q["mix"]["lufs_i"]} LUFS, TP {q["mix"]["tp_dbtp"]} dBTP')
