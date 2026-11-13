@@ -521,3 +521,13 @@ too fast, no hook, no ending; voice dull; 2D scenes shallow, you can't tell what
   beat-option path placed them). `tools/ship.sh` drops the shot cache after delivery.
 - Lesson (same day): after editing a shot's code, look at ONE still of that shot (`node tools/still.mjs …`) before `--redo`; a
   `//` comment pasted mid-line silently cut the rest of a one-line draw function (shot 14 rendered as the fallback sunburst).
+
+## 13 Nov 2026 — real models + stall guard (owner: "people, objects, everything real, not toys or blocks")
+- Realism bar written into CLAUDE.md / CLIP.md / ASSETS3D.md: every person and object on screen is a real, detailed model; procedural
+  only for terrain, water, particles, light; missing model → Wanted + reframe the shot (never a primitive stand-in).
+- Poly Haven models ship as glTF + .bin + textures, which `assets3d.py` could not load, so 35 real models sat unused: converted with
+  Blender (bpy, `to_glb`) to .glb and added (rock scans, crate, bucket, torch, sofa, barrel, wrench, shelves*). *steel_frame_shelves_01
+  is a whole 11 × 21 m rack set — check real dimensions before placing a model.
+- `tools/render.mjs`: a frame that does not come back within `--stall` s (180) reopens the page and retries (a 4-job render with heavy
+  scans hung silently for 40 min); resume reuses the shot cache. Use `--jobs 3` for scenes with many scans (memory).
+- cook-under-the-sea v3 rebuilt on these (rocks, sand, crate, bucket, torch, can, sofa, wa-woman); fake helmet/vest/tug wides reframed.

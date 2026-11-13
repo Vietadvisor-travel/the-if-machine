@@ -43,9 +43,12 @@ else {
   if (!shotKey && fs.existsSync(cacheDir)) { let ok = false; try { ok = JSON.parse(fs.readFileSync(path.join(cacheDir, 'meta.json'), 'utf8')).fp === fp; } catch {} if (!ok) fs.rmSync(cacheDir, { recursive: true, force: true }); }
   if (!shotKey) { fs.mkdirSync(cacheDir, { recursive: true }); fs.writeFileSync(path.join(cacheDir, 'meta.json'), JSON.stringify({ fp })); }
   const t0 = Date.now(); let done = 0, reused = 0; const total = f1 - f0;
+  // a hung page (WebGL context lost, memory pressure: owner 13 Nov 2026, a render sat silent for 40 min) is replaced, not waited on
+  const STALL = +(opt('stall') || 180) * 1000, timed = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('stall')), ms))]);
   const seg = async (pg, a, b, o) => { const ff = enc(o); for (let f = a; f < b; f++) { const cf = path.join(cacheDir, (shotKey ? shotKey(f) : f) + '.jpg'); let buf;
     if (fs.existsSync(cf)) { buf = fs.readFileSync(cf); reused++; }
-    else { buf = await frameOn(pg, f / fps); const tmp = cf + '.tmp'; fs.writeFileSync(tmp, buf); fs.renameSync(tmp, cf); }
+    else { for (let tries = 0; ; tries++) { try { buf = await timed(frameOn(pg, f / fps), STALL); break; } catch (e) { if (tries >= 2) throw e; console.log(`frame ${f}: ${e.message} — reopening the page`); try { await pg.close(); } catch {} pg = (await openPage()).page; } }
+      const tmp = cf + '.tmp'; fs.writeFileSync(tmp, buf); fs.renameSync(tmp, cf); }
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r)); if (++done % 150 === 0) console.log(`${fmt} frame ${done}/${total} ${((Date.now() - t0) / 1000).toFixed(0)}s (${jobs} jobs, reused ${reused})`); } ff.stdin.end(); await new Promise(r => ff.on('close', r)); };
   if (jobs === 1) await seg(page, f0, f1, out);
   else { const pages = [page, ...(await Promise.all(Array.from({ length: jobs - 1 }, () => openPage()))).map(x => x.page)]; const step = Math.ceil(total / jobs); const parts = [];
