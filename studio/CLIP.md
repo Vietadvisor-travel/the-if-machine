@@ -47,6 +47,9 @@ asset to work — set dressing, props, ambience, action sounds.
 - **Realism bar (owner, 13 Nov 2026): everything on screen is a REAL model** (scan / detailed PBR model at real scale). Never a box,
   sphere or cylinder standing in for an object, never a toy-like figure. Procedural only for terrain, water, particles, light.
   Missing asset → add it to ASSETS3D.md "Wanted" and reframe the shot so the missing thing is not seen; never fake it with primitives.
+  **Building a model is the last resort and only Claude's** (owner, 14 Nov 2026): only when Muse found no real one anywhere AND the shot
+  cannot be reframed without losing the story; then build it to the realism bar (real proportions, bevels, PBR textures from the library,
+  wear), check a 1080×1920 close-up, and name it in the delivery note. Prefer reframing.
 - Camera frames the `on` actor by size; move over the beat; a new shot every sentence, never the same cam twice in a row.
 - Story-specific objects that no asset covers: a bespoke act `x3_<name>` in `engine/library/bank/<slug>.js` (see bank/okene.js),
   built from IFM.L3 helpers (L.tug, L.rock, L.seabed, L.particles, L.rays, L.figure …). Add it to the library for reuse.

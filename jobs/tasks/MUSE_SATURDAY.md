@@ -70,7 +70,8 @@ Per candidate:
 Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> - <câu móc dịch ngắn> - mô hình/tiếng thật: đủ / thiếu <x>`), and wait.
 
 ## Realism gate for every kit (owner, 14 Nov 2026: "each episode needs ALL its resources, real, lively, quality")
-- A model Muse builds itself (procedural Blender, `local_*`) is NOT real: such a row is ❌, never ✅ (the 14 Nov kits marked ✅ on
+- **Muse does not build models (owner, 14 Nov 2026): Muse DIGS for real ones** — Sketchfab, Poly Haven, Smithsonian, Fab, CGTrader free,
+  NASA, museum scans; several sources per item before giving up. A model Muse builds itself (procedural Blender, `local_*`) is NOT real: such a row is ❌, never ✅ (the 14 Nov kits marked ✅ on
   self-built tugboat/helmet/Cessna/raft etc. read as toys in a close-up render — `studio/out/muse_models_2026-11-14.jpg`).
 - ✅ only with proof: a 1080×1920 close-up render of the model in the library, saved to Drive `_kits/<slug>/<id>.jpg` and linked in the row.
 - Real sources need logins: use the owner's **Sketchfab** account (API token: CC0 / CC-BY downloads, author + URL in the index) and

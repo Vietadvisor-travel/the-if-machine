@@ -364,6 +364,7 @@ Procedural is allowed only for terrain, water, particles and light. Sources in o
 Access (CC0) · Sketchfab models with **CC0 or CC-BY** (CC-BY allowed from now on: write author + licence + URL in the index, the
 credit goes in the video description) · Fab free/standard-licence assets that allow commercial video. No NC/ND licences, no ripped
 game assets. Quality check before upload: a 1080×1920 close-up render must read as a real object.
+**Muse never builds models; Muse digs for real ones. Building is Claude's last resort only** (owner, 14 Nov 2026).
 
 ## Wanted (Claude appends; Muse fulfils on Saturday)
 - 2026-11-14 · **week 2026-11-23 gaps** (from jobs/topics/WEEK_2026-11-23.md, in production order):
