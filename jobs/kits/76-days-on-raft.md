@@ -16,7 +16,7 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
 | Avon inflatable life raft, ~6 ft across | glb/life_raft.glb (CGTrader, Royalty Free, Solidpixell; proof _kits/76-days-on-raft/life_raft.jpg) | 3.0 m long (aircraft emergency raft; bigger than Callahan's ~1.8 m Avon, use as the real stand-in) | ✅ |
-| Solar still (clear cone) | glb/local_solar_still_glb (local Blender, CC0) | ~0.5 m | ❌ procedural, not real; no real solar still found on Sketchfab/CGTrader. Stand-in: show the still only as a small shape in a wide raft shot, never a close-up |
+| Solar still (clear cone) | glb/local_solar_still_glb (local Blender, CC0) | ~0.5 m | ❌ procedural, not real; no real solar still exists on Sketchfab or CGTrader (searched 2026-11-14: Sketchfab's only relevant hit is an MIT desalination unit, a 1.6 m white slatted box, wrong shape; CGTrader's closest free hit is a box Water Distiller, IGE format only, wrong shape; the two paid CGTrader solar stills are also boxes, not cones). Stand-in: show the still only as a small shape in a wide raft shot, never a close-up |
 | Speargun, short | glb/speargun.glb (Sketchfab, CC Attribution, frkndgr; proof _kits/76-days-on-raft/speargun.jpg) | 0.35 m (a short speargun, as in the story; the arms from the source model were removed) | ✅ |
 | Napoleon Solo, 6.5 m sloop | dutch_ship_medium (Poly Haven, CC0) as a small sailing boat stand-in; the story's boat is a modern sloop, the Dutch ship reads older, use only in a wide sinking shot | ~6.5 m | ✅ with the wide-shot note |
 | Dorado (mahi-mahi) under the raft | glb/mahi_mahi.glb (Sketchfab, CC Attribution, Fishname1019; proof _kits/76-days-on-raft/mahi_mahi.jpg) | 1.0 m | ✅ |
