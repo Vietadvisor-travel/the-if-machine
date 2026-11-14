@@ -245,7 +245,7 @@ Second wave, 2026-11-14 (Sketchfab, CC-BY, all with a 1080x1920 close-up proof i
 
 Uploaded as models_2026-11-14_real2.zip (32.2 MB), index 699 -> 704 entries. Replaces the local stand-ins local_bicycle, local_tv_set, local_food_trolley, local_speargun and local_paper_stack in the kits (those local files stay in the library but do not count as real). Notes: the speargun source included a pair of arms (deleted) and a stray Icosphere in the glTF 'glTF_not_exported' collection (the convert script now deletes from bpy.data.objects, not scene.objects, to catch it); the TV and trolley textures were downscaled to 1K before conversion (TV 93 MB -> 19 MB, GLB 97.8 MB -> 20.5 MB; the trolley OOMed twice at 5.6 GB before the downscale). Kit results: doctor-pump-handle and survived-two-atomic-bombs KIT_READY; fell-10km KIT_PARTIAL (snow footsteps sound only), 76-days KIT_PARTIAL (eu-man + solar still), man-ate-aeroplane KIT_PARTIAL (eu-man only). No real solar still exists on Sketchfab/CGTrader (searched 2026-11-14). Freesound search API returns 403 for this account (detail endpoint still works); snow footsteps search blocked on that.
 
-## 4. People — 16 rigged humans (MPFB/MakeHuman, CC0) + animation library
+## 4. People — 17 rigged humans (MPFB/MakeHuman, CC0) + animation library
 
 ### 4a. People
 
@@ -262,6 +262,7 @@ Y-up, textures embedded, 14-38 MB each, 372 MB total.
 | ea-man | East Asian man | young_asian_male skin |
 | ea-woman | East Asian woman (young) | young_asian_female skin |
 | eu-boy | European boy (child) | young_caucasian_male skin, age macro 0.25 |
+| eu-man | European man (young adult) | young_caucasian_male skin, gender macro 1.0, polo shirt + cargo pants; built 2026-11-14 for Callahan (76-days) and Lotito (man-ate-aeroplane). The first build used gender 0 and read as female, rebuilt with gender 1.0. |
 | eu-man-elder | European man (elder) | old_caucasian_male skin |
 | eu-woman | European woman | young_caucasian_female skin |
 | la-man | Latin American man (young) | toigo_light_skin_male_bronze (tanned) |
@@ -397,7 +398,7 @@ game assets. Quality check before upload: a 1080×1920 close-up render must read
   5. **Arm/hand close-up rig or 2D insert** (story 15; same gap as last week story 14)
   6. **Sunglasses** (story 13, small local model)
   7. **Tickle machine** (story 14, 2D insert only)
-- 2026-11-14 · **eu-man (young adult European man)** (stories 76-days-on-raft, Callahan 30, and man-ate-aeroplane, Lotito 27-30; no plain eu-man in the library, stand-in eu-man-elder reads too old). Build with MPFB, same mixamo rig as the other 16 people.
+- 2026-11-14 · **eu-man (young adult European man)** (stories 76-days-on-raft, Callahan 30, and man-ate-aeroplane, Lotito 27-30) - DONE 2026-11-14 evening: built with MPFB, gender macro 1.0, polo shirt + cargo pants, mixamo rig, 20.5 MB, proof in Drive _kits/76-days-on-raft/eu-man.jpg and _kits/man-ate-aeroplane/eu-man.jpg. Index 707. Both kits' casting rows now ✅.
 - 2026-11-13 · **REALISM TOP-UP for cook-under-the-sea (priority 1, owner)** — remaining, after the 2026-11-14 top-up:
   2. Ship washroom pieces still missing: ship toilet cubicle partitions + door, pipes/conduits (toilet, door, washing machine, ceiling light, wash basin built).
   3. Ship cabin pieces still missing: ship corridor module (walls with pipes and cable trays, floor grating or linoleum); metal desk + chair exist as table + chair.
@@ -420,6 +421,7 @@ game assets. Quality check before upload: a 1080×1920 close-up render must read
 - 2026-11-12 · **tugboat / small work boat** (story Okene): built as local_tugboat.glb (see §3b for the realism caveat and the real-model candidates).
 
 ## Changelog
+- 2026-11-14 evening, owner rule (full resources for locked episodes, fell-10km first, Mon 23/11): eu-man built (MPFB, gender macro 1.0, polo + cargo pants, 20.5 MB, mixamo rig, proof in Drive _kits/76-days-on-raft/eu-man.jpg), index 706 -> 707; snow footsteps real (Freesound CC0, Nimlos id 432285, 41.0 s, real_snow_footsteps_1.wav, real_sfx_2026-11-14_snow.zip, found via the Freesound website because the API search returns 403); fell-10km KIT_READY, man-ate-aeroplane KIT_READY. 76-days KIT_PARTIAL on the solar still only: Sketchfab searched (solar still, solar distiller, water distiller, desalination, survival still) - the only relevant hit is an MIT solar desalination unit, a 1.6 m white slatted box, wrong shape for Callahan's clear cone still; CGTrader search running.
 - 2026-11-14 cook top-up: oil tanker + Troll A platform (real, Sketchfab CC-BY), models_2026-11-14_cook.zip (36.0 MB), index 704 -> 706; fish covered by mahi-mahi; Juoda rig rejected (redundant, 83.9 MB). Remaining cook Wanted: washroom, corridor, diver suit, people.
 - 2026-11-14 realism gate redo, wave 2: 5 real models (bicycle, vintage TV, airline trolley, speargun, paper stack), models_2026-11-14_real2.zip (32.2 MB), index 699 -> 704; survived-two-atomic-bombs KIT_READY (2nd ready kit); fell-10km KIT_PARTIAL (snow footsteps sound), 76-days KIT_PARTIAL (eu-man + solar still), man-ate-aeroplane KIT_PARTIAL (eu-man). Convert script now deletes from bpy.data.objects (catches glTF_not_exported helpers). Freesound search API 403, detail works.
 - 2026-11-14 realism gate redo: 7 real models (raft, hand-pump, desk, horse cart, mahi-mahi, Cessna 172, DC-9), models_2026-11-14_real.zip (103.9 MB), index 692 -> 699; doctor-pump-handle KIT_READY; 4 kits KIT_PARTIAL (see STATUS.md). Sketchfab + Freesound + CGTrader accounts done; Sketchfab token on Muse's machine. Next hunt candidates recorded in §3c.

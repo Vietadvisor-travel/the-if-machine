@@ -6672,5 +6672,28 @@
   "source": "https://sketchfab.com/3d-models/oil-platform-troll-a-6b0c42c58598434986d59073ff360429",
   "credit": "Oil Platform Troll A by ragnar, CC Attribution, via Sketchfab",
   "size_bytes": 23970468
+ },
+ {
+  "id": "eu-man",
+  "category": "people",
+  "file": "people/eu-man.glb",
+  "drive": "_assets3d/people/eu-man.glb",
+  "group": "people",
+  "tags": [
+   "man",
+   "european",
+   "young adult"
+  ],
+  "scale_m": [
+   1.9,
+   2.0,
+   2.89
+  ],
+  "licence": "CC0 (MakeHuman/MPFB community asset packs)",
+  "author": "MPFB/MakeHuman",
+  "source": "MPFB 2.0.18, mixamo rig, 52 joints",
+  "credit": "MPFB/MakeHuman, CC0",
+  "size_bytes": 20972544,
+  "note": "gender macro 1.0, polo shirt + cargo pants; the first build (gender 0) read as female, rebuilt with gender 1.0"
  }
 ]

@@ -28,7 +28,7 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | Snowy forest bed, cold wind in trees | real_snow_wind | real_snow_wind_2 (60.0 s, Public domain) | ✅ |
 | The fuselage hits the snow | real_body_fall | real_body_fall_1 (1.8 s, CC0, Freesound) | ✅ |
 | Her breathing in the wreckage | real_breath | real_breath_2 (heavy breathing, 59.8 s) | ✅ |
-| Silence after the crash, then Honke's steps in snow | real_footsteps (snow) | real_footsteps_3 (53.0 s, CC0, Freesound, pavement) | ❌ no snow footsteps in library; stand-in: real_footsteps_3, use the step sounds only |
+| Silence after the crash, then Honke's steps in snow | real_footsteps (snow) | real_snow_footsteps_1 (41.0 s, CC0, Freesound, Nimlos) | ✅ |
 
 ## Credits to put in the video description
 - DC-9 airliner: Sketchfab, CC Attribution (nobilishornet). Food trolley: Sketchfab, CC Attribution (Bellatrix613)

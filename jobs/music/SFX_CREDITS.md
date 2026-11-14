@@ -1,6 +1,6 @@
 # The If Machine SFX library credits
 
-118 files, all WAV 44.1 kHz / 16-bit. ifm_sfx_1.zip (76 files) + real_sfx_2026-11-14.zip (19 files, rebuilt 2026-11-14 afternoon without 7 CC BY-SA files) + real_sfx_2026-11-14_kit.zip (8 files) + real_sfx_2026-11-14_freesound.zip (15 files) in Drive TheIfMachine_Media/_sfx/. The first 103 files are mono; the 15 Freesound files are stereo.
+119 files, all WAV 44.1 kHz / 16-bit. ifm_sfx_1.zip (76 files) + real_sfx_2026-11-14.zip (19 files, rebuilt 2026-11-14 afternoon without 7 CC BY-SA files) + real_sfx_2026-11-14_kit.zip (8 files) + real_sfx_2026-11-14_freesound.zip (15 files) + real_sfx_2026-11-14_snow.zip (1 file) in Drive TheIfMachine_Media/_sfx/. The first 103 files are mono; the 16 Freesound files are stereo.
 Four sources, all cleared for commercial use:
 
 1. Original synthesis (33 files): synthesized locally for The If Machine, royalty-free, no attribution required.
@@ -303,6 +303,7 @@ Freesound CC0 real recordings for the week 2026-11-23 kits, fetched 2026-11-14 e
 | real_crowd_2.wav | crowd | 57.2 | CC0 | [Large_crowd_medium_distance_stereo.wav](https://freesound.org/s/360703/) - eguobyte, CC0 | About a thousand people chatting, almost no distinct dialogue. |
 | real_footsteps_3.wav | footsteps | 53.0 | CC0 | [Walking on pavement.wav](https://freesound.org/s/244310/) - JohnsonBrandEditing, CC0 | Walking on pavement, parking lot. |
 | real_footsteps_4.wav | footsteps | 19.9 | CC0 | [Footsteps on concrete](https://freesound.org/s/459964/) - florianreichelt, CC0 | Footsteps on concrete. |
+| real_snow_footsteps_1.wav | snow_footsteps | 41.0 | CC0 | [snow footsteps (outside recording)](https://freesound.org/s/432285/) - Nimlos, CC0 | Footsteps crunching in snow, 41 s, recorded on Tascam DR60d + Rode NTG-3. Found via the Freesound website (the API search returns 403); closes the last gap in the fell-10km kit. |
 
 ## Rejected - CC BY-SA, NOT for baked-in use
 

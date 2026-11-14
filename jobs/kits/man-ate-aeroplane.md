@@ -5,7 +5,7 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## People (house rig, realistic; no likeness of the real person)
 | who | age / origin / build | clothes & gear | animation clips needed | library id | ✅/❌ |
 |---|---|---|---|---|---|
-| Michel Lotito | 27-30, French, moustache, plain shirt | 1970s shirt, work table | Sitting, Picking_Up, Talking_General | - | ❌ no young adult European man in the library (same gap as 76-days-on-raft; eu-man-elder is the only European adult male and reads too old for 27). Stand-in for this clip: eu-man-elder for the older Lotito scenes, or build eu-man (MPFB, gender macro 1.0). Added to Wanted. |
+| Michel Lotito | 27-30, French, moustache, plain shirt | 1970s shirt, work table | Sitting, Picking_Up, Talking_General | glb/eu-man | ✅ |
 
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |

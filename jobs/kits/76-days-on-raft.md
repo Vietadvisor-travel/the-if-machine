@@ -5,7 +5,7 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## People (house rig, realistic; no likeness of the real person)
 | who | age / origin / build | clothes & gear | animation clips needed | library id | ✅/❌ |
 |---|---|---|---|---|---|
-| Steven Callahan | 30, American, lean | sailing shirt, shorts, cap, sunburnt | Sitting, Sitting_Idle, Swimming, Treading_Water, Reaching_Out | - | ❌ no young adult European man in the library (16 people: eu-man-elder is the only European adult male and reads too old for 30). Stand-in for this clip: eu-man-elder framed older, or build eu-man (MPFB, gender macro 1.0). Added to Wanted. |
+| Steven Callahan | 30, American, lean | sailing shirt, shorts, cap, sunburnt | Sitting, Sitting_Idle, Swimming, Treading_Water, Reaching_Out | glb/eu-man | ✅ |
 
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
