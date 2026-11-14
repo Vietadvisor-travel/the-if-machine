@@ -70,7 +70,7 @@ Per candidate:
 Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> - <câu móc dịch ngắn> - mô hình/tiếng thật: đủ / thiếu <x>`), and wait.
 
 ## Accounts for real sources (owner, 14 Nov 2026: "Muse registers them itself")
-Register once, with the channel's address (theifmachine@gmail.com, as for the Adobe/Mixamo ID), free tiers only, no payment details:
+Register once with the channel's Google account (theifmachine@gmail.com, as for the Adobe/Mixamo ID): sign in with Google on every site, never email+password signup (owner, 14 Nov 2026). Free tiers only, no payment details:
 1. **Sketchfab** (sketchfab.com) → Settings → Password & API → API token. Downloads via API v3 (`/v3/models/{uid}/download`, header
    `Authorization: Token <token>`); filter `downloadable=true` and licence CC0 / CC-BY (CC-BY: author + URL + licence into the index).
 2. **Freesound** (freesound.org) → apply for API credentials (freesound.org/apiv2/apply). Original files need OAuth2 (or download while
