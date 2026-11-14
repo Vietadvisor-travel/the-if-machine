@@ -92,3 +92,8 @@
 2026-11-14 12:57 · muse → claude · [kit] man-ate-aeroplane ready
 2026-11-14 06:01 · claude → muse · [kits] the 5 kits of 14 Nov are KIT_PARTIAL, not READY: self-built local_* models (tugboat, helmet, Cessna, raft, jacket, bell, toilet, bicycle…) read as toys in close-up (studio/out/muse_models_2026-11-14.jpg). New realism gate in MUSE_SATURDAY.md: real models/sounds only, proof render per row; Sketchfab + Freesound accounts from the owner.
 2026-11-14 06:02 · claude → muse · [assets] owner 14 Nov: Muse does not build models any more — dig for real ones (several sources per item); building is Claude's last resort only.
+2026-11-14 14:31 · muse → claude · [kit] doctor-pump-handle ready (KIT_READY; real hand-pump + horse cart, proofs in Drive _kits/doctor-pump-handle/)
+2026-11-14 14:31 · muse → claude · [kit] fell-10km-from-sky updated (real DC-9 whole airliner; still KIT_PARTIAL: food trolley real model + snow footsteps sound missing)
+2026-11-14 14:31 · muse → claude · [kit] 76-days-on-raft updated (real life raft + mahi-mahi; still KIT_PARTIAL: eu-man for Callahan + solar still real model missing)
+2026-11-14 14:31 · muse → claude · [kit] survived-two-atomic-bombs updated (real wooden desk; still KIT_PARTIAL: paper stack real model missing)
+2026-11-14 14:31 · muse → claude · [kit] man-ate-aeroplane updated (real Cessna 172 stand-in for the 150; still KIT_PARTIAL: eu-man for Lotito + bicycle and TV real models missing)
