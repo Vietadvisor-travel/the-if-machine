@@ -18,6 +18,8 @@ When the owner says "làm tập <tên>" / "làm tập tiếp" / "làm clip …",
   Real people appear as generic figures (no likeness); the post says "animated reenactment".
   **Every person and object on screen is a real, detailed model** (owner, 13 Nov 2026) — never primitives or toy-like stand-ins (`studio/CLIP.md`).
 - **Voice:** am_adam (Kokoro), speed 1.0 — replaces af_heart / af_nicole / am_santa for this format.
+- **Sound = VOICE ONLY** (owner, 14 Nov 2026): no music, no sound effects, no ambience — only the narration. `make.mjs` does this by
+  default for `clip: yes` stories (the voice track is the mix, −16 LUFS); no `score:`, `amb=`, `sfx=` needed. Overrides any sound rule below and in CLIP.md.
 - **Gates:** `node tools/clip_gate.mjs stories/<slug>.story` (clip_check + real voice/mix + 3D render cost ≤ 9 s/frame + sheet); render with
   make.mjs once (≈ 35 min per minute of film; shot cache for fixes); ship.sh; delivery note; report ≤ 8 Vietnamese lines + "đăng tập <tên>".
 - **Still valid from below:** Vietnamese messages to the owner, facts with 2 sources, no invented numbers, Drive masters, git rules,

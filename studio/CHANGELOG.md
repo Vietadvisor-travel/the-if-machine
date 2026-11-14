@@ -1,5 +1,9 @@
 # Motion Studio — changelog
 
+## 2026-11-14 · Clips are voice only (owner)
+- `tools/make.mjs`: a `clip: yes` story skips sound_design.py and muxes the placed voice track alone (no music, SFX, ambience), loudness −16 LUFS; `sound: full` in the header brings the design back. Tested on fell-10km-from-sky (remux of the delivered master, −16.6 LUFS integrated).
+- bank/fell-10km-from-sky.js: eyeballs for the MPFB people (one per eyelash ring on the Head bone, open/closed materials), clothes pushed out along the skinned normal so the body no longer pokes through.
+
 ## 2026-11-11 (late night) · the voice gets real intonation; foley without a rhythm; Chatterbox dropped
 Owner: "no need for a sound every 4 s, that's mechanical. 4–5 extra hours: drop it. Just add expressive stress so it sounds better."
 - Chatterbox Turbo dropped (CPU ≈ 38× slower than real time).

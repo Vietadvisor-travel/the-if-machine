@@ -1,4 +1,4 @@
-# Delivery — Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống (fell-10km-from-sky) · ODDLY TRUE clip · v1 · 2026-11-14
+# Delivery — Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống (fell-10km-from-sky) · ODDLY TRUE clip · v2 (voice only) · 2026-11-14
 
 ## Files (Drive TheIfMachine_Media/fell-10km-from-sky/)
 - fell-10km-from-sky_vertical_9x16.mp4 · 205 MB (CRF-17 master) · 118.6 s · 1080x1920 · https://drive.google.com/file/d/1Mlk7FAdWhm245SPRKpUOJYsBwL0XMaYE/view
@@ -10,7 +10,7 @@
 - Format: vertical 9:16, 1:30–2:00 true micro-story (CLAUDE.md phase 2), realistic real-time 3D (IFM.L3) + minimal 2D (name tags, a
   28 counter, a blood-pressure gauge, an altitude counter, injury tags, the 10,160 M line).
 - Voice: am_adam (Kokoro, Apache-2.0), speed 1.0. Narration is machine-generated.
-- Music: "Airship Serenity", Kevin MacLeod (incompetech.com), CC BY 4.0 http://creativecommons.org/licenses/by/4.0/ — credit line in the description.
+- Sound: VOICE ONLY (owner, 14 Nov 2026: no music, no sound effects). v1 had a music bed and recorded sounds; v2 replaces the audio on the same Drive file, −16.6 LUFS.
 - Built from Muse's kit (`jobs/kits/fell-10km-from-sky.md`): DC-9 (Sketchfab CC-BY nobilishornet) cut into its three pieces with clipping
   planes (no extra model), airline trolley (Sketchfab CC-BY Bellatrix613), people eu-woman / eu-man-elder / eu-man (MPFB CC0) with the Mixamo
   clips, Poly Haven HDRIs (kloppenheim_06_puresky, snowy_hillside, surgery, kiara_interior), snow / carpet / plastic / tile / wood PBR, trees
@@ -50,8 +50,6 @@
 - The MPFB people have no eyeballs (the sockets showed red in QA round 1): the bank file adds a textured eyeball per eyelash ring on the
   Head bone, with skin-toned "closed lids" where she is unconscious (faint, blood pressure, injury, coma) and open eyes when she wakes.
   Clothes are pushed 14 mm out along their normals so the body no longer pokes through. Both fixes are reusable for every MPFB figure.
-- Sounds are recorded stand-ins where needed: the explosion and break-up use a metal groan + wind (no recorded explosion in the library; silence
-  over a fake one), the medal scene uses a crowd bed.
 - 2D graphics (name tags, counters, gauge, injury tags, the 10,160 M line) are explanations, not records.
 - Respect: the 27 dead are one plain line, no bodies; the bomb is stated once; politics and her death (2016) are left out; the clip ends on the
   record and her lost memory, not on her death.
@@ -62,6 +60,6 @@
 - Title options: 1) She Fell 10 Kilometres and Lived 2) The Woman Who Fell from the Sky 3) 10,160 Metres, No Parachute
 - Opening line: "In 1972, a flight attendant fell from a height recorded as ten kilometres, with no parachute… and lived."
 - Description credits: DC-9 (Sketchfab, CC BY, nobilishornet); airline trolley (Sketchfab, CC BY, Bellatrix613); Poly Haven HDRIs/models/
-  textures (CC0); Kevin MacLeod "Airship Serenity" (CC BY 4.0); sounds per jobs/music/SFX_CREDITS.md.
+  textures (CC0). No music or sound credits (voice only).
 - Caption must say "animated reenactment"; pinned comment: Guinness World Records (7 Apr 2022) + Wikipedia "Vesna Vulović".
 - Post only after the owner says "đăng tập Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống".

@@ -10,7 +10,9 @@ no spoken outro.
   ending with the true irony or meaning. 1:30–2:00. Every fact 2 sources.
 - **Picture**: every person and object a REAL model (scan / detailed PBR, real scale); never primitives or toys; missing → reframe +
   Wanted. Fill the frame, keep it moving (*fill, *motion, *cost ≤ 9 s/frame).
-- **Sound**: recorded only, matched to the picture — a bed per shot, the actors' action sounds, the shot's events (*unknown sounds,
+- **Sound = VOICE ONLY** (owner, 14 Nov 2026 — overrides every sound/music rule in this file): no music, no sound effects, no ambience;
+  make.mjs uses the voice track as the mix for `clip: yes` (−16 LUFS). `sound: full` in the header is for the owner's explicit request only.
+- ~~Sound~~ (legacy, before 14 Nov 2026): recorded only, matched to the picture — a bed per shot, the actors' action sounds, the shot's events (*unknown sounds,
   *missing real sounds listed); music a calm bed, never ticking (*ticks); voice am_adam 1.0; −16 LUFS.
 - **Process**: *comment guard → clip_gate (real voice + mix first) → ONE render (shot cache, stall guard) → QA → ship.
 

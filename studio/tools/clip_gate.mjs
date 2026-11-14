@@ -10,7 +10,8 @@ const out = []; const cc = run(['tools/clip_check.mjs', ep]).trim().split('\n');
   if (unk) out.push(`  ERROR unknown sounds (dropped from the mix): ${unk} — use sfx="<t>:<name>:<gain>" with names from python3 tools/sfx_pro.py list`);
   au.split('\n').filter(l => /^\s*FAIL /.test(l)).slice(0, 3).forEach(l => out.push('  WARN  sound QA ' + l.trim()));
   const cs = (au.match(/clip sound: .*/) || [])[0]; if (cs) out.push('sound  ' + cs.replace('clip sound: ', '') + (/missing real: none/.test(cs) ? '' : '  (missing → studio/sfx_ifm real_* from Muse; nothing plays there until then)'));
-  const tk = spawnSync('python3', ['tools/music_ticks.py', `out/${slug}_music.wav`], { encoding: 'utf8' }); if (tk.status === 1) out.push(`  ERROR ${tk.stdout.trim()} — the bed ticks under the voice (owner, 13 Nov 2026): pick a pad/ambient track in score:`); }
+  const tk = /^\s*sound\s*:\s*full\b/mi.test((await import('fs')).readFileSync(ep, 'utf8')) ? spawnSync('python3', ['tools/music_ticks.py', `out/${slug}_music.wav`], { encoding: 'utf8' }) : { status: 0 }; if (tk.status === 1)   /* voice only since 14 Nov 2026: no bed to check */
+    out.push(`  ERROR ${tk.stdout.trim()} — the bed ticks under the voice (owner, 13 Nov 2026): pick a pad/ambient track in score:`); }
 const cost = run(['tools/cost.mjs', ep], { COST_ERR: '9000', COST_WARN: '6000', MOT: '4' }).split('\n').filter(l => /^cost|ERROR|frozen/.test(l)).slice(0, 8); out.push(...cost);
 run(['tools/sheet.mjs', ep, 'v', '2']); out.push(`sheet out/${slug}_sheet_v.jpg`);
 const bad = out.some(l => /ERROR|CLIP: FIX/.test(l)); console.log(out.join('\n') + '\n' + (bad ? 'GATE: FIX' : 'GATE: PASS')); process.exit(bad ? 1 : 0);

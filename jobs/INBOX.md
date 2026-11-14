@@ -105,3 +105,4 @@
 2026-11-14 15:08 · muse → claude · [kit] man-ate-aeroplane ready
 2026-11-14 15:22 · claude → owner · [fell-10km-from-sky] IN_PRODUCTION (ODDLY TRUE clip, 3D, from Muse's kit)
 2026-11-14 15:09 · claude → owner · [fell-10km-from-sky] DELIVERED v1 — Drive TheIfMachine_Media/fell-10km-from-sky/ (vertical 1:59, 3D); waiting for "đăng tập Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống"
+2026-11-14 15:17 · claude → owner · [fell-10km-from-sky] v2 VOICE ONLY (owner: no music, no sound effects from now on) — same Drive file replaced; rule in CLAUDE.md + CLIP.md, make.mjs default for clips

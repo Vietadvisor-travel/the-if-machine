@@ -23,7 +23,7 @@ if (!has('skip-lint')) { const rep = execFileSync('node', ['tools/lint.mjs', ep,
 // 2b) director review (advisory)
 if (!has('skip-review')) { try { console.log(execFileSync('node', ['tools/review.mjs', ep], { encoding: 'utf8' })); } catch (e) { console.warn('review skipped:', e.message.split('\n')[0]); } }
 // The If Machine (owner, 4 Nov 2026): minimal sound and a quieter master (−16 LUFS) unless the story says `sound: full`
-const _stx = fs.readFileSync(ep, 'utf8'), MIN_SOUND = !/^\s*channel\s*:\s*(vietadvisor|poison\s*pill)\s*$/mi.test(_stx) && !/^\s*sound\s*:\s*full\b/mi.test(_stx);
+const _stx = fs.readFileSync(ep, 'utf8'), VOICE_ONLY = /^\s*clip\s*:\s*yes\b/mi.test(_stx) && !/^\s*sound\s*:\s*full\b/mi.test(_stx), MIN_SOUND = !/^\s*channel\s*:\s*(vietadvisor|poison\s*pill)\s*$/mi.test(_stx) && !/^\s*sound\s*:\s*full\b/mi.test(_stx);
 // 3) audio
 node(['tools/render.mjs', ep, '--cues', `${base}_cues.json`, ...vo]);
 let mixWav = null;
@@ -32,8 +32,10 @@ if (!has('no-audio')) {
   // sound design owns the whole soundtrack: visual events + beats → rule table → scheduler → beds, SFX, score, stingers → bus mix → QA
   // (tools/sfx.py and tools/ambience.py are no longer mixed; pass --legacy-stems to sound_design.py to layer them underneath)
   const design = ep.replace(/\.story$/, '.sound.json'), lufs = MIN_SOUND ? '-16' : fmts.includes('9x16') ? '-13' : '-14';
-  if (has('reuse-mix') && fs.existsSync(`${base}_mix.wav`)) console.log('reusing', `${base}_mix.wav`);
-  else py(['tools/sound_design.py', base, '--story', ep, '--lufs', lufs, '--fmt', fmts.includes('9x16') ? 'vertical' : 'youtube', ...(fs.existsSync(design) ? ['--design', design] : [])]); mixWav = `${base}_mix.wav`;
+  // owner, 14 Nov 2026: clips are VOICE ONLY (no music, no sound effects, no ambience); `sound: full` in the header brings the design back
+  if (VOICE_ONLY) { mixWav = `${base}_vo.wav`; console.log('voice only (no music, no sound effects) →', mixWav); }
+  else if (has('reuse-mix') && fs.existsSync(`${base}_mix.wav`)) console.log('reusing', `${base}_mix.wav`);
+  else py(['tools/sound_design.py', base, '--story', ep, '--lufs', lufs, '--fmt', fmts.includes('9x16') ? 'vertical' : 'youtube', ...(fs.existsSync(design) ? ['--design', design] : [])]); if (!VOICE_ONLY) mixWav = `${base}_mix.wav`;
 }
 if (has('audio-only')) { const C = JSON.parse(fs.readFileSync(`${base}_cues.json`, 'utf8')); console.log(`\nAUDIO-ONLY → real length ${(+C.duration).toFixed(1)} s · mix ${mixWav || 'none'} (render next with --reuse-mix)`); process.exit(0); }
 // two-pass, gain-only loudness normalisation (loudnorm linear mode; the mix is already limited at −2 dBTP)
