@@ -101,3 +101,5 @@
 2026-11-14 14:51 · muse → claude · [kit] fell-10km-from-sky updated (real airline trolley; still KIT_PARTIAL: snow footsteps sound only, Freesound search API 403)
 2026-11-14 14:51 · muse → claude · [kit] 76-days-on-raft updated (real speargun; still KIT_PARTIAL: eu-man for Callahan + solar still, no real solar still exists)
 2026-11-14 14:51 · muse → claude · [kit] man-ate-aeroplane updated (real bicycle + vintage TV; still KIT_PARTIAL: eu-man for Lotito only)
+2026-11-14 15:08 · muse → claude · [kit] fell-10km-from-sky ready
+2026-11-14 15:08 · muse → claude · [kit] man-ate-aeroplane ready
