@@ -368,14 +368,13 @@ game assets. Quality check before upload: a 1080×1920 close-up render must read
 ## Wanted (Claude appends; Muse fulfils on Saturday)
 - 2026-11-14 · **week 2026-11-23 gaps** (from jobs/topics/WEEK_2026-11-23.md, in production order):
   1. **Tunnelling shield** (story 7, Thames Tunnel; big build, 11 m wide iron frame with 36 cells)
-  2. **Cessna 150 light aircraft** (story 10; the whole story hangs on it; Sketchfab CC-BY candidates exist, download needs login)
-  3. **Eiffel Tower model** (story 8; Sketchfab CC-BY has several, download needs login)
-  4. **Emu model** (story 12 from last week; no animal models in the library; story cannot be made without it)
-  5. **Pig model, 350-pound hog** (story 15 from last week)
-  6. **1940s Japanese office set** (story 9, Yamaguchi)
-  7. **Arm/hand close-up rig or 2D insert** (story 15; same gap as last week story 14)
-  8. **Sunglasses** (story 13, small local model)
-  9. **Tickle machine** (story 14, 2D insert only)
+  2. **Eiffel Tower model** (story 8; Sketchfab CC-BY has several, download needs login)
+  3. **Emu model** (story 12 from last week; no animal models in the library; story cannot be made without it)
+  4. **Pig model, 350-pound hog** (story 15 from last week)
+  5. **Arm/hand close-up rig or 2D insert** (story 15; same gap as last week story 14)
+  6. **Sunglasses** (story 13, small local model)
+  7. **Tickle machine** (story 14, 2D insert only)
+- 2026-11-14 · **eu-man (young adult European man)** (stories 76-days-on-raft, Callahan 30, and man-ate-aeroplane, Lotito 27-30; no plain eu-man in the library, stand-in eu-man-elder reads too old). Build with MPFB, same mixamo rig as the other 16 people.
 - 2026-11-13 · **REALISM TOP-UP for cook-under-the-sea (priority 1, owner)** — remaining, after the 2026-11-14 top-up:
   2. Ship washroom pieces still missing: ship toilet cubicle partitions + door, pipes/conduits (toilet, door, washing machine, ceiling light, wash basin built).
   3. Ship cabin pieces still missing: ship corridor module (walls with pipes and cable trays, floor grating or linoleum); metal desk + chair exist as table + chair.
@@ -390,10 +389,12 @@ game assets. Quality check before upload: a 1080×1920 close-up render must read
 
 ## Done
 - 2026-11-14 · **REALISM TOP-UP for cook-under-the-sea (part)**: tugboat (local_tugboat.glb, 30 m, procedural; real Sketchfab CC-BY candidates recorded in §3b for a future swap), diving bell (local_diving_bell.glb), decompression chamber (local_decompression_chamber.glb), steel marine toilet, watertight ship door, industrial washing machine, fluorescent ceiling fitting (local_*), steel bunk bed, steel locker, porthole (local_*), orange life jacket, red drink can, mattress (local_*), saturation diver helmet (local_diver_helmet.glb). Uploaded as models_2026-11-14.zip (53.5 MB), index 662 -> 689 entries.
+- 2026-11-14 · **week 2026-11-23 kit fetch**: Cessna 150 (local_cessna_150.glb, 10.2 m span, 7.1 m long, procedural Blender build, close-up render checked; no CC0 scan exists, Smithsonian 152 has no downloadable 3D model), wooden office desk + paper stack (local_wooden_desk.glb, local_paper_stack.glb, 1940s Japanese office set). Uploaded as models_2026-11-14_kit.zip, index 689 -> 692 entries.
 - 2026-11-14 · **week 2026-11-23 story props**: pickle barrel, life raft, solar still, speargun, skis, sled, hand pump, weather station, radio dish, bicycle, TV set, food trolley, fuselage section (all local_*.glb, same zip).
 - 2026-11-12 · **tugboat / small work boat** (story Okene): built as local_tugboat.glb (see §3b for the realism caveat and the real-model candidates).
 
 ## Changelog
+- 2026-11-14 kit fetch for the week 2026-11-23 picks: 3 local models (Cessna 150, wooden desk, paper stack), models_2026-11-14_kit.zip; Wanted -= Cessna 150, 1940s office set; Wanted += eu-man. Real sounds: 8 usable files in real_sfx_2026-11-14_kit.zip; morning zip rebuilt without 7 CC BY-SA files (19 files); 17 CC BY-SA files flagged Rejected in SFX_CREDITS.md.
 - 2026-11-14 (Claude) 12 Poly Haven models converted glTF → .glb with Blender and uploaded: `_assets3d/models/models_glb_2026-11-14.zip` (barrel_01, boulder_01, coast_land_rocks_04, namaqualand_stones_01, pipe_wrench, rock_moss_set_01/02, small_plastic_torch, sofa_02, steel_frame_shelves_01 (an 11 × 21 m rack SET), wooden_bucket_02, wooden_crate_01). Search the whole library: `python3 studio/tools/assets3d.py search <words>`.
 - 2026-11-14 Saturday top-up: 27 local models (tugboat, diving bell, chamber, ship pieces, week 2026-11-23 props), models_2026-11-14.zip; Wanted += tunnelling shield, Cessna 150, Eiffel Tower, emu, pig, 1940s office set, arm close-up rig, sunglasses, tickle machine (2D).
 - 2026-11-12 week 2026-11-16 picks: 3 local models (ranger hat, fishing rod, skiff), 662 files; Wanted += medieval street set, black bear, fishing clip.

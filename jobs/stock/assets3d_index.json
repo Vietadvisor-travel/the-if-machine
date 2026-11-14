@@ -6425,5 +6425,32 @@
   "license": "CC0 (modelled locally in Blender)",
   "source": "local Blender model (Saturday top-up 2026-11-14)",
   "size": 28948
+ },
+ {
+  "drive": "_assets3d/models/local_cessna_150.glb",
+  "group": "models",
+  "category": "aircraft",
+  "name": "local_cessna_150.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (week 2026-11-23 kit fetch 2026-11-14; no CC0 Cessna 150 scan exists, Smithsonian 152 has no downloadable 3D model)",
+  "size": 98872
+ },
+ {
+  "drive": "_assets3d/models/local_wooden_desk.glb",
+  "group": "models",
+  "category": "furniture",
+  "name": "local_wooden_desk.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (week 2026-11-23 kit fetch 2026-11-14, 1940s Japanese office set)",
+  "size": 25920
+ },
+ {
+  "drive": "_assets3d/models/local_paper_stack.glb",
+  "group": "models",
+  "category": "everyday objects",
+  "name": "local_paper_stack.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (week 2026-11-23 kit fetch 2026-11-14, 1940s Japanese office set)",
+  "size": 5248
  }
 ]
