@@ -1,7 +1,10 @@
 # Delivery — Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống (fell-10km-from-sky) · ODDLY TRUE clip · v1 · 2026-11-14
 
 ## Files (Drive TheIfMachine_Media/fell-10km-from-sky/)
-@@SHIP@@
+- fell-10km-from-sky_vertical_9x16.mp4 · 205 MB (CRF-17 master) · 118.6 s · 1080x1920 · https://drive.google.com/file/d/1Mlk7FAdWhm245SPRKpUOJYsBwL0XMaYE/view
+- fell-10km-from-sky_cover.jpg · 180 KB · 1080x1920 (opening, tail in the sky, 2 s) · https://drive.google.com/file/d/1HwRNbA0wPtktQETvKyy7nV1NRPVu__a_/view
+- fell-10km-from-sky.srt (English) · https://drive.google.com/file/d/1waoCIZWkZm97e2B-i4xYWlxbgEiKYP22/view
+- fell-10km-from-sky_stories.zip · https://drive.google.com/file/d/15JQX5q-mHjh9SJeImn_BGlZIsAaHcic9/view
 
 ## Production
 - Format: vertical 9:16, 1:30–2:00 true micro-story (CLAUDE.md phase 2), realistic real-time 3D (IFM.L3) + minimal 2D (name tags, a
@@ -15,8 +18,8 @@
   Bespoke scenes: `studio/engine/library/bank/fell-10km-from-sky.js` (act x3_fall; reusable: dc9 pieces, sky with cloud deck + terrain,
   snowy forest slope, `settle()` for lying clips, `merged()` to cut a many-part model to one draw call per material).
 - Gates: clip_gate PASS (clip_check PASS · real audio 118.6 s · 29 recorded sounds, none missing · cost median 2.1 s/frame, max 8.4 s) ·
-  @@QA@@
-- Length: @@LEN@@ (vertical 9:16; format 1:30–2:00).
+  QA round 1 (lean sheet, every 1 s) found skin through the uniform, red eye sockets and a ward that read as standing → fixed, 17 people beats re-rendered; QA round 2 (contact sheet every 2 s of the master) clean.
+- Length: 1:59 (118.6 s) (vertical 9:16; format 1:30–2:00).
 
 ## Facts in the VO (sources: S1 = Guinness World Records, 7 Apr 2022; S2 = Wikipedia "Vesna Vulović"; pack `jobs/research/fell-10km-from-sky.md`)
 - 1972, a flight attendant, a fall recorded as 10,160 m with no parachute, and she lived — S1, S2 (said as "recorded": the 2009 missile
