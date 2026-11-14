@@ -12,15 +12,15 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
 |---|---|---|---|---|---|---|
-| Broad Street, Soho, London, Sep 1854, overcast | narrow street, brick terraces, horse carts, the black street pump at the corner | overcast_soil_puresky | red_brick, dark_wood, asphalt_04 (asphalt-dry as the cobble stand-in) | local_hand_pump | real_street_day (bed) | ✅ HDRI/materials/models; ✅ sound: real_street_day_3 (60.8 s, CC0, Freesound) |
+| Broad Street, Soho, London, Sep 1854, overcast | narrow street, brick terraces, horse carts, the black street pump at the corner | overcast_soil_puresky | red_brick, dark_wood, asphalt_04 (asphalt-dry as the cobble stand-in) | hand_pump_street, horse_cart | real_street_day (bed) | ✅ HDRI/materials/models; ✅ sound: real_street_day_3 (60.8 s, CC0, Freesound) |
 | Board of Guardians meeting room, evening | lamplight, wooden table, the dot map on the table | poly_haven_studio | dark_wood, red_brick | desk_lamp_arm_01 | real_room_night | ✅ (real_room_night_1 in library) |
 
 ## Objects, vehicles, animals (everything seen in close-up or wide)
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
-| Street hand-pump, black cast iron | glb/local_hand_pump_glb (local Blender, CC0) | ~1.5 m | ✅ |
+| Street hand-pump, black cast iron | glb/hand_pump_street.glb (CGTrader, Royalty Free, MihirMahindrakar; proof _kits/doctor-pump-handle/hand_pump_street.jpg) | 1.27 m tall | ✅ |
 | Dot map (hand-drawn street plan, black bars) | 2D insert, drawn from Snow's 1855 map | - | ✅ (2D, no model needed) |
-| Horse cart (background, one wide shot) | no cart model in the library | - | ❌ no horse cart; stand-in: keep the street empty of carts, the pump and the map carry the scene |
+| Horse cart (background, one wide shot) | glb/horse_cart.glb (CGTrader, Royalty Free, salimkoc; proof _kits/doctor-pump-handle/horse_cart.jpg) | 3.9 m long with shafts, 2.6 m tall | ✅ |
 
 ## Sounds of actions and events (recorded, `real_<what>`)
 | moment | sound | library id (`ifm_real_…`) | ✅/❌ |
@@ -31,6 +31,6 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | The pump handle coming off (metal) | real_metal_groan | real_metal_groan_1 (12.8 s) | ✅ |
 
 ## Credits to put in the video description
-- Street hand-pump: modelled locally in Blender for The If Machine, CC0
+- Street hand-pump: CGTrader, Royalty Free (MihirMahindrakar). Horse cart: CGTrader, Royalty Free (salimkoc).
 - HDRI overcast_soil_puresky, materials red_brick, dark_wood, asphalt_04: Poly Haven, CC0
 - Sounds: see jobs/music/SFX_CREDITS.md for the real_* files used

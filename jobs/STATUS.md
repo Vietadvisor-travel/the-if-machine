@@ -14,8 +14,8 @@
 | 438-days-adrift | 438 ngày trôi dạt trên Thái Bình Dương | RESEARCH_READY | - | - | - | - |
 | dancing-plague-1518 | Cơn dịch nhảy múa năm 1518 | RESEARCH_READY | - | - | - | - |
 | lightning-seven-times | Người bị sét đánh 7 lần | RESEARCH_READY | - | - | - | - |
-| fell-10km-from-sky | Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống | KIT_PARTIAL (procedural stand-ins, see MUSE_SATURDAY realism gate) | - | - | - | - |
-| 76-days-on-raft | 76 ngày một mình trên chiếc bè cao su giữa Đại Tây Dương | KIT_PARTIAL (procedural stand-ins, see MUSE_SATURDAY realism gate) | - | - | - | - |
-| doctor-pump-handle | Bác sĩ tháo tay bơm nước và dừng dịch tả | KIT_PARTIAL (procedural stand-ins, see MUSE_SATURDAY realism gate) | - | - | - | - |
-| survived-two-atomic-bombs | Người đàn ông sống sót sau cả hai quả bom nguyên tử | KIT_PARTIAL (procedural stand-ins, see MUSE_SATURDAY realism gate) | - | - | - | - |
-| man-ate-aeroplane | Người đàn ông ăn hết một chiếc máy bay | KIT_PARTIAL (procedural stand-ins, see MUSE_SATURDAY realism gate) | - | - | - | - |
+| fell-10km-from-sky | Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống | KIT_PARTIAL (missing: food trolley real model; snow footsteps sound) | - | - | - | - |
+| 76-days-on-raft | 76 ngày một mình trên chiếc bè cao su giữa Đại Tây Dương | KIT_PARTIAL (missing: eu-man for Callahan; solar still real model) | - | - | - | - |
+| doctor-pump-handle | Bác sĩ tháo tay bơm nước và dừng dịch tả | KIT_READY | - | - | - | - |
+| survived-two-atomic-bombs | Người đàn ông sống sót sau cả hai quả bom nguyên tử | KIT_PARTIAL (missing: paper stack real model) | - | - | - | - |
+| man-ate-aeroplane | Người đàn ông ăn hết một chiếc máy bay | KIT_PARTIAL (missing: eu-man for Lotito; bicycle and TV real models) | - | - | - | - |

@@ -223,6 +223,19 @@ US LaVallee Tugboat (Gary.Lefebvre1, 191,836 faces),
 | food-trolley | `local_food_trolley.glb` | Airline food trolley (Vulovic) |
 | fuselage-section | `local_fuselage_section.glb` | DC-9 fuselage section 3 m + windows (Vulovic) |
 
+## 3c. Real models, 2026-11-14 (CGTrader Royalty Free + Sketchfab CC-BY, for the week 2026-11-23 kits; all with a 1080x1920 close-up proof in Drive `_kits/<slug>/<id>.jpg`)
+| model | file | source, licence | real scale | proof |
+|---|---|---|---|---|
+| Life raft (aircraft emergency raft) | `life_raft.glb` (8.8 MB) | CGTrader, Royalty Free, Solidpixell | 3.0 m long | `_kits/76-days-on-raft/life_raft.jpg` |
+| Street hand-pump, black cast iron | `hand_pump_street.glb` (20.1 MB) | CGTrader, Royalty Free, MihirMahindrakar | 1.27 m tall | `_kits/doctor-pump-handle/hand_pump_street.jpg` |
+| Wooden office desk, 1940s | `wooden_desk_office.glb` (8.5 MB) | CGTrader, Royalty Free, Piepsquek; library dark_wood PBR | 1.5 x 0.94 x 0.63 m | `_kits/survived-two-atomic-bombs/wooden_desk_office.jpg` |
+| Horse-drawn carriage | `horse_cart.glb` (11.6 MB) | CGTrader, Royalty Free, salimkoc | 3.9 m long with shafts, 2.6 m tall | `_kits/doctor-pump-handle/horse_cart.jpg` |
+| Mahi-mahi (dorado) | `mahi_mahi.glb` (7.0 MB) | Sketchfab, CC Attribution, Fishname1019 | 1.0 m long | `_kits/76-days-on-raft/mahi_mahi.jpg` |
+| Cessna 172 (stand-in for the 150) | `cessna_172.glb` (27.4 MB) | Sketchfab, CC Attribution, sousinho | 8.8 m long, 11.0 m wingspan | `_kits/man-ate-aeroplane/cessna_172.jpg` |
+| DC-9 airliner (whole aircraft) | `dc9_airliner.glb` (28.9 MB) | Sketchfab, CC Attribution, nobilishornet | 27.5 m long, 20.4 m wingspan | `_kits/fell-10km-from-sky/dc9_airliner.jpg` |
+
+Uploaded as models_2026-11-14_real.zip (103.9 MB), index 692 -> 699 entries. Replaces the local stand-ins local_life_raft, local_hand_pump, local_wooden_desk, local_cessna_150 and local_fuselage_section in the kits (those local files stay in the library but do not count as real). Rejected on the realism bar: Sketchfab "Cessna-Type aircraft" by otyx (CC-BY but 281 polys, a toy); CGTrader free Cessna (untextured, "not accurate"); JuanyIgual mahi-mahi (flat green, reads as a cartoon). Next hunt candidates found on Sketchfab (CC-BY, not yet downloaded): "Old Bicycle" (tidominer), "Vintage Television" (GraveyArt), "Airline Trolley Presentation" (Bellatrix613), "Speargun (with Arms)" (frkndgr), "Papers" (oparaskos). No real solar still exists on Sketchfab/CGTrader.
+
 ## 4. People — 16 rigged humans (MPFB/MakeHuman, CC0) + animation library
 
 ### 4a. People
@@ -389,12 +402,14 @@ game assets. Quality check before upload: a 1080×1920 close-up render must read
 - 2026-11-12 · **fishing clip** (story 438-days-adrift): no fishing motion in the Mixamo or Quaternius libraries; use Reaching_Out + Picking_Up until one is found.
 
 ## Done
+- 2026-11-14 · **REAL models for the week 2026-11-23 kits (realism gate redo)**: life raft, street hand-pump, wooden office desk, horse cart (CGTrader, Royalty Free) + mahi-mahi, Cessna 172, DC-9 airliner (Sketchfab, CC-BY). All converted to the house format with a 1080x1920 close-up proof in Drive `_kits/<slug>/<id>.jpg`. Uploaded as models_2026-11-14_real.zip (103.9 MB), index 692 -> 699 entries. Sketchfab account Canhcuthihi (Epic, owner-approved) with API token on Muse's machine; Freesound API + CGTrader accounts done the same day. Kit results: doctor-pump-handle KIT_READY; fell-10km, 76-days, two-bombs, man-ate-aeroplane KIT_PARTIAL (see STATUS.md for the missing lists).
 - 2026-11-14 · **REALISM TOP-UP for cook-under-the-sea (part)**: tugboat (local_tugboat.glb, 30 m, procedural; real Sketchfab CC-BY candidates recorded in §3b for a future swap), diving bell (local_diving_bell.glb), decompression chamber (local_decompression_chamber.glb), steel marine toilet, watertight ship door, industrial washing machine, fluorescent ceiling fitting (local_*), steel bunk bed, steel locker, porthole (local_*), orange life jacket, red drink can, mattress (local_*), saturation diver helmet (local_diver_helmet.glb). Uploaded as models_2026-11-14.zip (53.5 MB), index 662 -> 689 entries.
 - 2026-11-14 · **week 2026-11-23 kit fetch**: Cessna 150 (local_cessna_150.glb, 10.2 m span, 7.1 m long, procedural Blender build, close-up render checked; no CC0 scan exists, Smithsonian 152 has no downloadable 3D model), wooden office desk + paper stack (local_wooden_desk.glb, local_paper_stack.glb, 1940s Japanese office set). Uploaded as models_2026-11-14_kit.zip, index 689 -> 692 entries.
 - 2026-11-14 · **week 2026-11-23 story props**: pickle barrel, life raft, solar still, speargun, skis, sled, hand pump, weather station, radio dish, bicycle, TV set, food trolley, fuselage section (all local_*.glb, same zip).
 - 2026-11-12 · **tugboat / small work boat** (story Okene): built as local_tugboat.glb (see §3b for the realism caveat and the real-model candidates).
 
 ## Changelog
+- 2026-11-14 realism gate redo: 7 real models (raft, hand-pump, desk, horse cart, mahi-mahi, Cessna 172, DC-9), models_2026-11-14_real.zip (103.9 MB), index 692 -> 699; doctor-pump-handle KIT_READY; 4 kits KIT_PARTIAL (see STATUS.md). Sketchfab + Freesound + CGTrader accounts done; Sketchfab token on Muse's machine. Next hunt candidates recorded in §3c.
 - 2026-11-14 kit fetch for the week 2026-11-23 picks: 3 local models (Cessna 150, wooden desk, paper stack), models_2026-11-14_kit.zip; Wanted -= Cessna 150, 1940s office set; Wanted += eu-man. Real sounds: 8 usable files in real_sfx_2026-11-14_kit.zip; morning zip rebuilt without 7 CC BY-SA files (19 files); 17 CC BY-SA files flagged Rejected in SFX_CREDITS.md.
 - 2026-11-14 (Claude) 12 Poly Haven models converted glTF → .glb with Blender and uploaded: `_assets3d/models/models_glb_2026-11-14.zip` (barrel_01, boulder_01, coast_land_rocks_04, namaqualand_stones_01, pipe_wrench, rock_moss_set_01/02, small_plastic_torch, sofa_02, steel_frame_shelves_01 (an 11 × 21 m rack SET), wooden_bucket_02, wooden_crate_01). Search the whole library: `python3 studio/tools/assets3d.py search <words>`.
 - 2026-11-14 Saturday top-up: 27 local models (tugboat, diving bell, chamber, ship pieces, week 2026-11-23 props), models_2026-11-14.zip; Wanted += tunnelling shield, Cessna 150, Eiffel Tower, emu, pig, 1940s office set, arm close-up rig, sunglasses, tickle machine (2D).

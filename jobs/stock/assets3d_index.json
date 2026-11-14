@@ -6452,5 +6452,68 @@
   "license": "CC0 (modelled locally in Blender)",
   "source": "local Blender model (week 2026-11-23 kit fetch 2026-11-14, 1940s Japanese office set)",
   "size": 5248
+ },
+ {
+  "drive": "_assets3d/models/life_raft.glb",
+  "group": "models",
+  "category": "ships & boats",
+  "name": "life_raft.glb",
+  "license": "Royalty Free (CGTrader)",
+  "source": "https://www.cgtrader.com/free-3d-models/aircraft/aircraft-part/aircraft-emergency-life-raft (Solidpixell)",
+  "size": 8841156
+ },
+ {
+  "drive": "_assets3d/models/hand_pump_street.glb",
+  "group": "models",
+  "category": "everyday objects",
+  "name": "hand_pump_street.glb",
+  "license": "Royalty Free (CGTrader)",
+  "source": "https://www.cgtrader.com/free-3d-models/industrial/tool/water-hand-pump-lowpoly-3d-model-free (MihirMahindrakar)",
+  "size": 20057988
+ },
+ {
+  "drive": "_assets3d/models/wooden_desk_office.glb",
+  "group": "models",
+  "category": "furniture",
+  "name": "wooden_desk_office.glb",
+  "license": "Royalty Free (CGTrader)",
+  "source": "https://www.cgtrader.com/free-3d-models/interior/office-interior/classic-wooden-office-desk (Piepsquek)",
+  "size": 8480360
+ },
+ {
+  "drive": "_assets3d/models/horse_cart.glb",
+  "group": "models",
+  "category": "vehicles",
+  "name": "horse_cart.glb",
+  "license": "Royalty Free (CGTrader)",
+  "source": "https://www.cgtrader.com/free-3d-models/vehicle/other/vintage-horse-drawn-carriage-3d-model (salimkoc)",
+  "size": 11629600
+ },
+ {
+  "drive": "_assets3d/models/mahi_mahi.glb",
+  "group": "models",
+  "category": "animals",
+  "name": "mahi_mahi.glb",
+  "license": "CC Attribution (Sketchfab)",
+  "source": "https://sketchfab.com/3d-models/mahi-mahi-f19912cf44df4e0a8aa4890790e27b52 (Fishname1019)",
+  "size": 7012968
+ },
+ {
+  "drive": "_assets3d/models/cessna_172.glb",
+  "group": "models",
+  "category": "aircraft",
+  "name": "cessna_172.glb",
+  "license": "CC Attribution (Sketchfab)",
+  "source": "https://sketchfab.com/3d-models/cessna-172-8e8d0a8eefe544eea7c5169c1de2d7c9 (sousinho)",
+  "size": 27400460
+ },
+ {
+  "drive": "_assets3d/models/dc9_airliner.glb",
+  "group": "models",
+  "category": "aircraft",
+  "name": "dc9_airliner.glb",
+  "license": "CC Attribution (Sketchfab)",
+  "source": "https://sketchfab.com/3d-models/mcdonell-douglas-dc-9-e34e586d3ca04357a37ed5a9f42d7493 (nobilishornet)",
+  "size": 28920260
  }
 ]

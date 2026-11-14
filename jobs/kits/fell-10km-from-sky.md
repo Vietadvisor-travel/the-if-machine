@@ -11,14 +11,14 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
 |---|---|---|---|---|---|---|
-| Snowy forest near Srbská Kamenice, Jan 1972, overcast | deep snow, grey light, wooded slope | snowy_hillside | snow_02, dark_wood | local_fuselage_section | real_snow_wind (bed) | ✅ HDRI/materials/models; ✅ sound: real_snow_wind_2 (60.0 s, Public domain, VOA Learning English) |
+| Snowy forest near Srbská Kamenice, Jan 1972, overcast | deep snow, grey light, wooded slope | snowy_hillside | snow_02, dark_wood | dc9_airliner | real_snow_wind (bed) | ✅ HDRI/materials/models; ✅ sound: real_snow_wind_2 (60.0 s, Public domain, VOA Learning English) |
 | Hospital room, 1972 Yugoslavia | white sheets, traction frame, flat winter light | poly_haven_studio | Plastic010, dark_wood | modern_arm_chair_01 (stand-in for a chair) | real_room_night | ✅ (real_room_night_1 in library) |
 
 ## Objects, vehicles, animals (everything seen in close-up or wide)
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
-| DC-9 tail fuselage section | glb/local_fuselage_section_glb (local Blender, CC0) | ~10 m section | ✅ |
-| Food trolley (service cart) | glb/local_food_trolley_glb (local Blender, CC0) | ~1 m | ✅ |
+| DC-9 tail fuselage section | glb/dc9_airliner.glb (Sketchfab, CC Attribution, nobilishornet; proof _kits/fell-10km-from-sky/dc9_airliner.jpg) | whole DC-9, 27.5 m long, 20.4 m wingspan (not a cut section; frame the tail for the breakup and wreckage shots, the tail is where Vesna was pinned) | ✅ |
+| Food trolley (service cart) | glb/local_food_trolley_glb (local Blender, CC0) | ~1 m | ❌ procedural, not real; a real airline trolley ("Airline Trolley Presentation", Sketchfab, Bellatrix613, CC-BY) is a candidate for the next hunt. Stand-in: keep the trolley in a wide wreckage shot only, never a close-up |
 | Snow-covered trees | island_tree_02 / tree_small_02 (Poly Haven, CC0) | real scale | ✅ |
 
 ## Sounds of actions and events (recorded, `real_<what>`)
@@ -31,6 +31,6 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | Silence after the crash, then Honke's steps in snow | real_footsteps (snow) | real_footsteps_3 (53.0 s, CC0, Freesound, pavement) | ❌ no snow footsteps in library; stand-in: real_footsteps_3, use the step sounds only |
 
 ## Credits to put in the video description
-- DC-9 fuselage section, food trolley: modelled locally in Blender for The If Machine, CC0
+- DC-9 airliner: Sketchfab, CC Attribution (nobilishornet). Food trolley: modelled locally in Blender for The If Machine, CC0 (procedural, not real; see the ❌ row above)
 - HDRI snowy_hillside, materials snow_02, dark_wood: Poly Haven, CC0
 - Sounds: see jobs/music/SFX_CREDITS.md for the real_* files used

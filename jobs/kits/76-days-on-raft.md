@@ -10,16 +10,16 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
 |---|---|---|---|---|---|---|
-| Open Atlantic, 1982, hard sun and trade-wind sky | endless blue water, bright sun, night stars | spiaggia_di_mondello | Rope001, dark_wood | local_life_raft | real_waves (bed) | ✅ HDRI/materials/models; ✅ sound: real_waves_1 (58.0 s, Public domain) |
+| Open Atlantic, 1982, hard sun and trade-wind sky | endless blue water, bright sun, night stars | spiaggia_di_mondello | Rope001, dark_wood | life_raft | real_waves (bed) | ✅ HDRI/materials/models; ✅ sound: real_waves_1 (58.0 s, Public domain) |
 
 ## Objects, vehicles, animals (everything seen in close-up or wide)
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
-| Avon inflatable life raft, ~6 ft across | glb/local_life_raft_glb (local Blender, CC0) | ~1.8 m | ✅ |
-| Solar still (clear cone) | glb/local_solar_still_glb (local Blender, CC0) | ~0.5 m | ✅ |
-| Speargun, short | glb/local_speargun_glb (local Blender, CC0) | ~0.8 m | ✅ |
+| Avon inflatable life raft, ~6 ft across | glb/life_raft.glb (CGTrader, Royalty Free, Solidpixell; proof _kits/76-days-on-raft/life_raft.jpg) | 3.0 m long (aircraft emergency raft; bigger than Callahan's ~1.8 m Avon, use as the real stand-in) | ✅ |
+| Solar still (clear cone) | glb/local_solar_still_glb (local Blender, CC0) | ~0.5 m | ❌ procedural, not real; no real solar still found on Sketchfab/CGTrader. Stand-in: show the still only as a small shape in a wide raft shot, never a close-up |
+| Speargun, short | glb/local_speargun_glb (local Blender, CC0) | ~0.8 m | ❌ procedural, not real; a real speargun (Sketchfab, frkndgr, CC-BY) is a candidate for the next hunt. Stand-in: keep it in his hand in a wide shot, never a close-up |
 | Napoleon Solo, 6.5 m sloop | dutch_ship_medium (Poly Haven, CC0) as a small sailing boat stand-in; the story's boat is a modern sloop, the Dutch ship reads older, use only in a wide sinking shot | ~6.5 m | ✅ with the wide-shot note |
-| Dorado (mahi-mahi) under the raft | no fish model in the library | - | ❌ no fish model; stand-in: 2D insert or skip, the raft and hands carry the scene |
+| Dorado (mahi-mahi) under the raft | glb/mahi_mahi.glb (Sketchfab, CC Attribution, Fishname1019; proof _kits/76-days-on-raft/mahi_mahi.jpg) | 1.0 m | ✅ |
 
 ## Sounds of actions and events (recorded, `real_<what>`)
 | moment | sound | library id (`ifm_real_…`) | ✅/❌ |
@@ -31,6 +31,6 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | His breathing, thirst, exhaustion | real_breath | real_breath_2 (heavy breathing, 59.8 s) | ✅ |
 
 ## Credits to put in the video description
-- Life raft, solar still, speargun: modelled locally in Blender for The If Machine, CC0
+- Life raft: CGTrader, Royalty Free (Solidpixell). Mahi-mahi: Sketchfab, CC Attribution (Fishname1019). Solar still, speargun: modelled locally in Blender for The If Machine, CC0 (procedural, not real; see the ❌ rows above)
 - HDRI spiaggia_di_mondello, materials Rope001, dark_wood: Poly Haven, CC0
 - Sounds: see jobs/music/SFX_CREDITS.md for the real_* files used

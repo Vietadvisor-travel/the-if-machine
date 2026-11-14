@@ -10,14 +10,14 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
 |---|---|---|---|---|---|---|
-| Stage and workshop, France, 1970s-80s | work table, saw, bottles of oil and water, a plate of nails, flat warm light | autoshop_01 | Metal009, rusty_metal_02, Plastic010 | local_bicycle, local_tv_set | real_room_night | ✅ (real_room_night_1 in library) |
+| Stage and workshop, France, 1970s-80s | work table, saw, bottles of oil and water, a plate of nails, flat warm light | autoshop_01 | Metal009, rusty_metal_02, Plastic010 | cessna_172 + local_bicycle, local_tv_set (local stand-ins, see the ❌ rows) | real_room_night | ✅ (real_room_night_1 in library) |
 
 ## Objects, vehicles, animals (everything seen in close-up or wide)
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
-| Cessna 150 light aircraft, ~1,100 kg | glb/local_cessna_150_glb (local Blender, CC0; built 2026-11-14, procedural - no CC0 Cessna 150 scan exists, Smithsonian 152 has no downloadable 3D model; close-up render checked 2026-11-14, reads as a high-wing light aircraft in wide shots; windows are flat dark glass, keep extreme close-ups short) | 7.1 m long, 10.2 m wingspan (validated; real 7.3 m / 10.2 m) | ✅ |
-| Bicycle | glb/local_bicycle_glb (local Blender, CC0) | ~1.8 m | ✅ |
-| Television set, 1970s-80s | glb/local_tv_set_glb (local Blender, CC0) | ~0.5 m | ✅ |
+| Cessna 150 light aircraft, ~1,100 kg | glb/cessna_172.glb (Sketchfab, CC Attribution, sousinho; proof _kits/man-ate-aeroplane/cessna_172.jpg) | 8.8 m long, 11.0 m wingspan (a Cessna 172, same family as the 150; use as the real stand-in for the 150) | ✅ |
+| Bicycle | glb/local_bicycle_glb (local Blender, CC0) | ~1.8 m | ❌ procedural, not real; a real "Old Bicycle" (Sketchfab, tidominer, CC-BY) is a candidate for the next hunt. Stand-in: keep the bicycle in a wide shot only, never a close-up |
+| Television set, 1970s-80s | glb/local_tv_set_glb (local Blender, CC0) | ~0.5 m | ❌ procedural, not real; a real "Vintage Television" (Sketchfab, GraveyArt, CC-BY) is a candidate for the next hunt. Stand-in: keep the TV in a wide shot only, never a close-up |
 | Electric saw, metal pieces, mineral oil bottles | 2D inserts and small props; saw cutting is a sound moment, not a close-up model | - | ✅ (2D inserts) |
 
 ## Sounds of actions and events (recorded, `real_<what>`)
@@ -30,6 +30,6 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | The gasp when he swallows the pieces | real_gasp | real_gasp_1 (1.5 s, CC0, Freesound) | ✅ |
 
 ## Credits to put in the video description
-- Cessna 150, bicycle, television set: modelled locally in Blender for The If Machine, CC0
+- Cessna 172 (stand-in for the 150): Sketchfab, CC Attribution (sousinho). Bicycle, television set: modelled locally in Blender for The If Machine, CC0 (procedural, not real; see the ❌ rows above)
 - HDRI autoshop_01, materials Metal009, rusty_metal_02, Plastic010: Poly Haven, CC0
 - Sounds: see jobs/music/SFX_CREDITS.md for the real_* files used

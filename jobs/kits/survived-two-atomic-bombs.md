@@ -13,13 +13,13 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
 |---|---|---|---|---|---|---|
 | Hiroshima street, 6 Aug 1945, 08:15, summer morning | wooden houses, a road to the shipyard, bright sun then white flash and darkness | qwantani_dusk_2_puresky (blue-hour, for the darkened aftermath) | dark_wood, red_brick | rollershutter_window_01 | real_room_night (quiet aftermath) | ✅ (real_room_night_1 in library) |
-| Mitsubishi office, Nagasaki, 9 Aug 1945, about 11:00 | 1940s Japanese office: wooden desks, paper, windows, a meeting table | poly_haven_studio | dark_wood, plywood | modern_arm_chair_01, desk_lamp_arm_01, rollershutter_window_01 + local_wooden_desk, local_paper_stack | real_room_night | ✅ HDRI/materials/models; ✅ wooden desk and paper stack built in this run (index 692) |
+| Mitsubishi office, Nagasaki, 9 Aug 1945, about 11:00 | 1940s Japanese office: wooden desks, paper, windows, a meeting table | poly_haven_studio | dark_wood, plywood | modern_arm_chair_01, desk_lamp_arm_01, rollershutter_window_01 + wooden_desk_office | real_room_night | ✅ HDRI/materials/models; ✅ wooden desk is real (CGTrader); paper stack is still a local stand-in, see the ❌ row |
 
 ## Objects, vehicles, animals (everything seen in close-up or wide)
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
-| Wooden office desk, 1940s | glb/local_wooden_desk_glb (local Blender, CC0; built 2026-11-14) | 1.5 m (validated 1.5 x 0.8 x 0.75 m) | ✅ |
-| Paper stack on the desk | glb/local_paper_stack_glb (local Blender, CC0; built 2026-11-14) | 0.3 m (validated 0.33 x 0.25 x 0.12 m) | ✅ |
+| Wooden office desk, 1940s | glb/wooden_desk_office.glb (CGTrader, Royalty Free, Piepsquek; library dark_wood PBR; proof _kits/survived-two-atomic-bombs/wooden_desk_office.jpg) | 1.5 m long, 0.94 m wide, 0.63 m tall | ✅ |
+| Paper stack on the desk | glb/local_paper_stack_glb (local Blender, CC0; built 2026-11-14) | 0.3 m (validated 0.33 x 0.25 x 0.12 m) | ❌ procedural, not real; a real paper stack ("Papers", Sketchfab, oparaskos, CC-BY) is a candidate for the next hunt. Stand-in: keep the stack in a wide shot only, never a close-up |
 | Armchair, desk lamp, window | glb/modern_arm_chair_01, glb/desk_lamp_arm_01, glb/rollershutter_window_01 (Poly Haven, CC0) | real scale | ✅ |
 | Explosion flash | 2D effect, white light then darkness and ash | - | ✅ (2D, no model needed) |
 
@@ -33,6 +33,6 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | His breathing, bandaged and ill | real_breath | real_breath_2 (heavy breathing, 59.8 s) | ✅ |
 
 ## Credits to put in the video description
-- Wooden desk, paper stack: modelled locally in Blender for The If Machine, CC0
+- Wooden desk: CGTrader, Royalty Free (Piepsquek). Paper stack: modelled locally in Blender for The If Machine, CC0 (procedural, not real; see the ❌ row above)
 - HDRI qwantani_dusk_2_puresky, poly_haven_studio, materials dark_wood, plywood, red_brick: Poly Haven, CC0
 - Sounds: see jobs/music/SFX_CREDITS.md for the real_* files used
