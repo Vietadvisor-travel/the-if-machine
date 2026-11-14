@@ -69,6 +69,15 @@ Per candidate:
 - risks: real victims (tone), still-living people, contested facts
 Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> - <câu móc dịch ngắn> - mô hình/tiếng thật: đủ / thiếu <x>`), and wait.
 
+## Realism gate for every kit (owner, 14 Nov 2026: "each episode needs ALL its resources, real, lively, quality")
+- A model Muse builds itself (procedural Blender, `local_*`) is NOT real: such a row is ❌, never ✅ (the 14 Nov kits marked ✅ on
+  self-built tugboat/helmet/Cessna/raft etc. read as toys in a close-up render — `studio/out/muse_models_2026-11-14.jpg`).
+- ✅ only with proof: a 1080×1920 close-up render of the model in the library, saved to Drive `_kits/<slug>/<id>.jpg` and linked in the row.
+- Real sources need logins: use the owner's **Sketchfab** account (API token: CC0 / CC-BY downloads, author + URL in the index) and
+  **Freesound** account (API key: CC0 sounds); Sonniss GDC bundles need no login. Without them, say so in the kit — do not fall back
+  to building models or to Commons sounds marked as done.
+- KIT_READY only when every row is ✅ with proof; otherwise `KIT_PARTIAL` + the missing list in one line to the owner.
+
 ## C. After the owner picks ("chốt 2, 5, 9 …") — a FULL KIT per pick, so Claude only has to be told "làm tập …" (owner, 14 Nov 2026)
 For each pick, starting the same day, in this order:
 1. **Research** `jobs/research/<slug>.md` from `jobs/research/_TEMPLATE_CLIP.md`: facts with 2 sources each, timeline, exact quotes,
