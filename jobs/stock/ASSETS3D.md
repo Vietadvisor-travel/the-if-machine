@@ -394,6 +394,7 @@ game assets. Quality check before upload: a 1080×1920 close-up render must read
 - 2026-11-12 · **tugboat / small work boat** (story Okene): built as local_tugboat.glb (see §3b for the realism caveat and the real-model candidates).
 
 ## Changelog
+- 2026-11-14 (Claude) 12 Poly Haven models converted glTF → .glb with Blender and uploaded: `_assets3d/models/models_glb_2026-11-14.zip` (barrel_01, boulder_01, coast_land_rocks_04, namaqualand_stones_01, pipe_wrench, rock_moss_set_01/02, small_plastic_torch, sofa_02, steel_frame_shelves_01 (an 11 × 21 m rack SET), wooden_bucket_02, wooden_crate_01). Search the whole library: `python3 studio/tools/assets3d.py search <words>`.
 - 2026-11-14 Saturday top-up: 27 local models (tugboat, diving bell, chamber, ship pieces, week 2026-11-23 props), models_2026-11-14.zip; Wanted += tunnelling shield, Cessna 150, Eiffel Tower, emu, pig, 1940s office set, arm close-up rig, sunglasses, tickle machine (2D).
 - 2026-11-12 week 2026-11-16 picks: 3 local models (ranger hat, fishing rod, skiff), 662 files; Wanted += medieval street set, black bear, fishing clip.
 - 2026-11-12 first library: 24 HDRIs, 45 materials, 41 models, 16 people, 46 Quaternius + 43 Mixamo clips, effects.

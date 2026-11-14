@@ -6,11 +6,13 @@
   python3 tools/assets3d.py add <path> [--id hdr/name] [--size 1024]   # one file (.hdr .glb) or one PBR folder/zip
   python3 tools/assets3d.py story stories/<slug>.story   # build only the assets a story names (+ the shared clip libraries)
   python3 tools/assets3d.py list                  # ids built and ready (assets="hdr/x glb/y tex/z", env=hdr/x …)
+  python3 tools/assets3d.py search <word> [word…] # the WHOLE shared library (models, people, clips, HDRIs, materials, real_* sounds,
+                                                  # music beds) matching the words — reuse before fetching (owner, 14 Nov 2026)
 
 Output: engine/assets3d/<kind>__<name>.js  →  IFM.L3.ASSET_DATA["<kind>/<name>"] = {...}
 Kinds: hdr (equirect .hdr), glb (people, props, animation libraries), tex (PBR set: color normal rough ao metal; 1k by default).
 """
-import base64, io, json, os, re, shutil, subprocess, sys, zipfile
+import base64, glob, io, json, os, re, shutil, subprocess, sys, zipfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC, OUT = os.path.join(ROOT, 'assets3d_src'), os.path.join(ROOT, 'engine', 'assets3d')
 MAPS = {'color': r'\b(basecolor|base color|albedo|diff(use)?|color|col)\b', 'normal': r'\b(nor(mal)? ?gl|normalgl|normal|nor)\b', 'rough': r'\b(rough(ness)?|rgh)\b', 'ao': r'\b(ambientocclusion|ao|occlusion)\b', 'metal': r'\b(metal(ness|lic)?)\b'}
@@ -91,6 +93,29 @@ def story(path):
         if not src: print('  MISSING', aid, '(not in assets3d_src — sync, or add it to jobs/stock/ASSETS3D.md "Wanted")'); continue
         r = add(src, aid); print('  built', aid, '%.1f MB' % (r[1][1] / 1e6) if r else '')
 
+def search(words):
+    """one search over every shared resource: 3D index (Muse), animation clip lists, recorded sounds (sfx_ifm), calm music beds"""
+    W = [w.lower() for w in words]; hit = lambda *t: all(any(w in str(x).lower() for x in t) for w in W); seen = set()
+    def out(line):
+        if line not in seen: seen.add(line); print(line, flush=True)
+    idx = os.path.join(ROOT, '..', 'jobs', 'stock', 'assets3d_index.json')
+    for e in (json.load(open(idx)) if os.path.exists(idx) else []):
+        if hit(e.get('name'), e.get('category'), e.get('group'), e.get('drive'), e.get('tags', '')):
+            g = e.get('group', ''); kind = 'hdr' if g == 'hdris' else 'tex' if g == 'materials' else 'glb'
+            out(f"3d     {kind}/{slug(e.get('name', ''))}  [{e.get('category', '')}]  {e.get('license', '')}")
+    for jf in glob.glob(os.path.join(SRC, '_assets3d', 'animations', '*.json')):
+        try: J = json.load(open(jf))
+        except Exception: continue
+        names = list(J.keys()) if isinstance(J, dict) else [c.get('name', c) if isinstance(c, dict) else c for c in (J.get('clips', J) if isinstance(J, dict) else J)]
+        for n in names:
+            if hit(n): out(f"clip   {n}  ({os.path.basename(jf)})")
+    for f in sorted(glob.glob(os.path.join(ROOT, 'sfx_ifm', '*.wav'))):
+        n = re.sub(r'_[0-9]+$', '', os.path.splitext(os.path.basename(f))[0])
+        if hit(n): out(f"sound  {'real_' + n[5:] if n.startswith('real_') else 'ifm_' + n}")
+    lib = os.path.join(ROOT, 'music', 'library.json')
+    for k, t in (json.load(open(lib)).items() if os.path.exists(lib) else []):
+        if hit(k, t.get('moods')): out(f"music  {k}  {t.get('moods')}  {t.get('license', '')}")
+
 def ls():
     if not os.path.isdir(OUT): print('no assets built'); return
     for f in sorted(os.listdir(OUT)): print('%-48s %6.1f MB' % (f[:-3].replace('__', '/'), os.path.getsize(os.path.join(OUT, f)) / 1e6))
@@ -105,4 +130,5 @@ if __name__ == '__main__':
     elif a[0] == 'sync': sync()
     elif a[0] == 'story': story(a[1])
     elif a[0] == 'list': ls()
+    elif a[0] == 'search': search(a[1:])
     else: print(__doc__)

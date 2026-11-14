@@ -36,6 +36,10 @@ Every message to the owner is Vietnamese. Commits start with `[muse]`. Push to `
    (never re-upload a whole pack). Append the new entries to `jobs/stock/assets3d_index.json` (same fields) and add rows
    + one changelog line to `jobs/stock/ASSETS3D.md`. Move fulfilled "Wanted" items to "Done".
 
+Note (14 Nov 2026): the first pack's Poly Haven models are glTF folders (.gltf + .bin + textures) the engine cannot load; Claude
+converted 12 to .glb (`_assets3d/models/models_glb_2026-11-14.zip`). Convert the other Poly Haven models the same way (Blender:
+import glTF → export GLB, textures embedded) and upload them as a dated zip — every model in the store must be a .glb.
+
 ## A2. Real sound library (owner, 13 Nov 2026: "sounds that match the scene — crying when crying, laughing when laughing")
 The clips play ONLY recorded sounds named `real_<what>` (studio/CLIP.md §2c). Each Saturday: first the words `clip_gate` listed as
 "missing real" (see the latest delivery notes / jobs/stock/SFX_WANTED.md), then widen the shared library by category.
@@ -73,7 +77,9 @@ For each pick, starting the same day, in this order:
    viewer will see or hear — each person (age, origin, clothes), each object, each place/interior/exterior (era, weather, light),
    each vehicle/animal; each place's background sound, each action's sound (people: cry, laugh, gasp, footsteps on what surface…;
    objects: doors, engines, water…), and the animation clips the people need.
-3. **Fetch it all, real only**: models (realism bar, ASSETS3D.md), people (house rig), animation clips (house skeleton), HDRIs and
+3. **Library first (owner, 14 Nov 2026: what was fetched is reused by every episode):** for each kit row run
+   `python3 studio/tools/assets3d.py search <words>` and reuse what the shared library already has; fetch only what is missing.
+   **Fetch the rest, real only**: models (realism bar, ASSETS3D.md), people (house rig), animation clips (house skeleton), HDRIs and
    materials for every place, recorded sounds `real_<what>` (A2). Convert, check, upload to the shared library (part A/A2 formats),
    index by category. Fill each kit row with the library id and ✅, or ❌ + why + the closest stand-in when a real one truly does not exist.
 4. **Done when every row is ✅** (or ❌ explained): set the research column of `jobs/STATUS.md` to `KIT_READY` (slug, tên (VI)), add

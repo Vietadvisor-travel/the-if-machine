@@ -25,6 +25,9 @@ python3 tools/assets3d.py story stories/<slug>.story   # builds only the HDRIs/p
 ## 1. Story and research (15–20 min)
 Read `jobs/research/<slug>.md` AND the kit `jobs/kits/<slug>.md` (Muse, owner 14 Nov 2026): build every shot from the kit's
 library ids (sync with `python3 tools/assets3d.py sync`); a ❌ row → reframe that shot, never fake it.
+**Use the whole shared library, not only the kit** (owner, 14 Nov 2026: everything fetched is reused by every episode): for every shot
+`python3 tools/assets3d.py search <words>` (models, people, clips, HDRIs, materials, real_* sounds, music) and put every fitting real
+asset to work — set dressing, props, ambience, action sounds.
 - From the owner's pick or Muse's list. Score it with STORY.md §1 (≥ 8/10). Two sources per fact on screen.
 - `node tools/new_clip.mjs <slug> "<tên tiếng Việt>"` → `jobs/scripts/<slug>.md` + `stories/<slug>.story`.
 - Fill the script file: sources, score, the 4 tests, the table (time · VO · SHOT · 2D · SFX · src). 240–330 words.
