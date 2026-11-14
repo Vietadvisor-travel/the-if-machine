@@ -6515,5 +6515,117 @@
   "license": "CC Attribution (Sketchfab)",
   "source": "https://sketchfab.com/3d-models/mcdonell-douglas-dc-9-e34e586d3ca04357a37ed5a9f42d7493 (nobilishornet)",
   "size": 28920260
+ },
+ {
+  "id": "bicycle",
+  "category": "vehicles",
+  "file": "models/bicycle.glb",
+  "drive": "_assets3d/models/bicycle.glb",
+  "group": "models",
+  "tags": [
+   "bicycle",
+   "vintage",
+   "bike"
+  ],
+  "scale_m": [
+   0.381,
+   1.581,
+   0.868
+  ],
+  "licence": "CC Attribution (Sketchfab)",
+  "author": "tidominer",
+  "source": "https://sketchfab.com/3d-models/old-bicycle-17ab00cb733443a2b552a2b620a68087",
+  "credit": "Old Bicycle by tidominer, CC Attribution, via Sketchfab",
+  "size_bytes": 4334816
+ },
+ {
+  "id": "vintage_tv",
+  "category": "everyday objects",
+  "file": "models/vintage_tv.glb",
+  "drive": "_assets3d/models/vintage_tv.glb",
+  "group": "models",
+  "tags": [
+   "television",
+   "vintage",
+   "tv",
+   "crt"
+  ],
+  "scale_m": [
+   0.437,
+   0.496,
+   0.407
+  ],
+  "licence": "CC Attribution (Sketchfab)",
+  "author": "GraveyArt",
+  "source": "https://sketchfab.com/3d-models/vintage-television-fe9acba84eed4a43b4315200aefbead1",
+  "credit": "Vintage Television by GraveyArt, CC Attribution, via Sketchfab",
+  "size_bytes": 20498160
+ },
+ {
+  "id": "airline_trolley",
+  "category": "vehicles",
+  "file": "models/airline_trolley.glb",
+  "drive": "_assets3d/models/airline_trolley.glb",
+  "group": "models",
+  "tags": [
+   "trolley",
+   "airline",
+   "food cart",
+   "service cart"
+  ],
+  "scale_m": [
+   0.443,
+   0.831,
+   1.136
+  ],
+  "licence": "CC Attribution (Sketchfab)",
+  "author": "Bellatrix613",
+  "source": "https://sketchfab.com/3d-models/airline-trolley-presentation-da5b5b34b1df4a158955d3b9348df3f0",
+  "credit": "Airline Trolley Presentation by Bellatrix613, CC Attribution, via Sketchfab",
+  "size_bytes": 4863144
+ },
+ {
+  "id": "speargun",
+  "category": "tools",
+  "file": "models/speargun.glb",
+  "drive": "_assets3d/models/speargun.glb",
+  "group": "models",
+  "tags": [
+   "speargun",
+   "spear",
+   "fishing"
+  ],
+  "scale_m": [
+   0.018,
+   0.348,
+   0.055
+  ],
+  "licence": "CC Attribution (Sketchfab)",
+  "author": "frkndgr",
+  "source": "https://sketchfab.com/3d-models/speargun-with-arms-b5654f3b36d143349eb92e513707172c",
+  "credit": "Speargun (with Arms) by frkndgr, CC Attribution, via Sketchfab",
+  "size_bytes": 3222328
+ },
+ {
+  "id": "paper_stack",
+  "category": "everyday objects",
+  "file": "models/paper_stack.glb",
+  "drive": "_assets3d/models/paper_stack.glb",
+  "group": "models",
+  "tags": [
+   "papers",
+   "paper stack",
+   "documents"
+  ],
+  "scale_m": [
+   1.8,
+   0.745,
+   0.097
+  ],
+  "licence": "CC Attribution (Sketchfab)",
+  "author": "oparaskos",
+  "source": "https://sketchfab.com/3d-models/papers-f858428c790f43f8ba9a3aa2996b88b0",
+  "credit": "Papers by oparaskos, CC Attribution, via Sketchfab",
+  "size_bytes": 5789032
  }
 ]

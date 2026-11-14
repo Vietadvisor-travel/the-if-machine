@@ -18,7 +18,7 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
 | DC-9 tail fuselage section | glb/dc9_airliner.glb (Sketchfab, CC Attribution, nobilishornet; proof _kits/fell-10km-from-sky/dc9_airliner.jpg) | whole DC-9, 27.5 m long, 20.4 m wingspan (not a cut section; frame the tail for the breakup and wreckage shots, the tail is where Vesna was pinned) | ✅ |
-| Food trolley (service cart) | glb/local_food_trolley_glb (local Blender, CC0) | ~1 m | ❌ procedural, not real; a real airline trolley ("Airline Trolley Presentation", Sketchfab, Bellatrix613, CC-BY) is a candidate for the next hunt. Stand-in: keep the trolley in a wide wreckage shot only, never a close-up |
+| Food trolley (service cart) | glb/airline_trolley.glb (Sketchfab, CC Attribution, Bellatrix613; proof _kits/fell-10km-from-sky/airline_trolley.jpg) | 0.83 m long, 1.14 m tall (a full galley cart with trays and cups; the 1972 trolley was simpler, use the cart body and keep the top items out of frame if they read too modern) | ✅ |
 | Snow-covered trees | island_tree_02 / tree_small_02 (Poly Haven, CC0) | real scale | ✅ |
 
 ## Sounds of actions and events (recorded, `real_<what>`)
@@ -31,6 +31,6 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | Silence after the crash, then Honke's steps in snow | real_footsteps (snow) | real_footsteps_3 (53.0 s, CC0, Freesound, pavement) | ❌ no snow footsteps in library; stand-in: real_footsteps_3, use the step sounds only |
 
 ## Credits to put in the video description
-- DC-9 airliner: Sketchfab, CC Attribution (nobilishornet). Food trolley: modelled locally in Blender for The If Machine, CC0 (procedural, not real; see the ❌ row above)
+- DC-9 airliner: Sketchfab, CC Attribution (nobilishornet). Food trolley: Sketchfab, CC Attribution (Bellatrix613)
 - HDRI snowy_hillside, materials snow_02, dark_wood: Poly Haven, CC0
 - Sounds: see jobs/music/SFX_CREDITS.md for the real_* files used

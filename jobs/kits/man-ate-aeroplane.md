@@ -10,14 +10,14 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
 |---|---|---|---|---|---|---|
-| Stage and workshop, France, 1970s-80s | work table, saw, bottles of oil and water, a plate of nails, flat warm light | autoshop_01 | Metal009, rusty_metal_02, Plastic010 | cessna_172 + local_bicycle, local_tv_set (local stand-ins, see the ❌ rows) | real_room_night | ✅ (real_room_night_1 in library) |
+| Stage and workshop, France, 1970s-80s | work table, saw, bottles of oil and water, a plate of nails, flat warm light | autoshop_01 | Metal009, rusty_metal_02, Plastic010 | cessna_172, bicycle, vintage_tv | real_room_night | ✅ (real_room_night_1 in library) |
 
 ## Objects, vehicles, animals (everything seen in close-up or wide)
 | object | real model id (source, licence) | real scale | ✅/❌ |
 |---|---|---|---|
 | Cessna 150 light aircraft, ~1,100 kg | glb/cessna_172.glb (Sketchfab, CC Attribution, sousinho; proof _kits/man-ate-aeroplane/cessna_172.jpg) | 8.8 m long, 11.0 m wingspan (a Cessna 172, same family as the 150; use as the real stand-in for the 150) | ✅ |
-| Bicycle | glb/local_bicycle_glb (local Blender, CC0) | ~1.8 m | ❌ procedural, not real; a real "Old Bicycle" (Sketchfab, tidominer, CC-BY) is a candidate for the next hunt. Stand-in: keep the bicycle in a wide shot only, never a close-up |
-| Television set, 1970s-80s | glb/local_tv_set_glb (local Blender, CC0) | ~0.5 m | ❌ procedural, not real; a real "Vintage Television" (Sketchfab, GraveyArt, CC-BY) is a candidate for the next hunt. Stand-in: keep the TV in a wide shot only, never a close-up |
+| Bicycle | glb/bicycle.glb (Sketchfab, CC Attribution, tidominer; proof _kits/man-ate-aeroplane/bicycle.jpg) | 1.58 m long, 0.87 m tall (a vintage bike with a leather saddle and rear rack) | ✅ |
+| Television set, 1970s-80s | glb/vintage_tv.glb (Sketchfab, CC Attribution, GraveyArt; proof _kits/man-ate-aeroplane/vintage_tv.jpg) | 0.5 m wide, 0.41 m tall (wood-grain cabinet, curved CRT screen; the screen texture has a crack in it, which suits a TV about to be eaten) | ✅ |
 | Electric saw, metal pieces, mineral oil bottles | 2D inserts and small props; saw cutting is a sound moment, not a close-up model | - | ✅ (2D inserts) |
 
 ## Sounds of actions and events (recorded, `real_<what>`)
@@ -30,6 +30,6 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | The gasp when he swallows the pieces | real_gasp | real_gasp_1 (1.5 s, CC0, Freesound) | ✅ |
 
 ## Credits to put in the video description
-- Cessna 172 (stand-in for the 150): Sketchfab, CC Attribution (sousinho). Bicycle, television set: modelled locally in Blender for The If Machine, CC0 (procedural, not real; see the ❌ rows above)
+- Cessna 172 (stand-in for the 150): Sketchfab, CC Attribution (sousinho). Bicycle: Sketchfab, CC Attribution (tidominer). Television set: Sketchfab, CC Attribution (GraveyArt)
 - HDRI autoshop_01, materials Metal009, rusty_metal_02, Plastic010: Poly Haven, CC0
 - Sounds: see jobs/music/SFX_CREDITS.md for the real_* files used
