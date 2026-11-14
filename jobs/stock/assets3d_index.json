@@ -6627,5 +6627,50 @@
   "source": "https://sketchfab.com/3d-models/papers-f858428c790f43f8ba9a3aa2996b88b0",
   "credit": "Papers by oparaskos, CC Attribution, via Sketchfab",
   "size_bytes": 5789032
+ },
+ {
+  "id": "oil_tanker",
+  "category": "ships & boats",
+  "file": "models/oil_tanker.glb",
+  "drive": "_assets3d/models/oil_tanker.glb",
+  "group": "models",
+  "tags": [
+   "oil tanker",
+   "ship",
+   "tanker"
+  ],
+  "scale_m": [
+   37.562,
+   233.079,
+   71.526
+  ],
+  "licence": "CC Attribution (Sketchfab)",
+  "author": "factorydottcat",
+  "source": "https://sketchfab.com/3d-models/oil-tanker-63339c2e2f274672a9bdcf924864ae62",
+  "credit": "Oil tanker by factorydottcat, CC Attribution, via Sketchfab",
+  "size_bytes": 49973196,
+  "note": "untextured grey, use as a distant element"
+ },
+ {
+  "id": "oil_platform",
+  "category": "buildings & interiors",
+  "file": "models/oil_platform.glb",
+  "drive": "_assets3d/models/oil_platform.glb",
+  "group": "models",
+  "tags": [
+   "oil platform",
+   "offshore",
+   "Troll A"
+  ],
+  "scale_m": [
+   217.068,
+   158.612,
+   480.949
+  ],
+  "licence": "CC Attribution (Sketchfab)",
+  "author": "ragnar",
+  "source": "https://sketchfab.com/3d-models/oil-platform-troll-a-6b0c42c58598434986d59073ff360429",
+  "credit": "Oil Platform Troll A by ragnar, CC Attribution, via Sketchfab",
+  "size_bytes": 23970468
  }
 ]
