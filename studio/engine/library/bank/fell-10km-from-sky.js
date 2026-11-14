@@ -79,7 +79,7 @@
     const C = cabin(state !== 'calm'); sc.add(C.g); const s = { sc, C, cam: L.cam(44), state };
     if (state === 'calm') { [-1.5, .2, 1.8].forEach(z => { const l = new THREE.PointLight('#FFE6C4', 2.2, 4, 1.4); l.position.set(0, 1.1, z); sc.add(l); }); sc.add(new THREE.HemisphereLight('#FFF0DC', '#3A3630', .5));
       C.cart.position.set(.55, -1.0, -1.7); C.cart.rotation.y = Math.PI / 2; s.v = actor(WOM + '@-.2,-1.0,30:Look_Around', { hair: '#2A1C14', cloth: '#26304A' }); s.v.root.position.set(-.15, -1.0, -1.3); C.g.add(s.v.root); }
-    else { const out = new THREE.PointLight('#EAF2FF', 9, 9, 1.2); out.position.set(0, .2, C.Ln / 2 + .6); out.castShadow = true; out.shadow.mapSize.set(1024, 1024); sc.add(out); sc.add(new THREE.HemisphereLight('#DCE8F4', '#2A2C30', .45)); s.out = out;
+    else { const out = spot(sc, '#EAF2FF', 9, V3(0, .3, C.Ln / 2 + .8), V3(0, -1, -1.5), .9, .7, 1024); out.decay = 1.2; out.distance = 12;   /* one shadow pass, not six (cost) */ sc.add(new THREE.HemisphereLight('#DCE8F4', '#2A2C30', .45)); s.out = out;
       C.winMat.emissiveIntensity = .6; C.cart.position.set(.15, -.62, -.6); C.cart.rotation.set(0, .25, Math.PI / 2 - .12);
       s.v = actor(WOM + '@0,0,0:Laying_Sleeping', { hair: '#2A1C14', cloth: '#26304A' }); s.v.root.position.set(-.35, -.98, -1.6); s.v.root.rotation.y = .1; C.g.add(s.v.root);
       s.wind = L.particles(500, [2.6, 2.2, 5], 23, .02, '#FFFFFF'); s.wind.position.set(0, -1.1, -2.6); sc.add(s.wind); s.frost = L.particles(300, [2.4, 2, 4], 29, .012, '#E8F4FF'); s.frost.position.set(0, -1, -2); sc.add(s.frost);
@@ -144,7 +144,7 @@
     climb(s, lt, k) { pieceVis(s, true); s.debris.material.opacity = 0; cloudsAt(s, lt, 0); flyPose(s, lt, 0, 0); s.plane.G.rotation.x = -.09; s.deck.position.z = -lt * 9;
       look(s, V3(lerp(-46, -38, k), lerp(-6, -3, k), lerp(30, 12, k)), V3(0, 0, lerp(2, 0, k)), -.04, 36); post(s, 46, { dof: 0 }); L.present({ bloom: .06, grade: SKYG, gradeA: .25 }); },
     windows(s, lt, k, dur) { pieceVis(s, true); s.debris.material.opacity = 0; flyPose(s, lt, 0, 0); s.deck.position.z = -lt * 9; const z = lerp(8, -4, E.inOut(k));
-      look(s, V3(-5.4, -.1, z + 2.5), V3(-1.2, .55, z - 1.5), -.02, 34); post(s, 4.6, { ap: .0012 }); L.present({ bloom: .06, grade: SKYG, gradeA: .22 });
+      look(s, V3(-7.5, .9, z + 6), V3(-1.2, .2, z - 3), -.03, 36); post(s, 4.6, { ap: .0012 }); L.present({ bloom: .06, grade: SKYG, gradeA: .22 });
       const n = Math.round(28 * E.inOut(clamp((lt - .3) / Math.max(1, dur - 1)))); tag(n + ' ON BOARD', W * .5, H * .2, lt, 0, '#FFC93C', 44); },
     bomb(s, lt, k) { pieceVis(s, true); s.debris.material.opacity = 0; flyPose(s, lt, 0, 0); s.deck.position.z = -lt * 9; const t = lt - .9, f = t > 0 ? Math.exp(-t * 3.5) : 0, j = t > 0 ? Math.exp(-t * 1.6) : 0;
       s.plane.G.rotation.z += j * Math.sin(t * 9) * .05; s.plane.G.rotation.x += j * .04; s.flash.position.set(0, -1.4, 7.2); s.flash.intensity = 2200 * f;
@@ -177,7 +177,7 @@
       s.trees.forEach((tr, i) => tr.rotation.z = t > 0 ? Math.sin(t * 10 + i) * .02 * Math.exp(-t * 2) : 0); s.h.root.visible = false; const sh = t > 0 ? shake(lt, .25 * Math.exp(-t * 2.5)) : V3(0, 0, 0);
       look(s, V3(-17, y0 + 1.6, 19).add(sh), V3(0, y0 + 1.2, 0), -.02, 40); post(s, 25, { ap: .0006 }); L.present({ bloom: .15, grade: SNOWG, gradeA: .22 }); },
     silence(s, lt, k) { s.burst.material.opacity = 0; s.trees.forEach(t => t.rotation.z = 0); D._rest(s); s.h.root.visible = false; L.drift(s.snow, lt, -.5); const y0 = s.hY(0, 0);
-      look(s, V3(lerp(-11, -9.5, k), y0 + .5, lerp(10, 8.5, k)), V3(0, y0 + 1.6, 0), 0, 38); post(s, 13, { ap: .0012 }); L.present({ bloom: .12, grade: SNOWG, gradeA: .22 }); },
+      look(s, V3(lerp(-8.2, -7, k), y0 + 2.3, lerp(7.2, 6.2, k)), V3(.3, y0 + .7, -.5), 0, 40); post(s, 10, { ap: .001 }); L.present({ bloom: .12, grade: SNOWG, gradeA: .22 }); },
     _cart(s) { if (s._cp) { s.C.cart.position.copy(s._cp); return; } const L1 = bone(s.v, /LeftLeg$/), R1 = bone(s.v, /RightLeg$/); if (!L1) return; const g = s.C.g, m = g.worldToLocal(wpos(L1)).add(g.worldToLocal(wpos(R1))).multiplyScalar(.5);
       const hh = g.worldToLocal(wpos(bone(s.v, /Hips$/))); m.lerp(hh, .35); s._cp = V3(m.x, -1.0 + .36, m.z); s.C.cart.position.copy(s._cp); s.C.cart.rotation.set(0, .3, Math.PI / 2 - .1); },
     _rest(s) { s.tail.G.position.set(0, s.hY(0, 0) + .9, 0); s.tail.G.rotation.set(-.32, .9, .22); s.tail.upd(); },
@@ -187,7 +187,7 @@
     honke(s, lt, k, dur) { D._rest(s); L.drift(s.snow, lt, -.5); const h = s.h; if (!s.walk) { s.walk = actor(OLD + '@0,0,0:Walking', { cloth: '#6B5440' }); s.sc.add(s.walk.root); } h.root.visible = false; const w = s.walk; w.root.visible = true; const f = lt / Math.max(1, dur), x = lerp(-9.5, -5, f), z = lerp(15, 8, f); w.root.position.set(x, s.hY(x, z), z); w.root.rotation.y = Math.atan2(-3.5, -6.5); w.at(lt * .8);
       const hp = V3(x, s.hY(x, z) + 1.0, z); look(s, hp.clone().add(V3(-3.6, .4, -1.6)), hp.clone().add(V3(.5, 0, -.4)), -.01, 40); post(s, 3.9, { ap: .0015 }); L.present({ bloom: .12, grade: SNOWG, gradeA: .22 }); },
     alone(s, lt, k) { D._rest(s); if (s.walk) s.walk.root.visible = false; s.h.root.visible = true; s.h.root.position.set(-2.6, s.hY(-2.6, 3.4), 3.4); s.h.root.rotation.y = 2.6; s.h.at(lt); L.drift(s.snow, lt, -.4); const y0 = s.hY(0, 0);
-      look(s, V3(lerp(-24, -20, k), y0 + lerp(14, 18, k), lerp(26, 22, k)), V3(0, y0, 1), 0, 38); post(s, 32, { ap: .0005 }); L.present({ bloom: .1, grade: ['#C8D4E4', '#141A24'], gradeA: .3 }); },
+      look(s, V3(lerp(-30, -17, k), y0 + lerp(19, 11, k), lerp(30, 19, k)), V3(0, y0 + .5, 1), 0, 38); post(s, 32, { ap: .0005 }); L.present({ bloom: .1, grade: ['#C8D4E4', '#141A24'], gradeA: .3 }); },
     end(s, lt, k) { D._rest(s); if (s.walk) s.walk.root.visible = false; s.h.root.visible = false; L.drift(s.snow, lt, -.5); const y0 = s.hY(0, 0), c = E.inOut(k);
       look(s, V3(lerp(-7, -5, c), y0 + lerp(1.2, 7, c), lerp(9, 5, c)), V3(0, y0 + lerp(1.6, 9, c * c), lerp(0, -2, c)), 0, 40); post(s, 10, { ap: .0008 }); L.present({ bloom: .14, grade: SNOWG, gradeA: .22 }); },
     _lie(s, lt) { const v = s.v; v.root.visible = true; if (s.bed) s.bed.visible = true; s.walker.root.visible = false; const c = s.bb.getCenter(V3()); v.root.rotation.y = s.bb.max.x - s.bb.min.x > s.bb.max.z - s.bb.min.z ? Math.PI / 2 : 0; v.at(lt == null ? 0 : lt); settle(v, s.top - .04, c.x + .15, c.z); },
@@ -202,7 +202,7 @@
     desk(s, lt, k) { s.v.at(lt); const c = s.db.getCenter(V3()); look(s, V3(c.x + lerp(1.9, 1.5, k), s.db.max.y + .55, s.db.max.z + lerp(-.1, .1, k)), V3(c.x, s.db.max.y + .3, s.db.max.z + .35), 0, 40); post(s, 2.2, { ap: .0015 }); L.present({ bloom: .12, grade: WARM, gradeA: .18 }); },
     medal(s, lt, k) { s.v.at(lt); s.m.at(lt); L.drift(s.bokeh, lt, .02); const f = [.6, 1.5, 2.1, 3.2].reduce((a, t0) => a + Math.exp(-Math.max(0, lt - t0) * 12) * (lt > t0 ? 1 : 0), 0); s.flash.intensity = 40 * f; const hd = s.v.head ? wpos(s.v.head) : V3(0, 1.6, 0);
       look(s, V3(lerp(-.5, -.3, k), 1.45, lerp(4.0, 3.5, k)), V3(.2, hd.y - .45, .2), 0, 40); post(s, 3.6, { ap: .0015 }); L.present({ bloom: .2 + f * .2, grade: WARM, gradeA: .2 }); },
-    cat(s, lt, k) { s.m.root.visible = false; s.v.at(lt, s.cam.position); s.key.intensity = 6; s.key.color.set('#FFD7A8'); s.warm.intensity = 3; L.drift(s.bokeh, lt, .02); const hd = s.v.head ? wpos(s.v.head) : V3(0, 1.6, 0);
+    cat(s, lt, k) { s.m.root.visible = false; s.v.at(Math.min(lt, 1.4), s.cam.position); s.key.intensity = 6; s.key.color.set('#FFD7A8'); s.warm.intensity = 3; L.drift(s.bokeh, lt, .02); const hd = s.v.head ? wpos(s.v.head) : V3(0, 1.6, 0);
       look(s, hd.clone().add(V3(lerp(-.75, -.6, k), -.08, lerp(1.25, 1.05, k))), hd.clone().add(V3(0, -.14, 0)), 0, 38); post(s, 1.4, { ap: .0025 }); L.present({ bloom: .15, grade: WARM, gradeA: .22 }); },
   };
 
