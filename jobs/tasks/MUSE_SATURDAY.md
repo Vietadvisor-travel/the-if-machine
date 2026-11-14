@@ -65,11 +65,17 @@ Per candidate:
 - risks: real victims (tone), still-living people, contested facts
 Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> - <câu móc dịch ngắn> - mô hình/tiếng thật: đủ / thiếu <x>`), and wait.
 
-## C. After the owner picks ("chốt 2, 5, 9 …")
-For each pick, same day:
-1. `jobs/research/<slug>.md` from `jobs/research/_TEMPLATE_CLIP.md` (facts with 2 sources each, timeline, exact quotes
-   with source, key numbers, visual notes, asset needs mapped to library names, sensitivity notes, 3 titles, hook line).
-2. A row in `jobs/STATUS.md` (slug, tên (VI), RESEARCH_READY) and the post order in `jobs/SCHEDULE.md` (one clip a day).
-3. Any missing assets for the picks → part A now (and "Wanted" if not found).
-4. Commit `[muse] week <monday>: <n> stories + assets`, push, INBOX line `muse → claude · [week] <n> stories ready`,
-   one Vietnamese line to the owner.
+## C. After the owner picks ("chốt 2, 5, 9 …") — a FULL KIT per pick, so Claude only has to be told "làm tập …" (owner, 14 Nov 2026)
+For each pick, starting the same day, in this order:
+1. **Research** `jobs/research/<slug>.md` from `jobs/research/_TEMPLATE_CLIP.md`: facts with 2 sources each, timeline, exact quotes,
+   key numbers, the human thread, the true irony/meaning for the ending, visual notes, sensitivity, 3 titles, the opening line.
+2. **Kit list** `jobs/kits/<slug>.md` from `jobs/kits/_TEMPLATE.md`: walk the story from first to last moment and list EVERYTHING the
+   viewer will see or hear — each person (age, origin, clothes), each object, each place/interior/exterior (era, weather, light),
+   each vehicle/animal; each place's background sound, each action's sound (people: cry, laugh, gasp, footsteps on what surface…;
+   objects: doors, engines, water…), and the animation clips the people need.
+3. **Fetch it all, real only**: models (realism bar, ASSETS3D.md), people (house rig), animation clips (house skeleton), HDRIs and
+   materials for every place, recorded sounds `real_<what>` (A2). Convert, check, upload to the shared library (part A/A2 formats),
+   index by category. Fill each kit row with the library id and ✅, or ❌ + why + the closest stand-in when a real one truly does not exist.
+4. **Done when every row is ✅** (or ❌ explained): set the research column of `jobs/STATUS.md` to `KIT_READY` (slug, tên (VI)), add
+   the post order in `jobs/SCHEDULE.md`, commit `[muse] kit <slug>`, push, INBOX `muse → claude · [kit] <slug> ready`, and one
+   Vietnamese line to the owner: "Tập <tên> đã đủ tài nguyên — anh bảo Claude: làm tập <tên>".

@@ -60,7 +60,9 @@ Engine work = changes the owner asks for in `studio/`, each tested on an existin
 ## Talking with the owner
 **Every message to the owner is in Vietnamese, always** (owner, 4 Nov 2026: never English, including short progress notes).
 He speaks plain Vietnamese and names an episode by its Vietnamese name, part of it, or "tiếp". Find the slug in the
-`tên (VI)` column of `jobs/STATUS.md` (PROTOCOL §6). "tiếp" = the highest-scoring episode at RESEARCH_READY. Unclear →
+`tên (VI)` column of `jobs/STATUS.md` (PROTOCOL §6). "tiếp" = the next KIT_READY episode in `jobs/SCHEDULE.md` (else the highest-scoring
+RESEARCH_READY). Flow (owner, 14 Nov 2026): Muse proposes 15 → the owner picks → Muse fetches the FULL kit (`jobs/kits/<slug>.md`) →
+the owner tells Claude "làm tập …". Claude builds from the kit; a ❌ row is reframed, never faked. Unclear →
 ask one short question, never guess. Always name episodes to him in Vietnamese, never by slug.
 
 ## Producing an episode (only when the owner says "làm tập ...")

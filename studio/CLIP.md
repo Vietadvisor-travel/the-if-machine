@@ -22,7 +22,10 @@ python3 tools/assets3d.py sync      # Drive _assets3d → assets3d_src/ (≈ 1.9
 python3 tools/assets3d.py story stories/<slug>.story   # builds only the HDRIs/people/props/materials the story names
 ```
 
-## 1. Story and research (15–20 min)
+## 1. Story and research (15–20 min) — read `jobs/research/<slug>.md` AND the kit `jobs/kits/<slug>.md` (Muse); build every
+##    shot from the kit's library ids, sync them with `python3 tools/assets3d.py sync`; a ❌ row → reframe that shot, never fake it.
+
+### (detail)
 - From the owner's pick or Muse's list. Score it with STORY.md §1 (≥ 8/10). Two sources per fact on screen.
 - `node tools/new_clip.mjs <slug> "<tên tiếng Việt>"` → `jobs/scripts/<slug>.md` + `stories/<slug>.story`.
 - Fill the script file: sources, score, the 4 tests, the table (time · VO · SHOT · 2D · SFX · src). 240–330 words.
