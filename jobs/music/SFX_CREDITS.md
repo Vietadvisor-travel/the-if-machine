@@ -1,6 +1,6 @@
 # The If Machine SFX library credits
 
-76 files, all WAV 44.1 kHz mono, uploaded to Drive TheIfMachine_Media/_sfx/ as ifm_sfx_1.zip.
+102 files, all WAV 44.1 kHz mono. ifm_sfx_1.zip (76 files) + real_sfx_2026-11-14.zip (26 files) in Drive TheIfMachine_Media/_sfx/.
 Three sources, all cleared for commercial use:
 
 1. Original synthesis (33 files): synthesized locally for The If Machine, royalty-free, no attribution required.
@@ -238,3 +238,36 @@ download route. No Sonniss licence text was saved because no files were fetched.
 | thud_heavy_2.wav | impact | 0.55 | Royalty-free (original synthesis) | Synthesized for The If Machine |
 | thud_soft_1.wav | impact | 0.3 | Royalty-free (original synthesis) | Synthesized for The If Machine |
 | thud_soft_2.wav | impact | 0.3 | Royalty-free (original synthesis) | Synthesized for The If Machine |
+
+## Real recordings, 2026-11-14 (26 files, real_sfx_2026-11-14.zip)
+
+Wikimedia Commons real recordings for cook-under-the-sea, fetched 2026-11-14. All WAV 44.1 kHz / 16-bit / mono, peak -1 dBFS. Beds are 60 s (short sources looped seamlessly with a crossfaded join). CC BY / CC BY-SA files need the credit line kept with the video credits. Several take 2s reuse the take 1 recording (noted below) because Commons had no second distinct recording that passed the content check; spoken-word pronunciation files, music tracks, radio speech and news audio were rejected during the fetch. Still missing after this batch: real_surface_gasp, real_whisper_prayer (wordless soft whisper; Commons only has whispered words), real_water_swim, real_body_fall, real_air_pocket take 2, real_breath take 1.
+
+| file | word | duration (s) | license | credit | note |
+|---|---|---|---|---|---|
+| real_air_pocket_1.wav | air_pocket | 60.0 | CC BY 3.0 | [File:Water on Rocks.ogg](https://commons.wikimedia.org/wiki/File%3AWater_on_Rocks.ogg) — Dsw4, CC BY 3.0 | Water lapping on rocks; stand-in for water lapping in a closed steel room. |
+| real_breath_2.wav | breath | 59.8 | Public domain | [File:Heavy breathing 3.ogg](https://commons.wikimedia.org/wiki/File%3AHeavy_breathing_3.ogg) — ezwa, Public domain | Heavy breathing; also the stand-in for real_breath_heavy. |
+| real_chamber_hum_1.wav | chamber_hum | 60.0 | CC BY-SA 3.0 | [File:Mains hum 60 Hz.ogg](https://commons.wikimedia.org/wiki/File%3AMains_hum_60_Hz.ogg) — (artist not listed on Commons), CC BY-SA 3.0 | 60 Hz mains hum looped to a seamless 60 s bed. |
+| real_chamber_hum_2.wav | chamber_hum | 60.0 | Public domain | [File:Shredder hum.ogg](https://commons.wikimedia.org/wiki/File%3AShredder_hum.ogg) — stephan, Public domain | Paper shredder hum; stand-in for a chamber machine hum. |
+| real_cloth_1.wav | cloth | 78.5 | Public domain | [File:Uneasy rustling ambience.ogg](https://commons.wikimedia.org/wiki/File%3AUneasy_rustling_ambience.ogg) — stephan, Public domain | Rustling ambience (leaves/fabric); check by ear before use. |
+| real_cloth_2.wav | cloth | 78.5 | Public domain | [File:Uneasy rustling ambience.ogg](https://commons.wikimedia.org/wiki/File%3AUneasy_rustling_ambience.ogg) — stephan, Public domain | Same recording as take 1. |
+| real_diver_breath_1.wav | diver_breath | 23.6 | CC BY-SA 4.0 | [File:Underwater sounds while scuba diving in Los Órganos, Piura, Peru.ogg](https://commons.wikimedia.org/wiki/File%3AUnderwater_sounds_while_scuba_diving_in_Los_%C3%93rganos%2C_Piura%2C_Peru.ogg) — H.dav.are, CC BY-SA 4.0 |  |
+| real_diver_breath_2.wav | diver_breath | 23.6 | CC BY-SA 4.0 | [File:Underwater sounds while scuba diving in Los Órganos, Piura, Peru.ogg](https://commons.wikimedia.org/wiki/File%3AUnderwater_sounds_while_scuba_diving_in_Los_%C3%93rganos%2C_Piura%2C_Peru.ogg) — H.dav.are, CC BY-SA 4.0 | Same recording as take 1. |
+| real_electric_flicker_1.wav | electric_flicker | 42.9 | Public domain | [File:Microwave oven.ogg](https://commons.wikimedia.org/wiki/File%3AMicrowave_oven.ogg) — stephan, Public domain |  |
+| real_electric_flicker_2.wav | electric_flicker | 42.9 | Public domain | [File:Microwave oven.ogg](https://commons.wikimedia.org/wiki/File%3AMicrowave_oven.ogg) — stephan, Public domain | Same recording as take 1. |
+| real_metal_groan_1.wav | metal_groan | 12.8 | Public domain | [File:Metal cabinet door jarring.ogg](https://commons.wikimedia.org/wiki/File%3AMetal_cabinet_door_jarring.ogg) — stephan, Public domain |  |
+| real_metal_groan_2.wav | metal_groan | 22.3 | Public domain | [File:Rusty metal door clasp.ogg](https://commons.wikimedia.org/wiki/File%3ARusty_metal_door_clasp.ogg) — stephan, Public domain |  |
+| real_room_night_1.wav | room_night | 57.0 | CC BY 3.0 | [File:Nature sounds ambience in a Dordogne pond.ogg](https://commons.wikimedia.org/wiki/File%3ANature_sounds_ambience_in_a_Dordogne_pond.ogg) — Glaneur de sons., CC BY 3.0 |  |
+| real_room_night_2.wav | room_night | 57.0 | CC BY 3.0 | [File:Nature sounds ambience in a Dordogne pond.ogg](https://commons.wikimedia.org/wiki/File%3ANature_sounds_ambience_in_a_Dordogne_pond.ogg) — Glaneur de sons., CC BY 3.0 | Same recording as take 1. |
+| real_ship_creak_1.wav | ship_creak | 56.7 | Public domain | [File:Assorted creaking noises of office chair.ogg](https://commons.wikimedia.org/wiki/File%3AAssorted_creaking_noises_of_office_chair.ogg) — stephan, Public domain | Office chair creaks; usable as generic wood/metal creak. |
+| real_ship_creak_2.wav | ship_creak | 1.4 | Public domain | [File:Creaky wooden casket.ogg](https://commons.wikimedia.org/wiki/File%3ACreaky_wooden_casket.ogg) — stephan, Public domain | Creaky wooden casket; short creak. |
+| real_ship_interior_1.wav | ship_interior | 60.0 | CC BY 4.0 | [File:WWS IcebreakerKunashipsengine.ogg](https://commons.wikimedia.org/wiki/File%3AWWS_IcebreakerKunashipsengine.ogg) — Work With Sounds / Museum of Municipal Engineering, CC BY 4.0 |  |
+| real_ship_interior_2.wav | ship_interior | 60.0 | CC BY 4.0 | [File:WWS Steamengineandsignalbell.ogg](https://commons.wikimedia.org/wiki/File%3AWWS_Steamengineandsignalbell.ogg) — Work With Sounds / Konrad Gutkowski, CC BY 4.0 | Steam engine + signal bell; engine bed. |
+| real_underwater_1.wav | underwater | 60.0 | CC BY-SA 4.0 | [File:Underwater sounds while scuba diving in Los Órganos, Piura, Peru.ogg](https://commons.wikimedia.org/wiki/File%3AUnderwater_sounds_while_scuba_diving_in_Los_%C3%93rganos%2C_Piura%2C_Peru.ogg) — H.dav.are, CC BY-SA 4.0 | Scuba sounds looped to a seamless 60 s bed. |
+| real_underwater_2.wav | underwater | 60.0 | CC BY-SA 4.0 | [File:Underwater sounds while scuba diving in Los Órganos, Piura, Peru.ogg](https://commons.wikimedia.org/wiki/File%3AUnderwater_sounds_while_scuba_diving_in_Los_%C3%93rganos%2C_Piura%2C_Peru.ogg) — H.dav.are, CC BY-SA 4.0 | Same recording as take 1. |
+| real_water_drip_1.wav | water_drip | 16.8 | CC BY-SA 3.0 | [File:Water drops dripping.ogg](https://commons.wikimedia.org/wiki/File%3AWater_drops_dripping.ogg) — ZooFari, CC BY-SA 3.0 |  |
+| real_water_drip_2.wav | water_drip | 16.8 | CC BY-SA 3.0 | [File:Water drops dripping.ogg](https://commons.wikimedia.org/wiki/File%3AWater_drops_dripping.ogg) — ZooFari, CC BY-SA 3.0 | Same recording as take 1. |
+| real_water_lap_1.wav | water_lap | 40.4 | Public domain | [File:On a pebble beach.ogg](https://commons.wikimedia.org/wiki/File%3AOn_a_pebble_beach.ogg) — earthcalling, Public domain |  |
+| real_water_lap_2.wav | water_lap | 40.4 | Public domain | [File:On a pebble beach.ogg](https://commons.wikimedia.org/wiki/File%3AOn_a_pebble_beach.ogg) — earthcalling, Public domain | Same recording as take 1. |
+| real_water_rush_1.wav | water_rush | 20.8 | CC BY 4.0 | [File:Rushing Water.ogg](https://commons.wikimedia.org/wiki/File%3ARushing_Water.ogg) — Gideon Fiadowu Norkplim, CC BY 4.0 |  |
+| real_water_rush_2.wav | water_rush | 20.8 | CC BY 4.0 | [File:Rushing Water.ogg](https://commons.wikimedia.org/wiki/File%3ARushing_Water.ogg) — Gideon Fiadowu Norkplim, CC BY 4.0 | Same recording as take 1. |

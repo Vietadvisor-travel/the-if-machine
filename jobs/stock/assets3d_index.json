@@ -6182,5 +6182,248 @@
   "license": "CC0 (modelled locally in Blender)",
   "source": "local Blender model",
   "size": 105828
+ },
+ {
+  "drive": "_assets3d/models/local_tugboat.glb",
+  "group": "models",
+  "category": "tugboat",
+  "name": "local_tugboat.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 15434712
+ },
+ {
+  "drive": "_assets3d/models/local_diving_bell.glb",
+  "group": "models",
+  "category": "diving_bell",
+  "name": "local_diving_bell.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 198332
+ },
+ {
+  "drive": "_assets3d/models/local_decompression_chamber.glb",
+  "group": "models",
+  "category": "decompression_chamber",
+  "name": "local_decompression_chamber.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 329492
+ },
+ {
+  "drive": "_assets3d/models/local_life_jacket.glb",
+  "group": "models",
+  "category": "life_jacket",
+  "name": "local_life_jacket.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 32400
+ },
+ {
+  "drive": "_assets3d/models/local_drink_can_red.glb",
+  "group": "models",
+  "category": "drink_can",
+  "name": "local_drink_can_red.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 22128
+ },
+ {
+  "drive": "_assets3d/models/local_mattress.glb",
+  "group": "models",
+  "category": "mattress",
+  "name": "local_mattress.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 8804
+ },
+ {
+  "drive": "_assets3d/models/local_bunk_bed.glb",
+  "group": "models",
+  "category": "bunk_bed",
+  "name": "local_bunk_bed.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 51272
+ },
+ {
+  "drive": "_assets3d/models/local_locker.glb",
+  "group": "models",
+  "category": "locker",
+  "name": "local_locker.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 5627732
+ },
+ {
+  "drive": "_assets3d/models/local_porthole.glb",
+  "group": "models",
+  "category": "porthole",
+  "name": "local_porthole.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 145400
+ },
+ {
+  "drive": "_assets3d/models/local_marine_toilet.glb",
+  "group": "models",
+  "category": "marine_toilet",
+  "name": "local_marine_toilet.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 105320
+ },
+ {
+  "drive": "_assets3d/models/local_ship_door.glb",
+  "group": "models",
+  "category": "ship_door",
+  "name": "local_ship_door.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 105940
+ },
+ {
+  "drive": "_assets3d/models/local_ceiling_light.glb",
+  "group": "models",
+  "category": "ceiling_light",
+  "name": "local_ceiling_light.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 3744
+ },
+ {
+  "drive": "_assets3d/models/local_washing_machine.glb",
+  "group": "models",
+  "category": "washing_machine",
+  "name": "local_washing_machine.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 25872
+ },
+ {
+  "drive": "_assets3d/models/local_diver_helmet.glb",
+  "group": "models",
+  "category": "diver_helmet",
+  "name": "local_diver_helmet.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 257572
+ },
+ {
+  "drive": "_assets3d/models/local_pickle_barrel.glb",
+  "group": "models",
+  "category": "pickle_barrel",
+  "name": "local_pickle_barrel.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 8537024
+ },
+ {
+  "drive": "_assets3d/models/local_life_raft.glb",
+  "group": "models",
+  "category": "life_raft",
+  "name": "local_life_raft.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 172836
+ },
+ {
+  "drive": "_assets3d/models/local_solar_still.glb",
+  "group": "models",
+  "category": "solar_still",
+  "name": "local_solar_still.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 22276
+ },
+ {
+  "drive": "_assets3d/models/local_speargun.glb",
+  "group": "models",
+  "category": "speargun",
+  "name": "local_speargun.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 98840
+ },
+ {
+  "drive": "_assets3d/models/local_skis.glb",
+  "group": "models",
+  "category": "skis",
+  "name": "local_skis.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 8301588
+ },
+ {
+  "drive": "_assets3d/models/local_sled.glb",
+  "group": "models",
+  "category": "sled",
+  "name": "local_sled.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 8313144
+ },
+ {
+  "drive": "_assets3d/models/local_hand_pump.glb",
+  "group": "models",
+  "category": "hand_pump",
+  "name": "local_hand_pump.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 8311744
+ },
+ {
+  "drive": "_assets3d/models/local_weather_station.glb",
+  "group": "models",
+  "category": "weather_station",
+  "name": "local_weather_station.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 244704
+ },
+ {
+  "drive": "_assets3d/models/local_radio_dish.glb",
+  "group": "models",
+  "category": "radio_dish",
+  "name": "local_radio_dish.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 51388
+ },
+ {
+  "drive": "_assets3d/models/local_bicycle.glb",
+  "group": "models",
+  "category": "bicycle",
+  "name": "local_bicycle.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 237288
+ },
+ {
+  "drive": "_assets3d/models/local_tv_set.glb",
+  "group": "models",
+  "category": "tv_set",
+  "name": "local_tv_set.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 34288
+ },
+ {
+  "drive": "_assets3d/models/local_food_trolley.glb",
+  "group": "models",
+  "category": "food_trolley",
+  "name": "local_food_trolley.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 63256
+ },
+ {
+  "drive": "_assets3d/models/local_fuselage_section.glb",
+  "group": "models",
+  "category": "fuselage_section",
+  "name": "local_fuselage_section.glb",
+  "license": "CC0 (modelled locally in Blender)",
+  "source": "local Blender model (Saturday top-up 2026-11-14)",
+  "size": 28948
  }
 ]
