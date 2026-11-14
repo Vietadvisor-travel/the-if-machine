@@ -14,7 +14,7 @@
 | 438-days-adrift | 438 ngày trôi dạt trên Thái Bình Dương | RESEARCH_READY | - | - | - | - |
 | dancing-plague-1518 | Cơn dịch nhảy múa năm 1518 | RESEARCH_READY | - | - | - | - |
 | lightning-seven-times | Người bị sét đánh 7 lần | RESEARCH_READY | - | - | - | - |
-| fell-10km-from-sky | Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống | KIT_READY | - | - | - | - |
+| fell-10km-from-sky | Cô gái rơi từ độ cao 10 cây số xuống đất mà vẫn sống | KIT_READY | IN_PRODUCTION (claude, ODDLY TRUE clip, 3D) | - | - | - |
 | 76-days-on-raft | 76 ngày một mình trên chiếc bè cao su giữa Đại Tây Dương | KIT_PARTIAL (missing: solar still real model only; eu-man built 2026-11-14) | - | - | - | - |
 | doctor-pump-handle | Bác sĩ tháo tay bơm nước và dừng dịch tả | KIT_READY | - | - | - | - |
 | survived-two-atomic-bombs | Người đàn ông sống sót sau cả hai quả bom nguyên tử | KIT_READY | - | - | - | - |
