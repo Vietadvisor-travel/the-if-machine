@@ -24,11 +24,11 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Sounds of actions and events (recorded, `real_<what>`)
 | moment | sound | library id (`ifm_real_…`) | ✅/❌ |
 |---|---|---|---|
-| The fall, wind rushing past the fuselage | real_wind | - | ❌ both pure-wind takes are CC BY-SA 4.0 (rejected, cannot bake in); stand-in: real_snow_wind_2 (Public domain, 60 s) as the wind bed |
+| The fall, wind rushing past the fuselage | real_wind | real_wind_3 (75.6 s, CC0, Freesound) | ✅ |
 | Snowy forest bed, cold wind in trees | real_snow_wind | real_snow_wind_2 (60.0 s, Public domain) | ✅ |
-| The fuselage hits the snow | real_body_fall | - | ❌ NONE FOUND on Commons (only candidate a 0.39 s thud, too short); no stand-in, omit the impact thud or record foley |
+| The fuselage hits the snow | real_body_fall | real_body_fall_1 (1.8 s, CC0, Freesound) | ✅ |
 | Her breathing in the wreckage | real_breath | real_breath_2 (heavy breathing, 59.8 s) | ✅ |
-| Silence after the crash, then Honke's steps in snow | real_footsteps (snow) | real_footsteps_2 (90.3 s, Public domain) | ❌ no snow footsteps in library; stand-in: real_footsteps_2, use the step sounds only |
+| Silence after the crash, then Honke's steps in snow | real_footsteps (snow) | real_footsteps_3 (53.0 s, CC0, Freesound, pavement) | ❌ no snow footsteps in library; stand-in: real_footsteps_3, use the step sounds only |
 
 ## Credits to put in the video description
 - DC-9 fuselage section, food trolley: modelled locally in Blender for The If Machine, CC0

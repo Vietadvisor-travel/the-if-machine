@@ -25,8 +25,8 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 | moment | sound | library id (`ifm_real_…`) | ✅/❌ |
 |---|---|---|---|
 | Ocean bed, waves around the raft | real_waves | real_waves_1 (58.0 s, Public domain) | ✅ |
-| Wind over the open sea | real_wind | - | ❌ both pure-wind takes are CC BY-SA 4.0 (rejected); stand-in: real_snow_wind_2 (Public domain, 60 s) as the wind bed, the waves bed carries the sea |
-| Fish splashing, water at the raft side | real_splash | real_splash_1 (48.1 s, Public domain; only 1 take found) | ✅ |
+| Wind over the open sea | real_wind | real_wind_3 (75.6 s, CC0, Freesound) | ✅ |
+| Fish splashing, water at the raft side | real_splash | real_splash_1 (48.1 s, Public domain) + real_splash_2 (2.2 s), real_splash_3 (1.3 s), real_splash_4 (5.0 s, CC0, Freesound) | ✅ |
 | Water lapping at the raft | real_water_lap | real_water_lap_1 (40.4 s) | ✅ |
 | His breathing, thirst, exhaustion | real_breath | real_breath_2 (heavy breathing, 59.8 s) | ✅ |
 

@@ -26,10 +26,10 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Sounds of actions and events (recorded, `real_<what>`)
 | moment | sound | library id (`ifm_real_…`) | ✅/❌ |
 |---|---|---|---|
-| The blast (stand-in: thunder, never a Hollywood explosion) | real_thunder | world_thunder_1.wav from ifm_sfx_1.zip (4.5 s, CC0 1.0, real recording, old library) | ✅ (the two new thunder takes are CC BY-SA, rejected) |
-| Crowd murmur, dazed streets | real_crowd | real_crowd_1 (30.1 s, Public domain) | ✅ |
-| Footsteps on the street and in the office | real_footsteps | real_footsteps_2 (90.3 s, Public domain) | ✅ |
-| Him falling as the windows shatter | real_body_fall | - | ❌ NONE FOUND (same as fell-10km); no stand-in, omit the thud or record foley |
+| The blast (stand-in: thunder, never a Hollywood explosion) | real_thunder | real_thunder_3 (62.0 s, CC0, Freesound) | ✅ |
+| Crowd murmur, dazed streets | real_crowd | real_crowd_1 (30.1 s, Public domain) + real_crowd_2 (57.2 s, CC0, Freesound) | ✅ |
+| Footsteps on the street and in the office | real_footsteps | real_footsteps_2 (90.3 s, Public domain) + real_footsteps_3 (53.0 s), real_footsteps_4 (19.9 s, CC0, Freesound) | ✅ |
+| Him falling as the windows shatter | real_body_fall | real_body_fall_1 (1.8 s, CC0, Freesound) | ✅ |
 | His breathing, bandaged and ill | real_breath | real_breath_2 (heavy breathing, 59.8 s) | ✅ |
 
 ## Credits to put in the video description

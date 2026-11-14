@@ -25,9 +25,9 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 |---|---|---|---|
 | The saw cutting metal | real_metal_groan | real_metal_groan_1 (12.8 s) | ✅ |
 | Glass breaking (the first glass at 16) | real_glass_break | real_glass_break_1 (1.5 s, CC BY 4.0, Gravity Sound) + real_glass_break_2 (1.5 s, CC BY 4.0) | ✅ |
-| Crowd murmur at the fair | real_crowd | real_crowd_1 (30.1 s, Public domain) | ✅ |
+| Crowd murmur at the fair | real_crowd | real_crowd_1 (30.1 s, Public domain) + real_crowd_2 (57.2 s, CC0, Freesound) | ✅ |
 | Laughter from the audience | real_laugh | real_laugh_1 (9.9 s, CC BY 3.0, lonemonk; take 2 is CC BY-SA, rejected) | ✅ |
-| The gasp when he swallows the pieces | real_gasp | - | ❌ NONE FOUND on Commons; stand-in: real_breath_2 (heavy breathing, Public domain), fetch a real gasp from Freesound CC0 next Saturday |
+| The gasp when he swallows the pieces | real_gasp | real_gasp_1 (1.5 s, CC0, Freesound) | ✅ |
 
 ## Credits to put in the video description
 - Cessna 150, bicycle, television set: modelled locally in Blender for The If Machine, CC0

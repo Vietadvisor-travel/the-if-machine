@@ -1,11 +1,12 @@
 # The If Machine SFX library credits
 
-103 files, all WAV 44.1 kHz mono. ifm_sfx_1.zip (76 files) + real_sfx_2026-11-14.zip (19 files, rebuilt 2026-11-14 afternoon without 7 CC BY-SA files) + real_sfx_2026-11-14_kit.zip (8 files) in Drive TheIfMachine_Media/_sfx/.
-Three sources, all cleared for commercial use:
+118 files, all WAV 44.1 kHz / 16-bit. ifm_sfx_1.zip (76 files) + real_sfx_2026-11-14.zip (19 files, rebuilt 2026-11-14 afternoon without 7 CC BY-SA files) + real_sfx_2026-11-14_kit.zip (8 files) + real_sfx_2026-11-14_freesound.zip (15 files) in Drive TheIfMachine_Media/_sfx/. The first 103 files are mono; the 15 Freesound files are stereo.
+Four sources, all cleared for commercial use:
 
 1. Original synthesis (33 files): synthesized locally for The If Machine, royalty-free, no attribution required.
 2. Wikimedia Commons real recordings (11 files): licences as listed per file; CC BY and CC BY-SA files need the credit line kept with the video credits.
 3. Engine SFX library reuse (32 files): the channel's own studio/assets/sfx/ files, CC0 1.0.
+4. Freesound real recordings (15 files): CC0 1.0, downloaded as originals via the Freesound API with the channel's own API key (account theifmachine), no attribution required.
 
 | file | category | duration (s) | license | credit |
 |---|---|---|---|---|
@@ -280,6 +281,28 @@ Wikimedia Commons real recordings for the week 2026-11-23 kits (fell-10km, 76-da
 | real_glass_break_1.wav | glass_break | 1.49 | CC BY 4.0 | [File:Glass breaking (Gravity Sound).wav](https://commons.wikimedia.org/wiki/File%3AGlass_breaking_%28Gravity_Sound%29.wav) - Gravity Sound, CC BY 4.0 | Glass breaking, CC BY 4.0, credit Gravity Sound. |
 | real_glass_break_2.wav | glass_break | 1.49 | CC BY 4.0 | [File:Glass breaking 2 (Gravity Sound).wav](https://commons.wikimedia.org/wiki/File%3AGlass_breaking_2_%28Gravity_Sound%29.wav) - Gravity Sound, CC BY 4.0 | Glass breaking, second take, CC BY 4.0, credit Gravity Sound. |
 | real_laugh_1.wav | laugh | 9.9 | CC BY 3.0 | [File:72844 lonemonk approx-800-laughter-and-clapter-1.wav](https://commons.wikimedia.org/wiki/File%3A72844_lonemonk_approx-800-laughter-and-clapter-1.wav) - lonemonk on freesound.org, CC BY 3.0 | Laughter with applause, CC BY 3.0; take 2 is CC BY-SA, rejected. |
+
+## Real recordings, 2026-11-14 Freesound batch (15 files, real_sfx_2026-11-14_freesound.zip)
+
+Freesound CC0 real recordings for the week 2026-11-23 kits, fetched 2026-11-14 evening via the Freesound API (account theifmachine, API key in ~/.config/ifm-accounts.env; originals downloaded with an OAuth2 access token). All WAV 44.1 kHz / 16-bit / stereo, peak -1 dBFS. This batch fills the gaps the Commons kit batch left: pure wind, street_day, thunder, gasp and body_fall (all CC0 here, no BY-SA). Numbering note: wind_3/4, street_day_3/4, thunder_3/4, footsteps_3/4 skip 1/2 because those names are the rejected CC BY-SA Commons files below; splash_2/3/4 and crowd_2 skip 1 because those names are the usable Commons files in the kit batch above.
+
+| file | word | duration (s) | licence | source | notes |
+|---|---|---|---|---|---|
+| real_wind_3.wav | wind | 75.6 | CC0 | [wind light calm soft breeze deep big gusty](https://freesound.org/s/454360/) - kyles, CC0 | Soft breeze bed; FLAC 24-bit 48 kHz source. Source was quiet (max -31.4 dB), gain +30.4 dB applied. |
+| real_wind_4.wav | wind | 59.0 | CC0 | [Wind__Artic__Cold.wav](https://freesound.org/s/117136/) - cobratronik, CC0 | Cold arctic wind bed. |
+| real_street_day_3.wav | street_day | 60.8 | CC0 | [busy city 05](https://freesound.org/s/462494/) - rucisko, CC0 | Daytime street in Jaipur, India, from a terrace. |
+| real_street_day_4.wav | street_day | 75.0 | CC0 | [citystreet3.wav](https://freesound.org/s/36734/) - moxobna, CC0 | Binaural busy city street, midday; trimmed 10-85 s from a 198.7 s source. |
+| real_thunder_3.wav | thunder | 62.0 | CC0 | [Heavy Thunder Strike - no Rain - QUADRO.wav](https://freesound.org/s/446753/) - BlueDelta, CC0 | Sudden heavy thunder strike, nearly no rain; 4-channel source downmixed to stereo. |
+| real_thunder_4.wav | thunder | 15.8 | CC0 | [Thunder.ogg](https://freesound.org/s/244053/) - lennyboy, CC0 | Thunder in the distance. |
+| real_gasp_1.wav | gasp | 1.5 | CC0 | [Gasp.](https://freesound.org/s/341908/) - bacruz666, CC0 | Single gasp. |
+| real_body_fall_1.wav | body_fall | 1.8 | CC0 | [Body fall.wav](https://freesound.org/s/417994/) - DylanTheFish, CC0 | Body falling on a wood floor (compiled foley). |
+| real_body_fall_2.wav | body_fall | 2.5 | CC0 | [Body fall 1.wav](https://freesound.org/s/325270/) - deleted_user_2104797, CC0 | Body fall foley (sleeping bag, leather jacket, jump). |
+| real_splash_2.wav | splash | 2.2 | CC0 | [Big Water Splash](https://freesound.org/s/442773/) - qubodup, CC0 | Big water splash. |
+| real_splash_3.wav | splash | 1.3 | CC0 | [Splash](https://freesound.org/s/398032/) - swordofkings128, CC0 | Short splash. |
+| real_splash_4.wav | splash | 5.0 | CC0 | [Water Splash](https://freesound.org/s/434978/) - felix.blume, CC0 | Dive splash; trimmed to first 5 s from 13.5 s. |
+| real_crowd_2.wav | crowd | 57.2 | CC0 | [Large_crowd_medium_distance_stereo.wav](https://freesound.org/s/360703/) - eguobyte, CC0 | About a thousand people chatting, almost no distinct dialogue. |
+| real_footsteps_3.wav | footsteps | 53.0 | CC0 | [Walking on pavement.wav](https://freesound.org/s/244310/) - JohnsonBrandEditing, CC0 | Walking on pavement, parking lot. |
+| real_footsteps_4.wav | footsteps | 19.9 | CC0 | [Footsteps on concrete](https://freesound.org/s/459964/) - florianreichelt, CC0 | Footsteps on concrete. |
 
 ## Rejected - CC BY-SA, NOT for baked-in use
 

@@ -12,7 +12,7 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Places (each interior / exterior; era, weather, time of day, light)
 | place | look (materials, era, light) | HDRI | materials | set models | background sound `real_<place>` | ✅/❌ |
 |---|---|---|---|---|---|---|
-| Broad Street, Soho, London, Sep 1854, overcast | narrow street, brick terraces, horse carts, the black street pump at the corner | overcast_soil_puresky | red_brick, dark_wood, asphalt_04 (asphalt-dry as the cobble stand-in) | local_hand_pump | real_street_day (bed) | ✅ HDRI/materials/models; ❌ sound: both street_day takes are CC BY-SA 4.0 (rejected); stand-in: real_crowd_1 (Public domain, 30.1 s) + real_footsteps_2 (Public domain, 90.3 s) |
+| Broad Street, Soho, London, Sep 1854, overcast | narrow street, brick terraces, horse carts, the black street pump at the corner | overcast_soil_puresky | red_brick, dark_wood, asphalt_04 (asphalt-dry as the cobble stand-in) | local_hand_pump | real_street_day (bed) | ✅ HDRI/materials/models; ✅ sound: real_street_day_3 (60.8 s, CC0, Freesound) |
 | Board of Guardians meeting room, evening | lamplight, wooden table, the dot map on the table | poly_haven_studio | dark_wood, red_brick | desk_lamp_arm_01 | real_room_night | ✅ (real_room_night_1 in library) |
 
 ## Objects, vehicles, animals (everything seen in close-up or wide)
@@ -25,9 +25,9 @@ Done = every row ✅ or ❌ explained → STATUS research column `KIT_READY`.
 ## Sounds of actions and events (recorded, `real_<what>`)
 | moment | sound | library id (`ifm_real_…`) | ✅/❌ |
 |---|---|---|---|
-| Soho street bed, day | real_street_day | - | ❌ both takes are CC BY-SA 4.0 (rejected); stand-in: real_crowd_1 + real_footsteps_2 (see Places row) |
-| Crowd murmur on the street | real_crowd | real_crowd_1 (30.1 s, Public domain; only 1 take found) | ✅ |
-| Footsteps on the street | real_footsteps | real_footsteps_2 (90.3 s, Public domain) | ✅ |
+| Soho street bed, day | real_street_day | real_street_day_3 (60.8 s, CC0, Freesound) | ✅ |
+| Crowd murmur on the street | real_crowd | real_crowd_1 (30.1 s, Public domain) + real_crowd_2 (57.2 s, CC0, Freesound) | ✅ |
+| Footsteps on the street | real_footsteps | real_footsteps_2 (90.3 s, Public domain) + real_footsteps_3 (53.0 s), real_footsteps_4 (19.9 s, CC0, Freesound) | ✅ |
 | The pump handle coming off (metal) | real_metal_groan | real_metal_groan_1 (12.8 s) | ✅ |
 
 ## Credits to put in the video description
