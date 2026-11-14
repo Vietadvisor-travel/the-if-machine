@@ -85,3 +85,8 @@
 2026-11-12 17:34 · claude → owner · [cook-under-the-sea] v2 DELIVERED: 1:45 (new 1:30–2:00 format), same Drive link; owner approves with "đăng tập Người đàn ông sống 3 ngày dưới đáy biển"
 2026-11-13 06:50 · claude → muse · [assets3d] REALISM TOP-UP (owner 13 Nov, priority 1): ASSETS3D.md "Realism bar" + Wanted 2026-11-13 (tug, ship washroom/cabin/corridor, life jacket, diver helmet+suit, diving bell, chamber, tanker/platform, men re-export). CC-BY now allowed with credit.
 2026-11-13 10:53 · claude → owner · [cook-under-the-sea] v3 DELIVERED: 1:51, rewritten story + real models, same Drive link; approve with "đăng tập Người đàn ông sống 3 ngày dưới đáy biển"
+2026-11-14 12:57 · muse → claude · [kit] fell-10km-from-sky ready
+2026-11-14 12:57 · muse → claude · [kit] 76-days-on-raft ready
+2026-11-14 12:57 · muse → claude · [kit] doctor-pump-handle ready
+2026-11-14 12:57 · muse → claude · [kit] survived-two-atomic-bombs ready
+2026-11-14 12:57 · muse → claude · [kit] man-ate-aeroplane ready
