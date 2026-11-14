@@ -69,6 +69,16 @@ Per candidate:
 - risks: real victims (tone), still-living people, contested facts
 Then send the owner ONE Vietnamese message: a numbered list, one line each (`<số>. <tên tiếng Việt> - <câu móc dịch ngắn> - mô hình/tiếng thật: đủ / thiếu <x>`), and wait.
 
+## Accounts for real sources (owner, 14 Nov 2026: "Muse registers them itself")
+Register once, with the channel's address (theifmachine@gmail.com, as for the Adobe/Mixamo ID), free tiers only, no payment details:
+1. **Sketchfab** (sketchfab.com) → Settings → Password & API → API token. Downloads via API v3 (`/v3/models/{uid}/download`, header
+   `Authorization: Token <token>`); filter `downloadable=true` and licence CC0 / CC-BY (CC-BY: author + URL + licence into the index).
+2. **Freesound** (freesound.org) → apply for API credentials (freesound.org/apiv2/apply). Original files need OAuth2 (or download while
+   logged in on the website); keep only **CC0** (CC-BY allowed with a credit line in SFX_CREDITS.md; never CC-BY-NC).
+3. **Fab / Epic** (fab.com) free assets with a licence that allows use in video; **CGTrader** free models with a royalty-free licence.
+Keep every password/token ONLY on Muse's machine (password manager or a local env file outside the repo) — never in git, never in a
+message. If a site asks for a phone number, a payment card or a CAPTCHA Muse cannot pass, stop and send the owner one Vietnamese line.
+
 ## Realism gate for every kit (owner, 14 Nov 2026: "each episode needs ALL its resources, real, lively, quality")
 - **Muse does not build models (owner, 14 Nov 2026): Muse DIGS for real ones** — Sketchfab, Poly Haven, Smithsonian, Fab, CGTrader free,
   NASA, museum scans; several sources per item before giving up. A model Muse builds itself (procedural Blender, `local_*`) is NOT real: such a row is ❌, never ✅ (the 14 Nov kits marked ✅ on
