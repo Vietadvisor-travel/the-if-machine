@@ -1,0 +1,238 @@
+{
+ "Angle": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Astrolabe": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Bedspring": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Birds": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "BloodWash": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Bookshelf": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "CabinetCard": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Candle": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Chair": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "City": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Clipping": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Desk": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "DocumentPage": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Earth": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Eyepiece": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "FilmStrip": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Glassware": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Globe": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "GoldBeam": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "LaserDome": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Loupe": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Moon": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "MoonGround": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Mountains": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Obelisk": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Observatory18": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "OldScreen": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Palm": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Pendulum": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Person": {
+  "kind": "tool",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Pinned": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "PtSwingLamp": {
+  "kind": "episode",
+  "origin": "pipeline-test"
+ },
+ "Quadrant": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Reflector": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Ridge": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Rose": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Scholar": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "SeaChart": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "ShadowCone": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Ship": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Sky": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Stars": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Stopwatch": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Sun": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Telescope": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Temple": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Tree": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Water": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Well": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "Window": {
+  "kind": "sample",
+  "origin": "library v3 (src/paint/)"
+ },
+ "costume:chiton": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ },
+ "costume:coat18": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ },
+ "costume:frock19": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ },
+ "costume:labcoat": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ },
+ "costume:ptStudent": {
+  "kind": "episode",
+  "origin": "pipeline-test"
+ },
+ "costume:robe": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ },
+ "costume:spacesuit": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ },
+ "costume:suit": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ },
+ "costume:uniform": {
+  "kind": "sample",
+  "origin": "people.tsx presets"
+ }
+}

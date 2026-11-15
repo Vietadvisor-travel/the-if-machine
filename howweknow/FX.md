@@ -67,6 +67,6 @@ No shake except one deliberate `tremble` per film at most.
 3. No composition tag (`comp`: where the subject sits and how big) three lines running; a held scene changes something every ≤ 6 s.
 4. Each film has ≥ 5 **set-pieces** (`set`): a bespoke drawn mechanism made for THIS film (e.g. "the row of twenty Earths", "the finger
    that jumps"); a set-piece id may never be reused in a later film (`history.json`).
-5. ≥ 40 % of the drawn elements of a film are NEW (drawn for it, then added to the library); a library scene is never re-staged the
+5. Every film DRAWS its own things (owner, 15 Nov 2026): ≥ 10 drawings made for it in `src/lib/<slug>/`, ≥ 80 % of its non-generic elements its own, no library samples, no preset costumes; an archive drawing from another film only for the SAME real thing with a reason (ENGINE.md "Drawing"); a library scene is never re-staged the
    same way: a reused element must change at least two of {angle, scale, light, company, action}.
 6. ≥ 2 ideas new to the channel per film (a new effect in this file, or a new mechanism) — recorded in `history.json`.

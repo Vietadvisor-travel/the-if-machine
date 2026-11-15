@@ -1,7 +1,7 @@
 // FATHOM world library — everything drawn in the signature style (STYLE.md §4: real construction, never placeholder shapes).
 // Every component takes `draw` (0..1, ink-on animation) where it makes sense; sizes are in px of the 1920×1080 frame.
 import React, { useMemo } from 'react';
-import { Img, staticFile } from 'remotion';
+import { Img, staticFile, OffthreadVideo, Sequence, Loop, useVideoConfig } from 'remotion';
 import { geoOrthographic, geoEquirectangular, geoPath, geoGraticule10, geoCircle } from 'd3-geo';
 import land50 from '../data/land50.json';
 import coast50 from '../data/coast50.json';
@@ -223,34 +223,101 @@ export const Ship: React.FC<{ x: N; y: N; s: N; draw?: N; flip?: N }> = ({ x, y,
 };
 
 // ---------------------------------------------------------------- REAL STOCK as artefacts in the scene (STYLE.md §6)
+// Media = a real photo OR real footage (mp4/webm/mov) from Muse. Footage props: t0 (s, when the clip starts playing — the entity's
+// `play` time ref sets it), vin (s into the file, Muse's "best" in-point), vdur (s; the segment loops after it), rate (speed).
 const toneCss = 'sepia(.55) saturate(.8) contrast(1.06) brightness(.98)';
-export const Pinned: React.FC<{ src: string; x: N; y: N; w: N; h: N; rot?: N; caption?: string; draw?: N; pin?: boolean }> = ({ src, x, y, w, h, rot = -2, caption, draw = 1, pin = true }) => (
+export type MediaP = { t0?: N; vin?: N; vdur?: N; rate?: N };
+export const isVideo = (src: string) => /\.(mp4|webm|mov|m4v)$/i.test(src);
+export const Media: React.FC<{ src: string; w: N; h: N; style?: React.CSSProperties; fit?: 'cover' | 'contain' } & MediaP> = ({ src, w, h, style, fit = 'cover', t0 = 0, vin = 0, vdur, rate = 1 }) => {
+  const { fps } = useVideoConfig(), css: React.CSSProperties = { width: w, height: h, objectFit: fit, display: 'block', ...style };
+  if (!isVideo(src)) return <Img src={staticFile(src)} style={css} />;
+  const v = <OffthreadVideo src={staticFile(src)} muted trimBefore={Math.round(vin * fps)} playbackRate={rate} style={css} />;
+  return <Sequence from={Math.round(t0 * fps)} layout="none">{vdur ? <Loop durationInFrames={Math.max(1, Math.round(vdur * fps / rate))} layout="none">{v}</Loop> : v}</Sequence>;
+};
+const mp = (p: MediaP) => ({ t0: p.t0, vin: p.vin, vdur: p.vdur, rate: p.rate });
+type Art = MediaP & { src: string; x: N; y: N; draw?: N };
+// a photo (or a moving frame) pinned on the board/desk, paper mount + red pin + italic plate caption
+export const Pinned: React.FC<Art & { w: N; h: N; rot?: N; caption?: string; pin?: boolean }> = ({ src, x, y, w, h, rot = -2, caption, draw = 1, pin = true, ...m }) => (
   <g opacity={Math.min(1, draw * 1.4)} transform={`rotate(${rot} ${x} ${y})`}>
     <rect x={x - w / 2 - 16} y={y - h / 2 - 16} width={w + 32} height={h + (caption ? 64 : 32)} fill="#000" opacity={.28} filter="url(#b8)" transform="translate(8 12)" />
     <Region d={poly([[x - w / 2 - 16, y - h / 2 - 16], [x + w / 2 + 16, y - h / 2 - 16], [x + w / 2 + 16, y + h / 2 + (caption ? 48 : 16)], [x - w / 2 - 16, y + h / 2 + (caption ? 48 : 16)]])} mat="paper" t={.06} draw={draw} rim={false} />
-    <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h}><Img src={staticFile(src)} style={{ width: w, height: h, objectFit: 'cover', filter: toneCss, clipPath: `inset(0 ${100 - Math.min(100, draw * 140)}% 0 0)` }} /></foreignObject>
+    <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h}><div style={{ width: w, height: h, clipPath: `inset(0 ${100 - Math.min(100, draw * 140)}% 0 0)` }}><Media src={src} w={w} h={h} style={{ filter: toneCss }} {...mp(m)} /></div></foreignObject>
     <Ink d={`M${x - w / 2} ${y - h / 2} H${x + w / 2} V${y + h / 2} H${x - w / 2}Z`} w={1} draw={draw} />
     {caption && <text x={x} y={y + h / 2 + 34} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={20} fill={SEP} opacity={draw}>{caption}</text>}
     {pin && <g opacity={draw}><circle cx={x} cy={y - h / 2 - 4} r={9} fill={PIG.red[1]} stroke={SEP} strokeWidth={1} /><circle cx={x - 3} cy={y - h / 2 - 7} r={3} fill="#FFFFFF" opacity={.6} /></g>}
   </g>);
-// a real document page (Muse's scan), with the key passage CIRCLED in red ink as the narration reaches it
-export const DocumentPage: React.FC<{ src: string; x: N; y: N; w: N; h: N; rot?: N; circle?: [N, N, N, N]; circleK?: N; draw?: N }> = ({ src, x, y, w, h, rot = 2, circle, circleK = 0, draw = 1 }) => (
-  <g opacity={Math.min(1, draw * 1.4)} transform={`rotate(${rot} ${x} ${y})`}>
+// a real document page (Muse's scan), with the key passage CIRCLED in red ink as the narration reaches it (or underlined: mark="line")
+export const DocumentPage: React.FC<Art & { w: N; h: N; rot?: N; circle?: [N, N, N, N]; circleK?: N; mark?: 'circle' | 'line' | 'box' }> = ({ src, x, y, w, h, rot = 2, circle, circleK = 0, draw = 1, mark = 'circle', ...m }) => {
+  const c = circle && [x - w / 2 + circle[0] * w, y - h / 2 + circle[1] * h, circle[2] * w, circle[3] * h];
+  const d = !c ? '' : mark === 'line' ? `M${c[0] - c[2] / 2} ${c[1] + c[3] / 2} q${c[2] * .3} ${-4} ${c[2] * .55} 2 t${c[2] * .45} -3` : mark === 'box' ? `M${c[0] - c[2] / 2} ${c[1] - c[3] / 2} l${c[2]} 3 l-2 ${c[3]} l${-c[2]} -3 Z`
+    : `M${c[0]} ${c[1]} m${-c[2] / 2} 0 a${c[2] / 2} ${c[3] / 2} 0 1 0 ${c[2]} 0 a${c[2] / 2} ${c[3] / 2} 0 1 0 ${-c[2] * 1.04} ${-c[3] * .08}`;
+  return <g opacity={Math.min(1, draw * 1.4)} transform={`rotate(${rot} ${x} ${y})`}>
     <rect x={x - w / 2} y={y - h / 2} width={w} height={h} fill="#000" opacity={.3} filter="url(#b8)" transform="translate(10 14)" />
-    <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h}><Img src={staticFile(src)} style={{ width: w, height: h, objectFit: 'cover', filter: toneCss }} /></foreignObject>
-    {circle && circleK > 0 && <path d={`M${x - w / 2 + circle[0] * w} ${y - h / 2 + circle[1] * h} m${-circle[2] * w / 2} 0 a${circle[2] * w / 2} ${circle[3] * h / 2} 0 1 0 ${circle[2] * w} 0 a${circle[2] * w / 2} ${circle[3] * h / 2} 0 1 0 ${-circle[2] * w * 1.04} ${-circle[3] * h * .08}`} fill="none" stroke={PIG.red[1]} strokeWidth={4} strokeLinecap="round" pathLength={1} strokeDasharray={`${circleK} 1`} />}
-  </g>);
-// real footage seen THROUGH an instrument: a telescope eyepiece (brass ring) or a period screen
-export const Eyepiece: React.FC<{ x: N; y: N; r: N; children?: React.ReactNode; src?: string; draw?: N }> = ({ x, y, r, children, src, draw = 1 }) => (
+    <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h}><div style={{ width: w, height: h, clipPath: `inset(0 0 ${100 - Math.min(100, draw * 130)}% 0)` }}><Media src={src} w={w} h={h} style={{ filter: toneCss }} {...mp(m)} /></div></foreignObject>
+    {c && circleK > 0 && <path d={d} fill="none" stroke={PIG.red[1]} strokeWidth={4} strokeLinecap="round" pathLength={1} strokeDasharray={`${circleK} 1`} />}
+  </g>;
+};
+// real footage/photo seen THROUGH an instrument: a telescope eyepiece (gold ring, cross-hair optional)
+export const Eyepiece: React.FC<Partial<Art> & { x: N; y: N; r: N; children?: React.ReactNode; cross?: N }> = ({ x, y, r, children, src, draw = 1, cross = 0, ...m }) => (
   <g opacity={Math.min(1, draw * 1.5)}>
     <defs><clipPath id={`ep${Math.round(x)}`}><circle cx={x} cy={y} r={r * Math.min(1, draw * 1.2)} /></clipPath></defs>
     <circle cx={x} cy={y} r={r * 1.18} fill="#000" opacity={.35} filter="url(#b8)" />
-    {src && <foreignObject x={x - r} y={y - r} width={2 * r} height={2 * r}><Img src={staticFile(src)} style={{ width: 2 * r, height: 2 * r, objectFit: 'cover', filter: toneCss, borderRadius: '50%', clipPath: `circle(${Math.min(100, draw * 120) / 2}% at 50% 50%)` }} /></foreignObject>}
+    {src && <foreignObject x={x - r} y={y - r} width={2 * r} height={2 * r}><div style={{ width: 2 * r, height: 2 * r, borderRadius: '50%', overflow: 'hidden', clipPath: `circle(${Math.min(100, draw * 120) / 2}% at 50% 50%)` }}><Media src={src} w={2 * r} h={2 * r} style={{ filter: toneCss }} {...mp(m)} /></div></foreignObject>}
     <g clipPath={`url(#ep${Math.round(x)})`}>{!src && children}
-      <circle cx={x} cy={y} r={r} fill="none" stroke="#000" strokeWidth={r * .25} opacity={.35} filter="url(#b8)" /></g>
+      <circle cx={x} cy={y} r={r} fill="none" stroke="#000" strokeWidth={r * .25} opacity={.35} filter="url(#b8)" />
+      {cross > 0 && <g opacity={cross}><Line d={`M${x - r} ${y} H${x + r} M${x} ${y - r} V${y + r}`} w={1.1} col="#1A120B" a={.7} />{[-.5, .5].map(f => <Line key={f} d={`M${x + f * r} ${y - 8} V${y + 8} M${x - 8} ${y + f * r} H${x + 8}`} w={1} col="#1A120B" a={.7} />)}</g>}</g>
     <circle cx={x} cy={y} r={r * 1.06} fill="none" stroke="url(#gold)" strokeWidth={r * .13} opacity={Math.min(1, draw * 1.5)} /><Ink d={ell(x, y, r * 1.125, r * 1.125)} w={1.6} draw={draw} /><Ink d={ell(x, y, r, r)} w={1.2} draw={draw} />
     {Array.from({ length: 60 }, (_, i) => { const a = i / 60 * Math.PI * 2; return <Line key={i} d={`M${x + Math.cos(a) * r * 1.12} ${y + Math.sin(a) * r * 1.12} L${x + Math.cos(a) * r * 1.07} ${y + Math.sin(a) * r * 1.07}`} w={.7} a={.8 * draw} />; })}
   </g>);
+// archival footage as a FILM STRIP lying in the scene: perforated celluloid, the middle frame plays the clip, the outer frames hold stills of it
+export const FilmStrip: React.FC<Art & { w: N; rot?: N; frames?: N }> = ({ src, x, y, w, rot = -4, frames = 3, draw = 1, ...m }) => {
+  const fw = w / frames, fh = fw * .74, H2 = fh + 70, x0 = x - w / 2, y0 = y - H2 / 2, k = Math.min(1, draw * 1.3);
+  return <g opacity={k} transform={`rotate(${rot} ${x} ${y})`}>
+    <rect x={x0 - 6} y={y0} width={w + 12} height={H2} fill="#000" opacity={.3} filter="url(#b8)" transform="translate(10 14)" />
+    <path d={`M${x0 - 20} ${y0} H${x0 + (w + 40) * k} V${y0 + H2} H${x0 - 20}Z`} fill="#1C140E" opacity={.94} />
+    {Array.from({ length: Math.round(w / 26) + 2 }, (_, i) => [y0 + 10, y0 + H2 - 24].map(yy => <rect key={i + '_' + yy} x={x0 - 12 + i * 26} y={yy} width={13} height={14} rx={3} fill="#E9DCBC" opacity={x0 - 12 + i * 26 < x0 + (w + 30) * k ? .9 : 0} />))}
+    {Array.from({ length: frames }, (_, i) => { const fx = x0 + i * fw + 8, mid = i === Math.floor(frames / 2); return (fx - x0) / w < k ? <foreignObject key={i} x={fx} y={y0 + 35} width={fw - 16} height={fh}>
+      <Media src={src} w={fw - 16} h={fh} style={{ filter: toneCss + (mid ? '' : ' brightness(.8)') }} {...mp(mid ? m : { ...m, rate: 1e-6, vdur: undefined })} /></foreignObject> : null; })}
+    <Ink d={`M${x0 - 20} ${y0} H${x0 + w + 20} M${x0 - 20} ${y0 + H2} H${x0 + w + 20}`} w={1.1} draw={draw} />
+  </g>;
+};
+// a brass reading glass over a real document/photo: the lens shows the passage magnified (focus = [u, v] in 0..1 of the source)
+export const Loupe: React.FC<Art & { r: N; focus?: [N, N]; zoom?: N; srcW?: N; srcH?: N; handle?: N }> = ({ src, x, y, r, focus = [.5, .5], zoom = 2.6, srcW = 1600, srcH = 1100, handle = 40, draw = 1, ...m }) => {
+  const W2 = srcW * zoom * r / 400, H2 = srcH * zoom * r / 400, ha = handle * Math.PI / 180, hx = x + Math.cos(ha) * r * 1.1, hy = y + Math.sin(ha) * r * 1.1, L = r * 1.5;
+  const hd = `M${hx - Math.sin(ha) * r * .09} ${hy + Math.cos(ha) * r * .09} L${hx + Math.cos(ha) * L - Math.sin(ha) * r * .12} ${hy + Math.sin(ha) * L + Math.cos(ha) * r * .12} L${hx + Math.cos(ha) * L + Math.sin(ha) * r * .12} ${hy + Math.sin(ha) * L - Math.cos(ha) * r * .12} L${hx + Math.sin(ha) * r * .09} ${hy - Math.cos(ha) * r * .09}Z`;
+  return <g opacity={Math.min(1, draw * 1.4)}>
+    <path d={hd} fill="#000" opacity={.3} filter="url(#b8)" transform="translate(12 16)" /><circle cx={x + 12} cy={y + 16} r={r * 1.1} fill="#000" opacity={.3} filter="url(#b8)" />
+    <Region d={hd} mat="wood" t={.55} ang={handle + 90} draw={draw} sw={1.3} />
+    <foreignObject x={x - r} y={y - r} width={2 * r} height={2 * r}><div style={{ width: 2 * r, height: 2 * r, borderRadius: '50%', overflow: 'hidden', position: 'relative', clipPath: `circle(${Math.min(50, draw * 60)}% at 50% 50%)` }}>
+      <div style={{ position: 'absolute', left: r - focus[0] * W2, top: r - focus[1] * H2 }}><Media src={src} w={W2} h={H2} style={{ filter: toneCss }} {...mp(m)} /></div></div></foreignObject>
+    <circle cx={x - r * .35} cy={y - r * .4} r={r * .35} fill="url(#glowW)" opacity={.35 * draw} />
+    <circle cx={x} cy={y} r={r * 1.05} fill="none" stroke="url(#gold)" strokeWidth={r * .12} opacity={draw} /><Ink d={ell(x, y, r * 1.11, r * 1.11)} w={1.5} draw={draw} /><Ink d={ell(x, y, r, r)} w={1.1} draw={draw} />
+  </g>;
+};
+// a newspaper/journal CLIPPING: torn-edged newsprint holding a real photo or a real scanned article
+export const Clipping: React.FC<Art & { w: N; h: N; rot?: N; seed?: string }> = ({ src, x, y, w, h, rot = 3, seed = 'clip', draw = 1, ...m }) => {
+  const q = seq(seed), pts: number[][] = []; const e = (n: N) => (q() - .5) * n;
+  for (let i = 0; i <= 14; i++) pts.push([x - w / 2 + w * i / 14, y - h / 2 + e(10)]); for (let i = 1; i <= 10; i++) pts.push([x + w / 2 + e(8), y - h / 2 + h * i / 10]);
+  for (let i = 13; i >= 0; i--) pts.push([x - w / 2 + w * i / 14, y + h / 2 + e(10)]); for (let i = 9; i >= 1; i--) pts.push([x - w / 2 + e(8), y - h / 2 + h * i / 10]);
+  const d = poly(pts), id = 'cl' + seed;
+  return <g opacity={Math.min(1, draw * 1.4)} transform={`rotate(${rot} ${x} ${y})`}>
+    <path d={d} fill="#000" opacity={.28} filter="url(#b8)" transform="translate(9 13)" /><defs><clipPath id={id}><path d={d} /></clipPath></defs>
+    <path d={d} fill="#EDE3C8" />
+    <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h} clipPath={`url(#${id})`}><div style={{ width: w, height: h, clipPath: `inset(0 0 ${100 - Math.min(100, draw * 130)}% 0)` }}><Media src={src} w={w} h={h} style={{ filter: 'grayscale(1) sepia(.35) contrast(1.1)', mixBlendMode: 'multiply' }} {...mp(m)} /></div></foreignObject>
+    <path d={d} fill="none" stroke="#B8A880" strokeWidth={1.2} />
+  </g>;
+};
+// a Victorian CABINET CARD: a real portrait mounted on an ornate card with a gilt edge and the studio line (caption)
+export const CabinetCard: React.FC<Art & { w: N; h: N; rot?: N; caption?: string }> = ({ src, x, y, w, h, rot = -3, caption, draw = 1, ...m }) => {
+  const W2 = w + 44, H2 = h + 110, x0 = x - W2 / 2, y0 = y - h / 2 - 22;
+  return <g opacity={Math.min(1, draw * 1.4)} transform={`rotate(${rot} ${x} ${y})`}>
+    <rect x={x0} y={y0} width={W2} height={H2} rx={10} fill="#000" opacity={.3} filter="url(#b8)" transform="translate(10 14)" />
+    <Region d={`M${x0 + 10} ${y0} H${x0 + W2 - 10} Q${x0 + W2} ${y0} ${x0 + W2} ${y0 + 10} V${y0 + H2 - 10} Q${x0 + W2} ${y0 + H2} ${x0 + W2 - 10} ${y0 + H2} H${x0 + 10} Q${x0} ${y0 + H2} ${x0} ${y0 + H2 - 10} V${y0 + 10} Q${x0} ${y0} ${x0 + 10} ${y0}Z`} mat="wall" t={.25} hatch={0} draw={draw} rim={false} sw={1} />
+    <rect x={x0 + 8} y={y0 + 8} width={W2 - 16} height={H2 - 16} rx={6} fill="none" stroke="url(#gold)" strokeWidth={3} opacity={draw} />
+    <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h}><div style={{ width: w, height: h, borderRadius: '6px 6px 40% 40% / 6px 6px 12% 12%', overflow: 'hidden', opacity: Math.min(1, draw * 1.6) }}><Media src={src} w={w} h={h} style={{ filter: 'sepia(.8) saturate(.7) contrast(1.05)' }} {...mp(m)} /></div></foreignObject>
+    {caption && <text x={x} y={y0 + H2 - 30} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={19} fill="#F3D98A" opacity={draw}>{caption}</text>}
+  </g>;
+};
 
 // ---------------------------------------------------------------- diagram marks: an angle with its arc and ONE label, a gold beam
 export const Angle: React.FC<{ x: N; y: N; a0: N; a1: N; r: N; label?: string; draw?: N; len?: N }> = ({ x, y, a0, a1, r, label, draw = 1, len = 220 }) => {
@@ -315,14 +382,14 @@ export const Bedspring: React.FC<{ x: N; y: N; s: N; tilt?: N; draw?: N }> = ({ 
   </g>;
 };
 // a period instrument screen (oscilloscope / early TV) in a wooden cabinet — the trace shows pulses; or real footage inside (src)
-export const OldScreen: React.FC<{ x: N; y: N; w: N; draw?: N; pulses?: N[]; sweep?: N; src?: string }> = ({ x, y, w, draw = 1, pulses = [], sweep = 1, src }) => {
+export const OldScreen: React.FC<MediaP & { x: N; y: N; w: N; draw?: N; pulses?: N[]; sweep?: N; src?: string }> = ({ x, y, w, draw = 1, pulses = [], sweep = 1, src, ...m }) => {
   const h = w * .78, sw = w * .7, sh = h * .62, sx = x - sw / 2, sy = y - h / 2 + h * .12;
   let d = `M${sx} ${sy + sh * .62}`; for (let i = 0; i <= 120 * sweep; i++) { const u = i / 120, px = sx + u * sw; let py = sy + sh * .62 + Math.sin(u * 90) * 1.2; for (const p of pulses) py -= Math.exp(-Math.pow((u - p) / .012, 2)) * sh * .45; d += ` L${px.toFixed(1)} ${py.toFixed(1)}`; }
   return <g>
     <rect x={x - w / 2} y={y - h / 2} width={w} height={h} fill="#000" opacity={.3} filter="url(#b8)" transform="translate(10 14)" />
     <Region d={poly([[x - w / 2, y - h / 2], [x + w / 2, y - h / 2], [x + w / 2, y + h / 2], [x - w / 2, y + h / 2]])} mat="wood" t={.5} ang={0} draw={draw} sw={1.6} />
     <Region d={`M${sx} ${sy} H${sx + sw} V${sy + sh} H${sx}Z`} mat="deep" t={.95} hatch={0} draw={draw} sw={1.4} />
-    {src ? <foreignObject x={sx} y={sy} width={sw} height={sh}><Img src={staticFile(src)} style={{ width: sw, height: sh, objectFit: 'cover', filter: 'sepia(.6) saturate(.7) brightness(.95)', opacity: draw }} /></foreignObject>
+    {src ? <foreignObject x={sx} y={sy} width={sw} height={sh}><Media src={src} w={sw} h={sh} style={{ filter: 'sepia(.6) saturate(.7) brightness(.95)', opacity: draw }} {...mp(m)} /></foreignObject>
       : <g opacity={draw}>{Array.from({ length: 9 }, (_, i) => <Line key={i} d={`M${sx + i * sw / 8} ${sy} V${sy + sh} M${sx} ${sy + i * sh / 8} H${sx + sw}`} w={.5} col="#9CCAD6" a={.25} />)}
         <path d={d} fill="none" stroke="#C9F2D8" strokeWidth={6} opacity={.25} filter="url(#b2s)" /><path d={d} fill="none" stroke="#E6FFF0" strokeWidth={1.8} /></g>}
     {[0, 1, 2].map(i => <Region key={i} d={ell(x - w * .2 + i * w * .2, y + h * .38, w * .035, w * .035)} mat="gold" t={.35} draw={draw} sw={.8} />)}

@@ -21,6 +21,9 @@ The channel is **FATHOM** — "How we came to know the world." Spec: `brief/FATH
   the frame (shot plan, `howweknow/STORY.md` §6: per line VO/SEE/NEW/BEATS/IN/TRANS/CAM/LIFE/COMP/SET/STOCK), every drawing, the engine.
   **Muse = sourcing only**: fulfils Claude's resource order `jobs/orders/<slug>.md` (photos, documents, maps, footage, archival audio,
   sfx, music, drawing references, data, quotes, geo) per the contract `jobs/tasks/MUSE_FATHOM.md`; never touches content.
+- **Every film draws its own world (owner, 15 Nov 2026 night):** the library is samples + an archive, never a kit — people (costume + face),
+  objects, places are drawn NEW for each film in `howweknow/src/lib/<slug>/` from its content (+ Muse's R references), registered with
+  `tools/lib_index.py`; reuse only the same real thing with a reason (`howweknow/ENGINE.md` "Drawing", brief/FATHOM.md §11).
 - **Variety is a gate (owner: "đa dạng, sáng tạo, không lặp"):** effects by meaning from `howweknow/FX.md`; `tools/variety.py` fails a film
   that repeats an entrance/transformation, has < 5 bespoke set-pieces, < 40 % new drawn elements, < 2 ideas new to the channel, or
   reuses a set-piece from an earlier film (`history.json`). Every drawing: real construction, polished detail — never cheap shapes.

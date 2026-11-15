@@ -25,7 +25,7 @@ them into conclusions.
 | A | **Audio — archival**: real recordings (mission audio, radio, speeches, instrument sounds, Morse, radar echoes) | heard under a scene | WAV 48 kHz (or original), with the exact segment timecodes |
 | S | **Sound effects**: real recorded sounds of things on screen (quill, paper, brass click, sea, wind, laser hum, door, crowd…) | few, fitting | WAV 48 kHz, 2–4 takes each, clean start/end |
 | U | **Music**: 3 candidate tracks per episode for ONE bed (calm, no vocals, no ticking percussion, ≥ 4 min or loopable) | Claude picks one | WAV/FLAC, with BPM and mood |
-| R | **Reference** (never shown): photos/drawings/plans of an instrument, building, costume, ship, landscape from several angles, so Claude DRAWS it correctly | drawing accuracy | any resolution; 3–8 views each; note dimensions when known |
+| R | **Reference** (never shown): photos/drawings/plans of an instrument, building, costume, ship, landscape, the real people's portraits (for costume/face, never copied), from several angles, so Claude DRAWS each film's own version correctly — every film draws its things new, so R rows are many and matter | drawing accuracy | any resolution; 3–8 views each; note dimensions, materials, colours when known |
 | X | **Data**: numbers, tables, coordinates, dates, measurements from primary sources | diagrams at true proportion | CSV/JSON/MD with the source page |
 | T | **Texts**: exact quotations with page/line, original-language + English | captions, plate captions | MD with full citation |
 | G | **Geo**: coordinates, routes, positions, eclipse paths, star positions | maps and globes | GeoJSON/CSV |

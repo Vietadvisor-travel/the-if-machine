@@ -9,9 +9,10 @@ Script standard: `STORY.md`. Channel spec: `../brief/FATHOM.md`.
 bash tools/setup.sh                      # once per container: npm, fonts, sfx, paper textures, brand mark
 bash tools/sync.sh <slug>                # Muse's resources from Drive → public/stock/ (core + this episode)
 python3 tools/script_check.py episodes/<slug>     # STORY.md rules — must PASS before the voice
-bash tools/make.sh <slug> [--ship]       # check → voice → world check → mix → render → mux → QA sheet (→ Drive + delivery stub)
+bash tools/make.sh <slug> [--ship]       # library index → script check → voice → world check → variety → mix → render → mux → sheet → .srt → thumbnail (→ Drive)
 npx remotion render Story out/f --props='{"slug":"<slug>"}' --frames=30,300,900 --image-format=jpeg --is-production=false   # stills
-npx remotion render PaintTest out/pt --frames=29,59,89,119 --image-format=jpeg --is-production=false                     # library QA
+npx remotion render PaintTest out/pt --frames=29,59,89,119 --image-format=jpeg --is-production=false                     # library QA (also PeopleTest, PlacesTest)
+python3 episodes/fx-board/build.py && npx remotion render Story out/fxb --props='{"slug":"fx-board"}' --sequence --image-format=jpeg   # every FX + footage artefact
 node tools/brand.cjs                     # brand files → out/brand/ (upload to Drive brand/fathom/)
 ```
 Renders with the pre-installed headless Chromium (`remotion.config.ts`; remotion.media is blocked here).
@@ -24,6 +25,7 @@ Renders with the pre-installed headless Chromium (`remotion.config.ts`; remotion
   "world": [ entities… ] }
 ```
 `tools/vo.py` voices the lines → `timeline.json`; everything in `world` is timed against it. `tail` ≥ 3.2 (the brand end card).
+`thumb`: `{ "t": 42, "title": "How far is the *Moon*?", "kicker": "…", "side": "left|right" }` → `out/<slug>_thumb.jpg` (1280×720). Music: `python3 tools/music.py wonder` lists beds (Muse's first); short tracks loop.
 
 ## Time refs (keys' `t`)
 `2.5` · `"L3"` start of line 3 · `"L3+1.2"` / `"L3-0.5"` · `"L3@mirror"` when "mirror" is spoken · `"L3$"` end of line 3 · `"end"`.
@@ -51,19 +53,28 @@ the line traces, the wash blooms, the hatching settles — use it to bring every
 Anchors: `[x, y]` world · `{entity, lon, lat}` a point on a planet · `{entity}` its centre · `{screen: [x, y]}`.
 
 ## FX on ANY entity (`src/engine/Fx.tsx`, vocabulary and rules in `FX.md`) — animatable props, combine freely
-`fx_x fx_y fx_s fx_r` (+ origin `fx_ox fx_oy`) · reveals `wipe`(+`wipeDir`) `iris`(+`irisAt`) `unroll` `blinds` `tear` · paper moves
+`fx_box [x, y, w, h]` = the element's area (reveals run across it, turns pivot on its centre) · `fx_x fx_y fx_s fx_r` (+ origin `fx_ox fx_oy`) · reveals `wipe`(+`wipeDir`) `iris`(+`irisAt`) `unroll` `blinds` `tear` · paper moves
 `flipX` `flipY` `lift` · life `sway` `bob` `tremble` `breathe` · tone `sepia` `dim`. Eases: inOut out in soft snap linear back
 anticipate bounce elastic expo. Every line carries `plan` {in, trans, cam, life, comp, set, new, stock} (STORY.md §6);
 `python3 tools/variety.py episodes/<slug>` enforces the mix and the no-repeat ledger `history.json` (`--record` after delivery).
 
-## The library (`src/paint/world.tsx`, all in the signature style)
-Sky(kind day|dusk|night|space|dawn, h, stars) · Stars · Sun · Moon(phase) · Earth(real climate-coloured, clouds, night contour) · Ridge ·
-Water · Palm · Obelisk(hieroglyphs, pyramidion) · Temple(columns) · Well(sunlit) · Scholar(pose stand|point|look) · Astrolabe(rot) ·
-Telescope(tilt) · Candle(flicker) · SeaChart(box [lon0,lat0,lon1,lat1], rivers) + chartPoint · Rose · Ship · Angle(label) · GoldBeam ·
-ShadowCone · BloodWash · Observatory18 · Quadrant · Bedspring · OldScreen(pulses | src) · LaserDome · Reflector(flash) · MoonGround · Stopwatch(sec) ·
-REAL STOCK as artefacts: Pinned(src, caption) · DocumentPage(src, circle [cx,cy,w,h] in 0–1, circleK) · Eyepiece(src) · OldScreen(src).
-**Every film draws NEW elements** (≥ 40 % new, ≥ 5 set-pieces made for it — FX.md variety rules); the library is a base, never a kit to re-stage.
-Add a new element by drawing it with `Region` (paint.tsx): real construction, wash + hatch + swelling ink, a `draw` prop. QA it in PaintTest.
+## Drawing: every film draws its OWN things (owner, 15 Nov 2026) — the library is samples + an archive, never a kit
+- **Style core (always):** `src/paint/paint.tsx` — Region (wash + form-following hatch + swelling ink, `draw` ink-on), Ink, Line, Stipple, Contour, PIG pigments.
+- **Generic by nature (`core`, free in any film):** paper, Sky, Stars, Sun, Moon, Earth (real bodies, real coastlines), Water, Ridge, SeaChart (real map),
+  diagram marks (Angle, GoldBeam, ShadowCone, BloodWash) and the REAL-STOCK frames: Pinned · DocumentPage(circle|line|box mark) · Eyepiece(cross) ·
+  OldScreen · FilmStrip · Loupe(focus, zoom) · Clipping (torn newsprint) · CabinetCard (Victorian mount). Each takes a photo OR FOOTAGE
+  (`src` .mp4/.webm/.mov; `play` = time ref when it starts, `vin` in-point s, `vdur` loop length s, `rate`).
+- **Tool:** `Person` (`src/paint/people.tsx`) — a jointed figure: poses stand point look write think raise hold present sit sitlook,
+  glide `pose`→`pose2` with `pk` 0..1, `walk` (cycles; `null` stops), `armF/armB/nod/lean` overrides, `holds` book|quill|scroll|lamp,
+  `beard`, `hair`, `hairCol`, `hat`, `skin` .2–.75, `face {nose, brow, chin, age, build}`, `facing`. Every Person needs `who` and a costume
+  DESIGNED FOR THE FILM (`COSTUMES` in `src/lib/<slug>/`, or an inline object) — the presets are samples.
+- **Samples (`sample`, never in a film as is):** everything else in `src/paint/world.tsx` + `places.tsx` (Obelisk, Telescope, Quadrant, Mountains,
+  Window, Bookshelf, Desk, Chair, Globe, Pendulum, Glassware, City, Tree, Birds…): references for construction and quality only.
+- **The film's own drawings:** `src/lib/<slug>/index.tsx` (copy `src/lib/_template/`), `export const ART = { UniqueName: Component }` +
+  `COSTUMES`, drawn from Muse's R (reference) items so they are TRUE to the real object/place/person → `python3 tools/lib_index.py`
+  registers them (`library.json`, `src/lib/index.ts`). They stay in the archive: another film may reuse one only when it is the SAME real
+  thing, with `"reuse": { "Name": "why" }` in its episode.json. Gate (`variety.py`): ≥ 10 drawings made for the film, ≥ 80 % of the
+  non-generic elements its own, no samples, no preset costumes. QA every new drawing in a PaintTest-like still before the render.
 
 ## Continuity grammar (how one picture becomes the next — use these, never a plain cut)
 1. **Window**: a point (pin, crater, a word on a document) opens as a `lens` into the place itself; closing it returns to the point.

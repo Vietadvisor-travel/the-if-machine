@@ -3,11 +3,14 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import * as Wd from '../paint/world';
+import { Person } from '../paint/people';
+import * as Pl from '../paint/places';
+import { LIB_ART, LIB_COSTUMES } from '../lib';
 import { Ink, Line, SEP, PIG } from '../paint/paint';
 import { FONT } from '../kit/style';
 import { Entity, Props, stateAt } from './state';
 import { Cam, SW, SH, toScreen, anchor, planetPoint } from './space';
-import { TL } from './time';
+import { TL, resolveTime } from './time';
 import { Fx, hasFx, FX_KEYS } from './Fx';
 import { random } from 'remotion';
 
@@ -17,9 +20,12 @@ const Svg: React.FC<{ a?: number; children: React.ReactNode }> = ({ a = 1, child
 const ART: Record<string, React.FC<any>> = { Sky: Wd.Sky, Stars: Wd.Stars, Sun: Wd.Sun, Moon: Wd.Moon, Earth: Wd.Earth, Ridge: Wd.Ridge, Water: Wd.Water, Palm: Wd.Palm, Obelisk: Wd.Obelisk, Temple: Wd.Temple, Well: Wd.Well,
   Scholar: Wd.Scholar, Astrolabe: Wd.Astrolabe, Telescope: Wd.Telescope, Candle: Wd.Candle, SeaChart: Wd.SeaChart, Rose: Wd.Rose, Ship: Wd.Ship, Angle: Wd.Angle, GoldBeam: Wd.GoldBeam,
   Pinned: Wd.Pinned, DocumentPage: Wd.DocumentPage, Eyepiece: Wd.Eyepiece, ShadowCone: Wd.ShadowCone, BloodWash: Wd.BloodWash, Observatory18: Wd.Observatory18, Quadrant: Wd.Quadrant,
-  Bedspring: Wd.Bedspring, OldScreen: Wd.OldScreen, LaserDome: Wd.LaserDome, Reflector: Wd.Reflector, MoonGround: Wd.MoonGround, Stopwatch: Wd.Stopwatch };
+  Bedspring: Wd.Bedspring, OldScreen: Wd.OldScreen, LaserDome: Wd.LaserDome, Reflector: Wd.Reflector, MoonGround: Wd.MoonGround, Stopwatch: Wd.Stopwatch,
+  FilmStrip: Wd.FilmStrip, Loupe: Wd.Loupe, Clipping: Wd.Clipping, CabinetCard: Wd.CabinetCard, Person: Person,
+  Mountains: Pl.Mountains, Window: Pl.Window, Bookshelf: Pl.Bookshelf, Desk: Pl.Desk, Chair: Pl.Chair, Globe: Pl.Globe, Pendulum: Pl.Pendulum, Glassware: Pl.Glassware, City: Pl.City, Tree: Pl.Tree, Birds: Pl.Birds };
+Object.assign(ART, LIB_ART);   // every film's own drawings (src/lib/<slug>/, tools/lib_index.py)
 export const ART_NAMES = Object.keys(ART);
-const strip = (s: Props) => { const { a: _a, name: _n, space: _s, _type, ...rest } = s; for (const k of FX_KEYS) delete (rest as any)[k]; return rest; };
+const strip = (s: Props) => { const { a: _a, name: _n, space: _s, _type, play: _p, fx_box: _b, who: _w, ...rest } = s; for (const k of FX_KEYS) delete (rest as any)[k]; return rest; };
 const kids = (e: Entity, c: Ctx) => (e.children || []).map((ch, i) => { const cs = { ...stateAt(ch, c.t, c.tl), _type: ch.type }, n = renderEntity(ch, cs, c); return n && hasFx(cs) ? <Fx key={ch.id} s={cs} t={c.t} seed={i + 7}>{n}</Fx> : <React.Fragment key={ch.id}>{n}</React.Fragment>; });
 
 export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
@@ -27,7 +33,8 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
   const { cam, S, t } = c, a = s.a ?? 1;
   switch (e.type) {
     case 'art': {   // any drawn element of the library; space "world" = it lives in the world and the camera moves past it
-      const C = ART[s.name]; if (!C) return null; const p = strip(s);
+      const C = ART[s.name]; if (!C) return null; const p: Props = strip(s); if (s.play !== undefined) p.t0 = resolveTime(s.play, c.tl);
+      if (s.name === 'Person' && typeof p.costume === 'string' && LIB_COSTUMES[p.costume]) p.costume = LIB_COSTUMES[p.costume];   // footage starts at its `play` time ref
       return <Svg a={a}>{s.space === 'world' ? <g transform={camT(cam)}><C {...p} flicker={t} /></g> : <C {...p} flicker={t} />}</Svg>;
     }
     case 'planet': {   // a planet placed in the WORLD (x, y, size in world units) so the camera can travel between planets at true scale

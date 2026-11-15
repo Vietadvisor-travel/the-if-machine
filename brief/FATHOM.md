@@ -33,9 +33,8 @@ Voice af_heart (Kokoro), slower and expressive (speed 0.86, longer pauses). ONE 
 quiet under the voice. Sound effects moderate and fitting, never cluttered.
 
 ## 5. Who does what (locked)
-- **Muse**: weekly topic shortlist (pool 1) → the owner picks → full research pack + kit: digs ALL resources (real photos, footage,
-  documents, maps, music track, sfx) to Drive with licences (`jobs/tasks/MUSE_HOWWEKNOW.md` → to be renamed MUSE_FATHOM.md).
-- **Claude**: the engine (complete, polished) + gripping scripts + making each film end to end; reports in Vietnamese.
+- (superseded by §10) **Muse**: sourcing only, against Claude's resource order (`jobs/tasks/MUSE_FATHOM.md`).
+- **Claude**: topics (15 proposed, owner picks), research, script + frame-level shot plan, every drawing, the engine, each film end to end; reports in Vietnamese.
 - **Owner**: picks topics, approves films ("đăng tập …").
 
 ## 6. To present for the owner's choice (before building)
@@ -72,3 +71,10 @@ Next: the full engine upgrade in this style (owner: "cực xịn và chỉn chu"
 - Muse: sourcing only, in depth, all categories (photos, documents, maps, footage, archival audio, sfx, music, references, data,
   quotes, geo) against Claude's resource order — contract `jobs/tasks/MUSE_FATHOM.md`, orders `jobs/orders/<slug>.md`.
 - The owner will create 4 new channels; brand book + style prompts on Drive `brand/fathom/` (Fathom_BrandBook.pdf, FATHOM_style_prompts.txt).
+
+## 11. LOCKED (owner, 15 Nov 2026 night): nothing is a fixed kit — every film draws its own world
+"Resources, things, characters in the library are only samples; I don't like repetition. Each episode draws new, creatively, from its
+content, and adds it to the library so it MAY be reused later — people, tables, anything." → `howweknow/ENGINE.md` "Drawing":
+style core + generic real bodies + real-stock frames are shared; every person (costume + face), object, building and place is drawn for
+the film in `src/lib/<slug>/` (from Muse's reference R items so it is true to the real thing) and archived; reuse only for the SAME real
+thing, with a reason. Enforced by `tools/variety.py` (≥ 10 own drawings, ≥ 80 % own, no samples, no preset costumes).

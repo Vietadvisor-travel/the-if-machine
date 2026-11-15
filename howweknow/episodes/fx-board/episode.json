@@ -1,0 +1,1037 @@
+{
+ "slug": "fx-board",
+ "title": "internal FX QA board (not a film)",
+ "lines": [
+  {
+   "text": "board A reveals"
+  },
+  {
+   "text": "board B artefacts"
+  }
+ ],
+ "world": [
+  {
+   "id": "camera",
+   "type": "camera",
+   "props": {
+    "x": 960,
+    "y": 540,
+    "zoom": 1
+   }
+  },
+  {
+   "id": "grid",
+   "type": "art",
+   "props": {
+    "name": "Ridge",
+    "y": 2000,
+    "amp": 0,
+    "seed": "x"
+   }
+  },
+  {
+   "id": "a0",
+   "type": "art",
+   "props": {
+    "name": "Astrolabe",
+    "r": 160,
+    "x": 240.0,
+    "y": 250.0,
+    "wipe": 0,
+    "fx_box": [
+     0,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "wipe": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a0l",
+   "type": "label",
+   "props": {
+    "text": "wipe right",
+    "x": 240.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a1",
+   "type": "art",
+   "props": {
+    "name": "Stopwatch",
+    "r": 150,
+    "sec": 1.5,
+    "x": 720.0,
+    "y": 250.0,
+    "wipe": 0,
+    "wipeDir": "diag",
+    "fx_box": [
+     480,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "wipe": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a1l",
+   "type": "label",
+   "props": {
+    "text": "wipe diag",
+    "x": 720.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "type": "art",
+   "props": {
+    "name": "Rose",
+    "r": 170,
+    "x": 1200.0,
+    "y": 250.0,
+    "iris": 0,
+    "fx_box": [
+     960,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "iris": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a2l",
+   "type": "label",
+   "props": {
+    "text": "iris",
+    "x": 1200.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a3",
+   "type": "art",
+   "props": {
+    "name": "DocumentPage",
+    "src": "stock/_qa/doc.jpg",
+    "w": 400,
+    "h": 275,
+    "circle": [
+     0.38,
+     0.3,
+     0.7,
+     0.1
+    ],
+    "circleK": 0,
+    "x": 1680.0,
+    "y": 260.0,
+    "unroll": 0,
+    "fx_box": [
+     1440,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "unroll": 1,
+     "circleK": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a3l",
+   "type": "label",
+   "props": {
+    "text": "unroll",
+    "x": 1680.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a4",
+   "type": "art",
+   "props": {
+    "name": "Pinned",
+    "src": "stock/_qa/photo.jpg",
+    "w": 340,
+    "h": 240,
+    "caption": "Plate II. \u2014 blinds",
+    "x": 240.0,
+    "y": 800.0,
+    "blinds": 0,
+    "fx_box": [
+     0,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "blinds": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a4l",
+   "type": "label",
+   "props": {
+    "text": "blinds",
+    "x": 240.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a5",
+   "type": "art",
+   "props": {
+    "name": "Clipping",
+    "src": "stock/_qa/photo.jpg",
+    "w": 380,
+    "h": 280,
+    "seed": "t1",
+    "x": 720.0,
+    "y": 800.0,
+    "tear": 0,
+    "fx_box": [
+     480,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "tear": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a5l",
+   "type": "label",
+   "props": {
+    "text": "tear",
+    "x": 720.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a6",
+   "type": "art",
+   "props": {
+    "name": "CabinetCard",
+    "src": "stock/_qa/photo.jpg",
+    "w": 240,
+    "h": 300,
+    "caption": "Studio of QA, 1888",
+    "x": 1200.0,
+    "y": 800.0,
+    "flipY": -90,
+    "fx_box": [
+     960,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "back",
+     "flipY": 0
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a6l",
+   "type": "label",
+   "props": {
+    "text": "flipY + back",
+    "x": 1200.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a7",
+   "type": "art",
+   "props": {
+    "name": "Telescope",
+    "s": 260,
+    "x": 1640.0,
+    "y": 960.0,
+    "flipX": 80,
+    "fx_s": 0.4,
+    "fx_box": [
+     1440,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "flipX": 0,
+     "fx_s": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "a7l",
+   "type": "label",
+   "props": {
+    "text": "flipX + scale",
+    "x": 1680.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b0",
+   "type": "art",
+   "props": {
+    "name": "Pinned",
+    "src": "stock/_qa/clip.mp4",
+    "w": 360,
+    "h": 220,
+    "caption": "Fig. 1 \u2014 footage pinned",
+    "play": "L1",
+    "vin": 2,
+    "x": 240.0,
+    "y": 260.0,
+    "lift": 0,
+    "fx_box": [
+     0,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "lift": 18
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b0l",
+   "type": "label",
+   "props": {
+    "text": "Pinned video",
+    "x": 240.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b1",
+   "type": "art",
+   "props": {
+    "name": "Eyepiece",
+    "src": "stock/_qa/clip.mp4",
+    "r": 170,
+    "cross": 1,
+    "play": "L1",
+    "vin": 5,
+    "vdur": 2,
+    "x": 720.0,
+    "y": 250.0,
+    "breathe": 1,
+    "fx_box": [
+     480,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "breathe": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b1l",
+   "type": "label",
+   "props": {
+    "text": "Eyepiece video",
+    "x": 720.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "art",
+   "props": {
+    "name": "OldScreen",
+    "src": "stock/_qa/clip.mp4",
+    "w": 400,
+    "play": "L1",
+    "x": 1200.0,
+    "y": 260.0,
+    "tremble": 0,
+    "fx_box": [
+     960,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "tremble": 2
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b2l",
+   "type": "label",
+   "props": {
+    "text": "OldScreen video",
+    "x": 1200.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "type": "art",
+   "props": {
+    "name": "FilmStrip",
+    "src": "stock/_qa/clip.mp4",
+    "w": 440,
+    "play": "L1",
+    "vin": 1,
+    "x": 1680.0,
+    "y": 260.0,
+    "sway": 10,
+    "fx_box": [
+     1440,
+     0,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "sway": 10
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b3l",
+   "type": "label",
+   "props": {
+    "text": "FilmStrip video",
+    "x": 1680.0,
+    "y": 510,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "type": "art",
+   "props": {
+    "name": "Loupe",
+    "src": "stock/_qa/doc.jpg",
+    "r": 150,
+    "focus": [
+     0.2,
+     0.5
+    ],
+    "zoom": 2.2,
+    "x": 240.0,
+    "y": 790.0,
+    "srcW": 1600,
+    "srcH": 1100,
+    "bob": 6,
+    "fx_box": [
+     0,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "bob": 6
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b4l",
+   "type": "label",
+   "props": {
+    "text": "Loupe on doc",
+    "x": 240.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b5",
+   "type": "art",
+   "props": {
+    "name": "DocumentPage",
+    "src": "stock/_qa/doc.jpg",
+    "w": 400,
+    "h": 275,
+    "circle": [
+     0.38,
+     0.48,
+     0.7,
+     0.05
+    ],
+    "circleK": 0,
+    "mark": "line",
+    "x": 720.0,
+    "y": 800.0,
+    "fx_r": -8,
+    "fx_box": [
+     480,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "fx_r": 0,
+     "circleK": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b5l",
+   "type": "label",
+   "props": {
+    "text": "DocumentPage line",
+    "x": 720.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b6",
+   "type": "art",
+   "props": {
+    "name": "Ship",
+    "s": 200,
+    "x": 1200.0,
+    "y": 850.0,
+    "sepia": 0,
+    "dim": 0,
+    "fx_box": [
+     960,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "sepia": 1,
+     "dim": 0.6
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b6l",
+   "type": "label",
+   "props": {
+    "text": "sepia + dim",
+    "x": 1200.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b7",
+   "type": "art",
+   "props": {
+    "name": "Scholar",
+    "h": 360,
+    "pose": "point",
+    "x": 1680.0,
+    "y": 1010.0,
+    "sway": 0,
+    "fx_box": [
+     1440,
+     540,
+     480,
+     540
+    ],
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1+0.3",
+     "dur": 2.2,
+     "ease": "inOut",
+     "sway": 4
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "b7l",
+   "type": "label",
+   "props": {
+    "text": "Scholar",
+    "x": 1680.0,
+    "y": 1050,
+    "size": 26,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1$",
+     "dur": 0.01,
+     "a": 0
+    }
+   ]
+  }
+ ]
+}

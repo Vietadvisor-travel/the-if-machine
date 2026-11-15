@@ -1,0 +1,61 @@
+{
+ "slug": "pipeline-test",
+ "duration": 34.376,
+ "lines": [
+  {
+   "i": 0,
+   "text": "Look closely at a swinging weight, and you will find a clock hidden inside it.",
+   "start": 1.0,
+   "dur": 4.155,
+   "sfx": []
+  },
+  {
+   "i": 1,
+   "text": "A young man watched a lamp swing in a cathedral, and something did not add up.",
+   "start": 5.855,
+   "dur": 4.515,
+   "sfx": []
+  },
+  {
+   "i": 2,
+   "text": "Wide swings and small swings seemed to take the same time.",
+   "start": 11.07,
+   "dur": 3.761,
+   "sfx": [
+    {
+     "at": 0.8,
+     "file": "public/sfx/machine_chime_1.wav",
+     "db": -20
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "text": "He checked it against the one clock he always carried: his own pulse.",
+   "start": 15.531,
+   "dur": 4.063,
+   "sfx": []
+  },
+  {
+   "i": 4,
+   "text": "Today we can watch the same thing through an eyepiece.",
+   "start": 20.295,
+   "dur": 2.784,
+   "sfx": []
+  },
+  {
+   "i": 5,
+   "text": "And on paper, the whole rule fits in a single line.",
+   "start": 23.778,
+   "dur": 3.337,
+   "sfx": []
+  },
+  {
+   "i": 6,
+   "text": "A weight on a string had become a way to measure time.",
+   "start": 27.815,
+   "dur": 3.161,
+   "sfx": []
+  }
+ ]
+}

@@ -1,0 +1,491 @@
+{
+ "slug": "pipeline-test",
+ "title": "internal pipeline test (never shown)",
+ "voice": "af_heart",
+ "speed": 0.86,
+ "lead": 1.0,
+ "tail": 3.4,
+ "music": {
+  "file": "../studio/music/wonder_silver_blue_light.wav",
+  "db": -24,
+  "start": 0
+ },
+ "thumb": {
+  "t": 12,
+  "title": "The clock inside a *swing*",
+  "kicker": "internal test"
+ },
+ "new_ideas": [
+  "per-film drawing library",
+  "footage in an eyepiece"
+ ],
+ "lines": [
+  {
+   "text": "Look closely at a swinging weight, and you will find a *clock* hidden inside it.",
+   "gap": 0.7,
+   "plan": {
+    "in": "ink-on",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "room-wide"
+   }
+  },
+  {
+   "text": "A young man watched a lamp swing in a cathedral, and something did not *add* up.",
+   "gap": 0.7,
+   "plan": {
+    "in": "drop",
+    "trans": "match",
+    "cam": "push",
+    "comp": "figure-left"
+   }
+  },
+  {
+   "text": "Wide swings and small swings seemed to take the *same* time.",
+   "gap": 0.7,
+   "plan": {
+    "in": "grow",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "lamp-centre"
+   },
+   "sfx": [
+    {
+     "at": 0.8,
+     "file": "public/sfx/machine_chime_1.wav",
+     "db": -20
+    }
+   ]
+  },
+  {
+   "text": "He checked it against the one clock he always carried: his own *pulse*.",
+   "gap": 0.7,
+   "plan": {
+    "in": "stamp",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "close-face"
+   }
+  },
+  {
+   "text": "Today we can watch the same thing through an *eyepiece*.",
+   "gap": 0.7,
+   "plan": {
+    "in": "iris",
+    "trans": "window",
+    "cam": "hold",
+    "comp": "eyepiece-right"
+   }
+  },
+  {
+   "text": "And on paper, the whole rule fits in a single *line*.",
+   "gap": 0.7,
+   "plan": {
+    "in": "unroll",
+    "trans": "real-reveal",
+    "cam": "pull",
+    "comp": "page-left"
+   }
+  },
+  {
+   "text": "A weight on a string had become a way to *measure* time.",
+   "gap": 0.7,
+   "plan": {
+    "in": "quill",
+    "trans": "window-close",
+    "cam": "pull",
+    "comp": "room-wide"
+   }
+  }
+ ],
+ "world": [
+  {
+   "id": "camera",
+   "type": "camera",
+   "props": {
+    "x": 960,
+    "y": 540,
+    "zoom": 1
+   }
+  },
+  {
+   "id": "wall",
+   "type": "art",
+   "props": {
+    "name": "Sky",
+    "kind": "dusk",
+    "seed": "w",
+    "dim": 0.2
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 3,
+     "dim": 0
+    }
+   ]
+  },
+  {
+   "id": "win",
+   "type": "art",
+   "props": {
+    "name": "Window",
+    "x": 1500,
+    "y": 420,
+    "w": 280,
+    "h": 520,
+    "floor": 1080,
+    "draw": 0,
+    "light": 0
+   },
+   "keys": [
+    {
+     "t": 0.3,
+     "dur": 2,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L0@clock",
+     "dur": 2,
+     "light": 1
+    }
+   ]
+  },
+  {
+   "id": "shelf",
+   "type": "art",
+   "props": {
+    "name": "Bookshelf",
+    "x": 300,
+    "y": 820,
+    "w": 420,
+    "h": 600,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": 0.6,
+     "dur": 2.2,
+     "draw": 1,
+     "ease": "out"
+    }
+   ]
+  },
+  {
+   "id": "lamp",
+   "type": "art",
+   "props": {
+    "name": "PtSwingLamp",
+    "x": 960,
+    "y": -20,
+    "len": 520,
+    "amp": 14,
+    "draw": 0,
+    "fx_y": -500
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 1.4,
+     "draw": 1,
+     "fx_y": 0,
+     "ease": "back"
+    },
+    {
+     "t": "L2",
+     "dur": 3,
+     "amp": 4
+    },
+    {
+     "t": "L2+3.2",
+     "dur": 2,
+     "amp": 14
+    }
+   ]
+  },
+  {
+   "id": "trace",
+   "type": "arc",
+   "props": {
+    "from": {
+     "screen": [
+      820,
+      600
+     ]
+    },
+    "to": {
+     "screen": [
+      1100,
+      600
+     ]
+    },
+    "bend": -40,
+    "k": 0,
+    "label": "the same time"
+   },
+   "keys": [
+    {
+     "t": "L2@same",
+     "dur": 1.4,
+     "k": 1
+    },
+    {
+     "t": "L3+.5",
+     "dur": 0.8,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "who",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "who": "a young observer (generic)",
+    "x": -200,
+    "y": 1000,
+    "h": 520,
+    "costume": "ptStudent",
+    "walk": 0,
+    "face": {
+     "nose": 0.4,
+     "chin": 0.3,
+     "brow": 0.5
+    },
+    "hairCol": "#231A16"
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 3.5,
+     "x": 520,
+     "walk": 3.5,
+     "ease": "linear"
+    },
+    {
+     "t": "L1+3.5",
+     "dur": 0.01,
+     "walk": null,
+     "pose": "stand",
+     "pose2": "look",
+     "pk": 0
+    },
+    {
+     "t": "L1+3.6",
+     "dur": 1.2,
+     "pk": 1
+    },
+    {
+     "t": "L3",
+     "dur": 1.2,
+     "pose2": "think",
+     "pk": 1
+    }
+   ]
+  },
+  {
+   "id": "watch",
+   "type": "art",
+   "props": {
+    "name": "Stopwatch",
+    "x": 1550,
+    "y": 330,
+    "r": 110,
+    "sec": 0,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L2",
+     "dur": 1,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L2",
+     "dur": 6,
+     "sec": 4.8,
+     "ease": "linear"
+    },
+    {
+     "t": "L3$",
+     "dur": 0.8,
+     "draw": 0
+    }
+   ]
+  },
+  {
+   "id": "pulse",
+   "type": "ripple",
+   "props": {
+    "at": {
+     "screen": [
+      600,
+      640
+     ]
+    },
+    "k": 0,
+    "n": 4,
+    "r": 140,
+    "col": "#8C3424"
+   },
+   "keys": [
+    {
+     "t": "L3@pulse",
+     "dur": 1.6,
+     "k": 1,
+     "ease": "out"
+    }
+   ]
+  },
+  {
+   "id": "eye",
+   "type": "art",
+   "props": {
+    "name": "Eyepiece",
+    "x": 1400,
+    "y": 520,
+    "r": 230,
+    "src": "stock/_qa/clip.mp4",
+    "play": "L4",
+    "vin": 2,
+    "cross": 0.6,
+    "draw": 0,
+    "fx_box": [
+     1140,
+     260,
+     520,
+     520
+    ]
+   },
+   "keys": [
+    {
+     "t": "L4",
+     "dur": 1.4,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L5",
+     "dur": 1,
+     "iris": 0,
+     "ease": "in"
+    }
+   ]
+  },
+  {
+   "id": "doc",
+   "type": "art",
+   "props": {
+    "name": "DocumentPage",
+    "src": "stock/_qa/doc.jpg",
+    "x": 1300,
+    "y": 520,
+    "w": 640,
+    "h": 440,
+    "circle": [
+     0.38,
+     0.48,
+     0.7,
+     0.06
+    ],
+    "circleK": 0,
+    "mark": "line",
+    "unroll": 0,
+    "fx_box": [
+     980,
+     300,
+     640,
+     440
+    ]
+   },
+   "keys": [
+    {
+     "t": "L5",
+     "dur": 1.6,
+     "unroll": 1
+    },
+    {
+     "t": "L5@line",
+     "dur": 1.2,
+     "circleK": 1
+    }
+   ]
+  },
+  {
+   "id": "dim",
+   "type": "art",
+   "props": {
+    "name": "Sky",
+    "kind": "night",
+    "seed": "e",
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L6+1",
+     "dur": 2.5,
+     "a": 0.85
+    }
+   ]
+  },
+  {
+   "id": "quill",
+   "type": "hand",
+   "props": {
+    "at": {
+     "screen": [
+      900,
+      600
+     ]
+    },
+    "s": 0.9,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L6",
+     "dur": 0.4,
+     "a": 1
+    },
+    {
+     "t": "L6+.4",
+     "dur": 2.4,
+     "at": {
+      "screen": [
+       1300,
+       640
+      ]
+     }
+    },
+    {
+     "t": "L6+3",
+     "dur": 0.6,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "rule",
+   "type": "shape",
+   "props": {
+    "form": "M0 50 C25 20 75 20 100 50",
+    "x": 1100,
+    "y": 620,
+    "s": 4,
+    "draw": 0,
+    "col": "#B8862B",
+    "sw": 4
+   },
+   "keys": [
+    {
+     "t": "L6",
+     "dur": 3,
+     "draw": 1,
+     "ease": "linear"
+    }
+   ]
+  }
+ ]
+}

@@ -4,7 +4,7 @@ timeline, every asset exists in public/, keys only on known props. python3 tools
 import json, os, re, sys
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); TL = json.load(open(f'{ep}/timeline.json'))
 TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue', 'group', 'trail', 'particles', 'ripple', 'hand'}
-KITS = {'Sky', 'Stars', 'Sun', 'Moon', 'Earth', 'Ridge', 'Water', 'Palm', 'Obelisk', 'Temple', 'Well', 'Scholar', 'Astrolabe', 'Telescope', 'Candle', 'SeaChart', 'Rose', 'Ship', 'Angle', 'GoldBeam', 'Pinned', 'DocumentPage', 'Eyepiece', 'ShadowCone', 'BloodWash', 'Observatory18', 'Quadrant', 'Bedspring', 'OldScreen', 'LaserDome', 'Reflector', 'MoonGround', 'Stopwatch'}
+KITS = {k for k in json.load(open('library.json')) if not k.startswith('costume:')}   # the catalog (tools/lib_index.py): core + samples + every film's drawings
 err, ids = [], set()
 def tref(r, where):
     if isinstance(r, (int, float)): return r
@@ -26,7 +26,12 @@ def walk(ents, path=''):
         for f in ('src',):
             v = p.get(f)
             if v and not re.match(r'^https?:', v) and not os.path.exists(f'public/{v}'): err.append(f'{w}: missing asset public/{v} (Muse → Drive → sync)')
-        for k in e.get('keys', []): tref(k.get('t'), w + '.key')
+        if p.get('play') is not None: tref(p['play'], w + '.play')
+        hp = p.get('headArt')
+        if hp and hp not in KITS: err.append(f'{w}: unknown headArt {hp}')
+        for k in e.get('keys', []):
+            tref(k.get('t'), w + '.key')
+            if k.get('src') and not os.path.exists(f'public/{k["src"]}'): err.append(f'{w}: missing asset public/{k["src"]}')
         if e.get('children'): walk(e['children'], w + '/')
 walk(E.get('world', []))
 if not any(e.get('type') == 'camera' for e in E.get('world', [])): err.append('no camera entity')
