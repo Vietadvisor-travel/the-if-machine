@@ -4,11 +4,11 @@
 | slug | tên (VI) | research | production | delivered | approved | published |
 |---|---|---|---|---|---|---|
 | moon-distance | Mặt Trăng cách ta bao xa | RESEARCH_READY (script v2 ready; order ON HOLD) | - | - | - | - |
-| earth-age | Trái Đất bao nhiêu tuổi | RESEARCH_READY (Claude) · order → Muse | SCRIPT (Claude) | - | - | - |
-| inside-earth | Bên trong Trái Đất có gì | RESEARCH_READY (Claude) · order → Muse | SCRIPT (Claude) | - | - | - |
-| star-distance | Các vì sao xa đến đâu | RESEARCH_READY (Claude) · order → Muse | SCRIPT (Claude) | - | - | - |
-| longitude | Giữa biển khơi làm sao biết mình ở đâu | RESEARCH_READY (Claude) · order → Muse | SCRIPT (Claude) | - | - | - |
-| empty-atom | Bên trong nguyên tử có gì | RESEARCH_READY (Claude) · order → Muse | SCRIPT (Claude) | - | - | - |
+| earth-age | Trái Đất bao nhiêu tuổi | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
+| inside-earth | Bên trong Trái Đất có gì | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
+| star-distance | Các vì sao xa đến đâu | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
+| longitude | Giữa biển khơi làm sao biết mình ở đâu | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
+| empty-atom | Bên trong nguyên tử có gì | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
 | ai-runs-a-country | AI điều hành quốc gia | DROPPED | owner: not remade (engine 3.0 sample only), 4 Nov | - | - | - |
 | money-disappears | Nếu tiền biến mất | RESEARCH_READY | DELIVERED (remake v5, premium 2D) | 5 Nov · Drive · vertical 7:10 | v1 REJECTED; v2 notes; v5 APPROVED by owner 5 Nov 22:23 (đăng tập) | 5 Nov · YouTube PUBLIC https://www.youtube.com/watch?v=tuOXwDNr390; TikTok PUBLIC https://www.tiktok.com/@theifmachinetv/video/7704714516843531526; Facebook PUBLIC https://facebook.com/reel/1653892829441658/; Instagram PUBLIC https://www.instagram.com/reel/DfXcba9j4dL/ (published 23:20 after owner linked IG to Page in Business Suite); YouTube fully done 23:45 (thumbnail + subtitles + comment pinned after advanced verification approved) |
 | dinosaurs-survive | Nếu khủng long còn sống | RESEARCH_READY | DELIVERED (muse, trial, 7 Nov; trial ended by owner 9 Nov, production back to Claude) | 7 Nov · Drive · vertical 5:56 | - | - |

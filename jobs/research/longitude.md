@@ -34,3 +34,4 @@ S14 Encyclopedia.com, "Harrison, John" · S15 EBSCO Research Starters, "John Har
 - RMG: the 1707 wreck did NOT directly cause the 1714 Act, and the error may have been more latitude than longitude. Tell Scilly as "what being lost
   at sea meant", not as the cause of the prize. F6: "about five seconds" is the traditional figure (some historians doubt it) — say "a few seconds".
 - The king's "By God, Harrison…" line is unverified — do not use.
+- Cook's "our trusty friend the Watch" (journal, 2nd voyage): verify the exact wording via order row T-01 before the voice is made.

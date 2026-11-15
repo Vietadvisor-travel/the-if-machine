@@ -16,6 +16,8 @@ room in Manchester find out — and why did what they found mean that everything
 | F7 | May 1911, Philosophical Magazine: Rutherford — nearly all the mass and all the positive charge sit in a tiny centre: the nucleus | S3, S10 |
 | F8 | The nucleus is about 100,000 times smaller across than the atom: if the atom were a stadium, the nucleus would be a pea | S11, S12 |
 | F9 | 1932: James Chadwick found the neutron, completing the nucleus | S1, S2 |
+| F11 | Rutherford, a farmer's son from Nelson, New Zealand, won the 1908 Nobel Prize in Chemistry for his work on radioactivity | S14, S15 |
+| F12 | Alpha particles are helium nuclei, about 7,300 times the mass of an electron, emitted at high speed by radium; Geiger later built the self-counting Geiger counter (1908, improved 1928 with Müller) | S16, S17 |
 | F10 | Everything solid is almost all empty space; it feels solid because electrons repel each other — your hand never truly "touches" the table | S11, S13 |
 
 ## Clues
@@ -27,7 +29,7 @@ Twist: the solid world is nearly empty; what we feel as touch is a push between 
 S1 creative-chemistry.org.uk, "Development of the atomic model" · S2 Save My Exams, "History of the atom" · S3 APS News, "May 1911: Rutherford and the discovery of the atomic nucleus" ·
 S4 Geiger & Marsden 1909, "On a diffuse reflection of the α-particles" (text: chemteam.info/Chem-History/GM-1909.html) · S5 Univ. of Virginia, "Rutherford scattering" course page ·
 S6 Geiger & Marsden 1913 reprint (desy.de) · S7 chemteam.info, "Rutherford's experiment part I" · S8 Wikiquote, "Ernest Rutherford" · S9 Today in Science, Rutherford discovery quotations ·
-S10 Wikipedia, "Rutherford scattering experiments" · S11 windows2universe.org, "The atomic nucleus" · S12 Energy Encyclopedia, "Size of an atom vs nucleus" · S13 explainthatstuff.com, "Atoms".
+S10 Wikipedia, "Rutherford scattering experiments" · S11 windows2universe.org, "The atomic nucleus" · S12 Energy Encyclopedia, "Size of an atom vs nucleus" · S13 explainthatstuff.com, "Atoms" · S14 NobelPrize.org, "The Nobel Prize in Chemistry 1908 — Ernest Rutherford" · S15 Britannica, "Ernest Rutherford" · S16 Wikipedia, "Alpha particle" · S17 Wikipedia, "Geiger counter".
 
 ## Notes
 - F5 is platinum in the 1909 paper; for gold Rutherford later quoted ~1 in 20,000 — say "about one in eight thousand bounced back" without naming the metal, or name platinum.
