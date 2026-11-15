@@ -1,4 +1,4 @@
-# Muse — HOW WE KNOW (phase 3, owner 15 Nov 2026): topics, research, and ALL resources
+# Muse — PHASE 3 channel (working name How We Know was rejected 15 Nov; name pending) (phase 3, owner 15 Nov 2026): topics, research, and ALL resources
 
 The channel is now **How We Know** (brief/HOW_WE_KNOW.md): landscape 16:9, 8–12 min, English, made in Remotion. Each episode answers
 one big real question ("How do we know how far the Moon is?") through 3–4 **clues**, re-animating the world on screen (Earth, sky,
@@ -8,6 +8,24 @@ runs through the whole episode; sound effects are few and fitting.
 **Owner's rule: Muse scans every resource.** Claude's container cannot reach NASA, Wikimedia, Pexels, LoC etc. — everything Claude
 uses comes from Drive. Flow: Muse proposes topics → the owner picks → Muse writes the research pack + kit and uploads the stock →
 `KIT_READY` → the owner tells Claude "làm tập …" → Claude makes it.
+
+## 0. NOW, once: the core REALISM library (owner 15 Nov evening: "ưu tiên đồ họa kiểu thật")
+Drive `_hwk_core/` + `_hwk_core/index.json` (same fields as §3). Claude's 3D globe/Moon and maps load these; until they exist the
+engine falls back to drawn textures. All public domain (NASA/USGS/NOAA) unless noted.
+| id | what | where to get it | size |
+|---|---|---|---|
+| earth_day | Blue Marble Next Generation, cloud-free, equirectangular (pick one month, e.g. July) | NASA Visible Earth | 8192×4096 jpg (+ a 4096 copy) |
+| earth_night | Black Marble night lights, equirectangular | NASA Earth Observatory | 8192×4096 jpg |
+| earth_clouds | global cloud cover (alpha), equirectangular | NASA Visible Earth | 8192×4096 png/jpg |
+| earth_bump | topography / elevation (grey), equirectangular | NASA Visible Earth (GEBCO/SRTM) | 8192×4096 |
+| earth_specular | ocean mask (water white) | derive from Natural Earth ocean or NASA land/water mask | 4096×2048 |
+| moon_color | LRO / LROC global mosaic, equirectangular | NASA SVS "CGI Moon Kit" | 8192×4096 tif→jpg |
+| moon_displace | LOLA elevation (displacement) | NASA SVS CGI Moon Kit | 4096×2048 |
+| mars_color, sun_photo | Viking/MGS colour mosaic; SDO sun images | NASA | 4096 |
+| stars | Deep Star Maps (celestial sphere), equirectangular | NASA SVS Deep Star Maps | 8192×4096 |
+| relief_world | shaded relief / natural colour world map (Natural Earth II or Blue Marble flat) | naturalearthdata.com (PD) | 10800×5400 jpg |
+| sky_photos | 20–30 real sky photos (night, dawn, dusk, storm, clear), no people/logos | Pexels / Pixabay / Unsplash | ≥ 3000 px |
+| ground_photos | 20–30 real ground/terrain top-down or low-angle photos (desert, snow, rock, sea, field, city aerial) | Pexels / Pixabay / NASA aerial | ≥ 3000 px |
 
 ## 1. Weekly shortlist (Saturday, `jobs/topics/`)
 15 topics, each a question that starts with **How do we know / How did they …** and has a surprising, sourced answer. Three pools:
