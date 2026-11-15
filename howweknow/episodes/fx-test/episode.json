@@ -1,0 +1,15 @@
+{ "slug": "fx-test", "title": "internal FX test (not a demo; hand-made timeline, no voice)", "lines": [ { "text": "fx test one" }, { "text": "fx test two" } ],
+  "world": [
+    { "id": "camera", "type": "camera", "props": { "x": 960, "y": 540, "zoom": 1 } },
+    { "id": "sky", "type": "art", "props": { "name": "Sky", "kind": "night", "seed": "n" } },
+    { "id": "g1", "type": "group", "props": { "flipY": -80, "fx_ox": 300, "a": 0 }, "keys": [ { "t": "L0", "dur": 0.1, "a": 1 }, { "t": "L0", "dur": 1.6, "flipY": 0, "ease": "back" } ], "children": [
+      { "id": "ast", "type": "art", "props": { "name": "Astrolabe", "x": 300, "y": 330, "r": 150 } } ] },
+    { "id": "obs", "type": "art", "props": { "name": "Observatory18", "x": 800, "y": 520, "s": 260, "unroll": 0 }, "keys": [ { "t": "L0+0.3", "dur": 1.5, "unroll": 1 } ] },
+    { "id": "scr", "type": "art", "props": { "name": "OldScreen", "x": 1300, "y": 320, "w": 320, "pulses": [0.15, 0.7], "tear": 0 }, "keys": [ { "t": "L0+0.6", "dur": 1.6, "tear": 1 } ] },
+    { "id": "sw", "type": "art", "props": { "name": "Stopwatch", "x": 1650, "y": 320, "r": 110, "sec": 0, "fx_y": -500 }, "keys": [ { "t": "L0+0.4", "dur": 1.4, "fx_y": 0, "ease": "bounce" }, { "t": "L1", "dur": 2.5, "sec": 2.5, "ease": "linear" } ] },
+    { "id": "ship", "type": "trail", "props": { "points": [[200, 800], [600, 720], [1100, 830], [1700, 740]], "k": 0, "headArt": "Ship", "headProps": { "s": 90 }, "dash": true }, "keys": [ { "t": "L0+1", "dur": 5, "k": 1, "ease": "linear" } ] },
+    { "id": "rip", "type": "ripple", "props": { "at": [960, 900], "k": 0, "r": 260, "flat": 0.3, "col": "#FBF1D8" }, "keys": [ { "t": "L1", "dur": 2.4, "k": 1, "ease": "linear" } ] },
+    { "id": "ph", "type": "particles", "props": { "kind": "photons", "n": 40, "box": [1100, 500, 700, 300] } },
+    { "id": "sn", "type": "particles", "props": { "kind": "snow", "n": 50, "box": [0, 0, 700, 500] } },
+    { "id": "quill", "type": "hand", "props": { "at": [1000, 960], "s": 0.9 }, "keys": [ { "t": "L1", "dur": 2, "at": [1400, 990] } ] },
+    { "id": "clue", "type": "clue", "props": { "n": 3, "label": "fx" } } ] }

@@ -1,71 +1,68 @@
-# Muse — FATHOM (phase 3): topics, research, and ALL resources (channel locked 15 Nov 2026: Fathom — brief/FATHOM.md)
+# Muse — FATHOM: sourcing contract (owner, 15 Nov 2026). Read this page fully; it replaces every earlier Muse task for this channel.
 
-The channel is now **How We Know** (brief/HOW_WE_KNOW.md): landscape 16:9, 8–12 min, English, made in Remotion. Each episode answers
-one big real question ("How do we know how far the Moon is?") through 3–4 **clues**, re-animating the world on screen (Earth, sky,
-machines, places), with now and then a **real photo, document or piece of footage**, treated to fit the look. One quiet music track
-runs through the whole episode; sound effects are few and fitting.
+**Muse's job is SOURCING ONLY ("việc tay chân": nguồn và tài nguyên).** Muse never decides content: no topics, no story, no script,
+no facts chosen for the film, no opinions on style. **Claude** owns topics, research conclusions, script, shot plan, drawings, engine.
+**The owner** picks topics and approves films. Muse fulfils Claude's **resource orders** exactly, generously, with proof and licences.
 
-**Owner's rule: Muse scans every resource.** Claude's container cannot reach NASA, Wikimedia, Pexels, LoC etc. — everything Claude
-uses comes from Drive. Flow: Muse proposes topics → the owner picks → Muse writes the research pack + kit and uploads the stock →
-`KIT_READY` → the owner tells Claude "làm tập …" → Claude makes it.
+## 1. The flow
+1. Claude proposes topics → the owner picks.
+2. Claude writes the research pack + script + shot plan, then a **resource order**: `jobs/orders/<slug>.md` (template `_TEMPLATE.md`),
+   and an INBOX line `claude → muse · [order] <slug>`.
+3. Muse fulfils EVERY row: finds, downloads, checks the licence, converts, names, uploads to Drive `_hwk/<slug>/`, fills
+   `manifest.json`, marks each row ✅ (with the file) or ❌ (what was tried, the closest alternative found) in the order file.
+4. INBOX line `muse → claude · [order] <slug> fulfilled (N ✅ / M ❌)`; STATUS research column → `KIT_READY`.
+5. Claude builds. Extra needs during the build = a short follow-up order (same file, section "Round 2").
+Muse may be asked for **source documents** for research (papers, book scans, archive pages) — fetch and upload them; do not summarise
+them into conclusions.
 
-## 0. NOW, once: the core REALISM library — 2D ONLY (owner 15 Nov evening: "2D, không 3D; tài nguyên và stock thật")
-The film is 2D. "Real" = real photos, real maps, real footage, used as flat images in the animated world (toned to the palette).
-Drive `_hwk_core/` + `_hwk_core/index.json` (same fields as §3). All public domain (NASA/USGS/NOAA/LoC) unless noted.
-| id | what | where | size |
+## 2. What an order can ask for (all categories — dig deep, more than asked when it is the same subject)
+| code | category | what Claude does with it | deliver as |
 |---|---|---|---|
-| earth_photos | 10–15 real photos of the WHOLE Earth from space (Apollo 17 "Blue Marble", DSCOVR/EPIC, ISS), on black, centred | NASA (PD) | ≥ 3000 px |
-| moon_photos | 8–10 real photos of the whole Moon (full, crescent, half) on black + 10 close-ups of the surface (Apollo, LRO) | NASA (PD) | ≥ 3000 px |
-| planets_sun | real photos of Sun (SDO), Mars, Jupiter, Saturn, a few nebulae/galaxies (Hubble/JWST: check the PD/CC terms) | NASA/ESA | ≥ 3000 px |
-| world_maps | flat real maps: Blue Marble (equirectangular), shaded relief (Natural Earth II), night lights (Black Marble) | NASA / naturalearthdata (PD) | 8192 wide |
-| old_maps | 15–20 historic maps (world, continents, sea charts), clean scans | Library of Congress / David Rumsey (check licence) / Wikimedia PD | ≥ 4000 px |
-| sky_photos | 20–30 real sky photos (night with stars, dawn, dusk, storm, clear blue), no people/logos | Pexels / Pixabay / Unsplash | ≥ 3000 px |
-| ground_photos | 20–30 real terrain photos (desert, snow, rock, sea, field, forest, city aerial, top-down and low-angle) | Pexels / Pixabay / NASA aerial | ≥ 3000 px |
-| textures | 15–20 paper / film / grain / dust / ink textures for the finish | Pexels / CC0 texture sites | ≥ 3000 px |
-| footage_loops | 15–20 short real loops (clouds timelapse, ocean surface, stars rotating, city at night, rain on glass, fire) | Pexels / Pixabay video | 1080p+, 10–30 s |
+| P | **Photos** (archival and modern): people, places, instruments, objects, events | pinned plates, reveals, inside frames | JPG/PNG, long side ≥ 3000 px (≥ 2000 if nothing larger exists), uncropped original + no upscaling |
+| D | **Documents**: manuscript pages, book pages, letters, notebooks, patents, newspaper clippings, original paper figures, data tables | DocumentPage with the key line circled | scan ≥ 2500 px long side, straight, whole page + a tight crop of the key passage; say the page/folio and where the key line is |
+| M | **Maps and charts**: historic maps, sea charts, star charts, site plans | unrolled charts, routes | ≥ 4000 px; note projection/area/date |
+| V | **Footage**: archival film, mission film, lab/observatory footage, nature loops | footage in an eyepiece / period screen / pinned frame | MP4 H.264, ≥ 1080p when it exists (else best), 5–60 s clips, original speed, no burnt-in text/watermark; give in/out timecodes of the best 5–15 s |
+| A | **Audio — archival**: real recordings (mission audio, radio, speeches, instrument sounds, Morse, radar echoes) | heard under a scene | WAV 48 kHz (or original), with the exact segment timecodes |
+| S | **Sound effects**: real recorded sounds of things on screen (quill, paper, brass click, sea, wind, laser hum, door, crowd…) | few, fitting | WAV 48 kHz, 2–4 takes each, clean start/end |
+| U | **Music**: 3 candidate tracks per episode for ONE bed (calm, no vocals, no ticking percussion, ≥ 4 min or loopable) | Claude picks one | WAV/FLAC, with BPM and mood |
+| R | **Reference** (never shown): photos/drawings/plans of an instrument, building, costume, ship, landscape from several angles, so Claude DRAWS it correctly | drawing accuracy | any resolution; 3–8 views each; note dimensions when known |
+| X | **Data**: numbers, tables, coordinates, dates, measurements from primary sources | diagrams at true proportion | CSV/JSON/MD with the source page |
+| T | **Texts**: exact quotations with page/line, original-language + English | captions, plate captions | MD with full citation |
+| G | **Geo**: coordinates, routes, positions, eclipse paths, star positions | maps and globes | GeoJSON/CSV |
 
-## 1. Weekly shortlist (Saturday, `jobs/topics/`)
-15 topics, each a question that starts with **How do we know / How did they …** and has a surprising, sourced answer. Three pools:
-- **Measured & discovered** — how we know the age of the Earth, the distance to the Moon, the speed of light, what's inside the Earth,
-  how old a mummy is, how big the universe is, how Eratosthenes-style reasoning works on a new subject (not Eratosthenes himself).
-- **Impossible but true** — survivals and events that sound fake, explained step by step (how we know she fell 10 km and lived).
-- **Mysteries with an answer** — historical puzzles solved by evidence (how we know what killed the Franklin expedition).
-Score each 1–10 on: hook strength, how VISUAL it is (can the world be re-animated?), real stock available, 2 solid sources.
+## 3. Licences (strict)
+- **Allowed:** public domain (NASA, NOAA, USGS, Library of Congress, US National Archives, Smithsonian Open Access, Internet Archive
+  PD, Europeana PD, Wellcome PD, national libraries' PD scans), CC0, CC BY 4.0/3.0 (exact credit recorded), Pexels/Pixabay/Unsplash
+  licences, YouTube Audio Library (no-attribution or exact attribution).
+- **Not allowed:** CC BY-SA / NC / ND for anything shown or heard; Getty/AP/Reuters/Alamy; news broadcasts; film/TV; YouTube rips;
+  watermarks; "personal use"; unclear status. **Reference (R) items are exempt** (never shown) but still record the source.
+- Real people: only genuine archival photos/footage/audio under an allowed licence. Never AI images of real people, never a
+  fabricated document. If a real item does not exist or is not allowed → ❌ with the reason; Claude will draw it instead.
+- Every item gets a **proof**: a screenshot or saved copy of the source page showing the licence → `_hwk/<slug>/_proof/<id>.png`.
 
-## 2. Research pack (`jobs/research/<slug>.md`, existing template, longer)
-- 15–20 facts, each with 2 sources for anything heavy; exact numbers with their source; no invented numbers.
-- Group the facts into **the question → clue 1..4 → the twist → the answer → what it means now**.
-- For every clue: one sentence on *what we see* (the world scene that shows it).
+## 4. Naming, upload, manifest
+- File name = the order's row id + a slug: `P-03_apollo11-lrrr-on-surface.jpg`, `V-02_project-diana-antenna.mp4`, `D-01_aristarchus-vat-gr-204-f116r.jpg`.
+- Upload: `python3 studio/tools/pp_drive.py put <files> --to _hwk/<slug>` (subfolders: `_proof/`, `_ref/` for R items, `_alt/` for extras).
+- `_hwk/<slug>/manifest.json` — one object per file:
+  `{ "id": "P-03", "file", "kind": "P|D|M|V|A|S|U|R|X|T|G", "what", "date", "place", "creator", "people": ["names"]|[], "source_url",
+     "source_name", "licence", "credit": "exact credit line", "proof": "_proof/P-03.png", "px": [w, h] | "dur_s", "best": "00:12–00:24" (V/A),
+     "key_region": [x, y, w, h] in 0–1 (D: where the key passage is), "notes" }`
+- Reusable items also go to the shared library `_hwk_core/<tag>/` with the same manifest fields in `_hwk_core/index.json`
+  (tags: earth, moon, sun, planets, sky, sea, polar, desert, instruments, observatories, labs, ships, maps_old, charts, manuscripts,
+  portraits_pd, textures, loops, sfx, music).
+- Git gets text only: the order file with ✅/❌, and credits appended to `jobs/stock/ASSETS_CREDITS.md`. Never media in git.
 
-## 3. Kit (`jobs/kits/<slug>.md`) — everything the viewer SEES or HEARS that is not drawn
-| moment (clue / line) | real stock wanted | file on Drive `_hwk/<slug>/` | kind | licence + credit | ✅/❌ |
-Kinds: `photo` (≥ 2000 px long side), `doc` (scan of a real document/page, ≥ 2000 px), `map` (historic or Natural Earth),
-`video` (1080p+, 5–40 s, mp4 h264, no burnt-in text, no watermark), `sound` (sfx, see §5), `music` (§4).
-- Target per episode: **20–40 stock items**, of which 6–12 will be used; prefer items that can sit INSIDE the world (a photo pinned in
-  a scene, footage in a porthole/screen/lens, a document on a desk) over full-screen b-roll.
-- Upload: `python3 studio/tools/pp_drive.py put <files> --to _hwk/<slug>` and a `stock.json` in the same folder:
-  `[{ "file", "kind", "what", "date", "where", "people": "none|names", "source_url", "licence", "credit" }]`.
-- Also add each reusable item to the shared library `_hwk_stock/<tag>/` (space, earth, ocean, polar, desert, labs, instruments,
-  archives, maps, cities_old, aviation, ships, medicine, people_archival) with the same JSON fields in `_hwk_stock/<tag>/index.json`.
-- ❌ rows say why (not found / licence wrong) — never fake a real document or photo, never AI images of real people or records.
+## 5. Quality bar
+- Find the BEST version: highest resolution, the original source (the archive, not a re-post), uncropped, no captions burnt in.
+- When several good versions exist, upload up to 3 (`_alt/`) and say which is best and why.
+- For every ordered item also look for **neighbours** Claude did not think of (the same event from another angle, the instrument's
+  maker's drawing, the page before/after) → `_alt/` with manifest rows id `<row>-x1…`.
+- Depth target per episode: 40–80 delivered files across categories (not only pictures: footage, audio, documents, data, references).
+- ❌ rows: list the searches made (sites, terms) and the nearest allowed substitute. Never deliver something "similar" under the
+  ordered id without saying so.
 
-## 4. Music — ONE track per episode
-- Pick 1 instrumental track (≥ 4 min or loopable) that fits the episode's mood (mystery, wonder, tension, warm). Calm under a voice:
-  no vocals, no busy drums, no ticking hi-hats. Name it in the kit (`music: _music/<file>`), from the library or new
-  (CC0 / CC BY 4.0 with exact credit / Pixabay / YouTube Audio Library no-attribution).
-
-## 5. Sound effects — few and fitting
-- ≤ 1 effect per ~30 s on average, only for real events on screen (a laser fires, a door shuts, paper unfolds, a crowd gasps).
-- List them in the kit with library ids (`_sfx/`); add missing ones as in MUSE_STOCK_LIBRARY.md.
-
-## Sources and licences
-- Allowed: **public domain** (NASA, NOAA, USGS, Library of Congress, US National Archives, Smithsonian Open Access CC0, Internet
-  Archive Prelinger, Europeana PD), **CC0** (Pexels, Pixabay — their own licences are fine, Unsplash), **CC BY 4.0** with exact credit.
-- Not allowed: CC BY-SA / NC / ND for anything baked into the video, Getty/AP/Reuters, news footage, YouTube rips, stock with
-  watermarks, film/TV clips, anything whose licence is unclear.
-- Real people: only in genuine archival photos/footage with an allowed licence, credited; no likeness re-creations.
-- Git gets text only (kits, research, credits in `jobs/stock/ASSETS_CREDITS.md`); media only on Drive.
-
-## Status
-Research done → `RESEARCH_READY`; kit + stock uploaded + music named → `KIT_READY` (jobs/STATUS.md), with an INBOX line
-`muse → claude · [kit] <slug> ready (N stock, music: <file>)`.
+## 6. Core library (standing order, do once then keep growing) — Drive `_hwk_core/`
+Real whole-disc photos of Earth and Moon; Sun (SDO); planets; flat world maps (Blue Marble, relief, night lights); 20+ historic maps
+and sea charts; star charts; sky and terrain photos; paper/ink/film textures; short real loops (clouds, sea, stars, candle, rain);
+SFX families for the style (quill, paper, page turn, brass, clockwork, sea, wind, chalk, lab hum, radio static, laser); 20 calm music
+beds (wonder, mystery, tension, warm). All with manifest rows.

@@ -1,0 +1,29 @@
+FATHOM — STYLE DESCRIPTION + IMAGE PROMPTS (paste into ChatGPT; attach fathom_avatar.png / a sample frame as reference when possible)
+
+=== STYLE (always paste this first) ===
+Hand-coloured engraving in the manner of an 18th–19th-century scientific atlas that has come to life.
+- Fine sepia ink linework (#2B1D12) with swelling line weight: thin and crisp on the lit side, heavier in shadow.
+- Form-following hatching and cross-hatching ONLY in the shadows (horizontal on water, along columns, curved on spheres); tiny stipple dots shade the skies.
+- Gouache / watercolour washes in a limited pigment palette, laid slightly OFF the ink lines, with darker pooled edges:
+  Prussian blue #4A88AE (deep #22507A), verdigris green #5F8A5A, yellow ochre #D9AE6C, burnt sienna #8C5A36, vermilion #D2643E, stone #C9AE84, night blue #2B3B66.
+- Warm cream laid paper (#F3E7CC) with visible horizontal fibres and faint foxing under everything.
+- ONE gold-leaf metallic accent (#D9AE4C) on the single key object.
+- One warm key light. Real construction and real proportions (real coastlines on any globe or map, no political borders).
+- Calm, precise, richly detailed, generous empty paper.
+- NOT: neon, flat vector, 3D render, glossy gradients, lens flare, cartoon faces, emoji, text unless asked.
+
+=== AVATAR (1:1) ===
+[STYLE] A circular brass dial with fine graduations (gold-leaf ring) framing a cross-section: cream sky above shaded with stipple, Prussian-blue water below with engraved wave lines; a sounding line drops vertically through concentric rings on the water surface, with small cloth fathom markers (white, red, brown), ending in a bell-shaped gold-leaf lead weight near the bottom. Centered, symmetric, deep night-blue background with faint stipple. Must read at 98 px.
+
+=== BANNER / COVER (16:9, or 2560×1440 for YouTube; keep the centre 1546×423 clear) ===
+[STYLE] Wide panorama, horizon at 60 % height. Above: a dusk-to-day sky shaded with stipple, a crescent moon (upper left), a gold-leaf sun with engraved rays (upper right), a distant Egyptian shore with an obelisk and palms (left), a domed observatory on a green headland (right). Below: the sea in cross-section — engraved waves getting denser with depth, a few fish, a sandy seabed with rock strata; an 18th-century three-masted ship at the right lowers a sounding line with a softly glowing gold lead weight to the seabed. Leave the centre third empty for the wordmark "FATHOM" (Fraunces Bold, wide tracking, sepia) and the tagline "How we came to know the world." in italic.
+
+=== VIDEO THUMBNAIL (16:9) ===
+[STYLE] One big subject, 60 % of the frame, dramatic but calm, a single gold-leaf accent: <SUBJECT — e.g. "the full Moon with a thin gold laser beam rising to it from a small mountain observatory dome">. Leave the left third as empty paper for 2–4 words in Fraunces Bold, sepia. High contrast at small size.
+
+=== POST / STORY ILLUSTRATION ===
+[STYLE] <SUBJECT>. Composition like a plate in an atlas: the subject centred, a thin double ink frame, an italic caption line under it ("Plate I. — <caption>").
+
+=== BRAND FACTS ===
+Name: FATHOM · Tagline: How we came to know the world. · Fonts: Fraunces (Bold / Italic), Inter SemiBold (subtitles), Space Mono (tags).
+Mark: the sounding line — to fathom = to measure the depth, and to understand fully.

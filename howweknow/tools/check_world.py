@@ -3,7 +3,7 @@
 timeline, every asset exists in public/, keys only on known props. python3 tools/check_world.py episodes/<slug>"""
 import json, os, re, sys
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); TL = json.load(open(f'{ep}/timeline.json'))
-TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue'}
+TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue', 'group', 'trail', 'particles', 'ripple', 'hand'}
 KITS = {'Sky', 'Stars', 'Sun', 'Moon', 'Earth', 'Ridge', 'Water', 'Palm', 'Obelisk', 'Temple', 'Well', 'Scholar', 'Astrolabe', 'Telescope', 'Candle', 'SeaChart', 'Rose', 'Ship', 'Angle', 'GoldBeam', 'Pinned', 'DocumentPage', 'Eyepiece', 'ShadowCone', 'BloodWash', 'Observatory18', 'Quadrant', 'Bedspring', 'OldScreen', 'LaserDome', 'Reflector', 'MoonGround', 'Stopwatch'}
 err, ids = [], set()
 def tref(r, where):

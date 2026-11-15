@@ -20,5 +20,6 @@ export const resolveTime = (ref: number | string, tl: TL): number => {
 
 export const EASE: Record<string, (x: number) => number> = {
   inOut: Easing.bezier(0.45, 0, 0.2, 1), out: Easing.bezier(0.16, 1, 0.3, 1), in: Easing.bezier(0.6, 0, 0.9, 0.4),
+  back: Easing.bezier(0.3, 1.5, 0.5, 1), anticipate: Easing.bezier(0.5, -0.4, 0.3, 1), bounce: Easing.bounce, elastic: Easing.elastic(1.2), expo: Easing.bezier(0.9, 0, 0.1, 1),
   linear: (x: number) => x, soft: Easing.bezier(0.3, 0, 0.3, 1), snap: Easing.bezier(0.7, 0, 0.1, 1),
 };

@@ -17,9 +17,17 @@ The channel is **FATHOM** — "How we came to know the world." Spec: `brief/FATH
   (window / ride / scale jump / morph / real reveal) — never plain cuts. Everything drawn with its real construction — never cheap shapes.
 - **Real resources** (Muse digs ALL of them: photos, documents, footage, maps, music, sfx → Drive `_hwk/<slug>/`, `_hwk_core/`) are used as
   ARTEFACTS inside scenes (pinned plates, circled documents, footage in an eyepiece/screen), never as backgrounds.
-- **Flow:** Muse shortlist → owner picks → Muse research pack + kit + stock (`jobs/tasks/MUSE_FATHOM.md`) → owner "làm tập …" → Claude:
-  `bash howweknow/tools/setup.sh` · `tools/sync.sh <slug>` · script (STORY.md, check PASS) · `episodes/<slug>/episode.json` (world) ·
-  `bash tools/make.sh <slug> --ship` · delivery note · report ≤ 8 Vietnamese lines + "đăng tập <tên>".
+- **Roles (owner, 15 Nov 2026 night):** Claude owns EVERYTHING creative: topics (proposes, owner picks), research, a script planned to
+  the frame (shot plan, `howweknow/STORY.md` §6: per line VO/SEE/NEW/BEATS/IN/TRANS/CAM/LIFE/COMP/SET/STOCK), every drawing, the engine.
+  **Muse = sourcing only**: fulfils Claude's resource order `jobs/orders/<slug>.md` (photos, documents, maps, footage, archival audio,
+  sfx, music, drawing references, data, quotes, geo) per the contract `jobs/tasks/MUSE_FATHOM.md`; never touches content.
+- **Variety is a gate (owner: "đa dạng, sáng tạo, không lặp"):** effects by meaning from `howweknow/FX.md`; `tools/variety.py` fails a film
+  that repeats an entrance/transformation, has < 5 bespoke set-pieces, < 40 % new drawn elements, < 2 ideas new to the channel, or
+  reuses a set-piece from an earlier film (`history.json`). Every drawing: real construction, polished detail — never cheap shapes.
+- **Flow:** owner picks a topic → Claude: research pack → script + shot plan → resource order → Muse fulfils (`KIT_READY`) → owner "làm tập …"
+  → `bash howweknow/tools/setup.sh` · `tools/sync.sh <slug>` · draw the film's new elements (QA in PaintTest) · `episodes/<slug>/episode.json` ·
+  `bash tools/make.sh <slug> --ship` (script_check → voice → check_world → variety → mix → render) · `variety.py --record` · delivery note ·
+  report ≤ 8 Vietnamese lines + "đăng tập <tên>".
 - **Brand:** `howweknow/brand/` (render `node tools/brand.cjs`; files on Drive `brand/fathom/`).
 - Still valid from below: Vietnamese messages to the owner, facts with 2 sources, no invented numbers, Drive masters, git rules, watchdogs.
   The canvas engine in `studio/` (IF CREW, 3D L3) is LEGACY for this channel (its voice/Drive tools are reused).

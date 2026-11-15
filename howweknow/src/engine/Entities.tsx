@@ -8,6 +8,8 @@ import { FONT } from '../kit/style';
 import { Entity, Props, stateAt } from './state';
 import { Cam, SW, SH, toScreen, anchor, planetPoint } from './space';
 import { TL } from './time';
+import { Fx, hasFx, FX_KEYS } from './Fx';
+import { random } from 'remotion';
 
 type Ctx = { t: number; tl: TL; cam: Cam; S: Record<string, Props> };
 const camT = (c: Cam) => `translate(${SW / 2} ${SH / 2}) rotate(${c.rot}) scale(${c.zoom}) translate(${-c.x} ${-c.y})`;
@@ -17,7 +19,8 @@ const ART: Record<string, React.FC<any>> = { Sky: Wd.Sky, Stars: Wd.Stars, Sun: 
   Pinned: Wd.Pinned, DocumentPage: Wd.DocumentPage, Eyepiece: Wd.Eyepiece, ShadowCone: Wd.ShadowCone, BloodWash: Wd.BloodWash, Observatory18: Wd.Observatory18, Quadrant: Wd.Quadrant,
   Bedspring: Wd.Bedspring, OldScreen: Wd.OldScreen, LaserDome: Wd.LaserDome, Reflector: Wd.Reflector, MoonGround: Wd.MoonGround, Stopwatch: Wd.Stopwatch };
 export const ART_NAMES = Object.keys(ART);
-const strip = (s: Props) => { const { a: _a, name: _n, space: _s, _type, ...rest } = s; return rest; };
+const strip = (s: Props) => { const { a: _a, name: _n, space: _s, _type, ...rest } = s; for (const k of FX_KEYS) delete (rest as any)[k]; return rest; };
+const kids = (e: Entity, c: Ctx) => (e.children || []).map((ch, i) => { const cs = { ...stateAt(ch, c.t, c.tl), _type: ch.type }, n = renderEntity(ch, cs, c); return n && hasFx(cs) ? <Fx key={ch.id} s={cs} t={c.t} seed={i + 7}>{n}</Fx> : <React.Fragment key={ch.id}>{n}</React.Fragment>; });
 
 export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
   if ((s.a ?? 1) <= 0.002) return null;
@@ -57,9 +60,38 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
       return <AbsoluteFill style={{ opacity: a }}>
         <AbsoluteFill style={{ clipPath: `circle(${r}px at ${lx}px ${ly}px)` }}>
           <AbsoluteFill style={{ transformOrigin: '0 0', transform: `translate(${lx}px, ${ly}px) scale(${sc}) translate(${-SW / 2}px, ${-SH / 2}px)` }}>
-            <Wd.PaperSheet />{(e.children || []).map(ch => <React.Fragment key={ch.id}>{renderEntity(ch, { ...stateAt(ch, t, c.tl), _type: ch.type }, inner)}</React.Fragment>)}</AbsoluteFill></AbsoluteFill>
+            <Wd.PaperSheet />{kids(e, inner)}</AbsoluteFill></AbsoluteFill>
         {ring > 0 && <Svg><circle cx={lx} cy={ly} r={r + 7} fill="none" stroke="url(#gold)" strokeWidth={10} opacity={ring} /><circle cx={lx} cy={ly} r={r + 13} fill="none" stroke={SEP} strokeWidth={1.4} opacity={ring} /><circle cx={lx} cy={ly} r={r + 1} fill="none" stroke={SEP} strokeWidth={1.2} opacity={ring} /></Svg>}
       </AbsoluteFill>;
+    }
+    case 'group': return <AbsoluteFill style={{ opacity: a }}>{kids(e, c)}</AbsoluteFill>;   // children share this entity's fx (move/flip/wipe a whole composition)
+    case 'trail': {   // something TRAVELS along a path of anchors (k 0..1): the inked path is drawn behind it; head = a gold dot or an art (headArt + headProps)
+      const pts = (s.points || []).map((q: any) => anchor(q, cam, S)); if (pts.length < 2) return null;
+      const seg = pts.slice(1).map((p: number[], i: number) => Math.hypot(p[0] - pts[i][0], p[1] - pts[i][1])), L = seg.reduce((x: number, y: number) => x + y, 0), k = Math.max(0, Math.min(1, s.k ?? 0));
+      let d = k * L, i = 0; while (i < seg.length - 1 && d > seg[i]) d -= seg[i++]; const f = seg[i] ? d / seg[i] : 0, hx = pts[i][0] + (pts[i + 1][0] - pts[i][0]) * f, hy = pts[i][1] + (pts[i + 1][1] - pts[i][1]) * f;
+      const dd = 'M' + [...pts.slice(0, i + 1), [hx, hy]].map((p: number[]) => p.map(v => v.toFixed(1)).join(' ')).join(' L'), H = s.headArt ? ART[s.headArt] : null;   // only the part already travelled
+      return <Svg a={a}>{k > 0 && <path d={dd} fill="none" stroke={s.col ?? PIG.red[1]} strokeWidth={s.w ?? 3} strokeDasharray={s.dash ? '10 8' : undefined} strokeLinecap="round" strokeLinejoin="round" />}
+        {k > 0 && (H ? <H {...(s.headProps || {})} x={hx} y={hy} /> : <g><circle cx={hx} cy={hy} r={(s.r ?? 8) * 3} fill="url(#glowG)" /><circle cx={hx} cy={hy} r={s.r ?? 8} fill="url(#gold)" stroke={SEP} strokeWidth={1.2} /></g>)}</Svg>;
+    }
+    case 'particles': {   // drifting matter, deterministic: dust | snow | sparks | photons | rain | embers | bubbles — n, box [x,y,w,h], speed, k (density 0..1)
+      const [bx, by, bw, bh] = s.box || [0, 0, SW, SH], n = s.n ?? 60, kind = s.kind || 'dust', sp = s.speed ?? 1, dens = s.k ?? 1, out: React.ReactNode[] = [];
+      for (let i = 0; i < n * dens; i++) { const r1 = random(e.id + 'a' + i), r2 = random(e.id + 'b' + i), r3 = random(e.id + 'c' + i), vy = kind === 'snow' ? 40 : kind === 'rain' ? 900 : kind === 'embers' || kind === 'bubbles' || kind === 'sparks' ? -70 : 8, vx = kind === 'rain' ? -120 : Math.sin(t * .6 + i) * 14;
+        const x = bx + ((r1 * bw + vx * t * sp * (.5 + r3)) % bw + bw) % bw, y = by + ((r2 * bh + vy * t * sp * (.5 + r3)) % bh + bh) % bh, sz = 1.2 + r3 * 2.6, tw = .5 + .5 * Math.sin(t * (2 + r3 * 4) + i);
+        out.push(kind === 'rain' ? <path key={i} d={`M${x} ${y} l-5 22`} stroke="#22507A" strokeWidth={1.2} opacity={.55} /> : kind === 'snow' ? <circle key={i} cx={x} cy={y} r={sz} fill="#FBF6EA" stroke={SEP} strokeWidth={.4} opacity={.9} />
+          : kind === 'bubbles' ? <circle key={i} cx={x} cy={y} r={sz * 1.6} fill="none" stroke="#FBF1D8" strokeWidth={1} opacity={.7} /> : kind === 'dust' ? <circle key={i} cx={x} cy={y} r={sz * .7} fill="#FBF1D8" opacity={.25 + .35 * tw} />
+          : <g key={i}><circle cx={x} cy={y} r={sz * 3} fill="url(#glowG)" opacity={.5 * tw} /><circle cx={x} cy={y} r={sz * .8} fill={kind === 'embers' ? '#F2A672' : '#F7E3A0'} opacity={.6 + .4 * tw} /></g>); }
+      return <Svg a={a}>{out}</Svg>;
+    }
+    case 'ripple': {   // inked rings spreading from an anchor (an impact, a signal, a sound): k 0..1, n rings, max radius r
+      const [x, y] = anchor(s.at, cam, S), n = s.n ?? 4, R = s.r ?? 300, k = s.k ?? 0; if (k <= 0) return null;
+      return <Svg a={a}>{Array.from({ length: n }, (_, i) => { const kk = k * (1 + i * .25) - i * .25; if (kk <= 0 || kk >= 1) return null; return <ellipse key={i} cx={x} cy={y} rx={R * kk} ry={R * kk * (s.flat ?? 1)} fill="none" stroke={s.col ?? SEP} strokeWidth={(s.w ?? 2.4) * (1 - kk)} opacity={1 - kk} />; })}</Svg>;
+    }
+    case 'hand': {   // the illustrator's hand: a quill writing/drawing at an anchor — follows `at`, with an ink tip (use while something is inked on)
+      const [x, y] = anchor(s.at, cam, S), sc = s.s ?? 1, wob = Math.sin(t * 9) * 3;
+      return <Svg a={a}><g transform={`translate(${x + wob} ${y + Math.cos(t * 7) * 2}) scale(${sc}) rotate(${s.rot ?? -20})`}>
+        <path d="M4 -10 L14 -40 Q20 -150 150 -310 Q170 -200 60 -60 L22 -18 Z" fill="#FBF4E2" stroke={SEP} strokeWidth={1.6} strokeLinejoin="round" /><path d="M10 -22 Q60 -170 150 -310" fill="none" stroke={SEP} strokeWidth={1.4} />
+        {Array.from({ length: 10 }, (_, i) => { const f = (i + 1) / 11, x = 10 + 140 * f * f * .9 + 20 * f, y = -22 - 288 * f; return <g key={i}><path d={`M${x} ${y} l${18 + 14 * Math.sin(f * 3)} ${10}`} stroke={SEP} strokeWidth={.7} opacity={.6} /><path d={`M${x} ${y} l${-14 - 8 * Math.sin(f * 3)} ${14}`} stroke={SEP} strokeWidth={.7} opacity={.6} /></g>; })}
+        <path d="M0 0 L6 -16 L12 -12 Z" fill={SEP} /></g></Svg>;
     }
     default: return null;
   }

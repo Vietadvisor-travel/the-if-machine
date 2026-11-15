@@ -7,6 +7,7 @@ S=$1; EP=episodes/$S; B=$EP/build; mkdir -p $B out
 python3 tools/script_check.py $EP ${SHORT:+--short}
 python3 tools/vo.py $EP
 python3 tools/check_world.py $EP
+python3 tools/variety.py $EP ${SHORT:+--short}
 python3 tools/mix.py $EP
 T0=$(date +%s)
 npx remotion render Story out/${S}_silent.mp4 --props="{\"slug\":\"$S\"}" --muted --crf=17 --is-production=false 2>&1 | grep -E "Encoded [0-9]+/[0-9]+$|rror" | tail -2

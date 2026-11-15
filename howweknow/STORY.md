@@ -36,3 +36,24 @@ The owner wants "kịch bản đỉnh cao": a script you cannot stop watching, e
 ## 5. Checked by `python3 tools/script_check.py episodes/<slug>` (must PASS before the voice is made)
 Words and length · sentence length · open-loop cadence · fact cadence · banned phrases · clue structure (clue tags 1..N in order) ·
 every line changes the picture (some entity key refers to it) · every line with a number has `src`.
+
+## 6. THE SHOT PLAN — every line planned to the frame BEFORE anything is built (owner, 15 Nov 2026)
+"Kịch bản từ đầu phải chi tiết đến từng frame là hiệu ứng gì, chuyển biến như nào." The script file `jobs/scripts/<slug>.md` has one
+block per line; the same plan is carried in `episode.json` as `lines[i].plan` and checked by `tools/variety.py`.
+```
+### L12 · 01:18.4–01:24.9 (6.5 s) · CLUE 1
+VO     In the third century BC, Aristarchus of Samos saw that shadow as a *measuring tape*.   [F2 · S1]
+SEE    What is on screen when the line ends (one sentence, concrete).
+NEW    Elements drawn for this line (name them; ★ = real stock id from the order).
+BEATS  +0.0 ink-on: the shadow cone's edge is traced by the quill (1.2 s)
+       +1.4 real-reveal: ★doc-aristarchus slides in from the right, lands rotated 3° (0.8 s, back)
+       +2.6 circle: red ink round the diagram (1.0 s) · sfx quill_scratch −20 dB
+       +4.0 morph: the cone's edge straightens into a ruler (1.4 s)
+IN     quill            TRANS (to L13)  scale-in on the ruler's first mark        CAM  push 1.00→1.12, ease soft
+LIFE   boil · dust      COMP  subject right-third, large       SET  "shadow-as-ruler" (set-piece, new)
+STOCK  ★doc-aristarchus (order M-07)                      SOUND  music bed · sfx at +2.6
+```
+Rules: BEATS are timed from the line's start (real times after `tools/vo.py`; estimated at 2.35 words/s before) and leave no gap
+> 6 s without a change. `IN`, `TRANS`, `CAM`, `LIFE` use ids from `FX.md`. `NEW`/`SET` feed the variety ledger. `STOCK` ids come from
+the resource order (`jobs/orders/<slug>.md`) that Claude writes for Muse right after the script.
+`episode.json`: `"plan": { "in": "quill", "trans": "scale-in", "cam": "push", "life": ["dust"], "comp": "right-large", "set": "shadow-as-ruler", "new": ["ShadowRuler"], "stock": ["doc-aristarchus"] }`.

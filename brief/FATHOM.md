@@ -64,3 +64,11 @@ brand) built into the engine. No more demos until the engine is complete; then O
 Brand v1 rendered (generator `howweknow/brand/` + `tools/brand.cjs`): mark (sounding line + gold lead in a dial), logo (paper/night),
 avatar 2048², YouTube banner 2560×1440 (safe area centred), Facebook cover 1640×624, brand guide — PNG + SVG on Drive `brand/fathom/`.
 Next: the full engine upgrade in this style (owner: "cực xịn và chỉn chu"), then ONE demo episode.
+
+## 10. LOCKED (owner, 15 Nov 2026 night): roles, frame-level scripts, variety, Muse = sourcing only
+- Claude: all content and creation (topics, research, frame-level shot plan, drawings, effects, engine) — "Claude phải siêu xịn".
+- Each film is created freshly from its script: effects extremely varied and chosen by meaning (`howweknow/FX.md`), no repeated scenes
+  inside a film or across films (`tools/variety.py`, `history.json`); the style is shared, the pictures are not.
+- Muse: sourcing only, in depth, all categories (photos, documents, maps, footage, archival audio, sfx, music, references, data,
+  quotes, geo) against Claude's resource order — contract `jobs/tasks/MUSE_FATHOM.md`, orders `jobs/orders/<slug>.md`.
+- The owner will create 4 new channels; brand book + style prompts on Drive `brand/fathom/` (Fathom_BrandBook.pdf, FATHOM_style_prompts.txt).

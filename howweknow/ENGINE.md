@@ -42,14 +42,27 @@ the line traces, the wash blooms, the hatching settles — use it to bring every
 | `shape` | an inked form that MORPHS (path in a 0–100 box) | form x y s rot sw draw col space |
 | `label` | ONE small italic label (rare) | text x y size color |
 | `lens` | a WINDOW opening from a point into another place (gold-rimmed inked circle) | at r center inner + `children` |
+| `group` | children that move as one composition (fx on the group: flip a page, tear it away) | + `children` |
+| `trail` | something TRAVELS along a path of anchors; the travelled path is inked behind it | points k dash col headArt headProps |
+| `particles` | drifting matter: dust snow rain embers sparks photons bubbles | kind n box speed k |
+| `ripple` | inked rings from a point (signal, impact, sound) | at k n r flat col |
+| `hand` | the illustrator's quill at a point (while something is inked on) | at s rot |
 | `clue` | the clue tag (paper label, gold current clue) | n of label |
 Anchors: `[x, y]` world · `{entity, lon, lat}` a point on a planet · `{entity}` its centre · `{screen: [x, y]}`.
+
+## FX on ANY entity (`src/engine/Fx.tsx`, vocabulary and rules in `FX.md`) — animatable props, combine freely
+`fx_x fx_y fx_s fx_r` (+ origin `fx_ox fx_oy`) · reveals `wipe`(+`wipeDir`) `iris`(+`irisAt`) `unroll` `blinds` `tear` · paper moves
+`flipX` `flipY` `lift` · life `sway` `bob` `tremble` `breathe` · tone `sepia` `dim`. Eases: inOut out in soft snap linear back
+anticipate bounce elastic expo. Every line carries `plan` {in, trans, cam, life, comp, set, new, stock} (STORY.md §6);
+`python3 tools/variety.py episodes/<slug>` enforces the mix and the no-repeat ledger `history.json` (`--record` after delivery).
 
 ## The library (`src/paint/world.tsx`, all in the signature style)
 Sky(kind day|dusk|night|space|dawn, h, stars) · Stars · Sun · Moon(phase) · Earth(real climate-coloured, clouds, night contour) · Ridge ·
 Water · Palm · Obelisk(hieroglyphs, pyramidion) · Temple(columns) · Well(sunlit) · Scholar(pose stand|point|look) · Astrolabe(rot) ·
 Telescope(tilt) · Candle(flicker) · SeaChart(box [lon0,lat0,lon1,lat1], rivers) + chartPoint · Rose · Ship · Angle(label) · GoldBeam ·
-REAL STOCK as artefacts: Pinned(src, caption) · DocumentPage(src, circle [cx,cy,w,h] in 0–1, circleK) · Eyepiece(src).
+ShadowCone · BloodWash · Observatory18 · Quadrant · Bedspring · OldScreen(pulses | src) · LaserDome · Reflector(flash) · MoonGround · Stopwatch(sec) ·
+REAL STOCK as artefacts: Pinned(src, caption) · DocumentPage(src, circle [cx,cy,w,h] in 0–1, circleK) · Eyepiece(src) · OldScreen(src).
+**Every film draws NEW elements** (≥ 40 % new, ≥ 5 set-pieces made for it — FX.md variety rules); the library is a base, never a kit to re-stage.
 Add a new element by drawing it with `Region` (paint.tsx): real construction, wash + hatch + swelling ink, a `draw` prop. QA it in PaintTest.
 
 ## Continuity grammar (how one picture becomes the next — use these, never a plain cut)
@@ -64,5 +77,5 @@ Add a new element by drawing it with `Region` (paint.tsx): real construction, wa
 `src/paint/` paint.tsx (the style: Region, Ink, Line, Stipple, Contour, PaintDefs) · world.tsx (library) ·
 `src/engine/` time.ts · state.ts · space.ts · Entities.tsx · Story.tsx · `src/kit/` Caption · ClueTag · Brand · brand.ts · style.ts ·
 `tools/` vo.py · mix.py · script_check.py · check_world.py · make.sh · sync.sh · setup.sh · paper.py · brand.cjs ·
-`brand/` fathom-core.js · brand.html · `design/styles/` (the style exploration boards) · fixture `episodes/engine-test`.
+`brand/` fathom-core.js · brand.html · `design/styles/` (the style exploration boards) · fixtures `episodes/engine-test`, `episodes/fx-test` · `FX.md` · `history.json` · `tools/variety.py` · `tools/book.cjs` (brand book).
 Render cost: ≈ 0.2–0.5 s/frame on 4 cores (10 min ≈ 1–2 h). Never CSS-blur a big zoomed layer.

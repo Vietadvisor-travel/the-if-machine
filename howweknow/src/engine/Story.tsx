@@ -4,6 +4,7 @@ import React from 'react';
 import { AbsoluteFill, CalculateMetadataFunction, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Entity, stateAt } from './state';
 import { renderEntity } from './Entities';
+import { Fx, hasFx } from './Fx';
 import { TL } from './time';
 import { Cam } from './space';
 import { PaintDefs } from '../paint/paint';
@@ -29,7 +30,7 @@ export const Story: React.FC<StoryProps> = ({ ep, tl }) => {
     <AbsoluteFill>
       <PaintDefs boil={Math.floor(f / 4) % 3} />
       <PaperSheet />
-      {layers.map(({ e }) => <React.Fragment key={e.id}>{renderEntity(e, S[e.id], ctx)}</React.Fragment>)}
+      {layers.map(({ e }, i) => { const n = renderEntity(e, S[e.id], ctx); return n && hasFx(S[e.id]) ? <Fx key={e.id} s={S[e.id]} t={t} seed={i}>{n}</Fx> : <React.Fragment key={e.id}>{n}</React.Fragment>; })}
       <PaperFibres />
       {clue && (S[clue.id].a ?? 1) > 0 && <ClueTag n={Math.round(S[clue.id].n ?? 1)} of={S[clue.id].of ?? 4} label={S[clue.id].label} />}
       <Captions lines={tl.lines} />
