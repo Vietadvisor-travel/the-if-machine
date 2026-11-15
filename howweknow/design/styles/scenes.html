@@ -3,7 +3,7 @@
 *{margin:0}body{width:1920px;height:1080px;overflow:hidden}svg{display:block}</style></head><body><svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
 <script>
 // FATHOM style test 2: four very different scenes in the two shortlisted styles. #<scene>-<1 engraved | 2 gouache>
-const [SC, ST] = location.hash.slice(1).split('-'), E = ST === '1', C3 = ST === '3', G = window.GEO;
+const [SC, ST] = location.hash.slice(1).split('-'), E = ST === '1', C3 = ST === '3', SIG = ST === '4', G = window.GEO;
 const INK = '#1D2A3A', CU = '#A8622C', PAPER = '#EFE3C6';
 let seed = 7; const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)), toHex = a => '#' + a.map(v => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join('');
@@ -14,11 +14,23 @@ const MAT = { sky: ['#F4D29A', '#9DBFDB', '#4F7FAF'], sand: ['#EBCB92', '#CFA466
   skin: ['#E0AE84', '#B57E58', '#7A5236'], paper: ['#F6EEDB', '#E3D2AE', '#B9A47E'], night: ['#3B4A7A', '#1F2850', '#0C1128'], wall: ['#6E4E38', '#4A3324', '#22160F'],
   land: ['#C9B47A', '#8EA05A', '#5E7A3E'], sea: ['#5FA9C4', '#2F7298', '#173E5E'], crust: ['#B98A5A', '#8A5E3A', '#5A3A22'], mantle: ['#F08A4A', '#C9522E', '#7A2A1E'],
   ocore: ['#FFC35A', '#F29A2E', '#B9601E'], icore: ['#FFF6D6', '#FFE08A', '#F2B84A'], space: ['#2A2F5A', '#141936', '#070A18'] };
+const PIG = { sky: ['#C9DDE6', '#7FA8C4', '#2E5C86'], sand: ['#F0D9A8', '#D9AE6C', '#A8743E'], stone: ['#EFE0C2', '#C9AE84', '#8C6E4A'], water: ['#8FC1CF', '#3E7FA3', '#1D4566'],
+  leaf: ['#A9C08A', '#5F8A5A', '#2F5440'], wood: ['#C99A6A', '#8C5A36', '#4F3020'], brass: ['#F3D98A', '#D4A846', '#8A6420'], cloth: ['#EFE2C6', '#C7A57A', '#7E5E3E'],
+  skin: ['#EDC3A0', '#C78F66', '#8A5A3C'], paper: ['#FBF4E2', '#EBDDBC', '#C9B48A'], night: ['#5A6E9A', '#2B3B66', '#141C38'], wall: ['#9A6E50', '#6A4430', '#3A2418'],
+  land: ['#E2CF94', '#A9B97A', '#6E8F5A'], sea: ['#9CCAD6', '#4A88AE', '#22507A'], crust: ['#C99A6A', '#9A6640', '#62402A'], mantle: ['#F2A672', '#D2643E', '#8C3424'],
+  ocore: ['#F6CF7A', '#E89A3E', '#B0602A'], icore: ['#FFF4D2', '#F8DC8A', '#E9B456'], space: ['#3A4A7A', '#1C2650', '#0B1030'] };
+const SEP = '#2B1D12';
 const defs = new Set(); let D = '';
 const hatch = (lvl, ang) => { const id = `h${lvl}_${ang}`; if (!defs.has(id)) { defs.add(id); const sp = [0, 8, 5.5, 4.4, 3.4][lvl], w = [0, .7, .85, .95, 1.05][lvl];
-  D += `<pattern id="${id}" width="${sp}" height="${sp}" patternUnits="userSpaceOnUse" patternTransform="rotate(${ang})"><path d="M0 ${sp / 2} H${sp}" stroke="${INK}" stroke-width="${w}"/>${lvl >= 3 ? `<path d="M${sp / 2} 0 V${sp}" stroke="${INK}" stroke-width="${w * .8}"/>` : ''}</pattern>`; } return id; };
+  const HI = (typeof SIG !== 'undefined' && SIG) ? '#2B1D12' : INK; D += `<pattern id="${id}" width="${sp}" height="${sp}" patternUnits="userSpaceOnUse" patternTransform="rotate(${ang})"><path d="M0 ${sp / 2} H${sp}" stroke="${HI}" stroke-width="${w}"/>${lvl >= 3 ? `<path d="M${sp / 2} 0 V${sp}" stroke="${HI}" stroke-width="${w * .8}"/>` : ''}</pattern>`; } return id; };
 // THE style API: one call draws a region in the current style. tone 0 (lit) … 1 (deep shadow); ang = hatch direction (follows the form)
 const fill = (d, mat, tone = .3, ang = 0, o = {}) => {
+  if (SIG) {   // FATHOM signature: pigment wash a little off the line, pooled at the edges; sepia ink with a heavier shadow side; contour hatching in shade
+    const M = PIG[mat] || PIG.stone, c = tone < .5 ? mix(M[0], M[1], tone * 2) : mix(M[1], M[2], (tone - .5) * 2), lvl = tone < .5 ? 0 : tone < .72 ? 1 : 2;
+    const wash = mat === 'brass' ? 'url(#gold)' : c;
+    return `<g><path d="${d}" fill="${wash}" transform="translate(2.4 -1.6)" filter="url(#wc)"/>${o.stroke === false ? '' : `<path d="${d}" fill="none" stroke="${mix(c, '#000000', .35)}" stroke-width="6" opacity=".22" transform="translate(2.4 -1.6)" filter="url(#b2s)"/>`}</g>`
+      + (lvl ? `<path d="${d}" fill="url(#${hatch(lvl, ang)})" opacity=".5"/>` : '')
+      + (o.stroke === false ? '' : `<path d="${d}" fill="none" stroke="${SEP}" stroke-width="${(o.sw || 1.4) * 1.5}" opacity=".55" transform="translate(-.9 .9)" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="${SEP}" stroke-width="${(o.sw || 1.4) * .8}" stroke-linejoin="round"/>`); }
   if (E) { const lvl = tone < .12 ? 0 : tone < .35 ? 1 : tone < .6 ? 2 : tone < .82 ? 3 : 4;
     return `<path d="${d}" fill="${o.paper || PAPER}"/>${lvl ? `<path d="${d}" fill="url(#${hatch(lvl, ang)})"/>` : ''}${o.stroke === false ? '' : `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${o.sw || 1.4}" stroke-linejoin="round"/>`}`; }
   const M = MAT[mat] || MAT.stone, c = tone < .5 ? mix(M[0], M[1], tone * 2) : mix(M[1], M[2], (tone - .5) * 2);
@@ -27,8 +39,11 @@ const fill = (d, mat, tone = .3, ang = 0, o = {}) => {
     + (C3 && lvl ? `<path d="${d}" fill="url(#${hatch(lvl, ang)})" opacity=".32"/>` : '')
     + (C3 && o.stroke !== false ? `<path d="${d}" fill="none" stroke="#2A1E16" stroke-width="${(o.sw || 1.4) * .85}" stroke-linejoin="round" opacity=".85"/>` : '');
 };
-const line = (d, w = 1.4, col) => `<path d="${d}" fill="none" stroke="${col || (E ? INK : '#2A2018')}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${E ? '' : C3 ? 'opacity=".8"' : 'opacity=".55" filter="url(#paint)"'}/>`;
+const line = (d, w = 1.4, col) => SIG ? `<path d="${d}" fill="none" stroke="${col || SEP}" stroke-width="${w * .9}" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>` : `<path d="${d}" fill="none" stroke="${col || (E ? INK : '#2A2018')}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${E ? '' : C3 ? 'opacity=".8"' : 'opacity=".55" filter="url(#paint)"'}/>`;
 const glow = (x, y, r, col, a = .6) => E ? '' : `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#gl_${col.slice(1)})" opacity="${a}"/>` + (D.includes(`gl_${col.slice(1)}`) ? '' : (D += `<radialGradient id="gl_${col.slice(1)}"><stop offset="0" stop-color="${col}"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></radialGradient>`, ''));
+const stipple = (x0, y0, w, h, n, dens = y => 1, col = '#2B1D12', s0 = 3) => { seed = s0; let o = ''; for (let i = 0; i < n; i++) { const x = x0 + R() * w, y = y0 + R() * h; if (R() < dens((y - y0) / h)) o += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(.6 + R() * .7).toFixed(2)}" fill="${col}" opacity=".55"/>`; } return o; };
+const sphereShade = (cx, cy, r, side = -1, k = .55) => { if (!SIG) return ''; const id = 'ss' + Math.round(cx) + Math.round(r); D += `<clipPath id="${id}"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath>`; let o = `<g clip-path="url(#${id})" opacity=".55">`;
+  for (let i = 0; i < 26; i++) { const t = i / 26, ex = cx + side * r * (1 - t * k * 1.6), rx = r * (.25 + t * .9); if (t > k) break; o += `<ellipse cx="${ex - side * rx * .2}" cy="${cy}" rx="${rx * .3 + t * r * .2}" ry="${r * 1.02}" fill="none" stroke="#2B1D12" stroke-width="${(1.3 - t).toFixed(2)}" transform="rotate(${-18 * side} ${cx} ${cy})"/>`; } return o + '</g>'; };
 const ell = (x, y, rx, ry) => `M${x - rx} ${y} A${rx} ${ry} 0 1 0 ${x + rx} ${y} A${rx} ${ry} 0 1 0 ${x - rx} ${y}Z`;
 const poly = pts => 'M' + pts.map(p => p.join(' ')).join(' L') + 'Z';
 const ridge = (y, amp, s, x0 = 0, x1 = 1920) => { seed = s; let d = `M${x0} 1080 L${x0} ${y}`; for (let x = x0; x <= x1; x += 30) d += ` L${x} ${(y - Math.sin(x / 260 + s) * amp - Math.sin(x / 90 + s * 2) * amp * .25).toFixed(1)}`; return d + ` L${x1} 1080Z`; };
@@ -46,10 +61,10 @@ const figure = (x, y, h, tone = .35) => { const k = h / 160; const P = (a, b) =>
 let body = '', bg = '';
 
 if (SC === 'desert') {   // Alexandria at noon on the solstice: the obelisk's short shadow, 7.2° — and Syene's well
-  bg = E ? fill('M0 0 H1920 V760 H0Z', 'sky', .18, 0, { stroke: false }) : `<rect width="1920" height="760" fill="url(#skyg)"/>`;
+  bg = E ? fill('M0 0 H1920 V760 H0Z', 'sky', .18, 0, { stroke: false }) : SIG ? `<rect width="1920" height="760" fill="url(#skyS)"/>${stipple(0, 0, 1920, 380, 5200, t => (1 - t) * .9)}` : `<rect width="1920" height="760" fill="url(#skyg)"/>`;
   D += `<linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F86B8"/><stop offset=".55" stop-color="#9CC1DC"/><stop offset="1" stop-color="#F3D7A2"/></linearGradient>`;
   const sx = 1262, sy = 70;
-  body += glow(sx, sy, 260, '#FFF1C8', .9) + (E ? `<circle cx="${sx}" cy="${sy}" r="42" fill="${PAPER}" stroke="${INK}" stroke-width="1.6"/>${[...Array(36)].map((_, i) => { const a = i / 36 * 6.283; return `<path d="M${sx + Math.cos(a) * 52} ${sy + Math.sin(a) * 52} L${sx + Math.cos(a) * (i % 2 ? 84 : 120)} ${sy + Math.sin(a) * (i % 2 ? 84 : 120)}" stroke="${INK}" stroke-width=".8"/>`; }).join('')}` : `<circle cx="${sx}" cy="${sy}" r="44" fill="#FFF8E2"/>`);
+  body += glow(sx, sy, 260, '#FFF1C8', .9) + (SIG ? `<circle cx="${sx}" cy="${sy}" r="44" fill="url(#gold)" stroke="${SEP}" stroke-width="1.4"/>${[...Array(48)].map((_, i) => { const a = i / 48 * 6.283; return `<path d="M${sx + Math.cos(a) * 54} ${sy + Math.sin(a) * 54} L${sx + Math.cos(a) * (i % 2 ? 80 : 112)} ${sy + Math.sin(a) * (i % 2 ? 80 : 112)}" stroke="${SEP}" stroke-width=".8" opacity=".7"/>`; }).join('')}` : E ? `<circle cx="${sx}" cy="${sy}" r="42" fill="${PAPER}" stroke="${INK}" stroke-width="1.6"/>${[...Array(36)].map((_, i) => { const a = i / 36 * 6.283; return `<path d="M${sx + Math.cos(a) * 52} ${sy + Math.sin(a) * 52} L${sx + Math.cos(a) * (i % 2 ? 84 : 120)} ${sy + Math.sin(a) * (i % 2 ? 84 : 120)}" stroke="${INK}" stroke-width=".8"/>`; }).join('')}` : `<circle cx="${sx}" cy="${sy}" r="44" fill="#FFF8E2"/>`);
   body += fill(ridge(610, 26, 3), 'sand', .32, 10, { sw: 1 });
   [[260, 600, 90, 60], [380, 590, 50, 90], [470, 602, 120, 46]].forEach(([x, y, w, h], i) => body += fill(poly([[x, y], [x + w * .1, y - h], [x + w * .9, y - h], [x + w, y]]), 'stone', .45, 70, { sw: 1 }) + (i === 1 ? fill(poly([[x + 12, y - h], [x + 25, y - h - 40], [x + 38, y - h]]), 'stone', .5, 60, { sw: 1 }) : ''));
   body += fill('M0 650 C300 630 600 676 960 652 C1300 630 1600 668 1920 646 L1920 686 C1600 706 1300 668 960 694 C600 716 300 672 0 690Z', E ? 'water' : 'water', .5, 0);
@@ -73,11 +88,11 @@ if (SC === 'desert') {   // Alexandria at noon on the solstice: the obelisk's sh
 }
 if (SC === 'core') {   // inside the Earth: crust, mantle, outer core, inner core — and the earthquake waves that revealed them
   const { cx, cy, r } = G.ec;
-  bg = E ? fill('M0 0 H1920 V1080 H0Z', 'space', .9, 30, { stroke: false }) : `<rect width="1920" height="1080" fill="url(#spg)"/>`;
+  bg = E ? fill('M0 0 H1920 V1080 H0Z', 'space', .9, 30, { stroke: false }) : SIG ? `<rect width="1920" height="1080" fill="url(#spS)"/>${stipple(0, 0, 1920, 1080, 9000, t => .5, '#0B1030', 9)}` : `<rect width="1920" height="1080" fill="url(#spg)"/>`;
   D += `<radialGradient id="spg" cx=".6" cy=".3" r="1"><stop offset="0" stop-color="#2A2F5A"/><stop offset=".6" stop-color="#11152E"/><stop offset="1" stop-color="#060814"/></radialGradient><clipPath id="ce"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath>`;
   seed = 3; for (let i = 0; i < 160; i++) { const x = R() * 1920, y = R() * 1080, s = .8 + R() * 1.8; body += E ? `<circle cx="${x}" cy="${y}" r="${s + .6}" fill="${PAPER}" stroke="${INK}" stroke-width=".5"/>` : `<circle cx="${x}" cy="${y}" r="${s}" fill="#FFF6E0" opacity="${.3 + R() * .6}"/>`; }
   body += glow(cx, cy, r * 1.25, '#7FB8FF', .35);
-  body += `<g clip-path="url(#ce)">${fill(ell(cx, cy, r, r), 'sea', .45, 0, { stroke: false })}${fill(G.eLand, 'land', .25, 45, { sw: 1 })}${line(G.eGrat, .5)}</g>`;
+  body += `<g clip-path="url(#ce)">${fill(ell(cx, cy, r, r), 'sea', .45, 0, { stroke: false })}${fill(G.eLand, 'land', .25, 45, { sw: 1, stroke: SIG ? false : undefined })}${SIG ? line(G.eCoast, 1.2) : ''}${line(G.eGrat, .5)}</g>${sphereShade(cx, cy, r, -1)}`;
   body += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${E ? INK : '#BFE3FF'}" stroke-width="${E ? 2.4 : 2}" opacity="${E ? 1 : .5}"/>`;
   // the wedge: a quarter cut away, layers to true proportions (crust exaggerated)
   const a1 = -0.18, a2 = 1.45, pie = rr => `M${cx} ${cy} L${cx + Math.cos(a1) * rr} ${cy + Math.sin(a1) * rr} A${rr} ${rr} 0 0 1 ${cx + Math.cos(a2) * rr} ${cy + Math.sin(a2) * rr}Z`;
@@ -100,7 +115,7 @@ if (SC === 'desk') {   // the astronomer's desk at night: window, brass sextant,
   body += fill('M120 110 H640 V650 H120Z', 'wood', .55, 0) + fill('M150 140 H610 V620 H150Z', 'night', .8, 20, { stroke: false });
   seed = 8; for (let i = 0; i < 40; i++) { const x = 150 + R() * 460, y = 140 + R() * 480; body += E ? `<circle cx="${x}" cy="${y}" r="2" fill="${PAPER}" stroke="${INK}" stroke-width=".4"/>` : `<circle cx="${x}" cy="${y}" r="${1 + R() * 1.6}" fill="#FFF6E0" opacity="${.4 + R() * .5}"/>`; }
   body += glow(470, 270, 150, '#F2E8D2', .5) + fill(ell(470, 270, 62, 62), 'paper', .1, 0) + (E ? `<path d="M470 208 A62 62 0 0 0 470 332 A30 62 0 0 1 470 208Z" fill="url(#${hatch(3, 30)})"/>` : `<path d="M470 208 A62 62 0 0 0 470 332 A30 62 0 0 1 470 208Z" fill="#1F2850" opacity=".7"/>`);
-  body += fill('M372 140 H388 V620 H372Z', 'wood', .5, 90, { sw: 1 }) + fill('M150 372 H610 V388 H150Z', 'wood', .5, 0, { sw: 1 });
+  body += sphereShade(470, 270, 62, -1, .5) + fill('M372 140 H388 V620 H372Z', 'wood', .5, 90, { sw: 1 }) + fill('M150 372 H610 V388 H150Z', 'wood', .5, 0, { sw: 1 });
   // the REAL photo pinned on the wall + a hand-drawn note (illegible: never a fake document)
   body += `<g transform="rotate(-3 1230 330)">${fill('M1040 170 H1420 V490 H1040Z', 'paper', .05, 0)}<image href="photo.jpg" x="1060" y="190" width="340" height="250" preserveAspectRatio="xMidYMid slice" style="filter:${E ? 'sepia(.85) contrast(1.1) brightness(.9)' : 'sepia(.3) saturate(.9)'}"/>
     ${E ? `<text x="1230" y="472" text-anchor="middle" font-family="Fr" font-style="italic" font-size="18" fill="${INK}">Plate I. — the lunar surface</text>` : ''}<circle cx="1230" cy="182" r="9" fill="${E ? CU : '#C9452E'}"/></g>`;
@@ -135,7 +150,7 @@ if (SC === 'map') {   // the eastern Mediterranean on an old map: real coastline
   const C = G.city;
   bg = fill('M0 0 H1920 V1080 H0Z', 'sea', .35, 0, { stroke: false });
   if (E) body += `<path d="${G.mCoast}" fill="none" stroke="${INK}" stroke-width="16" opacity=".06"/><path d="${G.mCoast}" fill="none" stroke="${INK}" stroke-width="9" opacity=".1"/>`; else body += `<path d="${G.mCoast}" fill="none" stroke="#BFE6F0" stroke-width="14" opacity=".25" filter="url(#paint)"/>`;
-  body += fill(G.mLand, 'land', .15, 45, { sw: 1.2, paper: '#F2E8CF' }) + (E ? `<path d="${G.mLand}" fill="url(#dots)"/>` : '') + fill(G.mLakes, 'sea', .4, 0, { sw: .8 });
+  body += fill(G.mLand, 'land', .15, 45, { sw: 1.2, paper: '#F2E8CF', stroke: SIG ? false : undefined }) + (SIG ? line(G.mCoast, 1.3) + `<path d="${G.mCoast}" fill="none" stroke="#22507A" stroke-width="10" opacity=".12"/>` : '') + (E ? `<path d="${G.mLand}" fill="url(#dots)"/>` : '') + fill(G.mLakes, 'sea', .4, 0, { sw: .8 });
   D += `<pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".9" fill="${INK}" opacity=".45"/></pattern>`;
   body += line(G.mGrat, .6) + `<path d="${G.mNile}" fill="none" stroke="${E ? INK : '#2F7298'}" stroke-width="3"/>`;
   body += `<path d="M${C.athens.join(' ')} Q${(C.athens[0] + C.rhodes[0]) / 2} ${C.rhodes[1] - 40} ${C.rhodes.join(' ')} T${C.alex.join(' ')} L${C.syene.join(' ')}" fill="none" stroke="${CU}" stroke-width="4" stroke-dasharray="12 9"/>`;
@@ -150,15 +165,22 @@ if (SC === 'map') {   // the eastern Mediterranean on an old map: real coastline
   body += `<circle cx="${rx}" cy="${ry}" r="104" fill="none" stroke="${E ? INK : '#7E5A1E'}" stroke-width="1.6"/><circle cx="${rx}" cy="${ry}" r="112" fill="none" stroke="${E ? INK : '#7E5A1E'}" stroke-width=".8"/><text x="${rx}" y="${ry - 150}" text-anchor="middle" font-family="Fr" font-weight="700" font-size="28" fill="${E ? INK : '#5A3A20'}">N</text>`;
   body += `<rect x="24" y="24" width="1872" height="1032" fill="none" stroke="${E ? INK : '#5A3A20'}" stroke-width="3"/><rect x="36" y="36" width="1848" height="1008" fill="none" stroke="${E ? INK : '#5A3A20'}" stroke-width="1"/>`;
 }
-const fin = E ? `<rect width="1920" height="1080" filter="url(#grain)"/><rect width="1920" height="1080" fill="url(#vig)"/>` : `<rect width="1920" height="1080" fill="url(#vig2)"/><rect width="1920" height="1080" filter="url(#grain)"/>`;
-const tagT = { desert: 'Phong cảnh & ánh sáng', core: 'Sơ đồ khoa học', desk: 'Nội thất & tư liệu thật', map: 'Bản đồ' }[SC], styT = E ? 'Atlas khắc đồng' : C3 ? 'Ghép: khắc đồng tô màu' : 'Tranh bột màu';
-const label = `<rect x="1490" y="34" width="400" height="74" rx="6" fill="${E ? PAPER : '#14182E'}" opacity=".88"/><text x="1870" y="66" text-anchor="end" font-family="In" font-weight="600" font-size="22" fill="${E ? INK : '#FFF2D8'}">${styT}</text><text x="1870" y="94" text-anchor="end" font-family="Mo" font-size="16" letter-spacing="2" fill="${E ? INK : '#FFF2D8'}" opacity=".7">${tagT}</text>`;
+const fin = SIG ? `<rect width="1920" height="1080" filter="url(#fib)" style="mix-blend-mode:multiply"/>${[[180, 940, 90], [1760, 140, 120], [1620, 980, 70], [90, 120, 60]].map(([x, y, rr]) => `<circle cx="${x}" cy="${y}" r="${rr}" fill="url(#fox)"/>`).join('')}<rect width="1920" height="1080" fill="url(#vig)"/><rect width="1920" height="1080" filter="url(#grain)"/>`
+  + `<g transform="translate(64 52)"><path d="M22 0 V58" stroke="${SEP}" stroke-width="1.4"/>${[12, 24, 36, 48].map(y => `<path d="M17 ${y} H27" stroke="${SEP}" stroke-width="1"/>`).join('')}<path d="M14 58 H30 L26 84 Q22 90 18 84Z" fill="url(#gold)" stroke="${SEP}" stroke-width="1.2"/><text x="48" y="50" font-family="Fr" font-weight="700" font-size="36" letter-spacing="9" fill="${SC === 'core' || SC === 'desk' ? '#F6EBD2' : SEP}">FATHOM</text><path d="M50 62 H250" stroke="url(#gold)" stroke-width="3"/></g>` : E ? `<rect width="1920" height="1080" filter="url(#grain)"/><rect width="1920" height="1080" fill="url(#vig)"/>` : `<rect width="1920" height="1080" fill="url(#vig2)"/><rect width="1920" height="1080" filter="url(#grain)"/>`;
+const tagT = { desert: 'Phong cảnh & ánh sáng', core: 'Sơ đồ khoa học', desk: 'Nội thất & tư liệu thật', map: 'Bản đồ' }[SC], styT = E ? 'Atlas khắc đồng' : SIG ? 'FATHOM · phong cách riêng' : C3 ? 'Ghép: khắc đồng tô màu' : 'Tranh bột màu';
+const label = `<rect x="1490" y="34" width="400" height="74" rx="6" fill="${E || SIG ? PAPER : '#14182E'}" opacity=".88"/><text x="1870" y="66" text-anchor="end" font-family="In" font-weight="600" font-size="22" fill="${E || SIG ? INK : '#FFF2D8'}">${styT}</text><text x="1870" y="94" text-anchor="end" font-family="Mo" font-size="16" letter-spacing="2" fill="${E || SIG ? INK : '#FFF2D8'}" opacity=".7">${tagT}</text>`;
 document.getElementById('s').innerHTML = `<defs>${D}
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7E3A0"/><stop offset=".35" stop-color="#D9AE4C"/><stop offset=".55" stop-color="#F3D88E"/><stop offset=".8" stop-color="#B8862B"/><stop offset="1" stop-color="#E6C266"/></linearGradient>
+  <linearGradient id="skyS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA8C4"/><stop offset=".6" stop-color="#C9DDE6"/><stop offset="1" stop-color="#F3DCB0"/></linearGradient>
+  <radialGradient id="spS" cx=".6" cy=".3" r="1"><stop offset="0" stop-color="#3A4A7A"/><stop offset=".7" stop-color="#1C2650"/><stop offset="1" stop-color="#0B1030"/></radialGradient>
+  <filter id="wc"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="6"/><feDisplacementMap in="SourceGraphic" scale="5"/><feGaussianBlur stdDeviation=".5"/></filter><filter id="b2s"><feGaussianBlur stdDeviation="2.5"/></filter>
+  <filter id="fib" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".012 .22" numOctaves="3" seed="11"/><feColorMatrix values="0 0 0 0 .55 0 0 0 0 .45 0 0 0 0 .3 0 0 0 .5 -.12"/></filter>
+  <radialGradient id="fox"><stop offset="0" stop-color="#9A6A3A" stop-opacity=".22"/><stop offset="1" stop-color="#9A6A3A" stop-opacity="0"/></radialGradient>
   <filter id="paint"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="2"/><feDisplacementMap in="SourceGraphic" scale="7"/></filter>
   <pattern id="tex" width="240" height="240" patternUnits="userSpaceOnUse"><rect width="240" height="240" fill="#000" filter="url(#texf)"/></pattern>
   <filter id="texf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".05 .4" numOctaves="3" seed="5"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 -.18"/></filter>
   <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .09 0"/></filter>
   <radialGradient id="vig" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#3A2A14" stop-opacity="0"/><stop offset="1" stop-color="#3A2A14" stop-opacity=".4"/></radialGradient>
   <radialGradient id="vig2" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".38"/></radialGradient></defs>
-  ${E ? `<rect width="1920" height="1080" fill="${PAPER}"/>` : ''}${bg}${body}${fin}${label}`;
+  ${E || SIG ? `<rect width="1920" height="1080" fill="${SIG ? '#F3E7CC' : PAPER}"/>` : ''}${bg}${body}${fin}${label}`;
 </script></body></html>
