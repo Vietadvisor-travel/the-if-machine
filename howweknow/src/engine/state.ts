@@ -15,6 +15,7 @@ const morphPath = (a: string, b: string, k: number): string => { const id = a + 
 
 const mix = (a: any, b: any, k: number, prop: string): any => {
   if (k >= 1) return b; if (k <= 0 || a === undefined) return k <= 0 && a !== undefined ? a : b;
+  if (prop === 'zoom' && typeof a === 'number' && typeof b === 'number' && a > 0 && b > 0) return a * Math.pow(b / a, k);   // zoom glides geometrically: constant perceived speed
   if (typeof a === 'number' && typeof b === 'number') return a + (b - a) * k;
   if (isColor(a) && isColor(b)) return interpolateColors(k, [0, 1], [a, b]);
   if (prop === 'form' && typeof a === 'string' && typeof b === 'string') return morphPath(a, b, k);

@@ -20,4 +20,5 @@ track = np.zeros(int(total * SR) + SR, dtype=np.float32)
 for st, s in parts: a = int(st * SR); track[a:a + len(s)] += s
 sf.write(f'{out}/vo.wav', track[:int(total * SR)], SR)
 json.dump({'slug': E['slug'], 'duration': round(total, 3), 'lines': lines}, open(f'{ep}/timeline.json', 'w'), indent=1)
+import shutil; os.makedirs(f'public/ep/{E["slug"]}', exist_ok=True); shutil.copy(f'{ep}/episode.json', f'public/ep/{E["slug"]}/episode.json'); shutil.copy(f'{ep}/timeline.json', f'public/ep/{E["slug"]}/timeline.json')
 print(f'{len(lines)} lines · {total:.1f} s →', f'{ep}/timeline.json')

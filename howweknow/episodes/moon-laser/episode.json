@@ -1,15 +1,710 @@
 {
-  "slug": "moon-laser",
-  "title": "How do we know how far away the Moon is?",
-  "note": "LOOK TEST v2 (15 Nov 2026), not an episode. Facts: APOLLO lunar laser ranging at Apache Point Observatory, New Mexico; Apollo 11/14/15 retroreflectors; mean distance 384,400 km; round trip about 2.5 s.",
-  "voice": "af_heart",
-  "speed": 0.92,
-  "lead": 0.8,
-  "tail": 1.6,
-  "music": { "file": "../studio/music/wonder_silver_blue_light.wav", "db": -21, "start": 6 },
-  "lines": [
-    { "text": "On a mountain in New Mexico, astronomers fire a laser at the Moon.", "sfx": [{ "at": 1.35, "file": "public/sfx/beam_laser_1.wav", "db": -14 }] },
-    { "text": "The pulse of light crosses three hundred and eighty-four thousand kilometres of empty space…", "gap": 0.5, "sfx": [{ "at": 0.0, "file": "public/sfx/motion_whoosh_airy_1.wav", "db": -20 }] },
-    { "text": "hits a mirror the Apollo astronauts left behind, and comes home two and a half seconds later.", "gap": 0.35, "sfx": [{ "at": 1.4, "file": "public/sfx/machine_chime_1.wav", "db": -22 }] }
-  ]
+ "slug": "moon-laser",
+ "title": "How do we know how far away the Moon is?",
+ "note": "LOOK TEST v3 (engine v2, 2D story world). Facts: Apache Point Observatory, New Mexico (32.78 N, 105.82 W) runs the APOLLO lunar laser ranging experiment; Apollo 11 left the first retroreflector in July 1969 (site 0.67 N, 23.47 E); mean Earth-Moon distance 384,400 km; light's round trip is about 2.5 s; only a handful of photons come back per pulse. The Earth-Moon shot is at TRUE scale (Earth 1000 units, Moon 272, distance 30,170).",
+ "voice": "af_heart",
+ "speed": 0.86,
+ "lead": 1.0,
+ "tail": 2.2,
+ "music": {
+  "file": "../studio/music/wonder_silver_blue_light.wav",
+  "db": -22,
+  "start": 6
+ },
+ "lines": [
+  {
+   "text": "On a mountain in New Mexico, astronomers aim a *laser* at the Moon.",
+   "sfx": [
+    {
+     "at": 3.0,
+     "file": "public/sfx/beam_laser_1.wav",
+     "db": -15
+    }
+   ]
+  },
+  {
+   "text": "The pulse of light leaves the Earth\u2026 and crosses three hundred and eighty-four thousand kilometres of *empty* space.",
+   "gap": 0.7,
+   "sfx": [
+    {
+     "at": 0.3,
+     "file": "public/sfx/motion_whoosh_airy_1.wav",
+     "db": -21
+    }
+   ]
+  },
+  {
+   "text": "There, it finds a small *mirror*, left on the Moon by the Apollo astronauts in 1969.",
+   "gap": 0.7
+  },
+  {
+   "text": "Two and a half seconds later, a handful of photons come home\u2026 and that tiny delay tells us *exactly* how far away the Moon is.",
+   "gap": 0.7,
+   "sfx": [
+    {
+     "at": 0.2,
+     "file": "public/sfx/machine_chime_1.wav",
+     "db": -22
+    }
+   ]
+  }
+ ],
+ "world": [
+  {
+   "id": "camera",
+   "type": "camera",
+   "props": {
+    "x": 0,
+    "y": 0,
+    "zoom": 0.62,
+    "rot": 0
+   },
+   "keys": [
+    {
+     "t": 0,
+     "dur": 4.5,
+     "zoom": 0.9,
+     "ease": "soft"
+    },
+    {
+     "t": "L0+0.6",
+     "dur": 2.6,
+     "zoom": 3.4
+    },
+    {
+     "t": "L1-0.3",
+     "dur": 2.6,
+     "zoom": 0.06
+    },
+    {
+     "t": "L1+1.6",
+     "dur": 2.6,
+     "x": 15080,
+     "y": -2100,
+     "zoom": 0.058
+    },
+    {
+     "t": "L2-1.2",
+     "dur": 1.6,
+     "x": 29874,
+     "y": -4200,
+     "zoom": 0.09
+    },
+    {
+     "t": "L2+0.2",
+     "dur": 1.8,
+     "zoom": 2.4
+    },
+    {
+     "t": "L3-0.2",
+     "dur": 1.8,
+     "zoom": 0.09
+    },
+    {
+     "t": "L3+1.4",
+     "dur": 2.2,
+     "x": 15080,
+     "y": -2100,
+     "zoom": 0.058
+    }
+   ]
+  },
+  {
+   "id": "sky",
+   "type": "sky",
+   "props": {
+    "kind": "space"
+   }
+  },
+  {
+   "id": "stars",
+   "type": "stars",
+   "props": {
+    "n": 420,
+    "depth": 0.02
+   }
+  },
+  {
+   "id": "earth",
+   "type": "planet",
+   "props": {
+    "kind": "earth",
+    "x": 0,
+    "y": 0,
+    "size": 1000,
+    "lon": -70,
+    "lat": 18
+   },
+   "keys": [
+    {
+     "t": 0.2,
+     "dur": 4.2,
+     "lon": -105.82,
+     "lat": 32.78,
+     "ease": "soft"
+    }
+   ]
+  },
+  {
+   "id": "borders",
+   "type": "geo",
+   "props": {
+    "planet": "earth",
+    "border": 0.0,
+    "pin": [
+     -105.82,
+     32.78
+    ],
+    "pinA": 0,
+    "pinR": 9
+   },
+   "keys": [
+    {
+     "t": 2.2,
+     "dur": 1.2,
+     "border": 0.4,
+     "pinA": 1
+    },
+    {
+     "t": "L1+0.6",
+     "dur": 1.0,
+     "border": 0,
+     "pinA": 0
+    }
+   ]
+  },
+  {
+   "id": "moon",
+   "type": "planet",
+   "props": {
+    "kind": "moon",
+    "x": 29874,
+    "y": -4200,
+    "size": 272,
+    "lon": 0,
+    "lat": 0,
+    "glow": 1
+   }
+  },
+  {
+   "id": "go",
+   "type": "beam",
+   "props": {
+    "from": {
+     "entity": "earth",
+     "lon": -105.82,
+     "lat": 32.78
+    },
+    "to": {
+     "entity": "moon",
+     "lon": 23.47,
+     "lat": 0.67
+    },
+    "k": 0,
+    "w": 3
+   },
+   "keys": [
+    {
+     "t": "L1+0.4",
+     "dur": 5.2,
+     "k": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L3+1.5",
+     "dur": 1,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "goPulse",
+   "type": "pulse",
+   "props": {
+    "on": "go",
+    "k": 0,
+    "r": 30
+   },
+   "keys": [
+    {
+     "t": "L1+0.4",
+     "dur": 5.2,
+     "k": 0.999,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "dist",
+   "type": "arc",
+   "props": {
+    "from": {
+     "entity": "earth"
+    },
+    "to": {
+     "entity": "moon"
+    },
+    "k": 0,
+    "bend": 120,
+    "label": "384,400 KM",
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L1+2.2",
+     "dur": 1.8,
+     "k": 1,
+     "a": 1
+    },
+    {
+     "t": "L2-0.6",
+     "dur": 0.8,
+     "a": 0
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "type": "beam",
+   "props": {
+    "from": {
+     "entity": "moon",
+     "lon": 23.47,
+     "lat": 0.67
+    },
+    "to": {
+     "entity": "earth",
+     "lon": -105.82,
+     "lat": 32.78
+    },
+    "k": 0,
+    "w": 3,
+    "dash": true
+   },
+   "keys": [
+    {
+     "t": "L3+0.6",
+     "dur": 2.5,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "homePulse",
+   "type": "pulse",
+   "props": {
+    "on": "home",
+    "k": 0,
+    "r": 22
+   },
+   "keys": [
+    {
+     "t": "L3+0.6",
+     "dur": 2.5,
+     "k": 0.999,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "nm",
+   "type": "lens",
+   "props": {
+    "at": {
+     "entity": "earth",
+     "lon": -105.82,
+     "lat": 32.78
+    },
+    "r": 0,
+    "center": 0,
+    "inner": 0.35
+   },
+   "keys": [
+    {
+     "t": "L0+0.9",
+     "dur": 1.8,
+     "r": 1300,
+     "center": 1,
+     "inner": 1
+    },
+    {
+     "t": "L1-0.3",
+     "dur": 1.4,
+     "r": 0,
+     "center": 0,
+     "inner": 0.4,
+     "ease": "in"
+    }
+   ],
+   "children": [
+    {
+     "id": "nsky",
+     "type": "kit",
+     "props": {
+      "name": "NightSky"
+     }
+    },
+    {
+     "id": "nstars",
+     "type": "kit",
+     "props": {
+      "name": "Stars",
+      "n": 300,
+      "y1": 760,
+      "seed": "ns"
+     }
+    },
+    {
+     "id": "nmoon",
+     "type": "kit",
+     "props": {
+      "name": "Moon",
+      "cx": 1450,
+      "cy": 290,
+      "r": 150
+     }
+    },
+    {
+     "id": "r1",
+     "type": "kit",
+     "props": {
+      "name": "Ridge",
+      "y": 700,
+      "amp": 60,
+      "col": "#26324F",
+      "seed": "r1"
+     }
+    },
+    {
+     "id": "h1",
+     "type": "kit",
+     "props": {
+      "name": "Haze",
+      "y": 640,
+      "h": 140
+     }
+    },
+    {
+     "id": "r2",
+     "type": "kit",
+     "props": {
+      "name": "Ridge",
+      "y": 790,
+      "amp": 52,
+      "col": "#1B2541",
+      "seed": "r2"
+     }
+    },
+    {
+     "id": "r3",
+     "type": "kit",
+     "props": {
+      "name": "Ridge",
+      "y": 885,
+      "amp": 34,
+      "col": "#111A2E",
+      "seed": "r3"
+     }
+    },
+    {
+     "id": "obs",
+     "type": "kit",
+     "props": {
+      "name": "Observatory",
+      "x": 560,
+      "y": 862,
+      "s": 1
+     }
+    },
+    {
+     "id": "pines",
+     "type": "kit",
+     "props": {
+      "name": "Pines",
+      "y": 938,
+      "n": 30,
+      "seed": "p1",
+      "col": "#0A1020"
+     }
+    },
+    {
+     "id": "laser",
+     "type": "beam",
+     "props": {
+      "from": {
+       "screen": [
+        615,
+        701
+       ]
+      },
+      "to": {
+       "screen": [
+        1415,
+        320
+       ]
+      },
+      "k": 0
+     },
+     "keys": [
+      {
+       "t": "L0@laser",
+       "dur": 0.7,
+       "k": 1,
+       "ease": "out"
+      }
+     ]
+    },
+    {
+     "id": "lp",
+     "type": "pulse",
+     "props": {
+      "on": "laser",
+      "k": 0,
+      "r": 32
+     },
+     "keys": [
+      {
+       "t": "L0@laser+0.3",
+       "dur": 1.6,
+       "k": 0.999,
+       "ease": "linear"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "apollo",
+   "type": "lens",
+   "props": {
+    "at": {
+     "entity": "moon",
+     "lon": 23.47,
+     "lat": 0.67
+    },
+    "r": 0,
+    "center": 0,
+    "inner": 0.35
+   },
+   "keys": [
+    {
+     "t": "L2+1.4",
+     "dur": 1.6,
+     "r": 1300,
+     "center": 1,
+     "inner": 1
+    },
+    {
+     "t": "L3+0.2",
+     "dur": 1.4,
+     "r": 0,
+     "center": 0,
+     "inner": 0.4,
+     "ease": "in"
+    }
+   ],
+   "children": [
+    {
+     "id": "msky",
+     "type": "sky",
+     "props": {
+      "kind": "space"
+     }
+    },
+    {
+     "id": "mstars",
+     "type": "kit",
+     "props": {
+      "name": "Stars",
+      "n": 300,
+      "y1": 600,
+      "seed": "ms"
+     }
+    },
+    {
+     "id": "mearth",
+     "type": "kit",
+     "props": {
+      "name": "Earth",
+      "cx": 1500,
+      "cy": 205,
+      "r": 66,
+      "lon": -100,
+      "lat": 25,
+      "clouds": 0.6
+     }
+    },
+    {
+     "id": "ground",
+     "type": "kit",
+     "props": {
+      "name": "MoonGround",
+      "src": "tex/regolith_photo.jpg",
+      "horizon": 640
+     }
+    },
+    {
+     "id": "refl",
+     "type": "kit",
+     "props": {
+      "name": "Reflector",
+      "x": 930,
+      "y": 770,
+      "s": 0.82,
+      "flash": 0
+     },
+     "keys": [
+      {
+       "t": "L2@mirror",
+       "dur": 0.25,
+       "flash": 1,
+       "ease": "out"
+      },
+      {
+       "t": "L2@mirror+0.4",
+       "dur": 1.6,
+       "flash": 0.25
+      }
+     ]
+    },
+    {
+     "id": "inbeam",
+     "type": "beam",
+     "props": {
+      "from": {
+       "screen": [
+        700,
+        -60
+       ]
+      },
+      "to": {
+       "screen": [
+        960,
+        720
+       ]
+      },
+      "k": 0
+     },
+     "keys": [
+      {
+       "t": "L2@mirror-0.6",
+       "dur": 0.6,
+       "k": 1,
+       "ease": "in"
+      },
+      {
+       "t": "L2@mirror+0.3",
+       "dur": 0.8,
+       "a": 0
+      }
+     ]
+    },
+    {
+     "id": "outbeam",
+     "type": "beam",
+     "props": {
+      "from": {
+       "screen": [
+        960,
+        720
+       ]
+      },
+      "to": {
+       "screen": [
+        1500,
+        205
+       ]
+      },
+      "k": 0
+     },
+     "keys": [
+      {
+       "t": "L2@mirror+0.2",
+       "dur": 1.4,
+       "k": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "watch",
+   "type": "shape",
+   "props": {
+    "x": 250,
+    "y": 560,
+    "s": 0,
+    "form": "M50 14 A36 36 0 1 1 49.99 14 Z",
+    "stroke": "#F2A93B",
+    "sw": 4,
+    "draw": 1
+   },
+   "keys": [
+    {
+     "t": "L3+3.0",
+     "dur": 0.6,
+     "s": 1.6,
+     "ease": "out"
+    },
+    {
+     "t": "L3+3.4",
+     "dur": 1.4,
+     "form": "M44 4 L56 4 L56 14 A38 38 0 1 1 44 14 Z"
+    }
+   ]
+  },
+  {
+   "id": "hand",
+   "type": "shape",
+   "props": {
+    "x": 250,
+    "y": 560,
+    "s": 1.6,
+    "form": "M50 52 L50 30",
+    "sw": 4,
+    "draw": 0,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L3+4.6",
+     "dur": 0.1,
+     "a": 1
+    },
+    {
+     "t": "L3+4.6",
+     "dur": 1.2,
+     "draw": 1,
+     "rot": 300
+    }
+   ]
+  },
+  {
+   "id": "secs",
+   "type": "label",
+   "props": {
+    "x": 250,
+    "y": 690,
+    "text": "2.5 S",
+    "a": 0,
+    "size": 30,
+    "color": "#F2E8D2"
+   },
+   "keys": [
+    {
+     "t": "L3+5.2",
+     "dur": 0.8,
+     "a": 1
+    }
+   ]
+  },
+  {
+   "id": "clue",
+   "type": "clue",
+   "props": {
+    "n": 1
+   }
+  }
+ ]
 }

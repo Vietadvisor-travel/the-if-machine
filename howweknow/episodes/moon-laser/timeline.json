@@ -1,41 +1,48 @@
 {
  "slug": "moon-laser",
- "duration": 18.368,
+ "duration": 31.55,
  "lines": [
   {
    "i": 0,
-   "text": "On a mountain in New Mexico, astronomers fire a laser at the Moon.",
-   "start": 0.8,
-   "dur": 4.142,
+   "text": "On a mountain in New Mexico, astronomers aim a laser at the Moon.",
+   "start": 1.0,
+   "dur": 4.386,
    "sfx": [
     {
-     "at": 1.35,
+     "at": 3.0,
      "file": "public/sfx/beam_laser_1.wav",
-     "db": -14
+     "db": -15
     }
    ]
   },
   {
    "i": 1,
-   "text": "The pulse of light crosses three hundred and eighty-four thousand kilometres of empty space\u2026",
-   "start": 5.442,
-   "dur": 5.418,
+   "text": "The pulse of light leaves the Earth\u2026 and crosses three hundred and eighty-four thousand kilometres of empty space.",
+   "start": 6.086,
+   "dur": 7.091,
    "sfx": [
     {
-     "at": 0.0,
+     "at": 0.3,
      "file": "public/sfx/motion_whoosh_airy_1.wav",
-     "db": -20
+     "db": -21
     }
    ]
   },
   {
    "i": 2,
-   "text": "hits a mirror the Apollo astronauts left behind, and comes home two and a half seconds later.",
-   "start": 11.211,
-   "dur": 5.557,
+   "text": "There, it finds a small mirror, left on the Moon by the Apollo astronauts in 1969.",
+   "start": 13.877,
+   "dur": 6.57,
+   "sfx": []
+  },
+  {
+   "i": 3,
+   "text": "Two and a half seconds later, a handful of photons come home\u2026 and that tiny delay tells us exactly how far away the Moon is.",
+   "start": 21.147,
+   "dur": 8.203,
    "sfx": [
     {
-     "at": 1.4,
+     "at": 0.2,
      "file": "public/sfx/machine_chime_1.wav",
      "db": -22
     }

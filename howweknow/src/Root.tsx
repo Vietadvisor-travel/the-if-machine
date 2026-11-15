@@ -1,11 +1,9 @@
 import React from 'react';
 import { Composition, continueRender, delayRender } from 'remotion';
 import { fontsReady } from './kit/fonts';
-import { MoonLaser } from './episodes/MoonLaser';
-import TL from '../episodes/moon-laser/timeline.json';
+import { Story, storyMeta, StoryProps } from './engine/Story';
 const h = delayRender('fonts'); fontsReady.then(() => continueRender(h));
+// one composition plays every episode: npx remotion render Story out/x.mp4 --props='{"slug":"<slug>"}'
 export const Root: React.FC = () => (
-  <>
-    <Composition id="MoonLaser" component={MoonLaser} durationInFrames={Math.ceil(TL.duration * 30)} fps={30} width={1920} height={1080} />
-  </>
+  <Composition id="Story" component={Story} calculateMetadata={storyMeta} defaultProps={{ slug: 'moon-laser' } as StoryProps} durationInFrames={300} fps={30} width={1920} height={1080} />
 );
