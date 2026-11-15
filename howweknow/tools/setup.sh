@@ -14,4 +14,6 @@ from PIL import Image
 os.makedirs("public/core", exist_ok=True); r = np.random.default_rng(5)
 for i in range(4): Image.fromarray(r.normal(128, 40, (512, 512)).clip(0, 255).astype(np.uint8), "L").save(f"public/core/grain_{i}.png")
 PY
+[ -f public/brand/fathom_mark.png ] || { node tools/brand.cjs >/dev/null && mkdir -p public/brand && cp out/brand/fathom_mark.png public/brand/; }
+[ -f public/core/paper.jpg ] || python3 tools/paper.py
 echo "howweknow ready: $(ls public/sfx | wc -l) sfx, fonts, textures"

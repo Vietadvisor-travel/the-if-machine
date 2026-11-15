@@ -1,13 +1,31 @@
 {
-  "slug": "engine-test", "title": "internal engine test (not a demo)", "voice": "af_heart", "speed": 0.86, "lead": 0.6, "tail": 1.0,
-  "lines": [ { "text": "A map of the world, and a route from Cairo to Alexandria." }, { "text": "The route becomes a photograph of the ground." } ],
+  "slug": "engine-test", "title": "internal engine test (not a demo)", "voice": "af_heart", "speed": 0.86, "lead": 0.8, "tail": 3.4,
+  "lines": [
+    { "text": "From space, the Earth turns towards Egypt." },
+    { "text": "A pin marks Alexandria, and the pin opens a window onto the city." },
+    { "text": "At noon, an obelisk casts a shadow at seven degrees." },
+    { "text": "Then the window closes, and light leaves for the Moon." }
+  ],
   "world": [
-    { "id": "camera", "type": "camera", "props": { "x": 0, "y": 0, "zoom": 0.45 }, "keys": [ { "t": "L0+0.5", "dur": 2.5, "x": 290, "y": -320, "zoom": 6 } ] },
-    { "id": "sky", "type": "sky", "props": { "kind": "space" } },
-    { "id": "world", "type": "map", "props": { "x": 0, "y": 0, "w": 4000, "border": 0.35 } },
-    { "id": "nile", "type": "route", "props": { "on": "world", "points": [[31.24, 30.04], [30.5, 30.6], [29.92, 31.2]], "k": 0 }, "keys": [ { "t": "L0@route", "dur": 1.5, "k": 1 } ] },
-    { "id": "plate", "type": "photo", "props": { "src": "tex/regolith_photo.jpg", "x": 960, "y": 520, "w": 900, "h": 560, "frame": "pinned", "caption": "GROUND · CC0", "reveal": 0, "kz": 1.0, "rot": -3 }, "keys": [ { "t": "L1@photograph", "dur": 1.2, "reveal": 1 }, { "t": "L1", "dur": 3, "kz": 1.12, "ease": "linear" } ] },
-    { "id": "morph", "type": "shape", "props": { "x": 1600, "y": 300, "s": 2, "form": "M50 14 A36 36 0 1 1 49.99 14 Z" }, "keys": [ { "t": "L1", "dur": 1.5, "form": "M44 4 L56 4 L56 14 A38 38 0 1 1 44 14 Z" } ] },
-    { "id": "clue", "type": "clue", "props": { "n": 2 } }
+    { "id": "camera", "type": "camera", "props": { "x": 0, "y": 0, "zoom": 0.7 }, "keys": [ { "t": "L0", "dur": 3, "zoom": 1 }, { "t": "L3+0.6", "dur": 3, "x": 2200, "y": -500, "zoom": 0.35 } ] },
+    { "id": "space", "type": "art", "props": { "name": "Sky", "kind": "space", "seed": "sp" } },
+    { "id": "earth", "type": "planet", "props": { "kind": "earth", "x": 0, "y": 0, "size": 760, "lon": -30, "lat": 10, "draw": 0 }, "keys": [ { "t": 0.2, "dur": 2.2, "draw": 1, "ease": "out" }, { "t": "L0", "dur": 3.5, "lon": 30, "lat": 28 } ] },
+    { "id": "moon", "type": "planet", "props": { "kind": "moon", "x": 4400, "y": -1000, "size": 210, "phase": 0.8 } },
+    { "id": "alex", "type": "pin", "props": { "on": "earth", "lon": 29.92, "lat": 31.2, "label": "Alexandria", "draw": 0 }, "keys": [ { "t": "L1@pin", "dur": 0.8, "draw": 1 }, { "t": "L3", "dur": 0.6, "a": 0 } ] },
+    { "id": "win", "type": "lens", "props": { "at": { "entity": "earth", "lon": 29.92, "lat": 31.2 }, "r": 0, "center": 0, "inner": 0.4 }, "keys": [
+      { "t": "L1@window", "dur": 1.8, "r": 1300, "center": 1, "inner": 1 }, { "t": "L3-0.2", "dur": 1.4, "r": 0, "center": 0, "inner": 0.4, "ease": "in" } ],
+      "children": [
+        { "id": "dsky", "type": "art", "props": { "name": "Sky", "kind": "day", "h": 720, "seed": "d" } },
+        { "id": "dsun", "type": "art", "props": { "name": "Sun", "x": 1300, "y": 110, "r": 46 } },
+        { "id": "dr1", "type": "art", "props": { "name": "Ridge", "y": 600, "amp": 24, "seed": "r1", "t": 0.32 } },
+        { "id": "dtemple", "type": "art", "props": { "name": "Temple", "x": 330, "y": 612, "w": 260 } },
+        { "id": "dwater", "type": "art", "props": { "name": "Water", "y": 650, "h": 44 } },
+        { "id": "dr2", "type": "art", "props": { "name": "Ridge", "y": 742, "amp": 12, "seed": "r2", "t": 0.14 } },
+        { "id": "dobel", "type": "art", "props": { "name": "Obelisk", "x": 1180, "y": 880, "h": 540, "draw": 0 }, "keys": [ { "t": "L2", "dur": 1.6, "draw": 1 } ] },
+        { "id": "dang", "type": "art", "props": { "name": "Angle", "x": 1180, "y": 294, "a0": -90, "a1": -82.8, "r": 110, "label": "7.2°", "len": 200, "draw": 0 }, "keys": [ { "t": "L2@seven", "dur": 1.2, "draw": 1 } ] },
+        { "id": "dsch", "type": "art", "props": { "name": "Scholar", "x": 760, "y": 965, "h": 230, "pose": "point" } }
+      ] },
+    { "id": "light", "type": "beam", "props": { "from": { "entity": "earth", "lon": 29.92, "lat": 31.2 }, "to": { "entity": "moon" }, "k": 0 }, "keys": [ { "t": "L3@light", "dur": 2.5, "k": 1, "ease": "linear" } ] },
+    { "id": "clue", "type": "clue", "props": { "n": 1, "of": 4, "label": "the shadow" } }
   ]
 }

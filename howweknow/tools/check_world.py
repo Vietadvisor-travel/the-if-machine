@@ -3,8 +3,8 @@
 timeline, every asset exists in public/, keys only on known props. python3 tools/check_world.py episodes/<slug>"""
 import json, os, re, sys
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); TL = json.load(open(f'{ep}/timeline.json'))
-TYPES = {'camera', 'sky', 'stars', 'planet', 'geo', 'kit', 'beam', 'pulse', 'arc', 'photo', 'video', 'label', 'shape', 'lens', 'map', 'route', 'clue'}
-KITS = {'NightSky', 'Stars', 'Moon', 'Earth', 'Ridge', 'Haze', 'Pines', 'Observatory', 'MoonGround', 'Reflector'}
+TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue'}
+KITS = {'Sky', 'Stars', 'Sun', 'Moon', 'Earth', 'Ridge', 'Water', 'Palm', 'Obelisk', 'Temple', 'Well', 'Scholar', 'Astrolabe', 'Telescope', 'Candle', 'SeaChart', 'Rose', 'Ship', 'Angle', 'GoldBeam', 'Pinned', 'DocumentPage', 'Eyepiece'}
 err, ids = [], set()
 def tref(r, where):
     if isinstance(r, (int, float)): return r
@@ -22,7 +22,7 @@ def walk(ents, path=''):
         ids.add(e.get('id'))
         if e.get('type') not in TYPES: err.append(f'{w}: unknown type {e.get("type")}')
         p = e.get('props', {})
-        if e.get('type') == 'kit' and p.get('name') not in KITS: err.append(f'{w}: unknown kit {p.get("name")}')
+        if e.get('type') == 'art' and p.get('name') not in KITS: err.append(f'{w}: unknown kit {p.get("name")}')
         for f in ('src',):
             v = p.get(f)
             if v and not re.match(r'^https?:', v) and not os.path.exists(f'public/{v}'): err.append(f'{w}: missing asset public/{v} (Muse → Drive → sync)')

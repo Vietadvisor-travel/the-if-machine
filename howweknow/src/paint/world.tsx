@@ -2,7 +2,7 @@
 // Every component takes `draw` (0..1, ink-on animation) where it makes sense; sizes are in px of the 1920×1080 frame.
 import React, { useMemo } from 'react';
 import { Img, staticFile } from 'remotion';
-import { geoOrthographic, geoEquirectangular, geoPath, geoGraticule10 } from 'd3-geo';
+import { geoOrthographic, geoEquirectangular, geoPath, geoGraticule10, geoCircle } from 'd3-geo';
 import land50 from '../data/land50.json';
 import coast50 from '../data/coast50.json';
 import rivers50 from '../data/rivers50.json';
@@ -10,7 +10,8 @@ import { Region, Ink, Line, Stipple, Contour, SEP, PIG, tone, mix, ell, poly, se
 
 type N = number;
 const W = 1920, H = 1080;
-const band = (a: N, b: N) => ({ type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [[...Array.from({ length: 37 }, (_, i) => [-180 + i * 10, b]), ...Array.from({ length: 37 }, (_, i) => [180 - i * 10, a]), [-180, b]]] } });
+// climate is painted with polar CAPS (robust when a pole is in view): cap(N, lat) = everything north of lat, cap(S, lat) = south of it
+const cap = (north: boolean, lat: N) => geoCircle().center([0, north ? 90 : -90]).radius(north ? 90 - lat : 90 + lat)();
 
 // ---------------------------------------------------------------- paper: the sheet under everything, the fibres over everything
 export const PaperSheet: React.FC = () => <Img src={staticFile('core/paper.jpg')} style={{ position: 'absolute', inset: 0, width: W, height: H }} />;
@@ -50,8 +51,10 @@ export const Moon: React.FC<{ x: N; y: N; r: N; phase?: N; draw?: N; id?: string
 // ---------------------------------------------------------------- THE EARTH: real coastlines, land coloured by climate, sea deeper offshore, clouds, contour-hatched night, atmosphere
 export const Earth: React.FC<{ cx: N; cy: N; r: N; lon?: N; lat?: N; clouds?: N; draw?: N; night?: N; id?: string }> = ({ cx, cy, r, lon = 0, lat = 20, clouds = 1, draw = 1, night = 1, id = 'earth' }) => {
   const proj = geoOrthographic().scale(r).translate([cx, cy]).rotate([-lon, -lat]).clipAngle(90), path = geoPath(proj);
-  const P = useMemo(() => ({ land: path(land50 as never) || '', coast: path(coast50 as never) || '', grat: path(geoGraticule10()) || '',
-    desertN: path(band(14, 32) as never) || '', desertS: path(band(-32, -18) as never) || '', rain: path(band(-9, 9) as never) || '', boreal: path(band(50, 66) as never) || '', iceN: path(band(66, 89.9) as never) || '', iceS: path(band(-89.9, -62) as never) || '' }),
+  const P = useMemo(() => { const c = (n: boolean, l: N) => path(cap(n, l) as never) || '';
+    return { land: path(land50 as never) || '', coast: path(coast50 as never) || '', grat: path(geoGraticule10()) || '',
+      layers: [[c(true, -9), 'rain'], [c(true, 9), 'base'], [c(true, 14), 'desert'], [c(true, 32), 'base'], [c(true, 50), 'boreal'], [c(true, 66), 'ice'],
+        [c(false, -18), 'desert'], [c(false, -32), 'base'], [c(false, -62), 'ice']] as [string, string][] }; },
     [cx, cy, r, lon, lat]);   // eslint-disable-line
   const cl = useMemo(() => { const q = seq('clouds'); return Array.from({ length: 10 }, () => { const x = (q() - .5) * 1.6, y = (q() - .5) * 1.6, w = .045 + q() * .06, n = 3 + Math.floor(q() * 3);
     return { x, y, lobes: Array.from({ length: n }, (_, j) => [x + (j - n / 2) * w * .9 + (q() - .5) * w * .3, y + (q() - .5) * w * .25, w * (.55 + q() * .35)]) }; }); }, []);
@@ -67,9 +70,7 @@ export const Earth: React.FC<{ cx: N; cy: N; r: N; lon?: N; lat?: N; clouds?: N;
       <path d={P.coast} fill="none" stroke={PIG.sea[0]} strokeWidth={10 * k} opacity={.35} filter="url(#b2s)" />
       <path d={P.land} fill={PIG.land[1]} transform={`translate(${2 * k} ${-1.4 * k})`} filter="url(#wc)" />
       <g clipPath={`url(#${id}l)`} transform={`translate(${2 * k} ${-1.4 * k})`}>
-        <path d={P.boreal} fill={PIG.forest[1]} opacity={.75} filter="url(#b8)" /><path d={P.rain} fill={PIG.forest[2]} opacity={.6} filter="url(#b8)" />
-        <path d={P.desertN} fill={PIG.desert[1]} opacity={.85} filter="url(#b8)" /><path d={P.desertS} fill={PIG.desert[1]} opacity={.7} filter="url(#b8)" />
-        <path d={P.iceN} fill={PIG.ice[0]} opacity={.9} filter="url(#b8)" /><path d={P.iceS} fill={PIG.ice[0]} opacity={.95} filter="url(#b8)" /></g>
+        {P.layers.map(([d, kind], i) => <path key={i} d={d} fill={{ rain: PIG.forest[2], base: PIG.land[1], desert: PIG.desert[1], boreal: PIG.forest[1], ice: PIG.ice[0] }[kind]} opacity={kind === 'base' ? 1 : .85} filter={kind === 'ice' ? 'url(#b8)' : 'url(#b30)'} />)}</g>
       <path d={P.grat} fill="none" stroke={SEP} strokeWidth={.5} opacity={.25} />
       {clouds > 0 && <g opacity={.65 * clouds}>{cl.map((c, i) => { const vis = Math.hypot(c.x, c.y) < .95; if (!vis) return null; return <g key={i}>
         {c.lobes.map(([a2, b2, w2], j) => <ellipse key={j} cx={cx + a2 * r} cy={cy + b2 * r} rx={w2 * r} ry={w2 * r * .55} fill="#FBF6EA" opacity={.85} filter="url(#wc)" />)}
