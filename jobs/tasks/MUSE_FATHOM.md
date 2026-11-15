@@ -1,4 +1,4 @@
-# Muse — PHASE 3 channel (working name How We Know was rejected 15 Nov; name pending) (phase 3, owner 15 Nov 2026): topics, research, and ALL resources
+# Muse — FATHOM (phase 3): topics, research, and ALL resources (channel locked 15 Nov 2026: Fathom — brief/FATHOM.md)
 
 The channel is now **How We Know** (brief/HOW_WE_KNOW.md): landscape 16:9, 8–12 min, English, made in Remotion. Each episode answers
 one big real question ("How do we know how far the Moon is?") through 3–4 **clues**, re-animating the world on screen (Earth, sky,
