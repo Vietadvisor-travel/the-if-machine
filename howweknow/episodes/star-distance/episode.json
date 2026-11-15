@@ -1,0 +1,1598 @@
+{
+ "slug": "star-distance",
+ "title": "How far away are the stars?",
+ "voice": "af_heart",
+ "speed": 0.86,
+ "lead": 1.0,
+ "tail": 3.6,
+ "music": {
+  "file": "../studio/music/wonder_silver_blue_light.wav",
+  "db": -24,
+  "start": 0
+ },
+ "new_ideas": [
+  "a ladder of four rungs that the film climbs (each method a rung), returning at the end as the answer",
+  "a glass-plate flip-book that reveals the variable star (old plates animated as frames)",
+  "a coin on a far hilltop as the true size of Bessel's angle"
+ ],
+ "thumb": {
+  "t": 12,
+  "title": "How far are the *stars*?",
+  "kicker": "Fathom"
+ },
+ "lines": [
+  {
+   "text": "One night in October 1923, on a mountain above Los Angeles, a young astronomer took a photograph of a faint smudge of *light*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "low-left-small",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "MountWilsonRidge",
+     "HookerDome1923"
+    ],
+    "stock": [
+     "P-04",
+     "R-03"
+    ],
+    "see": "Night: a white dome on a wooded ridge, its slit open to a starry sky; far below, a scatter of city lights.",
+    "beats": "+0.0 rise: the ridge and dome come up from the bottom (1.6 s) | +1.8 the slit opens (blinds 0.8 s) | +3.0 tilt up along the telescope's line to a small oval smudge among the stars",
+    "set": "mountain-dome-night"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "The next day, he looked at the glass plate, crossed out one letter in red ink… and wrote a new word, with an exclamation *mark*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "slide",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "GlassPlateOnLightbox",
+     "RedPencilHand"
+    ],
+    "stock": [
+     "P-01"
+    ],
+    "see": "A glass plate on a light box; a hand with a red pencil strikes out an 'N' and writes 'VAR!'; the real plate ★P-01 takes its place.",
+    "beats": "+0.0 slide: the plate onto a glowing light box (1.0 s) | +1.6 hand crosses out 'N' (quill, 0.8 s) | +3.2 writes 'VAR!' (note style, red) | +5.0 real-reveal ★P-01 (1.0 s)",
+    "set": "var-exclamation"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "That one word moved a whole galaxy a million light-years *away*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "iris",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "tiny-in-vast",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "AndromedaEngraved"
+    ],
+    "stock": [
+     "P-07"
+    ],
+    "see": "Through the plate, the smudge becomes the Andromeda galaxy; it slides back and back into a vast dark page.",
+    "beats": "+0.0 iris into the plate (1.0 s) | +1.0 the smudge becomes the engraved spiral | +2.4 scale-out: it recedes geometrically (3 s)",
+    "set": "galaxy-pushed-away"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "So how do you measure the distance to something you can never *reach*?",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "blinds",
+    "trans": "fold",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A slowly turning starfield; nothing in it carries a label or a number.",
+    "beats": "+0.0 the sky turns slowly (camera rot 3°, 5 s) | +1.0 blinds: the stars shimmer into place",
+    "set": "question-starfield"
+   }
+  },
+  {
+   "text": "A star is a dot of light. It has no size you can see, no edge, no *label*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "ink-on",
+    "trans": "through",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "SinglePointStar"
+    ],
+    "stock": [],
+    "see": "Push to a single star: under any magnification it stays a point.",
+    "beats": "+0.0 push ×4 (3 s) | +1.6 an eyepiece ring inks around it: still a point"
+   }
+  },
+  {
+   "text": "A bright star might be close… or it might be huge and very far away. From here, they look exactly the *same*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "slide",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "CandleNear",
+     "LighthouseFar"
+    ],
+    "stock": [],
+    "see": "Split: a candle close up and a lighthouse far off; both shrink to the same dot.",
+    "beats": "+0.0 slide in the two halves | +1.6 morph: each shrinks to an identical dot (1.6 s)",
+    "set": "near-lamp-far-lighthouse"
+   }
+  },
+  {
+   "text": "For two thousand years, astronomers knew the stars must be far. How far, nobody could *say*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "unroll",
+    "trans": "page-turn",
+    "cam": "pan",
+    "comp": "wide-chart",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "OldStarChart"
+    ],
+    "stock": [
+     "M-01"
+    ],
+    "see": "An old star chart unrolls; its constellations are figures and lines, with no distances anywhere.",
+    "beats": "+0.0 unroll: the chart (1.6 s) | +1.8 pan across figures (3 s)"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The answer came in four steps: a wobble, a blinking star, a red word on a glass plate… and a universe that would not keep *still*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "assemble",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "four-in-a-row",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "FourRungLadder"
+    ],
+    "stock": [],
+    "see": "A ladder of four rungs rises into the sky; on each rung, a small sign: a wobbling dot, a blinking star, 'VAR!', a fleeing galaxy.",
+    "beats": "+0.0 assemble: rungs appear one by one (0.9 s each) | +4.0 ride up the ladder",
+    "set": "four-steps-ladder"
+   }
+  },
+  {
+   "text": "Our first clue is a *wobble*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-in",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 1/4; title 'Clue I · The Wobble'.",
+    "beats": "+0.0 clue tag 1 | +0.2 title"
+   }
+  },
+  {
+   "text": "Hold a finger in front of your face, and close one eye, then the other. Your finger jumps against the *background*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "wipe",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "FingerAndWindow"
+    ],
+    "stock": [],
+    "see": "A drawn hand holds up a finger before a window; the finger jumps left and right as the two eyes blink in turn.",
+    "beats": "+0.0 wipe: hand and window (1.0 s) | +1.6 the finger jumps left/right twice (0.6 s each)",
+    "set": "finger-jump"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "That jump is called parallax. The nearer the finger, the bigger the *jump*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "SightLinesTwoEyes"
+    ],
+    "stock": [],
+    "see": "Two sight lines from two eyes cross at the finger; as the finger moves closer, the angle widens.",
+    "beats": "+0.0 grow: two sight lines (1.2 s) | +1.6 the finger comes closer; the angle opens (back)"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The idea is ancient. The Greeks looked for this kind of shift in the stars, found none, and some concluded the Earth could not be *moving*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "unroll",
+    "trans": "page-turn",
+    "cam": "pan",
+    "comp": "left-third-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "GreekObserverRoof"
+    ],
+    "stock": [],
+    "see": "A Greek observer on a flat roof under the stars, a measuring rod raised; nothing moves.",
+    "beats": "+0.0 unroll: the roof scene (1.4 s) | +1.6 the observer (Person, chiton) raises a rod | +3.4 stars hold still",
+    "set": "greek-sky-no-shift"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "Now make your two eyes as far apart as they can possibly be: two sides of the Earth's path around the *Sun*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-space",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "EarthOrbitJanJuly"
+    ],
+    "stock": [],
+    "see": "The two eyes become two Earths on opposite sides of a wide orbit around a gold Sun.",
+    "beats": "+0.0 scale-out (2.4 s) | +1.2 bloom: the Sun | +2.0 morph: eyes → two Earths labelled 'January' and 'July'",
+    "set": "eyes-become-orbit"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "Look at a nearby star in January, and again in July. It should shift, very slightly, against the stars far behind it. But does *it*?",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "wide-space",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "ParallaxShift"
+    ],
+    "stock": [],
+    "see": "From each Earth, a sight line to a near star; it lands on two different points of the far background.",
+    "beats": "+0.0 the Earth rides around the orbit half a turn (3 s) | +1.0 sight lines grow | +3.2 the near star jumps against the background (small, clear)"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "For centuries, astronomers looked. Why did they see *nothing*?",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "drop",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "EmptyLogBook"
+    ],
+    "stock": [],
+    "see": "A log book drops open; page after page records 'no shift'.",
+    "beats": "+0.0 drop: the log book (bounce) | +1.2 pages flip; each says 'no shift' (note style)"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The shift was there. It was just unbelievably *small*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "iris",
+    "trans": "eclipse",
+    "cam": "push",
+    "comp": "centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Iris into the gap between two dots: the distance between them is a hair.",
+    "beats": "+0.0 iris to the two dots (1.2 s) | +1.6 a hairline arc between them"
+   },
+   "src": "S1 S2 calc(F2)",
+   "facts": "F1 F4"
+  },
+  {
+   "text": "In 1838, in Königsberg, Friedrich Bessel finally caught it, with a telescope built for one job: measuring tiny *angles*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "unroll",
+    "trans": "window",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "KonigsbergObservatory",
+     "Heliometer",
+     "BesselFigure"
+    ],
+    "stock": [
+     "P-05",
+     "R-02",
+     "R-05"
+    ],
+    "see": "The Königsberg observatory; inside, the split-lens heliometer on its mount; Bessel at the eyepiece; his real portrait pinned.",
+    "beats": "+0.0 unroll: the observatory (1.4 s) | +1.6 the heliometer inks on, its split lens visible | +3.2 Bessel (Person, look) | +4.6 ★P-05 cabinet card",
+    "set": "heliometer-night"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F2"
+  },
+  {
+   "text": "His heliometer split the image of the sky in two, so he could slide one star onto another and read the gap with great *precision*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "SplitLensView"
+    ],
+    "stock": [],
+    "see": "Through the eyepiece: two half-images of the sky slide past each other until two stars touch.",
+    "beats": "+0.0 the view splits in two halves (wipe diag) | +1.4 one half slides until the stars meet (2 s) | +3.4 a fine scale reads the gap",
+    "set": "split-lens-slide"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F2"
+  },
+  {
+   "text": "His target was a faint double star called 61 Cygni, which crawls across the sky faster than almost any *other*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "ink-on",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "CygnusChartPatch"
+    ],
+    "stock": [
+     "P-06",
+     "M-01"
+    ],
+    "see": "In the eyepiece: a faint pair of stars; a dotted track shows it creeping across the background over years.",
+    "beats": "+0.0 Eyepiece with ★P-06 | +1.6 a dotted track grows behind the pair (trail)"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F2"
+  },
+  {
+   "text": "Night after night for more than a year, he compared it with two faint stars nearby that he believed were far, far *behind* it.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "blinds",
+    "trans": "ride",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "ReferenceStars"
+    ],
+    "stock": [],
+    "see": "Two faint companion stars are ringed in pencil; nights tick by in the margin.",
+    "beats": "+0.0 blinds: night after night (the sky strip repeats ×5) | +2.0 pencil rings the two reference stars"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F2"
+  },
+  {
+   "text": "A fast crawl meant it was probably close. But how *close*?",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A small note 'close?' in the margin.",
+    "beats": "+0.0 note 'close?' writes on"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F2"
+  },
+  {
+   "text": "Over a year, he measured its wobble: about a third of a second of *arc*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "D-02"
+    ],
+    "see": "The real announcement page ★D-02; the number circled; a tiny ellipse drawn beside the star.",
+    "beats": "+0.0 a tiny ellipse traces around the star over a year (2 s) | +2.2 ★D-02 slides in; red circle round 0.3136″"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F2"
+  },
+  {
+   "text": "That is the width of a small coin… seen from thirteen kilometres *away*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "drop",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "CoinOnHill"
+    ],
+    "stock": [],
+    "see": "A small coin on a far hilltop, seen from another hill across a wide valley.",
+    "beats": "+0.0 drop: a coin on a post (bounce) | +1.0 scale-out across the landscape (3 s) | +3.0 label '13 km'",
+    "set": "coin-thirteen-km"
+   },
+   "src": "calc(F2)",
+   "facts": "F4"
+  },
+  {
+   "text": "From that angle, Bessel worked out the distance: roughly ten light-years — a hundred million million *kilometres*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The gold figure '≈ 10 light-years' appears beside 61 Cygni.",
+    "beats": "+0.0 figure '≈ 10 light-years' (1.4 s)"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F2"
+  },
+  {
+   "text": "And it was one of the nearest stars in the *sky*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "tiny-in-vast",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Pull back: 61 Cygni is a speck among countless others.",
+    "beats": "+0.0 scale-out ×20 (3 s) | +1.0 stars bloom around it"
+   },
+   "src": "S1 S2 S3 S2 S4",
+   "facts": "F2 F3"
+  },
+  {
+   "text": "Almost at the same time, others measured two more: Alpha Centauri from the Cape of Good Hope, and Vega from *Russia*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "slide",
+    "trans": "whip",
+    "cam": "whip",
+    "comp": "three-in-a-row",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "TwoMorePins"
+    ],
+    "stock": [],
+    "see": "Whip between two more small eyepieces with their stars and their places pinned on a little globe.",
+    "beats": "+0.0 whip to Alpha Centauri (expo 0.6 s) | +1.6 whip to Vega | +3.0 both pinned"
+   },
+   "src": "S2 S4",
+   "facts": "F3"
+  },
+  {
+   "text": "But parallax only works for the closest stars. For almost everything else, the wobble is too small to *measure*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "tear-in",
+    "trans": "tear-away",
+    "cam": "pull",
+    "comp": "wide-space",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "ParallaxRulerEnds"
+    ],
+    "stock": [],
+    "see": "A ruler of light reaches out from the Sun to the nearby stars — and then simply ends, frayed, in the dark.",
+    "beats": "+0.0 a gold ruler grows outward (2 s) | +2.4 it frays and tears off at its end (tear 1.0 s)",
+    "set": "ruler-runs-out"
+   },
+   "src": "S5 S6",
+   "facts": "F5"
+  },
+  {
+   "text": "Clue two: stars that *blink*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "through",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 2/4; title 'Clue II · Stars That Blink'.",
+    "beats": "+0.0 clue tag 2 | +0.2 title"
+   }
+  },
+  {
+   "text": "At Harvard College Observatory, around 1900, women were hired to examine thousands of photographs of the *sky*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "unroll",
+    "trans": "real-reveal",
+    "cam": "pan",
+    "comp": "wide-room",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "HarvardPlateRoom",
+     "PlateWomen"
+    ],
+    "stock": [
+     "P-02",
+     "R-01"
+    ],
+    "see": "A long room with tall windows; women at desks with light frames and magnifiers; stacks of glass plates; a real group photo ★P-02.",
+    "beats": "+0.0 unroll: the room (1.6 s) | +1.6 pan along the desks (4 s) | +4.0 ★P-02 pinned plate",
+    "set": "plate-room-1900"
+   },
+   "src": "S5 S6",
+   "facts": "F5"
+  },
+  {
+   "text": "They measured, catalogued and compared stars, one plate at a *time*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GlassPlateStack"
+    ],
+    "stock": [
+     "R-04"
+    ],
+    "see": "Glass plates slide one after another onto a light frame; on each, tiny dots are ticked off.",
+    "beats": "+0.0 slide: plates enter and leave (stagger 0.5 s) | +1.6 ticks appear on dots"
+   },
+   "src": "S5 S6",
+   "facts": "F5"
+  },
+  {
+   "text": "One of them was Henrietta Swan Leavitt. Her task: find stars that changed in *brightness*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "iris",
+    "trans": "match",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "LeavittDesk",
+     "LeavittFigure"
+    ],
+    "stock": [
+     "P-02"
+    ],
+    "see": "Leavitt at her desk with a magnifier over a plate; her real portrait as a cabinet card.",
+    "beats": "+0.0 iris to her desk (1.2 s) | +1.4 Leavitt (Person, 1900s dress) | +3.0 cabinet card from ★P-02"
+   },
+   "src": "S5 S6",
+   "facts": "F5"
+  },
+  {
+   "text": "Her plates came from Peru, where a Harvard telescope photographed the southern sky — including two misty patches called the Magellanic *Clouds*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "drop",
+    "trans": "window",
+    "cam": "crane",
+    "comp": "wide-landscape",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "ArequipaStation",
+     "MagellanicClouds"
+    ],
+    "stock": [
+     "P-11",
+     "P-08"
+    ],
+    "see": "A window to the Andes: a small observatory under a southern sky with two pale clouds of stars.",
+    "beats": "+0.0 window to Arequipa (1.2 s) | +1.4 crane up into the sky | +3.0 the two Clouds bloom; ★P-08 in an eyepiece",
+    "set": "andes-to-clouds"
+   },
+   "src": "S5 S6",
+   "facts": "F5"
+  },
+  {
+   "text": "In the Small Magellanic Cloud, she found stars that slowly swelled and faded, like a beating *heart*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "bloom",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "CepheidPulse"
+    ],
+    "stock": [
+     "P-03"
+    ],
+    "see": "Under her magnifier, several stars on a real plate ★P-03 pulse slowly — each with its own rhythm.",
+    "beats": "+0.0 Loupe over ★P-03 | +1.2 the stars pulse (breathe, different rates)",
+    "set": "heartbeat-stars"
+   },
+   "src": "S5 S6 S7",
+   "facts": "F6"
+  },
+  {
+   "text": "She noticed something that no one had expected: the brighter stars beat more *slowly*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "TwoPulses"
+    ],
+    "stock": [],
+    "see": "Two stars side by side: a bright one pulsing slowly, a dim one pulsing fast.",
+    "beats": "+0.0 two pulses (loops) | +1.6 labels 'bright · slow' / 'faint · fast'"
+   },
+   "src": "S5 S6 S7",
+   "facts": "F6"
+  },
+  {
+   "text": "All those stars were in the same cloud, at about the same distance — so the difference in brightness was *real*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "assemble",
+    "trans": "collapse",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The pulsing stars gather into one cloud; a single distance line runs to them all.",
+    "beats": "+0.0 assemble: stars slide together (1.6 s) | +2.0 one dashed distance line"
+   },
+   "src": "S5 S6 S7",
+   "facts": "F6"
+  },
+  {
+   "text": "In 1912, she published a graph of twenty-five of them. The longer the beat, the brighter the star — a straight *line*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "quill",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "LeavittGraph"
+    ],
+    "stock": [
+     "D-01",
+     "X-01"
+    ],
+    "see": "Twenty-five points appear on a graph and fall along a straight line; the real circular page ★D-01 slides under it.",
+    "beats": "+0.0 quill plots 25 points (true to ★X-01, stagger 0.12 s) | +3.4 a straight line through them | +4.6 ★D-01 slides in; underline",
+    "set": "line-of-25-stars"
+   },
+   "src": "S5 S6 S7",
+   "facts": "F6"
+  },
+  {
+   "text": "Her name was not on the title line. The director signed it, noting that it had been prepared by Miss *Leavitt*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "drop",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [
+     "D-01"
+    ],
+    "see": "The circular's heading; a small handwritten note 'prepared by Miss Leavitt' circled.",
+    "beats": "+0.0 drop: the circular's title area | +1.4 red circle round the line"
+   },
+   "src": "S5 S6 S7",
+   "facts": "F6"
+  },
+  {
+   "text": "Time a star's beat, and you know how bright it really is. Compare that with how faint it looks… and you know how far away it *is*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "left-to-right",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "StopwatchToRuler"
+    ],
+    "stock": [],
+    "see": "A stopwatch times a pulse; its hand becomes a dial of true brightness; the dial becomes a long ruler stretching into space.",
+    "beats": "+0.0 a stopwatch times the beat | +2.4 morph: the hand → a brightness dial | +4.4 ride along a ruler into space",
+    "set": "beat-to-distance"
+   },
+   "src": "S5 S6 S7",
+   "facts": "F6"
+  },
+  {
+   "text": "Astronomers call these stars standard candles. Leavitt had given us a measuring tape for the *universe*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-space",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The ruler extends far beyond where parallax ended; at its tip, a small flame.",
+    "beats": "+0.0 the ruler passes the frayed parallax end (2 s) | +2.4 a small candle flame at its tip"
+   },
+   "src": "S5 S6 S7",
+   "facts": "F6"
+  },
+  {
+   "text": "She never saw how far it would reach. She died in 1921 — two years before her stars changed the size of the *universe*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "iris",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "LeavittDeskEmpty"
+    ],
+    "stock": [],
+    "see": "Her desk again, empty, the magnifier lying on a plate; the lamp dims.",
+    "beats": "+0.0 iris to the desk | +1.6 light-change: the lamp dims slowly (3 s)",
+    "set": "empty-desk-lamp"
+   },
+   "src": "S5 S6",
+   "facts": "F5"
+  },
+  {
+   "text": "Clue three: one red *word*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "flip",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 3/4; title 'Clue III · One Red Word'.",
+    "beats": "+0.0 page-turn | +0.4 clue tag 3 | +0.6 title"
+   }
+  },
+  {
+   "text": "By 1920, astronomers were split over the faint spiral smudges in the sky. Were they inside our own galaxy… or were they galaxies of their *own*?",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "slide",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "split-two",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "DebateHall",
+     "ShapleyFigure",
+     "CurtisFigure"
+    ],
+    "stock": [
+     "P-09"
+    ],
+    "see": "A hall with two lecterns; two men in 1920 suits face each other; between them, a spiral smudge hangs in the air.",
+    "beats": "+0.0 slide: the hall (1.2 s) | +1.4 the two figures (Person) | +3.0 a spiral drawn between them | +4.6 ★P-09 two small plates",
+    "set": "great-debate-podium"
+   },
+   "src": "S8 S9",
+   "facts": "F7"
+  },
+  {
+   "text": "In April 1920, two leading astronomers debated it in public in Washington. Neither could *prove* his case.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "tear-in",
+    "trans": "tear-away",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The spiral between them tears in half.",
+    "beats": "+0.0 tear: the spiral splits (1.0 s) | +1.4 tremble"
+   },
+   "src": "S8 S9",
+   "facts": "F7"
+  },
+  {
+   "text": "The missing piece was a distance. And for that, you needed one of Leavitt's beating stars inside a spiral — and a telescope powerful enough to *see* it.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "iris",
+    "trans": "window",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The torn spiral mends; inside it, a tiny pulsing point appears.",
+    "beats": "+0.0 the halves rejoin | +1.4 iris: a tiny pulsing dot inside the spiral"
+   },
+   "src": "S8 S9 S5 S6 S7",
+   "facts": "F7 F6"
+  },
+  {
+   "text": "On Mount Wilson stood the largest telescope in the world, with a mirror two and a half metres across. But would even that be *enough*?",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "rise",
+    "trans": "scale-in",
+    "cam": "tilt-up",
+    "comp": "tall-centre",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "HookerTelescope"
+    ],
+    "stock": [
+     "P-04",
+     "R-03",
+     "V-02"
+    ],
+    "see": "Inside the dome: the giant open-tube telescope on its yoke mount, an observer's cage high on top; footage ★V-02 of a dome opening in an old screen.",
+    "beats": "+0.0 rise: the mount from the floor up (2 s) | +2.0 tilt up the tube to the cage | +3.6 ★V-02 in an OldScreen",
+    "set": "hundred-inch-climb"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "Edwin Hubble used it to photograph the great spiral in Andromeda, night after night, on glass *plates*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "slide",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "right-third-large",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "HubbleAtCage",
+     "PlateHolder"
+    ],
+    "stock": [],
+    "see": "Hubble in the observer's cage, sliding a plate holder in; the spiral appears on the plate.",
+    "beats": "+0.0 Hubble (Person, 1920s coat, pipe) in the cage | +1.6 slide: a plate holder | +3.0 ride down the light into the plate"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "Each exposure took a long time, with Hubble guiding the giant telescope by hand to keep every star a sharp *point*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "drop",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "right-third-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "GuidingHands"
+    ],
+    "stock": [],
+    "see": "Close on Hubble's hands at the guide controls, making tiny corrections; a cross-hair on a guide star.",
+    "beats": "+0.0 slide: hands on the controls | +1.2 Eyepiece with cross-hair: the guide star drifts and is nudged back (tremble small)"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "But on one plate, he marked a new point of light as a nova — a star flaring up *once*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "quill",
+    "trans": "ride",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "P-01"
+    ],
+    "see": "On the plate, a small 'N' is written beside a point.",
+    "beats": "+0.0 push into the plate | +1.0 quill writes 'N' (0.6 s)"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "Then he checked older plates of the same spot. It wasn't a nova. It was getting brighter and fainter, again and *again*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "blinds",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "three-in-a-row",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "PlateFlipBook"
+    ],
+    "stock": [],
+    "see": "Older plates flip by like a flip-book; the point brightens, fades, brightens.",
+    "beats": "+0.0 blinds: three plates side by side | +1.0 page-turn through them; the point pulses",
+    "set": "plate-flip-book"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "A beating star. One of Leavitt's *candles*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The pulsing point matches the heartbeat star from clue two, side by side.",
+    "beats": "+0.0 match: Leavitt's star slides in beside it; both pulse together"
+   },
+   "src": "S8 S10 S11 S5 S6 S7",
+   "facts": "F8 F6"
+  },
+  {
+   "text": "He crossed out the 'N', and wrote 'VAR!' — *variable*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "P-01"
+    ],
+    "see": "The famous plate ★P-01, his red mark circled.",
+    "beats": "+0.0 ★P-01 real-reveal | +1.4 red circle round 'VAR!'"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "Timing its beat told him how bright it really was. Its faintness told him how far: hundreds of thousands of light-years, far outside our own *galaxy*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "tiny-in-vast",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "MilkyWayDisc"
+    ],
+    "stock": [],
+    "see": "Pull back from Andromeda past the edge of our own galaxy's disc, which shrinks to a small disc far away.",
+    "beats": "+0.0 scale-out across the gap (4 s) | +2.0 our galaxy's disc appears, small | +3.4 label 'our galaxy'",
+    "set": "milky-way-left-behind"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "Andromeda was not a cloud in our galaxy. It was a galaxy in its own right — and the universe was suddenly *enormous*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "collapse",
+    "cam": "pull",
+    "comp": "two-galaxies",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Two galaxies on one dark page; the space between them is vast.",
+    "beats": "+0.0 bloom: countless faint galaxies appear around them"
+   },
+   "src": "S8 S10 S11",
+   "facts": "F8"
+  },
+  {
+   "text": "Clue four: a universe that will not keep *still*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-in",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 4/4; title 'Clue IV · Runaway Galaxies'.",
+    "beats": "+0.0 clue tag 4 | +0.2 title"
+   }
+  },
+  {
+   "text": "Light from a galaxy can be spread into a rainbow. In most galaxies, the colours were shifted toward *red*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "SpectrumStrip"
+    ],
+    "stock": [],
+    "see": "A spectrum strip with dark lines; the lines slide toward the red end.",
+    "beats": "+0.0 grow: the spectrum strip | +1.6 morph: dark lines slide red-ward (2 s)",
+    "set": "rainbow-slides-red"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "A red shift means the galaxy is moving away from us, the way a siren drops in pitch as it races *off*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "slide",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "left-to-right",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "AmbulanceSiren"
+    ],
+    "stock": [],
+    "see": "An old ambulance drives away; behind it, the sound rings stretch out.",
+    "beats": "+0.0 slide: the vehicle drives off (3 s) | +1.0 ripples behind it stretch",
+    "set": "siren-going-away"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "When Hubble set the distances from Leavitt's stars beside these speeds, a pattern leapt out: the farther a galaxy, the faster it was *fleeing*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "quill",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "HubbleGraph"
+    ],
+    "stock": [
+     "D-04",
+     "X-02"
+    ],
+    "see": "Points plotted from the real 1929 table rise along a line; the real paper ★D-04 slides in.",
+    "beats": "+0.0 quill plots the points (true to ★X-02) | +3.0 a line through them | +4.4 ★D-04",
+    "set": "velocity-distance-line"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "His first numbers were rough — his rate of expansion was several times too high — but the pattern itself was *real*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "tear-in",
+    "trans": "fold",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "On the graph, Hubble's steep line is redrawn, much shallower, in modern ink — still a straight line.",
+    "beats": "+0.0 a second, shallower line is drawn over his (quill, 1.6 s) | +2.0 note 'still a straight line'"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "A Belgian priest and physicist, Georges Lemaître, had already seen what it meant. The universe is *expanding*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "iris",
+    "trans": "window",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "LemaitreFigure"
+    ],
+    "stock": [
+     "D-05"
+    ],
+    "see": "A small window: Lemaître at a desk, his 1927 paper beside him.",
+    "beats": "+0.0 iris: the window (1.0 s) | +1.4 Lemaître (Person, collar) | +2.6 ★D-05"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Not galaxies flying through space — but space itself stretching, carrying the galaxies further *apart*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "grid-stretching",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "StretchingGrid"
+    ],
+    "stock": [],
+    "see": "A grid of fine ink lines with galaxies on its crossings stretches evenly; every galaxy moves away from every other.",
+    "beats": "+0.0 grow: the grid with galaxies | +1.6 the grid stretches (4 s, linear)",
+    "set": "raisin-loaf-space"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Think about what had *happened*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "ink-on",
+    "trans": "fold",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The ladder of four rungs returns, small.",
+    "beats": "+0.0 ink-on: the ladder"
+   }
+  },
+  {
+   "text": "People set out to measure how far away the stars are, and ended up discovering that the universe has a *history*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "tall-centre",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Ride up the ladder; at the top, the stretching grid; the camera keeps rising into the past.",
+    "beats": "+0.0 ride up the rungs (3 s) | +2.4 the grid shrinks backward",
+    "set": "ladder-to-the-beginning"
+   }
+  },
+  {
+   "text": "If everything is moving apart now, then long ago, everything was closer together — all the way back to a *beginning*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "collapse",
+    "trans": "eclipse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "GridToPoint"
+    ],
+    "stock": [],
+    "see": "The grid runs backward; galaxies crowd together toward a bright point.",
+    "beats": "+0.0 the stretch runs in reverse (3 s) | +2.6 all lines converge on a bright point",
+    "set": "grid-runs-backward"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "And the same trick Bessel used for one star, a space telescope called Gaia now uses for more than a billion *stars*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "tiny-in-vast",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "GaiaCraft",
+     "BillionDots"
+    ],
+    "stock": [
+     "P-10"
+    ],
+    "see": "A small spacecraft spins slowly; around it the sky fills with countless tiny ellipses — each a measured wobble.",
+    "beats": "+0.0 bloom: the craft | +1.6 tiny ellipses appear across the sky (particles, many) | +4.0 ★P-10 (if allowed)",
+    "set": "billion-wobbles"
+   },
+   "src": "S14",
+   "facts": "F10"
+  },
+  {
+   "text": "So — how far away are the *stars*?",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "iris",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The starfield of the opening returns.",
+    "beats": "+0.0 iris: the starfield"
+   }
+  },
+  {
+   "text": "The nearest ones, a few light-years: close enough for a wobble to give them *away*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The tiny ellipse around 61 Cygni.",
+    "beats": "+0.0 the ellipse traces again"
+   },
+   "src": "S1 S2 S3 S2 S4",
+   "facts": "F2 F3"
+  },
+  {
+   "text": "Farther ones, by the beat of their brightest stars. And the galaxies — millions and billions of light-years away, still moving *apart*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "assemble",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "four-in-a-row",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Ride outward along the ladder of methods: the beating star, the red word, the stretching grid.",
+    "beats": "+0.0 ride outward (5 s) past each rung's sign",
+    "set": "ladder-complete"
+   },
+   "src": "S5 S6 S7 S8 S10 S11 S12 S13",
+   "facts": "F6 F8 F9"
+  },
+  {
+   "text": "None of them ever left the *Earth*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "drop",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "row-left-to-right",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Four small figures in a row at four eyepieces: Bessel, Leavitt with her magnifier, Hubble, and a modern astronomer at a screen.",
+    "beats": "+0.0 pan along the row; each inks on as passed (stagger 1.0 s)",
+    "set": "four-at-the-eyepiece"
+   }
+  },
+  {
+   "text": "Every distance in the universe still rests on that ladder, and its first rung is still a tiny wobble, measured from *here*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "tilt-up",
+    "comp": "tall-centre",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The ladder rises from the row of figures into the sky; its lowest rung glows.",
+    "beats": "+0.0 grow: the ladder rises (2 s) | +2.4 the first rung glows gold"
+   },
+   "src": "S14",
+   "facts": "F10"
+  },
+  {
+   "text": "They measured the universe from a desk, a dome and a pile of glass *plates*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "slide",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The figures dissolve into a stack of glass plates on a desk, under a lamp.",
+    "beats": "+0.0 slide: the stack | +1.6 light-change: lamp warms"
+   }
+  },
+  {
+   "text": "Look up tonight. Some of that light left its star before anyone measured how far it had to *travel*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "rise",
+    "trans": "eclipse",
+    "cam": "tilt-up",
+    "comp": "wide-sky",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Tilt up from the desk through a window into the real night sky; the brand end card follows.",
+    "beats": "+0.0 tilt up through the window (3 s) | +2.0 the sky fills the frame | +4.0 end card"
+   }
+  }
+ ],
+ "world": []
+}
