@@ -52,3 +52,8 @@ FATHOM lockup). Waiting for the owner's pick (or a mix).
 - Round 2 (15 Nov): the owner shortlisted **1 Engraved atlas** and **2 Gouache**; 4 more scenes in both (desert light + 7.2° shadow,
   Earth cutaway with seismic rays, astronomer's desk with a real photo pinned, Mediterranean old map with real coastlines) on Drive
   `_samples/fathom_styles_2026-11-15/round2`. Waiting for the pick.
+
+## 8. LOCKED (owner, 15 Nov 2026): the drawing style is **GOUACHE** (tranh bột màu)
+"The samples are only a demo: make it more beautiful and polished in every small detail, and COMPLETE this style" — a full style
+system (materials, light, brush and paper texture, edges, atmosphere, people, instruments, places, maps, diagrams, real-stock frames,
+brand) built into the engine. No more demos until the engine is complete; then ONE full demo episode.
