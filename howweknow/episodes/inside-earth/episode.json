@@ -1,0 +1,1699 @@
+{
+ "slug": "inside-earth",
+ "title": "What is inside the Earth?",
+ "voice": "af_heart",
+ "speed": 0.86,
+ "lead": 1.0,
+ "tail": 3.6,
+ "music": {
+  "file": "../studio/music/wonder_lightless_dawn.wav",
+  "db": -24,
+  "start": 0
+ },
+ "new_ideas": [
+  "a true-scale pull from a 12 km hole to the whole planet (the hole becomes a hairline)",
+  "ghost pings in the shadow zone that turn solid when the ray is explained (cause shown after effect)",
+  "the bell ↔ planet morph used as the film's bookend"
+ ],
+ "thumb": {
+  "t": 70,
+  "title": "What is *inside* the Earth?",
+  "kicker": "Fathom"
+ },
+ "lines": [
+  {
+   "text": "In 1970, on a frozen peninsula in the far north of Russia, Soviet engineers began to drill a hole straight *down*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "low-left-small",
+    "life": [
+     "snow"
+    ],
+    "new": [
+     "KolaRig",
+     "TundraSnow",
+     "SovietDrillers"
+    ],
+    "stock": [
+     "P-03",
+     "R-04"
+    ],
+    "see": "Polar night over snowy tundra; a tall drilling rig in a lit shed; two small figures in fur hats at the door.",
+    "beats": "+0.0 rise: tundra horizon comes up from the bottom (1.4 s) | +1.6 the rig inks on, its windows warm | +3.0 snow particles | +4.4 tilt down toward the drill pipe",
+    "set": "arctic-rig-at-night"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The hole was narrower than a dinner plate, and they kept drilling for almost twenty *years*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "grow",
+    "trans": "scale-in",
+    "cam": "ride",
+    "comp": "tall-centre",
+    "life": [
+     "snow"
+    ],
+    "new": [
+     "BoreholeShaft"
+    ],
+    "stock": [
+     "P-04"
+    ],
+    "see": "A narrow dark shaft descends through rock layers; a counter of years ticks at the side as the drill goes down.",
+    "beats": "+0.0 ride down the shaft with the drill bit (trail, 5 s) | +1.0 handwritten years 1970→1989 tick on the margin | +4.0 a drill-core plate ★P-04 pinned at the side"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The deeper they went, the hotter the rock became, until it behaved more like plastic than stone, and the drill could go no *further*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "bloom",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "SoftRockAtBit"
+    ],
+    "stock": [],
+    "see": "At the bottom, the rock around the bit glows orange and sags; the bit slows and stops.",
+    "beats": "+0.0 bloom: red-orange heat rises around the bit (1.6 s) | +2.0 morph: the rock walls sag like wax | +4.0 the bit stops; a puff of steam"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The hole was meant to reach the boundary beneath the Earth's crust. It never even came *close*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "wipe",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "tall-centre",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "TargetLineFarBelow"
+    ],
+    "stock": [],
+    "see": "A dashed target line far below the stopped bit; the gap between them is most of the frame.",
+    "beats": "+0.0 wipe down: a dashed line far below appears (1.2 s) | +1.4 a label 'the goal' with a leader line | +2.6 the gap holds"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "Final depth: a little over twelve kilometres. The deepest hole ever *dug*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-small",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A red stamp '12,262 m' on the rock at the hole's bottom.",
+    "beats": "+0.0 stamp '12,262 m' (snap) · sfx metal clank −20 | +1.4 hold"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "And yet, on the scale of the whole planet, it is barely a *scratch*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "iris",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "tiny-in-vast",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "EarthCutawayTrueScale"
+    ],
+    "stock": [],
+    "see": "Pull back geometrically: the hole shrinks to an invisible hair on the skin of a whole cutaway Earth.",
+    "beats": "+0.0 scale-out ×500 (4 s, geometric) | +2.6 the Earth's cutaway inks on as it arrives | +3.8 label 'the deepest hole' with a leader line to a hairline mark",
+    "set": "hole-as-a-scratch"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The centre of the Earth lies more than six thousand kilometres below our *feet*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "RadiusLine"
+    ],
+    "stock": [],
+    "see": "A gold line drops from the surface to the centre of the cutaway; its length dwarfs the hairline hole.",
+    "beats": "+0.0 grow: the gold radius traces down (2.4 s, linear) | +2.6 note '6,371 km' writes beside it"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "No one has ever been there. No one ever will. So how do we know what is down *there*?",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "blinds",
+    "trans": "fold",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The cutaway's inside is blank paper; question marks of faint ink hover in it.",
+    "beats": "+0.0 blinds close over the inner layers, leaving them blank | +1.6 faint question marks ink on and breathe",
+    "set": "question-cutaway"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "We cannot dig to it, we cannot see through it, and we cannot send a probe down into *it*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "slide",
+    "trans": "tear-away",
+    "cam": "pan",
+    "comp": "three-in-a-row",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "ShovelBroken",
+     "LanternDim",
+     "ProbeMelted"
+    ],
+    "stock": [],
+    "see": "Three tools slide in and fail in turn: a shovel snaps, a lantern dims, a probe melts.",
+    "beats": "+0.0 slide: the three tools enter (stagger 0.5 s) | +1.6 snap / dim / melt on each phrase | +4.6 they tear away",
+    "set": "three-failed-tools"
+   }
+  },
+  {
+   "text": "Yet today we can draw the inside of the Earth layer by layer: a thin crust, a thick mantle, an ocean of liquid metal… and at the centre, a solid ball as hot as the surface of the *Sun*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "unroll",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "LayersDiagramPeriod"
+    ],
+    "stock": [
+     "R-03"
+    ],
+    "see": "The blank cutaway fills with its layers one by one, painted as in an old atlas; at the centre a small gold-white ball.",
+    "beats": "+0.0 unroll: crust, mantle, outer core, inner core paint in from the outside (1.2 s each) | +5.0 the inner ball blooms white-gold"
+   },
+   "src": "S14 S15 S11",
+   "facts": "F10"
+  },
+  {
+   "text": "That picture came from four clues — and the most important of them came from the planet's worst *moments*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "quill",
+    "trans": "ride",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "ripple"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A small crack appears on the surface of the drawn Earth; rings of shock spread from it.",
+    "beats": "+0.0 quill marks a point on the crust | +1.6 a crack and a ripple spread from it (1.4 s)"
+   }
+  },
+  {
+   "text": "Our first clue is a *weight*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 1/4; title 'Clue I · The Weight of the World' writes on above a brass weight.",
+    "beats": "+0.0 clue tag 1 | +0.2 text title | +1.0 a brass weight drops into frame"
+   }
+  },
+  {
+   "text": "In 1798, in an outbuilding at his house in London, Henry Cavendish set out to weigh the *world*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "unroll",
+    "trans": "window",
+    "cam": "pan",
+    "comp": "wide-room",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "CavendishShed",
+     "CavendishFigure"
+    ],
+    "stock": [
+     "P-08",
+     "R-05"
+    ],
+    "see": "A plain wooden outbuilding in a London garden; inside, a long wooden case; the shy, old-fashioned gentleman outside it.",
+    "beats": "+0.0 unroll: the garden and the outbuilding (1.6 s) | +1.8 Cavendish (Person, 18th-c. coat, grey wig) inks on | +3.4 cabinet card ★P-08",
+    "set": "shed-that-weighed-the-world"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "Not with a scale — you cannot put a planet on a scale — but by measuring how strongly lead attracts *lead*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "ink-on",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "LeadBallsAttract"
+    ],
+    "stock": [],
+    "see": "An empty shop scale with the Earth too big for it; beside it, two lead balls with faint gold lines of pull between them.",
+    "beats": "+0.0 ink-on: a shop scale; the Earth hovers over it, far too big (1.2 s) | +1.8 morph: the scale becomes two lead balls with pull lines",
+    "set": "lead-pulls-lead"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "Inside, he hung a rod from a fine wire, with a small lead ball at each end, and set two heavy lead balls close *beside* them.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "iris",
+    "trans": "window",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "TorsionBalance"
+    ],
+    "stock": [
+     "D-03"
+    ],
+    "see": "A window into the case: the torsion rod on its wire, two small balls, two big balls near them.",
+    "beats": "+0.0 iris into the case (1.2 s) | +1.4 the rod and small balls ink on | +3.0 the large balls swing in close"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "To keep his own warmth from stirring the air, he watched from outside, through a *telescope*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "slide",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "left-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "WallTelescopePort"
+    ],
+    "stock": [],
+    "see": "Outside the wall: Cavendish at a small telescope poking through it; we see what he sees — a scale and a pointer.",
+    "beats": "+0.0 match: the iris circle becomes his telescope's view | +1.4 he leans to the eyepiece (pose look)"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "The heavy balls pulled on the small ones — gently, almost nothing — and the rod turned by a *hair*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "In the telescope's view, the pointer creeps along the ivory scale by one tiny division.",
+    "beats": "+0.0 push into the view | +1.0 thin gold lines of pull grow between the balls | +2.6 the pointer creeps one division (3 s, linear)"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "From that tiny turn, he worked out how strongly the whole Earth pulls… and so how heavy it must *be*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "EarthOnScale"
+    ],
+    "stock": [],
+    "see": "Pull back: the whole Earth sits in the pan of a great brass balance.",
+    "beats": "+0.0 scale-out from the pointer to the Earth (2 s) | +2.0 a brass balance inks on under it"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "The answer was strange. On average, the Earth was about five and a half times as dense as *water*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "D-03"
+    ],
+    "see": "His real paper ★D-03 slides in; '5.48' circled in red.",
+    "beats": "+0.0 ★D-03 slides in (1.0 s) | +1.6 red circle round 5.48"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "But the rocks under our feet are only about half that *dense*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "drop",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "RockSampleOnScale"
+    ],
+    "stock": [],
+    "see": "A chunk of granite on one pan, the same size of 'Earth' on the other — the Earth side sinks hard.",
+    "beats": "+0.0 drop: a granite chunk onto the left pan | +1.0 the balance tips heavily to the Earth side (back)"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "So something deep inside had to be far heavier than *rock*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "iris",
+    "trans": "eclipse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "HeavyCoreGlow"
+    ],
+    "stock": [],
+    "see": "Inside the cutaway, the centre darkens and glows: a heavy heart pulls the balance down.",
+    "beats": "+0.0 iris into the cutaway | +1.4 the centre darkens to iron grey with a warm rim",
+    "set": "heavy-heart"
+   },
+   "src": "S3 S4",
+   "facts": "F2"
+  },
+  {
+   "text": "In the 1890s, the German scientist Emil Wiechert suggested what it was: iron, like the iron meteorites that fall from the *sky*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "drop",
+    "trans": "morph",
+    "cam": "tilt-up",
+    "comp": "diagonal",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "IronMeteoriteFall",
+     "WiechertFigure"
+    ],
+    "stock": [],
+    "see": "An iron meteorite streaks down and lands beside Wiechert; its crystal pattern morphs into the Earth's core.",
+    "beats": "+0.0 drop: a meteorite falls (trail, 1.4 s) | +1.6 Wiechert (Person) beside it | +3.0 morph: its etched pattern becomes the core"
+   },
+   "src": "S4 S5",
+   "facts": "F3"
+  },
+  {
+   "text": "A heavy heart of metal. But it was only a guess. Nobody could look *inside*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "tear-in",
+    "trans": "tear-away",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The core drawing tears into a blank again, with a pencilled '?'.",
+    "beats": "+0.0 tear-away over the core (1.0 s) | +1.2 a pencilled '?' writes on"
+   },
+   "src": "S4 S5",
+   "facts": "F3"
+  },
+  {
+   "text": "Clue two: the planet *rings*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "through",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "BronzeBell"
+    ],
+    "stock": [],
+    "see": "Clue tag 2/4; a bronze bell is struck; its rings of sound fill the page.",
+    "beats": "+0.0 clue tag 2 | +0.2 title 'Clue II · The Ringing Planet' | +1.0 the bell is struck; ripples"
+   }
+  },
+  {
+   "text": "When a great earthquake strikes, it sends waves through the whole Earth, the way a struck bell sends sound through its *metal*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "morph",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "QuakeRays"
+    ],
+    "stock": [],
+    "see": "The bell morphs into the Earth; from a quake point, rays of waves fan through the inside in curves.",
+    "beats": "+0.0 morph: bell → globe cutaway (1.6 s) | +1.8 grow: curved ray paths fan through the mantle (trail ×7, stagger)",
+    "set": "bell-becomes-earth"
+   },
+   "src": "S6 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "Some waves push and squeeze, like sound. Others shake from side to side, like a rope being *flicked*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "SlinkyPWave",
+     "RopeSWave"
+    ],
+    "stock": [],
+    "see": "Two small panels: a coiled spring squeezing along (P) and a rope whipping side to side (S).",
+    "beats": "+0.0 slide in the two panels | +0.8 the spring pulses (loop) | +2.4 the rope flicks (loop) | +3.6 labels 'P' and 'S' (label style)",
+    "set": "push-and-shake"
+   },
+   "src": "S6 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "And their speed depends on what they pass through: faster in hard, dense rock, slower in softer or hotter *material*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "wipe",
+    "trans": "light-change",
+    "cam": "pan",
+    "comp": "two-layers",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "SpeedLanes"
+    ],
+    "stock": [],
+    "see": "Two lanes of rock, one hard and dark, one soft and warm; the same pulse runs fast in one, slower in the other.",
+    "beats": "+0.0 wipe: two lanes of rock (1.0 s) | +1.2 pulses race in both (trail) | +3.0 the hard-rock pulse wins"
+   },
+   "src": "S6 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "By 1900, observatories around the world had seismographs: needles that drew every tremor on a turning drum of *paper*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "rise",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "SeismographDrum1900"
+    ],
+    "stock": [
+     "P-11",
+     "R-02",
+     "V-01"
+    ],
+    "see": "A brass seismograph with a heavy pendulum and a smoked-paper drum turning; its needle scratches a line; real footage ★V-01 in an old screen beside it.",
+    "beats": "+0.0 rise: the instrument comes up from below (1.4 s) | +1.6 the drum turns; the needle draws a calm line | +3.6 ★V-01 plays in an OldScreen frame",
+    "set": "drum-that-draws"
+   },
+   "src": "S6 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "Each earthquake became a message, written in ink in many cities at once — but only for someone who could *read* it.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "assemble",
+    "trans": "whip",
+    "cam": "whip",
+    "comp": "grid-of-cities",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "CityDrumsGrid"
+    ],
+    "stock": [],
+    "see": "Whip across a grid of small drums in different cities; the same jagged signal appears on each, slightly later the farther it is.",
+    "beats": "+0.0 assemble: six drums in a grid (0.3 s each) | +2.0 the same signature scratches across them in sequence",
+    "set": "one-quake-many-drums"
+   }
+  },
+  {
+   "text": "In 1897, a huge earthquake shook Assam, in north-eastern *India*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "drop",
+    "trans": "window",
+    "cam": "crane",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "AssamHills1897"
+    ],
+    "stock": [
+     "P-09"
+    ],
+    "see": "A window onto green hills of Assam; buildings shake and crack; a real damage photo ★P-09 pinned at the corner.",
+    "beats": "+0.0 window opens on India on the globe (1.2 s) | +1.4 crane over the hills | +2.4 tremble: houses crack | +4.0 ★P-09 pinned"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "Richard Dixon Oldham, of the Geological Survey of India, collected the records of its waves from stations around the *globe*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "ride",
+    "cam": "pan",
+    "comp": "left-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "OldhamDesk",
+     "OldhamFigure"
+    ],
+    "stock": [
+     "P-05",
+     "R-06"
+    ],
+    "see": "Oldham at a desk piled with paper records and envelopes from far cities; his real portrait as a small plate.",
+    "beats": "+0.0 slide: the desk enters from left | +1.6 envelopes drop in, each stamped with a city | +3.4 ★P-05 plate"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "Waves that crossed near the surface arrived on time. But waves that dived deep through the middle of the Earth came in *late*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "RayRace"
+    ],
+    "stock": [
+     "X-01"
+    ],
+    "see": "Back in the cutaway: two pulses race — a shallow one arrives; a deep one, through the centre, lags behind its expected mark.",
+    "beats": "+0.0 two pulses leave the quake (trail) | +2.2 the shallow one hits its mark on time (ping) | +3.8 the deep one arrives late; a red gap between 'expected' and 'arrived'",
+    "set": "late-waves-race"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "Like runners who hit mud in the middle of a race, they had passed through something *different*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "left-to-right",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "MudRace"
+    ],
+    "stock": [],
+    "see": "Tiny runners on a track; in the middle stretch the track turns to mud and they slow down.",
+    "beats": "+0.0 slide: a track crosses the frame | +1.0 runners enter | +2.4 the middle turns to mud; they slow",
+    "set": "runners-in-mud"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "Something in the centre was *slowing* them down.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "iris",
+    "trans": "eclipse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The centre of the cutaway darkens into a distinct ball; the deep ray bends as it enters it.",
+    "beats": "+0.0 iris: the central ball emerges (1.2 s) | +1.6 the ray bends at its edge"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "In 1906, Oldham published his conclusion: the Earth has a *core*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "real-reveal",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "D-02"
+    ],
+    "see": "His real paper ★D-02 slides in; a red stamp 'CORE' beside it.",
+    "beats": "+0.0 ★D-02 slides in | +1.4 stamp 'Core, 1906'"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "Clue three: a wave that goes *missing*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "stamp",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 3/4; title 'Clue III · The Missing Wave'.",
+    "beats": "+0.0 page-turn | +0.4 clue tag 3 | +0.6 title"
+   }
+  },
+  {
+   "text": "In 1909, an earthquake struck near Zagreb, and the Croatian scientist Andrija Mohorovičić noticed that its waves arrived *twice*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "unroll",
+    "trans": "window",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "ZagrebObservatory",
+     "MohoFigure"
+    ],
+    "stock": [
+     "P-06"
+    ],
+    "see": "Zagreb observatory; Mohorovičić over a seismogram with two separate bursts marked.",
+    "beats": "+0.0 unroll: the observatory room (1.4 s) | +1.6 Mohorovičić (Person) | +3.0 two bursts on the record are circled | +4.4 ★P-06"
+   },
+   "src": "S9 S10",
+   "facts": "F6"
+  },
+  {
+   "text": "Some came straight through the crust. But others dived a little deeper, into faster rock, and raced *ahead*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "cross-section",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "CrustSlabSection"
+    ],
+    "stock": [],
+    "see": "A slab of crust in section: one ray travels along the top; another dips into the faster layer below, runs, and climbs back — overtaking it.",
+    "beats": "+0.0 grow: the slab section | +1.0 two rays race (trail) | +3.0 the deeper one overtakes",
+    "set": "two-roads-under-the-crust"
+   },
+   "src": "S9 S10",
+   "facts": "F6"
+  },
+  {
+   "text": "He had found the bottom of the crust — only a few tens of kilometres down. Today it carries his name: the *Moho*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "quill",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "cross-section",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "MohoLine"
+    ],
+    "stock": [],
+    "see": "A gold boundary line inks across the slab; a handwritten label 'Moho'.",
+    "beats": "+0.0 quill draws the boundary (1.6 s) | +2.0 note 'the Moho'"
+   },
+   "src": "S9 S10",
+   "facts": "F6"
+  },
+  {
+   "text": "Beneath that thin skin lies the mantle: hot, solid rock that slowly creeps, like very thick *honey*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "unroll",
+    "trans": "morph",
+    "cam": "tilt-up",
+    "comp": "tall-centre",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "MantleHoney"
+    ],
+    "stock": [],
+    "see": "Below the Moho line, the mantle paints in; slow loops of motion drift through it like honey stirred by a spoon.",
+    "beats": "+0.0 unroll: the mantle layer below the gold line (1.4 s) | +1.6 morph: slow convection loops (trail loops, 4 s)",
+    "set": "honey-mantle"
+   },
+   "src": "S11 S12",
+   "facts": "F7"
+  },
+  {
+   "text": "In 1914, Beno Gutenberg measured where the core begins: about two thousand nine hundred kilometres *down*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "slide",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "GutenbergFigure"
+    ],
+    "stock": [
+     "P-07"
+    ],
+    "see": "Pull back to the whole cutaway; a ring marks the top of the core; Gutenberg's small portrait beside it.",
+    "beats": "+0.0 scale-out from the slab to the planet (2 s) | +2.0 a ring around the core boundary | +3.0 figure '2,900 km' | +3.8 ★P-07"
+   },
+   "src": "S11 S12",
+   "facts": "F7"
+  },
+  {
+   "text": "Then seismologists noticed something stranger. The side-to-side waves never came through the core at *all*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Shake-waves (drawn as rope-like zigzags) travel down, reach the core's edge, and stop dead.",
+    "beats": "+0.0 zigzag rays travel (trail) | +2.4 they hit the core boundary and vanish (a small puff)",
+    "set": "rope-wave-stops"
+   },
+   "src": "S11 S12",
+   "facts": "F7"
+  },
+  {
+   "text": "Those waves can travel through solids, but never through *liquids*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "blinds",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "bubbles"
+    ],
+    "new": [
+     "JellyVsWater"
+    ],
+    "stock": [],
+    "see": "Two glass tanks: a block of jelly carries a side-to-side wobble; a tank of water does not.",
+    "beats": "+0.0 blinds reveal the two tanks | +1.0 the jelly wobbles across | +2.4 in the water, the wobble dies at once",
+    "set": "jelly-and-water"
+   },
+   "src": "S11 S12",
+   "facts": "F7"
+  },
+  {
+   "text": "So the core was liquid: an ocean of molten iron, thousands of kilometres *deep*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "LiquidIronCore"
+    ],
+    "stock": [],
+    "see": "The core blooms into molten orange; slow currents swirl in it.",
+    "beats": "+0.0 bloom: the core turns molten (1.6 s) | +1.8 swirling currents (trail loops)",
+    "set": "ocean-of-iron"
+   },
+   "src": "S11 S12",
+   "facts": "F7"
+  },
+  {
+   "text": "And a liquid core, bending the waves like a lens, casts a *shadow*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "eclipse",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "ShadowZoneRing"
+    ],
+    "stock": [
+     "X-01"
+    ],
+    "see": "Rays from the quake bend through the core and leave a dark band on the far side of the planet.",
+    "beats": "+0.0 rays bend through the core (trail ×9) | +2.4 a dark ring of shadow darkens on the far surface"
+   },
+   "src": "S11 S12",
+   "facts": "F8"
+  },
+  {
+   "text": "Waves bend whenever they enter a new material, just as a straw seems to bend in a glass of *water*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "rise",
+    "trans": "through",
+    "cam": "push",
+    "comp": "right-third-medium",
+    "life": [
+     "bubbles"
+    ],
+    "new": [
+     "StrawGlass"
+    ],
+    "stock": [],
+    "see": "A glass of water with a straw that appears broken at the surface.",
+    "beats": "+0.0 rise: the glass comes up (1.0 s) | +1.2 the straw bends visibly at the waterline (morph 1 s)",
+    "set": "straw-in-the-glass"
+   },
+   "src": "S11 S12",
+   "facts": "F8"
+  },
+  {
+   "text": "On the far side of the planet from an earthquake, there is a ring where the main waves should never *arrive*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "quill",
+    "trans": "trace",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The globe turns to show the shadow ring; a label marks it.",
+    "beats": "+0.0 orbit: lon +40° (3 s) | +1.4 label 'shadow zone' with a leader line"
+   },
+   "src": "S11 S12",
+   "facts": "F8"
+  },
+  {
+   "text": "But they did. Faint, ghostly ones. And nobody could explain *them*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "iris",
+    "trans": "fold",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "GhostPings"
+    ],
+    "stock": [],
+    "see": "Inside the shadow ring, a few pale pings flicker where nothing should be.",
+    "beats": "+0.0 iris into the shadow ring | +1.0 three ghost pings blink (low alpha)",
+    "set": "ghost-arrivals"
+   },
+   "src": "S11 S12",
+   "facts": "F8"
+  },
+  {
+   "text": "Clue four: a ghost in the *shadow*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "ride",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 4/4; title 'Clue IV · A Ghost in the Shadow'.",
+    "beats": "+0.0 clue tag 4 | +0.2 title"
+   }
+  },
+  {
+   "text": "In Copenhagen, Inge Lehmann led the seismology department of Denmark's Geodetic *Institute*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "unroll",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "LehmannStudy",
+     "LehmannFigure"
+    ],
+    "stock": [
+     "P-01",
+     "R-01"
+    ],
+    "see": "A 1930s office in Copenhagen: tall window, piles of records; Inge Lehmann at the desk; her real portrait as a cabinet card.",
+    "beats": "+0.0 unroll: the office (1.6 s) | +1.8 Lehmann (Person, 1930s dress, hair in a bun, round spectacles) | +3.4 ★P-01 cabinet card",
+    "set": "lehmanns-desk"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "She was a patient, exact reader of squiggles on *paper*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "loupe-right-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "SquiggleRecord"
+    ],
+    "stock": [
+     "D-05"
+    ],
+    "see": "A loupe glides along a real seismogram ★D-05; the squiggles enlarge under the glass.",
+    "beats": "+0.0 Loupe over ★D-05 (focus moves left→right, 3 s)"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "In 1929, a strong earthquake struck Buller, on New Zealand's South Island — on the far side of the world from *Europe*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "drop",
+    "trans": "window",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "BullerQuake1929"
+    ],
+    "stock": [
+     "P-10",
+     "G-01"
+    ],
+    "see": "The globe turns to New Zealand; a ripple bursts there; a window shows a landslide; a real photo ★P-10 pinned.",
+    "beats": "+0.0 orbit to New Zealand (2 s) | +1.6 ripple at Buller | +2.4 window: the landslide | +4.0 ★P-10"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Its waves crossed the whole planet, and stations in Europe recorded *them*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "EuropeStations"
+    ],
+    "stock": [
+     "M-01"
+    ],
+    "see": "Rays from New Zealand cross through the cutaway to small station pins in Europe.",
+    "beats": "+0.0 ride along a ray through the planet (3 s) | +2.6 pins light up: Copenhagen and others"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Lehmann studied the records. In the shadow zone, where nothing should arrive, faint waves *had* arrived.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "iris",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Her loupe finds a tiny bump on a record where the line should be flat.",
+    "beats": "+0.0 Loupe stops over a small bump | +1.4 red circle"
+   },
+   "src": "S11 S12 S11 S12 S13",
+   "facts": "F8 F9"
+  },
+  {
+   "text": "Others called them noise, or waves that had bent around the edge of the *core*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "slide",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "left-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "ColleaguesLetters"
+    ],
+    "stock": [],
+    "see": "Letters from colleagues slide over the desk with sketched explanations; one shows a ray bending round the core's rim.",
+    "beats": "+0.0 slide: three letters overlap | +1.4 the top one shows the bending sketch"
+   },
+   "src": "S11 S12",
+   "facts": "F8"
+  },
+  {
+   "text": "Lehmann tried another idea. Was the liquid core really liquid all the way *through*?",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "quill",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "She draws, in pencil, a small circle inside the core.",
+    "beats": "+0.0 Lehmann's pencil draws a circle inside the core (quill, 1.6 s)"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Suppose a smaller, solid ball sat at the very centre. It would catch those waves, bend them, and throw them into the shadow — exactly where they were *seen*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "InnerCoreBall",
+     "BentRay"
+    ],
+    "stock": [],
+    "see": "A ray dives into the small inner ball, bends sharply, and lands inside the shadow ring — on the ghost ping.",
+    "beats": "+0.0 ride with the ray into the core (2 s) | +2.2 it refracts at the inner ball | +3.6 it lands on the ghost ping, which turns solid",
+    "set": "ghost-wave-explained"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "She worked it out with pencil and paper, and kept her data on cards in old oatmeal *boxes*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "drop",
+    "trans": "through",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "OatmealBoxes",
+     "IndexCards"
+    ],
+    "stock": [
+     "P-02"
+    ],
+    "see": "Cardboard cereal boxes full of index cards; one card lifts out; a real card/record ★P-02 revealed.",
+    "beats": "+0.0 drop: two boxes land on the desk | +1.2 a card lifts (lift) | +2.4 real-reveal ★P-02",
+    "set": "oatmeal-box-archive"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "In 1936, at forty-eight, she published it. The title of her paper was a single symbol: *P-prime*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "D-01"
+    ],
+    "see": "The real paper ★D-01 with its tiny title 'P′'; the title circled; the gold figure 'P′'.",
+    "beats": "+0.0 ★D-01 slides in | +1.4 circle round 'P′' | +2.4 figure 'P′' in gold"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Her idea was so simple it was easy to doubt. But within a few years, the leading seismologists had *accepted* it.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "flip",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "left-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "AcceptingLetters"
+    ],
+    "stock": [],
+    "see": "The sceptical letters flip over one by one; on their backs: short notes of agreement.",
+    "beats": "+0.0 flip: the letters turn (stagger 0.5 s) | +2.0 the last one: a handwritten 'agreed'"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "The Earth had an inner *core*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The inner ball at the centre of the cutaway blooms white-gold.",
+    "beats": "+0.0 scale-out to the whole planet | +1.0 bloom of the inner core"
+   },
+   "src": "S11 S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Today we know that inner core is a ball of solid iron and nickel, about two thousand four hundred kilometres *across*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "grow",
+    "trans": "match",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "InnerCoreDetail",
+     "MoonForScale"
+    ],
+    "stock": [],
+    "see": "The inner core drawn large, with crystalline texture; a small Moon floats beside it for scale.",
+    "beats": "+0.0 push into the inner core | +1.6 a Moon inks on beside it for scale | +3.4 label 'about the size of the Moon'",
+    "set": "core-the-size-of-the-moon"
+   },
+   "src": "S14 S15 S11",
+   "facts": "F10"
+  },
+  {
+   "text": "It is about as hot as the surface of the Sun — and yet it is *solid*, squeezed by the weight of the whole planet above it.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "iris",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "PressureArrows"
+    ],
+    "stock": [],
+    "see": "Inward arrows press on the white-hot ball from every side; it stays solid, glowing.",
+    "beats": "+0.0 iris: the Sun's surface flashes beside it for comparison | +1.8 collapse: arrows press in from all around",
+    "set": "squeezed-solid"
+   },
+   "src": "S14 S15 S11",
+   "facts": "F10"
+  },
+  {
+   "text": "Its heat is left over partly from the planet's birth, and partly made by radioactive atoms still decaying deep *inside*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "bloom",
+    "trans": "eclipse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "sparks"
+    ],
+    "new": [
+     "RadioSparksDeep"
+    ],
+    "stock": [],
+    "see": "Tiny sparks glint here and there through the mantle and core like distant fires.",
+    "beats": "+0.0 bloom: sparks light up through the interior (2 s)"
+   },
+   "src": "S14 S15 S11",
+   "facts": "F10"
+  },
+  {
+   "text": "Around it, the liquid iron of the outer core keeps moving, and that motion makes the Earth's magnetic *field*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "FieldLines",
+     "CoreCurrents"
+    ],
+    "stock": [],
+    "see": "Currents swirl in the outer core; magnetic field lines rise out of the planet and loop into space.",
+    "beats": "+0.0 orbit slowly | +1.0 currents swirl | +2.4 field lines grow out of the poles (trail ×8)",
+    "set": "dynamo-to-compass"
+   },
+   "src": "S14 S15 S11",
+   "facts": "F10"
+  },
+  {
+   "text": "The same field that turns a compass needle, and shields our air from the wind of the *Sun*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "slide",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "wide-space",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "CompassHand",
+     "SolarWindStream"
+    ],
+    "stock": [],
+    "see": "A compass needle swings to north on a hand; pull back: particles from the Sun stream past and are turned aside by the field lines.",
+    "beats": "+0.0 slide: the compass | +1.2 pull back to space | +2.4 photons stream from left and deflect around the field"
+   },
+   "src": "S14 S15 S11",
+   "facts": "F10"
+  },
+  {
+   "text": "The deepest place on our planet was found not by going there… but by *listening*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "quill",
+    "trans": "match",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "ripple"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The planet shrinks into the bronze bell of clue two; it rings softly.",
+    "beats": "+0.0 match: Earth → bell (1.4 s) | +1.6 a soft ripple"
+   }
+  },
+  {
+   "text": "And by a woman who kept working for decades after that discovery, and lived to be one hundred and *four*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "flip",
+    "trans": "real-reveal",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "LehmannOld"
+    ],
+    "stock": [
+     "P-01"
+    ],
+    "see": "The cabinet card of young Lehmann flips; on its back, a photo of her very old, smiling.",
+    "beats": "+0.0 flip: the card turns (flipY 0→180, back) | +1.6 the older portrait from ★P-01 set | +3.0 plate '1888–1993'"
+   },
+   "src": "S14 S15 S11",
+   "facts": "F10"
+  },
+  {
+   "text": "So — how do we know what is inside the *Earth*?",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The cutaway Earth alone in space again.",
+    "beats": "+0.0 scale-out | +1.0 bloom"
+   }
+  },
+  {
+   "text": "Its weight told us the middle is heavy. Its echoes told us there is a *core*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "assemble",
+    "trans": "fold",
+    "cam": "pan",
+    "comp": "four-in-a-row",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Around the planet, small medallions return: the balance, the seismograph drum.",
+    "beats": "+0.0 assemble: two medallions on each phrase (1.0 s apart)",
+    "set": "four-instruments-ring"
+   },
+   "src": "S3 S4 S8 S9",
+   "facts": "F2 F5"
+  },
+  {
+   "text": "A missing wave told us the core is liquid. And a ghost in the shadow told us that, at the very centre, it turns solid *again*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "grow",
+    "trans": "collapse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Two more medallions: the jelly tank, the oatmeal box; all four slide into the layers of the cutaway, which light in order.",
+    "beats": "+0.0 two medallions | +2.4 collapse: all four slide into the layers | +4.6 the inner core glows last"
+   },
+   "src": "S11 S12 S11 S12 S13",
+   "facts": "F7 F9"
+  },
+  {
+   "text": "Every big earthquake is still a lesson. Thousands of seismometers listen, and each wave adds a little more to the *map*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "crane",
+    "comp": "wide-globe",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "StationPinsWorld"
+    ],
+    "stock": [],
+    "see": "Crane over the globe: thousands of tiny station pins light up across continents as a ripple passes.",
+    "beats": "+0.0 crane over the planet | +1.0 pins light in a wave following a ripple (3 s)",
+    "set": "world-listening"
+   },
+   "src": "S6 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "The same trick now works on other worlds: a quake felt on another planet can reveal its heart *too*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "drop",
+    "trans": "whip",
+    "cam": "whip",
+    "comp": "two-worlds",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "RedPlanetQuake"
+    ],
+    "stock": [],
+    "see": "Whip to a small red planet; a ripple crosses it; its own core shows faintly through a cutaway.",
+    "beats": "+0.0 whip to a red planet (0.6 s, expo) | +0.8 a ripple crosses it | +2.0 its cutaway core inks on",
+    "set": "quake-on-another-world"
+   }
+  },
+  {
+   "text": "We will never stand at the centre of the *Earth*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "wipe",
+    "trans": "eclipse",
+    "cam": "hold",
+    "comp": "tiny-in-vast",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The Kola rig again, tiny on the white tundra.",
+    "beats": "+0.0 wipe: back to the tundra and the rig (1.4 s)"
+   }
+  },
+  {
+   "text": "But we know its shape, its heat and its metal — because the planet keeps talking, and someone learned to *listen*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "iris",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "ripple"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "From the rig, pull down through the snow into the drawn cutaway one last time; it rings softly; the brand end card follows.",
+    "beats": "+0.0 pull down through the ground into the cutaway (3 s) | +2.4 a final soft ripple | +4.0 end card"
+   }
+  }
+ ],
+ "world": []
+}
