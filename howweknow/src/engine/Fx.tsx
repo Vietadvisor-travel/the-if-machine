@@ -13,7 +13,8 @@ export const hasFx = (s: Props) => KEYS.some(k => k !== 'fx_box' && s[k] !== und
 export const FX_KEYS = KEYS;
 export const Fx: React.FC<{ s: Props; t: number; seed: number; children: React.ReactNode }> = ({ s, t, seed, children }) => {
   // fx_box [x, y, w, h] = the element's area: reveals run across IT (not the whole frame) and turns/scales pivot on its centre
-  const [bx, by, bw, bh] = s.fx_box || [0, 0, 1920, 1080], ox = s.fx_ox ?? bx + bw / 2, oy = s.fx_oy ?? by + bh / 2, ph = seed * 1.7, B = 4000;
+  const [bx0, by0, bw0, bh0] = s.fx_box || [0, 0, 1920, 1080], pd = s.fx_box ? 40 : 0, bx = bx0 - pd, by = by0 - pd, bw = bw0 + 2 * pd, bh = bh0 + 2 * pd,   // the moving edge starts just outside the box (shadows, rotated corners)
+    ox = s.fx_ox ?? bx + bw / 2, oy = s.fx_oy ?? by + bh / 2, ph = seed * 1.7, B = 4000;
   const x = (s.fx_x ?? 0) + (s.sway ? Math.sin(t * .8 + ph) * s.sway : 0) + (s.tremble ? Math.sin(t * 43 + ph) * s.tremble : 0);
   const y = (s.fx_y ?? 0) + (s.bob ? Math.sin(t * 1.1 + ph) * s.bob : 0) + (s.tremble ? Math.cos(t * 37 + ph) * s.tremble : 0) - (s.lift ?? 0);
   const sc = (s.fx_s ?? 1) * (s.breathe ? 1 + Math.sin(t * 1.6 + ph) * .012 * s.breathe : 1) * (s.lift ? 1 + s.lift / 1200 : 1);
