@@ -1,0 +1,1624 @@
+{
+ "slug": "longitude",
+ "title": "How do you know where you are on the open sea?",
+ "voice": "af_heart",
+ "speed": 0.86,
+ "lead": 1.0,
+ "tail": 3.6,
+ "music": {
+  "file": "../studio/music/wonder_almost_bliss.wav",
+  "db": -24,
+  "start": 0
+ },
+ "new_ideas": [
+  "a watch face that morphs into a globe (time becomes place) — the film's thesis as one transformation",
+  "two ships on one chart (believed vs real) as the cold-open mechanism",
+  "the opening's lanterns going out are relit along a safe course at the end (bookend)"
+ ],
+ "thumb": {
+  "t": 300,
+  "title": "Where am I at *sea*?",
+  "kicker": "Fathom"
+ },
+ "lines": [
+  {
+   "text": "On a stormy night in October 1707, a fleet of British warships was sailing home, believing it was safely out in open *water*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "pan",
+    "comp": "wide-sea",
+    "life": [
+     "rain",
+     "sway"
+    ],
+    "new": [
+     "FleetOfThe1707",
+     "StormSea"
+    ],
+    "stock": [
+     "R-01",
+     "V-01"
+    ],
+    "see": "Night storm at sea; a line of tall warships with lanterns lit, heeling in the wind; rain slants across.",
+    "beats": "+0.0 rise: the sea comes up from the bottom (1.4 s) | +1.6 the ships ink on in a line, swaying | +3.0 rain | +4.0 pan along the fleet",
+    "set": "fleet-in-the-night"
+   },
+   "src": "S3 S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "Then, in the dark, the flagship struck the rocks of the Isles of Scilly, off the south-west tip of *England*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "drop",
+    "trans": "eclipse",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "WesternRocks",
+     "AssociationFlagship"
+    ],
+    "stock": [
+     "P-05"
+    ],
+    "see": "Black rocks rise out of the surf in front of the flagship's bow; a lantern swings wildly.",
+    "beats": "+0.0 drop: the rocks erupt from the sea (0.6 s, snap) | +0.8 the bow hits; tremble (1 s) · sfx timber crack −16 | +2.0 lanterns swing",
+    "set": "ship-meets-rock"
+   },
+   "src": "S3 S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "Four ships were lost. Somewhere between fourteen hundred and two thousand sailors *drowned*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "iris",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "rain"
+    ],
+    "new": [
+     "FourLanternsOut"
+    ],
+    "stock": [],
+    "see": "Pull back: four lanterns on the dark water go out, one by one.",
+    "beats": "+0.0 pull back slowly (4 s) | +0.8 the lanterns go out one by one (0.8 s apart)"
+   },
+   "src": "S3 S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "Their admiral, Sir Cloudesley Shovell, was among the *dead*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "slide",
+    "trans": "fold",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "rain"
+    ],
+    "new": [
+     "ShovellPortraitFrame"
+    ],
+    "stock": [
+     "P-06"
+    ],
+    "see": "A small framed portrait of the admiral lies face up on wet sand.",
+    "beats": "+0.0 slide: the portrait ★P-06 onto the sand | +1.4 a wave washes over its edge"
+   },
+   "src": "S3 S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "The fleet's officers had simply been wrong about where they *were*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "unroll",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "ChartPositionsWrong"
+    ],
+    "stock": [
+     "M-01"
+    ],
+    "see": "A real chart of the Scilly approaches ★M-01 unrolls; a pencilled ship sits safe in open sea — and an inked ship lies on the rocks.",
+    "beats": "+0.0 unroll: ★M-01 (1.6 s) | +2.0 the 'believed' ship is pencilled in open sea | +3.2 the real wreck inks on the rocks | +4.2 a dashed line between them",
+    "set": "two-ships-on-the-chart"
+   },
+   "src": "S3 S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "Some historians think their real mistake was in latitude, not longitude. Either way, out at sea, they had no reliable way to *check*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "quill",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "right-third-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "QuestionedPencilMark"
+    ],
+    "stock": [
+     "M-01"
+    ],
+    "see": "On the chart, a pencil circles the believed position with a question mark.",
+    "beats": "+0.0 quill circles the pencilled ship | +1.4 a '?' in the margin"
+   },
+   "src": "S3 S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "At sea, with no land in sight, how do you know where you *are*?",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "wipe",
+    "trans": "fold",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "EmptyHorizonRound"
+    ],
+    "stock": [],
+    "see": "A small boat on a perfectly round, empty horizon; the sea in every direction looks the same.",
+    "beats": "+0.0 wipe: the empty horizon (1.4 s) | +1.6 orbit: the camera circles the boat (5 s); nothing changes",
+    "set": "empty-horizon"
+   }
+  },
+  {
+   "text": "Every position on Earth has two numbers: how far north or south — latitude — and how far east or west — *longitude*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "GlobeGridLatLon"
+    ],
+    "stock": [],
+    "see": "A globe; parallels ink on in gold, then meridians in red; their crossing marks one point.",
+    "beats": "+0.0 grow: parallels (1.6 s) | +2.2 meridians (1.6 s) | +4.2 a pin at a crossing",
+    "set": "grid-on-the-globe"
+   }
+  },
+  {
+   "text": "Latitude was easy. The height of the Sun at noon, or of the Pole Star at night, tells you how far north you *are*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "slide",
+    "trans": "morph",
+    "cam": "tilt-up",
+    "comp": "right-third-large",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "NavigatorQuadrantHand",
+     "PoleStarAngle"
+    ],
+    "stock": [
+     "R-05"
+    ],
+    "see": "A navigator on deck holds a quadrant up to the Pole Star; the angle is drawn between horizon and star.",
+    "beats": "+0.0 slide: the navigator (Person, 1700s seaman) | +1.4 tilt up to the Pole Star | +2.6 an angle arc with a label",
+    "set": "pole-star-angle"
+   }
+  },
+  {
+   "text": "But longitude had no star to look at. East and west, the sky looks the *same*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "blinds",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "wide-sky",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Pan east to west across the same sky: no fixed mark.",
+    "beats": "+0.0 pan (4 s) | +0.4 blinds: the same sky strip repeats"
+   }
+  },
+  {
+   "text": "So sailors guessed. They estimated speed and direction, and drew their path on a chart — and the errors grew every *day*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "quill",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "DeadReckoningFan"
+    ],
+    "stock": [
+     "R-05"
+    ],
+    "see": "A pencilled track on a chart; a fan of uncertainty widens around it day by day.",
+    "beats": "+0.0 quill draws the track (3 s) | +1.0 a widening grey fan follows it",
+    "set": "growing-error-fan"
+   }
+  },
+  {
+   "text": "Captains often sailed to the right latitude first, then followed it east or west until land appeared — slow, crowded, and *dangerous*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "pan",
+    "comp": "wide-chart",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "LatitudeLane"
+    ],
+    "stock": [],
+    "see": "A gold band of latitude across the ocean chart, crowded with small ships following it in a line.",
+    "beats": "+0.0 grow: the band (1.4 s) | +1.6 ships ride along it in single file (trail ×5)",
+    "set": "latitude-highway"
+   },
+   "src": "S2 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "Finding longitude became one of the great unsolved problems of the age — and the answer would come down to a single *question*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A blank card on the chart; a question mark is stamped on it.",
+    "beats": "+0.0 stamp '?' (snap) | +1.0 push"
+   }
+  },
+  {
+   "text": "Our first clue is a *clock*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "bloom",
+    "trans": "through",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 1/4; title 'Clue I · The Missing Clock'.",
+    "beats": "+0.0 clue tag 1 | +0.2 title"
+   }
+  },
+  {
+   "text": "The Earth turns once a day: three hundred and sixty degrees in twenty-four *hours*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "morph",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "EarthClockDial"
+    ],
+    "stock": [],
+    "see": "The globe turns; around it, a clock dial of twenty-four hours inks on.",
+    "beats": "+0.0 orbit: the globe turns (5 s) | +1.2 grow: a 24-hour dial rings it",
+    "set": "earth-as-clockface"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "So every hour of difference in time means fifteen degrees of longitude, east or *west*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "wipe",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "FifteenDegreeSlice"
+    ],
+    "stock": [],
+    "see": "One hour on the dial lights up, and a slice of the globe between two meridians fills with gold.",
+    "beats": "+0.0 one hour segment lights | +1.0 wipe: a 15° slice fills | +2.4 label '1 hour = 15°'"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "At sea, you can find your local noon from the Sun. If you also knew the time back home at that same moment, the difference would give you your *longitude*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "slide",
+    "trans": "ride",
+    "cam": "pan",
+    "comp": "split-two",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "ShipNoonSun",
+     "HomeClockLondon"
+    ],
+    "stock": [],
+    "see": "Split: a ship at sea, the Sun at its highest; and a clock in London showing three in the afternoon.",
+    "beats": "+0.0 slide in both halves | +2.0 the Sun reaches noon over the ship | +3.6 the London clock reads 3 o'clock | +5.0 note '3 hours → 45° west'",
+    "set": "two-noons"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "The problem was the second clock. No clock in the world could keep good time on a rolling *ship*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "drop",
+    "trans": "eclipse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "PendulumClockOnDeck"
+    ],
+    "stock": [],
+    "see": "A tall pendulum clock stands on a heaving deck; its pendulum swings wildly, stops, swings again.",
+    "beats": "+0.0 drop: the clock on deck | +1.0 the deck rolls; the pendulum jerks (tremble) | +3.0 it stops",
+    "set": "pendulum-at-sea"
+   },
+   "src": "S2 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "And a clock that drifted by just a few seconds a day would, over a long voyage, put a ship many miles off *course*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "blinds",
+    "trans": "morph",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "DriftingHandsFan"
+    ],
+    "stock": [],
+    "see": "A clock face whose minute hand doubles and fans out as days pass; on the chart, the ship's mark drifts with it.",
+    "beats": "+0.0 blinds: days pass (×6) | +1.6 the hand fans out | +3.0 the ship mark slides off course",
+    "set": "drifting-seconds"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "Pendulums swung wildly with the waves. Heat and cold made metal stretch and shrink. Damp air and salt slowed the *works*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "assemble",
+    "trans": "collapse",
+    "cam": "pan",
+    "comp": "three-in-a-row",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "ClockEnemies"
+    ],
+    "stock": [],
+    "see": "Three small vignettes: a wave, a thermometer swinging from tropical heat to ice, salt crusting on brass gears.",
+    "beats": "+0.0 assemble: three vignettes (0.8 s each) | +3.0 each one clouds a small clock face"
+   },
+   "src": "S2 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "Many of the best scientists in Europe agreed: a sea clock that good was *impossible*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A red stamp 'IMPOSSIBLE' lands across the clock vignettes.",
+    "beats": "+0.0 stamp 'Impossible' (snap)"
+   },
+   "src": "S2 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "Clue two: a *prize*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-in",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 2/4; title 'Clue II · A Fortune for an Answer'.",
+    "beats": "+0.0 clue tag 2 | +0.2 title"
+   }
+  },
+  {
+   "text": "In 1714, the British Parliament passed the Longitude Act. It offered up to twenty thousand pounds for a practical way to find longitude at *sea*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "unroll",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "ParliamentChamber1714",
+     "GoldCoinsStack"
+    ],
+    "stock": [
+     "D-01"
+    ],
+    "see": "The real printed Act ★D-01 unrolls; the sum is circled; a tall stack of gold coins builds beside it.",
+    "beats": "+0.0 unroll: ★D-01 (1.6 s) | +2.0 red circle round '£20,000' | +3.0 coins stack up (drop, stagger) · sfx coins −22",
+    "set": "act-and-gold"
+   },
+   "src": "S5 S6",
+   "facts": "F3"
+  },
+  {
+   "text": "The Act set up a Board of Longitude to judge every idea. Who would *win*?",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "assemble",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "wide-room",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "BoardTableEmpty"
+    ],
+    "stock": [],
+    "see": "A long table appears with empty chairs and an inkwell at every place.",
+    "beats": "+0.0 assemble: chairs slide in around a table (stagger) | +2.0 inkwells drop"
+   },
+   "src": "S5 S6",
+   "facts": "F3"
+  },
+  {
+   "text": "In fact, no one would ever be paid the full prize — not even the man who *earned* it.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "tear-in",
+    "trans": "fold",
+    "cam": "hold",
+    "comp": "centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A small tear runs through the corner of the printed Act.",
+    "beats": "+0.0 a tear creeps across the Act's corner (1.2 s)"
+   },
+   "src": "S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "A fortune: many lifetimes of a sailor's *wages*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The coin stack towers over a tiny sailor beside it.",
+    "beats": "+0.0 scale-out: a small sailor appears at the stack's foot"
+   },
+   "src": "S5 S6",
+   "facts": "F3"
+  },
+  {
+   "text": "But the method had to fix a ship's position to within half a degree, and prove it on a voyage across the *ocean*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "iris",
+    "trans": "window",
+    "cam": "tilt-up",
+    "comp": "wide-sea",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "HalfDegreeTarget"
+    ],
+    "stock": [],
+    "see": "On a sea chart, a small target circle half a degree wide around a ship.",
+    "beats": "+0.0 iris: the chart and a small target ring (1.2 s) | +1.6 label 'half a degree'"
+   },
+   "src": "S5 S6",
+   "facts": "F3"
+  },
+  {
+   "text": "Historians now doubt that the Scilly disaster led directly to that prize. But everyone knew what being lost at sea could *cost*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "tear-in",
+    "trans": "tear-away",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "rain"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The wreck scene returns faintly behind the chart; the chart tears away from it.",
+    "beats": "+0.0 the wreck scene fades in under the chart (sepia) | +2.4 tear-away"
+   },
+   "src": "S3 S4 S5 S5 S6",
+   "facts": "F2 F3"
+  },
+  {
+   "text": "Ideas poured in. One proposed a line of ships anchored across the ocean, firing signals at fixed times for every sailor to *hear*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "drop",
+    "trans": "whip",
+    "cam": "whip",
+    "comp": "wide-sea",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "SignalShipLine"
+    ],
+    "stock": [
+     "D-05"
+    ],
+    "see": "A comic but true proposal drawn straight: anchored ships in a row across the Atlantic, each firing a rocket at the same moment.",
+    "beats": "+0.0 drop: anchored ships in a line (stagger 0.2 s) | +2.0 rockets burst in sequence (ripple) | +3.4 whip back to the board",
+    "set": "signal-ships-folly"
+   },
+   "src": "S5 S6",
+   "facts": "F3"
+  },
+  {
+   "text": "Astronomers had their own answer. They would use the Moon as a clock in the *sky*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "wide-sky",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "MoonAmongStars"
+    ],
+    "stock": [],
+    "see": "The Moon rises over the sea among bright stars; it creeps visibly against them.",
+    "beats": "+0.0 rise: the Moon (1.6 s) | +1.8 it creeps across the stars (trail, 4 s)",
+    "set": "moon-hand-of-the-sky"
+   },
+   "src": "S2 S7",
+   "facts": "F4"
+  },
+  {
+   "text": "The Moon moves steadily against the stars. Measure the angle between the Moon and a bright star, look it up in tables, and you get the time back *home*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "LunarDistanceAngle",
+     "SextantInHand"
+    ],
+    "stock": [
+     "P-09"
+    ],
+    "see": "A sextant raised to the sky; a gold angle opens between the Moon and a star; the angle points to a row in a printed table.",
+    "beats": "+0.0 a sextant inks on | +1.4 grow: the angle between Moon and star | +3.4 the angle drops onto a table row"
+   },
+   "src": "S12 S13",
+   "facts": "F7"
+  },
+  {
+   "text": "But the sums were long and hard, and the tables had to be *right*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "left-third-medium",
+    "life": [
+     "flicker"
+    ],
+    "new": [
+     "CandleCabinSums"
+    ],
+    "stock": [],
+    "see": "A navigator in a candlelit cabin, sheets of figures spread around him.",
+    "beats": "+0.0 slide: the cabin | +1.4 papers multiply around him"
+   },
+   "src": "S12 S13",
+   "facts": "F7"
+  },
+  {
+   "text": "On a pitching deck, a tiny slip in measuring that angle could throw the answer off by many *miles*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "drop",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "DeckSextantWobble"
+    ],
+    "stock": [],
+    "see": "The sextant on a pitching deck; the gold angle wobbles; the chart mark jumps.",
+    "beats": "+0.0 slide: the deck tilts | +1.0 the angle trembles | +2.4 the mark jumps on the chart"
+   },
+   "src": "S12 S13",
+   "facts": "F7"
+  },
+  {
+   "text": "In 1767, the Astronomer Royal, Nevil Maskelyne, published a Nautical Almanac full of ready-made Moon tables. Hours of work shrank to about *one*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "NauticalAlmanac1767",
+     "MaskelyneFigure"
+    ],
+    "stock": [
+     "D-02",
+     "P-07"
+    ],
+    "see": "The real almanac page ★D-02 lands on the papers; the pile of sums shrinks into one sheet; Maskelyne's portrait pinned.",
+    "beats": "+0.0 ★D-02 drops in | +1.4 the pile collapses into one sheet (collapse) | +3.0 ★P-07 small plate",
+    "set": "almanac-shrinks-hours"
+   },
+   "src": "S12 S13",
+   "facts": "F7"
+  },
+  {
+   "text": "Clue three: a *carpenter*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 3/4; title 'Clue III · The Carpenter's Clocks'.",
+    "beats": "+0.0 clue tag 3 | +0.2 title"
+   }
+  },
+  {
+   "text": "Far from London, in the north of England, a carpenter named John Harrison had taught himself to build *clocks*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "unroll",
+    "trans": "window",
+    "cam": "pan",
+    "comp": "wide-room",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "HarrisonWorkshop",
+     "HarrisonYoung"
+    ],
+    "stock": [
+     "R-04",
+     "P-04"
+    ],
+    "see": "A village workshop of wood shavings and tools; a young man planes a small wooden gear; his later portrait pinned on the wall.",
+    "beats": "+0.0 unroll: the workshop (1.6 s) | +1.8 Harrison (Person, 1720s working clothes) planing a gear | +3.4 ★P-04 cabinet card",
+    "set": "carpenters-workshop"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "He was born in Yorkshire in 1693, a carpenter's son, and learned the trade from his *father*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "wipe",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "left-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "YorkshireCottage"
+    ],
+    "stock": [
+     "R-04"
+    ],
+    "see": "A Yorkshire cottage at dusk; a boy watches his father at a bench.",
+    "beats": "+0.0 wipe: the cottage | +1.4 light-change: dusk warms"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "His first clocks were made almost entirely of wood — and yet they kept astonishingly good *time*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "WoodenClockworks"
+    ],
+    "stock": [
+     "R-02"
+    ],
+    "see": "A wooden movement fills the frame: oak gears turning, the grain of the wood visible.",
+    "beats": "+0.0 grow: the wooden gears ink on (2 s) | +2.0 they turn (life: rot)",
+    "set": "wooden-gears-turning"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "He invented a pendulum built of two different metals, so that heat and cold cancelled each other *out*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "ink-on",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "GridironPendulum"
+    ],
+    "stock": [],
+    "see": "A gridiron pendulum of brass and steel rods; as heat glows red, some rods lengthen up and others down; the bob stays put.",
+    "beats": "+0.0 grow: the gridiron (1.6 s) | +2.0 heat wash: rods stretch in opposite directions; the bob does not move",
+    "set": "gridiron-cancel"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "He chose hard, oily tropical wood for parts that rubbed together, so they needed no oil that would thicken and *fail*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "iris",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "LignumVitaeTeeth"
+    ],
+    "stock": [],
+    "see": "Close on gear teeth in dark, oily wood, turning without a drop of oil.",
+    "beats": "+0.0 iris: the teeth close up | +1.4 morph: the wood darkens to lignum vitae"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "When he heard about the prize, he set out to build a clock that could survive the *sea*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "slide",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "left-to-right",
+    "life": [
+     "sway"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A printed notice of the prize slides onto his bench; he looks up from it.",
+    "beats": "+0.0 slide: the notice | +1.4 Harrison pose → look up"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "In London, the famous clockmaker George Graham saw his designs, lent him money, and told him to keep *going*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "drop",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "split-two",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "GrahamShop"
+    ],
+    "stock": [],
+    "see": "A London shop of fine clocks; an older clockmaker hands young Harrison a purse.",
+    "beats": "+0.0 slide: the shop (1.2 s) | +1.6 a purse passes between them"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "His first sea clock, H1, took about five years. It was a big brass machine, with two swinging balance arms in place of a *pendulum*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "rise",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "H1Machine"
+    ],
+    "stock": [
+     "P-01",
+     "R-02"
+    ],
+    "see": "H1 rises: a box of brass with two dumbbell balances rocking against each other; the real photo ★P-01 pinned beside.",
+    "beats": "+0.0 rise: H1 (2 s) | +2.2 the balances rock in opposition | +3.6 ★P-01",
+    "set": "h1-dumbbells"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "In 1736, it went to Lisbon on a navy ship, and on the way home it did better than the ship's own navigator. But the Board was not *convinced*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "drop",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "wide-sea",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "ShipToLisbon",
+     "NavigatorChartWrong"
+    ],
+    "stock": [
+     "M-02"
+    ],
+    "see": "A ship sails out and back across a chart; on the return, the clock's position sits true while the navigator's pencil mark is far off.",
+    "beats": "+0.0 drop: the ship on the chart | +1.0 ride along the track (3 s) | +3.4 two marks: the clock's (gold) and the navigator's (pencil)",
+    "set": "clock-beats-navigator"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "But Harrison was never satisfied. He spent the next twenty years building two more *clocks*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "assemble",
+    "trans": "collapse",
+    "cam": "pan",
+    "comp": "three-in-a-row",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "H2Machine",
+     "H3Machine"
+    ],
+    "stock": [
+     "P-01"
+    ],
+    "see": "H1, H2 and H3 stand side by side; the seasons change through the workshop window behind them.",
+    "beats": "+0.0 assemble: H2 and H3 slide in beside H1 | +2.4 seasons cycle in the window (light-change)",
+    "set": "decades-of-clocks"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "H3 alone took him almost twenty years. He kept finding new problems, and he would not stop until each one was *solved*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "iris",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "H3Detail"
+    ],
+    "stock": [
+     "P-01"
+    ],
+    "see": "Close on H3's caged roller bearing, newly invented; the workshop's light cycles day after day.",
+    "beats": "+0.0 iris: H3 detail | +1.6 light-change: days pass in the window"
+   },
+   "src": "S8 S9",
+   "facts": "F5"
+  },
+  {
+   "text": "Then he changed direction completely, and made something small enough to hold in your *hand*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "H4Watch"
+    ],
+    "stock": [
+     "P-02"
+    ],
+    "see": "The three big machines step back; in front of them, on a hand, a large silver watch: H4.",
+    "beats": "+0.0 the big clocks fade back | +1.2 bloom: H4 on a hand | +2.6 push",
+    "set": "the-big-clocks-shrink"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "Clue four: a watch at *sea*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "through",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 4/4; title 'Clue IV · The Watch at Sea'.",
+    "beats": "+0.0 clue tag 4 | +0.2 title"
+   }
+  },
+  {
+   "text": "H4 looked like an oversized pocket watch. Inside, it was a jewel of tiny, fast-beating *parts*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "iris",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "H4Movement"
+    ],
+    "stock": [
+     "P-02",
+     "V-02"
+    ],
+    "see": "The watch's back opens; a loupe moves over the movement; real close-ups ★P-02 and footage ★V-02.",
+    "beats": "+0.0 flip: the case back opens (flipY) | +1.4 Loupe over ★P-02 | +3.0 ★V-02 in the loupe",
+    "set": "watch-opened"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "Its balance swung back and forth about five times every second — far too fast for the roll of a ship to *upset* it.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "bloom",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "BalanceVsRoll"
+    ],
+    "stock": [],
+    "see": "A fast-oscillating balance wheel in the foreground; behind it, a slow rolling deck.",
+    "beats": "+0.0 bloom: the balance beats fast (loop) | +1.6 the deck rolls slowly behind",
+    "set": "fast-beat-vs-slow-roll"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "In 1761, his son William took it aboard HMS Deptford, bound for *Jamaica*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "slide",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "wide-sea",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "HMSDeptford",
+     "WilliamHarrison"
+    ],
+    "stock": [
+     "M-02",
+     "R-03"
+    ],
+    "see": "A ship sails off across the Atlantic chart; a young man in the cabin holds a small wooden box.",
+    "beats": "+0.0 slide: HMS Deptford leaves Portsmouth | +1.6 ride with the ship across the chart (4 s) | +3.0 window: William with the box",
+    "set": "atlantic-crossing"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "The voyage took weeks. Every day, the watch was wound and checked, sealed in its box and guarded like treasure. Would it hold through the heat and the *storms*?",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "blinds",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "WatchInBox"
+    ],
+    "stock": [],
+    "see": "In the cabin: day and night alternate through the porthole; a key winds the watch; the box closes and is locked.",
+    "beats": "+0.0 blinds: day/night through the porthole ×4 | +2.0 the key winds | +3.4 the lock clicks"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "When the ship reached Jamaica, its longitude was checked from land. The watch had lost only a few *seconds*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "match",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "PortRoyalArrival"
+    ],
+    "stock": [
+     "X-01"
+    ],
+    "see": "Port Royal harbour; the watch beside a land clock; their hands nearly match; a gold figure 'a few seconds'.",
+    "beats": "+0.0 the harbour inks on | +1.6 match: the watch and the land clock side by side | +3.2 figure 'a few seconds' in gold",
+    "set": "seconds-after-weeks"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "A second trial, to Barbados in 1764, came out just as *well*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "slide",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "wide-chart",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "BarbadosRoute"
+    ],
+    "stock": [
+     "M-02"
+    ],
+    "see": "A second route draws across the chart to Barbados; the gold mark lands true again.",
+    "beats": "+0.0 slide: the chart shifts | +0.8 ride along the second route (3 s) | +3.0 gold mark on Barbados"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "After weeks at sea, the ship's position was right to within a couple of *miles*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "quill",
+    "trans": "trace",
+    "cam": "pull",
+    "comp": "wide-chart",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "On the chart, the watch's position lands almost exactly on Jamaica.",
+    "beats": "+0.0 quill marks the watch's position on Jamaica (1 s)"
+   },
+   "src": "S10 S11",
+   "facts": "F6"
+  },
+  {
+   "text": "The prize should have been his. It *wasn't*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "tear-away",
+    "cam": "hold",
+    "comp": "centre-small",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The stack of gold coins from clue two shrinks away from his reach.",
+    "beats": "+0.0 the coin stack slides away (collapse)"
+   },
+   "src": "S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "The Board of Longitude, full of astronomers who favoured the Moon, demanded more trials, more tests, and his *drawings*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "unroll",
+    "trans": "page-turn",
+    "cam": "pan",
+    "comp": "wide-room",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "BoardOfLongitudeRoom"
+    ],
+    "stock": [
+     "D-03",
+     "R-06"
+    ],
+    "see": "A long table of gentlemen in wigs; papers pass down it; a real Board page ★D-03 pinned.",
+    "beats": "+0.0 unroll: the board room (1.6 s) | +2.0 papers pass hand to hand | +3.4 ★D-03",
+    "set": "board-of-doubt"
+   },
+   "src": "S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Why would they trust a watch? They even took it away from him, and had it taken apart in front of a panel of *experts*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "tear-in",
+    "trans": "collapse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "H4Exploded"
+    ],
+    "stock": [],
+    "see": "H4's parts are laid out in an exploded view across the board table.",
+    "beats": "+0.0 tear-in: the case opens and parts spread (stagger) | +2.4 tremble",
+    "set": "watch-in-pieces"
+   },
+   "src": "S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Years went by. Copies of the watch were made, and still the doubts only slowly *faded*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "assemble",
+    "trans": "window",
+    "cam": "pan",
+    "comp": "left-to-right",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "K1Copy"
+    ],
+    "stock": [
+     "P-03"
+    ],
+    "see": "A second watch, a copy, appears beside H4; the board's papers fade.",
+    "beats": "+0.0 assemble: K1 slides in beside H4 | +2.0 the papers fade (sepia)"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "Captain James Cook carried one of those copies on his second great voyage, and in his journal called it 'our trusty friend the *Watch*'.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "drop",
+    "trans": "real-reveal",
+    "cam": "tilt-up",
+    "comp": "wide-sea",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "ResolutionShip",
+     "CookFigure"
+    ],
+    "stock": [
+     "D-04"
+    ],
+    "see": "Cook's ship in icy southern seas; the copy watch in his cabin; a real journal page ★D-04 slides in with a line underlined.",
+    "beats": "+0.0 drop: the ship among ice | +1.6 Cook (Person, naval coat) beside the watch | +3.2 ★D-04 with underline",
+    "set": "cook-and-the-copy"
+   },
+   "src": "S12 S13",
+   "facts": "F9"
+  },
+  {
+   "text": "In 1773, at the urging of King George the Third, Parliament awarded the old carpenter a large sum. The Board never paid him the *prize*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "OldHarrison"
+    ],
+    "stock": [],
+    "see": "Harrison, now old, receives a sealed paper; the empty prize-stack outline stays empty.",
+    "beats": "+0.0 stamp: a wax seal on a paper | +1.6 old Harrison (Person, age .8) | +3.0 the dotted outline of the prize stays empty"
+   },
+   "src": "S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Look at what the answer turned out to be. To know where you were, you had to know what time it *was*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "bloom",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "DialBecomesGlobe"
+    ],
+    "stock": [],
+    "see": "The watch face morphs into the globe with its meridians; the hour hand becomes a meridian line.",
+    "beats": "+0.0 morph: watch face → globe (2 s) | +2.2 the hour hand becomes a meridian",
+    "set": "place-equals-time"
+   },
+   "src": "S1 S2",
+   "facts": "F1"
+  },
+  {
+   "text": "And that is still true. Every time your phone shows your position, it is reading clocks in *space*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "rise",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-space",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "SatellitesOrbitRing",
+     "PhoneOnMap"
+    ],
+    "stock": [
+     "V-03"
+    ],
+    "see": "Pull back from the globe to a ring of satellites around it; tiny pulses of time flow down to a phone in a hand.",
+    "beats": "+0.0 scale-out (3 s) | +1.4 rise: satellites on their orbits | +3.0 pulses flow to a phone (trail) | +4.0 ★V-03 in an OldScreen",
+    "set": "clocks-in-orbit"
+   },
+   "src": "S9 S16",
+   "facts": "F10"
+  },
+  {
+   "text": "Satellites carry atomic clocks and broadcast the exact time. Your phone compares the signals — and turns time into *place*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "TimeToPlaceSpheres"
+    ],
+    "stock": [],
+    "see": "Signals from three satellites arrive at slightly different moments; their circles cross at one point on the map.",
+    "beats": "+0.0 three rings of signal grow from three satellites (ripple) | +2.4 they cross at one dot"
+   },
+   "src": "S9 S16",
+   "facts": "F10"
+  },
+  {
+   "text": "Those clocks are so precise that if they drifted by even a millionth of a second, your phone would put you in the wrong *street*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "stamp",
+    "trans": "eclipse",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "WrongStreetPin"
+    ],
+    "stock": [],
+    "see": "On a phone's map, a pin jumps from one street to the next.",
+    "beats": "+0.0 the pin jumps (snap) | +1.0 jumps back"
+   },
+   "src": "S9 S16",
+   "facts": "F10"
+  },
+  {
+   "text": "So — how do you know where you are on the open *sea*?",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "wipe",
+    "trans": "light-change",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "sway"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The small boat on the round empty horizon from the opening.",
+    "beats": "+0.0 wipe back to the boat | +1.0 orbit"
+   }
+  },
+  {
+   "text": "You carry home with you, in a watch. You find noon where you are. The difference in time is your *longitude*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "drop",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "sway"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "On the boat, the navigator opens the watch at noon; a meridian line is drawn from the boat to the pole.",
+    "beats": "+0.0 drop: the watch in his hand | +1.6 the Sun at noon | +3.0 a meridian is drawn through the boat",
+    "set": "noon-on-the-boat"
+   },
+   "src": "S1 S2 S10 S11",
+   "facts": "F1 F6"
+  },
+  {
+   "text": "Harrison's clocks still tick at the Royal Observatory in Greenwich — the place the world's longitudes are counted *from*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "unroll",
+    "trans": "real-reveal",
+    "cam": "pan",
+    "comp": "wide-room",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "GreenwichGallery"
+    ],
+    "stock": [
+     "P-08",
+     "P-01"
+    ],
+    "see": "A gallery with the four timekeepers in cases; outside the window, the meridian line on the ground.",
+    "beats": "+0.0 unroll: the gallery (1.6 s) | +2.0 pan past H1→H4 | +3.6 ★P-08 the meridian line",
+    "set": "greenwich-gallery"
+   },
+   "src": "S9 S16",
+   "facts": "F10"
+  },
+  {
+   "text": "Every ship that reaches port, every plane that lands in fog, every ambulance that finds the right door still uses his idea. Carry the time, and you will know the *place*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "assemble",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "left-to-right",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "ShipPlaneAmbulance"
+    ],
+    "stock": [],
+    "see": "Ride past a ship docking, a plane descending through cloud, an ambulance at a door; a tiny clock glows in each.",
+    "beats": "+0.0 assemble: three vignettes (0.8 s each) | +2.4 ride across them | +4.6 tiny clocks glow in each",
+    "set": "time-carriers"
+   },
+   "src": "S9 S16",
+   "facts": "F10"
+  },
+  {
+   "text": "A carpenter, who never went to university, gave every ship on Earth a way *home*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "iris",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "sway"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The night sea of the opening; one by one, ship lanterns light along a safe course; the brand end card follows.",
+    "beats": "+0.0 iris to the night sea | +1.4 lanterns light up along a course (stagger) | +4.0 end card",
+    "set": "lanterns-relit"
+   }
+  }
+ ],
+ "world": []
+}
