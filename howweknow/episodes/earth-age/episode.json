@@ -1,0 +1,1743 @@
+{
+ "slug": "earth-age",
+ "title": "How old is the Earth?",
+ "voice": "af_heart",
+ "speed": 0.86,
+ "lead": 1.0,
+ "tail": 3.6,
+ "music": {
+  "file": "../studio/music/wonder_dream_culture.wav",
+  "db": -24,
+  "start": 0
+ },
+ "new_ideas": [
+  "an ice core used as a time-ladder the camera climbs (old ice → new ice) with a data-true lead curve",
+  "the first shot's chemist is re-matched 40 lines later in an earlier year (match backwards in time)",
+  "a rock book whose first pages are torn away (the missing record)"
+ ],
+ "thumb": {
+  "t": 60,
+  "title": "How old is the *Earth*?",
+  "kicker": "Fathom"
+ },
+ "lines": [
+  {
+   "text": "In 1953, in a laboratory near Chicago, a young chemist stared at a column of numbers that had come from a lump of iron… that fell from the *sky*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "ink-on",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "left-third-medium",
+    "life": [
+     "dust",
+     "boil"
+    ],
+    "new": [
+     "ArgonneBench",
+     "PattersonYoung",
+     "IronLump"
+    ],
+    "stock": [
+     "P-05",
+     "R-02"
+    ],
+    "see": "Night lab: a young chemist at a bench lit by one lamp, a printout of figures in his hand; on the bench, a dark lump of iron with a fusion crust.",
+    "beats": "+0.0 ink-on: the bench and lamp are traced by the quill (1.4 s) | +1.6 wash blooms: lamp-light pools on the figures (light-change 1.0 s) | +3.2 the iron lump inks on, last, with a glint | +5.0 push 1.00→1.10 toward the printout",
+    "set": "numbers-from-the-sky"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Those numbers said something no human being had ever known for *certain*:",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "bloom",
+    "trans": "through",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "PrintoutColumn"
+    ],
+    "stock": [],
+    "see": "The printout fills the frame: a column of ink figures; one row begins to glow gold.",
+    "beats": "+0.0 scale-in completes: the printout fills the frame | +0.6 bloom: one row of figures warms to gold (1.2 s) | +2.4 the gold row lifts off the paper (lift 14 px)"
+   }
+  },
+  {
+   "text": "how old our *planet* is.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "iris",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "EarthYoungGlow"
+    ],
+    "stock": [],
+    "see": "Through the gold row, as through a slit, the whole Earth turns in space.",
+    "beats": "+0.0 through: we pass into the gold row (0.6 s) | +0.6 iris opens on the turning Earth (1.0 s) | +1.8 text title 'How old is the Earth?' writes on below (k 0→1, 1.6 s)"
+   }
+  },
+  {
+   "text": "To read it, he first had to clean the very air out of his *room*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "wipe",
+    "trans": "window-close",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "CleanRoomSketch"
+    ],
+    "stock": [],
+    "see": "A small inset: a gloved hand wiping a pane; behind it, specks of dust swirl away.",
+    "beats": "+0.0 a window opens beside the Earth: the clean room, unfinished sketch (wipe right 1.0 s) | +1.4 dust particles swirl and are pulled out of the frame | +3.0 the window closes to a point"
+   },
+   "src": "S13 S14",
+   "facts": "F7"
+  },
+  {
+   "text": "So how do you date a world that nobody saw being *born*?",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "grow",
+    "trans": "fold",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The Earth alone in the dark, rotating slowly; no dates, no labels.",
+    "beats": "+0.0 orbit: Earth lon +20° (5 s, linear) | +1.0 grow: a faint ring of question-mark-shaped star trails spirals in | +3.5 everything holds",
+    "set": "question-globe"
+   }
+  },
+  {
+   "text": "Everything else on Earth can be dated by something older: a tree by its rings, a city by its records, a fossil by its *rock*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "assemble",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "three-in-a-row",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "TreeRingSlab",
+     "CityChronicle",
+     "FossilInStrata"
+    ],
+    "stock": [],
+    "see": "Three objects side by side on the paper: a sawn tree slab with rings, a chronicle book, a fossil in a rock layer.",
+    "beats": "+0.0 assemble: the three slide in from three edges (stagger 0.6 s, back) | +2.4 each one's 'calendar' highlights: rings count, pages fan, strata glow (0.8 s each) | +5.6 pan along them",
+    "set": "three-calendars"
+   }
+  },
+  {
+   "text": "But the Earth is the oldest thing we stand on. There is no calendar *beneath* it.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "tear-in",
+    "trans": "eclipse",
+    "cam": "tilt-up",
+    "comp": "low-wide",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GroundCutaway"
+    ],
+    "stock": [],
+    "see": "The three objects drop away; beneath them, a cutaway of ground goes down and down into darkness with nothing written in it.",
+    "beats": "+0.0 the three fall out of frame (0.8 s, in) | +0.6 tear-in: the paper tears downward revealing strata that fade into black (1.6 s) | +3.0 tilt down the empty shaft"
+   }
+  },
+  {
+   "text": "For three hundred years, the cleverest people alive tried anyway… and every one of their answers was *wrong*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "drop",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "AnswerCards"
+    ],
+    "stock": [],
+    "see": "Four paper cards with four different numbers drop onto the desk; each is struck through with red ink.",
+    "beats": "+0.0 drop: four cards fall one after another (bounce) | +2.6 red ink strikes through each (0.4 s each) | +4.4 the cards tremble slightly",
+    "set": "answers-crossed-out"
+   },
+   "src": "S1 S2 S3 S13 S14 S15",
+   "facts": "F1 F8"
+  },
+  {
+   "text": "Wrong — but each in a way that *taught* us something.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "flip",
+    "trans": "trace",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The struck cards flip over; on their backs are four small drawings: a family tree, a valley, a cooling ball, a falling stone.",
+    "beats": "+0.0 flip: the four cards turn over in sequence (flipY 0→180, 0.5 s each) | +2.4 their drawings ink on | +3.4 push"
+   }
+  },
+  {
+   "text": "Their clues came from a family tree, a valley, a cooling ball of fire… and finally, a stone that fell from *space*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "quill",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "left-to-right",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "FamilyTreeSketch",
+     "ValleySketch",
+     "CoolingBallSketch",
+     "FallingStoneSketch"
+    ],
+    "stock": [],
+    "see": "The camera rides along the four drawings; the last one, a stone streaking down, leaves a trail that carries us onward.",
+    "beats": "+0.0 ride: camera travels card to card on each named word | +4.8 the falling stone's trail grows into the next scene"
+   }
+  },
+  {
+   "text": "Our first clue is a family *tree*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "hold",
+    "comp": "top-centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Title in the scene: 'Clue I · A Family Tree' on a parchment ribbon; the clue tag appears top-left.",
+    "beats": "+0.0 text title writes on (1.4 s) | +0.4 clue tag 1/4 | +1.6 an ink root starts to grow down from the title"
+   }
+  },
+  {
+   "text": "In 1650, James Ussher, Archbishop of Armagh in Ireland, published a history of the whole world, in *Latin*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "unroll",
+    "trans": "window",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "flicker"
+    ],
+    "new": [
+     "UssherStudy",
+     "UssherFigure",
+     "TallFolios"
+    ],
+    "stock": [
+     "P-09",
+     "R-04"
+    ],
+    "see": "A candlelit study in Armagh: the archbishop at a sloping desk stacked with folios; a cabinet card of his real portrait pinned to the shelf.",
+    "beats": "+0.0 unroll: the study unrolls downward from the root (1.6 s) | +1.8 Ussher (Person, writing) inks on | +3.4 real portrait ★P-09 slides in as a cabinet card (back) | +5.2 plate caption 'Armagh, 1650'",
+    "set": "archbishops-study"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F1"
+  },
+  {
+   "text": "He added up every lifetime and every reign recorded in the Bible, back to the very first *day*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "pan",
+    "comp": "wide-tree",
+    "life": [
+     "flicker"
+    ],
+    "new": [
+     "GenerationsTree"
+    ],
+    "stock": [],
+    "see": "From his page an ink family tree grows upward and back, branch by branch, generations shrinking into the distance.",
+    "beats": "+0.0 grow: ink branches climb from the folio (trail, 3 s) | +1.2 tiny names appear on the branches as handwritten notes | +3.6 pan up the tree toward its single root at the top",
+    "set": "generations-tree"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F1"
+  },
+  {
+   "text": "His answer was precise to the hour: creation began at nightfall before the twenty-third of October, four thousand and four years before *Christ*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "DateStamp"
+    ],
+    "stock": [
+     "D-01"
+    ],
+    "see": "At the root of the tree the real first page of the Annales; its margin date circled in red; a red stamp '4004 BC'.",
+    "beats": "+0.0 the tree's root becomes the real page ★D-01 (real-reveal 1.0 s) | +2.4 red circle round the margin note | +5.0 stamp '4004 B.C.' lands (snap) · sfx paper −20"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F1"
+  },
+  {
+   "text": "That made the Earth about six thousand years old. Could the whole world really be that *young*?",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-small",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "SixThousandRuler"
+    ],
+    "stock": [],
+    "see": "The stamped date stretches into a short ruler from 4004 BC to today; it barely spans the page.",
+    "beats": "+0.0 grow: a ruler unreels from the stamp to a small 'today' mark (1.6 s) | +2.0 note 'six thousand years' writes on"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F1"
+  },
+  {
+   "text": "Printers placed his date in the margins of English Bibles, and for generations, readers took it as *fact*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "slide",
+    "trans": "page-turn",
+    "cam": "pan",
+    "comp": "left-third-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "BibleMarginSpread"
+    ],
+    "stock": [
+     "D-02"
+    ],
+    "see": "An open Bible; in its margin the same small date is printed, page after page, as the pages turn by themselves.",
+    "beats": "+0.0 slide: the Bible slides under the page (0.9 s) | +1.2 page-turn ×3: the margin date '4004' repeats on each spread | +4.0 a reader's hand rests on it"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F1"
+  },
+  {
+   "text": "Ussher was not foolish. He used the best written records anyone had — but written records only go back as far as *people*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "bloom",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "flicker"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Back to Ussher at his desk, kinder light; his quill pauses.",
+    "beats": "+0.0 light-change: candle warms (1.2 s) | +1.0 Ussher's pose glides write→think | +3.0 hold"
+   },
+   "src": "S1 S2 S3",
+   "facts": "F1"
+  },
+  {
+   "text": "But the rocks were keeping a record of their own… and it was much, much *longer*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "tear-in",
+    "trans": "tear-away",
+    "cam": "tilt-up",
+    "comp": "low-wide",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "StudyFloorStrata"
+    ],
+    "stock": [],
+    "see": "The study's floor cracks open: under the floorboards, layer upon layer of rock goes down past the bottom of the frame.",
+    "beats": "+0.0 tear-in: the floor tears open (1.2 s) | +1.4 strata ink on, layer after layer (stagger 0.2 s) | +3.6 tilt down: the layers keep going",
+    "set": "study-floor-strata"
+   }
+  },
+  {
+   "text": "Clue two: the slow work of *water*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "ride",
+    "cam": "hold",
+    "comp": "top-left-small",
+    "life": [
+     "rain"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 2/4; title 'Clue II · Slow Water' written across the rock layers; rain begins to fall over them.",
+    "beats": "+0.0 clue tag 2 | +0.2 text title writes on (1.2 s) | +1.0 rain particles start, light"
+   }
+  },
+  {
+   "text": "Geologists watched rivers carry sand to the sea, a grain at a time, and press it into layers of *rock*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "rise",
+    "trans": "morph",
+    "cam": "crane",
+    "comp": "wide-landscape",
+    "life": [
+     "rain",
+     "sway"
+    ],
+    "new": [
+     "RiverToSea",
+     "SandGrains"
+    ],
+    "stock": [],
+    "see": "A landscape rises: a river winds to the sea; grains of sand drift along it and settle into stripes that become the rock layers.",
+    "beats": "+0.0 rise: hills come up from the bottom edge (1.4 s, out) | +1.6 particles of sand ride the river (trail k 0→1) | +4.0 morph: the settled sand becomes the striped strata",
+    "set": "grain-by-grain"
+   }
+  },
+  {
+   "text": "In 1859, in the first edition of *On the Origin of Species*, Charles Darwin tried to time it.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "drop",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "DarwinDesk",
+     "DarwinFigure"
+    ],
+    "stock": [
+     "D-03",
+     "R-05"
+    ],
+    "see": "Darwin at his study desk at Down House, the first edition open; the real page ★D-03 slides in, a line underlined.",
+    "beats": "+0.0 drop: the first edition lands on the desk (bounce) | +1.2 Darwin (Person, write) inks on | +3.0 real page ★D-03 slides in, red underline (1.0 s) | +4.8 plate 'Origin of Species, 1st ed.'"
+   },
+   "src": "S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "He looked at the Weald, a broad valley in the south of England, and estimated how long rain and rivers had needed to carve it *out*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "iris",
+    "trans": "window",
+    "cam": "crane",
+    "comp": "wide-valley",
+    "life": [
+     "rain"
+    ],
+    "new": [
+     "WealdValley",
+     "ChalkEscarpment"
+    ],
+    "stock": [
+     "P-10",
+     "M-01"
+    ],
+    "see": "A window opens from his page onto the Weald: green valley between chalk ridges; rain scours a shallow layer away, again and again.",
+    "beats": "+0.0 window: a circle opens from the underline (1.2 s) | +1.4 crane over the Weald | +3.0 the valley floor lowers in three steps, each removing a thin band (ripple per step) | +6.0 note 'an inch a century' writes on",
+    "set": "weald-carved-by-rain"
+   },
+   "src": "S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "His reasoning was simple: if rain wears away about an inch of rock every century, you only have to measure how much is *gone*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "quill",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "rain"
+    ],
+    "new": [
+     "InchPerCentury"
+    ],
+    "stock": [],
+    "see": "Beside the valley, a quill draws a tiny column: one inch, one century — stacked again and again up the side of the chalk.",
+    "beats": "+0.0 quill draws one inch-mark labelled 'a century' | +1.6 the marks stack up the chalk wall (stagger 0.15 s) | +4.6 the stack reaches the ridge top"
+   },
+   "src": "S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "His figure: about three hundred million *years*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The gold figure '300,000,000' appears over the valley.",
+    "beats": "+0.0 figure '300 million years' in gold leaf (k 0→1, 1.2 s) | +2.0 hold"
+   },
+   "src": "S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "Then a physicist stepped in, with a very different *clock*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "match",
+    "cam": "whip",
+    "comp": "left-third-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "KelvinLab",
+     "KelvinFigure"
+    ],
+    "stock": [
+     "P-06",
+     "R-06"
+    ],
+    "see": "Whip to Glasgow: a Victorian physicist in a lab with thermometers; his real portrait pinned beside him.",
+    "beats": "+0.0 whip: camera snaps from the valley to the lab (0.5 s, expo) | +0.6 slide: Kelvin (Person) enters from left | +1.8 cabinet card ★P-06"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F3"
+  },
+  {
+   "text": "William Thomson, later Lord Kelvin, pictured the young Earth as a ball of molten rock that had been cooling ever since it *formed*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "bloom",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "MoltenBall"
+    ],
+    "stock": [],
+    "see": "A glowing molten globe hangs in front of him; embers drift off; its skin slowly darkens into a crust.",
+    "beats": "+0.0 bloom: the molten ball glows on (1.0 s) | +1.4 embers rise | +3.0 morph: colour cools red→brown from the outside in (4 s) | +5.0 thin cracks ink on the crust",
+    "set": "cooling-cannonball"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F3"
+  },
+  {
+   "text": "Measure how fast heat escapes from the ground today, and you can work backwards to the moment it was *liquid*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "pull",
+    "comp": "split-two",
+    "life": [
+     "ripple"
+    ],
+    "new": [
+     "MineThermometer",
+     "HeatArrows"
+    ],
+    "stock": [
+     "X-01"
+    ],
+    "see": "Left: a thermometer lowered down a mine shaft reads warmer with depth. Right: the cooling ball runs backwards to white-hot.",
+    "beats": "+0.0 grow: the mine shaft and thermometer descend (2 s) | +2.4 its mercury rises by depth steps | +4.0 the ball's colour rewinds (reverse 2 s) | +5.4 arrows of heat ripple outward"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F3"
+  },
+  {
+   "text": "In the 1860s, his best guess was about a hundred million years… and later he cut it to as little as twenty *million*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "wipe",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "ShrinkingRuler"
+    ],
+    "stock": [],
+    "see": "A ruler labelled 100 million shrinks with a jolt to 20 million; Darwin's 300 million card tears.",
+    "beats": "+0.0 ruler wipes on, label '100 million' | +3.0 the ruler shrinks to a fifth (collapse 1.0 s, snap) | +4.0 note '20 million' | +4.6 the '300 million' card tears in half"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F3"
+  },
+  {
+   "text": "Physics, it seemed, had beaten geology. A thermometer looked far more solid than a guess about *rain*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "whip",
+    "cam": "whip",
+    "comp": "split-two",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "BalanceThermoRain"
+    ],
+    "stock": [],
+    "see": "A balance: a brass thermometer on one pan outweighs a single raindrop on the other.",
+    "beats": "+0.0 slide: the balance enters | +1.0 the thermometer pan sinks, the raindrop pan rises (back) | +2.6 tremble",
+    "set": "thermometer-vs-raindrop"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F3"
+  },
+  {
+   "text": "Darwin was shaken. He quietly dropped his number from later *editions*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "flip",
+    "trans": "page-turn",
+    "cam": "push",
+    "comp": "right-third-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [
+     "D-03"
+    ],
+    "see": "Darwin turns the page; the Weald passage fades from the next edition's page.",
+    "beats": "+0.0 Darwin pose → think | +1.2 page-turn | +2.2 the passage fades (sepia→blank)"
+   },
+   "src": "S4 S5",
+   "facts": "F2"
+  },
+  {
+   "text": "In 1899, the Irish scientist John Joly tried the sea itself: divide all the salt in the oceans by the salt the rivers bring each *year*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "wide-sea",
+    "life": [
+     "bubbles"
+    ],
+    "new": [
+     "SaltSea",
+     "RiverMouths",
+     "JolyFigure"
+    ],
+    "stock": [],
+    "see": "The sea rises over the frame; river mouths pour pale salt into it; above, a scale weighs a heap of salt against a single year's spoonful.",
+    "beats": "+0.0 rise: the ocean fills from the bottom (1.6 s) | +1.8 white salt particles stream from river mouths | +4.0 a brass scale inks on: big heap vs one spoonful | +6.0 the spoonful counts up",
+    "set": "salt-sea-hourglass"
+   },
+   "src": "S5 S9",
+   "facts": "F4"
+  },
+  {
+   "text": "Ninety million *years*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-out",
+    "cam": "hold",
+    "comp": "centre-small",
+    "life": [
+     "bubbles"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Red stamp '90,000,000' on the salt heap.",
+    "beats": "+0.0 stamp '90 million years' (snap) | +1.0 hold"
+   },
+   "src": "S5 S9",
+   "facts": "F4"
+  },
+  {
+   "text": "Three clocks, three answers — and all of them missing something hidden inside the *rocks*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "assemble",
+    "trans": "through",
+    "cam": "pull",
+    "comp": "three-in-a-row",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "ThreeClockFaces"
+    ],
+    "stock": [],
+    "see": "Three small clock faces stand in a row — the valley, the cooling ball, the sea; between them, a dark rock with a faint inner glow.",
+    "beats": "+0.0 the three scenes shrink into clock faces (assemble 1.4 s) | +2.4 pull back: a rock between them | +4.0 the rock glows faintly from within"
+   }
+  },
+  {
+   "text": "Clue three: a clock that never *stops*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "top-centre-small",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 3/4; the glowing rock fills the frame; title 'Clue III · A Clock Inside the Stone'.",
+    "beats": "+0.0 through: into the rock's glow | +0.4 clue tag 3 | +0.8 title writes on"
+   }
+  },
+  {
+   "text": "Then, in the 1890s, came a mystery: scientists discovered that some elements, like uranium, are slowly falling *apart*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "sparks"
+    ],
+    "new": [
+     "UraniumOre",
+     "DecaySparks"
+    ],
+    "stock": [
+     "R-09",
+     "A-01"
+    ],
+    "see": "A black lump of pitchblende; tiny sparks leave it one at a time; a soft clicking.",
+    "beats": "+0.0 bloom: the ore lights from inside | +1.0 sparks leave it at random (particles sparks, k .4) | +2.0 audio ★A-01 Geiger clicks −24 dB"
+   },
+   "src": "S6 S10",
+   "facts": "F5"
+  },
+  {
+   "text": "As they decay, they give off heat — a furnace inside the Earth that Kelvin's sums had left *out*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "iris",
+    "trans": "eclipse",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "EarthFurnace"
+    ],
+    "stock": [],
+    "see": "Pull back: the ore becomes a speck inside a cutaway Earth; thousands of such specks glow, warming it from within; Kelvin's cooling ball overlay fails to match.",
+    "beats": "+0.0 pull to a cutaway Earth (scale-out 2 s) | +1.6 iris: specks of warmth light up through the mantle | +3.6 the cooling-ball curve slides over and does not fit (red cross)"
+   },
+   "src": "S6 S10",
+   "facts": "F5"
+  },
+  {
+   "text": "In 1904, the young physicist Ernest Rutherford lectured on it in London, with Kelvin himself sitting in the *audience*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "unroll",
+    "trans": "window",
+    "cam": "pan",
+    "comp": "wide-theatre",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "LectureTheatre",
+     "RutherfordFigure",
+     "OldKelvinSeated"
+    ],
+    "stock": [
+     "P-07",
+     "R-07"
+    ],
+    "see": "The Royal Institution lecture theatre: Rutherford at the bench; in the front row, the old Lord Kelvin, asleep or not.",
+    "beats": "+0.0 unroll: the curved rows unroll from the top (1.6 s) | +1.8 Rutherford (Person, present) | +3.4 pan to the front row: Kelvin (Person, sitting, old face) | +5.6 cabinet card ★P-07",
+    "set": "lecture-with-the-rival"
+   },
+   "src": "S6 S10",
+   "facts": "F5"
+  },
+  {
+   "text": "But Rutherford saw something more: decay runs at a steady rate, like sand through an *hourglass*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "drop",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "UraniumHourglass"
+    ],
+    "stock": [],
+    "see": "On the lecture bench, the ore morphs into an hourglass whose sand runs steadily.",
+    "beats": "+0.0 morph: the ore becomes an hourglass (1.4 s) | +1.6 grains fall at a steady rate | +3.4 push",
+    "set": "uranium-hourglass"
+   },
+   "src": "S6 S10",
+   "facts": "F5"
+  },
+  {
+   "text": "Each kind of atom keeps its own pace, and nothing — not heat, not pressure, not time — can make it hurry or slow *down*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "blinds",
+    "trans": "eclipse",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "FireIceHourglass"
+    ],
+    "stock": [],
+    "see": "The hourglass is heated by flame, then frozen in ice, then crushed in a vice; the sand keeps falling at exactly the same rate.",
+    "beats": "+0.0 blinds: three panels reveal flame, ice, vice around the hourglass (0.6 s each) | +2.4 a small stopwatch beside it ticks the same in each"
+   },
+   "src": "S6 S10",
+   "facts": "F5"
+  },
+  {
+   "text": "Uranium slowly turns into lead. Measure how much lead has built up in a crystal, and you can read how long the hourglass has been *running*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LeadGrains",
+     "ZirconCrystal"
+    ],
+    "stock": [
+     "P-13"
+    ],
+    "see": "Inside the hourglass the upper grains are green-gold (uranium) and fall as grey grains (lead); beside it, a crystal fills with grey specks.",
+    "beats": "+0.0 the falling grains change colour as they land | +2.6 a crystal grows beside it; grey specks accumulate | +5.0 label 'lead' with a leader line"
+   },
+   "src": "S11 S12",
+   "facts": "F6"
+  },
+  {
+   "text": "In 1907, the American chemist Bertram Boltwood did exactly that, and got ages of more than two billion *years*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "slide",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "left-third-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "BoltwoodBench",
+     "BoltwoodFigure"
+    ],
+    "stock": [
+     "P-08",
+     "D-06"
+    ],
+    "see": "Boltwood at a Yale bench of mineral samples; his real age table ★D-06 slides in; the largest number circled.",
+    "beats": "+0.0 slide: Boltwood's bench enters | +1.6 ★D-06 slides in rotated 2° | +3.4 red circle round the 2,200 row | +4.6 figure 'over 2 billion' in gold"
+   },
+   "src": "S11 S12",
+   "facts": "F6"
+  },
+  {
+   "text": "Geologists, who had wanted more time all along, suddenly had more than they could *use*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "drop",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "TimeSacks"
+    ],
+    "stock": [],
+    "see": "Sacks of 'time' pile up on the geologists' side of the desk until they topple.",
+    "beats": "+0.0 drop: sacks land one after another (bounce) | +2.0 the pile topples gently"
+   }
+  },
+  {
+   "text": "Suddenly, the Earth was older than anyone had *dared* to imagine.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "tiny-in-vast",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The bench, the lab, the city fall away; a tiny Earth in a vast dark page.",
+    "beats": "+0.0 scale-out ×10 (3 s, geometric) | +2.0 stars bloom"
+   }
+  },
+  {
+   "text": "But a rock is not the planet. The oldest rocks have been melted, crushed and remade. The first pages of the Earth's story were *missing*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "tear-in",
+    "trans": "tear-away",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "TornRockBook"
+    ],
+    "stock": [],
+    "see": "A book made of rock layers; its first pages are torn out, their edges smoking.",
+    "beats": "+0.0 the Earth becomes a stone book (morph) | +1.6 its first pages are torn away (tear-away 1.2 s) | +3.4 embers drift from the torn edge",
+    "set": "torn-first-pages"
+   }
+  },
+  {
+   "text": "Clue four: a stone from *space*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "top-centre-small",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Clue tag 4/4; title 'Clue IV · A Stone from Space'; a bright streak crosses the top of the frame.",
+    "beats": "+0.0 clue tag 4 | +0.4 title | +1.0 a meteor streak (trail) crosses"
+   }
+  },
+  {
+   "text": "The Sun and its planets formed at the same time, from the same cloud of dust and *gas*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "morph",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "SolarNebula"
+    ],
+    "stock": [],
+    "see": "A swirling disc of dust; the Sun ignites at its centre; rings clump into planets.",
+    "beats": "+0.0 grow: the disc spirals in (3 s) | +2.0 the centre ignites (bloom) | +3.6 morph: rings clump into small planets",
+    "set": "cloud-to-planets"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Some of that material never became part of a planet. It still falls to Earth as meteorites, untouched since the *beginning*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "drop",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "diagonal",
+    "life": [
+     "embers"
+    ],
+    "new": [
+     "MeteoriteFalling"
+    ],
+    "stock": [],
+    "see": "One lump left behind in the disc; the camera rides with it as it falls toward a blue Earth, glowing.",
+    "beats": "+0.0 a lump detaches (drop) | +1.0 ride: the camera follows its fall (trail, 3 s) | +3.6 it enters the air, glowing"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Long ago, a great iron meteorite struck the desert of Arizona. Its fragments are named after a nearby canyon: Canyon *Diablo*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "crane",
+    "comp": "wide-desert",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "MeteorCrater",
+     "CanyonDiabloFragment"
+    ],
+    "stock": [
+     "P-04",
+     "P-03",
+     "V-01"
+    ],
+    "see": "Impact flash, then the crater in the desert; a real aerial photo ★P-04 drops in as a plate; a fragment ★P-03 pinned beside it.",
+    "beats": "+0.0 impact: ripple + flash (0.6 s) | +0.8 the crater inks on | +2.4 crane over it | +3.6 ★P-04 plate drops in | +5.4 ★P-03 pinned, plate 'Canyon Diablo'",
+    "set": "crater-to-crystal"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "In 1948, Clair Patterson, a young chemist, was given what sounded like a simple job: measure the lead in old *crystals*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "slide",
+    "trans": "match",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "PattersonLab1948"
+    ],
+    "stock": [
+     "P-01"
+    ],
+    "see": "Match back to the young chemist of the first shot, now in 1948, at a crowded ordinary lab bench; his real portrait pinned up.",
+    "beats": "+0.0 match: the same figure and bench as L0, but cluttered | +1.4 cabinet card ★P-01 | +3.0 plate 'Chicago, 1948'"
+   },
+   "src": "S13 S14",
+   "facts": "F7"
+  },
+  {
+   "text": "It would take him five *years*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "wipe",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "flicker"
+    ],
+    "new": [
+     "LabWindowSeasons"
+    ],
+    "stock": [],
+    "see": "Through the lab window behind him, the light changes: summer, snow, summer, snow, summer.",
+    "beats": "+0.0 light-change: five seasonal washes cycle in the window (0.6 s each)"
+   },
+   "src": "S13 S14 S13 S14 S15",
+   "facts": "F7 F8"
+  },
+  {
+   "text": "Every measurement came out wrong. There was far too much *lead*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "WrongNeedle"
+    ],
+    "stock": [],
+    "see": "A needle on a gauge swings past the end of its scale and trembles.",
+    "beats": "+0.0 the gauge inks on | +1.0 the needle swings to the end stop | +2.0 tremble"
+   },
+   "src": "S13 S14",
+   "facts": "F7"
+  },
+  {
+   "text": "Lead was in the dust, in the water, in the glassware, even on his own *hands*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "bloom",
+    "trans": "light-change",
+    "cam": "pan",
+    "comp": "wide-lab",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LeadSpecks"
+    ],
+    "stock": [],
+    "see": "Grey specks light up everywhere in the lab — in the air, in a beaker, on the glass, on his fingers.",
+    "beats": "+0.0 light-change: the lab dims; specks glow grey-blue one zone at a time on each named word",
+    "set": "lead-everywhere-specks"
+   },
+   "src": "S13 S14",
+   "facts": "F7"
+  },
+  {
+   "text": "So Patterson built something almost nobody had ever seen: a laboratory so clean that a single speck of lead could not get *in*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "wipe",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "PattersonCleanRoom"
+    ],
+    "stock": [
+     "P-02",
+     "R-01"
+    ],
+    "see": "The specks are wiped away by a sweep of the paper; a bright clean room draws itself — sealed hoods, plastic sheets, washed bottles; a real photo ★P-02 pinned.",
+    "beats": "+0.0 wipe: a broad sweep clears the specks (1.4 s) | +1.6 the clean room inks on (2.4 s) | +4.4 ★P-02 pinned plate",
+    "set": "clean-room-scrub"
+   },
+   "src": "S13 S14",
+   "facts": "F7"
+  },
+  {
+   "text": "The air was filtered, every bottle was washed in acid, every surface was scrubbed — so that the only lead in the room came from the *sample*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "blinds",
+    "trans": "trace",
+    "cam": "pan",
+    "comp": "wide-lab",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "AcidWashBottles",
+     "AirFilterHood"
+    ],
+    "stock": [],
+    "see": "Pan along the clean room: a hood with a filter drawing air in, bottles soaking in an acid bath, a gloved hand wiping a bench.",
+    "beats": "+0.0 pan (4 s) | +0.4 blinds: each station revealed in turn | +3.6 the last speck on the bench is wiped away"
+   },
+   "src": "S13 S14",
+   "facts": "F7"
+  },
+  {
+   "text": "Then he dissolved a sliver of the Canyon Diablo meteorite, and counted its atoms of lead on a mass spectrometer at *Argonne*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "iris",
+    "trans": "window",
+    "cam": "push",
+    "comp": "left-third-large",
+    "life": [
+     "photons"
+    ],
+    "new": [
+     "MassSpectrometer50s",
+     "MeteoriteSliver"
+    ],
+    "stock": [
+     "P-05",
+     "R-02",
+     "R-03"
+    ],
+    "see": "A silver slice of the meteorite with its crystal pattern; a window opens into the spectrometer: ions curve in a magnet and land in counted ticks.",
+    "beats": "+0.0 the meteorite slice inks on (Widmanstätten lines) | +1.6 window into the spectrometer | +3.0 ion paths curve (trail ×3) and land in ticks"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "The meteorite's lead told him when the solar system's clock had *started*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "match",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The counted ticks rise into a straight ink line on a graph; it points back to a single moment.",
+    "beats": "+0.0 the ticks rise into points (stagger) | +1.6 a straight line is drawn through them | +3.0 the line points to its origin; a gold dot"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Because meteorites formed with the Earth, their oldest lead was the Earth's oldest lead too — the first page the planet itself had *lost*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "flip",
+    "trans": "page-turn",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "RockBookRestored"
+    ],
+    "stock": [],
+    "see": "The torn stone book returns; the meteorite slice flips into the empty place where its first page was missing.",
+    "beats": "+0.0 the stone book returns (from CLUE3) | +1.6 flip: the meteorite slice turns into the gap (back) | +3.4 the book closes, whole",
+    "set": "lost-page-returned"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "In 1956, he published the number. How old was the Earth? Four point five five billion *years*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "D-07"
+    ],
+    "see": "The real 1956 paper ★D-07; the figure '4.55 billion years' in gold over it.",
+    "beats": "+0.0 ★D-07 slides in | +1.4 figure '4.55 billion years' (k 0→1, 1.8 s) | +3.4 hold"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Seventy years later, it has barely *changed*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The gold figure stays; the paper around it ages and yellows; it does not move.",
+    "beats": "+0.0 the paper sepia-ages (sepia 0→.6, 2 s) | +1.4 the gold figure stays bright"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "But the story does not end with that *number*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "tear-in",
+    "trans": "tear-away",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The figure is torn away; behind it, the clean room again, and a long list of places.",
+    "beats": "+0.0 tear-away: the page tears off left (1.0 s) | +1.0 the clean room behind it"
+   }
+  },
+  {
+   "text": "To get it, Patterson had to find out where all that unwanted lead was coming *from*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "quill",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "left-to-right",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LeadTrail"
+    ],
+    "stock": [],
+    "see": "A trail of grey specks leads out of the lab door and across a map.",
+    "beats": "+0.0 quill writes 'where from?' | +1.0 ride along the speck trail out of the door"
+   },
+   "src": "S16 S17",
+   "facts": "F9"
+  },
+  {
+   "text": "He measured lead in the open ocean, in the air, in snow, and in ice drilled from deep inside *Greenland*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "assemble",
+    "trans": "window",
+    "cam": "pan",
+    "comp": "four-windows",
+    "life": [
+     "snow"
+    ],
+    "new": [
+     "OceanSample",
+     "AirSampler",
+     "GreenlandIceCore"
+    ],
+    "stock": [
+     "P-11",
+     "V-03"
+    ],
+    "see": "Four small windows open along the trail: a sampling bottle at sea, an air filter, falling snow, and a long ice core lifted from a drill.",
+    "beats": "+0.0 assemble: four windows open in turn (0.7 s each) | +3.4 the ice core rises vertically and fills the frame (★P-11 plate beside)",
+    "set": "ice-core-ladder"
+   },
+   "src": "S16 S17",
+   "facts": "F9"
+  },
+  {
+   "text": "Snow falls year after year and turns to ice, so an ice core is a calendar of the *air*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "unroll",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "tall-centre",
+    "life": [
+     "snow"
+    ],
+    "new": [
+     "IceLayersCalendar"
+    ],
+    "stock": [],
+    "see": "The ice core's layers are marked with years like rungs of a ladder.",
+    "beats": "+0.0 unroll: year marks appear along the core, bottom to top (2 s) | +2.4 tilt up the ladder"
+   },
+   "src": "S16 S17",
+   "facts": "F9"
+  },
+  {
+   "text": "In old ice, there was almost none. In modern ice, there was about two hundred times *more*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "tilt-up",
+    "comp": "tall-centre",
+    "life": [
+     "snow"
+    ],
+    "new": [
+     "LeadCurve"
+    ],
+    "stock": [
+     "X-02"
+    ],
+    "see": "Along the ice core, a curve of lead: flat for most of its length, then rising steeply near the top.",
+    "beats": "+0.0 tilt up the ice core from old to new | +0.6 grow: a red curve traces alongside (trail, 4 s, true to ★X-02) | +4.8 the steep rise; label '×200'"
+   },
+   "src": "S16 S17",
+   "facts": "F9"
+  },
+  {
+   "text": "Where did it come from? The source was in almost every car of the age: lead added to petrol, breathed out through exhaust pipes into the *sky*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "rise",
+    "trans": "morph",
+    "cam": "pan",
+    "comp": "wide-street",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LeadedPetrolPump",
+     "StreetOfCars",
+     "ExhaustPlumes"
+    ],
+    "stock": [
+     "P-12"
+    ],
+    "see": "The steep part of the curve morphs into exhaust plumes rising from a street of mid-century cars; a petrol pump in the foreground.",
+    "beats": "+0.0 morph: the curve's rise becomes smoke (1.6 s) | +1.8 rise: the street and cars come up | +3.6 grey plumes drift up and join the sky",
+    "set": "lead-in-the-sky"
+   },
+   "src": "S16 S17",
+   "facts": "F9"
+  },
+  {
+   "text": "And it was not only in the ice. It was in people's *blood*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "iris",
+    "trans": "eclipse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "BloodVial"
+    ],
+    "stock": [],
+    "see": "Iris to a glass vial of blood held to the light; grey specks hang inside it.",
+    "beats": "+0.0 iris to the vial (1.2 s) | +1.4 specks fade in inside it"
+   },
+   "src": "S16 S17",
+   "facts": "F9"
+  },
+  {
+   "text": "The lead industry fought him for years, insisting that the lead was natural. But he had the *ice*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "CourtroomPapers"
+    ],
+    "stock": [
+     "D-09"
+    ],
+    "see": "A wall of papers and letterheads closes in around Patterson's small figure.",
+    "beats": "+0.0 papers stamp down around him one after another (collapse) | +2.0 tremble"
+   },
+   "src": "S17 S18",
+   "facts": "F10"
+  },
+  {
+   "text": "He kept measuring. Lead was phased out of petrol, and in 1996 it was banned from American roads *entirely*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "flip",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "wide-street",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [
+     "D-08"
+    ],
+    "see": "The papers flip away one by one; the street returns, the plumes thin and clear, light comes back.",
+    "beats": "+0.0 flip: the papers turn and fall (stagger) | +2.0 light-change: the sky clears (2 s) | +4.0 stamp '1996' small, red"
+   },
+   "src": "S17 S18",
+   "facts": "F10"
+  },
+  {
+   "text": "And the lead in people's blood fell *sharply*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "grow",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The vial again: the specks drain away; the curve beside it falls.",
+    "beats": "+0.0 the specks fade from the vial | +1.0 a short falling curve"
+   },
+   "src": "S17 S18",
+   "facts": "F10"
+  },
+  {
+   "text": "So — how old is the *Earth*?",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The turning Earth of the opening returns.",
+    "beats": "+0.0 scale-out to the Earth (2 s) | +1.0 bloom"
+   }
+  },
+  {
+   "text": "A family tree gave us six thousand years. Water and heat gave us millions. A clock inside the rocks gave us *billions*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "assemble",
+    "trans": "page-turn",
+    "cam": "pan",
+    "comp": "four-in-a-row",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Around the Earth, the four clues return as small medallions in turn: the tree, the valley/ball/sea, the hourglass.",
+    "beats": "+0.0 assemble: medallions return on each named answer (1.2 s apart) | +5.0 they circle the Earth",
+    "set": "four-clocks-row"
+   },
+   "src": "S1 S2 S3 S6 S7 S8 S11 S12",
+   "facts": "F1 F3 F6"
+  },
+  {
+   "text": "And one stone that fell from the sky gave us the answer: about four and a half billion *years*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The meteorite medallion falls into the Earth; the gold figure '4.5 billion years' settles across it.",
+    "beats": "+0.0 the stone medallion falls into the globe (collapse) | +1.6 figure '4.5 billion years' | +3.6 hold"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Not from a book, and not from a guess — but from atoms that have kept perfect time since before the Earth *existed*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "iris",
+    "trans": "eclipse",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Inside the gold figure, tiny grains fall like sand in an hourglass, steady.",
+    "beats": "+0.0 iris into the figure | +1.0 grains fall steadily"
+   },
+   "src": "S13 S14 S15",
+   "facts": "F8"
+  },
+  {
+   "text": "Patterson set out to measure the age of the world, and ended up changing the air it *breathes*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "rise",
+    "trans": "light-change",
+    "cam": "crane",
+    "comp": "wide-sky",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A clear sky over a city; a soft wind; birds.",
+    "beats": "+0.0 crane up from the globe into a clear sky (3 s) | +1.6 birds cross"
+   },
+   "src": "S17 S18",
+   "facts": "F10"
+  },
+  {
+   "text": "Every date in the story of life — the first cells, the dinosaurs, the first humans — is measured against that same atomic *clock*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "pan",
+    "comp": "long-timeline",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "DeepTimeline"
+    ],
+    "stock": [],
+    "see": "A long ink timeline unrolls across the page; tiny drawings sit on it — a cell, a dinosaur, a human — with the hourglass at its start.",
+    "beats": "+0.0 grow: the timeline unrolls (3 s) | +1.0 the drawings ink on as named | +4.0 ride back to the hourglass at the start",
+    "set": "life-on-the-clock"
+   }
+  },
+  {
+   "text": "Ussher counted lives. Kelvin counted heat. Boltwood counted atoms. Patterson had to count what *we* had added.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "ink-on",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "row-left-to-right",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Four small figures in a row, each with what they counted: a folio, a thermometer, a crystal, a vial.",
+    "beats": "+0.0 pan along the row; each figure inks on as named (stagger 1.2 s) | +5.0 the last one holds the vial up",
+    "set": "four-counters"
+   }
+  },
+  {
+   "text": "The oldest clock we have was written in lead… and so is the newest page of the Earth's *story*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "quill",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The ice core again, its top layer thin and clean; a quill writes a last line on the paper; the brand end card follows.",
+    "beats": "+0.0 the ice core in profile; its top layer clears | +2.0 quill writes '…' | +4.0 end card"
+   }
+  }
+ ],
+ "world": []
+}
