@@ -1,0 +1,15 @@
+{
+  "slug": "moon-laser",
+  "title": "How do we know how far away the Moon is?",
+  "note": "LOOK TEST v2 (15 Nov 2026), not an episode. Facts: APOLLO lunar laser ranging at Apache Point Observatory, New Mexico; Apollo 11/14/15 retroreflectors; mean distance 384,400 km; round trip about 2.5 s.",
+  "voice": "af_heart",
+  "speed": 0.92,
+  "lead": 0.8,
+  "tail": 1.6,
+  "music": { "file": "../studio/music/wonder_silver_blue_light.wav", "db": -21, "start": 6 },
+  "lines": [
+    { "text": "On a mountain in New Mexico, astronomers fire a laser at the Moon.", "sfx": [{ "at": 1.35, "file": "public/sfx/beam_laser_1.wav", "db": -14 }] },
+    { "text": "The pulse of light crosses three hundred and eighty-four thousand kilometres of empty space…", "gap": 0.5, "sfx": [{ "at": 0.0, "file": "public/sfx/motion_whoosh_airy_1.wav", "db": -20 }] },
+    { "text": "hits a mirror the Apollo astronauts left behind, and comes home two and a half seconds later.", "gap": 0.35, "sfx": [{ "at": 1.4, "file": "public/sfx/machine_chime_1.wav", "db": -22 }] }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+ "slug": "moon-laser",
+ "duration": 18.368,
+ "lines": [
+  {
+   "i": 0,
+   "text": "On a mountain in New Mexico, astronomers fire a laser at the Moon.",
+   "start": 0.8,
+   "dur": 4.142,
+   "sfx": [
+    {
+     "at": 1.35,
+     "file": "public/sfx/beam_laser_1.wav",
+     "db": -14
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "text": "The pulse of light crosses three hundred and eighty-four thousand kilometres of empty space\u2026",
+   "start": 5.442,
+   "dur": 5.418,
+   "sfx": [
+    {
+     "at": 0.0,
+     "file": "public/sfx/motion_whoosh_airy_1.wav",
+     "db": -20
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "text": "hits a mirror the Apollo astronauts left behind, and comes home two and a half seconds later.",
+   "start": 11.211,
+   "dur": 5.557,
+   "sfx": [
+    {
+     "at": 1.4,
+     "file": "public/sfx/machine_chime_1.wav",
+     "db": -22
+    }
+   ]
+  }
+ ]
+}
