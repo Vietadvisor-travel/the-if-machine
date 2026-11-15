@@ -12,6 +12,7 @@ import { Entity, Props, stateAt } from './state';
 import { Cam, SW, SH, toScreen, anchor, planetPoint } from './space';
 import { TL, resolveTime } from './time';
 import { Fx, hasFx, FX_KEYS } from './Fx';
+import { SceneText } from '../kit/SceneText';
 import { random } from 'remotion';
 
 type Ctx = { t: number; tl: TL; cam: Cam; S: Record<string, Props> };
@@ -70,6 +71,10 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
             <Wd.PaperSheet />{kids(e, inner)}</AbsoluteFill></AbsoluteFill>
         {ring > 0 && <Svg><circle cx={lx} cy={ly} r={r + 7} fill="none" stroke="url(#gold)" strokeWidth={10} opacity={ring} /><circle cx={lx} cy={ly} r={r + 13} fill="none" stroke={SEP} strokeWidth={1.4} opacity={ring} /><circle cx={lx} cy={ly} r={r + 1} fill="none" stroke={SEP} strokeWidth={1.2} opacity={ring} /></Svg>}
       </AbsoluteFill>;
+    }
+    case 'text': {   // words IN the scene (no subtitles): title | plate | note | label | figure | stamp — kit/SceneText.tsx; to = leader-line anchor
+      const [x, y] = s.space === 'world' ? toScreen(cam, s.x, s.y) : [s.x, s.y], to = s.to ? anchor(s.to, cam, S) : null;
+      return <AbsoluteFill style={{ pointerEvents: 'none' }}><SceneText {...(s as any)} x={x} y={y} to={to as any} a={a} /></AbsoluteFill>;
     }
     case 'group': return <AbsoluteFill style={{ opacity: a }}>{kids(e, c)}</AbsoluteFill>;   // children share this entity's fx (move/flip/wipe a whole composition)
     case 'trail': {   // something TRAVELS along a path of anchors (k 0..1): the inked path is drawn behind it; head = a gold dot or an art (headArt + headProps)

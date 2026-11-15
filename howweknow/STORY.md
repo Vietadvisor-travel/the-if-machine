@@ -25,7 +25,7 @@ The owner wants "kịch bản đỉnh cao": a script you cannot stop watching, e
   the pin becomes a window, the beam becomes a ruler, the shadow becomes an angle, a document's circled number becomes the counter…
 - Real first: real places, real maps, real photos/footage/documents (Muse's kit), toned to the palette. Drawn elements explain what
   a camera cannot show (light travelling, an angle, a scale). 2D only.
-- On screen text: the caption, the clue tag, at most ONE small label at a time. Never a slide of words.
+- On-screen text: NO subtitles (owner, 15 Nov 2026). Words live IN the scene as `text` entities, where they belong: a clue title, a plate caption under a figure, a handwritten margin note, a label with a leader line, the ONE key number in gold, a red stamp — a few words each (≤ 9), on the paper/sky beside the thing they name, written on (`k` 0→1). Use them where a name, date, number or key word helps the eye — not on every line; never a slide of words, never narration repeated as a subtitle.
 - Plan it in the script table: `| # | line | the picture (what becomes what) | real stock id | camera | sound |`.
 
 ## 4. Truth

@@ -7,6 +7,7 @@ cd "$(dirname "$0")/.."
 S=../studio; mkdir -p public/fonts public/sfx public/tex public/music
 for f in fraunces/files/fraunces-latin-400-normal fraunces/files/fraunces-latin-700-normal fraunces/files/fraunces-latin-400-italic inter/files/inter-latin-400-normal inter/files/inter-latin-600-normal space-mono/files/space-mono-latin-400-normal; do cp -n "$S/fonts_stock/$f.woff2" public/fonts/; done
 cp -n $S/sfx_ifm/*.wav public/sfx/ 2>/dev/null || true
+cp -n node_modules/@fontsource/im-fell-english/files/im-fell-english-latin-400-{normal,italic}.woff2 node_modules/@fontsource/im-fell-english-sc/files/im-fell-english-sc-latin-400-normal.woff2 node_modules/@fontsource/pinyon-script/files/pinyon-script-latin-400-normal.woff2 public/fonts/   # in-scene type (TYPE in ENGINE.md)
 [ -f public/tex/regolith_photo.jpg ] || ffmpeg -v error -y -i $S/assets3d_src/_assets3d/materials/gravelly_sand/gravelly_sand_2k_Diffuse.jpg -vf scale=1600:-1 -q:v 3 public/tex/regolith_photo.jpg
 python3 - <<PY
 import numpy as np, os

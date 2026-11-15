@@ -3,7 +3,8 @@
 timeline, every asset exists in public/, keys only on known props. python3 tools/check_world.py episodes/<slug>"""
 import json, os, re, sys
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); TL = json.load(open(f'{ep}/timeline.json'))
-TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue', 'group', 'trail', 'particles', 'ripple', 'hand'}
+TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue', 'group', 'trail', 'particles', 'ripple', 'hand', 'text'}
+TSTYLES = {'title', 'plate', 'note', 'label', 'figure', 'stamp'}
 KITS = {k for k in json.load(open('library.json')) if not k.startswith('costume:')}   # the catalog (tools/lib_index.py): core + samples + every film's drawings
 err, ids = [], set()
 def tref(r, where):
@@ -26,6 +27,9 @@ def walk(ents, path=''):
         for f in ('src',):
             v = p.get(f)
             if v and not re.match(r'^https?:', v) and not os.path.exists(f'public/{v}'): err.append(f'{w}: missing asset public/{v} (Muse → Drive → sync)')
+        if e.get('type') == 'text':
+            if p.get('style', 'plate') not in TSTYLES: err.append(f'{w}: text style "{p.get("style")}" (one of {sorted(TSTYLES)})')
+            if len(str(p.get('text', '')).split()) > 9: err.append(f'{w}: in-scene text is a few words (≤ 9), never a sentence of narration')
         if p.get('play') is not None: tref(p['play'], w + '.play')
         hp = p.get('headArt')
         if hp and hp not in KITS: err.append(f'{w}: unknown headArt {hp}')

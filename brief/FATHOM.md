@@ -26,7 +26,7 @@ how we dated the pyramids · how we mapped the ocean floor · how we found the s
   engine turns each into an element that belongs in the scene where the narration needs it: a photo pinned on the scientist's desk, a
   document page with the key line circled, footage inside a telescope eyepiece or a period TV, a map unrolling under the route. Toned to
   the palette, framed, lit like the drawings. Never a full-screen background.
-- On screen text: captions + the clue tag + at most one small label. No slides of words or numbers.
+- On-screen text: NO subtitles (owner, 15 Nov 2026). Words live IN the scene as `text` entities, where they belong: a clue title, a plate caption under a figure, a handwritten margin note, a label with a leader line, the ONE key number in gold, a red stamp — a few words each (≤ 9), on the paper/sky beside the thing they name, written on (`k` 0→1). Use them where a name, date, number or key word helps the eye — not on every line; never a slide of words, never narration repeated as a subtitle.
 
 ## 4. Sound (locked)
 Voice af_heart (Kokoro), slower and expressive (speed 0.86, longer pauses). ONE music track through each episode, chosen to fit it,

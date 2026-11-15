@@ -1,0 +1,225 @@
+{
+ "slug": "type-board",
+ "title": "internal type QA board",
+ "lines": [
+  {
+   "text": "type"
+  }
+ ],
+ "world": [
+  {
+   "id": "camera",
+   "type": "camera",
+   "props": {
+    "x": 960,
+    "y": 540,
+    "zoom": 1
+   }
+  },
+  {
+   "id": "night",
+   "type": "group",
+   "props": {
+    "wipe": 0.5,
+    "wipeDir": "left"
+   },
+   "children": [
+    {
+     "id": "sky",
+     "type": "art",
+     "props": {
+      "name": "Sky",
+      "kind": "night",
+      "seed": "n"
+     }
+    }
+   ]
+  },
+  {
+   "id": "earth",
+   "type": "planet",
+   "props": {
+    "kind": "earth",
+    "x": 1500,
+    "y": 760,
+    "size": 300,
+    "lon": 10,
+    "lat": 20
+   }
+  },
+  {
+   "id": "watch",
+   "type": "art",
+   "props": {
+    "name": "Stopwatch",
+    "x": 300,
+    "y": 760,
+    "r": 110,
+    "sec": 1.3
+   }
+  },
+  {
+   "id": "t1",
+   "type": "text",
+   "props": {
+    "text": "Clue II \u00b7 The Shadow",
+    "style": "title",
+    "x": 480,
+    "y": 130,
+    "k": 0
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "type": "text",
+   "props": {
+    "text": "Fig. 3. \u2014 The mural quadrant at Berlin, 1751.",
+    "style": "plate",
+    "x": 480,
+    "y": 330,
+    "k": 0
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "type": "text",
+   "props": {
+    "text": "sixty Earth radii",
+    "style": "note",
+    "x": 480,
+    "y": 470,
+    "k": 0
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "type": "text",
+   "props": {
+    "text": "the stopwatch",
+    "style": "label",
+    "x": 640,
+    "y": 640,
+    "k": 0,
+    "align": "left",
+    "to": {
+     "screen": [
+      400,
+      720
+     ]
+    }
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "t5",
+   "type": "text",
+   "props": {
+    "text": "384,400 km",
+    "style": "figure",
+    "x": 1440,
+    "y": 300,
+    "k": 0,
+    "light": true
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "t6",
+   "type": "text",
+   "props": {
+    "text": "Confirmed 1969",
+    "style": "stamp",
+    "x": 1440,
+    "y": 520,
+    "k": 0
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "t7",
+   "type": "text",
+   "props": {
+    "text": "Alexandria",
+    "style": "note",
+    "x": 1480,
+    "y": 650,
+    "k": 0,
+    "light": true,
+    "size": 44
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  },
+  {
+   "id": "t8",
+   "type": "text",
+   "props": {
+    "text": "The Answer",
+    "style": "title",
+    "x": 1440,
+    "y": 120,
+    "k": 0,
+    "light": true
+   },
+   "keys": [
+    {
+     "t": "L0+0.2",
+     "dur": 2.2,
+     "k": 1,
+     "ease": "linear"
+    }
+   ]
+  }
+ ]
+}

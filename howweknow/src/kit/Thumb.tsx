@@ -11,7 +11,7 @@ export const Thumb: React.FC<ThumbProps> = (p) => {
     <AbsoluteFill style={{ transform: 'scale(.6667)', transformOrigin: '0 0', width: 1920, height: 1080 }}><Story {...p} at={p.t} nocap /></AbsoluteFill>
     <AbsoluteFill style={{ background: `linear-gradient(${right ? 270 : 90}deg, rgba(30,20,12,.82) 0%, rgba(30,20,12,.55) 38%, rgba(30,20,12,0) 62%)` }} />
     <div style={{ position: 'absolute', [right ? 'right' : 'left']: 56, top: 120, width: 600, textAlign: right ? 'right' : 'left' }}>
-      {p.kicker && <div style={{ fontFamily: 'Space Mono', fontSize: 24, letterSpacing: 6, color: '#E6C266', marginBottom: 16 }}>{p.kicker.toUpperCase()}</div>}
+      {p.kicker && <div style={{ fontFamily: 'IM Fell English SC', fontSize: 30, letterSpacing: 5, color: '#E6C266', marginBottom: 16 }}>{p.kicker.toUpperCase()}</div>}
       <div style={{ fontFamily: 'Fraunces', fontWeight: 700, fontSize: 86, lineHeight: 1.02, color: '#FBF1D8', textShadow: '0 4px 18px rgba(0,0,0,.5)' }}>
         {words.map((w, i) => w.startsWith('*') ? <span key={i} style={{ color: '#F3D98A' }}>{w.slice(1, -1)}</span> : <span key={i}>{w}</span>)}</div>
     </div>

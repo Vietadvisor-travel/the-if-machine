@@ -1,6 +1,6 @@
 # FATHOM engine v3 — the 2D story world in the signature style (Remotion) — the one page for making a film
 
-Owner (15 Nov 2026): FATHOM, 16:9, 8–12 min, English; 2D only; hand-coloured engraving (`STYLE.md`); real stock from Muse as
+Owner (15 Nov 2026): FATHOM, 16:9, 8–12 min, English; NO subtitles — in-scene type only (`text` entity); 2D only; hand-coloured engraving (`STYLE.md`); real stock from Muse as
 ARTEFACTS in scenes; the picture transforms continuously and meaningfully; one quiet music track; few sound effects; af_heart 0.86.
 Script standard: `STORY.md`. Channel spec: `../brief/FATHOM.md`.
 
@@ -49,6 +49,7 @@ the line traces, the wash blooms, the hatching settles — use it to bring every
 | `particles` | drifting matter: dust snow rain embers sparks photons bubbles | kind n box speed k |
 | `ripple` | inked rings from a point (signal, impact, sound) | at k n r flat col |
 | `hand` | the illustrator's quill at a point (while something is inked on) | at s rot |
+| `text` | words IN the scene (no subtitles): style `title` (small caps + rule + fleuron) · `plate` (italic figure caption) · `note` (handwritten, written on) · `label` (+ leader line `to` an anchor) · `figure` (the key number in gold leaf) · `stamp` (red double frame); ≤ 9 words | text style x y size k rot align light col width to space |
 | `clue` | the clue tag (paper label, gold current clue) | n of label |
 Anchors: `[x, y]` world · `{entity, lon, lat}` a point on a planet · `{entity}` its centre · `{screen: [x, y]}`.
 

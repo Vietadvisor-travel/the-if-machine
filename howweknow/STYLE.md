@@ -53,7 +53,7 @@ telescope eyepiece, on a period screen, as a plate in the atlas with an italic c
 paper border, cast shadow, the same paper texture over them. Never a full-screen background.
 
 ## 7. Type
-Fraunces (700 wordmark and titles; italic for captions on plates and the one small label) · Inter 600 for subtitles (cream with soft
+Brand: Fraunces (700 wordmark, end card, thumbnails). IN-SCENE TYPE (no subtitles, owner 15 Nov 2026): IM Fell English (roman + italic: plates, labels, gold figures), IM Fell English SC (titles, the clue tag, stamps), Pinyon Script (handwritten notes) — `src/kit/SceneText.tsx`. (Old: Inter 600 for subtitles (cream with soft
 dark halo on dark scenes, sepia on paper) · Space Mono only for clue tags. No other fonts.
 
 ## 8. Brand (files: `howweknow/brand/`, rendered PNGs on Drive `brand/`)
