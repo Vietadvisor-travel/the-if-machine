@@ -1,4 +1,4 @@
-# Script standard — phase 3 long films (8–12 min, 16:9, English) — read before writing any episode
+# FATHOM script standard — long films (8–12 min, 16:9, English) — read before writing any episode
 
 The owner wants "kịch bản đỉnh cao": a script you cannot stop watching, every claim true, every line a picture.
 

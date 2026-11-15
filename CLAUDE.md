@@ -6,7 +6,25 @@ Token-lean reading (owner, 3 Nov 2026: as cheap as possible, same quality):
   and `brief/BRAND.md` §2 (tone).
 - Everything else (`PROTOCOL.md`, the brief, `IFM_HOUSE.md`, `references/`) only when a question needs it, with grep.
 
-## PHASE 2 — 90–120-second true stories (owner, 12 Nov 2026) — OVERRIDES everything below about format, look, voice and length
+## PHASE 3 — FATHOM (owner, 15 Nov 2026) — OVERRIDES PHASE 2 and everything below about channel, format, look, engine and sound
+The channel is **FATHOM** — "How we came to know the world." Spec: `brief/FATHOM.md` (locked). Style rule book: `howweknow/STYLE.md`.
+- **Content:** pool 1 only — how humans came to know / measure / discover something that seemed impossible to know. One big real question,
+  3–4 clues, a twist, the answer, what it means today; ONE continuous story. Script standard `howweknow/STORY.md` (+ `tools/script_check.py`).
+- **Format:** landscape 16:9, 8–12 min, English. Voice af_heart (Kokoro) speed 0.86, expressive, longer pauses. ONE quiet music track per
+  episode + few fitting sound effects (`tools/mix.py`, −16 LUFS).
+- **Picture:** 2D ONLY, the signature style (hand-coloured engraving: paper, wash off the line, sepia swelling ink, form-following hatching,
+  stipple, gold leaf), made in **Remotion** (`howweknow/`, engine v3: `ENGINE.md`). The picture transforms continuously with the narration
+  (window / ride / scale jump / morph / real reveal) — never plain cuts. Everything drawn with its real construction — never cheap shapes.
+- **Real resources** (Muse digs ALL of them: photos, documents, footage, maps, music, sfx → Drive `_hwk/<slug>/`, `_hwk_core/`) are used as
+  ARTEFACTS inside scenes (pinned plates, circled documents, footage in an eyepiece/screen), never as backgrounds.
+- **Flow:** Muse shortlist → owner picks → Muse research pack + kit + stock (`jobs/tasks/MUSE_FATHOM.md`) → owner "làm tập …" → Claude:
+  `bash howweknow/tools/setup.sh` · `tools/sync.sh <slug>` · script (STORY.md, check PASS) · `episodes/<slug>/episode.json` (world) ·
+  `bash tools/make.sh <slug> --ship` · delivery note · report ≤ 8 Vietnamese lines + "đăng tập <tên>".
+- **Brand:** `howweknow/brand/` (render `node tools/brand.cjs`; files on Drive `brand/fathom/`).
+- Still valid from below: Vietnamese messages to the owner, facts with 2 sources, no invented numbers, Drive masters, git rules, watchdogs.
+  The canvas engine in `studio/` (IF CREW, 3D L3) is LEGACY for this channel (its voice/Drive tools are reused).
+
+## PHASE 2 (LEGACY since 15 Nov 2026) — 90–120-second true stories (owner, 12 Nov 2026)
 Decided from Muse's market scan (`jobs/research/_market/ANALYSIS.md`): animated TRUE micro-stories win on Facebook; long what-if
 explainers do not. The channel is now **ODDLY TRUE** (owner, 12 Nov 2026; brief/REBRAND.md) — tagline *Strange things that really happened.*
 When the owner says "làm tập <tên>" / "làm tập tiếp" / "làm clip …", make ONE clip:
