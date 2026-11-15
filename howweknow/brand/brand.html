@@ -1,0 +1,110 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="fathom-core.js"></script><style>
+@font-face{font-family:Fr;font-weight:700;src:url(../public/fonts/fraunces-latin-700-normal.woff2)}@font-face{font-family:Fr;font-weight:400;src:url(../public/fonts/fraunces-latin-400-normal.woff2)}
+@font-face{font-family:Fr;font-style:italic;src:url(../public/fonts/fraunces-latin-400-italic.woff2)}@font-face{font-family:In;font-weight:600;src:url(../public/fonts/inter-latin-600-normal.woff2)}@font-face{font-family:Mo;src:url(../public/fonts/space-mono-latin-400-normal.woff2)}
+*{margin:0}body{overflow:hidden;background:transparent}svg{display:block}</style></head><body><div id="out"></div>
+<script>
+// FATHOM brand files, drawn in the signature style. #mark #logo #logo-dark #avatar #yt #fb #guide (render: tools/brand.mjs)
+const which = location.hash.slice(1) || 'guide', F = Fathom({ seed: 7 }), { SEP } = F;
+const SIZE = { mark: [1200, 1200], logo: [2400, 900], 'logo-dark': [2400, 900], avatar: [2048, 2048], yt: [2560, 1440], fb: [1640, 624], guide: [1920, 1080] }[which];
+
+// ---------------------------------------------------------------- the MARK: a sounding line with fathom markers and a gold lead, through engraved water, in a dial
+function mark(cx, cy, s, o = {}) {
+  const k = s / 400, P = (x, y) => [cx + x * k, cy + y * k], p = (x, y) => P(x, y).map(v => +v.toFixed(1)).join(' '), id = 'mk' + Math.round(cx) + Math.round(cy);
+  F.addDef(`<clipPath id="${id}"><circle cx="${cx}" cy="${cy}" r="${166 * k}"/></clipPath><linearGradient id="${id}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A88AE"/><stop offset=".55" stop-color="#22507A"/><stop offset="1" stop-color="#0E2A48"/></linearGradient>
+    <linearGradient id="${id}s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${o.dark ? '#2B3B66' : '#F8EFD8'}"/><stop offset="1" stop-color="${o.dark ? '#5A6E9A' : '#E9D9B4'}"/></linearGradient>`);
+  let g = `<g clip-path="url(#${id})"><rect x="${cx - 170 * k}" y="${cy - 170 * k}" width="${340 * k}" height="${170 * k}" fill="url(#${id}s)"/>`;
+  g += F.stipple(cx - 170 * k, cy - 170 * k, 340 * k, 160 * k, Math.round(900 * k * k), (x, y) => Math.pow(1 - y, 2) * .5, o.dark ? '#F3E7CC' : SEP, 5, .28 * k);
+  // the water: wash + engraved wave lines getting denser with depth
+  g += `<rect x="${cx - 170 * k}" y="${cy}" width="${340 * k}" height="${170 * k}" fill="url(#${id}w)" filter="url(#wc)"/>`;
+  for (let i = 0; i < 20; i++) { const y = cy + (6 + i * 8.4) * k, a = (3.2 - i * .1) * k; let d = `M${cx - 170 * k} ${y}`; for (let x = -170; x <= 170; x += 10) d += ` L${(cx + x * k).toFixed(1)} ${(y + Math.sin(x / 17 + i * .9) * a).toFixed(1)}`; g += F.line(d, (.7 + i * .03) * k, '#0B1F36', .55 + i * .015); }
+  g += `</g>`;
+  // surface + rings where the line enters
+  g += F.line(`M${cx - 166 * k} ${cy} L${cx + 166 * k} ${cy}`, 2 * k);
+  [[30, 6], [58, 10], [92, 14]].forEach(([rx, ry], i) => g += `<ellipse cx="${cx}" cy="${cy}" rx="${rx * k}" ry="${ry * k}" fill="none" stroke="${o.dark ? '#F3E7CC' : SEP}" stroke-width="${(1.6 - i * .35) * k}" opacity="${.85 - i * .2}"/>`);
+  // the line, its markers (leather, white calico, red serge — as on real sounding lines)
+  g += F.line(`M${cx} ${cy - 150 * k} L${cx} ${cy + 96 * k}`, 3 * k, SEP, 1);
+  [[-118, 'wood', -1], [-84, 'paper', 1], [-50, 'red', -1], [-18, 'wood', 1], [34, 'paper', -1], [66, 'red', 1]].forEach(([y, m, sd]) => {   // a knot + a short cloth strip
+    g += `<circle cx="${cx}" cy="${cy + y * k}" r="${3.2 * k}" fill="${SEP}"/>` + F.fill(`M${p(sd * 2, y - 2.5)} L${p(sd * 17, y - 3.5)} Q${p(sd * 20, y)} ${p(sd * 17, y + 3.5)} L${p(sd * 2, y + 2.5)}Z`, m, .25, 0, { sw: .7 * k, k: k * .6, rim: false }); });
+  // the lead: a gold bell with a knob, shade hatched on the left, the arming cavity underneath
+  const lead = `M${p(-8, 98)} L${p(8, 98)} C${p(13, 120)} ${p(27, 140)} ${p(29, 156)} Q${p(29, 168)} ${p(0, 170)} Q${p(-29, 168)} ${p(-29, 156)} C${p(-27, 140)} ${p(-13, 120)} ${p(-8, 98)}Z`;
+  g += F.fill(F.ell(cx, cy + 94 * k, 6 * k, 6 * k), 'gold', .3, 0, { sw: 1 * k, k }) + F.fill(lead, 'gold', .2, 70, { sw: 1.6 * k, k, hatch: 0 }) + `<path d="${lead}" fill="url(#${F.hatch(2, 75)})" opacity=".5" clip-path="url(#${id}L)"/>`;
+  F.addDef(`<clipPath id="${id}L"><rect x="${cx - 30 * k}" y="${cy + 95 * k}" width="${20 * k}" height="${80 * k}"/></clipPath>`);
+  g += `<path d="M${p(10, 120)} C${p(16, 134)} ${p(20, 146)} ${p(20, 156)}" stroke="#FFF6DA" stroke-width="${3 * k}" fill="none" opacity=".8"/>` + F.fill(F.ell(cx, cy + 166 * k, 14 * k, 3.4 * k), 'wood', .8, 0, { sw: .8 * k, k, rim: false });
+  // the dial: gold ring, 120 graduations, a fine inner rule
+  g += `<circle cx="${cx}" cy="${cy}" r="${183 * k}" fill="none" stroke="url(#gold)" stroke-width="${18 * k}"/>` + F.ink(F.ell(cx, cy, 192 * k, 192 * k), 1.6 * k) + F.ink(F.ell(cx, cy, 174 * k, 174 * k), 1.2 * k) + F.line(F.ell(cx, cy, 166 * k, 166 * k), .8 * k);
+  for (let i = 0; i < 120; i++) { const a = i / 120 * Math.PI * 2, L = i % 10 ? (i % 5 ? 5 : 8) : 12; g += F.line(`M${cx + Math.cos(a) * 191 * k} ${cy + Math.sin(a) * 191 * k} L${cx + Math.cos(a) * (191 - L) * k} ${cy + Math.sin(a) * (191 - L) * k}`, (i % 10 ? .7 : 1.2) * k, SEP, .85); }
+  return g;
+}
+const wordmark = (x, y, size, col = SEP, anchor = 'middle', rule = true) => `<text x="${anchor === 'middle' ? x + size * .125 : x}" y="${y}" text-anchor="${anchor}" font-family="Fr" font-weight="700" font-size="${size}" letter-spacing="${size * .25}" fill="${col}">FATHOM</text>`
+  + (rule ? `<rect x="${anchor === 'middle' ? x - size * 2.75 : x}" y="${y + size * .28}" width="${size * 5.5}" height="${Math.max(2, size * .045)}" fill="url(#gold)"/>` : '');
+const tagline = (x, y, size, col = SEP, anchor = 'middle') => `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="Fr" font-style="italic" font-size="${size}" fill="${col}">How we came to know the world.</text>`;
+
+// ---------------------------------------------------------------- a detailed sailing ship (hull planks, masts, furled and set sails, rigging)
+function ship(x, y, s) { const k = s / 300, P = (a, b) => [x + a * k, y + b * k]; let g = '';
+  g += F.fill(F.poly([P(-150, -10), P(150, -14), P(130, 30), P(-128, 30)]), 'wood', .55, 0, { sw: 1.4 * k, k });
+  for (let i = 0; i < 4; i++) g += F.line(`M${P(-146 + i * 4, -2 + i * 8).join(' ')} L${P(144 - i * 4, -6 + i * 8).join(' ')}`, .8 * k);
+  for (let i = 0; i < 7; i++) g += `<circle cx="${P(-90 + i * 28, 4)[0]}" cy="${P(-90 + i * 28, 4)[1]}" r="${3.2 * k}" fill="${SEP}"/>`;
+  g += F.fill(F.poly([P(108, -14), P(150, -14), P(156, -34), P(112, -30)]), 'wood', .45, 0, { sw: 1 * k, k });
+  [[-60, 210], [30, 250], [110, 160]].forEach(([mx, h]) => { g += F.line(`M${P(mx, -12).join(' ')} L${P(mx, -12 - h).join(' ')}`, 3 * k, SEP, 1);
+    [[.92, .7], [.6, .55], [.32, .42]].forEach(([f, w], j) => { const yy = -12 - h * f, ww = h * w * .55; if (j === 0 && mx === 110) return;
+      g += F.fill(`M${P(mx - ww / 2, yy).join(' ')} Q${P(mx, yy - 6).join(' ')} ${P(mx + ww / 2, yy).join(' ')} L${P(mx + ww / 2 + 4, yy + h * .22).join(' ')} Q${P(mx, yy + h * .28).join(' ')} ${P(mx - ww / 2 - 4, yy + h * .22).join(' ')}Z`, 'cloth', .2 + j * .08, 90, { sw: 1 * k, k }); }); });
+  g += F.line(`M${P(-150, -10).join(' ')} L${P(-60, -222).join(' ')} L${P(30, -262).join(' ')} L${P(110, -172).join(' ')} L${P(150, -14).join(' ')}`, .8 * k, SEP, .7);
+  g += F.fill(F.poly([P(-190, -30), P(-150, -10), P(-146, -4), P(-186, -24)]), 'wood', .5, 0, { sw: .8 * k, k });
+  g += F.line(`M${P(-176, -34).join(' ')} L${P(-60, -180).join(' ')}`, .8 * k, SEP, .7) + `<path d="M${P(30, -262).join(' ')} l${18 * k} ${5 * k} l${-18 * k} ${5 * k}Z" fill="#D2643E"/>`;
+  return g; }
+// fish, engraved and washed
+const fish = (x, y, s, flip = 1) => { const k = s / 100, P = (a, b) => [x + a * k * flip, y + b * k]; return F.fill(`M${P(-50, 0).join(' ')} Q${P(-10, -22).join(' ')} ${P(36, -4).join(' ')} L${P(50, -16).join(' ')} L${P(48, 14).join(' ')} L${P(36, 4).join(' ')} Q${P(-10, 22).join(' ')} ${P(-50, 0).join(' ')}Z`, 'deep', .3, 0, { sw: 1 * k, k }) + `<circle cx="${P(-34, -3)[0]}" cy="${P(-34, -3)[1]}" r="${2.4 * k}" fill="${SEP}"/>` + F.line(`M${P(-24, -10).join(' ')} Q${P(-20, 0).join(' ')} ${P(-24, 10).join(' ')}`, .8 * k); };
+
+// ---------------------------------------------------------------- the panorama: the world above, the depth below (cover art)
+function panorama(W, H, wl) { let g = '';
+  F.addDef(`<linearGradient id="skyP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B3B66"/><stop offset=".45" stop-color="#7FA8C4"/><stop offset=".85" stop-color="#E9D7B0"/><stop offset="1" stop-color="#F3DFB4"/></linearGradient>
+    <linearGradient id="seaP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A88AE"/><stop offset=".35" stop-color="#22507A"/><stop offset="1" stop-color="#081B30"/></linearGradient>`);
+  g += `<rect width="${W}" height="${wl}" fill="url(#skyP)" filter="url(#wc)"/>` + F.stipple(0, 0, W, wl * .7, Math.round(W * 4), (x, y) => (1 - y) * .8, '#0E1A33', 3);
+  F.setSeed(19); for (let i = 0; i < 90; i++) { const x = F.R() * W, y = F.R() * wl * .35; g += `<circle cx="${x}" cy="${y}" r="${1.4 + F.R() * 1.6}" fill="#F3E7CC" stroke="${SEP}" stroke-width=".5"/>`; }
+  // crescent moon (left) and the gold sun low on the right with engraved rays
+  const mx = W * .16, my = wl * .26, mr = W * .03; g += `<circle cx="${mx}" cy="${my}" r="${mr * 2.2}" fill="url(#glowW)" opacity=".5"/>` + F.fill(F.ell(mx, my, mr, mr), 'paper', .1, 0, { sw: 1.4 }) + `<path d="M${mx + mr * .1} ${my - mr} A${mr} ${mr} 0 0 0 ${mx + mr * .1} ${my + mr} A${mr * .55} ${mr} 0 0 1 ${mx + mr * .1} ${my - mr}Z" fill="#2B3B66" opacity=".75"/>` + F.contour(mx, my, mr, -1, .45, 14);
+  const sx = W * .87, sy = wl * .3, sr = W * .026; g += `<circle cx="${sx}" cy="${sy}" r="${sr * 6}" fill="url(#glowW)" opacity=".75"/>`; for (let i = 0; i < 60; i++) { const a = i / 60 * Math.PI * 2; g += F.line(`M${sx + Math.cos(a) * sr * 1.25} ${sy + Math.sin(a) * sr * 1.25} L${sx + Math.cos(a) * sr * (i % 2 ? 1.9 : 2.7)} ${sy + Math.sin(a) * sr * (i % 2 ? 1.9 : 2.7)}`, .9, SEP, .6); }
+  g += F.fill(F.ell(sx, sy, sr, sr), 'gold', .2, 0, { sw: 1.6 });
+  // distant coast: hills, an obelisk with palms (left), an observatory dome on a headland (right), a lighthouse
+  F.setSeed(4); let d = `M0 ${wl}`; for (let x = 0; x <= W * .42; x += 20) d += ` L${x} ${wl - 30 - Math.sin(x / 140) * 18 - F.R() * 6}`; g += F.fill(d + ` L${W * .42} ${wl}Z`, 'sand', .35, 0, { sw: 1.1 });
+  const ox = W * .3, oy = wl - 46; g += F.fill(F.poly([[ox - 9, oy], [ox + 9, oy], [ox + 6, oy - 120], [ox - 6, oy - 120]]), 'stone', .25, 90, { sw: 1 }) + F.fill(F.poly([[ox - 6, oy - 120], [ox + 6, oy - 120], [ox, oy - 136]]), 'gold', .2, 0, { sw: .8 });
+  [W * .22, W * .25, W * .35, W * .38].forEach((x, i) => { const y = wl - 40, h = 60 + i * 8; g += F.line(`M${x} ${y} Q${x - 6} ${y - h * .5} ${x + 4} ${y - h}`, 3, '#4F3020', 1); for (let j = 0; j < 6; j++) { const a = -2.8 + j * .55; g += F.line(`M${x + 4} ${y - h} q${Math.cos(a) * 16} ${Math.sin(a) * 10 - 6} ${Math.cos(a) * 30} ${Math.sin(a) * 18 + 6}`, 2.4, '#2F5440', 1); } });
+  d = `M${W * .62} ${wl}`; for (let x = W * .62; x <= W; x += 20) d += ` L${x} ${wl - 40 - Math.sin((x - W * .62) / 160) * 26 - (x > W * .7 && x < W * .78 ? 30 : 0)}`; g += F.fill(d + ` L${W} ${wl}Z`, 'leaf', .45, 20, { sw: 1.1 });
+  const dx = W * .735, dy = wl - 100; g += F.fill(F.poly([[dx - 40, dy], [dx + 40, dy], [dx + 40, dy + 34], [dx - 40, dy + 34]]), 'stone', .3, 0, { sw: 1 }) + F.fill(`M${dx - 40} ${dy} A40 40 0 0 1 ${dx + 40} ${dy}Z`, 'paper', .2, 0, { sw: 1.2 }) + F.line(`M${dx + 6} ${dy - 38} L${dx + 14} ${dy}`, 3);
+  // the sea and the depth: wash + engraved waves, a seabed with rock strata, fish, a whale far below
+  g += `<rect y="${wl}" width="${W}" height="${H - wl}" fill="url(#seaP)" filter="url(#wc)"/>`;
+  for (let i = 0; i < 70; i++) { const y = wl + 6 + Math.pow(i / 70, 1.6) * (H - wl), a = 4 - i * .04; let p = `M0 ${y}`; for (let x = 0; x <= W; x += 24) p += ` L${x} ${(y + Math.sin(x / 70 + i * 1.3) * a).toFixed(1)}`; g += F.line(p, .7 + i * .01, '#06162A', .35 + i * .006); }
+  F.setSeed(8); let bed = `M0 ${H}`; for (let x = 0; x <= W; x += 30) bed += ` L${x} ${H - 90 - Math.sin(x / 260) * 40 - F.R() * 14}`; g += F.fill(bed + ` L${W} ${H}Z`, 'sand', .7, 8, { sw: 1.2 });
+  for (let i = 1; i < 4; i++) { let p = `M0 ${H - 90 + i * 26}`; for (let x = 0; x <= W; x += 30) p += ` L${x} ${H - 90 + i * 26 - Math.sin(x / 260 + i) * 30}`; g += F.line(p, .9, SEP, .6); }
+  [[W * .2, wl + 220, 70, 1], [W * .26, wl + 260, 50, 1], [W * .7, wl + 300, 80, -1], [W * .74, wl + 250, 56, -1], [W * .12, wl + 420, 60, 1]].forEach(([x, y, s, f]) => g += fish(x, y, s, f));
+  return g; }
+// the sounding: a ship at the surface lowering the line with its gold lead into the depth (the brand, as a scene)
+function sounding(x, wl, depth, s) { return ship(x, wl - 8, s) + F.line(`M${x - s * .62} ${wl - 12} L${x - s * .62} ${depth}`, 2.4, '#F3E7CC', .95)
+  + [1, 2, 3, 4, 5, 6, 7].map(i => { const y = wl + i * (depth - wl) / 8; return `<path d="M${x - s * .62 - 7} ${y} h14" stroke="${i % 2 ? '#D2643E' : '#F3E7CC'}" stroke-width="5"/>`; }).join('')
+  + (() => { const cx = x - s * .62, k = s / 600, lead = `M${cx - 8 * k * 2} ${depth} L${cx + 8 * k * 2} ${depth} C${cx + 13 * k * 2} ${depth + 22 * k * 2} ${cx + 27 * k * 2} ${depth + 42 * k * 2} ${cx + 29 * k * 2} ${depth + 58 * k * 2} Q${cx + 29 * k * 2} ${depth + 70 * k * 2} ${cx} ${depth + 72 * k * 2} Q${cx - 29 * k * 2} ${depth + 70 * k * 2} ${cx - 29 * k * 2} ${depth + 58 * k * 2} C${cx - 27 * k * 2} ${depth + 42 * k * 2} ${cx - 13 * k * 2} ${depth + 22 * k * 2} ${cx - 8 * k * 2} ${depth}Z`;
+    return `<circle cx="${cx}" cy="${depth + 40 * k * 2}" r="${120 * k * 2}" fill="url(#glowW)" opacity=".35"/>` + F.fill(lead, 'gold', .2, 70, { sw: 1.6 }); })(); }
+
+let body = '', W = SIZE[0], H = SIZE[1], o = {};
+if (which === 'mark') { body = mark(W / 2, H / 2, W * .9); o = { paper: false, finish: false }; }
+if (which === 'logo' || which === 'logo-dark') { const dk = which === 'logo-dark'; if (dk) body += `<rect width="${W}" height="${H}" fill="#141C38"/>`;
+  body += mark(H * .52, H / 2, H * .84, { dark: dk }) + wordmark(H * 1.02, H * .56, H * .26, dk ? '#F3E7CC' : SEP, 'start') + tagline(H * 1.04, H * .76, H * .075, dk ? '#E9D9B4' : SEP, 'start'); o = { finish: !dk, paper: !dk }; }
+if (which === 'avatar') { F.addDef(`<radialGradient id="avb" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#2B3B66"/><stop offset="1" stop-color="#0E1530"/></radialGradient>`);
+  body = `<rect width="${W}" height="${H}" fill="url(#avb)" filter="url(#wc)"/>` + F.stipple(0, 0, W, H, 9000, () => .6, '#F3E7CC', 2, .7) + mark(W / 2, H / 2, W * .86); o = { vig: false }; }
+if (which === 'yt' || which === 'fb') { const AW = 2560, AH = 1440, wl = 860; body = panorama(AW, AH, wl) + sounding(AW * .8, wl, 1250, 380);
+  body += `<rect x="${AW / 2 - 640}" y="${520}" width="1280" height="${300}" fill="#F3E7CC" opacity=".0"/>` + `<ellipse cx="${AW / 2}" cy="720" rx="760" ry="150" fill="#F6E9CB" opacity=".45" filter="url(#b30)"/>` + wordmark(AW / 2, 712, 150, SEP) + tagline(AW / 2, 810, 46, SEP);
+  W = AW; H = AH; if (which === 'fb') o = { viewBox: `0 ${700 - 487} 2560 975`, outW: 1640, outH: 624 }; }
+if (which === 'guide') { const gw = 1920; body += mark(250, 300, 360) + wordmark(470, 300, 92, SEP, 'start') + tagline(474, 372, 30, SEP, 'start');
+  body += `<text x="70" y="560" font-family="Mo" font-size="16" letter-spacing="4" fill="${SEP}">PALETTE — PIGMENTS ON LAID PAPER</text>`;
+  [['Prussian blue', 'sea'], ['Verdigris', 'leaf'], ['Yellow ochre', 'sand'], ['Burnt sienna', 'wood'], ['Vermilion', 'red'], ['Stone', 'stone'], ['Night', 'night']].forEach(([n, m], i) => { const x = 70 + i * 176;
+    [0, .5, 1].forEach((t, j) => body += F.fill(F.poly([[x, 590 + j * 52], [x + 150, 590 + j * 52], [x + 150, 636 + j * 52], [x, 636 + j * 52]]), m, t * .999, 30, { sw: .9, hatch: 0 }));
+    body += `<text x="${x}" y="770" font-family="Fr" font-style="italic" font-size="20" fill="${SEP}">${n}</text>${F.PIG[m].map((c, j) => `<text x="${x}" y="${794 + j * 17}" font-family="Mo" font-size="13" fill="${SEP}" opacity=".7">${c}</text>`).join('')}`; });
+  body += F.fill(F.poly([[1302, 590], [1452, 590], [1452, 740], [1302, 740]]), 'gold', .2, 0, { sw: .9 }) + `<text x="1302" y="770" font-family="Fr" font-style="italic" font-size="20" fill="${SEP}">Gold leaf</text><text x="1302" y="794" font-family="Mo" font-size="13" fill="${SEP}" opacity=".7">the brand · sun · brass</text>`;
+  body += `<text x="70" y="890" font-family="Mo" font-size="16" letter-spacing="4" fill="${SEP}">TYPE</text><text x="70" y="944" font-family="Fr" font-weight="700" font-size="48" fill="${SEP}">Fraunces 700 — titles &amp; wordmark</text><text x="70" y="992" font-family="Fr" font-style="italic" font-size="30" fill="${SEP}">Fraunces italic — plates and the one small label</text>
+    <text x="1010" y="944" font-family="In" font-weight="600" font-size="30" fill="${SEP}">Inter 600 — subtitles</text><text x="1010" y="992" font-family="Mo" font-size="24" fill="${SEP}">SPACE MONO — CLUE TAGS</text>`;
+  body += `<g transform="translate(1180 70)"><rect width="680" height="420" fill="#141C38"/>${mark(170, 210, 280, { dark: true })}${wordmark(330, 230, 52, '#F3E7CC', 'start')}${tagline(332, 280, 20, '#E9D9B4', 'start')}</g>`;
+  body += `<text x="1180" y="530" font-family="Fr" font-style="italic" font-size="20" fill="${SEP}">The sounding line: to fathom = to measure the depth, and to understand.</text>`; }
+document.getElementById('out').innerHTML = F.svg(W, H, body, o);
+const sv = document.querySelector('svg'); if (o.outW) { sv.setAttribute('width', o.outW); sv.setAttribute('height', o.outH); }
+document.body.style.width = sv.getAttribute('width') + 'px'; document.body.style.height = sv.getAttribute('height') + 'px';
+window.BRAND_SVG = () => document.getElementById('out').innerHTML;
+</script></body></html>

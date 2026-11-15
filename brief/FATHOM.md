@@ -59,3 +59,8 @@ system (materials, light, brush and paper texture, edges, atmosphere, people, in
 brand) built into the engine. No more demos until the engine is complete; then ONE full demo episode.
 - Then the owner said "or combine both": combined = gouache colour + engraved ink outline + light hatching in the shadows (a
   hand-coloured engraving). Comparison on Drive `_samples/fathom_styles_2026-11-15/round3`. Waiting: gouache or combined.
+
+## 9. LOCKED (owner, 15 Nov 2026): the SIGNATURE style (hand-coloured engraving) — rule book `howweknow/STYLE.md`
+Brand v1 rendered (generator `howweknow/brand/` + `tools/brand.cjs`): mark (sounding line + gold lead in a dial), logo (paper/night),
+avatar 2048², YouTube banner 2560×1440 (safe area centred), Facebook cover 1640×624, brand guide — PNG + SVG on Drive `brand/fathom/`.
+Next: the full engine upgrade in this style (owner: "cực xịn và chỉn chu"), then ONE demo episode.
