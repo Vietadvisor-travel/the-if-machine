@@ -14,7 +14,8 @@ const camT = (c: Cam) => `translate(${SW / 2} ${SH / 2}) rotate(${c.rot}) scale(
 const Svg: React.FC<{ a?: number; children: React.ReactNode }> = ({ a = 1, children }) => <svg width={SW} height={SH} viewBox={`0 0 ${SW} ${SH}`} style={{ position: 'absolute', inset: 0, opacity: a, overflow: 'visible' }}>{children}</svg>;
 const ART: Record<string, React.FC<any>> = { Sky: Wd.Sky, Stars: Wd.Stars, Sun: Wd.Sun, Moon: Wd.Moon, Earth: Wd.Earth, Ridge: Wd.Ridge, Water: Wd.Water, Palm: Wd.Palm, Obelisk: Wd.Obelisk, Temple: Wd.Temple, Well: Wd.Well,
   Scholar: Wd.Scholar, Astrolabe: Wd.Astrolabe, Telescope: Wd.Telescope, Candle: Wd.Candle, SeaChart: Wd.SeaChart, Rose: Wd.Rose, Ship: Wd.Ship, Angle: Wd.Angle, GoldBeam: Wd.GoldBeam,
-  Pinned: Wd.Pinned, DocumentPage: Wd.DocumentPage, Eyepiece: Wd.Eyepiece };
+  Pinned: Wd.Pinned, DocumentPage: Wd.DocumentPage, Eyepiece: Wd.Eyepiece, ShadowCone: Wd.ShadowCone, BloodWash: Wd.BloodWash, Observatory18: Wd.Observatory18, Quadrant: Wd.Quadrant,
+  Bedspring: Wd.Bedspring, OldScreen: Wd.OldScreen, LaserDome: Wd.LaserDome, Reflector: Wd.Reflector, MoonGround: Wd.MoonGround, Stopwatch: Wd.Stopwatch };
 export const ART_NAMES = Object.keys(ART);
 const strip = (s: Props) => { const { a: _a, name: _n, space: _s, _type, ...rest } = s; return rest; };
 

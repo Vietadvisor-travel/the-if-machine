@@ -4,7 +4,7 @@ timeline, every asset exists in public/, keys only on known props. python3 tools
 import json, os, re, sys
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); TL = json.load(open(f'{ep}/timeline.json'))
 TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue'}
-KITS = {'Sky', 'Stars', 'Sun', 'Moon', 'Earth', 'Ridge', 'Water', 'Palm', 'Obelisk', 'Temple', 'Well', 'Scholar', 'Astrolabe', 'Telescope', 'Candle', 'SeaChart', 'Rose', 'Ship', 'Angle', 'GoldBeam', 'Pinned', 'DocumentPage', 'Eyepiece'}
+KITS = {'Sky', 'Stars', 'Sun', 'Moon', 'Earth', 'Ridge', 'Water', 'Palm', 'Obelisk', 'Temple', 'Well', 'Scholar', 'Astrolabe', 'Telescope', 'Candle', 'SeaChart', 'Rose', 'Ship', 'Angle', 'GoldBeam', 'Pinned', 'DocumentPage', 'Eyepiece', 'ShadowCone', 'BloodWash', 'Observatory18', 'Quadrant', 'Bedspring', 'OldScreen', 'LaserDome', 'Reflector', 'MoonGround', 'Stopwatch'}
 err, ids = [], set()
 def tref(r, where):
     if isinstance(r, (int, float)): return r

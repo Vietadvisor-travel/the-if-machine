@@ -4,7 +4,7 @@ import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import { PaintDefs } from '../paint/paint';
 import * as Wd from '../paint/world';
 export const PaintTest: React.FC = () => {
-  const f = useCurrentFrame(), scene = Math.floor(f / 30) % 4, draw = Math.min(1, (f % 30) / 24 + .001), boil = Math.floor(f / 4) % 3;
+  const f = useCurrentFrame(), scene = Math.floor(f / 30) % 6, draw = Math.min(1, (f % 30) / 24 + .001), boil = Math.floor(f / 4) % 3;
   return <AbsoluteFill><PaintDefs boil={boil} /><Wd.PaperSheet />
     <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0 }}>
       {scene === 0 && <g><Wd.Sky kind="day" h={720} seed="d" /><Wd.Sun x={1300} y={110} r={46} draw={draw} />
@@ -18,6 +18,10 @@ export const PaintTest: React.FC = () => {
       {scene === 2 && <g><rect width={1920} height={1080} fill="#6A4430" opacity={.9} /><Wd.Astrolabe x={430} y={540} r={180} draw={draw} rot={f * .5} />
         <Wd.Candle x={1500} y={860} h={150} draw={draw} flicker={f / 30} /><Wd.Pinned src="tex/regolith_photo.jpg" x={1150} y={360} w={360} h={250} caption="Plate I. — the lunar surface" draw={draw} />
         <Wd.Telescope x={850} y={900} s={300} draw={draw} /><Wd.Eyepiece x={1650} y={420} r={130} src="tex/regolith_photo.jpg" draw={draw} /></g>}
+      {scene === 4 && <g><Wd.Sky kind="night" seed="n" /><Wd.Ridge y={860} amp={30} seed="g" mat="leaf" t={.55} /><Wd.Observatory18 x={360} y={880} s={300} draw={draw} /><Wd.Quadrant x={700} y={760} r={220} draw={draw} />
+        <Wd.Bedspring x={1150} y={900} s={300} tilt={-12} draw={draw} /><Wd.OldScreen x={1650} y={520} w={380} pulses={[.12, .74]} sweep={draw} draw={draw} /></g>}
+      {scene === 5 && <g><Wd.Sky kind="space" seed="m" /><Wd.MoonGround horizon={640} draw={draw} /><Wd.Reflector x={900} y={760} s={260} flash={draw > .9 ? 1 : 0} draw={draw} /><Wd.Stopwatch x={1600} y={330} r={130} sec={2.5} draw={draw} />
+        <Wd.LaserDome x={330} y={420} s={240} draw={draw} /><Wd.ShadowCone x={300} y={860} r={90} len={500} ang={-10} k={draw} /></g>}
       {scene === 3 && <g><Wd.SeaChart box={[-6, 22, 38, 46]} draw={draw} /><Wd.Rose x={330} y={850} r={130} draw={draw} /><Wd.Ship x={1440} y={560} s={180} draw={draw} /></g>}
     </svg><Wd.PaperFibres /></AbsoluteFill>;
 };

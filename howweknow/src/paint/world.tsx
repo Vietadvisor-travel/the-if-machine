@@ -265,3 +265,108 @@ export const GoldBeam: React.FC<{ x1: N; y1: N; x2: N; y2: N; k?: N; w?: N }> = 
     {k < 1 && <circle cx={x} cy={y} r={w * 6} fill="url(#glowG)" />}</g>;
 };
 export { mix, tone };
+
+// ================================================================ demo-era additions (moon-distance) — same construction rules
+// the Earth's shadow cone behind a planet (umbra), pointing away from the Sun at angle `ang` (deg); k = 0..1 drawn
+export const ShadowCone: React.FC<{ x: N; y: N; r: N; len: N; ang?: N; k?: N }> = ({ x, y, r, len, ang = 0, k = 1 }) => {
+  const R = ang * Math.PI / 180, ux = Math.cos(R), uy = Math.sin(R), px = -uy, py = ux, L = len * k, tip = r * .12;
+  const d = `M${x + px * r} ${y + py * r} L${x + ux * L + px * tip} ${y + uy * L + py * tip} L${x + ux * L - px * tip} ${y + uy * L - py * tip} L${x - px * r} ${y - py * r}Z`;
+  return <g opacity={Math.min(1, k * 2)}><path d={d} fill="#141C38" opacity={.42} filter="url(#wc)" /><path d={d} fill="url(#h2_0)" opacity={.35} /><Ink d={`M${x + px * r} ${y + py * r} L${x + ux * L + px * tip} ${y + uy * L + py * tip} M${x - px * r} ${y - py * r} L${x + ux * L - px * tip} ${y + uy * L - py * tip}`} w={1} /></g>;
+};
+// the Moon inside the umbra: copper-red wash over a drawn Moon (pass `blood` 0..1)
+export const BloodWash: React.FC<{ x: N; y: N; r: N; blood?: N }> = ({ x, y, r, blood = 1 }) => <circle cx={x} cy={y} r={r} fill={PIG.red[1]} opacity={.55 * blood} style={{ mixBlendMode: 'multiply' }} />;
+
+// an 18th-century observatory: stone house, a turret with opening shutters, a mural quadrant visible inside
+export const Observatory18: React.FC<{ x: N; y: N; s: N; draw?: N; open?: N }> = ({ x, y, s, draw = 1, open = 1 }) => {
+  const k = s / 300, P = (a: N, b: N) => [x + a * k, y + b * k];
+  return <g>
+    <Region d={poly([P(-150, 0), P(150, 0), P(150, -120), P(-150, -120)])} mat="stone" t={.3} ang={0} draw={draw} />
+    {[-110, -50, 50, 110].map(wx => <Region key={wx} d={poly([P(wx - 14, -30), P(wx + 14, -30), P(wx + 14, -80), P(wx - 14, -80)])} mat="wall" t={.75} draw={draw} sw={1} />)}
+    {Array.from({ length: 6 }, (_, i) => <Line key={i} d={`M${P(-150, -20 * i).join(' ')} H${P(150, 0)[0]}`} w={.6} a={.45 * draw} />)}
+    <Region d={poly([P(-160, -120), P(160, -120), P(130, -150), P(-130, -150)])} mat="wood" t={.5} ang={0} draw={draw} />
+    <Region d={poly([P(-60, -150), P(60, -150), P(60, -230), P(-60, -230)])} mat="stone" t={.25} ang={90} draw={draw} />
+    <Region d={`M${P(-66, -230).join(' ')} A${66 * k} ${60 * k} 0 0 1 ${P(66, -230).join(' ')}Z`} mat="wood" t={.45} ang={30} draw={draw} />
+    <Region d={poly([P(-10 - 12 * open, -288), P(10 + 12 * open, -288), P(10 + 12 * open, -232), P(-10 - 12 * open, -232)])} mat="night" t={.85} draw={draw} sw={1} />
+    <Region d={poly([P(-2, -150), P(2, -150), P(2, -300), P(-2, -300)])} mat="wood" t={.5} draw={draw} sw={.8} />
+    <path d={`M${P(-4, -300).join(' ')} l${8 * k} ${-14 * k} l${10 * k} ${4 * k}Z`} fill={PIG.red[1]} opacity={draw} />
+  </g>;
+};
+// a mural QUADRANT: a quarter circle of brass with a graduated limb and a sighting tube on an arm
+export const Quadrant: React.FC<{ x: N; y: N; r: N; arm?: N; draw?: N }> = ({ x, y, r, arm = 40, draw = 1 }) => {
+  const a = arm * Math.PI / 180;
+  return <g>
+    <Region d={`M${x} ${y} L${x + r} ${y} A${r} ${r} 0 0 0 ${x} ${y - r}Z`} mat="gold" t={.28} ang={45} draw={draw} sw={1.6} />
+    <Region d={`M${x + r * .12} ${y - r * .12} L${x + r * .86} ${y - r * .12} A${r * .74} ${r * .74} 0 0 0 ${x + r * .12} ${y - r * .86}Z`} mat="wall" t={.7} draw={draw} sw={1} />
+    {Array.from({ length: 91 }, (_, i) => { const t = i * Math.PI / 180, L = i % 10 ? (i % 5 ? .03 : .05) : .08; return <Line key={i} d={`M${x + Math.cos(t) * r} ${y - Math.sin(t) * r} L${x + Math.cos(t) * r * (1 - L)} ${y - Math.sin(t) * r * (1 - L)}`} w={i % 10 ? .5 : 1} a={.9 * draw} />; })}
+    <Region d={poly([[x - 4, y + 4], [x + Math.cos(a) * r * 1.08 - Math.sin(a) * 6, y - Math.sin(a) * r * 1.08 - Math.cos(a) * 6], [x + Math.cos(a) * r * 1.08 + Math.sin(a) * 6, y - Math.sin(a) * r * 1.08 + Math.cos(a) * 6], [x + 4, y - 4]])} mat="gold" t={.5} draw={draw} sw={1.1} />
+    <Region d={ell(x, y, r * .05, r * .05)} mat="gold" t={.2} draw={draw} sw={1} />
+  </g>;
+};
+// Project Diana's antenna: a "bedspring" array of dipoles on a timber tower (SCR-271 type)
+export const Bedspring: React.FC<{ x: N; y: N; s: N; tilt?: N; draw?: N }> = ({ x, y, s, tilt = 0, draw = 1 }) => {
+  const k = s / 300, P = (a: N, b: N) => [x + a * k, y + b * k];
+  return <g>
+    {[[-80, 0], [80, 0]].map(([dx]) => <Region key={dx} d={poly([P(dx - 6, 0), P(dx + 6, 0), P(dx * .5 + 4, -260), P(dx * .5 - 4, -260)])} mat="wood" t={.5} ang={80} draw={draw} sw={1} />)}
+    {[-60, -120, -180, -240].map(yy => <Line key={yy} d={`M${P(-80 + (-yy / 260) * 40, yy).join(' ')} L${P(80 - (-yy / 260) * 40, yy).join(' ')} M${P(-80 + (-yy / 260) * 40, yy).join(' ')} L${P(80 - ((-yy - 60) / 260) * 40, yy - 60).join(' ')}`} w={1.2 * k} a={draw} />)}
+    <g transform={`rotate(${tilt} ${P(0, -300)[0]} ${P(0, -300)[1]})`}>
+      <Region d={poly([P(-150, -230), P(150, -230), P(150, -380), P(-150, -380)])} mat="wood" t={.15} hatch={0} draw={draw} sw={1.4} />
+      {Array.from({ length: 6 }, (_, j) => Array.from({ length: 8 }, (_, i) => { const cx = -131 + i * 37.5, cy = -246 - j * 25; return <Line key={i + '_' + j} d={`M${P(cx - 14, cy).join(' ')} L${P(cx + 14, cy).join(' ')}`} w={2.2 * k} col="#2B1D12" a={draw} />; }))}
+      {Array.from({ length: 9 }, (_, i) => <Line key={i} d={`M${P(-150 + i * 37.5, -230).join(' ')} V${P(0, -380)[1]}`} w={.7} a={.6 * draw} />)}</g>
+  </g>;
+};
+// a period instrument screen (oscilloscope / early TV) in a wooden cabinet — the trace shows pulses; or real footage inside (src)
+export const OldScreen: React.FC<{ x: N; y: N; w: N; draw?: N; pulses?: N[]; sweep?: N; src?: string }> = ({ x, y, w, draw = 1, pulses = [], sweep = 1, src }) => {
+  const h = w * .78, sw = w * .7, sh = h * .62, sx = x - sw / 2, sy = y - h / 2 + h * .12;
+  let d = `M${sx} ${sy + sh * .62}`; for (let i = 0; i <= 120 * sweep; i++) { const u = i / 120, px = sx + u * sw; let py = sy + sh * .62 + Math.sin(u * 90) * 1.2; for (const p of pulses) py -= Math.exp(-Math.pow((u - p) / .012, 2)) * sh * .45; d += ` L${px.toFixed(1)} ${py.toFixed(1)}`; }
+  return <g>
+    <rect x={x - w / 2} y={y - h / 2} width={w} height={h} fill="#000" opacity={.3} filter="url(#b8)" transform="translate(10 14)" />
+    <Region d={poly([[x - w / 2, y - h / 2], [x + w / 2, y - h / 2], [x + w / 2, y + h / 2], [x - w / 2, y + h / 2]])} mat="wood" t={.5} ang={0} draw={draw} sw={1.6} />
+    <Region d={`M${sx} ${sy} H${sx + sw} V${sy + sh} H${sx}Z`} mat="deep" t={.95} hatch={0} draw={draw} sw={1.4} />
+    {src ? <foreignObject x={sx} y={sy} width={sw} height={sh}><Img src={staticFile(src)} style={{ width: sw, height: sh, objectFit: 'cover', filter: 'sepia(.6) saturate(.7) brightness(.95)', opacity: draw }} /></foreignObject>
+      : <g opacity={draw}>{Array.from({ length: 9 }, (_, i) => <Line key={i} d={`M${sx + i * sw / 8} ${sy} V${sy + sh} M${sx} ${sy + i * sh / 8} H${sx + sw}`} w={.5} col="#9CCAD6" a={.25} />)}
+        <path d={d} fill="none" stroke="#C9F2D8" strokeWidth={6} opacity={.25} filter="url(#b2s)" /><path d={d} fill="none" stroke="#E6FFF0" strokeWidth={1.8} /></g>}
+    {[0, 1, 2].map(i => <Region key={i} d={ell(x - w * .2 + i * w * .2, y + h * .38, w * .035, w * .035)} mat="gold" t={.35} draw={draw} sw={.8} />)}
+  </g>;
+};
+// a modern laser-ranging dome on a summit, slit open; the beam is drawn separately (GoldBeam/beam entity)
+export const LaserDome: React.FC<{ x: N; y: N; s: N; draw?: N }> = ({ x, y, s, draw = 1 }) => {
+  const k = s / 300, P = (a: N, b: N) => [x + a * k, y + b * k];
+  return <g>
+    <Region d={poly([P(-150, 0), P(150, 0), P(150, -90), P(-150, -90)])} mat="stone" t={.3} draw={draw} />
+    <Region d={`M${P(-140, -90).join(' ')} A${140 * k} ${130 * k} 0 0 1 ${P(140, -90).join(' ')}Z`} mat="paper" t={.22} ang={20} draw={draw} sw={1.6} />
+    {[-90, -45, 0, 45, 90].map(dx => <Line key={dx} d={`M${P(dx, -90).join(' ')} Q${P(dx * .8, -170).join(' ')} ${P(dx * .3, -90 - Math.sqrt(140 * 140 - dx * dx) * .93).join(' ')}`} w={.7} a={.6 * draw} />)}
+    <Region d={poly([P(10, -218), P(42, -210), P(56, -92), P(14, -92)])} mat="night" t={.9} draw={draw} sw={1.1} />
+    {[-110, 100].map(wx => <Region key={wx} d={poly([P(wx - 12, -20), P(wx + 12, -20), P(wx + 12, -56), P(wx - 12, -56)])} mat="gold" t={.25} draw={draw} sw={.8} />)}
+  </g>;
+};
+// the Apollo laser retroreflector: a tilted panel of 100 corner cubes on legs, standing on the lunar soil
+export const Reflector: React.FC<{ x: N; y: N; s: N; flash?: N; draw?: N }> = ({ x, y, s, flash = 0, draw = 1 }) => {
+  const k = s / 300; const cells: React.ReactNode[] = [];
+  for (let i = 0; i < 10; i++) for (let j = 0; j < 10; j++) { const cx = -117 + i * 26, cy = -117 + j * 26, lit = Math.max(0, flash - Math.hypot(i - 4.5, j - 4.5) * .09);
+    cells.push(<g key={i * 10 + j}><rect x={cx - 11} y={cy - 11} width={22} height={22} rx={2} fill={tone('night', .7)} /><path d={`M${cx} ${cy - 9} L${cx + 8} ${cy + 5} L${cx - 8} ${cy + 5}Z`} fill={tone('night', .3)} opacity={.8} /><circle cx={cx} cy={cy} r={9} fill="#F3D88E" opacity={lit} /></g>); }
+  return <g>
+    <ellipse cx={x + 10 * k} cy={y + 120 * k} rx={200 * k} ry={22 * k} fill={SEP} opacity={.35 * draw} filter="url(#b8)" />
+    <Line d={`M${x - 100 * k} ${y + 50 * k} L${x - 110 * k} ${y + 120 * k} M${x + 100 * k} ${y + 50 * k} L${x + 110 * k} ${y + 120 * k} M${x} ${y + 60 * k} L${x} ${y + 120 * k}`} w={6 * k} a={draw} />
+    <g transform={`translate(${x} ${y}) scale(${k}) skewX(-10) rotate(-12)`} opacity={draw}>
+      <rect x={-140} y={-140} width={280} height={280} rx={8} fill="url(#gold)" stroke={SEP} strokeWidth={2} /><rect x={-132} y={-132} width={264} height={264} rx={6} fill={tone('night', .85)} />{cells}</g>
+    {flash > .02 && <circle cx={x} cy={y - 10 * k} r={220 * k} fill="url(#glowG)" opacity={Math.min(1, flash) * .7} />}
+  </g>;
+};
+// the lunar ground: grey wash, a horizon curve, craters inked with rims lit from one side
+export const MoonGround: React.FC<{ horizon: N; draw?: N; seed?: string }> = ({ horizon, draw = 1, seed = 'mg' }) => {
+  const C = useMemo(() => { const q = seq(seed); return Array.from({ length: 34 }, () => { const y = horizon + 40 + q() * (H - horizon - 40), d = (y - horizon) / (H - horizon); return [q() * W, y, (10 + q() * 70) * (0.3 + d)]; }); }, [horizon, seed]);
+  return <g>
+    <Region d={`M0 ${horizon + 40} Q${W / 2} ${horizon - 70} ${W} ${horizon + 40} L${W} ${H} L0 ${H}Z`} mat="regolith" t={.42} ang={0} draw={draw} />
+    <g opacity={draw}>{C.map(([cx, cy, r], i) => <g key={i}><ellipse cx={cx} cy={cy} rx={r} ry={r * .28} fill={tone('regolith', .7)} opacity={.6} filter="url(#wc)" /><path d={`M${cx - r} ${cy} A${r} ${r * .28} 0 0 1 ${cx + r} ${cy}`} fill="none" stroke={SEP} strokeWidth={1} opacity={.7} /><path d={`M${cx - r * .8} ${cy + r * .1} A${r * .9} ${r * .22} 0 0 0 ${cx + r * .7} ${cy + r * .12}`} fill="none" stroke="#FBF1D8" strokeWidth={1.4} opacity={.6} /></g>)}</g>
+  </g>;
+};
+// a stopwatch: brass case, crown, 60 graduations, a sweep hand (sec 0..60)
+export const Stopwatch: React.FC<{ x: N; y: N; r: N; sec?: N; draw?: N }> = ({ x, y, r, sec = 0, draw = 1 }) => {
+  const a = sec / 60 * Math.PI * 2 - Math.PI / 2;
+  return <g>
+    <Region d={poly([[x - r * .14, y - r * 1.02], [x + r * .14, y - r * 1.02], [x + r * .14, y - r * 1.22], [x - r * .14, y - r * 1.22]])} mat="gold" t={.35} draw={draw} sw={1} />
+    <Region d={ell(x, y, r, r)} mat="gold" t={.3} ang={30} draw={draw} sw={1.8} /><Region d={ell(x, y, r * .86, r * .86)} mat="paper" t={.06} draw={draw} sw={1.2} />
+    <g opacity={draw}>{Array.from({ length: 60 }, (_, i) => { const t = i / 60 * Math.PI * 2, L = i % 5 ? .06 : .13; return <Line key={i} d={`M${x + Math.cos(t) * r * .84} ${y + Math.sin(t) * r * .84} L${x + Math.cos(t) * r * (.84 - L)} ${y + Math.sin(t) * r * (.84 - L)}`} w={i % 5 ? .7 : 1.4} a={.95} />; })}
+      <Line d={`M${x} ${y} L${x + Math.cos(a) * r * .74} ${y + Math.sin(a) * r * .74}`} w={2.4} col={PIG.red[2]} a={1} /><circle cx={x} cy={y} r={r * .05} fill={SEP} /></g>
+  </g>;
+};

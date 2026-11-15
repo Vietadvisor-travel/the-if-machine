@@ -11,7 +11,7 @@ export const PIG: Record<string, [string, string, string]> = {
   skin: ['#EDC3A0', '#C78F66', '#8A5A3C'], paper: ['#FBF4E2', '#EBDDBC', '#C9B48A'], night: ['#5A6E9A', '#2B3B66', '#141C38'], wall: ['#9A6E50', '#6A4430', '#3A2418'],
   land: ['#E2CF94', '#A9B97A', '#6E8F5A'], sea: ['#9CCAD6', '#4A88AE', '#22507A'], red: ['#F2A672', '#D2643E', '#8C3424'], deep: ['#4A88AE', '#22507A', '#0E2A48'],
   ice: ['#FFFFFF', '#E8EEF0', '#B9C8D0'], forest: ['#8FB07A', '#4F7A4A', '#2A4A32'], desert: ['#F2DCA6', '#E0B878', '#B98A50'], tundra: ['#C9C2A6', '#A39E86', '#76725E'],
-  mantle: ['#F2A672', '#D2643E', '#8C3424'], core: ['#F6CF7A', '#E89A3E', '#B0602A'], inner: ['#FFF4D2', '#F8DC8A', '#E9B456'], space: ['#3A4A7A', '#1C2650', '#0B1030'],
+  regolith: ['#E4E1D8', '#B3AFA4', '#76726A'], mantle: ['#F2A672', '#D2643E', '#8C3424'], core: ['#F6CF7A', '#E89A3E', '#B0602A'], inner: ['#FFF4D2', '#F8DC8A', '#E9B456'], space: ['#3A4A7A', '#1C2650', '#0B1030'],
 };
 const hx = (h: string) => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
 const th = (a: number[]) => '#' + a.map(v => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join('');
