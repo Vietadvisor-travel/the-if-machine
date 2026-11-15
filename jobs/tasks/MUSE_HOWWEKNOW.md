@@ -9,23 +9,20 @@ runs through the whole episode; sound effects are few and fitting.
 uses comes from Drive. Flow: Muse proposes topics → the owner picks → Muse writes the research pack + kit and uploads the stock →
 `KIT_READY` → the owner tells Claude "làm tập …" → Claude makes it.
 
-## 0. NOW, once: the core REALISM library (owner 15 Nov evening: "ưu tiên đồ họa kiểu thật")
-Drive `_hwk_core/` + `_hwk_core/index.json` (same fields as §3). Claude's 3D globe/Moon and maps load these; until they exist the
-engine falls back to drawn textures. All public domain (NASA/USGS/NOAA) unless noted.
-| id | what | where to get it | size |
+## 0. NOW, once: the core REALISM library — 2D ONLY (owner 15 Nov evening: "2D, không 3D; tài nguyên và stock thật")
+The film is 2D. "Real" = real photos, real maps, real footage, used as flat images in the animated world (toned to the palette).
+Drive `_hwk_core/` + `_hwk_core/index.json` (same fields as §3). All public domain (NASA/USGS/NOAA/LoC) unless noted.
+| id | what | where | size |
 |---|---|---|---|
-| earth_day | Blue Marble Next Generation, cloud-free, equirectangular (pick one month, e.g. July) | NASA Visible Earth | 8192×4096 jpg (+ a 4096 copy) |
-| earth_night | Black Marble night lights, equirectangular | NASA Earth Observatory | 8192×4096 jpg |
-| earth_clouds | global cloud cover (alpha), equirectangular | NASA Visible Earth | 8192×4096 png/jpg |
-| earth_bump | topography / elevation (grey), equirectangular | NASA Visible Earth (GEBCO/SRTM) | 8192×4096 |
-| earth_specular | ocean mask (water white) | derive from Natural Earth ocean or NASA land/water mask | 4096×2048 |
-| moon_color | LRO / LROC global mosaic, equirectangular | NASA SVS "CGI Moon Kit" | 8192×4096 tif→jpg |
-| moon_displace | LOLA elevation (displacement) | NASA SVS CGI Moon Kit | 4096×2048 |
-| mars_color, sun_photo | Viking/MGS colour mosaic; SDO sun images | NASA | 4096 |
-| stars | Deep Star Maps (celestial sphere), equirectangular | NASA SVS Deep Star Maps | 8192×4096 |
-| relief_world | shaded relief / natural colour world map (Natural Earth II or Blue Marble flat) | naturalearthdata.com (PD) | 10800×5400 jpg |
-| sky_photos | 20–30 real sky photos (night, dawn, dusk, storm, clear), no people/logos | Pexels / Pixabay / Unsplash | ≥ 3000 px |
-| ground_photos | 20–30 real ground/terrain top-down or low-angle photos (desert, snow, rock, sea, field, city aerial) | Pexels / Pixabay / NASA aerial | ≥ 3000 px |
+| earth_photos | 10–15 real photos of the WHOLE Earth from space (Apollo 17 "Blue Marble", DSCOVR/EPIC, ISS), on black, centred | NASA (PD) | ≥ 3000 px |
+| moon_photos | 8–10 real photos of the whole Moon (full, crescent, half) on black + 10 close-ups of the surface (Apollo, LRO) | NASA (PD) | ≥ 3000 px |
+| planets_sun | real photos of Sun (SDO), Mars, Jupiter, Saturn, a few nebulae/galaxies (Hubble/JWST: check the PD/CC terms) | NASA/ESA | ≥ 3000 px |
+| world_maps | flat real maps: Blue Marble (equirectangular), shaded relief (Natural Earth II), night lights (Black Marble) | NASA / naturalearthdata (PD) | 8192 wide |
+| old_maps | 15–20 historic maps (world, continents, sea charts), clean scans | Library of Congress / David Rumsey (check licence) / Wikimedia PD | ≥ 4000 px |
+| sky_photos | 20–30 real sky photos (night with stars, dawn, dusk, storm, clear blue), no people/logos | Pexels / Pixabay / Unsplash | ≥ 3000 px |
+| ground_photos | 20–30 real terrain photos (desert, snow, rock, sea, field, forest, city aerial, top-down and low-angle) | Pexels / Pixabay / NASA aerial | ≥ 3000 px |
+| textures | 15–20 paper / film / grain / dust / ink textures for the finish | Pexels / CC0 texture sites | ≥ 3000 px |
+| footage_loops | 15–20 short real loops (clouds timelapse, ocean surface, stars rotating, city at night, rain on glass, fire) | Pexels / Pixabay video | 1080p+, 10–30 s |
 
 ## 1. Weekly shortlist (Saturday, `jobs/topics/`)
 15 topics, each a question that starts with **How do we know / How did they …** and has a surprising, sourced answer. Three pools:

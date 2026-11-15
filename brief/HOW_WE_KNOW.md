@@ -52,3 +52,5 @@ Brand kit → Remotion project (desk/stage components, ink draw-on, maps, docume
   photos/footage treated to the palette. Muse supplies every resource.
 - Upgrade the whole engine for top visuals AND top scripts (a long-form script standard + checker).
 - Name candidates sent 15 Nov: One Long Shot (Claude's pick), Known World, The Long Answer, Trace, The Evidence Room, Zoom Out.
+- **2D ONLY (owner, 15 Nov evening, reaffirmed): no 3D.** "Real" = real resources and stock (photos, maps, footage) used in the 2D world.
+- Channel name: the owner wants a NAME (a word/brand), not a phrase. List sent; pending.
