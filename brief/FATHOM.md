@@ -49,3 +49,6 @@ quiet under the voice. Sound effects moderate and fitting, never cluttered.
 1 Engraved atlas · 2 Gouache painting · 3 Blueprint · 4 Cinematic vector · 5 Risograph print · 6 Chalkboard · 7 Layered papercut.
 Same scene in each (real Natural Earth 50 m coastlines, real night-side city positions, Moon, laser, a real photo as a component, the
 FATHOM lockup). Waiting for the owner's pick (or a mix).
+- Round 2 (15 Nov): the owner shortlisted **1 Engraved atlas** and **2 Gouache**; 4 more scenes in both (desert light + 7.2° shadow,
+  Earth cutaway with seismic rays, astronomer's desk with a real photo pinned, Mediterranean old map with real coastlines) on Drive
+  `_samples/fathom_styles_2026-11-15/round2`. Waiting for the pick.

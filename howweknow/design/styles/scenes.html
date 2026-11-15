@@ -1,0 +1,161 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="geo2.js"></script><style>
+@font-face{font-family:Fr;font-weight:700;src:url(F7.woff2)}@font-face{font-family:Fr;font-weight:400;src:url(F4.woff2)}@font-face{font-family:Fr;font-style:italic;src:url(F4i.woff2)}@font-face{font-family:In;font-weight:600;src:url(I6.woff2)}@font-face{font-family:Mo;src:url(M4.woff2)}
+*{margin:0}body{width:1920px;height:1080px;overflow:hidden}svg{display:block}</style></head><body><svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// FATHOM style test 2: four very different scenes in the two shortlisted styles. #<scene>-<1 engraved | 2 gouache>
+const [SC, ST] = location.hash.slice(1).split('-'), E = ST === '1', G = window.GEO;
+const INK = '#1D2A3A', CU = '#A8622C', PAPER = '#EFE3C6';
+let seed = 7; const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)), toHex = a => '#' + a.map(v => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join('');
+const mix = (a, b, k) => toHex(hex(a).map((v, i) => v + (hex(b)[i] - v) * k));
+// gouache materials: [lit, mid, deep]
+const MAT = { sky: ['#F4D29A', '#9DBFDB', '#4F7FAF'], sand: ['#EBCB92', '#CFA466', '#9A7040'], stone: ['#E6D2AE', '#B99C74', '#7A6347'], water: ['#5FB0C8', '#2B7899', '#13425F'],
+  leaf: ['#8DAA4E', '#5C7F35', '#304A22'], wood: ['#B07A4A', '#7E5230', '#4A2E1A'], brass: ['#F1CF7A', '#C99A3E', '#7E5A1E'], cloth: ['#E7D8B8', '#B39A72', '#6E5A40'],
+  skin: ['#E0AE84', '#B57E58', '#7A5236'], paper: ['#F6EEDB', '#E3D2AE', '#B9A47E'], night: ['#3B4A7A', '#1F2850', '#0C1128'], wall: ['#6E4E38', '#4A3324', '#22160F'],
+  land: ['#C9B47A', '#8EA05A', '#5E7A3E'], sea: ['#5FA9C4', '#2F7298', '#173E5E'], crust: ['#B98A5A', '#8A5E3A', '#5A3A22'], mantle: ['#F08A4A', '#C9522E', '#7A2A1E'],
+  ocore: ['#FFC35A', '#F29A2E', '#B9601E'], icore: ['#FFF6D6', '#FFE08A', '#F2B84A'], space: ['#2A2F5A', '#141936', '#070A18'] };
+const defs = new Set(); let D = '';
+const hatch = (lvl, ang) => { const id = `h${lvl}_${ang}`; if (!defs.has(id)) { defs.add(id); const sp = [0, 8, 5.5, 4.4, 3.4][lvl], w = [0, .7, .85, .95, 1.05][lvl];
+  D += `<pattern id="${id}" width="${sp}" height="${sp}" patternUnits="userSpaceOnUse" patternTransform="rotate(${ang})"><path d="M0 ${sp / 2} H${sp}" stroke="${INK}" stroke-width="${w}"/>${lvl >= 3 ? `<path d="M${sp / 2} 0 V${sp}" stroke="${INK}" stroke-width="${w * .8}"/>` : ''}</pattern>`; } return id; };
+// THE style API: one call draws a region in the current style. tone 0 (lit) … 1 (deep shadow); ang = hatch direction (follows the form)
+const fill = (d, mat, tone = .3, ang = 0, o = {}) => {
+  if (E) { const lvl = tone < .12 ? 0 : tone < .35 ? 1 : tone < .6 ? 2 : tone < .82 ? 3 : 4;
+    return `<path d="${d}" fill="${o.paper || PAPER}"/>${lvl ? `<path d="${d}" fill="url(#${hatch(lvl, ang)})"/>` : ''}${o.stroke === false ? '' : `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${o.sw || 1.4}" stroke-linejoin="round"/>`}`; }
+  const M = MAT[mat] || MAT.stone, c = tone < .5 ? mix(M[0], M[1], tone * 2) : mix(M[1], M[2], (tone - .5) * 2);
+  return `<path d="${d}" fill="${c}" filter="url(#paint)"/>${o.tex === false ? '' : `<path d="${d}" fill="url(#tex)" opacity=".35"/>`}`;
+};
+const line = (d, w = 1.4, col) => `<path d="${d}" fill="none" stroke="${col || (E ? INK : '#2A2018')}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${E ? '' : 'opacity=".55" filter="url(#paint)"'}/>`;
+const glow = (x, y, r, col, a = .6) => E ? '' : `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#gl_${col.slice(1)})" opacity="${a}"/>` + (D.includes(`gl_${col.slice(1)}`) ? '' : (D += `<radialGradient id="gl_${col.slice(1)}"><stop offset="0" stop-color="${col}"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></radialGradient>`, ''));
+const ell = (x, y, rx, ry) => `M${x - rx} ${y} A${rx} ${ry} 0 1 0 ${x + rx} ${y} A${rx} ${ry} 0 1 0 ${x - rx} ${y}Z`;
+const poly = pts => 'M' + pts.map(p => p.join(' ')).join(' L') + 'Z';
+const ridge = (y, amp, s, x0 = 0, x1 = 1920) => { seed = s; let d = `M${x0} 1080 L${x0} ${y}`; for (let x = x0; x <= x1; x += 30) d += ` L${x} ${(y - Math.sin(x / 260 + s) * amp - Math.sin(x / 90 + s * 2) * amp * .25).toFixed(1)}`; return d + ` L${x1} 1080Z`; };
+const palm = (x, y, h, tone = .5) => { let o = fill(`M${x - 5} ${y} Q${x - 14} ${y - h * .5} ${x + 6} ${y - h} L${x + 12} ${y - h + 2} Q${x - 4} ${y - h * .5} ${x + 6} ${y}Z`, 'wood', tone + .1, 70, { sw: 1 });
+  for (let i = 0; i < 7; i++) { const a = -2.9 + i * .55, L = h * (.42 + (i % 2) * .1), ex = x + 9 + Math.cos(a) * L, ey = y - h + Math.sin(a) * L * .6 + L * .25; o += fill(`M${x + 9} ${y - h} Q${(x + 9 + ex) / 2} ${(y - h + ey) / 2 - L * .25} ${ex} ${ey} Q${(x + 9 + ex) / 2} ${(y - h + ey) / 2 - L * .1} ${x + 9} ${y - h + 4}Z`, 'leaf', tone, 20 + i * 20, { sw: .9 }); }
+  return o; };
+// a standing robed figure (head, headcloth, robe with folds, staff), drawn — never a blob
+const figure = (x, y, h, tone = .35) => { const k = h / 160; const P = (a, b) => `${(x + a * k).toFixed(1)} ${(y + b * k).toFixed(1)}`;
+  return fill(`M${P(-22, 0)} C${P(-26, -50)} ${P(-24, -95)} ${P(-14, -112)} L${P(14, -112)} C${P(24, -95)} ${P(28, -50)} ${P(24, 0)}Z`, 'cloth', tone, 80)
+    + fill(`M${P(-14, -112)} C${P(-20, -120)} ${P(-12, -150)} ${P(0, -152)} C${P(12, -150)} ${P(20, -120)} ${P(14, -112)}Z`, 'cloth', tone + .15, 60)
+    + fill(ell(x + 1 * k, y - 132 * k, 8.5 * k, 10 * k), 'skin', tone + .1, 45, { sw: 1 })
+    + line(`M${P(-8, -100)} C${P(-10, -60)} ${P(-12, -30)} ${P(-14, 0)} M${P(6, -98)} C${P(8, -60)} ${P(10, -30)} ${P(12, 0)}`, 1)
+    + fill(`M${P(12, -96)} C${P(26, -84)} ${P(34, -70)} ${P(36, -62)} L${P(30, -58)} C${P(26, -68)} ${P(18, -80)} ${P(8, -88)}Z`, 'cloth', tone + .2, 30, { sw: 1 })
+    + line(`M${P(36, -150)} L${P(40, 2)}`, 2.6, E ? INK : '#5A3A20'); };
+let body = '', bg = '';
+
+if (SC === 'desert') {   // Alexandria at noon on the solstice: the obelisk's short shadow, 7.2° — and Syene's well
+  bg = E ? fill('M0 0 H1920 V760 H0Z', 'sky', .18, 0, { stroke: false }) : `<rect width="1920" height="760" fill="url(#skyg)"/>`;
+  D += `<linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F86B8"/><stop offset=".55" stop-color="#9CC1DC"/><stop offset="1" stop-color="#F3D7A2"/></linearGradient>`;
+  const sx = 1262, sy = 70;
+  body += glow(sx, sy, 260, '#FFF1C8', .9) + (E ? `<circle cx="${sx}" cy="${sy}" r="42" fill="${PAPER}" stroke="${INK}" stroke-width="1.6"/>${[...Array(36)].map((_, i) => { const a = i / 36 * 6.283; return `<path d="M${sx + Math.cos(a) * 52} ${sy + Math.sin(a) * 52} L${sx + Math.cos(a) * (i % 2 ? 84 : 120)} ${sy + Math.sin(a) * (i % 2 ? 84 : 120)}" stroke="${INK}" stroke-width=".8"/>`; }).join('')}` : `<circle cx="${sx}" cy="${sy}" r="44" fill="#FFF8E2"/>`);
+  body += fill(ridge(610, 26, 3), 'sand', .32, 10, { sw: 1 });
+  [[260, 600, 90, 60], [380, 590, 50, 90], [470, 602, 120, 46]].forEach(([x, y, w, h], i) => body += fill(poly([[x, y], [x + w * .1, y - h], [x + w * .9, y - h], [x + w, y]]), 'stone', .45, 70, { sw: 1 }) + (i === 1 ? fill(poly([[x + 12, y - h], [x + 25, y - h - 40], [x + 38, y - h]]), 'stone', .5, 60, { sw: 1 }) : ''));
+  body += fill('M0 650 C300 630 600 676 960 652 C1300 630 1600 668 1920 646 L1920 686 C1600 706 1300 668 960 694 C600 716 300 672 0 690Z', E ? 'water' : 'water', .5, 0);
+  [120, 210, 560, 640, 760, 1500, 1610, 1720, 1830].forEach((x, i) => body += palm(x, 652 + (i % 3) * 6, 70 + (i % 4) * 14, .5));
+  body += fill(ridge(740, 14, 9), 'sand', .14, 0, { sw: 1 }) + fill('M0 770 H1920 V1080 H0Z', 'sand', .1, 0, { stroke: false });
+  seed = 4; for (let i = 0; i < 26; i++) { const y = 800 + R() * 260, x = R() * 1920; body += line(`M${x} ${y} q60 -10 130 0`, .9, E ? INK : '#9A7040'); }
+  // the obelisk: lit face right, shadow face left, its SHORT noon shadow (7.2° sun)
+  const ox = 1180, oy = 880, oh = 520;
+  body += fill(poly([[ox - 6, oy], [ox + 70, oy], [ox + 96, oy + 18], [ox + 10, oy + 26]]), 'sand', .78, 0);
+  body += fill(poly([[ox - 40, oy], [ox, oy], [ox, oy - oh], [ox - 24, oy - oh + 10]]), 'stone', .62, 90) + fill(poly([[ox, oy], [ox + 40, oy], [ox + 24, oy - oh + 10], [ox, oy - oh]]), 'stone', .12, 90)
+    + fill(poly([[ox - 24, oy - oh + 10], [ox, oy - oh], [ox, oy - oh - 44]]), 'stone', .6, 60) + fill(poly([[ox, oy - oh], [ox + 24, oy - oh + 10], [ox, oy - oh - 44]]), 'brass', .1, 60)
+    + fill(poly([[ox - 58, oy], [ox + 58, oy], [ox + 58, oy + 22], [ox - 58, oy + 22]]), 'stone', .4, 0);
+  for (let k = 0; k < 7; k++) body += line(`M${ox - 14} ${oy - 90 - k * 52} l6 0 m-2 10 l4 0 m4 -20 l3 6`, .9);
+  const tip = [ox, oy - oh - 44]; body += `<path d="M${tip[0]} ${tip[1] - 160} L${tip[0]} ${tip[1]}" stroke="${CU}" stroke-width="2" stroke-dasharray="6 6"/><path d="M${tip[0] + 20.1} ${tip[1] - 159} L${tip[0]} ${tip[1]}" stroke="${CU}" stroke-width="2"/>`
+    + `<path d="M${tip[0]} ${tip[1] - 110} A110 110 0 0 1 ${tip[0] + 13.8} ${tip[1] - 109.1}" fill="none" stroke="${CU}" stroke-width="2.4"/><text x="${tip[0] + 28}" y="${tip[1] - 96}" font-family="Fr" font-style="italic" font-size="30" fill="${CU}">7.2°</text>`;
+  // Syene's well: the sun straight down the shaft
+  const wx = 520, wy = 930; body += fill(`M${wx - 110} ${wy} L${wx - 110} ${wy + 46} A110 32 0 0 0 ${wx + 110} ${wy + 46} L${wx + 110} ${wy}Z`, 'stone', .4, 90) + fill(ell(wx, wy, 110, 32), 'stone', .2, 0)
+    + fill(ell(wx, wy + 2, 84, 22), 'water', .85, 0) + (E ? `<circle cx="${wx + 10}" cy="${wy + 2}" r="9" fill="${PAPER}" stroke="${INK}"/>` : `<ellipse cx="${wx + 10}" cy="${wy + 2}" rx="22" ry="8" fill="#FFF6D0"/>${glow(wx + 10, wy + 2, 60, '#FFF1C8', .8)}`);
+  for (let i = 0; i < 9; i++) body += line(`M${wx - 100 + i * 25} ${wy + 12 + Math.sin(i) * 3} l18 0`, .8);
+  body += figure(700, 960, 190, .3);
+}
+if (SC === 'core') {   // inside the Earth: crust, mantle, outer core, inner core — and the earthquake waves that revealed them
+  const { cx, cy, r } = G.ec;
+  bg = E ? fill('M0 0 H1920 V1080 H0Z', 'space', .9, 30, { stroke: false }) : `<rect width="1920" height="1080" fill="url(#spg)"/>`;
+  D += `<radialGradient id="spg" cx=".6" cy=".3" r="1"><stop offset="0" stop-color="#2A2F5A"/><stop offset=".6" stop-color="#11152E"/><stop offset="1" stop-color="#060814"/></radialGradient><clipPath id="ce"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath>`;
+  seed = 3; for (let i = 0; i < 160; i++) { const x = R() * 1920, y = R() * 1080, s = .8 + R() * 1.8; body += E ? `<circle cx="${x}" cy="${y}" r="${s + .6}" fill="${PAPER}" stroke="${INK}" stroke-width=".5"/>` : `<circle cx="${x}" cy="${y}" r="${s}" fill="#FFF6E0" opacity="${.3 + R() * .6}"/>`; }
+  body += glow(cx, cy, r * 1.25, '#7FB8FF', .35);
+  body += `<g clip-path="url(#ce)">${fill(ell(cx, cy, r, r), 'sea', .45, 0, { stroke: false })}${fill(G.eLand, 'land', .25, 45, { sw: 1 })}${line(G.eGrat, .5)}</g>`;
+  body += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${E ? INK : '#BFE3FF'}" stroke-width="${E ? 2.4 : 2}" opacity="${E ? 1 : .5}"/>`;
+  // the wedge: a quarter cut away, layers to true proportions (crust exaggerated)
+  const a1 = -0.18, a2 = 1.45, pie = rr => `M${cx} ${cy} L${cx + Math.cos(a1) * rr} ${cy + Math.sin(a1) * rr} A${rr} ${rr} 0 0 1 ${cx + Math.cos(a2) * rr} ${cy + Math.sin(a2) * rr}Z`;
+  body += fill(pie(r), 'crust', .55, 20) + fill(pie(r * .965), 'mantle', .45, -30) + fill(pie(r * .546), 'ocore', .5, 30) + fill(pie(r * .19), 'icore', .2, -60);
+  if (!E) body += `<circle cx="${cx}" cy="${cy}" r="${r * .3}" fill="url(#gl_FFE08A)" opacity=".7" clip-path="url(#wedge)"/>`;
+  D += `<clipPath id="wedge"><path d="${pie(r)}"/></clipPath>`; glow(0, 0, 1, '#FFE08A');
+  // convection in the mantle, seismic rays bending through it
+  body += `<g clip-path="url(#wedge)">` + [0, 1, 2].map(i => { const rr = r * (.66 + i * .1); return `<path d="M${cx + Math.cos(.15 + i * .3) * rr} ${cy + Math.sin(.15 + i * .3) * rr} A${rr} ${rr} 0 0 1 ${cx + Math.cos(.55 + i * .3) * rr} ${cy + Math.sin(.55 + i * .3) * rr}" fill="none" stroke="${E ? INK : '#FFD1A0'}" stroke-width="1.6" stroke-dasharray="${E ? '3 5' : '0'}" opacity="${E ? .6 : .45}" marker-end="url(#ah)"/>`; }).join('')
+    + [0, 1, 2, 3].map(i => { const s = [cx + Math.cos(a1 + .05) * r, cy + Math.sin(a1 + .05) * r], e = [cx + Math.cos(.45 + i * .26) * r, cy + Math.sin(.45 + i * .26) * r], c = [cx + Math.cos(.2 + i * .14) * r * (.62 - i * .06), cy + Math.sin(.2 + i * .14) * r * (.62 - i * .06)];
+      return `<path d="M${s[0]} ${s[1]} Q${c[0]} ${c[1]} ${e[0]} ${e[1]}" fill="none" stroke="${CU}" stroke-width="2.4" stroke-dasharray="9 6"/>`; }).join('') + `</g>`;
+  D += `<marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="${E ? INK : '#FFD1A0'}"/></marker>`;
+  const q = [cx + Math.cos(a1 + .05) * r, cy + Math.sin(a1 + .05) * r]; body += E ? `<circle cx="${q[0]}" cy="${q[1]}" r="10" fill="${CU}" stroke="${INK}"/>` : `${glow(q[0], q[1], 50, '#FF8A4A', .9)}<circle cx="${q[0]}" cy="${q[1]}" r="9" fill="#FFE2B0"/>`;
+  body += `<text x="${cx + r * .27}" y="${cy + r * .12}" font-family="Mo" font-size="18" letter-spacing="4" fill="${E ? INK : '#FFF6E0'}">INNER CORE</text>`;
+}
+if (SC === 'desk') {   // the astronomer's desk at night: window, brass sextant, candle, open notebook, a REAL photo pinned to the wall
+  D += `<radialGradient id="cand" cx=".74" cy=".66" r=".7"><stop offset="0" stop-color="#FFD58A" stop-opacity=".55"/><stop offset=".5" stop-color="#C98A4A" stop-opacity=".18"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>`;
+  bg = fill('M0 0 H1920 V780 H0Z', 'wall', .62, 90, { stroke: false });
+  if (E) for (let x = 0; x < 1920; x += 160) body += line(`M${x} 0 V780`, 1.2); else for (let x = 0; x < 1920; x += 160) body += `<rect x="${x}" y="0" width="6" height="780" fill="#22160F" opacity=".35"/>`;
+  // window with the night and the Moon
+  body += fill('M120 110 H640 V650 H120Z', 'wood', .55, 0) + fill('M150 140 H610 V620 H150Z', 'night', .8, 20, { stroke: false });
+  seed = 8; for (let i = 0; i < 40; i++) { const x = 150 + R() * 460, y = 140 + R() * 480; body += E ? `<circle cx="${x}" cy="${y}" r="2" fill="${PAPER}" stroke="${INK}" stroke-width=".4"/>` : `<circle cx="${x}" cy="${y}" r="${1 + R() * 1.6}" fill="#FFF6E0" opacity="${.4 + R() * .5}"/>`; }
+  body += glow(470, 270, 150, '#F2E8D2', .5) + fill(ell(470, 270, 62, 62), 'paper', .1, 0) + (E ? `<path d="M470 208 A62 62 0 0 0 470 332 A30 62 0 0 1 470 208Z" fill="url(#${hatch(3, 30)})"/>` : `<path d="M470 208 A62 62 0 0 0 470 332 A30 62 0 0 1 470 208Z" fill="#1F2850" opacity=".7"/>`);
+  body += fill('M372 140 H388 V620 H372Z', 'wood', .5, 90, { sw: 1 }) + fill('M150 372 H610 V388 H150Z', 'wood', .5, 0, { sw: 1 });
+  // the REAL photo pinned on the wall + a hand-drawn note (illegible: never a fake document)
+  body += `<g transform="rotate(-3 1230 330)">${fill('M1040 170 H1420 V490 H1040Z', 'paper', .05, 0)}<image href="photo.jpg" x="1060" y="190" width="340" height="250" preserveAspectRatio="xMidYMid slice" style="filter:${E ? 'sepia(.85) contrast(1.1) brightness(.9)' : 'sepia(.3) saturate(.9)'}"/>
+    ${E ? `<text x="1230" y="472" text-anchor="middle" font-family="Fr" font-style="italic" font-size="18" fill="${INK}">Plate I. — the lunar surface</text>` : ''}<circle cx="1230" cy="182" r="9" fill="${E ? CU : '#C9452E'}"/></g>`;
+  body += `<g transform="rotate(5 1580 360)">${fill('M1470 240 H1720 V500 H1470Z', 'paper', .1, 0)}${[...Array(8)].map((_, i) => line(`M1494 ${282 + i * 24} q40 -4 80 0 t${60 + (i % 3) * 20} 0`, 1.2)).join('')}${line('M1560 470 A40 40 0 0 1 1640 470 M1600 470 L1600 420 L1626 446', 1.4)}<circle cx="1595" cy="252" r="8" fill="${E ? CU : '#C9452E'}"/></g>`;
+  // the desk, candle light, notebook, sextant
+  body += fill('M0 760 H1920 V1080 H0Z', 'wood', .35, 2, { stroke: false }) + fill('M0 760 H1920 V786 H0Z', 'wood', .55, 0, { stroke: false });
+  if (E) for (let i = 0; i < 14; i++) body += line(`M0 ${800 + i * 20} C500 ${790 + i * 21} 1200 ${812 + i * 19} 1920 ${798 + i * 20}`, .7); else for (let i = 0; i < 18; i++) body += `<path d="M0 ${796 + i * 16} C500 ${790 + i * 17} 1200 ${806 + i * 15} 1920 ${794 + i * 16}" stroke="#4A2E1A" stroke-width="2" opacity=".18" fill="none"/>`;
+  if (!E) body += `<rect width="1920" height="1080" fill="url(#cand)"/>`;
+  const kx = 1500, ky = 820; body += fill(`M${kx - 34} ${ky + 40} H${kx + 34} V${ky + 52} H${kx - 34}Z`, 'brass', .3, 0) + fill(`M${kx - 20} ${ky - 120} H${kx + 20} V${ky + 40} H${kx - 20}Z`, 'paper', .2, 90)
+    + (E ? `<path d="M${kx} ${ky - 128} Q${kx + 12} ${ky - 150} ${kx} ${ky - 178} Q${kx - 12} ${ky - 150} ${kx} ${ky - 128}Z" fill="${PAPER}" stroke="${INK}"/>${[...Array(12)].map((_, i) => { const a = i / 12 * 6.283; return `<path d="M${kx + Math.cos(a) * 34} ${ky - 150 + Math.sin(a) * 34} L${kx + Math.cos(a) * 60} ${ky - 150 + Math.sin(a) * 60}" stroke="${INK}" stroke-width=".7"/>`; }).join('')}`
+      : `${glow(kx, ky - 150, 220, '#FFD27A', .9)}<path d="M${kx} ${ky - 126} Q${kx + 14} ${ky - 150} ${kx} ${ky - 184} Q${kx - 14} ${ky - 150} ${kx} ${ky - 126}Z" fill="#FFF0B8"/>`);
+  // notebook: two pages, a sketch of a circle and an angle, illegible lines
+  body += fill('M760 960 L790 820 L1060 812 L1050 958Z', 'paper', .08, 0) + fill('M1050 958 L1060 812 L1330 822 L1340 962Z', 'paper', .16, 0) + line('M1060 812 L1050 958', 1.6);
+  for (let i = 0; i < 6; i++) body += line(`M${1090} ${850 + i * 18} q60 -3 ${150 - (i % 2) * 40} 2`, 1);
+  body += line('M850 940 A60 60 0 1 1 970 940 M910 940 L910 880 L950 870', 1.6) + `<path d="M910 905 A35 35 0 0 1 922 904" stroke="${CU}" stroke-width="2" fill="none"/>`;
+  // a brass ASTROLABE on a small wooden stand: graduated limb, tropics, the rete with star pointers, the alidade
+  const ax = 430, ay = 560, AR = 175;
+  body += fill(`M${ax - 120} 900 L${ax + 120} 900 L${ax + 100} 930 L${ax - 100} 930Z`, 'wood', .5, 0) + fill(`M${ax - 12} ${ay + AR} L${ax + 12} ${ay + AR} L${ax + 16} 900 L${ax - 16} 900Z`, 'wood', .55, 90)
+    + fill(ell(ax, ay - AR - 26, 22, 22), 'brass', .3, 0) + fill(ell(ax, ay - AR - 26, 12, 12), 'wall', .8, 0, { sw: 1 }) + fill(`M${ax - 24} ${ay - AR - 8} L${ax + 24} ${ay - AR - 8} L${ax + 16} ${ay - AR + 8} L${ax - 16} ${ay - AR + 8}Z`, 'brass', .35, 0);
+  body += fill(ell(ax, ay, AR, AR), 'brass', .3, 35, { sw: 2 }) + fill(ell(ax, ay, AR - 26, AR - 26), 'brass', .12, 120, { sw: 1.4 });
+  for (let i = 0; i < 120; i++) { const a = i / 120 * 6.2832, L = i % 10 ? (i % 5 ? 8 : 13) : 20; body += line(`M${ax + Math.cos(a) * AR} ${ay + Math.sin(a) * AR} L${ax + Math.cos(a) * (AR - L)} ${ay + Math.sin(a) * (AR - L)}`, i % 10 ? .7 : 1.2); }
+  [.82, .6, .38].forEach(k => body += `<circle cx="${ax}" cy="${ay}" r="${(AR - 26) * k}" fill="none" stroke="${E ? INK : '#7E5A1E'}" stroke-width="1.2" opacity=".8"/>`);
+  body += `<path d="M${ax - AR + 26} ${ay} A${AR * .9} ${AR * .55} 0 0 0 ${ax + AR - 26} ${ay}" fill="none" stroke="${E ? INK : '#7E5A1E'}" stroke-width="1.2"/>`;
+  [[-.9, .55], [-.2, .72], [.5, .6], [1.3, .7], [2.2, .5], [2.9, .66], [3.8, .58], [4.6, .74], [5.4, .52]].forEach(([a, k]) => { const r1 = (AR - 26) * k, x = ax + Math.cos(a) * r1, y = ay + Math.sin(a) * r1;
+    body += fill(`M${ax + Math.cos(a - .12) * r1 * .7} ${ay + Math.sin(a - .12) * r1 * .7} Q${x} ${y} ${x + Math.cos(a) * 16} ${y + Math.sin(a) * 16} Q${x} ${y} ${ax + Math.cos(a + .12) * r1 * .7} ${ay + Math.sin(a + .12) * r1 * .7}Z`, 'brass', .55, a * 57, { sw: 1 }); });
+  body += `<circle cx="${ax}" cy="${ay}" r="${(AR - 26) * .45}" fill="none" stroke="${E ? INK : '#5A3A12'}" stroke-width="5" opacity=".75"/>`;
+  body += fill(`M${ax - AR + 6} ${ay - 9} L${ax + AR - 6} ${ay - 9} L${ax + AR - 6} ${ay + 9} L${ax - AR + 6} ${ay + 9}Z`, 'brass', .5, 0, { sw: 1.4 }) + fill(ell(ax, ay, 12, 12), 'brass', .2, 0) + `<g transform="rotate(-28 ${ax} ${ay})"></g>`;
+  body += glow(ax + 60, ay - 40, 220, '#FFD27A', .22);
+
+}
+if (SC === 'map') {   // the eastern Mediterranean on an old map: real coastlines, the Nile, a ship, the route — Alexandria to Syene
+  const C = G.city;
+  bg = fill('M0 0 H1920 V1080 H0Z', 'sea', .35, 0, { stroke: false });
+  if (E) body += `<path d="${G.mCoast}" fill="none" stroke="${INK}" stroke-width="16" opacity=".06"/><path d="${G.mCoast}" fill="none" stroke="${INK}" stroke-width="9" opacity=".1"/>`; else body += `<path d="${G.mCoast}" fill="none" stroke="#BFE6F0" stroke-width="14" opacity=".25" filter="url(#paint)"/>`;
+  body += fill(G.mLand, 'land', .15, 45, { sw: 1.2, paper: '#F2E8CF' }) + (E ? `<path d="${G.mLand}" fill="url(#dots)"/>` : '') + fill(G.mLakes, 'sea', .4, 0, { sw: .8 });
+  D += `<pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".9" fill="${INK}" opacity=".45"/></pattern>`;
+  body += line(G.mGrat, .6) + `<path d="${G.mNile}" fill="none" stroke="${E ? INK : '#2F7298'}" stroke-width="3"/>`;
+  body += `<path d="M${C.athens.join(' ')} Q${(C.athens[0] + C.rhodes[0]) / 2} ${C.rhodes[1] - 40} ${C.rhodes.join(' ')} T${C.alex.join(' ')} L${C.syene.join(' ')}" fill="none" stroke="${CU}" stroke-width="4" stroke-dasharray="12 9"/>`;
+  [C.alex, C.syene, C.athens, C.rhodes].forEach(([x, y]) => body += `<circle cx="${x}" cy="${y}" r="9" fill="${E ? PAPER : '#FFF2D0'}" stroke="${E ? INK : '#7A2A1E'}" stroke-width="2.4"/><circle cx="${x}" cy="${y}" r="3" fill="${CU}"/>`);
+  // a ship under sail between Rhodes and Alexandria
+  const [shx, shy] = [1440, 560]; body += fill(`M${shx - 70} ${shy} L${shx + 70} ${shy} L${shx + 50} ${shy + 26} L${shx - 52} ${shy + 26}Z`, 'wood', .55, 0) + line(`M${shx} ${shy} L${shx} ${shy - 110}`, 2.4)
+    + fill(`M${shx + 4} ${shy - 104} Q${shx + 62} ${shy - 64} ${shx + 6} ${shy - 14}Z`, 'cloth', .15, 80) + fill(`M${shx - 4} ${shy - 96} Q${shx - 50} ${shy - 60} ${shx - 6} ${shy - 20}Z`, 'cloth', .4, 80);
+  for (let i = 0; i < 4; i++) body += line(`M${shx - 90 + i * 30} ${shy + 34 + (i % 2) * 6} q12 -6 24 0`, 1);
+  // compass rose
+  const rx = 330, ry = 860; for (let i = 0; i < 16; i++) { const a = i / 16 * 6.283, L = i % 4 ? (i % 2 ? 60 : 90) : 140, w = i % 4 ? 10 : 18;
+    body += fill(`M${rx} ${ry} L${rx + Math.cos(a - .3) * w} ${ry + Math.sin(a - .3) * w} L${rx + Math.cos(a) * L} ${ry + Math.sin(a) * L} Z`, i % 4 ? 'brass' : 'stone', i % 2 ? .6 : .1, a * 57, { sw: 1 }); }
+  body += `<circle cx="${rx}" cy="${ry}" r="104" fill="none" stroke="${E ? INK : '#7E5A1E'}" stroke-width="1.6"/><circle cx="${rx}" cy="${ry}" r="112" fill="none" stroke="${E ? INK : '#7E5A1E'}" stroke-width=".8"/><text x="${rx}" y="${ry - 150}" text-anchor="middle" font-family="Fr" font-weight="700" font-size="28" fill="${E ? INK : '#5A3A20'}">N</text>`;
+  body += `<rect x="24" y="24" width="1872" height="1032" fill="none" stroke="${E ? INK : '#5A3A20'}" stroke-width="3"/><rect x="36" y="36" width="1848" height="1008" fill="none" stroke="${E ? INK : '#5A3A20'}" stroke-width="1"/>`;
+}
+const fin = E ? `<rect width="1920" height="1080" filter="url(#grain)"/><rect width="1920" height="1080" fill="url(#vig)"/>` : `<rect width="1920" height="1080" fill="url(#vig2)"/><rect width="1920" height="1080" filter="url(#grain)"/>`;
+const tagT = { desert: 'Phong cảnh & ánh sáng', core: 'Sơ đồ khoa học', desk: 'Nội thất & tư liệu thật', map: 'Bản đồ' }[SC], styT = E ? 'Atlas khắc đồng' : 'Tranh bột màu';
+const label = `<rect x="1490" y="34" width="400" height="74" rx="6" fill="${E ? PAPER : '#14182E'}" opacity=".88"/><text x="1870" y="66" text-anchor="end" font-family="In" font-weight="600" font-size="22" fill="${E ? INK : '#FFF2D8'}">${styT}</text><text x="1870" y="94" text-anchor="end" font-family="Mo" font-size="16" letter-spacing="2" fill="${E ? INK : '#FFF2D8'}" opacity=".7">${tagT}</text>`;
+document.getElementById('s').innerHTML = `<defs>${D}
+  <filter id="paint"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="2"/><feDisplacementMap in="SourceGraphic" scale="7"/></filter>
+  <pattern id="tex" width="240" height="240" patternUnits="userSpaceOnUse"><rect width="240" height="240" fill="#000" filter="url(#texf)"/></pattern>
+  <filter id="texf" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".05 .4" numOctaves="3" seed="5"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 -.18"/></filter>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .09 0"/></filter>
+  <radialGradient id="vig" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#3A2A14" stop-opacity="0"/><stop offset="1" stop-color="#3A2A14" stop-opacity=".4"/></radialGradient>
+  <radialGradient id="vig2" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".38"/></radialGradient></defs>
+  ${E ? `<rect width="1920" height="1080" fill="${PAPER}"/>` : ''}${bg}${body}${fin}${label}`;
+</script></body></html>
