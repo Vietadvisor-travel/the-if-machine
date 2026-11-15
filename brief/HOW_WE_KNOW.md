@@ -17,6 +17,10 @@ He said: lock and agree everything before building.
   episode 20–40 items + a shared library), each item with source + licence. Sources: Pexels, Pixabay, Wikimedia Commons, Library of
   Congress, NASA, Smithsonian Open Access, Internet Archive (public domain / CC0 / CC BY). No Getty, news footage or YouTube rips.
   Real photos of real people only from licensed archives, credited; no AI images of real people or fake documents.
+- **Picture principle (owner, 15 Nov 2026): re-animate the WORLD, not text.** The brand boards with big headlines, numbers and documents
+  were rejected ("xấu, không trực quan"). Every line is shown as the real world drawn and moving (Earth, Moon, sun, sticks, shadows, cities,
+  machines), one continuous camera move from scene to scene; on screen only the caption, a small clue tag, at most one small label.
+  Look test on Drive `_samples/look_2026-11-15` (laser to the Moon in 3 moments of one move) — awaiting the owner's verdict.
 - Content line (proposed by Claude, not objected to): a case-file explainer — one big real question, 3–4 "Clues" each solved with sourced
   evidence (numbers, maps, documents), a twist, the answer and a closing thought. Pools: how we measured/know things, survivals and
   impossible true events, historical mysteries with an answer. Facts with 2 sources, no invented numbers (unchanged).
