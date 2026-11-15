@@ -57,3 +57,5 @@ FATHOM lockup). Waiting for the owner's pick (or a mix).
 "The samples are only a demo: make it more beautiful and polished in every small detail, and COMPLETE this style" — a full style
 system (materials, light, brush and paper texture, edges, atmosphere, people, instruments, places, maps, diagrams, real-stock frames,
 brand) built into the engine. No more demos until the engine is complete; then ONE full demo episode.
+- Then the owner said "or combine both": combined = gouache colour + engraved ink outline + light hatching in the shadows (a
+  hand-coloured engraving). Comparison on Drive `_samples/fathom_styles_2026-11-15/round3`. Waiting: gouache or combined.
