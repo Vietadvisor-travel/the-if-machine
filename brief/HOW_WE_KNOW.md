@@ -1,3 +1,5 @@
+> SUPERSEDED 15 Nov 2026 by brief/FATHOM.md (channel = Fathom). Kept for history.
+
 # PHASE 3 format (working name HOW WE KNOW — REJECTED by the owner 15 Nov evening; new name pending) (owner, 15 Nov 2026) — DECISIONS IN PROGRESS, nothing is built until all are locked
 
 The owner sent a reference video (11.6 min, 16:9, Vietnamese, a fixed "scholar's desk" frame, flat 2D diagrams, "Nghi vấn 1–4"
