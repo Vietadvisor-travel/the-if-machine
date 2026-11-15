@@ -25,12 +25,20 @@ He said: lock and agree everything before building.
   evidence (numbers, maps, documents), a twist, the answer and a closing thought. Pools: how we measured/know things, survivals and
   impossible true events, historical mysteries with an answer. Facts with 2 sources, no invented numbers (unchanged).
 
-## Still open (ask the owner)
-1. Voice speed: 1.0 / 0.92 (Claude's pick) / 0.85.
-2. Brand direction: A / B / C (Claude's pick: A).
-3. Sound: voice only (rule of 14 Nov) or voice + a very quiet music bed for long films.
-4. Remotion licence: free for individuals and companies of up to 3 people; a company licence is needed above that.
-5. Pilot topic: Muse proposes, or the owner picks.
+## Locked 15 Nov 2026 (second answer)
+- Owner works alone → Remotion free licence applies.
+- Voice: af_heart at speed **0.92** (owner: "speed you think fits").
+- Sound: **one music track through the whole episode** (chosen per episode to fit it, quiet under the voice) + **sound effects used
+  moderately, fitting, never cluttered**. Replaces the voice-only rule of 14 Nov for this format.
+- Workflow: Muse researches + scans resources → owner picks → Claude makes.
+- Livelier picture: Muse finds, fetches and prepares REAL stock (archival photos, documents, video); now and then an element on screen is
+  a real photo or real footage, treated to fit the style (duotone to the palette, grain, soft matte, placed inside the world), never raw.
+- Graphics so far: 6/10 (owner). Next look test must unify every element into ONE style and be more polished.
+- Stock hosts (NASA, Wikimedia, Pexels) are blocked from Claude's container: Muse fetches stock to Drive; Claude syncs from Drive.
+
+## Still open
+- Brand direction (palette A was used in the look tests; not confirmed).
+- Pilot topic.
 
 ## After lock (plan)
 Brand kit → Remotion project (desk/stage components, ink draw-on, maps, documents, stock-in-frame, clue tracker, captions) →
