@@ -390,6 +390,19 @@ game assets. Quality check before upload: a 1080×1920 close-up render must read
 **Muse never builds models; Muse digs for real ones. Building is Claude's last resort only** (owner, 14 Nov 2026).
 
 ## Wanted (Claude appends; Muse fulfils on Saturday)
+- 2026-11-15 · **week 2026-11-30 gaps** (from jobs/topics/WEEK_2026-11-30.md, in production order):
+  1. **Humpback whale** (story 12; no animal models in the library; the whole story hangs on it)
+  2. **Husky dogs** (story 4; no animal models in the library)
+  3. **Eiffel Tower model** (story 9; Wanted since week 2026-11-23, still missing)
+  4. **Palais Ideal** (story 6; unique building, check Sketchfab CC-BY first)
+  5. **Indiana Bell 1930 telephone exchange building** (story 7; period set)
+  6. **Wooden raft** (story 3; the library life_raft is an inflatable Avon-style, wrong type)
+  7. **Thorn hedge wall** (story 10; bush-1/2/3 exist as stand-in foliage, the wall is a set build)
+  8. **Electra wreckage section + row of 3 seats** (story 1)
+  9. **Arctic fox + rifle + tent** (story 2)
+  10. **Small silver fish** (story 11; mahi_mahi is a big game fish, wrong scale and species)
+  11. **Hand close-up rig or 2D insert** (story 13; same gap as week 2026-11-23 story 15)
+  12. **Wheelbarrow + mailbag** (story 6, small); **chisel** (story 5, small); **microphone** (story 15, small)
 - 2026-11-14 · **week 2026-11-23 gaps** (from jobs/topics/WEEK_2026-11-23.md, in production order):
   1. **Tunnelling shield** (story 7, Thames Tunnel; big build, 11 m wide iron frame with 36 cells)
   2. **Eiffel Tower model** (story 8; Sketchfab CC-BY has several, download needs login)
