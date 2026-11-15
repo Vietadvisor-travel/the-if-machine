@@ -1,0 +1,160 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="scene.js"></script><style>
+@font-face{font-family:Fr;font-weight:700;src:url(F7.woff2)}@font-face{font-family:Fr;font-weight:400;src:url(F4.woff2)}@font-face{font-family:Fr;font-style:italic;src:url(F4i.woff2)}
+@font-face{font-family:In;font-weight:600;src:url(I6.woff2)}@font-face{font-family:Mo;src:url(M4.woff2)}@font-face{font-family:Un;font-weight:700;src:url(unbounded-latin-700-normal.woff2)}
+@font-face{font-family:An;src:url(anton-latin-400-normal.woff2)}@font-face{font-family:Px;src:url(ibm-plex-mono-latin-500-normal.woff2)}@font-face{font-family:Br;font-weight:800;src:url(bricolage-grotesque-latin-800-normal.woff2)}@font-face{font-family:Ar;font-weight:700;src:url(archivo-latin-700-normal.woff2)}
+*{margin:0}body{width:1920px;height:1080px;overflow:hidden}svg{display:block}
+</style></head><body><svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+<script>
+// FATHOM — 7 completely different drawing styles on ONE sample scene: the real Earth (Natural Earth 50 m coastlines, lit, night side
+// with real city positions), the Moon, the laser between them, a REAL photo used as a component, the FATHOM lockup, a caption.
+const S = window.SCENE, {cx, cy, r} = S, MX = 1500, MY = 330, MR = 118, st = +(location.hash.slice(1) || 1);
+let seed = 11; const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const CR = (() => { seed = 5; return [...Array(22)].map(() => { const a = R() * 6.28, d = Math.sqrt(R()) * .8; return [MX + Math.cos(a) * d * MR, MY + Math.sin(a) * d * MR, MR * (.04 + R() * R() * .16)]; }); })();
+const BEAM = [cx + r * .55, cy - r * .5, MX - MR * .8, MY + MR * .35];
+const CAP = 'A pulse of laser light leaves the Earth for the Moon — and comes back.';
+const common = `<clipPath id="sph"><circle cx="${cx}" cy="${cy}" r="${r}"/></clipPath><clipPath id="nt"><path d="${S.night}"/></clipPath><clipPath id="lnd"><path d="${S.land}"/></clipPath><clipPath id="mn"><circle cx="${MX}" cy="${MY}" r="${MR}"/></clipPath>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .09 0"/></filter>`;
+const moonShadow = `<path d="M${MX} ${MY - MR} A${MR} ${MR} 0 0 0 ${MX} ${MY + MR} A${MR * .45} ${MR} 0 0 1 ${MX} ${MY - MR}Z"`;
+const tag = (n, vi, en, col) => `<text x="1868" y="60" text-anchor="end" font-family="In" font-weight="600" font-size="22" fill="${col}" opacity=".85">${n} · ${vi}</text><text x="1868" y="88" text-anchor="end" font-family="Mo" font-size="15" letter-spacing="3" fill="${col}" opacity=".6">${en}</text>`;
+const cap = (col, font = 'In', sh = '#000') => `<text x="960" y="1010" text-anchor="middle" font-family="${font}" font-weight="600" font-size="34" fill="${col}" style="paint-order:stroke" stroke="${sh}" stroke-opacity=".35" stroke-width="5">${CAP}</text>`;
+const photo = (x, y, w, h, rot, filt, extra = '', fr = '') => `<g transform="rotate(${rot} ${x + w / 2} ${y + h / 2})">${fr}<image href="photo.jpg" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="xMidYMid slice" style="filter:${filt}"/>${extra}</g>`;
+const lights = (col, rr = 1.6, op = .9) => S.lights.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="${rr}" fill="${col}" opacity="${op}"/>`).join('');
+const puffs = (seedN, n, k, fill, extra = '') => { seed = seedN; return [...Array(n)].map(() => { const x = cx + (R() - .5) * r * 1.7, y = cy + (R() - .5) * r * 1.7, w = (26 + R() * 46) * k;
+  const lobes = [...Array(4 + Math.floor(R() * 3))].map((_, j) => `<ellipse cx="${x + (j - 2) * w * .55}" cy="${y + (R() - .5) * w * .25}" rx="${w * (.5 + R() * .35)}" ry="${w * (.28 + R() * .18)}" fill="${fill}"/>`).join('');
+  return `<g ${extra}>${lobes}</g>`; }).join(''); };
+let g = '';
+
+if (st === 1) { // ENGRAVED ATLAS — ink lines, hatching, parchment, copper
+  const ink = '#1D2A3A', cu = '#A8622C';
+  g = `<defs>${common}<pattern id="hl" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 3 H6" stroke="${ink}" stroke-width=".9"/></pattern>
+    <pattern id="xh" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 3.5 H7 M3.5 0 V7" stroke="${ink}" stroke-width=".9"/></pattern>
+    <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".9" fill="${ink}" opacity=".55"/><circle cx="5.5" cy="5.5" r=".6" fill="${ink}" opacity=".4"/></pattern>
+    <radialGradient id="pv" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#3A2A14" stop-opacity="0"/><stop offset="1" stop-color="#3A2A14" stop-opacity=".45"/></radialGradient></defs>
+  <rect width="1920" height="1080" fill="#E8DBBE"/><rect width="1920" height="1080" filter="url(#grain)"/>
+  <g stroke="${ink}" fill="none" opacity=".35">${[...Array(16)].map((_, i) => `<circle cx="${cx}" cy="${cy}" r="${r + 40 + i * 36}" stroke-width=".6" stroke-dasharray="${i % 2 ? '2 6' : '0'}"/>`).join('')}</g>
+  <g clip-path="url(#sph)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="#E3D3AE"/><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#hl)" opacity=".5"/>
+    <path d="${S.land}" fill="none" stroke="${ink}" stroke-width="14" opacity=".08"/><path d="${S.land}" fill="none" stroke="${ink}" stroke-width="7" opacity=".12"/>
+    <path d="${S.land}" fill="#EFE3C6"/><path d="${S.land}" fill="url(#dots)"/><path d="${S.lakes}" fill="url(#hl)"/>
+    <path d="${S.grat}" fill="none" stroke="${ink}" stroke-width=".6" opacity=".45"/><path d="${S.land}" fill="none" stroke="${ink}" stroke-width="1.4"/>
+    <g clip-path="url(#nt)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#xh)" opacity=".75"/></g></g>
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${ink}" stroke-width="2.6"/><circle cx="${cx}" cy="${cy}" r="${r + 9}" fill="none" stroke="${ink}" stroke-width=".8"/>
+  <circle cx="${MX}" cy="${MY}" r="${MR}" fill="#EFE3C6" stroke="${ink}" stroke-width="2"/><g clip-path="url(#mn)">${CR.map(([x, y, s]) => `<circle cx="${x}" cy="${y}" r="${s}" fill="url(#hl)" stroke="${ink}" stroke-width=".9"/>`).join('')}${moonShadow} fill="url(#xh)"/></g>
+  <path d="M${BEAM[0]} ${BEAM[1]} L${BEAM[2]} ${BEAM[3]}" stroke="${cu}" stroke-width="2.4" stroke-dasharray="10 6"/><circle cx="${BEAM[0]}" cy="${BEAM[1]}" r="5" fill="${cu}"/>
+  ${photo(1270, 610, 470, 300, -2, 'sepia(.85) contrast(1.1) brightness(.9)', `<rect x="1270" y="610" width="470" height="300" fill="none" stroke="${ink}" stroke-width="1.5"/>`, `<rect x="1250" y="590" width="510" height="370" fill="#EFE3C6" stroke="${ink}" stroke-width="1.2"/><text x="1505" y="944" text-anchor="middle" font-family="Fr" font-style="italic" font-size="20" fill="${ink}">Plate I. — the lunar surface, photographed</text>`)}
+  <g transform="translate(70 64)"><circle cx="24" cy="24" r="22" fill="none" stroke="${ink}" stroke-width="2"/><path d="M24 2 L28 24 L24 46 L20 24Z" fill="${ink}"/><path d="M2 24 L24 20 L46 24 L24 28Z" fill="${cu}"/><text x="62" y="36" font-family="Fr" font-weight="700" font-size="34" letter-spacing="10" fill="${ink}">FATHOM</text></g>
+  <rect width="1920" height="1080" fill="url(#pv)"/>${cap(ink, 'Fr', '#E8DBBE')}${tag(1, 'Atlas khắc đồng', 'ENGRAVED ATLAS', ink)}`;
+}
+if (st === 2) { // GOUACHE — painted, warm light, brush texture
+  g = `<defs>${common}<filter id="paint"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="2"/><feDisplacementMap in="SourceGraphic" scale="14"/></filter>
+    <filter id="brush" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".04 .9" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -.9 .7"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    <radialGradient id="oc" cx=".68" cy=".3" r=".9"><stop offset="0" stop-color="#3FA3B8"/><stop offset=".5" stop-color="#1D5E86"/><stop offset="1" stop-color="#0F2F52"/></radialGradient>
+    <linearGradient id="ld" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E8F45"/><stop offset=".45" stop-color="#8FA650"/><stop offset=".7" stop-color="#C9A25E"/><stop offset="1" stop-color="#7A6A3A"/></linearGradient>
+    <radialGradient id="sk" cx=".7" cy=".2" r="1"><stop offset="0" stop-color="#3B3F6E"/><stop offset=".6" stop-color="#1A1D3A"/><stop offset="1" stop-color="#0C0E20"/></radialGradient>
+    <radialGradient id="nm" cx=".9" cy=".2" r="1.1"><stop offset=".45" stop-color="#0A0F28" stop-opacity="0"/><stop offset=".8" stop-color="#0A0F28" stop-opacity=".8"/></radialGradient>
+    <radialGradient id="mo" cx=".7" cy=".3" r=".8"><stop offset="0" stop-color="#FFF4DD"/><stop offset=".7" stop-color="#E2CFA8"/><stop offset="1" stop-color="#A89070"/></radialGradient></defs>
+  <rect width="1920" height="1080" fill="url(#sk)"/><g filter="url(#paint)">${[...Array(6)].map((_, i) => `<ellipse cx="${300 + i * 300}" cy="${200 + (i % 3) * 120}" rx="260" ry="60" fill="#5A4E8A" opacity=".18" transform="rotate(-12 ${300 + i * 300} 200)"/>`).join('')}</g>
+  ${(() => { seed = 3; return [...Array(140)].map(() => `<circle cx="${R() * 1920}" cy="${R() * 1080}" r="${.8 + R() * 2.2}" fill="#FFF6E0" opacity="${.3 + R() * .6}"/>`).join(''); })()}
+  <circle cx="${cx}" cy="${cy}" r="${r + 26}" fill="#6FB6E8" opacity=".18" filter="url(#paint)"/>
+  <g clip-path="url(#sph)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#oc)"/>
+    <g filter="url(#paint)"><path d="${S.land}" fill="url(#ld)"/><path d="${S.land}" fill="#2E4A24" opacity=".25" transform="translate(4 5)"/></g>
+    <path d="${S.lakes}" fill="#2C7BA0"/>
+    <g filter="url(#paint)" opacity=".7">${puffs(9, 16, 1, '#FFFFFF')}</g>
+    <rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#nm)"/>${lights('#FFD27A', 1.5, .8)}</g>
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#FFE2A8" stroke-width="3" opacity=".45"/>
+  <g filter="url(#paint)"><circle cx="${MX}" cy="${MY}" r="${MR}" fill="url(#mo)"/></g><g clip-path="url(#mn)">${CR.map(([x, y, s]) => `<circle cx="${x}" cy="${y}" r="${s}" fill="#B49A76" opacity=".55"/>`).join('')}${moonShadow} fill="#1A1D3A" opacity=".55"/></g>
+  <path d="M${BEAM[0]} ${BEAM[1]} L${BEAM[2]} ${BEAM[3]}" stroke="#FFB35C" stroke-width="5" stroke-linecap="round" filter="url(#paint)"/>
+  ${photo(1290, 640, 420, 280, 4, 'sepia(.35) saturate(.9) contrast(1.05) brightness(1.05)', '', `<rect x="1270" y="620" width="460" height="360" fill="#F6EEDC"/><rect x="1440" y="600" width="120" height="40" fill="#E9D9A8" opacity=".85" transform="rotate(-6 1500 620)"/>`)}
+  <text x="76" y="104" font-family="Fr" font-style="italic" font-size="58" fill="#FFE9C2">Fathom</text>
+  ${cap('#FFF6E6')}${tag(2, 'Tranh bột màu', 'GOUACHE PAINTING', '#FFE9C2')}`;
+}
+if (st === 3) { // BLUEPRINT — technical drawing, construction lines
+  const L = '#DCEBFF';
+  g = `<defs>${common}<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="#5E8CC4" stroke-width=".6" opacity=".55"/></pattern>
+    <pattern id="hl" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 4 H8" stroke="${L}" stroke-width=".8" opacity=".55"/></pattern>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="${L}"/></marker></defs>
+  <rect width="1920" height="1080" fill="#123E72"/><rect width="1920" height="1080" fill="url(#grid)"/><rect width="1920" height="1080" filter="url(#grain)"/>
+  <g fill="none" stroke="${L}"><circle cx="${cx}" cy="${cy}" r="${r}" stroke-width="2.4"/><circle cx="${cx}" cy="${cy}" r="${r + 30}" stroke-width=".8" stroke-dasharray="4 8"/>
+    <line x1="${cx - r - 80}" y1="${cy}" x2="${cx + r + 80}" y2="${cy}" stroke-width=".8" stroke-dasharray="20 6 4 6"/><line x1="${cx}" y1="${cy - r - 80}" x2="${cx}" y2="${cy + r + 80}" stroke-width=".8" stroke-dasharray="20 6 4 6"/>
+    <g clip-path="url(#sph)"><path d="${S.grat}" stroke-width=".7" opacity=".55"/><path d="${S.land}" stroke-width="1.6"/><path d="${S.land}" fill="url(#hl)" stroke="none"/><g clip-path="url(#nt)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="#0A2A55" opacity=".55" stroke="none"/></g></g>
+    <circle cx="${MX}" cy="${MY}" r="${MR}" stroke-width="2"/>${CR.map(([x, y, s]) => `<circle cx="${x}" cy="${y}" r="${s}" stroke-width=".9"/>`).join('')}
+    <line x1="${MX - MR - 40}" y1="${MY}" x2="${MX + MR + 40}" y2="${MY}" stroke-width=".8" stroke-dasharray="20 6 4 6"/>
+    <path d="M${BEAM[0]} ${BEAM[1]} L${BEAM[2]} ${BEAM[3]}" stroke="#FFD36A" stroke-width="2.4"/>
+    <path d="M${cx} ${cy - r - 120} Q ${(cx + MX) / 2} ${cy - r - 300} ${MX} ${MY - MR - 30}" stroke-width="1.2" marker-start="url(#ar)" marker-end="url(#ar)"/></g>
+  <text x="${(cx + MX) / 2 - 40}" y="${cy - r - 222}" text-anchor="middle" font-family="Px" font-size="22" letter-spacing="4" fill="${L}">384 400 KM</text>
+  ${photo(1300, 620, 440, 290, 0, 'grayscale(1) sepia(1) hue-rotate(170deg) saturate(2.2) brightness(.85)', `<rect x="1300" y="620" width="440" height="290" fill="none" stroke="${L}" stroke-width="1.5"/><text x="1300" y="935" font-family="Px" font-size="16" letter-spacing="3" fill="${L}">FIG. 2 — LUNAR SURFACE (PHOTO)</text>`)}
+  <g transform="translate(70 60)"><rect width="300" height="64" fill="none" stroke="${L}" stroke-width="1.5"/><text x="20" y="43" font-family="Px" font-size="32" letter-spacing="10" fill="${L}">FATHOM</text></g>
+  ${cap('#FFFFFF', 'In', '#0A2A55')}${tag(3, 'Bản vẽ kỹ thuật', 'BLUEPRINT', L)}`;
+}
+if (st === 4) { // CINEMATIC VECTOR — glow, gradients, depth
+  g = `<defs>${common}<radialGradient id="sp" cx=".72" cy=".25" r="1"><stop offset="0" stop-color="#1B2550"/><stop offset=".55" stop-color="#090D1F"/><stop offset="1" stop-color="#03050C"/></radialGradient>
+    <radialGradient id="oc" cx=".75" cy=".28" r=".9"><stop offset="0" stop-color="#5FB4E6"/><stop offset=".55" stop-color="#1A5C97"/><stop offset="1" stop-color="#0B2547"/></radialGradient>
+    <linearGradient id="ld" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9C47E"/><stop offset=".5" stop-color="#5E8A4A"/><stop offset=".8" stop-color="#C2A26A"/></linearGradient>
+    <radialGradient id="at"><stop offset=".9" stop-color="#7CC6FF" stop-opacity="0"/><stop offset=".96" stop-color="#7CC6FF" stop-opacity=".7"/><stop offset="1" stop-color="#7CC6FF" stop-opacity="0"/></radialGradient>
+    <linearGradient id="nt2" x1="1" y1="0" x2="0" y2="1"><stop offset=".38" stop-color="#01040C" stop-opacity="0"/><stop offset=".72" stop-color="#01040C" stop-opacity=".88"/></linearGradient>
+    <radialGradient id="mo" cx=".68" cy=".32" r=".85"><stop offset="0" stop-color="#F6F2E8"/><stop offset=".65" stop-color="#C9C3B6"/><stop offset="1" stop-color="#7C776E"/></radialGradient>
+    <filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="b4"><feGaussianBlur stdDeviation="4"/></filter><filter id="b30"><feGaussianBlur stdDeviation="40"/></filter></defs>
+  <rect width="1920" height="1080" fill="url(#sp)"/><ellipse cx="1300" cy="250" rx="600" ry="180" fill="#5B3C8C" opacity=".22" filter="url(#b30)"/><ellipse cx="300" cy="900" rx="500" ry="160" fill="#1E6C8C" opacity=".2" filter="url(#b30)"/>
+  ${(() => { seed = 21; return [...Array(420)].map(() => `<circle cx="${R() * 1920}" cy="${R() * 1080}" r="${R() < .05 ? 1.8 : .5 + R()}" fill="#FFFFFF" opacity="${.25 + R() * .7}"/>`).join(''); })()}
+  <circle cx="${cx}" cy="${cy}" r="${r * 1.08}" fill="url(#at)"/>
+  <g clip-path="url(#sph)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#oc)"/><path d="${S.land}" fill="url(#ld)"/><path d="${S.lakes}" fill="#1A5C97"/>
+    <g filter="url(#b4)" opacity=".55">${puffs(13, 18, .8, '#FFFFFF')}</g><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#nt2)"/><g filter="url(#gl)">${lights('#FFC46B', 1.8, .95)}</g>
+    <ellipse cx="${cx + r * .42}" cy="${cy - r * .38}" rx="${r * .22}" ry="${r * .14}" fill="#FFFFFF" opacity=".16" filter="url(#b30)"/></g>
+  <circle cx="${MX}" cy="${MY}" r="${MR * 2}" fill="#F2E8D2" opacity=".08" filter="url(#b30)"/><circle cx="${MX}" cy="${MY}" r="${MR}" fill="url(#mo)"/>
+  <g clip-path="url(#mn)">${CR.map(([x, y, s]) => `<circle cx="${x}" cy="${y}" r="${s}" fill="#8E897E" opacity=".5"/><circle cx="${x + s * .2}" cy="${y - s * .2}" r="${s * .75}" fill="#D8D2C4" opacity=".5"/>`).join('')}${moonShadow} fill="#05070E" opacity=".5"/></g>
+  <path d="M${BEAM[0]} ${BEAM[1]} L${BEAM[2]} ${BEAM[3]}" stroke="#FFB04A" stroke-width="3" filter="url(#gl)"/><circle cx="${(BEAM[0] + BEAM[2]) / 2}" cy="${(BEAM[1] + BEAM[3]) / 2}" r="10" fill="#FFE0A8" filter="url(#gl)"/>
+  ${photo(1290, 650, 460, 260, 0, 'saturate(.8) contrast(1.15) brightness(.9) sepia(.2) hue-rotate(-10deg)', `<rect x="1290" y="650" width="460" height="260" rx="14" fill="none" stroke="#7CC6FF" stroke-opacity=".6" stroke-width="2"/>`, `<rect x="1280" y="640" width="480" height="280" rx="18" fill="#0B1428" stroke="#7CC6FF" stroke-opacity=".25"/>`)}
+  <text x="74" y="100" font-family="Un" font-weight="700" font-size="40" letter-spacing="8" fill="#FFFFFF">FATHOM</text><rect x="76" y="116" width="60" height="4" fill="#FFB04A"/>
+  ${cap('#FFFFFF')}${tag(4, 'Vector điện ảnh', 'CINEMATIC VECTOR', '#FFFFFF')}`;
+}
+if (st === 5) { // RISOGRAPH — two inks, halftone, misregistration, paper
+  const B = '#2D5BD0', Pk = '#FF5A7A';
+  g = `<defs>${common}<pattern id="htB" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><circle cx="4.5" cy="4.5" r="2.6" fill="${B}"/></pattern>
+    <pattern id="htP" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)"><circle cx="4" cy="4" r="2.4" fill="${Pk}"/></pattern>
+    <pattern id="htB2" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><circle cx="4.5" cy="4.5" r="1.3" fill="${B}"/></pattern>
+    <filter id="riso"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="3"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 -1.2 .9"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs>
+  <rect width="1920" height="1080" fill="#F2EBDC"/><rect width="1920" height="1080" filter="url(#grain)"/>
+  <g style="mix-blend-mode:multiply"><g clip-path="url(#sph)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#htB2)"/><g clip-path="url(#nt)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#htB)"/></g></g>
+    <g transform="translate(5 -4)" clip-path="url(#sph)"><path d="${S.land}" fill="url(#htP)"/><path d="${S.land}" fill="${Pk}" opacity=".55"/></g>
+    <g clip-path="url(#sph)"><path d="${S.land}" fill="none" stroke="${B}" stroke-width="1.6"/></g><circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${B}" stroke-width="3"/>
+    <circle cx="${MX + 4}" cy="${MY - 3}" r="${MR}" fill="url(#htP)"/><circle cx="${MX}" cy="${MY}" r="${MR}" fill="none" stroke="${B}" stroke-width="2.5"/><g clip-path="url(#mn)">${CR.map(([x, y, s]) => `<circle cx="${x}" cy="${y}" r="${s}" fill="${B}" opacity=".45"/>`).join('')}${moonShadow} fill="url(#htB)"/></g>
+    <path d="M${BEAM[0]} ${BEAM[1]} L${BEAM[2]} ${BEAM[3]}" stroke="${Pk}" stroke-width="7"/><path d="M${BEAM[0] - 3} ${BEAM[1] + 3} L${BEAM[2] - 3} ${BEAM[3] + 3}" stroke="${B}" stroke-width="2"/>
+    ${photo(1290, 630, 460, 300, -3, 'grayscale(1) contrast(1.6) brightness(1.1)', `<rect x="1290" y="630" width="460" height="300" fill="${B}" style="mix-blend-mode:screen" opacity=".85"/>`, `<rect x="1298" y="624" width="460" height="300" fill="${Pk}"/>`)}</g>
+  <rect width="1920" height="1080" filter="url(#riso)" opacity=".25"/>
+  <text x="70" y="118" font-family="An" font-size="86" letter-spacing="3" fill="${Pk}">FATHOM</text><text x="66" y="114" font-family="An" font-size="86" letter-spacing="3" fill="${B}" style="mix-blend-mode:multiply" opacity=".9">FATHOM</text>
+  ${cap(B, 'In', '#F2EBDC')}${tag(5, 'In Risograph', 'RISOGRAPH PRINT', B)}`;
+}
+if (st === 6) { // CHALK — slate, chalk strokes, hand drawn
+  const C = '#F1EFE6';
+  g = `<defs>${common}<filter id="ch" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="9" result="m"/><feColorMatrix in="m" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.6" result="mm"/><feComposite in="d" in2="mm" operator="in"/></filter>
+    <pattern id="dg" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><path d="M0 5 H10" stroke="${C}" stroke-width="1.6" opacity=".35"/></pattern>
+    <radialGradient id="sl" cx=".5" cy=".45" r=".8"><stop offset="0" stop-color="#2C3A33"/><stop offset="1" stop-color="#151D19"/></radialGradient></defs>
+  <rect width="1920" height="1080" fill="url(#sl)"/><g filter="url(#ch)" opacity=".18">${(() => { seed = 2; return [...Array(30)].map(() => `<path d="M${R() * 1920} ${R() * 1080} q${R() * 200 - 100} ${R() * 40} ${R() * 300} ${R() * 30 - 15}" stroke="${C}" stroke-width="${20 + R() * 40}" fill="none"/>`).join(''); })()}</g>
+  <g filter="url(#ch)"><g clip-path="url(#sph)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="url(#dg)"/><path d="${S.land}" fill="#9CC58A" opacity=".5"/><path d="${S.land}" fill="none" stroke="${C}" stroke-width="2.6"/><path d="${S.grat}" fill="none" stroke="${C}" stroke-width="1" opacity=".3"/>
+      <g clip-path="url(#nt)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="#0F1512" opacity=".55"/></g></g>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${C}" stroke-width="4"/>
+    <circle cx="${MX}" cy="${MY}" r="${MR}" fill="#E9E2C8" opacity=".55"/><circle cx="${MX}" cy="${MY}" r="${MR}" fill="none" stroke="${C}" stroke-width="3.5"/>${CR.map(([x, y, s]) => `<circle cx="${x}" cy="${y}" r="${s}" fill="none" stroke="#3A463F" stroke-width="2.5"/>`).join('')}
+    <path d="M${BEAM[0]} ${BEAM[1]} L${BEAM[2]} ${BEAM[3]}" stroke="#F6C55A" stroke-width="5"/><path d="M${BEAM[2] - 30} ${BEAM[3] + 4} l30 -4 l-24 -18" stroke="#F6C55A" stroke-width="5" fill="none"/></g>
+  ${photo(1300, 640, 430, 280, 3, 'grayscale(1) contrast(1.2) brightness(.95)', '', `<rect x="1286" y="626" width="458" height="308" fill="#F3EFE4"/><rect x="1300" y="610" width="90" height="34" fill="#E9E2C8" opacity=".8" transform="rotate(-8 1345 627)"/><rect x="1650" y="610" width="90" height="34" fill="#E9E2C8" opacity=".8" transform="rotate(10 1695 627)"/>`)}
+  <g filter="url(#ch)"><text x="72" y="112" font-family="Fr" font-style="italic" font-size="70" fill="${C}">Fathom</text><path d="M76 132 q150 14 300 -4" stroke="#F6C55A" stroke-width="4" fill="none"/></g>
+  ${cap(C, 'In', '#151D19')}${tag(6, 'Phấn bảng đen', 'CHALKBOARD', C)}`;
+}
+if (st === 7) { // PAPERCUT — layered cut paper, soft shadows
+  g = `<defs>${common}<filter id="ps" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".45"/></filter>
+    <filter id="pt"><feTurbulence type="fractalNoise" baseFrequency=".6" numOctaves="3" seed="8"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .12 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs>
+  <rect width="1920" height="1080" fill="#1B2347"/><rect width="1920" height="1080" fill="#000" filter="url(#pt)"/>
+  ${[0, 1, 2].map(i => `<path d="M0 ${860 + i * 70} Q480 ${800 + i * 80} 960 ${870 + i * 60} T1920 ${840 + i * 70} V1080 H0Z" fill="${['#273265', '#222B58', '#1C244B'][i]}" filter="url(#ps)"/>`).join('')}
+  ${(() => { seed = 30; return [...Array(70)].map(() => { const x = R() * 1920, y = R() * 760, s = 2 + R() * 3; return `<path d="M${x} ${y - s} L${x + s * .3} ${y - s * .3} L${x + s} ${y} L${x + s * .3} ${y + s * .3} L${x} ${y + s} L${x - s * .3} ${y + s * .3} L${x - s} ${y} L${x - s * .3} ${y - s * .3}Z" fill="#F6E7B8"/>`; }).join(''); })()}
+  <circle cx="${cx}" cy="${cy}" r="${r + 22}" fill="#3B6FB0" filter="url(#ps)"/><circle cx="${cx}" cy="${cy}" r="${r + 10}" fill="#2F5E9E" filter="url(#ps)"/>
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="#2A5591" filter="url(#ps)"/>
+  <g clip-path="url(#sph)"><circle cx="${cx + 60}" cy="${cy - 60}" r="${r * .8}" fill="#3A6CA8"/><circle cx="${cx + 120}" cy="${cy - 120}" r="${r * .5}" fill="#4A7DB8"/>
+    <path d="${S.land}" fill="#6E9A4E" filter="url(#ps)"/><path d="${S.land}" fill="#8DB565" transform="translate(-3 -3)" opacity=".55"/><path d="${S.lakes}" fill="#2F5E9E"/>
+    ${puffs(41, 8, .9, '#F4F1EA', 'filter="url(#ps)"')}
+    <g clip-path="url(#nt)"><rect x="${cx - r}" y="${cy - r}" width="${2 * r}" height="${2 * r}" fill="#0E1430" opacity=".6"/>${lights('#FFD67A', 2, .9)}</g></g>
+  <circle cx="${MX}" cy="${MY}" r="${MR}" fill="#E8E1CC" filter="url(#ps)"/><g clip-path="url(#mn)">${CR.map(([x, y, s]) => `<circle cx="${x}" cy="${y}" r="${s}" fill="#CFC6AC" filter="url(#ps)"/>`).join('')}${moonShadow} fill="#1B2347" opacity=".45"/></g>
+  <path d="M${BEAM[0]} ${BEAM[1]} L${BEAM[2]} ${BEAM[3]}" stroke="#FFC24A" stroke-width="10" stroke-linecap="round" filter="url(#ps)"/>
+  ${photo(1300, 640, 430, 280, -4, 'saturate(.85) contrast(1.05)', '', `<rect x="1280" y="620" width="470" height="320" rx="6" fill="#F4F1EA" filter="url(#ps)"/>`)}
+  <g filter="url(#ps)"><rect x="66" y="56" width="330" height="76" rx="38" fill="#FFC24A"/></g><text x="231" y="110" text-anchor="middle" font-family="Br" font-weight="800" font-size="44" letter-spacing="4" fill="#1B2347">FATHOM</text>
+  ${cap('#FFFFFF')}${tag(7, 'Giấy cắt nhiều lớp', 'LAYERED PAPERCUT', '#FFFFFF')}`;
+}
+document.getElementById('s').innerHTML = g;
+</script></body></html>

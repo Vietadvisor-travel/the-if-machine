@@ -44,3 +44,8 @@ quiet under the voice. Sound effects moderate and fitting, never cluttered.
   Claude's lead proposal: a modern **engraved-atlas** style — fine ink lines and hatching like old scientific atlases, but animated,
   on deep ink-blue with parchment and one metallic accent; real photos/documents sit naturally in it as archival pieces.
 - Then: the engine upgrade (all of the above built in), then ONE complete demo episode for approval.
+
+## 7. Drawing style — 7 directions sent 15 Nov 2026 (Drive `_samples/fathom_styles_2026-11-15`, generator `howweknow/design/styles/`)
+1 Engraved atlas · 2 Gouache painting · 3 Blueprint · 4 Cinematic vector · 5 Risograph print · 6 Chalkboard · 7 Layered papercut.
+Same scene in each (real Natural Earth 50 m coastlines, real night-side city positions, Moon, laser, a real photo as a component, the
+FATHOM lockup). Waiting for the owner's pick (or a mix).
