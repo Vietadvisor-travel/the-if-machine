@@ -19,7 +19,7 @@ if not short:
     if not 480 <= dur <= 780: err.append(f'duration ≈ {dur / 60:.1f} min (target 8–12)')
 BAN = ['little did', 'may surprise you', 'buckle up', 'fun fact', "in today's video", "let's dive", 'in this video', 'stay tuned', 'smash that', 'without further ado', 'what if']
 LOOP = re.compile(r"\?|\bbut\b|\byet\b|\buntil\b|\bexcept\b|\bproblem\b|\bmystery\b|\bnobody\b|\bno one\b|\bstill\b|\bwhy\b|\bhow\b|…", re.I)
-NUM = re.compile(r"\d|\b(one|two|three|four|five|six|seven|eight|nine|ten|hundred|thousand|million|billion|half)\b", re.I)
+NUM = re.compile(r"\d|\b(hundred|thousand|million|billion|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|point)\b", re.I)   # real quantities, not "clue one" / "two places"
 last_loop, last_fact = 0.0, 0.0
 refs = json.dumps(W)
 for i, l in enumerate(L):

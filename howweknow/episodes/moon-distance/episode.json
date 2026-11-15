@@ -1,0 +1,1613 @@
+{
+ "slug": "moon-distance",
+ "title": "How do we know how far away the Moon is?",
+ "voice": "af_heart",
+ "speed": 0.86,
+ "lead": 1.0,
+ "tail": 3.6,
+ "music": {
+  "file": "../studio/music/wonder_silver_blue_light.wav",
+  "db": -23,
+  "start": 0
+ },
+ "new_ideas": [
+  "the film ends by re-staging its own first shot from the Moon (match across 8 minutes)",
+  "one single photon followed home in real time (trail, 4 s)",
+  "a scope trace that morphs into a ruler of time"
+ ],
+ "lines": [
+  {
+   "text": "On the first of August, 1969, a telescope on a mountain in California fired a pulse of red light… at the *Moon*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "rise",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "low-left-small",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LickDome",
+     "MountHamilton"
+    ],
+    "stock": [
+     "R-06"
+    ],
+    "see": "Night. The Lick dome on its ridge, slit open; a thin red-gold beam climbs out of frame toward the Moon.",
+    "beats": "+0.0 rise: Mount Hamilton ridge and the dome come up over the bottom edge (1.6 s, out) | +1.8 blinds: the dome slit opens (0.8 s) | +3.0 beam leaves the slit, k 0→1 (1.4 s, linear) · sfx laser_charge −18 | +4.2 camera begins to tilt up along the beam",
+    "set": "the-first-shot"
+   },
+   "src": "F7"
+  },
+  {
+   "text": "Less than two weeks earlier, two men had walked on a grey plain called the Sea of Tranquility. In the dust, they left a small panel of *mirrors*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "ink-on",
+    "trans": "window",
+    "cam": "ride",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "TranquilityPlain",
+     "Footprints"
+    ],
+    "stock": [
+     "M-03",
+     "P-01"
+    ],
+    "see": "The Moon fills the frame; a point on the Sea of Tranquility opens into the plain: bootprints lead to the reflector.",
+    "beats": "+0.0 ride: camera follows the beam, the Moon grows to 60 % of frame (2.2 s) | +2.4 pin inks on at 0.67°N 23.47°E (0.6 s) | +3.2 window: the pin opens (1.6 s) onto the plain | +5.0 ink-on: bootprints trace toward the panel, then the Reflector (1.8 s)"
+   },
+   "src": "F7"
+  },
+  {
+   "text": "The light crossed the empty space between two worlds, touched those mirrors… and a few particles of it came *home*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "stamp",
+    "trans": "window-close",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The beam lands on the prisms, they flash gold; a few motes of light lift off and leave upward.",
+    "beats": "+0.0 the beam arrives from the top of frame (0.6 s, in) | +0.7 stamp: Reflector flash 0→1 + ripple of light across the prisms (0.4 s) | +1.6 photons: 5 gold motes rise from the panel | +4.6 window-close back to the pin as the motes exit"
+   },
+   "src": "F9"
+  },
+  {
+   "text": "The whole trip took about two and a half *seconds*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "drop",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "left-third-medium",
+    "life": [
+     "sweep"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Earth and Moon small in the dark, the returning motes between them; a brass stopwatch hangs at left, its hand at 2.5.",
+    "beats": "+0.0 scale-out: geometric pull to Earth–Moon true scale (1.8 s) | +0.4 drop: the Stopwatch lands at left with a bounce (0.9 s) · sfx brass_click −16 | +1.2 hand sweeps 0→2.5 s in real time while a mote crosses back | +3.7 click",
+    "set": "stopwatch-in-space"
+   },
+   "src": "F1"
+  },
+  {
+   "text": "And from that tiny delay, we learned the distance to the Moon to within a few *centimetres*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "slide",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "P-01"
+    ],
+    "see": "The real Apollo 11 reflector photograph, pinned, beside the drawn stopwatch.",
+    "beats": "+0.0 the dashed arc between Earth and Moon inks on (1.2 s) | +1.4 slide: ★P-01 plate slides in from the right, lands rotated −2° (0.8 s, back) | +2.3 the red pin drops · sfx pin −20 | +2.6 push 1.00→1.06 on the plate"
+   },
+   "src": "F7"
+  },
+  {
+   "text": "But here is the strange part. People had worked out that distance, roughly, more than *two thousand* years before.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "flip",
+    "trans": "page-turn",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [
+     "D-01"
+    ],
+    "see": "The photo plate turns over like a page; underneath lies a Greek manuscript leaf with circles and lines.",
+    "beats": "+0.0 hold (1.2 s) | +1.3 flip: the plate turns on its left edge (flipY 0→−180, 1.4 s) | +2.0 page-turn reveals ★D-01 manuscript leaf under it | +3.4 quill circles the diagram in red (1.0 s) · sfx quill −20"
+   },
+   "src": "F2 F3"
+  },
+  {
+   "text": "With nothing but *shadows*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "bloom",
+    "trans": "morph",
+    "cam": "push",
+    "comp": "centre-medium",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "EclipseDiagram"
+    ],
+    "stock": [],
+    "see": "The manuscript's inked circles lift off the page and become the Sun, the Earth and the Moon in a line.",
+    "beats": "+0.0 the three circles of the diagram redraw in ink above the page (0.8 s) | +0.9 morph + bloom: they swell and take colour — gold Sun, Earth, Moon (1.4 s) | +1.6 the page falls away (fold into the bottom edge)",
+    "set": "diagram-becomes-sky"
+   }
+  },
+  {
+   "text": "So how do you measure the way to a place you can never *touch*?",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "grow",
+    "trans": "tear-away",
+    "cam": "pull",
+    "comp": "wide-symmetric",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Earth left, Moon right at true scale; a dashed arc with no number; a single question hangs in the gap.",
+    "beats": "+0.0 pull to true scale, Sun exits left (1.6 s) | +1.0 grow: the dashed arc extends from Earth to Moon (1.8 s) | +3.2 the arc's midpoint trembles: no label | +4.4 tear-away: the night is torn off left→right into the day sky of the next line"
+   }
+  },
+  {
+   "text": "You can't stretch a rope to the sky. You can't *walk* there and count your steps.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "unroll",
+    "trans": "trace",
+    "cam": "tilt-up",
+    "comp": "low-centre-medium",
+    "life": [
+     "sway"
+    ],
+    "new": [
+     "RopeCoil",
+     "Surveyor"
+    ],
+    "stock": [],
+    "see": "A surveyor on a hill throws a rope upward; it uncoils a few metres and sags back. Footsteps stop at the cliff edge.",
+    "beats": "+0.0 unroll: daylight hill scene opens top→down (1.0 s) | +1.0 the Surveyor (pose throw) inks on | +1.8 trail: the rope rises 300 px (0.9 s, out) then sags (0.7 s, bounce) | +3.6 footprints trail to the cliff edge and stop",
+    "set": "rope-to-the-sky"
+   }
+  },
+  {
+   "text": "For almost all of history, everything we knew about the Moon arrived as light — and light, on its own, doesn't say how far it has *come*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "wipe",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "photons",
+     "breathe"
+    ],
+    "new": [
+     "OpenHand"
+    ],
+    "stock": [],
+    "see": "Dusk falls on the same hill; moonlight drifts down onto the surveyor's open hand, which holds nothing.",
+    "beats": "+0.0 light-change: Sky day→dusk→night (2.0 s), windows light in the valley | +1.0 wipe: the Moon's glow sweeps down the frame | +2.4 photons drift onto the open hand (close push 1.0→1.15) | +5.0 the hand closes on nothing"
+   }
+  },
+  {
+   "text": "A small thing nearby and a huge thing far away can look exactly the *same*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "slide",
+    "trans": "rack",
+    "cam": "rack",
+    "comp": "split-two",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "Coin"
+    ],
+    "stock": [],
+    "see": "A hand slides a coin up until it covers the Moon exactly: two discs, one size.",
+    "beats": "+0.0 slide: a hand with a bronze Coin enters from the lower left (1.0 s) | +1.2 the coin rises until it exactly covers the Moon (0.9 s, soft) | +2.2 rack: camera zooms between the coin (near) and the Moon (far), their outlines match | +3.6 a thin ink ring traces both edges at once",
+    "set": "coin-and-moon"
+   }
+  },
+  {
+   "text": "The answer came as four clues, spread over two thousand years: a shadow, a jump, an echo… and a *mirror*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "assemble",
+    "trans": "fold",
+    "cam": "pull",
+    "comp": "four-in-a-row",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "ClueFrames"
+    ],
+    "stock": [],
+    "see": "Four small paper frames assemble in a row on the desk of night: an eclipse, a finger, a blip, a prism — in ink only.",
+    "beats": "+0.0 pull back: the coin scene folds into frame 1 | +0.6 assemble: four paper frames drop in, staggered 0.25 s (bounce) | +2.0 each receives its ink emblem on the word: shadow / jump / echo / mirror | +6.0 frame 1 lifts (lift 0→40) toward camera"
+   },
+   "src": "F2 F7"
+  },
+  {
+   "text": "Clue one begins on a night when the Moon turns *red*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "iris",
+    "trans": "through",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [
+     "P-11"
+    ],
+    "see": "Through frame 1: a full Moon over an Aegean headland, a first bite of shadow on its edge.",
+    "beats": "+0.0 through: camera passes into frame 1 (1.2 s) | +0.4 iris opens from the Moon's centre (1.0 s) | +1.6 a Greek headland with a small temple inks on at the bottom | +2.6 the shadow's curved edge begins to cross the Moon"
+   }
+  },
+  {
+   "text": "Every so often, the Sun, the Earth and the Moon fall into line, and the full Moon slides into the Earth's *shadow*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-left-heavy",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "ShadowConeLong"
+    ],
+    "stock": [],
+    "see": "Seen from the side: the gold Sun far left, the Earth, its long tapering shadow, the Moon entering it and turning copper.",
+    "beats": "+0.0 scale-out from the headland to space, side view (1.8 s) | +1.6 grow: the shadow cone extends behind the Earth (1.4 s) | +3.2 the Moon rides its orbit into the cone (2.0 s, linear) | +4.4 BloodWash 0→1 as it enters · music dips −3 dB",
+    "set": "the-cone"
+   },
+   "src": "S1"
+  },
+  {
+   "text": "In the third century BC, a Greek astronomer, Aristarchus of Samos, watched that shadow — and saw a *ruler*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "quill",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "flicker"
+    ],
+    "new": [
+     "GreekScholar",
+     "OilLamp"
+    ],
+    "stock": [
+     "D-01"
+    ],
+    "see": "A scholar under an oil lamp draws the eclipse; the real manuscript leaf lies on his table, its diagram circled.",
+    "beats": "+0.0 a lamp-lit table inks on; the GreekScholar (pose write) (1.4 s) | +1.6 quill: his reed pen traces the Earth's shadow edge on papyrus | +3.4 real-reveal: ★D-01 slides over his drawing, same size, same place (0.9 s) | +4.6 red circle round the diagram (1.0 s)"
+   },
+   "src": "F2 S1"
+  },
+  {
+   "text": "His reasoning went like this. The Earth's shadow, out where the Moon is, can't be much smaller than the Earth *itself*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "ink-on",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "split-two",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Two discs side by side: the Earth, and the dark disc of its shadow at the Moon's distance — nearly the same size.",
+    "beats": "+0.0 match: the manuscript's circle becomes the Earth's disc, same place | +0.8 ink-on: a second, dark disc beside it (the shadow) (1.2 s) | +2.4 thin guide lines join their rims: almost parallel | +4.0 the shadow disc settles a touch smaller"
+   },
+   "src": "S1"
+  },
+  {
+   "text": "So if you time how long the Moon takes to cross it, you learn how many Moons would fit across the *Earth*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "slide",
+    "trans": "trace",
+    "cam": "pan",
+    "comp": "centre-band",
+    "life": [
+     "sweep"
+    ],
+    "new": [
+     "MoonRow"
+    ],
+    "stock": [],
+    "see": "The Moon slides across the dark disc; it leaves a print of itself at each step: a row of Moons spanning the shadow.",
+    "beats": "+0.0 slide: the Moon enters the shadow disc from the left | +0.4 trace: it crosses in 3.6 s, leaving an ink print at each diameter | +0.4 a water clock drips in the corner (sweep) | +4.2 the prints are counted by small tick marks; camera pans with the Moon",
+    "set": "moons-across-the-shadow"
+   },
+   "src": "S1"
+  },
+  {
+   "text": "And once you know how big a thing truly is, the size it appears in your sky tells you how *far* away it must be.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "ink-on",
+    "trans": "morph",
+    "cam": "pull",
+    "comp": "left-eye-right-moon",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "EyeProfile"
+    ],
+    "stock": [],
+    "see": "An eye in profile at left; two thin lines run from it to the edges of the Moon: a long, narrow triangle.",
+    "beats": "+0.0 morph: the row of Moons collapses into one Moon at right | +1.0 ink-on: an eye in profile at left (0.8 s) | +2.0 two sight lines draw from the eye to the Moon's limbs (1.2 s) | +3.6 Angle mark at the eye, ONE label “½°” | +4.6 the Moon slides further: the angle narrows"
+   },
+   "src": "S1"
+  },
+  {
+   "text": "A coin held at arm's length can cover the Moon. The Moon is simply a much bigger coin… much further *off*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "drop",
+    "trans": "scale-in",
+    "cam": "rack",
+    "comp": "left-eye-right-moon",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The coin from before drops onto the sight lines near the eye and fits them exactly — so does the Moon, far along them.",
+    "beats": "+0.0 drop: the Coin lands between the sight lines near the eye (0.6 s, bounce) · sfx coin −20 | +1.4 rack: zoom along the lines from coin to Moon (1.6 s) | +3.2 both glow gold at their rims for a moment | +4.6 scale-in toward the far end of the triangle"
+   }
+  },
+  {
+   "text": "His measurements were rough, and his answer came out at about twenty Earth radii — far too *close*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "pan",
+    "comp": "row-left-to-right",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "EarthRow"
+    ],
+    "stock": [],
+    "see": "From the Earth, a row of small Earths is stamped out toward the Moon — twenty of them — and stops well short.",
+    "beats": "+0.0 pan right along the gap | +0.2 stamp: small Earth discs print one by one, 20 in 2.4 s (each a soft stamp) · sfx stamp ×3 only | +2.8 the row ends; the Moon is still far ahead; the last Earth trembles | +4.4 a red quill stroke marks the gap",
+    "set": "row-of-earths"
+   },
+   "src": "F2"
+  },
+  {
+   "text": "About a century later, Hipparchus took the same idea and *sharpened* it.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "tear-in",
+    "trans": "light-change",
+    "cam": "crane",
+    "comp": "low-right-medium",
+    "life": [
+     "stars",
+     "breathe"
+    ],
+    "new": [
+     "RhodesTerrace",
+     "Dioptra"
+    ],
+    "stock": [
+     "R-04"
+    ],
+    "see": "A terrace on Rhodes at night; a second scholar sights the eclipsed Moon along a dioptra.",
+    "beats": "+0.0 tear-in: the papyrus is torn away to reveal a terrace above the sea (1.2 s) | +1.2 crane up over the parapet | +2.0 the Dioptra (sighting rod on a stand) inks on, the scholar (pose look) bends to it | +3.4 the copper Moon above, half in shadow"
+   },
+   "src": "F3"
+  },
+  {
+   "text": "His result: the Moon lies between sixty-two and seventy-two Earth radii away.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "pan",
+    "comp": "row-left-to-right",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "D-02"
+    ],
+    "see": "The row of Earths grows on past twenty… and reaches the Moon; a bracket spans the last ten.",
+    "beats": "+0.0 the row of Earths reappears across the sky above the terrace | +0.6 grow: it extends 21→72 (2.4 s, linear) while the camera rides it | +3.2 a bracket inks over Earths 62–72 | +4.0 ★D-02 (Almagest page) slides up at lower right, a figure circled"
+   },
+   "src": "F3"
+  },
+  {
+   "text": "The true figure is about *sixty*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "drop",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "row-left-to-right",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A single gold tick drops onto the sixtieth Earth; the Moon shifts to sit exactly there.",
+    "beats": "+0.0 hold | +0.3 drop: a gold-leaf tick falls onto Earth no. 60 (0.5 s, bounce) · sfx brass_click −18 | +1.0 the Moon glides back to it (0.8 s) | +2.0 ripple from the tick"
+   },
+   "src": "F1"
+  },
+  {
+   "text": "With eclipses and geometry, and nothing else, he was nearly right — some seventeen hundred years before the first *telescope*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "unroll",
+    "trans": "fold",
+    "cam": "pull",
+    "comp": "timeline-band",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "CenturyScroll",
+     "GalileoTelescope"
+    ],
+    "stock": [],
+    "see": "The row becomes a long scroll of centuries unrolling to the right; at its far end, a small telescope on a stand.",
+    "beats": "+0.0 morph: the row of Earths flattens into a line | +0.6 unroll: a scroll opens rightward along it, century marks inking as it goes (2.6 s) | +3.4 a small early telescope inks on at the end | +5.0 pull back: the scroll is tiny against the sky",
+    "set": "scroll-of-centuries"
+   },
+   "src": "F3"
+  },
+  {
+   "text": "But the method leaned on things nobody could pin down: the fuzzy edge of a shadow, the exact width of the Moon in the *sky*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "iris",
+    "trans": "tear-away",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [
+     "MagnifierBrass"
+    ],
+    "stock": [],
+    "see": "A brass magnifier over the shadow's edge on the Moon: the edge is soft, a quill tries to mark it and wavers.",
+    "beats": "+0.0 fold: the scroll rolls up into the corner | +0.6 iris to the eclipsed Moon | +1.4 the brass Magnifier slides over the shadow edge; inside, the edge is a soft gradient | +3.0 quill attempts a line, tremble 0→3 px | +5.4 tear-away"
+   }
+  },
+  {
+   "text": "To do better, someone would have to measure the Moon from two places at *once*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "ink-on",
+    "trans": "scale-out",
+    "cam": "orbit",
+    "comp": "globe-with-pins",
+    "life": [
+     "clouds"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The Earth alone, turning; two gold pins appear, one far north, one far south.",
+    "beats": "+0.0 scale-out to the whole Earth (1.4 s) | +1.2 orbit: lon 10→18, lat 10 (slow) | +2.0 ink-on: pin “Berlin”, then pin “Cape of Good Hope” (0.6 s each) | +3.6 two thin sight lines leave the pins toward the Moon off-frame"
+   }
+  },
+  {
+   "text": "Clue two is something you can try right now. Hold up a finger, and close one eye… then the *other*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "rise",
+    "trans": "through",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "HandFinger",
+     "RoomWall"
+    ],
+    "stock": [],
+    "see": "A hand with one finger raised in front of a wall with a framed map; we look through the eyes.",
+    "beats": "+0.0 through: frame 2 of the four opens (1.0 s) | +0.8 rise: the hand and finger come up from the bottom (0.8 s, out) | +2.2 left-eye view: the finger sits left of the frame on the wall | +4.6 blink (blinds 0.15 s): right-eye view",
+    "set": "the-finger"
+   }
+  },
+  {
+   "text": "The finger jumps against the wall behind it. That jump has a name: *parallax*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "blinds",
+    "trans": "match",
+    "cam": "whip",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The finger now sits right of the framed map: two ghost positions, an arrow between them.",
+    "beats": "+0.0 blinds: blink | +0.2 the finger has jumped 180 px right; the old position stays as an ink ghost | +1.0 whip left–right twice with each blink | +2.6 a red double arrow inks between the two positions, ONE label “parallax”"
+   }
+  },
+  {
+   "text": "The closer the thing, the bigger the jump. So measure the jump, and you know the *distance*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "morph",
+    "cam": "rack",
+    "comp": "top-view-triangle",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "TopViewHead"
+    ],
+    "stock": [],
+    "see": "From above: a head, two eyes, the finger, the wall — the two sight lines cross at the finger; moving it changes the jump.",
+    "beats": "+0.0 morph: the scene rotates into a top-down diagram (1.4 s) | +1.6 sight lines from each eye through the finger to the wall | +2.6 slide: the finger moves nearer — the marks on the wall spread; further — they close | +5.0 rack out"
+   }
+  },
+  {
+   "text": "For the Moon, though, your two eyes are far too close together. You need two eyes thousands of kilometres *apart*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "centre-large",
+    "life": [
+     "clouds"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The two eyes drift apart, the head becomes the Earth; the eyes settle as the two pins; the finger becomes the Moon.",
+    "beats": "+0.0 grow: the gap between the eyes widens (1.2 s) | +1.0 scale-out + morph: the head outline becomes the Earth's disc (1.6 s) | +2.8 the eyes land as the pins Berlin / Cape | +3.6 the finger shrinks away into the distance and becomes the Moon",
+    "set": "eyes-become-places"
+   }
+  },
+  {
+   "text": "In 1751, the French astronomer Nicolas-Louis de Lacaille was working at the Cape of Good Hope, at the southern tip of *Africa*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "unroll",
+    "trans": "window",
+    "cam": "crane",
+    "comp": "low-left-medium",
+    "life": [
+     "sway",
+     "stars"
+    ],
+    "new": [
+     "CapeHouse",
+     "TableMountain",
+     "ShipAtAnchor"
+    ],
+    "stock": [
+     "P-13",
+     "M-02",
+     "R-05"
+    ],
+    "see": "The Cape at night: Table Mountain, ships at anchor, a small house with a rooftop instrument; his portrait pinned at right.",
+    "beats": "+0.0 window from the southern pin (1.6 s) | +1.4 crane up from Table Bay: ships sway at anchor | +2.6 unroll: ★M-02 chart of the Cape unrolls bottom-right (1.0 s) | +4.0 ★P-13 portrait drops, pinned | +5.4 the rooftop quadrant inks on"
+   },
+   "src": "F4"
+  },
+  {
+   "text": "So Paris sent a nineteen-year-old named Jérôme Lalande north to Berlin, carrying a borrowed brass quadrant. But why *Berlin*?",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "assemble",
+    "trans": "trace",
+    "cam": "ride",
+    "comp": "centre-band",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "CoachOnRoad",
+     "QuadrantCrate"
+    ],
+    "stock": [
+     "P-14",
+     "M-01",
+     "R-04"
+    ],
+    "see": "A coach crosses an old map from Paris to Berlin; in Berlin the crate opens and the quadrant assembles piece by piece.",
+    "beats": "+0.0 window-close; ★M-01 old map of Europe unrolls full-width | +1.0 trace: a small coach rides the road Paris→Berlin (2.6 s), the route inked in red behind it | +3.8 the crate lands; assemble: limb, frame, telescope, plumb line fly into place (1.6 s) · sfx brass ×2 | +6.0 ★P-14 portrait pinned",
+    "set": "the-borrowed-quadrant"
+   },
+   "src": "F4 S4"
+  },
+  {
+   "text": "Berlin and the Cape lie almost on the same line of longitude — so the Moon crosses both skies at nearly the same *moment*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "ink-on",
+    "trans": "scale-out",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "clouds"
+    ],
+    "new": [],
+    "stock": [
+     "G-01"
+    ],
+    "see": "The Earth again, turned to show Europe and Africa: one meridian inked through both pins; the Moon passes over it.",
+    "beats": "+0.0 scale-out to the globe (1.4 s) | +1.2 ink-on: a meridian from pole to pole through both pins (1.2 s) | +2.6 orbit: the Earth turns a few degrees; the Moon crosses the meridian line | +4.4 both pins flash gold at the same instant"
+   },
+   "src": "F4"
+  },
+  {
+   "text": "Night after night, nearly ten thousand kilometres apart, two men measured how high the Moon stood as it *passed*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "flip",
+    "trans": "whip",
+    "cam": "whip",
+    "comp": "split-two",
+    "life": [
+     "flicker",
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Split in two: Berlin's tower on the left under a northern sky, the Cape house on the right; two quadrants tilt in step.",
+    "beats": "+0.0 flip: the frame splits like two facing pages (0.9 s) | +1.0 left: Observatory18 Berlin, right: the Cape house | +2.0 whip L→R→L on each ‘night’; the Sky cycles 3 nights (light-change) | +2.4 both Quadrant arms move in sync · sfx brass_click ×2",
+    "set": "two-windows"
+   },
+   "src": "F4"
+  },
+  {
+   "text": "On the thirty-first of August, 1752, Lalande found the Moon thirty-three degrees from the point overhead. At the Cape, Lacaille found it at fifty-*five*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "quill",
+    "trans": "real-reveal",
+    "cam": "push",
+    "comp": "split-two",
+    "life": [
+     "flicker"
+    ],
+    "new": [
+     "Notebook18"
+    ],
+    "stock": [
+     "D-03",
+     "X-01"
+    ],
+    "see": "Two notebooks under candlelight; a quill writes one figure in each; the real printed table of observations lies between.",
+    "beats": "+0.0 push in on both desks | +0.8 quill: left notebook, the angle is drawn on its quadrant (Angle 33°) | +3.4 quill: right notebook (Angle 55°) | +6.0 real-reveal: ★D-03 page slides in between, a row circled in red"
+   },
+   "src": "S6"
+  },
+  {
+   "text": "Part of that difference is just the curve of the Earth between them. What's left over is the *jump*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "collapse",
+    "cam": "pull",
+    "comp": "top-view-triangle",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "EarthSection"
+    ],
+    "stock": [],
+    "see": "A cross-section of the Earth with both observers on its rim; their two ‘overheads’ diverge; subtract that, a sliver remains.",
+    "beats": "+0.0 pull to a section through the Earth along the meridian | +1.0 grow: two vertical lines (their zeniths) fan apart by the latitude difference | +2.6 the two sight lines to the Moon | +4.0 collapse: the big angle is shaded away; a thin red sliver remains",
+    "set": "curve-and-jump"
+   },
+   "src": "S6"
+  },
+  {
+   "text": "It came to a little under one degree — and it put the Moon about *sixty* Earth radii away.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "stamp",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-symmetric",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The sliver stretches into the long thin triangle Earth–Moon; the row of sixty Earths fits along it exactly.",
+    "beats": "+0.0 the red sliver's sides extend (1.6 s) | +1.4 scale-out to the full triangle | +2.6 stamp: ONE label “57′” at the Moon's apex | +3.6 the row of sixty Earths fades in along the base — it fits"
+   },
+   "src": "F5"
+  },
+  {
+   "text": "The ancient estimate, confirmed with brass, glass and two very patient *men*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "slide",
+    "trans": "fold",
+    "cam": "hold",
+    "comp": "three-objects",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [
+     "P-13",
+     "P-14"
+    ],
+    "see": "On a desk: the quadrant, a lens, the two small portraits side by side.",
+    "beats": "+0.0 fold: the triangle folds flat onto a desk as a drawn sheet | +0.8 slide: the Quadrant, a lens, the two portraits slide in from three sides (stagger 0.3 s) | +3.0 candle glow settles"
+   }
+  },
+  {
+   "text": "Still, an angle is a kind of inference. Nobody had ever sent anything to the Moon… and timed its *return*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "wipe",
+    "trans": "light-change",
+    "cam": "tilt-up",
+    "comp": "low-centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The desk's window: the Moon outside, silent; a paper dart of light goes up — nothing comes back.",
+    "beats": "+0.0 tilt-up from the desk to its window | +1.2 a thin sight line goes up to the Moon and stops | +3.0 wipe: the candle goes out left→right; the room turns to the cold blue of 1946 (light-change)"
+   }
+  },
+  {
+   "text": "Clue three came out of a *war*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "tear-in",
+    "trans": "through",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "snow"
+    ],
+    "new": [
+     "RadarHut"
+    ],
+    "stock": [],
+    "see": "Frame 3 opens on a winter shore: a timber tower and a dark hut in falling snow.",
+    "beats": "+0.0 through frame 3 | +0.6 tear-in: the 18th-century room is torn off to a January shore (1.2 s) | +1.6 snow begins | +2.0 the tower's silhouette, ink only"
+   }
+  },
+  {
+   "text": "Radar had been built to find aircraft: send out a pulse of radio waves, and wait for the *echo*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "ink-on",
+    "trans": "trace",
+    "cam": "pan",
+    "comp": "left-to-right-band",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "Aircraft40s"
+    ],
+    "stock": [],
+    "see": "A pulse ring leaves an antenna, meets a small aircraft, and a fainter ring returns.",
+    "beats": "+0.0 ink-on: a small 1940s aircraft at right (0.8 s) | +1.0 ripple: a ring leaves the antenna (1.2 s) pan with it | +2.2 it meets the plane; a thinner ring comes back (trace) | +3.8 it arrives: a tick on a small scale",
+    "set": "pulse-and-plane"
+   },
+   "src": "S7"
+  },
+  {
+   "text": "In January 1946, at Camp Evans on the coast of New Jersey, a small US Army team wondered how far an echo could really *come* from.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "rise",
+    "trans": "real-reveal",
+    "cam": "crane",
+    "comp": "low-right-large",
+    "life": [
+     "snow",
+     "sway"
+    ],
+    "new": [],
+    "stock": [
+     "P-08",
+     "R-03"
+    ],
+    "see": "The bedspring antenna on its tower, drawn large; the real 1946 photograph of it pinned at left.",
+    "beats": "+0.0 crane up the tower | +0.4 rise: the Bedspring array rises into frame (1.4 s) | +2.6 colour blooms into it | +4.0 real-reveal: ★P-08 slides in at left, pinned"
+   },
+   "src": "F6"
+  },
+  {
+   "text": "Their leader was Lieutenant Colonel John DeWitt.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "drop",
+    "trans": "window",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "flicker"
+    ],
+    "new": [
+     "Officer46"
+    ],
+    "stock": [
+     "P-10"
+    ],
+    "see": "Inside the hut: an officer at a bench of dials; the real team photograph on the wall.",
+    "beats": "+0.0 window from the hut door (1.4 s) | +1.2 the Officer (pose stand) at a rack of dials inks on | +2.2 drop: ★P-10 team photo pinned on the wall"
+   },
+   "src": "F6"
+  },
+  {
+   "text": "They aimed a wall of antennas at the horizon and waited for the Moon to *rise*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "rise",
+    "trans": "window-close",
+    "cam": "tilt-up",
+    "comp": "low-centre-large",
+    "life": [
+     "snow"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Outside again: the array faces the sea horizon; the Moon's upper limb lifts out of the Atlantic.",
+    "beats": "+0.0 window-close to the shore | +1.0 the array turns a few degrees (fx_r) | +2.0 rise: the Moon comes up out of the sea (2.4 s, linear) with a gold path on the water",
+    "set": "moonrise-over-the-array"
+   },
+   "src": "S7"
+  },
+  {
+   "text": "On the tenth of January, a little before noon, they sent a *pulse*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "stamp",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "centre-band",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "A switch is thrown; a broad ring of radio leaves the array and heads for the Moon; we go with it.",
+    "beats": "+0.0 a hand throws a knife switch (stamp, 0.3 s) · sfx relay_clunk −14 | +0.5 ripple: one broad ring leaves the array | +1.2 ride: the camera travels with the ring out over the sea and up"
+   },
+   "src": "F6"
+  },
+  {
+   "text": "Radio waves travel at the speed of light. So the room went quiet… and they *counted*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "unroll",
+    "trans": "match",
+    "cam": "push",
+    "comp": "right-third-large",
+    "life": [
+     "sweep",
+     "flicker"
+    ],
+    "new": [],
+    "stock": [
+     "R-08"
+    ],
+    "see": "The scope screen fills the frame: a first spike at the left, a flat trembling line crawling right; the stopwatch runs.",
+    "beats": "+0.0 match: the ring becomes the first spike on the OldScreen | +0.6 unroll: the cabinet and dials ink in around it | +1.4 the trace sweeps right in real time; Stopwatch hand runs 0→2.5 | +3.0 silence: music out for 2 s"
+   },
+   "src": "F6"
+  },
+  {
+   "text": "About two and a half seconds later, a faint blip appeared on the screen.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "real-reveal",
+    "cam": "hold",
+    "comp": "right-third-large",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "P-09",
+     "A-02"
+    ],
+    "see": "The second spike rises on the trace; the real photograph of the 1946 scope slides over the drawing.",
+    "beats": "+0.0 hold | +0.4 grow: the echo spike rises (0.3 s) · sfx ping (★A-02 real echo) −12 | +1.6 real-reveal: ★P-09 over the drawn screen, same frame | +3.0 red ink circles the second spike"
+   },
+   "src": "F6"
+  },
+  {
+   "text": "It was the first time human beings had reached out to another world… and felt it answer *back*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-symmetric",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Earth and Moon in space; a ring going out, a fainter ring coming back.",
+    "beats": "+0.0 scale-out to Earth–Moon | +1.2 the outgoing ring reaches the Moon, bloom of gold on its face | +2.6 the returning ring | +4.6 it lands on New Jersey's coast as a small ripple"
+   },
+   "src": "S7"
+  },
+  {
+   "text": "And that delay was a new kind of ruler — a ruler made of *time*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "ink-on",
+    "trans": "morph",
+    "cam": "pan",
+    "comp": "centre-band",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "TimeRuler"
+    ],
+    "stock": [],
+    "see": "The trace between the two spikes straightens into a brass ruler whose marks are seconds.",
+    "beats": "+0.0 the scope trace floats free of the screen | +0.8 morph: it straightens and thickens into a brass ruler (1.4 s) | +2.4 ink-on: its graduations — 0 · 1 · 2 · 2½ | +3.4 pan along it from Earth to Moon",
+    "set": "ruler-of-time"
+   }
+  },
+  {
+   "text": "But a radar beam spreads as it travels. By the time it reaches the Moon, it washes over the whole face, and the echo comes back *smeared*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "grow",
+    "trans": "eclipse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The ring swells until it is wider than the Moon; the returning spike on a small inset is a wide soft hump.",
+    "beats": "+0.0 push toward the Moon | +0.6 grow: the pulse ring widens past the Moon's disc (1.6 s) | +2.6 inset scope: the echo is a broad hump, trembling | +5.0 eclipse: the ring's wash covers the Moon entirely"
+   }
+  },
+  {
+   "text": "For real precision, you'd want a needle of light… and something on the Moon to aim it *at*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "iris",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "needle-on-moon",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "M-03"
+    ],
+    "see": "The wash contracts to a single gold needle touching one point on the Sea of Tranquility.",
+    "beats": "+0.0 iris: the wash closes to a point (1.2 s) | +1.4 a single needle beam from off-frame to that point | +2.6 scale-in on the point; ★M-03 lunar map ghosted beneath, the site circled"
+   }
+  },
+  {
+   "text": "Clue four had to be carried there by *hand*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "slide",
+    "trans": "through",
+    "cam": "hold",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [
+     "P-02"
+    ],
+    "see": "Frame 4: the real photograph of an astronaut carrying the experiment packages across the surface.",
+    "beats": "+0.0 through frame 4 | +0.8 slide: ★P-02 slides onto the lunar ground as a pinned plate (0.9 s, back) | +2.0 dust motes; lift 0→20"
+   }
+  },
+  {
+   "text": "In July 1969, Apollo 11 touched down in the Sea of Tranquility. Among the things the astronauts left behind was a panel of one hundred glass *prisms*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "assemble",
+    "trans": "real-reveal",
+    "cam": "crane",
+    "comp": "low-centre-large",
+    "life": [
+     "stars"
+    ],
+    "new": [
+     "LunarModuleFar"
+    ],
+    "stock": [
+     "V-01",
+     "R-01"
+    ],
+    "see": "The plain: the lander small in the distance; in front, the panel assembles prism by prism; real mission film plays in a small period TV.",
+    "beats": "+0.0 crane down onto the plain; MoonGround, the lander far off (ink) | +1.6 assemble: the frame, then 100 prisms pop in row by row (2.4 s) · sfx glass_tick ×4 | +4.6 colour blooms | +6.0 real-reveal: OldScreen(★V-01) at right, 6 s of the deployment",
+    "set": "the-hundred-prisms"
+   },
+   "src": "F7 S16"
+  },
+  {
+   "text": "Each prism has an odd talent. Whatever direction light arrives from, it is sent straight back the way it *came*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "scale-in",
+    "cam": "rack",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "CornerCube"
+    ],
+    "stock": [
+     "R-02"
+    ],
+    "see": "One prism enlarged: three mirrored faces meeting in a corner; a ray enters, bounces three times, leaves parallel.",
+    "beats": "+0.0 scale-in to a single prism (1.2 s) | +1.2 grow: it enlarges into a cut-away corner cube (1.0 s) | +2.4 trail: a ray in, three bounces, out parallel (1.8 s) | +4.4 a second ray from another angle does the same",
+    "set": "corner-cube"
+   },
+   "src": "S16"
+  },
+  {
+   "text": "No power. No moving parts. Just glass, waiting in the *dust*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "wipe",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "low-centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The panel alone on the plain; the long lunar day passes, shadows swing round it; the Earth hangs still above.",
+    "beats": "+0.0 pull back to the panel on the plain | +0.8 light-change: shadows sweep round the panel (wipe of light, 3 s) | +3.0 dust settles; Earth small above the horizon"
+   }
+  },
+  {
+   "text": "And on the first of August, at Lick Observatory in California, the laser fired — the pulse from the start of this *story*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "blinds",
+    "trans": "match",
+    "cam": "tilt-up",
+    "comp": "low-left-small",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [
+     "P-05",
+     "P-06"
+    ],
+    "see": "Match to the very first frame — the dome, the slit, the beam — now with the real photograph of the telescope pinned beside it.",
+    "beats": "+0.0 match: the Earth above the plain becomes the globe; fall toward California | +1.4 the first shot of the film, re-staged closer and from the other side | +2.4 blinds: slit opens · sfx laser_charge | +3.2 beam fires | +4.6 ★P-05/P-06 plates fan in (stack)"
+   },
+   "src": "F7"
+  },
+  {
+   "text": "But even a laser spreads. By the time the beam reaches the Moon, it covers kilometres of ground.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "ride",
+    "comp": "centre-band",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "We ride the beam: a thread at the dome, widening to a pale disc that overlaps a whole patch of the Sea of Tranquility.",
+    "beats": "+0.0 ride the beam outward (2.4 s) | +1.0 grow: its width increases along the way | +3.0 it lands as a faint disc many times wider than the panel"
+   },
+   "src": "S14"
+  },
+  {
+   "text": "Only a sliver of it hits the mirrors, and only a sliver of that finds the telescope again. From each pulse, a handful of particles of light come home. Often, just *one*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "stamp",
+    "trans": "trace",
+    "cam": "pull",
+    "comp": "wide-symmetric",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Thousands of motes leave Earth; a few reach the panel; one single mote makes the whole journey back into the dome.",
+    "beats": "+0.0 particles: a dense stream leaves Earth (k 1) | +2.0 at the Moon the stream thins to a dozen (k .1) | +4.0 trace: ONE gold mote travels back (4.0 s, linear) | +8.2 stamp: it lands in the dome — a tiny flash · sfx soft_tick",
+    "set": "one-photon-home"
+   },
+   "src": "F9"
+  },
+  {
+   "text": "But one is enough — if you know exactly when it *left*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "drop",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "right-third-large",
+    "life": [
+     "sweep"
+    ],
+    "new": [],
+    "stock": [
+     "D-06"
+    ],
+    "see": "The stopwatch again, now with a second, finer dial inside it; the real published plot of the first returns below.",
+    "beats": "+0.0 match: the flash becomes the Stopwatch's centre | +0.6 drop: a finer inner dial lands inside it (bounce) | +1.8 ★D-06 figure slides under it, the peak circled in red"
+   }
+  },
+  {
+   "text": "Fire again and again, time each return, and two and a half seconds becomes a distance you can trust to the *centimetre*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "collapse",
+    "cam": "push",
+    "comp": "centre-band",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The time ruler returns; between two of its marks finer marks appear, then finer still.",
+    "beats": "+0.0 the TimeRuler from clue 3 slides back in | +1.0 push into the gap at 2½ | +1.6 grow: subdivisions ink in, three levels deep (2.4 s) | +4.6 collapse: everything narrows to one hairline mark",
+    "set": "ticks-within-ticks"
+   },
+   "src": "F7"
+  },
+  {
+   "text": "Later missions left more mirrors, and two Soviet rovers carried their *own*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "flip",
+    "trans": "scale-out",
+    "cam": "orbit",
+    "comp": "centre-large",
+    "life": [
+     "boil"
+    ],
+    "new": [
+     "Lunokhod"
+    ],
+    "stock": [
+     "P-03",
+     "P-04",
+     "G-01"
+    ],
+    "see": "The Moon's near side with five gold pins; plates of the other reflectors fan out; a small rover drawn beside one pin.",
+    "beats": "+0.0 scale-out to the whole Moon | +1.0 five pins ink on one by one (Apollo 11, 14, 15, Lunokhod 1, 2) | +2.6 flip: ★P-03/★P-04 plates turn face-up in a fan | +4.0 the Lunokhod inks on beside its pin"
+   },
+   "src": "F8"
+  },
+  {
+   "text": "Today, an observatory in New Mexico times the trip so finely that it knows the distance to about one *millimetre*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "rise",
+    "trans": "window",
+    "cam": "crane",
+    "comp": "low-right-medium",
+    "life": [
+     "stars",
+     "sway"
+    ],
+    "new": [
+     "ApachePoint",
+     "PineRidge"
+    ],
+    "stock": [
+     "P-07",
+     "V-02",
+     "R-06"
+    ],
+    "see": "A pine ridge in New Mexico at night; the square enclosure, a green-gold thread of light; the real beam photograph in an eyepiece.",
+    "beats": "+0.0 window from a pin on the Earth | +1.2 rise: the pine ridge and the enclosure | +2.6 beam | +4.0 real: Eyepiece(★V-02 or ★P-07) opens at left (iris 0.8 s)"
+   },
+   "src": "F8"
+  },
+  {
+   "text": "One millimetre… across three hundred and eighty-four thousand *kilometres*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "ink-on",
+    "trans": "scale-out",
+    "cam": "pull",
+    "comp": "wide-symmetric",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Earth and Moon at true scale, the arc between them — and now, at last, its number.",
+    "beats": "+0.0 scale-out (geometric, 2.4 s) | +2.0 the dashed arc of line 7 returns | +3.0 ink-on: the ONE label “384,400 km” · music swells +2 dB"
+   },
+   "src": "F1"
+  },
+  {
+   "text": "And once you can measure that well, you start to notice something nobody could have *seen* before.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "iris",
+    "trans": "rack",
+    "cam": "push",
+    "comp": "centre-band",
+    "life": [
+     "tremble"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Push in on the number's last digits: they are not quite still.",
+    "beats": "+0.0 push toward the label (2.0 s) | +1.6 iris closes round its last digit | +2.6 tremble 0→1.5 px on the Moon end of the arc"
+   }
+  },
+  {
+   "text": "The number keeps *changing*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "stamp",
+    "trans": "morph",
+    "cam": "hold",
+    "comp": "centre-band",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The last digit rolls over like a counter wheel, once.",
+    "beats": "+0.0 hold | +0.3 the last digit rolls up one (morph of the glyph, 0.5 s) · sfx brass_click | +1.2 again"
+   },
+   "src": "F10"
+  },
+  {
+   "text": "Every year, the Moon is about three point eight centimetres further away than the year *before*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "grow",
+    "trans": "trace",
+    "cam": "pan",
+    "comp": "row-left-to-right",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [
+     "X-05"
+    ],
+    "see": "The Moon's orbit drawn as a ring; each year a new ring, a hair wider, like tree rings.",
+    "beats": "+0.0 the arc becomes part of an orbit ring (1.0 s) | +1.0 grow: ring after ring, each slightly wider (8 rings, 3.2 s) | +4.4 pan to the gap between two rings; ONE label “3.8 cm a year”",
+    "set": "year-rings"
+   },
+   "src": "F10"
+  },
+  {
+   "text": "It is leaving us — slowly, at about the speed your fingernails *grow*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "slide",
+    "trans": "match",
+    "cam": "hold",
+    "comp": "left-third-large",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "HandNail"
+    ],
+    "stock": [],
+    "see": "The hand from clue two, now resting; a year's growth marked on one nail with the same small bracket.",
+    "beats": "+0.0 match: the ring gap becomes the bracket on a fingernail | +0.6 slide: the hand comes to rest on the paper | +2.0 the bracket pulses once"
+   },
+   "src": "S16"
+  },
+  {
+   "text": "The tides it raises in our oceans tug it forward in its orbit, lifting it outward… and in return, they slow the spinning of the *Earth*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "bloom",
+    "trans": "scale-out",
+    "cam": "orbit",
+    "comp": "wide-left-heavy",
+    "life": [
+     "clouds"
+    ],
+    "new": [
+     "TidalBulge"
+    ],
+    "stock": [
+     "V-05"
+    ],
+    "see": "The Earth with an exaggerated blue bulge of ocean running slightly ahead of the Moon; a curved arrow on the Earth slows.",
+    "beats": "+0.0 scale-out | +1.0 bloom: the ocean bulge swells (labelled as exaggerated in the delivery note) | +2.6 a thin line from bulge to Moon pulls the Moon forward | +5.0 the Earth's rotation arrow lengthens its dashes · real tide loop ★V-05 in a small pinned plate",
+    "set": "tidal-bulge"
+   },
+   "src": "F10 S16"
+  },
+  {
+   "text": "Our days are getting longer, by an amount far too small to *feel*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "drop",
+    "trans": "light-change",
+    "cam": "hold",
+    "comp": "right-third-medium",
+    "life": [
+     "sweep"
+    ],
+    "new": [
+     "Sundial"
+    ],
+    "stock": [],
+    "see": "A sundial; its shadow sweeps a day; a second, a hair slower.",
+    "beats": "+0.0 drop: a bronze Sundial lands (bounce) | +0.8 light-change: one day's shadow sweep (2.0 s) | +3.0 a second sweep, 2 frames longer"
+   },
+   "src": "S16"
+  },
+  {
+   "text": "So — how do we know how far away the *Moon* is?",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "assemble",
+    "trans": "fold",
+    "cam": "pull",
+    "comp": "four-in-a-row",
+    "life": [
+     "dust"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The four frames again in their row, now full of colour: eclipse, finger, blip, prism.",
+    "beats": "+0.0 fold: the sundial scene folds into the desk | +0.8 assemble: the four frames return, each already painted | +2.6 the question hangs: all four dim slightly"
+   }
+  },
+  {
+   "text": "A shadow told us its size. Two distant observers turned that into an angle. An echo turned it into time…",
+   "gap": 0.75,
+   "section": "ANSWER",
+   "plan": {
+    "in": "bloom",
+    "trans": "whip",
+    "cam": "whip",
+    "comp": "four-in-a-row",
+    "life": [
+     "boil"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Each frame lights in turn as it is named and plays its two-second essence.",
+    "beats": "+0.0 frame 1 lifts and blooms: the cone and the copper Moon (2.2 s) | +2.6 whip to frame 2: the two sight lines cross | +5.6 whip to frame 3: the two spikes"
+   }
+  },
+  {
+   "text": "and a panel of glass, left in the dust, turned that time into *millimetres*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "stamp",
+    "trans": "collapse",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Frame 4: the prisms flash; all four frames slide together into one hairline mark on the arc.",
+    "beats": "+0.0 frame 4 lifts: prisms flash (stamp) | +1.6 collapse: the four frames converge into the arc Earth–Moon | +3.0 the hairline mark at its end glows gold"
+   },
+   "src": "F8"
+  },
+  {
+   "text": "None of them ever touched what they were *measuring*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "ink-on",
+    "trans": "match",
+    "cam": "pan",
+    "comp": "row-left-to-right",
+    "life": [
+     "breathe"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "Four small figures across twenty-two centuries stand in a row on one horizon, all looking up: the Greek, the two quadrant men, the officer, the laser crew.",
+    "beats": "+0.0 pan along a single horizon | +0.4 ink-on: the figures one by one, each with their instrument (stagger 0.8 s) | +4.0 all heads tilt up together",
+    "set": "four-watchers"
+   }
+  },
+  {
+   "text": "They found a way to make the distance leave a trace — in a shadow, in an angle, in a *delay*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "grow",
+    "trans": "ride",
+    "cam": "tilt-up",
+    "comp": "low-centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "From each figure a different line rises to the same Moon: a shadow edge, two sight lines, a ring, a thread of light.",
+    "beats": "+0.0 tilt-up from the figures | +0.6 grow: four kinds of line rise in turn (0.9 s each) | +4.6 they meet at the Moon"
+   }
+  },
+  {
+   "text": "The mirrors are still up there tonight, still sending our light home…",
+   "gap": 0.75,
+   "section": "MEANING",
+   "plan": {
+    "in": "iris",
+    "trans": "scale-in",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "photons"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The full Moon, calm; one gold glint in the Sea of Tranquility.",
+    "beats": "+0.0 push to the Moon (3 s, soft) | +1.6 iris of gold opens at the Apollo 11 site: a glint | +3.0 one mote leaves it toward us"
+   },
+   "src": "F8"
+  },
+  {
+   "text": "from a little further away than *yesterday*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "bloom",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "stars"
+    ],
+    "new": [],
+    "stock": [],
+    "see": "The Moon eases back a hair's breadth; dawn colour comes into the paper; the brand end card follows.",
+    "beats": "+0.0 pull: the Moon recedes 2 % (3 s, linear) | +1.0 bloom: dawn wash rises from the bottom (light-change) | +4.0 end card"
+   },
+   "src": "F10"
+  }
+ ],
+ "world": []
+}
