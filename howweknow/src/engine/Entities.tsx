@@ -6,7 +6,9 @@ import land from '../data/land110.json';
 import * as K from '../kit/world';
 import { P, FONT } from '../kit/style';
 import { Entity, Props, stateAt } from './state';
-import { Cam, SW, SH, toScreen, anchor, planetPoint } from './space';
+import { Cam, SW, SH, toScreen, anchor, planetPoint, mapPoint } from './space';
+import { toneCss } from '../kit/tone';
+import { geoEquirectangular } from 'd3-geo';
 import { TL } from './time';
 
 type Ctx = { t: number; tl: TL; cam: Cam; S: Record<string, Props> };
@@ -64,10 +66,10 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
     }
     case 'photo': case 'video': {   // REAL stock (Muse), toned to the palette; frame: pinned | plate | full; reveal 0..1 = circle wipe
       const [x, y] = s.space === 'world' ? toScreen(cam, s.x, s.y) : [s.x ?? SW / 2, s.y ?? SH / 2], z = s.space === 'world' ? cam.zoom : 1, w = (s.w ?? SW) * z, h = (s.h ?? SH) * z;
-      const tone = s.tone === 'none' ? undefined : s.tone === 'warm' ? 'sepia(.35) saturate(.75) contrast(1.05)' : 'grayscale(1) sepia(.25) contrast(1.08) brightness(.95)';
+      const tone = toneCss(s.tone), kb = { scale: String(s.kz ?? 1), translate: `${s.kx ?? 0}% ${s.ky ?? 0}%` };   // Ken Burns: kz zoom, kx/ky pan (%)
       const rv = s.reveal ?? 1, clip = rv < 1 ? `circle(${rv * 75}% at 50% 50%)` : undefined, pinned = s.frame === 'pinned';
-      const media = e.type === 'video' ? <OffthreadVideo src={src(s.src)} muted startFrom={Math.round((s.from ?? 0) * 30)} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: tone }} /> : <Img src={src(s.src)} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: tone }} />;
-      return <AbsoluteFill style={{ opacity: a }}><div style={{ position: 'absolute', left: x - w / 2, top: y - h / 2, width: w, height: h, rotate: `${s.rot ?? 0}deg`, clipPath: clip, padding: pinned ? 14 * z : 0, paddingBottom: pinned ? 50 * z : 0, background: pinned ? '#EFE9DC' : undefined, boxShadow: s.frame === 'full' ? undefined : '0 24px 50px rgba(0,0,0,.55)' }}>{media}
+      const media = e.type === 'video' ? <OffthreadVideo src={src(s.src)} muted startFrom={Math.round((s.from ?? 0) * 30)} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: tone, ...kb }} /> : <Img src={src(s.src)} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: tone, ...kb }} />;
+      return <AbsoluteFill style={{ opacity: a }}><div style={{ position: 'absolute', overflow: 'hidden', left: x - w / 2, top: y - h / 2, width: w, height: h, rotate: `${s.rot ?? 0}deg`, clipPath: clip, padding: pinned ? 14 * z : 0, paddingBottom: pinned ? 50 * z : 0, background: pinned ? '#EFE9DC' : undefined, boxShadow: s.frame === 'full' ? undefined : '0 24px 50px rgba(0,0,0,.55)' }}>{media}
         {s.frame !== 'full' && <div style={{ position: 'absolute', inset: pinned ? `${14 * z}px ${14 * z}px ${50 * z}px` : 0, boxShadow: 'inset 0 0 80px rgba(0,0,0,.45)', pointerEvents: 'none' }} />}
         {pinned && s.caption && <div style={{ position: 'absolute', left: 16 * z, bottom: 14 * z, fontFamily: FONT.mono, fontSize: 15 * z, color: '#5A5246', letterSpacing: 2 }}>{s.caption}</div>}</div></AbsoluteFill>;
     }
@@ -84,6 +86,22 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
           {(e.children || []).map(ch => <React.Fragment key={ch.id}>{renderEntity(ch, stateAt(ch, t, c.tl), inner)}</React.Fragment>)}</AbsoluteFill>
         {r < 1400 && <svg width={SW} height={SH} style={{ position: 'absolute', inset: 0 }}><circle cx={lx} cy={ly} r={r} fill="none" stroke={P.cream} strokeOpacity={0.6 * (1 - Math.min(1, r / 1400))} strokeWidth={3} /></svg>}
       </AbsoluteFill>;
+    }
+    case 'map': {   // a flat REAL map in the world (Muse: Blue Marble / relief / old map, equirectangular) or the drawn one; x,y = lon 0/lat 0, w = 360°
+      const [x0, y0] = toScreen(cam, s.x - s.w / 2, s.y - s.w / 4), W2 = s.w * cam.zoom, H2 = W2 / 2;
+      if (x0 > SW || y0 > SH || x0 + W2 < 0 || y0 + H2 < 0) return null;
+      const proj = geoEquirectangular().scale(W2 / (2 * Math.PI)).translate([x0 + W2 / 2, y0 + H2 / 2]), d = geoPath(proj)(land as never) || '';
+      return <AbsoluteFill style={{ opacity: a }}>
+        {s.src ? <Img src={src(s.src)} style={{ position: 'absolute', left: x0, top: y0, width: W2, height: H2, filter: toneCss(s.tone) }} />
+          : <svg width={SW} height={SH} style={{ position: 'absolute', inset: 0 }}><rect x={x0} y={y0} width={W2} height={H2} fill={P.ocean} /><path d={d} fill={P.land} /></svg>}
+        {(s.border ?? 0) > 0 && <svg width={SW} height={SH} style={{ position: 'absolute', inset: 0 }}><path d={d} fill="none" stroke={P.cream} strokeOpacity={s.border} strokeWidth={1.2} /></svg>}
+      </AbsoluteFill>;
+    }
+    case 'route': {   // a path drawn across a map or planet: points = [[lon, lat], …] on entity `on`; k = how much is drawn
+      const pts = (s.points || []).map((q: number[]) => anchor({ entity: s.on, lon: q[0], lat: q[1] }, cam, S)); if (pts.length < 2) return null;
+      const d = 'M' + pts.map((p: number[]) => p.join(' ')).join(' L');
+      return <Svg a={a}><path d={d} fill="none" stroke={s.color ?? P.amber} strokeWidth={(s.w ?? 3) * 4} opacity={0.15} filter="url(#b6)" pathLength={1} strokeDasharray={`${s.k ?? 1} 1`} />
+        <path d={d} fill="none" stroke={s.color ?? P.amber} strokeWidth={s.w ?? 3} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={s.dash ? '0.004 0.008' : `${s.k ?? 1} 1`} /></Svg>;
     }
     default: return null;
   }
