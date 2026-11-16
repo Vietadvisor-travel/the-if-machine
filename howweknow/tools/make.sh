@@ -22,7 +22,7 @@ if [ -n "$TH" ]; then npx remotion still Thumb out/${S}_thumb.jpg --props="$TH" 
 cp -f out/${S}_thumb.jpg out/${S}_cover.jpg 2>/dev/null || ffmpeg -v error -y -ss 3 -i out/${S}_16x9.mp4 -frames:v 1 -q:v 2 out/${S}_cover.jpg
 echo "DONE → out/${S}_16x9.mp4 ($(printf %.1f $D) s) · sheet out/${S}_sheet.jpg"
 if [[ "${2:-}" == "--ship" ]]; then
-  python3 ../studio/tools/pp_drive.py put out/${S}_16x9.mp4 out/${S}_cover.jpg out/${S}.srt --to "phase3/$S" | tail -2
+  python3 ../studio/tools/pp_drive.py put out/${S}_16x9.mp4 out/${S}_cover.jpg out/${S}_thumb.jpg out/${S}.srt --to "fathom/$S" | tail -2
   [ -f ../jobs/deliveries/$S.md ] || sed "s/@@SLUG@@/$S/g" ../jobs/deliveries/_TEMPLATE_P3.md > ../jobs/deliveries/$S.md
-  echo "shipped to Drive phase3/$S · fill jobs/deliveries/$S.md"
+  echo "shipped to Drive fathom/$S · fill jobs/deliveries/$S.md"
 fi

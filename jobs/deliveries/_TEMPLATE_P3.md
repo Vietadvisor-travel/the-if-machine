@@ -1,14 +1,14 @@
-# Delivery — <tên VI> (@@SLUG@@) · phase 3 long film · v1 · <date>
+# Delivery — <tên VI> (@@SLUG@@) · FATHOM film · v1 · <date>
 
-## Files (Drive phase3/@@SLUG@@/)
+## Files (Drive fathom/@@SLUG@@/)
 - @@SLUG@@_16x9.mp4 · <MB> (CRF-17 master) · <m:ss> · 1920×1080 · <link>
-- @@SLUG@@_cover.jpg · <link>
+- @@SLUG@@_thumb.jpg (YouTube thumbnail 1280×720) · @@SLUG@@.srt (optional CC, not burned in) · <link>
 
 ## Production
-- Engine v2 (Remotion, 2D story world, howweknow/): one continuous world, every line transforms the picture (ENGINE.md).
+- Engine v3 (Remotion, 2D story world, howweknow/): one continuous world, every line transforms the picture; no subtitles, in-scene type only; <n> drawings made for this film (src/lib/@@SLUG@@/).
 - Voice: af_heart (Kokoro, Apache-2.0), speed 0.86 — machine-generated narration.
 - Music: <one track> — <credit line> · Sound effects: <n>, from the library (jobs/music/SFX_CREDITS.md).
-- Gates: script_check PASS · check_world PASS · render <s/frame> · QA sheet looked at (<notes>).
+- Gates: script_check PASS · check_world PASS · variety PASS · render <s per film second> · QA sheet looked at (<notes>).
 
 ## Facts (research pack jobs/research/@@SLUG@@.md; S1…Sn)
 - <line> — S1, S2
