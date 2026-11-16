@@ -2042,7 +2042,8 @@
     "push": 1,
     "pan_x": 0,
     "pan_y": 0,
-    "drift": 0.25
+    "drift": 0,
+    "light": 0
    },
    "keys": []
   },

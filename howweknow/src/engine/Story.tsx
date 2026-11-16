@@ -49,11 +49,11 @@ export const Story: React.FC<StoryProps> = ({ ep, tl, at, nocap }) => {
   return (
     <AbsoluteFill>
       <PaintDefs boil={Math.floor(f / 4) % 3} />
-      <AbsoluteFill style={{ transform: lifeT(L, -.6) }}><PaperSheet /></AbsoluteFill>
+      {L.dx || L.dy || L.px || L.py || L.push !== 1 ? <AbsoluteFill style={{ transform: lifeT(L, -.6) }}><PaperSheet /></AbsoluteFill> : <PaperSheet />}
       {layers.map(({ e }, i) => { const st = S[e.id], n = renderEntity(e, st, ctx); if (!n) return null;
         const body = hasFx(st) ? <Fx s={st} t={t} seed={i} uid={e.id}>{n}</Fx> : n;
-        return <AbsoluteFill key={e.id} style={{ transform: lifeT(L, st.para ?? depthOf(e, st)) }}>{body}</AbsoluteFill>; })}
-      <Light t={t} k={S.camera?.light ?? 1} />
+        return L.dx || L.dy || L.px || L.py || L.push !== 1 ? <AbsoluteFill key={e.id} style={{ transform: lifeT(L, st.para ?? depthOf(e, st)) }}>{body}</AbsoluteFill> : <React.Fragment key={e.id}>{body}</React.Fragment>; })}   {/* no wrapper when the page is still: each wrapper is a full-frame compositing layer (2× render time, measured 16 Nov 2026) */}
+      <Light t={t} k={S.camera?.light ?? 0} />
       <PaperFibres />
       {clue && (S[clue.id].a ?? 1) > 0 && <ClueTag n={Math.round(S[clue.id].n ?? 1)} of={S[clue.id].of ?? 4} label={S[clue.id].label} />}
       {!nocap && ep.captions && <Captions lines={tl.lines} />}   {/* owner, 15 Nov 2026: NO subtitles — words are `text` entities in the scene */}

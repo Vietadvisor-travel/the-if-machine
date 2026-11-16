@@ -8,7 +8,7 @@
   up to --tries times (default 3), with fewer parallel tabs each time.
 - The chunks are joined losslessly (ffmpeg concat, stream copy)."""
 import hashlib, json, math, os, signal, subprocess, sys, time, argparse
-ap = argparse.ArgumentParser(); ap.add_argument('slug'); ap.add_argument('--chunk', type=float, default=60); ap.add_argument('--concurrency', type=int, default=3)
+ap = argparse.ArgumentParser(); ap.add_argument('slug'); ap.add_argument('--chunk', type=float, default=60); ap.add_argument('--concurrency', type=int, default=4)
 ap.add_argument('--stall', type=int, default=300); ap.add_argument('--tries', type=int, default=3); ap.add_argument('--crf', type=int, default=17)
 A = ap.parse_args(); R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); os.chdir(R)
 S = A.slug; tl = json.load(open(f'public/ep/{S}/timeline.json')); N = math.ceil(tl['duration'] * 30)

@@ -135,7 +135,7 @@ const EarthSection: React.FC<{ cx?: N; cy?: N; r?: N; ax?: N; ay?: N; zoom?: N; 
   const sh = (a0: N, a1: N) => band(cx, cy, r * 1.012, r * 1.06, (quake - 90 + a0) * D, (quake - 90 + a1) * D);
   return <g>
     {/* atmosphere wash + the thin skin of the planet (sea and land), engraved rim */}
-    {!big && <circle cx={cx} cy={cy} r={r * 1.035} fill="#9CCAD6" opacity={.28 * draw * rim} filter="url(#b8)" />}
+    {r < 1100 && <circle cx={cx} cy={cy} r={r * 1.035} fill="#9CCAD6" opacity={.28 * draw * rim} filter="url(#b8)" />}   {/* no blurred halo on a planet larger than the frame (render cost) */}
     <SR d={circ(cx, cy, r)} mat="paper" t={.06} hatch={0} draw={draw} sw={1.8 * k} rim={false} />
     {L(0) > 0 && <SR d={band(cx, cy, rMoho, r)} mat="leaf" t={.5} ang={0} draw={L(0) * draw} sw={.9 * k} rim={false} />}
     {L(1) > 0 && <SR d={band(cx, cy, rCmb, rMoho)} mat="mantle" t={.32 + heavy * .05} ang={35} draw={L(1) * draw} sw={1.1 * k} hatchA={.22} />}

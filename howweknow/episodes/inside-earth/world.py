@@ -568,7 +568,7 @@ for e in W:
     e['keys'] = out
     for ch in e.get('children', []) or []: pass
 # (no page drift: owner 16 Nov 2026 — life comes from what happens IN the scene and how one scene becomes the next)
-next(e for e in W if e['id'] == 'camera')['props'].update(drift=.25)
+next(e for e in W if e['id'] == 'camera')['props'].update(drift=0, light=0)
 
 E['world'] = W
 # v2 SCORE (owner picks; samples on Drive fathom/_music_choices): a mystery bed for the question and the clues, a warmer one from the
