@@ -583,7 +583,7 @@ SCORE = [(MU + 'wonder_long_note_one.wav', H(0), 7, -22),            # the hook 
 E['music'] = {'cues': [{'file': f, 'at': at, 'start': st, 'db': db + 14} for f, at, st, db in SCORE], 'xfade': 4, 'norm': -18,
               'swells': [['L4$', 'L5', 7], ['L15$', 'L16', 3], ['L27$', 'L28', 3], ['L39$', 'L40', 3], ['L52$', 'L53', 3], ['L80$', 'end', 7]]}
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
-THUMB_T = round(LN[1]['start'] + 1.5, 2) if LN else 20   # the white-hot core of the hook, alone in the molten iron
+THUMB_T = round(LN[65]['start'] + 1.6, 2) if LN else 446   # 'The Earth had an inner core': the whole section, the inner core white-hot
 E['thumb'] = {'t': THUMB_T, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom', 'side': 'left'}
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
 TP = os.path.join(H_, 'timeline.json')

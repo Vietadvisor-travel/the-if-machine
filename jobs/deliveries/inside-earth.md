@@ -4,7 +4,7 @@
 > opening image), every scene change designed as one picture becoming the next (engine v4), a six-cue score, same narrator (af_heart).
 
 ## Files (Drive fathom/inside-earth/)
-- inside-earth_16x9.mp4 · @@MB@@ (CRF-17 master) · @@LEN@@ · 1920×1080 · @@LINK@@
+- inside-earth_16x9.mp4 · 248 MB (CRF-17 master) · 9:23 (563.0 s) · 1920×1080 · https://drive.google.com/file/d/1NRFbgEBequ7wviB2Wcw-If170SMuKL5c/view
 - inside-earth_thumb.jpg (YouTube thumbnail 1280×720) · inside-earth_cover.jpg · inside-earth.srt (optional CC, not burned in)
 
 ## Production
@@ -27,7 +27,7 @@
   "Lightless Dawn" (Clues II–III), "Dreams Become Real" (Clue IV) — CC BY 4.0 (incompetech.com); "Journey of Hope" (the answer) — public domain (FreePD).
   Sound effects: 10 (drill, wind, bell ×2, metal hit, scratch, groan, page turn,
   thunder roll) + the real sonified Sumatra 2004 earthquake (EarthScope / IRIS data, sonification by Muse).
-- Gates: script_check PASS · check_world PASS (273 entities) · variety PASS · render @@RT@@ · QA: every designed scene change looked at in stills, a 6-s contact sheet of the whole film before the render, the contact sheet after.
+- Gates: script_check PASS · check_world PASS (273 entities) · variety PASS · render ≈ 2 h 47 min of chunk time (10 chunks of 60 s, 17.8 s per film second — the opening dive and the Lehmann/Buller minute are the heaviest) · QA: every designed scene change looked at in stills, a 6-s contact sheet of the whole film before the render, the contact sheet after.
 
 ## Facts (research pack jobs/research/inside-earth.md; S1…S15)
 - Kola SG-3 began 1970, 12,262 m by 1989, rock too hot / plastic, ≈ 0.2 % of the way — S1, S2
