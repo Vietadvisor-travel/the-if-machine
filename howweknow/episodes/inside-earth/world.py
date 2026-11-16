@@ -325,7 +325,7 @@ earth['keys'] = EK
 E['world'] = W
 E['music'] = {'file': 'public/stock/_hwk/inside-earth/U-01_mystery-ossuary-6-macleod-ccby.mp3', 'db': -25, 'start': 0}
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
-E['thumb'] = {'t': 405, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom', 'side': 'left'}
+E['thumb'] = {'t': 410, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom', 'side': 'left'}
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
 TP = os.path.join(H, 'timeline.json')
 if os.path.exists(TP):   # keep the voiced timeline's sfx in step (vo.py copies them on the next voice run)
