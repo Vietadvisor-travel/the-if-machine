@@ -776,10 +776,7 @@ const ScannerRing: React.FC<{ x?: N; y?: N; s?: N; draw?: N; spin?: N }> = ({ x 
 };
 
 export const ART: Record<string, React.FC<any>> = {
-  ManchesterLab, ScatterApparatus, ZincScreenField, TallySheet, GoldFoilFrame, MistHillside, Stone, DottedAtom, HairSection, LightSwell, IvoryBalls, AtomosPapyrus,
-  DaltonPlate, ClueMedallions, CavendishBench, CathodeTube, OldTelevision, ChargeBalance, PlumPudding, PuddingTextbook, RadiumBlock, NobelMedal, NelsonFarm,
-  GoldLeafLamp, DarkEye, GeigerCounter, DotField, RutherfordDesk, ShellAndTissue, NavalShell, NuclearAtom, ScatterGraph, EmptyStadium, NucleusBeads, ViewerHand,
-  PalmDive, ElectronCushion, DiamondAndIngot, StippleFigure, CoolingTowers, ScannerRing,
+  ManchesterLab: ManchesterLab, ScatterApparatus: ScatterApparatus, ZincScreenField: ZincScreenField, TallySheet: TallySheet, GoldFoilFrame: GoldFoilFrame, MistHillside: MistHillside, Stone: Stone, DottedAtom: DottedAtom, HairSection: HairSection, LightSwell: LightSwell, IvoryBalls: IvoryBalls, AtomosPapyrus: AtomosPapyrus, DaltonPlate: DaltonPlate, ClueMedallions: ClueMedallions, CavendishBench: CavendishBench, CathodeTube: CathodeTube, OldTelevision: OldTelevision, ChargeBalance: ChargeBalance, PlumPudding: PlumPudding, PuddingTextbook: PuddingTextbook, RadiumBlock: RadiumBlock, NobelMedal: NobelMedal, NelsonFarm: NelsonFarm, GoldLeafLamp: GoldLeafLamp, DarkEye: DarkEye, GeigerCounter: GeigerCounter, DotField: DotField, RutherfordDesk: RutherfordDesk, ShellAndTissue: ShellAndTissue, NavalShell: NavalShell, NuclearAtom: NuclearAtom, ScatterGraph: ScatterGraph, EmptyStadium: EmptyStadium, NucleusBeads: NucleusBeads, ViewerHand: ViewerHand, PalmDive: PalmDive, ElectronCushion: ElectronCushion, DiamondAndIngot: DiamondAndIngot, StippleFigure: StippleFigure, CoolingTowers: CoolingTowers, ScannerRing: ScannerRing,
 };
 // the people of this film — costumes designed from their portraits and the Manchester photographs (P-01, P-01-x1: dark three-piece suits, high
 // white collars, the student in shirt-sleeves and waistcoat at the bench; Thomson's frock coat of 1897; Chadwick's double-breasted suit of the 1930s)

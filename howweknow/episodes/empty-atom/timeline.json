@@ -1,0 +1,674 @@
+{
+ "slug": "empty-atom",
+ "duration": 534.907,
+ "lines": [
+  {
+   "i": 0,
+   "text": "In 1909, in a darkened room in Manchester, a twenty-year-old student sat staring through a microscope at a tiny screen, waiting for flashes of light.",
+   "start": 1.0,
+   "dur": 10.819,
+   "sfx": [
+    {
+     "at": 0.1,
+     "file": "public/sfx/real_electric_flicker_1.wav",
+     "db": -28
+    },
+    {
+     "at": 1.0,
+     "file": "public/sfx/real_room_night_1.wav",
+     "db": -30
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "text": "Each flash was a single particle, smaller than an atom, striking the screen.",
+   "start": 12.719,
+   "dur": 4.818,
+   "sfx": []
+  },
+  {
+   "i": 2,
+   "text": "His job was to count them. And on that screen, he saw something that should have been impossible.",
+   "start": 18.438,
+   "dur": 5.732,
+   "sfx": [
+    {
+     "at": 5.4,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -16
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Some of the particles were bouncing straight back.",
+   "start": 25.07,
+   "dur": 2.64,
+   "sfx": [
+    {
+     "at": 2.2,
+     "file": "public/sfx/impact_glass_2.wav",
+     "db": -20
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "text": "It was like throwing stones into a cloud of mist\u2026 and having one come flying back at you.",
+   "start": 28.61,
+   "dur": 5.364,
+   "sfx": [
+    {
+     "at": 1.8,
+     "file": "public/sfx/motion_whoosh_short_1.wav",
+     "db": -26
+    },
+    {
+     "at": 3.2,
+     "file": "public/sfx/motion_whoosh_short_2.wav",
+     "db": -26
+    },
+    {
+     "at": 5.6,
+     "file": "public/sfx/motion_whoosh_deep_1.wav",
+     "db": -20
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "text": "That one surprise would tell us what an atom really looks like inside. So how do you see inside something nobody can see?",
+   "start": 34.874,
+   "dur": 7.558,
+   "sfx": []
+  },
+  {
+   "i": 6,
+   "text": "Atoms are small beyond imagining. Hundreds of thousands of them, side by side, would fit across a single hair.",
+   "start": 43.132,
+   "dur": 7.688,
+   "sfx": []
+  },
+  {
+   "i": 7,
+   "text": "No microscope can show you what is inside one. Light itself is far too coarse to make out the details.",
+   "start": 51.52,
+   "dur": 7.134,
+   "sfx": []
+  },
+  {
+   "i": 8,
+   "text": "For most of history, atoms were just an idea: the smallest pieces of matter, solid little balls that could not be cut apart.",
+   "start": 59.354,
+   "dur": 8.24,
+   "sfx": [
+    {
+     "at": 2.6,
+     "file": "public/sfx/impact_plastic_1.wav",
+     "db": -22
+    },
+    {
+     "at": 4.6,
+     "file": "public/sfx/impact_metal_1.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "text": "So how could anyone find out what was inside one, when nobody could ever look?",
+   "start": 68.294,
+   "dur": 4.596,
+   "sfx": []
+  },
+  {
+   "i": 10,
+   "text": "The very word comes from ancient Greek: atomos, meaning uncuttable.",
+   "start": 73.589,
+   "dur": 4.485,
+   "sfx": []
+  },
+  {
+   "i": 11,
+   "text": "Two centuries ago, chemists like John Dalton used atoms to explain how substances combine \u2014 but they still pictured them as tiny, solid spheres.",
+   "start": 78.774,
+   "dur": 10.657,
+   "sfx": [
+    {
+     "at": 8.4,
+     "file": "public/sfx/impact_wood_2.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "text": "The answer to what is really inside came in four steps: a crack in the ball, a cloud of flashes, a bounce\u2026 and an empty stadium.",
+   "start": 90.131,
+   "dur": 8.659,
+   "sfx": []
+  },
+  {
+   "i": 13,
+   "text": "Our first clue is a crack.",
+   "start": 104.99,
+   "dur": 1.526,
+   "sfx": []
+  },
+  {
+   "i": 14,
+   "text": "In 1897, in Cambridge, J. J. Thomson was studying the strange glowing rays inside glass tubes emptied of air.",
+   "start": 107.216,
+   "dur": 10.629,
+   "sfx": []
+  },
+  {
+   "i": 15,
+   "text": "His glass tube was the ancestor of the old television screen. But what were the rays?",
+   "start": 118.545,
+   "dur": 5.139,
+   "sfx": []
+  },
+  {
+   "i": 16,
+   "text": "With magnets and charged plates, he bent the rays and weighed them. They were made of particles \u2014 and those particles were far lighter than any atom.",
+   "start": 124.384,
+   "dur": 9.279,
+   "sfx": [
+    {
+     "at": 1.4,
+     "file": "public/sfx/impact_metal_3.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "text": "He had found the electron: a piece of an atom. So atoms were not solid balls after all. They had parts.",
+   "start": 134.363,
+   "dur": 6.965,
+   "sfx": [
+    {
+     "at": 3.0,
+     "file": "public/sfx/crack_glass_1.wav",
+     "db": -18
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "text": "Electrons carry a negative electric charge. But atoms as a whole are neutral. So somewhere inside, there had to be positive charge to balance them.",
+   "start": 142.028,
+   "dur": 10.373,
+   "sfx": []
+  },
+  {
+   "i": 19,
+   "text": "In 1904, Thomson proposed a picture: a soft ball of positive charge, with electrons dotted through it\u2026 like plums in a pudding.",
+   "start": 153.1,
+   "dur": 10.027,
+   "sfx": []
+  },
+  {
+   "i": 20,
+   "text": "Physicists liked it. It was tidy, it was sensible, and for a few years nothing contradicted it\u2026 yet.",
+   "start": 163.827,
+   "dur": 6.667,
+   "sfx": [
+    {
+     "at": 1.4,
+     "file": "public/stock/_hwk/empty-atom/S-01_paper-1-cc0.wav",
+     "db": -22
+    },
+    {
+     "at": 2.8,
+     "file": "public/stock/_hwk/empty-atom/S-01_paper-2-cc0.wav",
+     "db": -22
+    },
+    {
+     "at": 4.2,
+     "file": "public/stock/_hwk/empty-atom/S-01_paper-1-cc0.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "text": "It made sense. The charge was spread out evenly, soft and thin, all the way through.",
+   "start": 171.194,
+   "dur": 5.388,
+   "sfx": []
+  },
+  {
+   "i": 22,
+   "text": "And if it was right, anything fired at an atom would pass straight through, barely disturbed.",
+   "start": 177.282,
+   "dur": 5.535,
+   "sfx": []
+  },
+  {
+   "i": 23,
+   "text": "Clue two: flashes in the dark.",
+   "start": 184.317,
+   "dur": 1.955,
+   "sfx": []
+  },
+  {
+   "i": 24,
+   "text": "In Manchester, Ernest Rutherford had a powerful tool: alpha particles \u2014 tiny, fast, heavy bullets shot out by radioactive radium.",
+   "start": 186.972,
+   "dur": 9.499,
+   "sfx": []
+  },
+  {
+   "i": 25,
+   "text": "Rutherford, a farmer's son from New Zealand, had already won a Nobel Prize for his work on radioactivity.",
+   "start": 197.171,
+   "dur": 6.934,
+   "sfx": []
+  },
+  {
+   "i": 26,
+   "text": "Alpha particles are thousands of times heavier than electrons, and they shoot out of radium at around fifteen thousand kilometres a second.",
+   "start": 204.805,
+   "dur": 8.879,
+   "sfx": []
+  },
+  {
+   "i": 27,
+   "text": "What would happen if you fired them at a thin sheet of metal? He gave the job to his assistant, Hans Geiger, and to the young student Ernest Marsden.",
+   "start": 214.384,
+   "dur": 9.509,
+   "sfx": []
+  },
+  {
+   "i": 28,
+   "text": "They fired a narrow beam of alpha particles at a sheet of gold, beaten so thin that light could almost shine through it.",
+   "start": 224.593,
+   "dur": 7.448,
+   "sfx": []
+  },
+  {
+   "i": 29,
+   "text": "The beam passed through a narrow slit inside a box pumped empty of air, so that nothing but the gold could get in its way.",
+   "start": 232.741,
+   "dur": 7.922,
+   "sfx": [
+    {
+     "at": 3.2,
+     "file": "public/stock/_hwk/empty-atom/S-01_gas-hiss-pd.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "text": "There were no electronic counters. The only way to detect each particle was a screen coated with zinc sulphide, which gave off a tiny flash when one hit.",
+   "start": 241.363,
+   "dur": 10.576,
+   "sfx": []
+  },
+  {
+   "i": 31,
+   "text": "So they sat in the dark until their eyes adjusted, and counted the flashes one by one, through a microscope.",
+   "start": 252.639,
+   "dur": 7.024,
+   "sfx": []
+  },
+  {
+   "i": 32,
+   "text": "It was exhausting work. A person could only count accurately for a short time before the eyes had to rest.",
+   "start": 260.364,
+   "dur": 6.796,
+   "sfx": []
+  },
+  {
+   "i": 33,
+   "text": "Geiger later turned that drudgery into a machine that counted particles by itself \u2014 the Geiger counter, still clicking in labs today.",
+   "start": 267.859,
+   "dur": 8.635,
+   "sfx": [
+    {
+     "at": 2.6,
+     "file": "public/sfx/blip_click_2.wav",
+     "db": -18
+    },
+    {
+     "at": 3.8,
+     "file": "public/sfx/blip_click_2.wav",
+     "db": -18
+    },
+    {
+     "at": 4.4,
+     "file": "public/sfx/blip_click_2.wav",
+     "db": -18
+    },
+    {
+     "at": 7.0,
+     "file": "public/sfx/blip_click_2.wav",
+     "db": -18
+    },
+    {
+     "at": 8.0,
+     "file": "public/sfx/blip_click_2.wav",
+     "db": -18
+    },
+    {
+     "at": 0,
+     "file": "public/sfx/motion_whoosh_long_1.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "text": "Most particles flew straight through the gold, just as the pudding predicted.",
+   "start": 277.194,
+   "dur": 4.402,
+   "sfx": []
+  },
+  {
+   "i": 35,
+   "text": "A few were nudged a little to one side. That was expected too.",
+   "start": 282.297,
+   "dur": 3.928,
+   "sfx": []
+  },
+  {
+   "i": 36,
+   "text": "Clue three: the one that came back.",
+   "start": 287.725,
+   "dur": 2.011,
+   "sfx": []
+  },
+  {
+   "i": 37,
+   "text": "Rutherford suggested a small research for young Marsden: see if any particles bounced back toward the source.",
+   "start": 290.436,
+   "dur": 6.639,
+   "sfx": []
+  },
+  {
+   "i": 38,
+   "text": "Rutherford did not expect any. An alpha particle was fast and heavy \u2014 a thin pudding of charge could never throw one back.",
+   "start": 297.776,
+   "dur": 8.292,
+   "sfx": [
+    {
+     "at": 1.6,
+     "file": "public/sfx/motion_whoosh_short_1.wav",
+     "db": -22
+    },
+    {
+     "at": 4.6,
+     "file": "public/sfx/motion_whoosh_short_2.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "text": "But some did come back.",
+   "start": 306.768,
+   "dur": 1.415,
+   "sfx": [
+    {
+     "at": 0.8,
+     "file": "public/stock/_hwk/empty-atom/S-01_glass-bell-cc0.wav",
+     "db": -20
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "text": "In 1909, Geiger and Marsden reported that about one in every eight thousand particles was thrown back from the metal.",
+   "start": 308.883,
+   "dur": 7.877,
+   "sfx": []
+  },
+  {
+   "i": 41,
+   "text": "One in eight thousand sounds tiny. But for a pudding, it should have been zero.",
+   "start": 317.46,
+   "dur": 4.7,
+   "sfx": []
+  },
+  {
+   "i": 42,
+   "text": "Rutherford had worked with alpha particles for years. He knew how heavy and fast they were. A whisper-thin film should never have turned one around.",
+   "start": 322.861,
+   "dur": 8.892,
+   "sfx": []
+  },
+  {
+   "i": 43,
+   "text": "Years later, Rutherford described his shock. It was, he said, almost as incredible as if you fired a fifteen-inch shell at a piece of tissue paper\u2026 and it came back and hit you.",
+   "start": 332.453,
+   "dur": 11.997,
+   "sfx": [
+    {
+     "at": 3.4,
+     "file": "public/sfx/impact_bass_drop_1.wav",
+     "db": -16
+    },
+    {
+     "at": 6.3,
+     "file": "public/sfx/impact_soft_2.wav",
+     "db": -20
+    },
+    {
+     "at": 7.4,
+     "file": "public/sfx/motion_whoosh_deep_1.wav",
+     "db": -18
+    }
+   ]
+  },
+  {
+   "i": 44,
+   "text": "There was only one explanation. Inside the atom, there had to be something tiny, heavy, and fiercely charged.",
+   "start": 345.15,
+   "dur": 7.254,
+   "sfx": [
+    {
+     "at": 3.0,
+     "file": "public/sfx/cue_reveal_1.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "text": "Rutherford spent almost two years working out the mathematics of a single concentrated charge.",
+   "start": 353.104,
+   "dur": 5.819,
+   "sfx": [
+    {
+     "at": 1.6,
+     "file": "public/stock/_hwk/empty-atom/S-01_pen-1-cc0.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 46,
+   "text": "Most particles missed it entirely. But the rare one that came close was flung aside \u2014 or straight back.",
+   "start": 359.623,
+   "dur": 6.884,
+   "sfx": []
+  },
+  {
+   "i": 47,
+   "text": "Then Geiger and Marsden counted again, angle by angle, and the flashes matched his formula exactly.",
+   "start": 367.207,
+   "dur": 6.642,
+   "sfx": []
+  },
+  {
+   "i": 48,
+   "text": "Clue four: an empty stadium.",
+   "start": 375.349,
+   "dur": 1.931,
+   "sfx": []
+  },
+  {
+   "i": 49,
+   "text": "In 1911, Rutherford published his conclusion. Almost all of an atom's mass, and all its positive charge, are packed into a tiny centre: the nucleus.",
+   "start": 377.98,
+   "dur": 11.584,
+   "sfx": []
+  },
+  {
+   "i": 50,
+   "text": "The electrons move around it, far out. And between them and the nucleus there is\u2026 nothing.",
+   "start": 390.264,
+   "dur": 5.658,
+   "sfx": []
+  },
+  {
+   "i": 51,
+   "text": "Even hydrogen, the simplest atom of all, is mostly emptiness: one electron, far from a nucleus made of a single proton.",
+   "start": 396.622,
+   "dur": 8.827,
+   "sfx": []
+  },
+  {
+   "i": 52,
+   "text": "How empty? The nucleus is about a hundred thousand times smaller across than the atom itself.",
+   "start": 406.149,
+   "dur": 6.128,
+   "sfx": []
+  },
+  {
+   "i": 53,
+   "text": "Picture an atom as big as a football stadium. The nucleus would be a pea on the centre spot.",
+   "start": 412.977,
+   "dur": 5.853,
+   "sfx": []
+  },
+  {
+   "i": 54,
+   "text": "The electrons would be specks of dust drifting around the highest seats. And everything in between would be empty.",
+   "start": 419.53,
+   "dur": 6.942,
+   "sfx": []
+  },
+  {
+   "i": 55,
+   "text": "Every chemical reaction \u2014 every flame, every breath \u2014 happens out at the edges, among the electrons. The nucleus sits untouched at the centre.",
+   "start": 427.173,
+   "dur": 9.743,
+   "sfx": []
+  },
+  {
+   "i": 56,
+   "text": "Later, in 1932, James Chadwick found the other passenger in the nucleus \u2014 the neutron \u2014 completing the picture.",
+   "start": 437.616,
+   "dur": 8.694,
+   "sfx": []
+  },
+  {
+   "i": 57,
+   "text": "Now look at your own hand.",
+   "start": 447.81,
+   "dur": 1.471,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/motion_whoosh_long_1.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 58,
+   "text": "It is made of atoms, and every one of them is almost entirely empty space. So why does it feel so solid?",
+   "start": 450.18,
+   "dur": 7.464,
+   "sfx": []
+  },
+  {
+   "i": 59,
+   "text": "Press it on a table. Why doesn't it sink straight through?",
+   "start": 458.544,
+   "dur": 3.136,
+   "sfx": []
+  },
+  {
+   "i": 60,
+   "text": "Because the electrons on the outside of your atoms push hard against the electrons of the table's atoms.",
+   "start": 462.58,
+   "dur": 6.552,
+   "sfx": []
+  },
+  {
+   "i": 61,
+   "text": "What you feel as touch is that push. In a sense, you have never truly touched anything.",
+   "start": 470.032,
+   "dur": 5.302,
+   "sfx": []
+  },
+  {
+   "i": 62,
+   "text": "Even the hardest diamond and the heaviest gold are mostly empty space.",
+   "start": 476.234,
+   "dur": 4.574,
+   "sfx": []
+  },
+  {
+   "i": 63,
+   "text": "You are solid, heavy and real \u2014 and yet you are built almost entirely of empty space, held together by electric forces.",
+   "start": 481.708,
+   "dur": 8.519,
+   "sfx": []
+  },
+  {
+   "i": 64,
+   "text": "So \u2014 what is inside an atom?",
+   "start": 490.927,
+   "dur": 1.926,
+   "sfx": []
+  },
+  {
+   "i": 65,
+   "text": "A tiny, heavy nucleus at the centre, a haze of electrons far out\u2026 and between them, almost nothing.",
+   "start": 493.553,
+   "dur": 6.758,
+   "sfx": []
+  },
+  {
+   "i": 66,
+   "text": "We know because two young men sat in the dark, counting flashes, and refused to ignore the few that came back.",
+   "start": 501.011,
+   "dur": 7.305,
+   "sfx": []
+  },
+  {
+   "i": 67,
+   "text": "Not by looking. By throwing things at it, counting what came back, and taking the strangest result seriously.",
+   "start": 509.016,
+   "dur": 7.289,
+   "sfx": []
+  },
+  {
+   "i": 68,
+   "text": "That discovery opened the door to nuclear power, to medical scans, to the physics of the stars.",
+   "start": 517.805,
+   "dur": 6.274,
+   "sfx": []
+  },
+  {
+   "i": 69,
+   "text": "And it began with one student, one flash on the wrong side of a screen\u2026 and the courage to believe it.",
+   "start": 524.979,
+   "dur": 6.328,
+   "sfx": [
+    {
+     "at": 3.2,
+     "file": "public/stock/_hwk/empty-atom/S-01_glass-bell-cc0.wav",
+     "db": -22
+    }
+   ]
+  }
+ ]
+}

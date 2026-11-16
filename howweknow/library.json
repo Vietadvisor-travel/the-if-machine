@@ -11,6 +11,10 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "AtomosPapyrus": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Bedspring": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -47,6 +51,14 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "CathodeTube": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "CavendishBench": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "CavendishHouse": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -54,6 +66,10 @@
  "Chair": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "ChargeBalance": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "City": {
   "kind": "sample",
@@ -67,17 +83,45 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "ClueMedallions": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "CoolingTowers": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "CrustSlab": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "DaltonPlate": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "DarkEye": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Desk": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "DiamondAndIngot": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "DocumentPage": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "DotField": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "DottedAtom": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Earth": {
   "kind": "core",
@@ -86,6 +130,14 @@
  "EarthSection": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "ElectronCushion": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "EmptyStadium": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "EndCard": {
   "kind": "core",
@@ -107,6 +159,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "GeigerCounter": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Glassware": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -119,9 +175,21 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "GoldFoilFrame": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "GoldLeafLamp": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "GreatBalance": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "HairSection": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Ident": {
   "kind": "core",
@@ -134,6 +202,10 @@
  "IronMeteorite": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "IvoryBalls": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "IvoryVernier": {
   "kind": "episode",
@@ -171,13 +243,25 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "LightSwell": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Loupe": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "ManchesterLab": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "MarsSection": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "MistHillside": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Moon": {
   "kind": "core",
@@ -195,6 +279,26 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "NavalShell": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "NelsonFarm": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "NobelMedal": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "NuclearAtom": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "NucleusBeads": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Obelisk": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -207,9 +311,17 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "OldTelevision": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Palm": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "PalmDive": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Pendulum": {
   "kind": "sample",
@@ -223,6 +335,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "PlumPudding": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "PocketCompass": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -231,9 +347,17 @@
   "kind": "episode",
   "origin": "pipeline-test"
  },
+ "PuddingTextbook": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Quadrant": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "RadiumBlock": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Reflector": {
   "kind": "sample",
@@ -246,6 +370,22 @@
  "Rose": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "RutherfordDesk": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "ScannerRing": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "ScatterApparatus": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "ScatterGraph": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Scholar": {
   "kind": "sample",
@@ -267,6 +407,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "ShellAndTissue": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Ship": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -287,6 +431,14 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "StippleFigure": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
+ "Stone": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "Stopwatch": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -302,6 +454,10 @@
  "SurveyDesk": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "TallySheet": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "Telescope": {
   "kind": "sample",
@@ -322,6 +478,10 @@
  "Tree": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "ViewerHand": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "WallTelescope": {
   "kind": "episode",
@@ -346,6 +506,10 @@
  "ZagrebRoom": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "ZincScreenField": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "costume:cavendish1798": {
   "kind": "episode",
