@@ -1,5 +1,15 @@
 # Muse — FATHOM: sourcing contract (owner, 15 Nov 2026). Read this page fully; it replaces every earlier Muse task for this channel.
 
+## 0. LEAN RULE (owner, 16 Nov 2026) — OVERRIDES the depth targets below: only what the film needs, fast
+The owner: Muse spends far too long per episode. From now on:
+- **Fetch ONLY the rows in the order.** No neighbours, no `_alt/` extras, ONE best version per row. An order has **≤ 15 rows**.
+- **Time box: about 1 hour per episode.** A row not found in ~10 minutes → ❌ with ONE line (where you looked), move on.
+- **No music, no sfx, no data/text/geo** unless a row asks for it: Claude uses the existing music/sfx library and takes data from the research.
+- **References (R):** 2–3 clear views per row, no more.
+- **Proof:** `source_url` + `licence` + `credit` in manifest.json are enough. A screenshot proof only when the licence is NOT public domain/CC0.
+- **Manifest fields:** id, file, what, source_url, licence, credit (+ `best` timecodes for footage). Nothing else is required.
+- **Core library (§6): cancelled.** Do not build `_hwk_core/`.
+
 **Muse's job is SOURCING ONLY ("việc tay chân": nguồn và tài nguyên).** Muse never decides content: no topics, no story, no script,
 no facts chosen for the film, no opinions on style. **Claude** owns topics, research conclusions, script, shot plan, drawings, engine.
 **The owner** picks topics and approves films. Muse fulfils Claude's **resource orders** exactly, generously, with proof and licences.
@@ -57,7 +67,7 @@ them into conclusions.
 - When several good versions exist, upload up to 3 (`_alt/`) and say which is best and why.
 - For every ordered item also look for **neighbours** Claude did not think of (the same event from another angle, the instrument's
   maker's drawing, the page before/after) → `_alt/` with manifest rows id `<row>-x1…`.
-- Depth target per episode: 40–80 delivered files across categories (not only pictures: footage, audio, documents, data, references).
+- (cancelled 16 Nov — see §0) depth targets; fetch only the order's rows.
 - ❌ rows: list the searches made (sites, terms) and the nearest allowed substitute. Never deliver something "similar" under the
   ordered id without saying so.
 

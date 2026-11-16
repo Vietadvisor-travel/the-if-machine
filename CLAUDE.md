@@ -13,7 +13,8 @@ Setup once per container: `bash setup.sh && bash howweknow/tools/setup.sh` (≈ 
 - **"đề tài mới" / asks for topics** → propose 15 (pool 1 only, below) in `jobs/topics/FATHOM_<date>.md` + a short Vietnamese list; he picks.
 - **He picks topics** → for each: research pack `jobs/research/<slug>.md` (2 sources for heavy claims) → script + frame-level shot plan
   (`howweknow/episodes/<slug>/lines.py` → `tools/plan_md.py`, standard `howweknow/STORY.md`) → resource order for Muse `jobs/orders/<slug>.md`
-  (contract `jobs/tasks/MUSE_FATHOM.md`) → STATUS rows + INBOX line. (Done 15–16 Nov for: earth-age, inside-earth, star-distance, longitude, empty-atom.)
+  (contract `jobs/tasks/MUSE_FATHOM.md` §0: LEAN — ≤ 15 rows, only the real stock the script stages + key drawing references; no
+  music/sfx/data — Claude uses the library and the research) → STATUS rows + INBOX line. (Done 15–16 Nov for: earth-age, inside-earth, star-distance, longitude, empty-atom.)
 - **"đăng tập <tên>"** is for Muse (publishing), not for you.
 
 ## The channel (locked — brief/FATHOM.md)
@@ -30,7 +31,7 @@ Setup once per container: `bash setup.sh && bash howweknow/tools/setup.sh` (≈ 
 
 ## Roles
 - **Claude:** everything creative — topics, research, scripts planned to the frame, every drawing, the engine, rendering, delivery.
-- **Muse:** sourcing only, against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,
+- **Muse:** sourcing only (lean: ~1 hour per film, ≤ 15 rows), against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,
   data → Drive `_hwk/<slug>/` + manifest + licence proofs; then INBOX `KIT_READY`. Never content.
 - **Owner:** picks topics, says "làm tập …", approves films.
 
