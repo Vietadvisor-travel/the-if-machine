@@ -1,7 +1,7 @@
 # Delivery — Bên trong Trái Đất có gì (inside-earth) · FATHOM film · v1 · 2026-11-16
 
 ## Files (Drive fathom/inside-earth/)
-- inside-earth_16x9.mp4 · @@MB@@ (CRF-17 master) · @@LEN@@ · 1920×1080 · @@LINK@@
+- inside-earth_16x9.mp4 · 172 MB (CRF-17 master) · 8:27 (507.3 s) · 1920×1080 · https://drive.google.com/file/d/1NRFbgEBequ7wviB2Wcw-If170SMuKL5c/view
 - inside-earth_thumb.jpg (YouTube thumbnail 1280×720) · inside-earth_cover.jpg · inside-earth.srt (optional CC, not burned in)
 
 ## Production
@@ -14,7 +14,7 @@
 - Voice: af_heart (Kokoro, Apache-2.0), speed 0.86 — machine-generated narration.
 - Music: Kevin MacLeod, "Ossuary 6 - Air" — CC BY 4.0 (incompetech.com) · Sound effects: 9 (drill, wind, bell ×2, metal hit, scratch, groan, page turn,
   thunder roll) + the real sonified Sumatra 2004 earthquake (EarthScope / IRIS data, sonification by Muse).
-- Gates: script_check PASS · check_world PASS (243 entities) · variety PASS · render @@RT@@ · QA: 80 stills looked at before the render, contact sheet after.
+- Gates: script_check PASS · check_world PASS (245 entities) · variety PASS · render 2923 s (5.8 s per film second) · QA: 80 stills looked at before the render, contact sheet after.
 
 ## Facts (research pack jobs/research/inside-earth.md; S1…S15)
 - Kola SG-3 began 1970, 12,262 m by 1989, rock too hot / plastic, ≈ 0.2 % of the way — S1, S2
