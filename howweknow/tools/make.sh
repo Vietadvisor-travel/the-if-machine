@@ -12,6 +12,11 @@ python3 tools/variety.py $EP ${SHORT:+--short}
 python3 tools/plan_check.py $EP
 if python3 -c "import json,sys;sys.exit(0 if json.load(open('$EP/episode.json')).get('standard',4)>=5 else 1)"; then python3 tools/still_check.py $EP; python3 tools/score.py $EP; fi   # v5 films: no dead stretches; the score follows the moods (world.py reads it or --write)
 python3 tools/mix.py $EP
+if [[ "${2:-}" == "--preview" ]]; then   # the animatic: half size, 15 fps, with voice + score (CREATIVE.md §3)
+  python3 tools/render.py $S --preview --chunk 120
+  ffmpeg -v error -y -i out/${S}_preview.mp4 -i $B/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 128k -shortest -movflags +faststart out/${S}_animatic.mp4
+  echo "ANIMATIC → out/${S}_animatic.mp4"; exit 0
+fi
 T0=$(date +%s)
 python3 tools/render.py $S   # chunked, resumable, crash- and hang-proof (tools/render.py)
 RT=$(( $(date +%s) - T0 )); echo "render ${RT} s ($(python3 -c "import json;d=json.load(open('$EP/timeline.json'))['duration'];print(f'{$RT/d:.1f} s per film second')"))"
