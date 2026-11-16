@@ -5,7 +5,7 @@
 |---|---|---|---|---|---|---|
 | moon-distance | Mặt Trăng cách ta bao xa | RESEARCH_READY (script v2 ready; order ON HOLD) | - | - | - | - |
 | earth-age | Trái Đất bao nhiêu tuổi | KIT_READY (Muse, 2026-11-16: 34 ✅ / 8 ❌, Drive _hwk/earth-age/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting production | - | - | - |
-| inside-earth | Bên trong Trái Đất có gì | KIT_READY (Muse, 2026-11-16: 25 ✅ / 8 ❌, Drive _hwk/inside-earth/) | DELIVERED (claude, 2026-11-16, v2 remake) | 16 Nov · Drive fathom/inside-earth · 16:9 9:23 · jobs/deliveries/inside-earth.md | - | - |
+| inside-earth | Bên trong Trái Đất có gì | KIT_READY (Muse, 2026-11-16: 25 ✅ / 8 ❌, Drive _hwk/inside-earth/) | DELIVERED (claude, 2026-11-16, v2 remake) | 16 Nov · Drive fathom/inside-earth · 16:9 9:23 · jobs/deliveries/inside-earth.md | - | 16 Nov 2026 · YT 20:01 https://www.youtube.com/watch?v=7fBtJMcFyzY · TikTok 20:21 https://www.tiktok.com/@fathomlinefilms/video/7708758889503968520 · FB 19:42 https://facebook.com/reel/1796991128268020/ · IG 20:03 https://www.instagram.com/reel/DfzaVGVjmpt/ · jobs/publish/inside-earth.md |
 | star-distance | Các vì sao xa đến đâu | KIT_READY (Muse, 2026-11-16: 31 ✅ / 2 ❌, Drive _hwk/star-distance/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
 | longitude | Giữa biển khơi làm sao biết mình ở đâu | KIT_READY (Muse, 2026-11-16: 31 ✅ / 1 ❌, Drive _hwk/longitude/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
 | empty-atom | Bên trong nguyên tử có gì | KIT_READY (Muse, 2026-11-16: 9 ✅ / 2 ❌ lean 11 rows, Drive _hwk/empty-atom/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
