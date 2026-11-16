@@ -272,3 +272,14 @@ Williamsburg carpenter shop + LACMA carpenter's tool (Flickr, CC BY 2.0), marine
 chronometer boxes (CC0 / CC BY 2.0), traverse board (CC BY-SA 3.0), Admiralty Whitehall
 1760 (Cunego, PD) + Admiralty 1794 draughtsman (Chawner, PD) + Ripley Building
 staircase (CC BY-SA 4.0), Maskelyne full sheet (Rijksmuseum, CC0).
+
+## empty-atom — "Bên trong nguyên tử có gì" (fulfilled 2026-11-16, 23 ✅ / 5 ❌)
+
+- P-06 gold leaf: Tjdenholm, CC BY 4.0
+- P-07 spinthariscope (1903): CC BY 2.5
+- S-01 door close: CC BY 4.0 (Gravity Sound)
+- V-01 Wilson chamber: CC BY 4.0
+- V-01-x1 Cloud Chamber (cosmic rays): CC BY 3.0
+- U-01 all three beds: Kevin MacLeod, CC BY 4.0
+- _ref R-02 Geiger-Marsden CGI mock-up: CC BY 4.0 (reference only, never shown)
+- _ref R-01-x1b modern Schuster Building photo: CC BY 2.0 (reference only, never shown)
