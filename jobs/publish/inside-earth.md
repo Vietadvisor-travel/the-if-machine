@@ -57,12 +57,12 @@ Title (all channels use the delivery option 1 title on YouTube; short captions e
   fixed to Everyone in Studio and re-verified after reload.
 - Comment POSTED as Fathomline ("We didn't go there. Nobody did. So how do we know? What
   should we figure out next?"), visible in the video comments and Studio > Comments.
-  NOT pinned: TikTok web has no pin control for comments. OWNER ACTION (phone app):
-  long-press the comment on the video and pin it.
-- Playlist "How We Know": NOT created — TikTok web has no playlist creation. OWNER ACTION
-  (phone app): create the playlist and add this video.
+  NOT pinned. DROPPED per owner 16/11 21:06: no comment pinning on TikTok for this account;
+  do not ask for it again.
+- Playlist "How We Know": NOT created. DROPPED per owner 16/11 21:06: no TikTok playlist
+  for this account; do not ask for it again.
 - Auto-captions: NOT enabled — no control on TikTok web; player captions show "not available"
-  / "speech not recognised". OWNER ACTION (phone app): enable auto-captions for the video.
+  / "speech not recognised". Phone-app job for the owner if he wants it.
 - Duet/Stitch: NOT available — TikTok states duet/stitch are unavailable for videos longer
   than 60 seconds; the film is 9:23. Platform limit, not an error.
 - Bot check: TikTok showed a rotate-slider verification while opening comments; the browser's
@@ -95,9 +95,9 @@ Title (all channels use the delivery option 1 title on YouTube; short captions e
   URL, so the re-encode is the IG file too.
 - YouTube Studio upload cannot use a file the browser downloaded from Drive; only files
   granted to the task work.
-- TikTok web cannot: pin comments, create playlists, enable auto-captions. Those three are
-  phone-app jobs for the owner after each film. Duet/stitch are impossible for films over
-  60 s.
+- TikTok web cannot: pin comments, create playlists, enable auto-captions. Pin + playlist are
+  DROPPED entirely per owner 16/11 21:06 (not a TikTok feature for this account); auto-captions
+  remain a phone-app option only.
 - YouTube Advanced features still Pending (owner's ID verification). Until it enables,
   YouTube comments cannot be pinned.
 - Delivery-note trap: the v1 note stayed in the file until v2's delivery overwrote it. Always
