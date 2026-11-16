@@ -104,7 +104,6 @@ We didn't go there. Nobody did. So how do we know? What should we figure out nex
    verification unlocks pinning comments. Without them the first film ships with
    no thumbnail and no pinned comment.
 2. TikTok / Instagram / Facebook format: the FATHOM master is 16:9 long-form.
-   Default in this runbook is to post it as-is on all 4 channels. If the owner
-   wants vertical cuts for the short-form channels, Claude must deliver them
-   (a new order, not a Muse crop — cropping 16:9 animation cuts the drawings).
+   Owner decision 2026-11-16: post the 16:9 master as-is on all 4 channels, no
+   vertical cuts.
 3. Approve the §A description template and §B pinned comment above (or rewrite).
