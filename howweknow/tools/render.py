@@ -21,7 +21,7 @@ subprocess.run(['npx', 'remotion', 'bundle', '--out-dir', B], check=True, stdout
 
 def frames_in(p):
     r = subprocess.run(['ffprobe', '-v', 'error', '-count_packets', '-select_streams', 'v', '-show_entries', 'stream=nb_read_packets', '-of', 'csv=p=0', p], capture_output=True, text=True)
-    try: return int(r.stdout.strip())
+    try: return int(r.stdout.strip().strip(',').split(',')[0])
     except ValueError: return -1
 
 def run_chunk(a, b, out, conc):
