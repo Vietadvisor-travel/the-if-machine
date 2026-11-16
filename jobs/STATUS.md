@@ -5,7 +5,7 @@
 |---|---|---|---|---|---|---|
 | moon-distance | Mặt Trăng cách ta bao xa | RESEARCH_READY (script v2 ready; order ON HOLD) | - | - | - | - |
 | earth-age | Trái Đất bao nhiêu tuổi | KIT_READY (Muse, 2026-11-16: 34 ✅ / 8 ❌, Drive _hwk/earth-age/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting production | - | - | - |
-| inside-earth | Bên trong Trái Đất có gì | KIT_READY (Muse, 2026-11-16: 25 ✅ / 8 ❌, Drive _hwk/inside-earth/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
+| inside-earth | Bên trong Trái Đất có gì | KIT_READY (Muse, 2026-11-16: 25 ✅ / 8 ❌, Drive _hwk/inside-earth/) | IN_PRODUCTION (claude, 2026-11-16) | - | - | - |
 | star-distance | Các vì sao xa đến đâu | KIT_READY (Muse, 2026-11-16: 31 ✅ / 2 ❌, Drive _hwk/star-distance/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
 | longitude | Giữa biển khơi làm sao biết mình ở đâu | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
 | empty-atom | Bên trong nguyên tử có gì | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
