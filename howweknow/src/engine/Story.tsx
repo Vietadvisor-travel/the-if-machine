@@ -20,21 +20,44 @@ export const storyMeta: CalculateMetadataFunction<StoryProps> = async ({ props }
   return { durationInFrames: Math.ceil(tl.duration * 30), props: { ...props, ep, tl } };
 };
 
+// v4 camera LIFE (owner 16 Nov 2026: never a static picture): the whole page breathes under a slow, never-repeating hand-held drift
+// (a few px, a slight push in and out, a hair of roll) and every layer moves with its own depth (prop `para`) — the 2.5D parallax that makes the
+// drawing feel like a deep set. camera.drift (0..2, keyable) scales it; entity prop `para` overrides the default by type
+// (sky −.5 · far art 0 · people .1 · words .25 · particles .6). Big world camera moves stay in `camera` keys as before.
+type Life = { dx: number; dy: number; sc: number; r: number; px: number; py: number; push: number };
+const TAU = Math.PI * 2;
+// + the page camera (keyed on `camera`): pan_x pan_y (px) and push (1 = none) move the whole screen-space page, every layer by its depth —
+//   a slow push-in while a scene is told, a drift across it, so the picture is always travelling (world.py keys them line by line)
+const camLife = (t: number, A: number, c: Record<string, any> = {}): Life => ({ px: c.pan_x ?? 0, py: c.pan_y ?? 0, push: c.push ?? 1,
+  dx: A * (11 * Math.sin(TAU * t / 27) + 5 * Math.sin(TAU * t / 13 + 1)), dy: A * (7 * Math.sin(TAU * t / 31 + 2) + 3 * Math.sin(TAU * t / 17)),
+  sc: A * (.012 * Math.sin(TAU * t / 41 + .5)), r: A * .2 * Math.sin(TAU * t / 47 + 1.3) });
+const lifeT = (L: Life, d: number) => { const k = 1 + d; return `translate(${(L.dx + L.px) * k}px, ${(L.dy + L.py) * k}px) rotate(${L.r * Math.max(0, k)}deg) scale(${(1.035 + L.sc * k) * (1 + (L.push - 1) * Math.max(0, k))})`; };
+const depthOf = (e: Entity, s: Record<string, any>) => e.type === 'particles' ? .6 : e.type === 'text' || e.type === 'hand' ? .25 : e.type === 'art' && (s.name === 'Sky' || s.name === 'Stars') ? -.5 : e.type === 'art' && s.name === 'Person' ? .1 : 0;
+// the light of the page: a warm lamp that wanders slowly + a soft vignette (no flat, even light anywhere)
+const Light: React.FC<{ t: number; k: number }> = ({ t, k }) => { if (k <= 0) return null; const x = 50 + 22 * Math.sin(TAU * t / 53), y = 38 + 10 * Math.sin(TAU * t / 61 + 1);
+  return <AbsoluteFill style={{ pointerEvents: 'none', opacity: k }}>
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 60% at ${x}% ${y}%, rgba(255,236,190,.22), rgba(255,236,190,0) 70%)`, mixBlendMode: 'soft-light' }} />
+    <AbsoluteFill style={{ background: 'radial-gradient(ellipse 85% 80% at 50% 50%, rgba(0,0,0,0) 55%, rgba(43,29,18,.22) 100%)', mixBlendMode: 'multiply' }} /></AbsoluteFill>; };
+
 export const Story: React.FC<StoryProps> = ({ ep, tl, at, nocap }) => {
   const fr = useCurrentFrame(), { fps } = useVideoConfig(), f = at !== undefined ? Math.round(at * fps) : fr, t = f / fps;
   if (!ep || !tl) return null;
   const S: Record<string, any> = {}; for (const e of ep.world) S[e.id] = { ...stateAt(e, t, tl), _type: e.type };
   const cam: Cam = { x: 0, y: 0, zoom: 1, rot: 0, ...(S.camera || {}) }, ctx = { t, tl, cam, S };
+  const L = camLife(t, S.camera?.drift ?? 1, S.camera);
   const clue = ep.world.find(e => e.type === 'clue'), layers = ep.world.filter(e => e.type !== 'camera' && e.type !== 'clue').map((e, i) => ({ e, z: e.z ?? i })).sort((a, b) => a.z - b.z);
   return (
     <AbsoluteFill>
       <PaintDefs boil={Math.floor(f / 4) % 3} />
-      <PaperSheet />
-      {layers.map(({ e }, i) => { const n = renderEntity(e, S[e.id], ctx); return n && hasFx(S[e.id]) ? <Fx key={e.id} s={S[e.id]} t={t} seed={i}>{n}</Fx> : <React.Fragment key={e.id}>{n}</React.Fragment>; })}
+      <AbsoluteFill style={{ transform: lifeT(L, -.6) }}><PaperSheet /></AbsoluteFill>
+      {layers.map(({ e }, i) => { const st = S[e.id], n = renderEntity(e, st, ctx); if (!n) return null;
+        const body = hasFx(st) ? <Fx s={st} t={t} seed={i} uid={e.id}>{n}</Fx> : n;
+        return <AbsoluteFill key={e.id} style={{ transform: lifeT(L, st.para ?? depthOf(e, st)) }}>{body}</AbsoluteFill>; })}
+      <Light t={t} k={S.camera?.light ?? 1} />
       <PaperFibres />
       {clue && (S[clue.id].a ?? 1) > 0 && <ClueTag n={Math.round(S[clue.id].n ?? 1)} of={S[clue.id].of ?? 4} label={S[clue.id].label} />}
       {!nocap && ep.captions && <Captions lines={tl.lines} />}   {/* owner, 15 Nov 2026: NO subtitles — words are `text` entities in the scene */}
-      {!nocap && <Brand t={t} dur={tl.duration} />}
+      {!nocap && !ep.world.some(e => e.props?.name === 'Ident' || e.props?.name === 'EndCard') && <Brand t={t} dur={tl.duration} />}   {/* v4 films draw their own ident + end card */}
     </AbsoluteFill>
   );
 };

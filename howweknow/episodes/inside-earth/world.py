@@ -7,7 +7,9 @@ from rays import trace, scr
 EP = os.path.join(H, 'episode.json'); E = json.load(open(EP))
 ST = 'stock/_hwk/inside-earth/'; SM = ST + 'sm/'
 W = []
-def L(i, off=0.0): return f'L{i}' if off == 0 else (f'L{i}+{off:g}' if off > 0 else f'L{i}{off:g}')
+OFF = 5   # v2: four hook lines come before the old line 0 (old indexes stay readable in this file; H() is absolute)
+def H(i, off=0.0): return f'L{i}' if off == 0 else (f'L{i}+{off:g}' if off > 0 else f'L{i}{off:g}')
+def L(i, off=0.0): return H(i + OFF, off)
 def ent(id, type, props=None, keys=None, children=None, z=None):
     e = {'id': id, 'type': type, 'props': props or {}, 'keys': keys or []}
     if children: e['children'] = children
@@ -41,13 +43,48 @@ def rays(ps, cx=960, cy=540, r=420, s=False, inner=True, rot=0):
         a = trace(p, s=s, inner=inner); out.append(scr(a['pts'], cx, cy, r, rot))
     return out
 SFX = {}
-def sfx(i, at, f, db=-20): SFX.setdefault(i, []).append({'at': at, 'file': f, 'db': db})
+def sfx(i, at, f, db=-20): SFX.setdefault(i + OFF, []).append({'at': at, 'file': f, 'db': db})
 C = (960, 540, 420)   # the planet's standard place on the page
 
-ent('camera', 'camera', {'x': 960, 'y': 540, 'zoom': 1})
+ent('camera', 'camera', {'x': 960, 'y': 540, 'zoom': 1, 'push': 1, 'pan_x': 0, 'pan_y': 0})
+# ================================================================ HOOK (v2) — from your feet down to the white-hot core (H0–H2), back out to the
+# whole planet (H3), the detective story announced (H4); the planet's outline becomes the episode's title card (the gap before L5)
+RE_ = 6371
+ZD, YC = .3, 540                                    # the dive ends with the centre on screen at 0.3 px/km (inner core ≈ 733 px across)
+ZE = 430 / RE_                                      # …the pull ends with the planet exactly the size of the title card's dial (a match)
+ent('hook', 'art', {'name': 'EarthSection', 'ax': 960, 'ay': 800, 'zoom': .55, 'layers': 4, 'inner': 1, 'liquid': .7, 'heavy': 0, 'glow': 0, 'sparks': 0, 'draw': 1, 'a': 0, 'blur': 14},
+    [K(H(0), .01, a=1), K(H(0), 1.6, 'soft', blur=0),
+     K('L0@beneath', 7.2, 'inOut', ay=YC - RE_ * ZD), K('L0@beneath', 7.2, 'inOut', zoom=ZD),
+     K('L0@iron', 2.4, glow=.9), K('L0@Sun', 2, sparks=1),
+     K(H(1), 1.5, 'sine', glow=.6), K(H(1, 1.8), 1.5, 'sine', glow=1), K(H(2), 1.2, glow=.8),
+     K(H(3), 3.0, 'inOut', ay=540 - 430), K(H(3), 3.0, 'inOut', zoom=ZE), K(H(3), 1.6, sparks=0, glow=.35),
+     K(H(5, -4.6), 2.0, 'linear', dissolve=0, dissolveAt=[960, 540], dissolveR=520), K(H(5, -2.5), .01, a=0)], z=2)
+ent('hookembers', 'particles', {'kind': 'embers', 'n': 50, 'box': [560, 140, 800, 800], 'k': 0, 'a': 1}, [K('L0@Sun', 2, k=1), K(H(3), 1.2, k=0)], z=3)
+DIVE = [K('L0@beneath', 7.2, 'inOut', fx_y=YC - RE_ * ZD - 800)]
+person('listener', 'a person standing on the ground (the viewer)', H(0), None, DIVE + [K('L0@beneath+1.5', 1.2, a=0)],
+       x=960, y=802, h=120, facing=1, pose='stand', costume='listener2026', hairCol='#3A2A1E', face={'nose': .3, 'brow': .4, 'chin': .3, 'build': 1}, skin=.4, fx_y=0, z=3)
+text('hk_feet', 'beneath your feet', 'note', 1180, 700, H(0, .4), 'L0@five', size=46, keys=DIVE)
+text('hk_5000', 'more than 5,000 km down', 'note', 1260, 380, 'L0@five', 'L0@iron', size=50)
+text('hk_seen', 'never seen', 'note', 480, 230, H(1, .2), H(2), size=68, rot=-4)
+text('hk_touch', 'never touched', 'note', 1440, 860, 'L1@touched', H(2, .3), size=68, rot=3)
+ent('hk_diam', 'trail', {'points': [{'screen': [594, 540]}, {'screen': [1326, 540]}], 'k': 0, 'a': 0, 'col': '#B8862B', 'w': 3, 'r': 6},
+    [K('L2@big', .01, a=1), K('L2@big', 1.4, 'glide', k=1), K(H(3), .8, a=0)], z=5)
+text('hk_2400', 'about 2,400 km across', 'note', 960, 160, 'L2@big', H(3, .2), size=72)
+text('hk_5400', 'about 5,400 °C', 'note', 470, 930, 'L2@hot', H(3, .2), size=72)
+text('hk_iron', 'iron and nickel', 'note', 1450, 930, 'L2@made', H(3, .2), size=72)
+text('hk_how', 'How can we possibly know?', 'title', 960, 105, H(3, .6), H(4, .4), size=54)
+# H4 — a detective story: four sealed clue medallions settle round the planet (their contents stay hidden until each clue opens)
+for j, (x, y) in enumerate([(330, 260), (1590, 260), (330, 820), (1590, 820)]):
+    art(f'hk_med{j}', 'ClueMedallion', H(4, .6 + j * .45), H(5, -4.8), [K(H(4, .6 + j * .45), 1.4, 'glide', fx_s=1)], inkdur=.9, x=x, y=y, r=110, kind='sealed', n=j + 1, fx_s=.6, fx_box=[x - 120, y - 120, 240, 240])
+text('hk_det', 'a detective story', 'note', 960, 1010, 'L4@detective', H(5, -4.8), size=52)
+# the title card: the dial is engraved round exactly where the planet was, the question written inside it
+ent('title', 'art', {'name': 'TitleCard', 'k': 0, 'title': 'What is inside\nthe Earth?', 'sub': 'a story in four clues', 'a': 0},
+    [K(H(5, -4.9), .01, a=1), K(H(5, -4.9), 4.4, 'linear', k=1), K(H(5, -1.2), 1.8, 'linear', dissolve=0, dissolveDir='down'), K(H(5, .7), .01, a=0)], z=60)
+hsfx = lambda i, at, f, db=-20: SFX.setdefault(i, []).append({'at': at, 'file': f, 'db': db})
+hsfx(0, 2.0, 'public/sfx/real_metal_groan_1.wav', -30)
 # ================================================================ COLD STORY — Kola, polar night (L0–L7)
-ent('night', 'art', {'name': 'Sky', 'kind': 'night', 'seed': 'kola', 'a': 1, 'fx_y': 300},
-    [K(L(0), 1.4, 'out', fx_y=0), K(L(0, 5), 3.5, 'inOut', fx_y=-900), K(L(1, 2), .8, a=0),
+ent('night', 'art', {'name': 'Sky', 'kind': 'night', 'seed': 'kola', 'a': 0, 'fx_y': 300, 'dissolve': 0},
+    [K(L(0, -1.3), .01, a=1), K(L(0, -1.3), 2.0, 'linear', dissolve=1, dissolveDir='down'), K(L(0), 1.4, 'out', fx_y=0), K(L(0, 5), 3.5, 'inOut', fx_y=-900), K(L(1, 2), .8, a=0),
      K(L(73), .01, a=1, fx_y=0, wipe=0, wipeDir='right'), K(L(73), 1.4, 'inOut', wipe=1), K(L(74, .4), 3, 'inOut', fx_y=-900), K(L(74, 3.4), .6, a=0)])
 ent('stars', 'art', {'name': 'Stars', 'n': 160, 'h': 620, 'seed': 'kola', 'a': 0},
     [K(L(0, .6), 2, a=1), K(L(0, 5), 3.5, 'inOut', fx_y=-900), K(L(1, 2), .8, a=0), K(L(73), .01, a=1, fx_y=0, wipe=0, wipeDir='right'), K(L(73), 1.4, wipe=1), K(L(74, .4), 3, fx_y=-900), K(L(74, 3.4), .6, a=0)])
@@ -87,14 +124,14 @@ for i, (x, y, sz) in enumerate([(860, 420, 120), (1060, 560, 90), (930, 680, 70)
 # ================================================================ THE STAKES (L8–L10)
 EK += [K(L(8), 1.2, 'inOut', fx_s=.5, fx_y=-250), K(L(8, 4.6), .8, fx_y=-240)]
 art('tools', 'FailedTools', L(8), L(9, .6),
-    [K(L(8), 1.0, 'back', fx_x=0), K('L8@dig', .6, snap=1), K('L8@see', 1, dim=1), K('L8@probe', 1.6, melt=1), K(L(8, 4.6), 1, tear=0)],
+    [K(L(8), 1.0, 'back', fx_x=0), K('L13@dig', .6, snap=1), K('L13@see', 1, dim=1), K('L13@probe', 1.6, melt=1), K(L(8, 4.6), 1, tear=0)],
     inkdur=1, x=960, y=760, s=.8, fx_x=1400, tear=1, fx_box=[520, 480, 880, 460])
-EK += [K(L(9), 1.4, 'inOut', fx_s=1, fx_y=0), K('L9@thin', 1.4, layers=1.2), K('L9@mantle', 1.6, layers=2), K('L9@ocean', 1.6, layers=3, liquid=.4), K('L9@solid', 1.4, layers=4), K('L9@Sun', 2, glow=.7)]
-for i, (nm, w, ang, rad) in enumerate([('crust', 'L9@thin', -40, 1.0), ('mantle', 'L9@mantle', -25, .8), ('liquid outer core', 'L9@ocean', -10, .38), ('solid inner core', 'L9@solid', 8, .1)]):
+EK += [K(L(9), 1.4, 'inOut', fx_s=1, fx_y=0), K('L14@thin', 1.4, layers=1.2), K('L14@mantle', 1.6, layers=2), K('L14@ocean', 1.6, layers=3, liquid=.4), K('L14@solid', 1.4, layers=4), K('L14@Sun', 2, glow=.7)]
+for i, (nm, w, ang, rad) in enumerate([('crust', 'L14@thin', -40, 1.0), ('mantle', 'L14@mantle', -25, .8), ('liquid outer core', 'L14@ocean', -10, .38), ('solid inner core', 'L14@solid', 8, .1)]):
     import math
     tx, ty = 960 + 420 * rad * math.cos(math.radians(ang)), 540 + 420 * rad * math.sin(math.radians(ang))
     text(f'lay{i}', nm, 'label', 1480, 250 + i * 130, w, L(10, .5), to=[round(tx), round(ty)], align='left', size=40)
-text('hot', 'as hot as the Sun’s surface', 'plate', 600, 990, 'L9@Sun', L(10, .5), size=34)
+text('hot', 'as hot as the Sun’s surface', 'plate', 600, 990, 'L14@Sun', L(10, .5), size=34)
 EK += [K(L(10, .2), 1.2, crack=1), K(L(10, 3), 1, glow=0)]
 ent('quill1', 'hand', {'at': {'screen': [962, 124]}, 's': .7, 'a': 0}, [K(L(10), .3, a=1), K(L(10, 1.4), .4, a=0)])
 ripple('rp10', [960, 120], L(10, 1.6), r=260)
@@ -110,24 +147,24 @@ art('house', 'CavendishHouse', L(12), L(13, .4), [K(L(12), 1.6, unroll=1)], inkd
 CAV = {'costume': 'cavendish1798', 'face': {'nose': .7, 'brow': .3, 'chin': .1, 'age': .7, 'build': .95}, 'skin': .22}
 person('cav', 'Henry Cavendish (1798)', L(12, 1.8), L(13, .4), [K(L(12, 1.8), 4, 'linear', x=640, walk=2.2), K(L(12, 5.8), .01, walk=None)], x=420, y=1010, h=430, facing=1, walk=0, **CAV)
 art('cavcard', 'CabinetCard', L(12, 3.4), L(13, .6), [K(L(12, 3.4), 1, 'back', fx_x=0)], ink=False, src=SM + 'P-08_henry-cavendish-aquatint-wellcome-ccby.jpg', x=1660, y=330, w=230, h=330, rot=4, caption='Henry Cavendish', draw=1, fx_x=500)
-art('scale', 'GreatBalance', L(13, .2), 'L13@lead', [], inkdur=1.2, x=620, y=980, s=.75)
-ent('bigearth', 'planet', {'kind': 'earth', 'x': 620, 'y': 360, 'size': 560, 'lon': -10, 'lat': 30, 'draw': 0, 'a': 0}, [K(L(13, .6), .01, a=1), K(L(13, .6), 1.6, draw=1), K(L(13, .6), 6, lon=40), K('L13@lead', 1, a=0)])
-art('lead', 'LeadPair', 'L13@lead', L(14, .8), [K('L13@attracts', 1.6, pull=1)], inkdur=1.2, x=1060, y=560, s=1.1, pull=0)
-art('torsion', 'TorsionBalance', L(14, .9), L(15, 1.0), [K(L(14), .01, iris=0, irisAt=[960, 600]), K(L(14), 1.2, iris=1), K('L14@heavy', 2, big=1), K(L(15), 1, fx_s=.35, fx_x=380, fx_y=-100)], inkdur=2.4, x=960, y=640, s=.95, big=0, iris=0, irisAt=[960, 600])
+art('scale', 'GreatBalance', L(13, .2), 'L18@lead', [], inkdur=1.2, x=620, y=980, s=.75)
+ent('bigearth', 'planet', {'kind': 'earth', 'x': 620, 'y': 360, 'size': 560, 'lon': -10, 'lat': 30, 'draw': 0, 'a': 0}, [K(L(13, .6), .01, a=1), K(L(13, .6), 1.6, draw=1), K(L(13, .6), 6, lon=40), K('L18@lead', 1, a=0)])
+art('lead', 'LeadPair', 'L18@lead', L(14, .8), [K('L18@attracts', 1.6, pull=1)], inkdur=1.2, x=1060, y=560, s=1.1, pull=0)
+art('torsion', 'TorsionBalance', L(14, .9), L(15, 1.0), [K(L(14), .01, iris=0, irisAt=[960, 600]), K(L(14), 1.2, iris=1), K('L19@heavy', 2, big=1), K(L(15), 1, fx_s=.35, fx_x=380, fx_y=-100)], inkdur=2.4, x=960, y=640, s=.95, big=0, iris=0, irisAt=[960, 600])
 art('scope', 'WallTelescope', L(15), L(16, .5), [K(L(15), 1, 'back', fx_x=0)], inkdur=1.4, x=1180, y=700, s=1, fx_x=700)
 person('cav2', 'Henry Cavendish at his telescope', L(15, .6), L(16, .5), [K(L(15, 1.4), 1.4, pk=1)], x=935, y=1060, h=540, facing=1, pose='stand', pose2='look', pk=0, **CAV)
 art('vern', 'IvoryVernier', L(16), L(17, 1.6), [K(L(16), 1.2, iris=1), K(L(16, 2.6), 3, 'linear', pos=.5), K(L(17), 1.8, 'in', fx_s=.04, a=0)], inkdur=1, x=960, y=540, r=360, pos=0, iris=0, irisAt=[960, 540], fx_box=[600, 180, 720, 720], tremble=1.2)
 art('pull16', 'LeadPair', L(16, 1.0), L(16, 5.5), [K(L(16, 1.0), 1.6, pull=1)], inkdur=.8, x=1500, y=880, s=.35, pull=0)
 art('bal2', 'GreatBalance', L(17, 1.5), L(20, .3), [K(L(18), 1.2, fx_x=-380), K(L(19, .3), .01, left='rock'), K(L(19, .9), 1.2, 'back', tilt=14), K(L(20), 1.4, core=1), K(L(20, 1.2), 1, fx_s=.6)],
     inkdur=1.6, x=960, y=1000, s=1.05, right='earth', left='none', tilt=0, core=0)
-art('doc548', 'DocumentPage', L(18), L(19, .4), [K(L(18), 1, 'back', fx_x=0), K('L18@five', 1.4, circleK=1)], ink=False, src=SM + 'D-03_cavendish-1798-density-548-p522.jpg', x=1380, y=540, w=560, h=802, rot=2, circle=[.375, .19, .1, .04], circleK=0, draw=1, fx_x=800)
-text('f548', '5.48', 'figure', 600, 260, 'L18@five', L(19, .4), size=170)
-text('p548', 'times as dense as water', 'plate', 600, 380, 'L18@water', L(19, .4), size=38)
+art('doc548', 'DocumentPage', L(18), L(19, .4), [K(L(18), 1, 'back', fx_x=0), K('L23@five', 1.4, circleK=1)], ink=False, src=SM + 'D-03_cavendish-1798-density-548-p522.jpg', x=1380, y=540, w=560, h=802, rot=2, circle=[.375, .19, .1, .04], circleK=0, draw=1, fx_x=800)
+text('f548', '5.48', 'figure', 600, 260, 'L23@five', L(19, .4), size=170)
+text('p548', 'times as dense as water', 'plate', 600, 380, 'L23@water', L(19, .4), size=38)
 text('rockhalf', 'surface rock: about half', 'plate', 560, 940, L(19, 1.4), L(20, .6), size=34)
 EK += [K(L(20, .4), .01, iris=0, layers=1, liquid=0, glow=0, crack=0, heavy=0, fx_s=1, fx_y=0, fx_x=0), K(L(20, .4), 1.4, iris=1), K(L(20, 1.4), 1.6, heavy=1)]
 ent('emb20', 'particles', {'kind': 'embers', 'n': 30, 'box': [760, 340, 400, 400], 'k': 0, 'a': 1}, [K(L(20, 1.4), 1.5, k=1), K(L(22), 1, a=0)])
 EK += [K(L(21), 1.4, 'inOut', fx_x=420, fx_s=.8)]
-art('meteor', 'IronMeteorite', L(21, .3), L(22, .9), [K(L(21, .3), 1.3, 'in', fx_y=0, fx_x=0, glow=0), K('L21@iron', 1.6, slice=1), K('L21@sky', 1.8, 'inOut', fx_x=880, fx_s=.4)],
+art('meteor', 'IronMeteorite', L(21, .3), L(22, .9), [K(L(21, .3), 1.3, 'in', fx_y=0, fx_x=0, glow=0), K('L26@iron', 1.6, slice=1), K('L26@sky', 1.8, 'inOut', fx_x=880, fx_s=.4)],
     inkdur=.6, x=560, y=560, s=1.15, slice=0, glow=1, fx_y=-800, fx_x=-300, fx_box=[400, 400, 320, 320])
 ent('mtrail', 'shape', {'form': 'M0 0 L100 100', 'x': 330, 'y': 230, 's': 3.6, 'draw': 0, 'col': '#D2643E', 'sw': 5, 'a': 0}, [K(L(21, .3), .01, a=1), K(L(21, .3), 1.3, 'in', draw=1), K(L(21, 2.2), 1, a=0)])
 person('wiech', 'Emil Wiechert (Göttingen, 1890s)', L(21, 1.6), L(22, .9), [K(L(21, 3), 1.2, pk=1)], x=240, y=1020, h=480, facing=1, pose='stand', pose2='point', pk=0,
@@ -149,8 +186,8 @@ ripple('rp24', [960, 120], L(24, 1.6), r=200)
 sfx(24, 1.6, 'public/stock/_hwk/inside-earth/A-01_sumatra-2004-anmo-sonified-iris.wav', -24)
 EK += [K(L(25), 1.2, 'inOut', fx_x=-520, fx_s=.7)]
 art('waves', 'WaveDemo', L(25), L(26, .6), [K(L(25), 1, 'back', fx_x=0)], inkdur=1.2, x=1320, y=540, s=.85, fx_x=900)
-text('lp', 'P · push and squeeze', 'label', 1040, 300, 'L25@push', L(26, .6), align='left', size=34)
-text('ls', 'S · shake side to side', 'label', 1040, 790, 'L25@shake', L(26, .6), align='left', size=34)
+text('lp', 'P · push and squeeze', 'label', 1040, 300, 'L30@push', L(26, .6), align='left', size=34)
+text('ls', 'S · shake side to side', 'label', 1040, 790, 'L30@shake', L(26, .6), align='left', size=34)
 EK += [K(L(26), .8, a=0)]
 art('lanes', 'SpeedLanes', L(26), L(27, .6), [K(L(26), 1, wipe=1), K(L(26, 1.2), 2.4, 'linear', k1=1), K(L(26, 1.2), 2.4, 'linear', k2=.6)], inkdur=1, x=960, y=540, w=1500, k1=0, k2=0, wipe=0, wipeDir='right')
 art('seis', 'Seismograph', L(27), L(28, .8), [K(L(27), 1.4, 'out', fx_y=0), K(L(27, 4.5), 1, amp=1)], inkdur=1.8, x=640, y=990, s=1.2, amp=0, quake=191, fx_y=500)
@@ -185,8 +222,8 @@ EK += [K(L(32), .6, a=0)]
 ent('track', 'art', {'name': 'MudTrack', 'draw': 0, 'a': 0, 'run': 0, 'mud': 0, 'wipe': 0, 'wipeDir': 'right'}, [K(L(32), .01, a=1), K(L(32), 1, wipe=1, draw=1), K(L(32, .4), 4.4, 'linear', run=.75), K(L(32, 1.6), 1.2, mud=1), K(L(33), .7, a=0)])
 EK += [K(L(33), .01, solid=1, layers=3, inner=0), K(L(33), .8, a=1), K(L(33, .4), 1.6, solid=0)]
 EK += [K(L(34), 1.2, 'inOut', fx_x=-330, fx_s=.85)]
-art('doc06', 'DocumentPage', L(34), L(35, .2), [K(L(34), 1, 'back', fx_x=0), K('L34@conclusion', 1.2, circleK=1)], ink=False, src=SM + 'D-02_oldham-1906-first-page-p456.jpg', x=1420, y=540, w=520, h=876, rot=-2, circle=[.52, .09, .86, .05], circleK=0, mark='line', draw=1, fx_x=900)
-text('core06', 'Core · 1906', 'stamp', 1420, 960, 'L34@core', L(35, .2), dur=.5, size=40)
+art('doc06', 'DocumentPage', L(34), L(35, .2), [K(L(34), 1, 'back', fx_x=0), K('L39@conclusion', 1.2, circleK=1)], ink=False, src=SM + 'D-02_oldham-1906-first-page-p456.jpg', x=1420, y=540, w=520, h=876, rot=-2, circle=[.52, .09, .86, .05], circleK=0, mark='line', draw=1, fx_x=900)
+text('core06', 'Core · 1906', 'stamp', 1420, 960, 'L39@core', L(35, .2), dur=.5, size=40)
 # ================================================================ CLUE 3 — THE MISSING WAVE (L35–L47)
 EK += [K(L(35), 1, 'in', flipY=-95, a=0)]
 text('t3', 'Clue III · The Missing Wave', 'title', 960, 520, L(35, .3), L(36, .4), size=62)
@@ -194,9 +231,9 @@ sfx(35, 0, 'public/sfx/foley_page_turn_1.wav', -18)
 art('zag', 'ZagrebRoom', L(36), L(37, .6), [K(L(36), 1.6, unroll=1)], inkdur=2, unroll=0)
 person('moho', 'Andrija Mohorovičić (Zagreb, 1909)', L(36, 1.6), L(37, .6), [K(L(36, 2.4), 1.2, pk=1)], x=1060, y=1040, h=520, facing=-1, pose='stand', pose2='hold', pk=0,
        costume='moho1909', beard='full', hairCol='#ECE6D8', face={'nose': .3, 'brow': .6, 'chin': .1, 'age': .7, 'build': 1.05}, skin=.28)
-art('rec36', 'SeismoRecord', L(36, 2.6), L(37, .6), [K(L(36, 2.6), 1, 'back', fx_y=0), K('L36@twice', 1.4, mark=1)], inkdur=1, x=600, y=800, w=760, k=1, bump=1, mark=0, seed='zag', note='two arrivals — drawn record', fx_y=400)
+art('rec36', 'SeismoRecord', L(36, 2.6), L(37, .6), [K(L(36, 2.6), 1, 'back', fx_y=0), K('L41@twice', 1.4, mark=1)], inkdur=1, x=600, y=800, w=760, k=1, bump=1, mark=0, seed='zag', note='two arrivals — drawn record', fx_y=400)
 art('mcard', 'CabinetCard', L(36, 4.4), L(37, .6), [K(L(36, 4.4), 1, 'back', fx_x=0)], ink=False, src=SM + 'P-06_mohorovicic-portrait-pd.jpg', x=640, y=270, w=180, h=242, rot=-4, caption='A. Mohorovičić', draw=1, fx_x=-500)
-art('slab', 'CrustSlab', L(37), L(40, 1.4), [K(L(37), 1.4, 'out', fx_y=0), K('L39@mantle', 2, honey=1), K(L(40), 1.8, 'in', fx_s=.18, fx_y=-200)], inkdur=1.4, moho=0, honey=0, mantle=1, fx_y=600, fx_box=[0, 200, 1920, 880], fx_oy=240)
+art('slab', 'CrustSlab', L(37), L(40, 1.4), [K(L(37), 1.4, 'out', fx_y=0), K('L44@mantle', 2, honey=1), K(L(40), 1.8, 'in', fx_s=.18, fx_y=-200)], inkdur=1.4, moho=0, honey=0, mantle=1, fx_y=600, fx_box=[0, 200, 1920, 880], fx_oy=240)
 trail('cr1', [[80, 330], [1840, 330]], L(37, 1.0), 4.4, L(39), col='#B8862B', w=3, r=8)
 trail('cr2', [[80, 330], [420, 500], [1500, 500], [1840, 330]], L(37, 1.0), 3.3, L(39), col='#D2643E', w=3, r=8)
 text('fast', 'faster rock below', 'plate', 960, 560, L(37, 2.4), L(38, 2), size=36)
@@ -205,9 +242,9 @@ for e in W:
     if e['id'] == 'slab': e['keys'].append(K(L(38), 1.8, 'linear', moho=1))
 text('mohonote', 'the Moho', 'note', 1500, 420, L(38, 2), L(40), size=64)
 text('mohod', 'a few tens of km down', 'plate', 1500, 520, L(38, 2.6), L(40), size=32)
-text('mant', 'the mantle — hot, solid, creeping', 'label', 960, 1010, 'L39@mantle', L(40), size=36)
-EK += [K(L(40), .01, flipY=0, fx_x=0, fx_s=1, layers=3, inner=0, solid=0, liquid=0), K(L(40, .6), 1.6, a=1), K('L40@core', 1.6, ring=1), K(L(41), 1, ring=0)]
-text('f2900', '2,900 km', 'figure', 1500, 300, 'L40@two', L(41, .6), size=120)
+text('mant', 'the mantle — hot, solid, creeping', 'label', 960, 1010, 'L44@mantle', L(40), size=36)
+EK += [K(L(40), .01, flipY=0, fx_x=0, fx_s=1, layers=3, inner=0, solid=0, liquid=0), K(L(40, .6), 1.6, a=1), K('L45@core', 1.6, ring=1), K(L(41), 1, ring=0)]
+text('f2900', '2,900 km', 'figure', 1500, 300, 'L45@two', L(41, .6), size=120)
 person('gut', 'Beno Gutenberg (1914) — drawn: no free portrait exists', L(40, 3.8), L(41, .6), [], x=330, y=1040, h=470, facing=1, pose='point', costume='gutenberg1914', hairCol='#2A1E16', face={'nose': .3, 'brow': .4, 'chin': .2, 'build': .95}, skin=.27)
 text('gname', 'Beno Gutenberg, 1914', 'plate', 330, 1060, L(40, 4.2), L(41, .6), size=30)
 S41 = rays([470, 420, 340, 240, 120], s=True); S41 = S41 + [[[2 * 960 - x, y] for x, y in q] for q in S41[1:4]]
@@ -258,7 +295,7 @@ for j, (nm, q) in enumerate([('Copenhagen', R52[0]), ('stations in Europe', R52[
     text(f'stn{j}', nm, 'label', 1460, 170 + j * 80, L(52, 2.6 + j * .4), L(53), to=[round(q[-1][0]), round(q[-1][1])], align='left', size=34)
 EK += [K(L(53), .6, a=0)]
 for e in W:
-    if e['id'] == 'rec': e['keys'] += [K(L(53), .01, a=1), K('L53@shadow', 1.6, mark=1), K(L(54, 1), .8, a=0)]
+    if e['id'] == 'rec': e['keys'] += [K(L(53), .01, a=1), K('L58@shadow', 1.6, mark=1), K(L(54, 1), .8, a=0)]
 for j in range(3):
     art(f'let{j}', 'Letter', L(54, j * .4), L(60), [K(L(54, j * .4), 1, 'back', fx_x=0), K(L(59, j * .5), .5, 'in', flipY=90), K(L(59, .5 + j * .5), .01, kind='agree'), K(L(59, .5 + j * .5), .6, 'out', flipY=0)],
         ink=False, x=620 + j * 340, y=560 + (j % 2) * 30, s=1.1, rot=[-6, 3, -2][j], kind='doubt', draw=1, fx_x=1600, fx_box=[440 + j * 340, 300, 360, 520])
@@ -267,7 +304,7 @@ text('noise', 'noise? diffraction?', 'note', 960, 180, L(54, 1.4), L(55), size=5
 EK += [K(L(55), .01, quake=0, liquid=.6, layers=3, inner=0, shadow=1), K(L(55), .8, a=1)]
 ent('pencil', 'shape', {'form': 'M50 0 A50 50 0 1 1 49.9 0', 'x': 960, 'y': 540, 's': 1.61, 'draw': 0, 'col': '#2B1D12', 'sw': 2.4, 'a': 1}, [K(L(55, 1.4), 2.2, 'linear', draw=1), K(L(56, 3), .8, a=0)])
 ent('quill55', 'hand', {'at': {'screen': [960, 460]}, 's': .7, 'a': 0}, [K(L(55, 1.3), .3, a=1), K(L(55, 1.4), 2.2, 'linear', at={'screen': [1041, 540]}), K(L(55, 3.7), .4, a=0)])
-EK += [K('L56@solid', 1.6, layers=4, inner=1)]
+EK += [K('L61@solid', 1.6, layers=4, inner=1)]
 ghost = rays([116, 114, 112, 111, 109, 106])
 for j, pts in enumerate(ghost):
     q = pts if j % 2 == 0 else [[2 * 960 - x, y] for x, y in pts]
@@ -283,18 +320,18 @@ text('ptitle', 'Lehmann, 1936', 'stamp', 960, 880, L(58, 1.2), L(59), dur=.5, si
 EK += [K(L(60), .01, quake=0, layers=4, inner=1, liquid=.6, shadow=0, fx_s=1.2), K(L(60), .8, a=1), K(L(60), 1.4, 'out', fx_s=1), K(L(60, .3), 1.6, glow=1)]
 # ================================================================ THE TWIST (L61–L67)
 EK += [K(L(61), 1.4, 'in', fx_s=3.2, a=0)]
-art('ball', 'InnerCoreBall', L(61, .5), L(63, .6), [K(L(61, .5), 1.4, 'out', fx_s=1), K('L62@squeezed', 1.6, press=1)], inkdur=1.2, x=700, y=560, r=230, glow=1, press=0, fx_s=.3, fx_box=[470, 330, 460, 460])
+art('ball', 'InnerCoreBall', L(61, .5), L(63, .6), [K(L(61, .5), 1.4, 'out', fx_s=1), K('L67@squeezed', 1.6, press=1)], inkdur=1.2, x=700, y=560, r=230, glow=1, press=0, fx_s=.3, fx_box=[470, 330, 460, 460])
 ent('moon61', 'planet', {'kind': 'moon', 'x': 1420, 'y': 560, 'size': 654, 'phase': .9, 'draw': 0, 'a': 0}, [K(L(61, 1.6), .01, a=1), K(L(61, 1.6), 1.6, draw=1), K(L(62), .8, a=0)])
 text('scale61', 'inner core and Moon, to scale', 'plate', 1060, 950, L(61, 3), L(62), size=34)
-text('f2400', 'about 2,400 km', 'figure', 700, 210, 'L61@two', L(62), size=100)
+text('f2400', 'about 2,400 km', 'figure', 700, 210, 'L66@two', L(62), size=100)
 art('sun62', 'Sun', L(62, .6), L(63, .6), [], inkdur=1.4, x=1460, y=560, r=230)
-text('f5400', 'about 5,400 °C', 'figure', 1060, 200, 'L62@hot', L(63, .4), size=96)
+text('f5400', 'about 5,400 °C', 'figure', 1060, 200, 'L67@hot', L(63, .4), size=96)
 text('sunp', 'the Sun’s surface: about the same', 'plate', 1460, 880, L(62, 1.6), L(63, .4), size=32)
 EK += [K(L(63), .01, fx_s=1, glow=.6, liquid=1, layers=4, inner=1), K(L(63), 1, a=1), K(L(63, .8), 2, sparks=1)]
-text('birth', 'left over from its birth', 'label', 1460, 260, 'L63@birth', L(64, .3), to=[1200, 400], align='left', size=34)
-text('radio', 'radioactive atoms', 'label', 1460, 860, 'L63@radioactive', L(64, .3), to=[1130, 700], align='left', size=34)
+text('birth', 'left over from its birth', 'label', 1460, 260, 'L68@birth', L(64, .3), to=[1200, 400], align='left', size=34)
+text('radio', 'radioactive atoms', 'label', 1460, 860, 'L68@radioactive', L(64, .3), to=[1130, 700], align='left', size=34)
 EK += [K(L(64), 1.4, 'inOut', fx_s=.42, sparks=0)]
-art('field', 'FieldLines', L(64, 1.6), L(66, .6), [K(L(64, 1.6), 3, 'out', k=1), K('L65@shields', 2.4, wind=1)], ink=False, x=960, y=540, r=176, k=0, wind=0, draw=1)
+art('field', 'FieldLines', L(64, 1.6), L(66, .6), [K(L(64, 1.6), 3, 'out', k=1), K('L70@shields', 2.4, wind=1)], ink=False, x=960, y=540, r=176, k=0, wind=0, draw=1)
 art('compass', 'PocketCompass', L(65), L(66, .4), [K(L(65), 1, 'back', fx_x=0), K(L(65, .8), 2, 'elastic', needle=0)], inkdur=.8, x=1560, y=820, s=.62, needle=-70, fx_x=600)
 EK += [K(L(66), 1.4, 'inOut', fx_s=.3, a=0)]
 art('bell66', 'BronzeBell', L(66, .4), L(67, .4), [], inkdur=1.2, x=960, y=700, s=1.1, swing=.6)
@@ -306,10 +343,10 @@ text('dates', '1888 – 1993', 'note', 960, 470, L(67, 2.2), L(68, .2), size=86)
 text('lived', 'she lived to 104', 'plate', 960, 600, L(67, 3), L(68, .2), size=40)
 # ================================================================ THE ANSWER (L68–L70)
 EK += [K(L(68), .01, fx_s=1, glow=.3, liquid=.8, layers=4, inner=1, shadow=0, sparks=0), K(L(68), 1.2, a=1)]
-for j, (kind, x, y, t) in enumerate([('balance', 330, 270, 'L69@weight'), ('drum', 1590, 270, 'L69@echoes'), ('jelly', 330, 810, 'L70@missing'), ('boxes', 1590, 810, 'L70@ghost')]):
+for j, (kind, x, y, t) in enumerate([('balance', 330, 270, 'L74@weight'), ('drum', 1590, 270, 'L74@echoes'), ('jelly', 330, 810, 'L75@missing'), ('boxes', 1590, 810, 'L75@ghost')]):
     art(f'med{j}', 'ClueMedallion', t, None, [K(t, .9, 'back', fx_s=1), K(L(70, 4.4), 1.6, 'in', fx_x=960 - x, fx_y=540 - y, fx_s=.1), K(L(70, 5.8), .4, a=0)], inkdur=.8, x=x, y=y, r=120, kind=kind, n=j + 1, fx_s=.3, fx_box=[x - 130, y - 130, 260, 260])
 EK += [K(L(70, 5.6), 1.6, glow=1), K(L(70, 6.2), .6, inner=1)]
-for j, (nm, w) in enumerate([('heavy', 'L69@weight'), ('a core', 'L69@core'), ('liquid', 'L70@liquid'), ('solid', 'L70@solid')]):
+for j, (nm, w) in enumerate([('heavy', 'L74@weight'), ('a core', 'L74@core'), ('liquid', 'L75@liquid'), ('solid', 'L75@solid')]):
     text(f'ans{j}', nm, 'note', [330, 1590, 1440, 960][j], [440, 440, 760, 650][j], w, L(70, 4.4) if j < 2 else L(71), size=52, width=500)
 # ================================================================ WHAT IT MEANS (L71–L74)
 EK += [K(L(71), 1, a=0)]
@@ -320,18 +357,87 @@ ripple('rp72', [960, 210], L(72, .9), r=500, n=4, dur=2)
 text('marsp', 'Mars: its core, found by listening', 'plate', 960, 950, L(72, 2.6), L(73, .2), size=36)
 EK += [K(L(74, .5), .01, fx_s=1, fx_y=900, glow=.4, liquid=1, layers=4, inner=1, iris=1, flipY=0, fx_x=0), K(L(74, .5), .1, a=1), K(L(74, .7), 3, 'inOut', fx_y=0)]
 ripple('rp74', [960, 540], L(74, 3.4), r=600, n=5, dur=2.6, col='#B8862B')
+# ================================================================ CLOSING (v2) — the film ends where it began: on the ground, then down to the core
+EK += [K(H(80, .5), .9, a=0)]
+ent('close', 'art', {'name': 'EarthSection', 'ax': 960, 'ay': 120, 'zoom': 420 / RE_, 'layers': 4, 'inner': 1, 'liquid': 1, 'glow': .4, 'sparks': 0, 'draw': 0, 'a': 0},
+    [K(H(80), .01, a=1, draw=1), K(H(80, .3), 2.8, 'inOut', ay=800), K(H(80, .3), 2.8, 'inOut', zoom=.55),
+     K('L80@beneath', 6.0, 'inOut', ay=YC - RE_ * ZD), K('L80@beneath', 6.0, 'inOut', zoom=ZD), K('L80@heart', 2, glow=1), K('L80@Sun', 2, sparks=1),
+     K('L80$+0.6', 2.2, 'linear', dissolve=0, dissolveAt=[960, 540], dissolveR=600), K('L80$+2.9', .01, a=0)], z=88)
+person('listener2', 'a person standing on the ground (the viewer)', H(80, 2.4), None, [K('L80@beneath', 6.0, 'inOut', fx_y=YC - RE_ * ZD - 800), K('L80@beneath+2', 1.2, a=0)],
+       x=960, y=802, h=120, facing=-1, pose='stand', costume='listener2026', hairCol='#3A2A1E', face={'nose': .3, 'brow': .4, 'chin': .3, 'build': 1}, skin=.4, fx_y=0, z=89)
+text('cl_ground', 'solid ground', 'note', 1220, 700, H(80, 2.6), 'L80@beneath', size=46)
+text('cl_ocean', 'an ocean of liquid iron', 'note', 1380, 300, 'L80@ocean', 'L80$', size=48)
+text('cl_heart', 'a ball of solid metal', 'note', 560, 860, 'L80@heart', 'L80$', size=48)
+ent('endcard', 'art', {'name': 'EndCard', 'k': 0, 'a': 0}, [K('L80$+0.8', .01, a=1), K('L80$+0.8', 5.6, 'linear', k=1)], z=90)
+ent('enddust', 'particles', {'kind': 'dust', 'n': 40, 'k': 0, 'a': 1}, [K('L80$', 2, k=1)], z=91)
 earth['keys'] = EK
+
+# ================================================================ v2 MOTION PASS (engine v4) — applied to the whole world
+import hashlib
+def tsplit(t):   # a time ref → (base, offset)
+    if isinstance(t, (int, float)): return None, float(t)
+    m = __import__('re').match(r'^(L\d+(?:\$|@[^+\-]+)?)([+\-]\d*\.?\d+)?$', t); return m.group(1), float(m.group(2) or 0)
+def tadd(t, d):
+    b, o = tsplit(t)
+    if b is None: return o + d
+    o += d; return b if abs(o) < 1e-6 else f'{b}{o:+g}'
+TL_ = json.load(open(os.path.join(H_ := os.path.dirname(os.path.abspath(__file__)), 'timeline.json')))
+LN = TL_['lines'] if len(TL_['lines']) == len(E['lines']) else None
+def tabs(t):   # absolute seconds for sorting (estimate if the timeline is stale)
+    b, o = tsplit(t)
+    if b is None: return o
+    i = int(__import__('re').match(r'L(\d+)', b).group(1)); l = LN[i] if LN else {'start': i * 6.5, 'dur': 6, 'text': ''}
+    if b.endswith('$'): return l['start'] + l['dur'] + o
+    if '@' in b:
+        w = b.split('@')[1].lower(); j = l['text'].lower().find(w); return l['start'] + l['dur'] * max(0, j) / max(1, len(l['text'])) * .97 + o
+    return l['start'] + o
+seedOf = lambda t: int(hashlib.md5(str(round(tabs(t), 1)).encode()).hexdigest()[:4], 16) % 89 + 3   # everything that leaves at one moment bleeds as ONE sheet
+STILL = {'camera', 'clue'}
+for e in W:
+    if e['type'] in STILL: continue
+    ks, p = e['keys'], e['props']; inked = {str(k['t']) for k in ks if 'draw' in k}
+    out = []
+    for k in sorted(ks, key=lambda k: tabs(k['t'])):
+        # 1) an EXIT (a → 0 over ≥ .3 s): text falls out of focus; everything else bleeds away like ink on wet paper
+        if k.get('a') == 0 and k.get('dur', 1.2) >= .3 and 'dissolve' not in k:
+            rest = {q: v for q, v in k.items() if q not in ('a',)}
+            if len(rest) > 2: out.append(rest)
+            if e['type'] == 'text':
+                out += [K(k['t'], 1.0, 'soft', blur=10, a=0), K(tadd(k['t'], 1.05), .01, blur=0)]
+            else:
+                d = max(1.1, k.get('dur', 1.2) * 1.3)
+                out += [K(k['t'], d, 'linear', dissolve=0, dissolveSeed=seedOf(k['t'])), K(tadd(k['t'], d), .01, a=0), K(tadd(k['t'], d + .03), .01, dissolve=1)]
+            continue
+        # 2) an ENTRANCE that would pop (a → 1 instantly, no ink-on at that moment): photos, cards, letters bleed in; words come into focus
+        if k.get('a') == 1 and k.get('dur', 1.2) <= .05 and str(k['t']) not in inked and e['type'] in ('art', 'text', 'planet'):
+            out.append(dict(k, dissolve=0) if e['type'] != 'text' else dict(k, blur=8))
+            out.append(K(k['t'], 1.2, 'linear', dissolve=1, dissolveSeed=seedOf(k['t'])) if e['type'] != 'text' else K(k['t'], .9, 'soft', blur=0))
+            continue
+        out.append(k)
+    # 3) SLIDES become short glides: nothing flies in from off the page any more, it drifts the last few centimetres into place
+    for q in ('fx_x', 'fx_y'):
+        v = p.get(q)
+        if isinstance(v, (int, float)) and abs(v) > 250:
+            first = next((k for k in out if k.get(q) == 0), None)
+            if first: p[q] = 140 if v > 0 else -140; first['dur'] = max(first.get('dur', 1.2), 1.4); first['ease'] = 'glide'
+    e['keys'] = out
+    for ch in e.get('children', []) or []: pass
+# 4) the PAGE CAMERA never stops: each line a slow push or pull with a drift across (sine: it eases into every new line)
+cam = next(e for e in W if e['id'] == 'camera')
+for i in range(len(E['lines'])):
+    d = (LN[i + 1]['start'] - LN[i]['start']) if LN and i + 1 < len(LN) else 6
+    cam['keys'].append(K(H(i), round(d, 2), 'sine', push=[1.0, 1.045, 1.015, 1.05][i % 4], pan_x=[-14, 10, 16, -8][i % 4], pan_y=[6, -5, 3, -6][i % 4]))
 
 E['world'] = W
 E['music'] = {'file': 'public/stock/_hwk/inside-earth/U-01_mystery-ossuary-6-macleod-ccby.mp3', 'db': -25, 'start': 0}
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
 E['thumb'] = {'t': 434, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom', 'side': 'left'}
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
-TP = os.path.join(H, 'timeline.json')
+TP = os.path.join(H_, 'timeline.json')
 if os.path.exists(TP):   # keep the voiced timeline's sfx in step (vo.py copies them on the next voice run)
     T = json.load(open(TP))
     for i, l in enumerate(T['lines']): l['sfx'] = SFX.get(i, [])
     json.dump(T, open(TP, 'w'), indent=1)
-    import shutil; os.makedirs(os.path.join(H, '../../public/ep/inside-earth'), exist_ok=True)
-    for f in ('episode.json', 'timeline.json'): shutil.copy(os.path.join(H, f), os.path.join(H, '../../public/ep/inside-earth', f))
+    import shutil; os.makedirs(os.path.join(H_, '../../public/ep/inside-earth'), exist_ok=True)
+    for f in (('episode.json', 'timeline.json') if LN else ('episode.json',)): shutil.copy(os.path.join(H_, f), os.path.join(H_, '../../public/ep/inside-earth', f))   # a stale timeline is not copied
 print(len(W), 'entities →', EP)

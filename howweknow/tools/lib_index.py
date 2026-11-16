@@ -7,10 +7,10 @@ in a film as is: draw the film's own version · episode = drawn for a film (src/
 SAME real thing, with a reason in that film's episode.json `reuse`."""
 import json, os, re, glob
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); os.chdir(R)
-CORE = ['Sky', 'Stars', 'Sun', 'Moon', 'Earth', 'Pinned', 'DocumentPage', 'Eyepiece', 'FilmStrip', 'Loupe', 'Clipping', 'CabinetCard', 'Angle', 'GoldBeam', 'ShadowCone', 'BloodWash', 'SeaChart', 'Water', 'Ridge']
+CORE = ['Sky', 'Stars', 'Sun', 'Moon', 'Earth', 'Pinned', 'DocumentPage', 'Eyepiece', 'FilmStrip', 'Loupe', 'Clipping', 'CabinetCard', 'Angle', 'GoldBeam', 'ShadowCone', 'BloodWash', 'SeaChart', 'Water', 'Ridge', 'Ident', 'EndCard', 'TitleCard']
 TOOL = ['Person']
 ent = open('src/engine/Entities.tsx').read()
-base = re.findall(r'(\w+): (?:Wd|Pl)\.\w+', ent) + ['Person']
+base = re.findall(r'(\w+): (?:Wd|Pl|Id)\.\w+', ent) + ['Person']
 lib = {}
 for n in base: lib[n] = {'kind': 'core' if n in CORE else 'tool' if n in TOOL else 'sample', 'origin': 'library v3 (src/paint/)'}
 imports, maps, costumes, eps = [], [], [], {}

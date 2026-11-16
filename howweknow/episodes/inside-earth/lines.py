@@ -3,11 +3,28 @@
 python3 tools/plan_md.py episodes/inside-earth → jobs/scripts/inside-earth.md. Facts: jobs/research/inside-earth.md. Stock: jobs/orders/inside-earth.md."""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')); from _lines_common import write
+VOICE, SPEED = 'af_heart', 0.86   # owner picks the narrator (samples on Drive fathom/_voice_choices)
 R = [
+# ---------------- HOOK (v2, owner 16 Nov 2026: a film needs an opening the viewer can hold on to) → the FATHOM ident + title (music only)
+('HOOK', "Deep beneath your feet, more than five thousand kilometres down, there is a ball of iron as hot as the surface of the *Sun*.", 'F10', 'focus', 'dive', 'dive', 'tiny-in-vast', ['sparks'], 'dive-to-the-core', ['ListenerOnTheSurface'], [],
+ "A tiny figure stands on the curved skin of the planet; the ground opens and the camera dives through crust, mantle and molten outer core to a white-hot ball.",
+ "+0.0 focus-in on a small figure on the surface | +1.2 the section opens under the feet; the camera dives (8 s) | +7 the inner core glows, sparks"),
+('HOOK', "No one has ever seen it. No one has ever *touched* it.", '-', 'ink-bleed', 'rack-focus', 'drift', 'centre-large', ['sparks'], None, [], [],
+ "The glowing ball alone in the dark molten iron; two faint question marks of ink drift around it.",
+ "+0.0 the core breathes | +1.0 'never seen' / 'never touched' notes bleed in and out"),
+('HOOK', "And yet we know how big it is, how hot it is, and what it is made *of*.", 'F10', 'stamp', 'match', 'push', 'centre-large', ['photons'], None, [], [],
+ "Three gold figures write themselves round the ball: about 2,400 km · about 5,400 °C · iron and nickel.",
+ "+0.0 '2,400 km' | @hot '5,400 °C' | @made 'iron & nickel'"),
+('HOOK', "How can we possibly *know*?", '-', 'blinds', 'rack-focus', 'pull', 'centre-small', ['boil'], None, [], [],
+ "The figures fade; the camera pulls back from the core to the whole planet.",
+ "+0.0 pull back to the whole planet (2.6 s)"),
+('HOOK', "The answer is one of the great detective stories of science, pieced together by people who never left the *surface*.", '-', 'ink-bleed', 'ink-bleed', 'drift', 'centre-small', ['boil'], 'four-clue-ring', [], [],
+ "A magnifying lens of gold passes over the planet; its outline then becomes the title card of the episode.",
+ "+0.0 the four clue medallions ink on round the planet | +3 the planet bleeds into the title card: What is inside the Earth? (music, ~5 s)"),
 # ---------------- COLD STORY — the deepest hole
-('COLD', "In 1970, on a frozen peninsula in the far north of Russia, Soviet engineers began to drill a hole straight *down*.", 'F1', 'rise', 'ride', 'tilt-up', 'low-left-small', ['snow'], 'arctic-rig-at-night', ['KolaRig', 'TundraSnow', 'SovietDrillers'], ['P-03', 'R-04'],
+('COLD', "The story begins in 1970, on a frozen peninsula in the far north of Russia, where Soviet engineers began to drill a hole straight *down*.", 'F1', 'rise', 'ride', 'tilt-up', 'low-left-small', ['snow'], 'arctic-rig-at-night', ['KolaRig', 'TundraSnow', 'SovietDrillers'], ['P-03', 'R-04'],
  "Polar night over snowy tundra; a tall drilling rig in a lit shed; two small figures in fur hats at the door.",
- "+0.0 rise: tundra horizon comes up from the bottom (1.4 s) | +1.6 the rig inks on, its windows warm | +3.0 snow particles | +4.4 tilt down toward the drill pipe"),
+ "+0.0 rise: tundra horizon comes up from the bottom (1.4 s) | +1.6 the rig inks on, its windows warm | +3.0 snow particles | +4.4 tilt down toward the drill pipe", {'gap': 6.4}),
 ('COLD', "The hole was narrower than a dinner plate, and they kept drilling for almost twenty *years*.", 'F1', 'grow', 'scale-in', 'ride', 'tall-centre', ['snow'], None, ['BoreholeShaft'], ['P-04'],
  "A narrow dark shaft descends through rock layers; a counter of years ticks at the side as the drill goes down.",
  "+0.0 ride down the shaft with the drill bit (trail, 5 s) | +1.0 handwritten years 1970→1989 tick on the margin | +4.0 a drill-core plate ★P-04 pinned at the side"),
@@ -26,7 +43,7 @@ R = [
 ('COLD', "The centre of the Earth lies more than six thousand kilometres below our *feet*.", 'F1', 'grow', 'trace', 'push', 'centre-large', ['boil'], None, ['RadiusLine'], [],
  "A gold line drops from the surface to the centre of the cutaway; its length dwarfs the hairline hole.",
  "+0.0 grow: the gold radius traces down (2.4 s, linear) | +2.6 note '6,371 km' writes beside it"),
-('COLD', "No one has ever been there. No one ever will. So how do we know what is down *there*?", 'F1', 'blinds', 'fold', 'hold', 'centre-medium', ['breathe'], 'question-cutaway', [], [],
+('COLD', "No one has ever been there, and no one ever *will*.", 'F1', 'blinds', 'fold', 'hold', 'centre-medium', ['breathe'], 'question-cutaway', [], [],
  "The cutaway's inside is blank paper; question marks of faint ink hover in it.",
  "+0.0 blinds close over the inner layers, leaving them blank | +1.6 faint question marks ink on and breathe"),
 # ---------------- THE STAKES
@@ -238,9 +255,18 @@ R = [
 ('MEANING', "But we know its shape, its heat and its metal — because the planet keeps talking, and someone learned to *listen*.", '-', 'iris', 'light-change', 'pull', 'centre-medium', ['ripple'], None, [], [],
  "From the rig, pull down through the snow into the drawn cutaway one last time; it rings softly; the brand end card follows.",
  "+0.0 pull down through the ground into the cutaway (3 s) | +2.4 a final soft ripple | +4.0 end card"),
+# ---------------- CLOSING (v2): back to where the film began — your feet, and what lies beneath them
+('CLOSE', "So the next time you stand on solid ground, remember what lies beneath you: an ocean of liquid iron, and at its heart, a ball of solid metal as hot as the *Sun*.", 'F10', 'rise', 'dive', 'crane', 'tiny-in-vast', ['sparks'], 'rise-from-the-core', [], [],
+ "The reverse of the opening dive: from the white-hot core the camera rises through the layers to the small figure standing on the ground; then the end card.",
+ "+0.0 the core glows | +1.5 rise through outer core, mantle, crust (7 s) | the figure on the surface | end card (silent)"),
 ]
 SRC = {'F1': 'S1 S2', 'F2': 'S3 S4', 'F3': 'S4 S5', 'F4': 'S6 S7', 'F5': 'S8 S9', 'F6': 'S9 S10', 'F7': 'S11 S12', 'F8': 'S11 S12', 'F9': 'S11 S12 S13', 'F10': 'S14 S15 S11'}
 write(os.path.dirname(os.path.abspath(__file__)), 'inside-earth', 'What is inside the Earth?', R, SRC,
       ['a true-scale pull from a 12 km hole to the whole planet (the hole becomes a hairline)', 'ghost pings in the shadow zone that turn solid when the ray is explained (cause shown after effect)', 'the bell ↔ planet morph used as the film\'s bookend'],
       {'file': '../studio/music/wonder_lightless_dawn.wav', 'db': -24, 'start': 0},
-      {'t': 70, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom'})
+      {'t': 70, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom'}, voice=VOICE, speed=SPEED, tail=7.5)
+# v2: a breath (music up) before every chapter of the story
+import json; P = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'episode.json'); E = json.load(open(P))
+for l in E['lines']:
+    if l['text'].startswith(('Our first clue', 'Clue two', 'Clue three', 'Clue four', 'So — how do we know', 'Every big earthquake', 'So the next time')): l['gap'] = 1.8
+json.dump(E, open(P, 'w'), indent=1, ensure_ascii=False)

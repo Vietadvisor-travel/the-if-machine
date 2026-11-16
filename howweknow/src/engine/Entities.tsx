@@ -5,6 +5,7 @@ import { AbsoluteFill } from 'remotion';
 import * as Wd from '../paint/world';
 import { Person } from '../paint/people';
 import * as Pl from '../paint/places';
+import * as Id from '../kit/Ident';
 import { LIB_ART, LIB_COSTUMES } from '../lib';
 import { Ink, Line, SEP, PIG } from '../paint/paint';
 import { FONT } from '../kit/style';
@@ -23,11 +24,12 @@ const ART: Record<string, React.FC<any>> = { Sky: Wd.Sky, Stars: Wd.Stars, Sun: 
   Pinned: Wd.Pinned, DocumentPage: Wd.DocumentPage, Eyepiece: Wd.Eyepiece, ShadowCone: Wd.ShadowCone, BloodWash: Wd.BloodWash, Observatory18: Wd.Observatory18, Quadrant: Wd.Quadrant,
   Bedspring: Wd.Bedspring, OldScreen: Wd.OldScreen, LaserDome: Wd.LaserDome, Reflector: Wd.Reflector, MoonGround: Wd.MoonGround, Stopwatch: Wd.Stopwatch,
   FilmStrip: Wd.FilmStrip, Loupe: Wd.Loupe, Clipping: Wd.Clipping, CabinetCard: Wd.CabinetCard, Person: Person,
-  Mountains: Pl.Mountains, Window: Pl.Window, Bookshelf: Pl.Bookshelf, Desk: Pl.Desk, Chair: Pl.Chair, Globe: Pl.Globe, Pendulum: Pl.Pendulum, Glassware: Pl.Glassware, City: Pl.City, Tree: Pl.Tree, Birds: Pl.Birds };
+  Mountains: Pl.Mountains, Window: Pl.Window, Bookshelf: Pl.Bookshelf, Desk: Pl.Desk, Chair: Pl.Chair, Globe: Pl.Globe, Pendulum: Pl.Pendulum, Glassware: Pl.Glassware, City: Pl.City, Tree: Pl.Tree, Birds: Pl.Birds,
+  Ident: Id.Ident, EndCard: Id.EndCard, TitleCard: Id.TitleCard };   // v4: the channel's title sequence and end card (core)
 Object.assign(ART, LIB_ART);   // every film's own drawings (src/lib/<slug>/, tools/lib_index.py)
 export const ART_NAMES = Object.keys(ART);
 const strip = (s: Props) => { const { a: _a, name: _n, space: _s, _type, play: _p, fx_box: _b, who: _w, ...rest } = s; for (const k of FX_KEYS) delete (rest as any)[k]; return rest; };
-const kids = (e: Entity, c: Ctx) => (e.children || []).map((ch, i) => { const cs = { ...stateAt(ch, c.t, c.tl), _type: ch.type }, n = renderEntity(ch, cs, c); return n && hasFx(cs) ? <Fx key={ch.id} s={cs} t={c.t} seed={i + 7}>{n}</Fx> : <React.Fragment key={ch.id}>{n}</React.Fragment>; });
+const kids = (e: Entity, c: Ctx) => (e.children || []).map((ch, i) => { const cs = { ...stateAt(ch, c.t, c.tl), _type: ch.type }, n = renderEntity(ch, cs, c); return n && hasFx(cs) ? <Fx key={ch.id} s={cs} t={c.t} seed={i + 7} uid={ch.id}>{n}</Fx> : <React.Fragment key={ch.id}>{n}</React.Fragment>; });
 
 export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
   if ((s.a ?? 1) <= 0.002) return null;

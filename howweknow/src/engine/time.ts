@@ -18,8 +18,12 @@ export const resolveTime = (ref: number | string, tl: TL): number => {
   return t + (m[4] ? parseFloat(m[4]) : 0);
 };
 
+// v4 (owner, 16 Nov 2026: "mượt mà, không giật cục, không nảy nảy"): every curve is a smooth cinematic one — no overshoot, no bounce.
+// The old names stay valid (episodes keep working) but now mean their smooth cousins: back/bounce/elastic → a long soft settle.
+const settle = Easing.bezier(0.22, 1, 0.36, 1);   // fast start, very long gentle landing (the "camera operator" curve)
 export const EASE: Record<string, (x: number) => number> = {
-  inOut: Easing.bezier(0.45, 0, 0.2, 1), out: Easing.bezier(0.16, 1, 0.3, 1), in: Easing.bezier(0.6, 0, 0.9, 0.4),
-  back: Easing.bezier(0.3, 1.5, 0.5, 1), anticipate: Easing.bezier(0.5, -0.4, 0.3, 1), bounce: Easing.bounce, elastic: Easing.elastic(1.2), expo: Easing.bezier(0.9, 0, 0.1, 1),
-  linear: (x: number) => x, soft: Easing.bezier(0.3, 0, 0.3, 1), snap: Easing.bezier(0.7, 0, 0.1, 1),
+  inOut: Easing.bezier(0.65, 0, 0.35, 1), out: settle, in: Easing.bezier(0.55, 0, 0.75, 0.25),
+  back: settle, anticipate: Easing.bezier(0.6, 0, 0.3, 1), bounce: settle, elastic: settle, expo: Easing.bezier(0.8, 0, 0.2, 1),
+  linear: (x: number) => x, soft: Easing.bezier(0.4, 0, 0.3, 1), snap: Easing.bezier(0.6, 0, 0.15, 1),
+  glide: Easing.bezier(0.45, 0.05, 0.25, 1), sine: (x: number) => 0.5 - 0.5 * Math.cos(Math.PI * x),
 };

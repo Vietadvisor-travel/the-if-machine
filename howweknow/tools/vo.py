@@ -2,7 +2,7 @@
 """How We Know — narration: episode.json → one wav per line (Kokoro, af_heart) → placed voice track + timeline.json.
   python3 tools/vo.py episodes/<slug>
 Lines play back to back: lead before the first, `gap` (default .45 s) before each next line, tail after the last."""
-import json, os, sys
+import json, os, sys, hashlib
 import numpy as np, soundfile as sf
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'studio', 'tools'))
 import voice as V   # studio/tools/voice.py: Kokoro + pronunciations + *stress*
@@ -12,7 +12,9 @@ out = f'{ep}/build'; os.makedirs(out, exist_ok=True)
 t, lines, parts = E.get('lead', .8), [], []
 for i, L in enumerate(E['lines']):
     if i: t += L.get('gap', .45)
-    s, sr = V.tts(L['text'], E.get('voice', 'af_heart'), E.get('speed', .92))[:2]
+    vv, sp = E.get('voice', 'af_heart'), E.get('speed', .92); key = hashlib.md5(f"{L['text']}|{vv}|{sp}".encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
+    if os.path.exists(cf): s, sr = sf.read(cf, dtype='float32')
+    else: s, sr = V.tts(L['text'], vv, sp)[:2]; os.makedirs(f'{out}/cache', exist_ok=True); sf.write(cf, s, sr)
     if sr != SR: raise SystemExit(f'unexpected sample rate {sr}')
     d = len(s) / SR; lines.append({'i': i, 'text': L['text'].replace('*', ''), 'start': round(t, 3), 'dur': round(d, 3), 'sfx': L.get('sfx', [])}); parts.append((t, s)); t += d
 total = t + E.get('tail', 1.6)

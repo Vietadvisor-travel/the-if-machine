@@ -87,6 +87,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "EndCard": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
  "Eyepiece": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -118,6 +122,10 @@
  "GreatBalance": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "Ident": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
  },
  "InnerCoreBall": {
   "kind": "episode",
@@ -303,6 +311,10 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "TitleCard": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
  "TorsionBalance": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -364,6 +376,10 @@
   "origin": "people.tsx presets"
  },
  "costume:lehmann1932": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "costume:listener2026": {
   "kind": "episode",
   "origin": "inside-earth"
  },
