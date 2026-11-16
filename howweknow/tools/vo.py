@@ -12,9 +12,14 @@ out = f'{ep}/build'; os.makedirs(out, exist_ok=True)
 t, lines, parts = E.get('lead', .8), [], []
 for i, L in enumerate(E['lines']):
     if i: t += L.get('gap', .45)
-    vv, sp = E.get('voice', 'af_heart'), E.get('speed', .92); key = hashlib.md5(f"{L['text']}|{vv}|{sp}".encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
+    vv, sp, pt = E.get('voice', 'af_heart'), E.get('speed', .92), E.get('pitch', 1.0); key = hashlib.md5(f"{L['text']}|{vv}|{sp}|{pt}".encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
     if os.path.exists(cf): s, sr = sf.read(cf, dtype='float32')
-    else: s, sr = V.tts(L['text'], vv, sp)[:2]; os.makedirs(f'{out}/cache', exist_ok=True); sf.write(cf, s, sr)
+    else:
+        s, sr = V.tts(L['text'], vv, sp)[:2]; os.makedirs(f'{out}/cache', exist_ok=True); sf.write(cf, s, sr)
+        if pt != 1.0:   # a deeper narrator (owner 16 Nov 2026): pitch down with the formants kept, same length
+            import subprocess; tmp = cf + '.raw.wav'; os.replace(cf, tmp)
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', tmp, '-af', f'rubberband=pitch={pt}:formant=preserved', '-ar', str(SR), '-ac', '1', cf], check=True); os.remove(tmp)
+            s, sr = sf.read(cf, dtype='float32')
     if sr != SR: raise SystemExit(f'unexpected sample rate {sr}')
     d = len(s) / SR; lines.append({'i': i, 'text': L['text'].replace('*', ''), 'start': round(t, 3), 'dur': round(d, 3), 'sfx': L.get('sfx', [])}); parts.append((t, s)); t += d
 total = t + E.get('tail', 1.6)
