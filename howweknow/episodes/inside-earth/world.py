@@ -372,6 +372,139 @@ ent('endcard', 'art', {'name': 'EndCard', 'k': 0, 'a': 0}, [K('L80$+0.8', .01, a
 ent('enddust', 'particles', {'kind': 'dust', 'n': 40, 'k': 0, 'a': 1}, [K('L80$', 2, k=1)], z=91)
 earth['keys'] = EK
 
+# ================================================================ v3 CONTINUITY (owner 16 Nov 2026: "như 1 bộ phim — mọi thứ theo mạch diễn biến và
+# chuyển đổi"): at every change of scene the picture BECOMES the next one — a thing travels, shrinks or grows into its place in the
+# next scene, an outline morphs, the camera tilts or dives on — instead of one picture fading out and another fading in.
+def G(i): return next(e for e in W if e['id'] == i)
+def drop(i, pred): e = G(i); e['keys'][:] = [k for k in e['keys'] if not pred(k)]
+def retime(i, t_old, t_new):
+    for k in G(i)['keys']:
+        if k['t'] == t_old: k['t'] = t_new
+KEEP = set()   # entities whose long travels are designed (the motion pass leaves their offsets alone)
+NOFADE = set()   # entities (or (id, t)) whose entrance is designed: no generic bleed-in
+XOVR = {}        # id → 'plain' | 'focus' | 'late': how its exit is played instead of the generic one
+def leave(i, t, dur, ease='inOut', **fx):   # the thing travels out of the picture (or into its next form) and only then is gone
+    G(i)['keys'].append(K(t, dur, ease, **fx)); XOVR[i] = ('late', t, dur)
+SEP_ = '#2B1D12'
+def bellform(k, cx=960, cy=700):   # BronzeBell's outline in a shape's 0–100 box (shape at 960,540, s 8.4)
+    P = lambda dx, dy: f"{(cx + dx * k - 960) / 8.4 + 50:.2f} {(cy + dy * k - 540) / 8.4 + 50:.2f}"
+    return (f"M{P(-70, -180)} C{P(-80, -260)} {P(80, -260)} {P(70, -180)} C{P(90, -60)} {P(110, -10)} {P(170, 30)} "
+            f"L{P(-170, 30)} C{P(-110, -10)} {P(-90, -60)} {P(-70, -180)}Z")
+def circform(r):   # a circle of radius r px round the page centre, same box
+    q = r / 8.4; return f"M50 {50 - q:.2f} A{q:.2f} {q:.2f} 0 1 1 49.99 {50 - q:.2f}Z"
+
+# T0 · the title card's dial travels up into the polar sky and becomes the Moon over Kola; the night spreads out from it
+t = G('title'); t['props']['fx_box'] = [530, 110, 860, 860]
+drop('title', lambda k: 'dissolve' in k or k.get('a') == 0)
+t['keys'] += [K(L(0, -2.8), .9, textA=0), K(L(0, -2.2), 2.4, 'inOut', fx_s=.17, fx_x=540, fx_y=-330), K(L(0, .2), .7, 'soft', a=0, dissolve=1)]
+ent('kmoon', 'art', {'name': 'Moon', 'x': 1500, 'y': 210, 'r': 73, 'phase': .82, 'draw': 1, 'a': 0, 'id': 'kmoon'},
+    [K(L(0, -.3), .9, 'soft', a=1), K(L(0, 5), 3.5, 'inOut', fx_y=-900), K(L(1, 2), .8, a=0, dissolve=1)], z=4)
+for k in G('night')['keys']:
+    if k.get('dissolve') == 1 and k.get('dissolveDir'): k.pop('dissolveDir'); k.update(t=L(0, -1.8), dur=2.8, dissolveAt=[1500, 210], dissolveR=2300)
+# T1 · "Our first clue is a weight": the planet shrinks and settles on the pan of a great balance
+drop('earth', lambda k: k['t'] == L(11) and 'iris' in k)
+EK += [K(L(11), 1.9, 'inOut', fx_s=.14, fx_x=231, fx_y=170), K(L(11, 1.9), .01, a=0)]
+G('weight1')['keys'].append(K(L(11, 1.85), .01, right='earth'))
+# T2 · tilt up from the balance to the London sky of 1798; T3 · crane up from the house to the planet itself
+for i in ('weight1', 't1'): leave(i, L(12), 1.9, fx_y=760)
+G('house')['props'].update(fx_y=-760, unroll=1); drop('house', lambda k: 'unroll' in k); G('house')['keys'].append(K(L(12), 1.9, 'inOut', fx_y=0)); KEEP.add('house'); NOFADE.add('house')
+G('daysky')['props'].update(fx_y=-760, unroll=1); drop('daysky', lambda k: 'unroll' in k); G('daysky')['keys'].append(K(L(12), 1.9, 'inOut', fx_y=0)); KEEP.add('daysky'); NOFADE.add('daysky')
+for i in ('house', 'cav'): leave(i, L(13), 1.9, fx_y=900)
+XOVR['daysky'] = 'plain'
+for i in ('bigearth', 'scale'): G(i)['props']['fx_y'] = -760; G(i)['keys'].append(K(L(13, .2), 1.9, 'inOut', fx_y=0)); KEEP.add(i)
+# T4 · the big lead ball of the demonstration drops into place as one of the torsion balance's heavy weights
+G('lead')['keys'].append(K(L(14, .1), 1.4, 'inOut', fx_y=84, fx_x=-4)); XOVR['lead'] = 'plain'
+G('torsion')['props']['iris'] = 1; drop('torsion', lambda k: 'iris' in k and 'fx_s' not in k)
+# T6 · through the telescope: the scene grows into the eyepiece and the ivory scale opens out of it
+for i in ('scope', 'cav2'): G(i)['props'].update(fx_ox=1060, fx_oy=550); leave(i, L(16), 1.8, 'in', fx_s=2.6)
+v = G('vern'); v['props'].update(iris=1, fx_s=.06, fx_x=100, fx_y=10); drop('vern', lambda k: 'iris' in k)
+v['keys'].append(K(L(16), 1.9, 'inOut', fx_s=1, fx_x=0, fx_y=0)); KEEP.add('vern'); NOFADE.add('vern')
+# T8 · the little Earth on the balance's pan grows into the planet in section (now heavy at the centre)
+for k in EK:
+    if k['t'] == L(20, .4) and k.get('iris') == 0: k.pop('iris'); k.update(fx_s=.21, fx_x=336, fx_y=258, a=1)
+EK[:] = [k for k in EK if not (k['t'] == L(20, .4) and k.get('iris') == 1)]
+EK += [K(L(20, .4), 1.9, 'inOut', fx_s=1, fx_x=0, fx_y=0)]; NOFADE.add(('earth', L(20, .4)))
+# T9 · the planet's outline morphs into a bell — and, when the bell has rung, back into the planet
+EK[:] = [k for k in EK if not (k['t'] == L(23) and k.get('a') == 0)]
+EK += [K(L(23, .4), .01, a=0)]
+ent('m23', 'shape', {'form': circform(420), 'x': 960, 'y': 540, 's': 8.4, 'draw': 1, 'sw': 3, 'col': SEP_, 'a': 0},
+    [K(L(23, .3), .01, a=1), K(L(23, .4), 1.6, 'inOut', form=bellform(1.25)), K(L(23, 2.2), .6, a=0, dissolve=1)], z=41)
+b = G('bell'); b['props']['fx_y'] = 0; drop('bell', lambda k: k.get('ease') == 'bounce' or ('fx_y' in k and k['t'] == L(23, .4)))
+retime('bell', L(23, .4), L(23, 1.8))
+drop('bell', lambda k: k['t'] == L(24) and k.get('a') == 0); b['keys'].append(K(L(24), .4, a=0, dissolve=1))
+ent('m24', 'shape', {'form': bellform(1.25), 'x': 960, 'y': 540, 's': 8.4, 'draw': 1, 'sw': 3, 'col': SEP_, 'a': 0},
+    [K(L(24), .01, a=1), K(L(24, .1), 1.5, 'inOut', form=circform(420)), K(L(24, 1.7), .6, a=0, dissolve=1)], z=41)
+for k in EK:
+    if k['t'] == L(24, .2) and k.get('a') == 1: k.update(t=L(24, 1.3), dur=.9)
+# T10 · the seismograph's drum multiplies into the observatories of the world
+G('seis')['props'].update(fx_ox=640, fx_oy=850); leave('seis', L(28), 1.4, fx_s=.45, fx_x=-220, fx_y=-490)
+# T11 · the muddy middle of the race shrinks into the centre of the planet, where the core appears
+G('track')['props'].update(fx_ox=960, fx_oy=540); leave('track', L(33), 1.4, fx_s=.12)
+# T12 · in Zagreb the camera tilts down through the floor into the ground, where the two waves race
+for i in ('zag', 'moho', 'rec36', 'mcard'): leave(i, L(37), 2.1, fx_y=-1100)
+sl = G('slab'); sl['props']['fx_y'] = 1080; KEEP.add('slab'); NOFADE.add('slab')
+for k in sl['keys']:
+    if k['t'] == L(37) and 'fx_y' in k: k.update(dur=2.1, ease='inOut')
+# T13 · the record in Lehmann's hands grows to fill the page
+r = G('rec'); r['props'].update(fx_s=.08, fx_x=-320, fx_y=180); KEEP.add('rec')
+drop('rec', lambda k: k['t'] == L(50) and 'fx_y' in k); r['keys'].append(K(L(50), 1.9, 'inOut', fx_s=1, fx_x=0, fx_y=0)); NOFADE.add('rec')
+for i in ('room', 'inge', 'icard'): XOVR[i] = 'focus'
+# T14 · bookend: the small planet with its magnetic field rings once more — its outline becomes the bell again
+EK[:] = [k for k in EK if not (k['t'] == L(66) and k.get('a') == 0)]
+EK += [K(L(66, .3), .01, a=0)]
+ent('m66', 'shape', {'form': circform(176), 'x': 960, 'y': 540, 's': 8.4, 'draw': 1, 'sw': 2.6, 'col': SEP_, 'a': 0},
+    [K(L(66, .2), .01, a=1), K(L(66, .3), 1.5, 'inOut', form=bellform(1.1)), K(L(66, 2.0), .6, a=0, dissolve=1)], z=41)
+retime('bell66', L(66, .4), L(66, 1.6))
+# the field lines go with the planet
+G('field')['keys'].append(K(L(66), .5, a=0, dissolve=1))
+
+# --- round 2
+# T7 · the round view through the telescope shrinks into the little Earth on the pan of the balance (the answer it gave: its weight)
+drop('vern', lambda k: k['t'] == L(17) and k.get('a') == 0)
+G('vern')['keys'] += [K(L(17), 1.8, 'inOut', fx_s=.25, fx_x=346, fx_y=174), K(L(17, 1.8), .3, a=0, dissolve=1)]
+# T15 · the two kinds of wave stretch out into the two racing lanes; the lanes fold down into the seismograph's paper
+G('waves')['props'].update(fx_ox=1320, fx_oy=540); leave('waves', L(26), 1.4, fx_x=-360, fx_s=1.4)
+G('lanes')['props'].update(fx_ox=960, fx_oy=540); leave('lanes', L(27), 1.5, fx_s=.22, fx_x=-320, fx_y=330)
+# T16 · the six observatories gather into the globe — the whole Earth is listening
+for i in range(6):
+    e = G(f'st{i}'); x, y = e['props']['x'], e['props']['y']; e['props'].update(fx_ox=x, fx_oy=y)
+    leave(f'st{i}', L(29, i * .08), 1.5, fx_s=.18, fx_x=960 - x, fx_y=560 - y)
+# T17 · from Oldham's desk we go INTO the pile of records — the planet and its rays come out of them
+G('desk')['props'].update(fx_ox=1040, fx_oy=800); leave('desk', L(31), 1.6, 'in', fx_s=2.6)
+for i in ('oldham', 'oname', 'mon'): XOVR[i] = 'focus'
+# T18 · through the middle of the planet into the race: the planet opens round its centre and the track is inside
+EK[:] = [k for k in EK if not (k['t'] == L(32) and k.get('a') == 0)]
+EK += [K(L(32), 1.3, 'in', fx_s=2.6), K(L(32, 1.2), .3, a=0, dissolve=1), K(L(33), .01, fx_s=1)]
+for k in G('track')['keys']:
+    if k['t'] == L(32) and k.get('wipe') == 1: k.pop('wipe')
+G('track')['props'].update(wipe=1, iris=0, irisAt=[960, 540]); G('track')['keys'].append(K(L(32, .2), 1.3, iris=1)); NOFADE.add('track')
+# T19 · the planet's circle opens like a window onto the two tanks (jelly and water); the tanks then close back into it
+EK[:] = [k for k in EK if not (k['t'] == L(42) and k.get('a') == 0)]
+EK += [K(L(42, 1.2), .4, a=0, dissolve=1)]
+j = G('jelly'); j['props'].update(blinds=1, iris=0, irisAt=[960, 540]); drop('jelly', lambda k: 'blinds' in k); j['keys'].append(K(L(42), 1.4, iris=1)); NOFADE.add('jelly')
+j['props'].update(fx_ox=960, fx_oy=540); leave('jelly', L(43), 1.2, fx_s=.3)
+# T20 · "a ghost in the shadow": the camera dives into one ghostly ping in the shadow zone
+EK[:] = [k for k in EK if not (k['t'] == L(48) and k.get('iris') == 0)]
+EK += [K(L(48), .01, fx_ox=1347, fx_oy=745), K(L(48), 1.7, 'in', fx_s=4), K(L(48, 1.6), .3, a=0, dissolve=1), K(L(48, 2), .01, fx_s=1, fx_ox=960, fx_oy=540)]
+# T21 · Lehmann's record rolls up like a scroll, put away while the globe turns to New Zealand
+G('rec')['keys'].append(K(L(51), 1.0, 'inOut', unroll=0)); XOVR['rec'] = 'plain'
+# T22 · the inner core ball shrinks back into the centre of the planet
+G('ball')['props'].update(fx_ox=700, fx_oy=560); leave('ball', L(63), 1.3, fx_s=.33, fx_x=260)
+XOVR['sun62'] = 'plain'
+# T23 · today's network of stations unfolds out of the planet; then a whip pan to another world, and on, back to Kola
+EK[:] = [k for k in EK if not (k['t'] == L(71) and k.get('a') == 0)]
+EK += [K(L(71), 1.2, 'in', fx_s=.3), K(L(71, 1.1), .3, a=0, dissolve=1), K(L(72), .01, fx_s=1)]
+g = G('gsn'); g['props'].update(fx_y=0, fx_s=.3); drop('gsn', lambda k: 'fx_y' in k); g['keys'].append(K(L(71), 1.6, 'inOut', fx_s=1)); NOFADE.add('gsn'); KEEP.add('gsn')
+leave('gsn', L(72), 1.2, fx_x=-2000)
+m = G('mars'); m['props']['fx_x'] = 2000; drop('mars', lambda k: k.get('ease') == 'expo'); m['keys'].append(K(L(72), 1.2, 'inOut', fx_x=0)); KEEP.add('mars'); NOFADE.add('mars')
+leave('mars', L(73), 1.4, fx_x=-2000)
+for i in ('night', 'stars', 'tundra', 'rig'):
+    e = G(i)
+    for k in e['keys']:
+        if k['t'] == L(73) and k.get('wipe') == 0: k['wipe'] = 1; k['fx_x'] = 2000
+        if k['t'] == L(73) and k.get('wipe') == 1 and k.get('dur', 0) > .1: k.pop('wipe'); k.update(fx_x=0, dur=1.4, ease='inOut')
+    KEEP.add(i); NOFADE.add((i, L(73)))
+
 # the air of the room: a few motes of dust drifting through the lamplight over the whole film (life — never a dead frame)
 ent('motes', 'particles', {'kind': 'dust', 'n': 26, 'k': 0, 'a': .8, 'speed': .5, 'para': .8}, [K(H(0), 3, k=1)], z=95)
 # ================================================================ v2 MOTION PASS (engine v4) — applied to the whole world
@@ -408,7 +541,10 @@ for e in W:
         if k.get('a') == 0 and k.get('dur', 1.2) >= .3 and 'dissolve' not in k:
             rest = {q: v for q, v in k.items() if q not in ('a',)}
             if len(rest) > 2: out.append(rest)
-            st = 'focus' if e['type'] == 'text' else xstyle(k['t'])
+            ov = XOVR.get(e['id'])
+            if isinstance(ov, tuple): out += [K(tadd(ov[1], ov[2] - .5), .5, a=0, dissolve=1)]; continue          # it has travelled out: gone at the end of its move
+            if ov == 'plain': out += [K(k['t'], max(.6, k.get('dur', .8)), a=0, dissolve=1)]; continue
+            st = 'focus' if e['type'] == 'text' or ov == 'focus' else xstyle(k['t'])
             if st == 'focus':
                 out += [K(k['t'], 1.0, 'soft', blur=10, a=0), K(tadd(k['t'], 1.05), .01, blur=0)]
             elif st == 'lift':   # the sheet lifts off the page and is gone
@@ -418,7 +554,7 @@ for e in W:
                 out += [K(k['t'], d, 'linear', dissolve=0, dissolveSeed=seedOf(k['t']), **bias), K(tadd(k['t'], d), .01, a=0), K(tadd(k['t'], d + .03), .01, dissolve=1)]
             continue
         # 2) an ENTRANCE that would pop (a → 1 instantly, no ink-on at that moment): photos, cards, letters bleed in; words come into focus
-        if k.get('a') == 1 and k.get('dur', 1.2) <= .05 and str(k['t']) not in inked and e['type'] in ('art', 'text', 'planet'):
+        if k.get('a') == 1 and k.get('dur', 1.2) <= .05 and str(k['t']) not in inked and e['type'] in ('art', 'text', 'planet') and e['id'] not in NOFADE and (e['id'], k['t']) not in NOFADE:
             out.append(dict(k, dissolve=0) if e['type'] != 'text' else dict(k, blur=8))
             out.append(K(k['t'], 1.2, 'linear', dissolve=1, dissolveSeed=seedOf(k['t'])) if e['type'] != 'text' else K(k['t'], .9, 'soft', blur=0))
             continue
@@ -426,23 +562,25 @@ for e in W:
     # 3) SLIDES become short glides: nothing flies in from off the page any more, it drifts the last few centimetres into place
     for q in ('fx_x', 'fx_y'):
         v = p.get(q)
-        if isinstance(v, (int, float)) and abs(v) > 250:
+        if isinstance(v, (int, float)) and abs(v) > 250 and e['id'] not in KEEP:
             first = next((k for k in out if k.get(q) == 0), None)
             if first: p[q] = 140 if v > 0 else -140; first['dur'] = max(first.get('dur', 1.2), 1.4); first['ease'] = 'glide'
     e['keys'] = out
     for ch in e.get('children', []) or []: pass
-# 4) the PAGE CAMERA never stops: each line a slow push or pull with a drift across (sine: it eases into every new line)
-cam = next(e for e in W if e['id'] == 'camera')
-for i in range(len(E['lines'])):
-    d = (LN[i + 1]['start'] - LN[i]['start']) if LN and i + 1 < len(LN) else 6
-    cam['keys'].append(K(H(i), round(d, 2), 'sine', push=[1.0, 1.045, 1.015, 1.05][i % 4], pan_x=[-14, 10, 16, -8][i % 4], pan_y=[6, -5, 3, -6][i % 4]))
+# (no page drift: owner 16 Nov 2026 — life comes from what happens IN the scene and how one scene becomes the next)
+next(e for e in W if e['id'] == 'camera')['props'].update(drift=.25)
 
 E['world'] = W
 # v2 SCORE (owner picks; samples on Drive fathom/_music_choices): a mystery bed for the question and the clues, a warmer one from the
 # moment the inner core is found to the end; the score rises under the title card, at each chapter breath and under the end card
 MU = '../studio/music/'
-SCORE = [(MU + 'wonder_lightless_dawn.wav', H(0), 0, -23), (MU + 'tension_unwritten_return.wav', L(60, -1), 0, -23)]
-E['music'] = {'cues': [{'file': f, 'at': at, 'start': st, 'db': db} for f, at, st, db in SCORE], 'xfade': 5,
+SCORE = [(MU + 'wonder_long_note_one.wav', H(0), 7, -22),            # the hook and the cold story: vast, slow (owner's pick 7)
+         (MU + 'warm_leaving_home.wav', L(11, -1.6), 12, -23),       # Clue I, Cavendish: warm piano (owner's pick 5)
+         (MU + 'wonder_lightless_dawn.wav', L(23, -1.6), 8, -23),    # Clues II–III, the waves: mystery (owner's pick 1)
+         (MU + 'wonder_dreams_become_real.wav', L(48, -1.6), 0, -23),  # Clue IV, the ghost: delicate
+         (MU + 'journey_of_hope.wav', L(60, -.5), 0, -24),           # the answer: the inner core is found
+         (MU + 'wonder_long_note_one.wav', L(75, -1.6), 7, -22)]     # what it means and the closing: the opening theme returns (bookend)
+E['music'] = {'cues': [{'file': f, 'at': at, 'start': st, 'db': db + 14} for f, at, st, db in SCORE], 'xfade': 4, 'norm': -18,
               'swells': [['L4$', 'L5', 7], ['L15$', 'L16', 3], ['L27$', 'L28', 3], ['L39$', 'L40', 3], ['L52$', 'L53', 3], ['L80$', 'end', 7]]}
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
 E['thumb'] = {'t': 434, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom', 'side': 'left'}

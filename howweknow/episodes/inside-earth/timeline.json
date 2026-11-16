@@ -1,12 +1,12 @@
 {
  "slug": "inside-earth",
- "duration": 507.289,
+ "duration": 562.96,
  "lines": [
   {
    "i": 0,
-   "text": "In 1970, on a frozen peninsula in the far north of Russia, Soviet engineers began to drill a hole straight down.",
+   "text": "Deep beneath your feet, more than five thousand kilometres down, there is a ball of iron as hot as the surface of the Sun.",
    "start": 1.0,
-   "dur": 8.859,
+   "dur": 7.845,
    "sfx": [
     {
      "at": 2.0,
@@ -17,37 +17,37 @@
   },
   {
    "i": 1,
-   "text": "The hole was narrower than a dinner plate, and they kept drilling for almost twenty years.",
-   "start": 10.759,
-   "dur": 5.0,
+   "text": "No one has ever seen it. No one has ever touched it.",
+   "start": 9.545,
+   "dur": 2.924,
    "sfx": []
   },
   {
    "i": 2,
-   "text": "The deeper they went, the hotter the rock became, until it behaved more like plastic than stone, and the drill could go no further.",
-   "start": 16.659,
-   "dur": 8.242,
+   "text": "And yet we know how big it is, how hot it is, and what it is made of.",
+   "start": 13.168,
+   "dur": 4.397,
    "sfx": []
   },
   {
    "i": 3,
-   "text": "The hole was meant to reach the boundary beneath the Earth's crust. It never even came close.",
-   "start": 25.801,
-   "dur": 5.577,
+   "text": "How can we possibly know?",
+   "start": 18.265,
+   "dur": 1.63,
    "sfx": []
   },
   {
    "i": 4,
-   "text": "Final depth: a little over twelve kilometres. The deepest hole ever dug.",
-   "start": 32.277,
-   "dur": 4.946,
+   "text": "The answer is one of the great detective stories of science, pieced together by people who never left the surface.",
+   "start": 20.595,
+   "dur": 6.952,
    "sfx": []
   },
   {
    "i": 5,
-   "text": "And yet, on the scale of the whole planet, it is barely a scratch.",
-   "start": 38.123,
-   "dur": 3.82,
+   "text": "The story begins in 1970, on a frozen peninsula in the far north of Russia, where Soviet engineers began to drill a hole straight down.",
+   "start": 33.947,
+   "dur": 10.494,
    "sfx": [
     {
      "at": 1.0,
@@ -63,30 +63,30 @@
   },
   {
    "i": 6,
-   "text": "The centre of the Earth lies more than six thousand kilometres below our feet.",
-   "start": 42.843,
-   "dur": 4.475,
+   "text": "The hole was narrower than a dinner plate, and they kept drilling for almost twenty years.",
+   "start": 45.34,
+   "dur": 5.0,
    "sfx": []
   },
   {
    "i": 7,
-   "text": "No one has ever been there. No one ever will. So how do we know what is down there?",
-   "start": 48.218,
-   "dur": 4.712,
+   "text": "The deeper they went, the hotter the rock became, until it behaved more like plastic than stone, and the drill could go no further.",
+   "start": 51.24,
+   "dur": 8.242,
    "sfx": []
   },
   {
    "i": 8,
-   "text": "We cannot dig to it, we cannot see through it, and we cannot send a probe down into it.",
-   "start": 53.631,
-   "dur": 5.189,
+   "text": "The hole was meant to reach the boundary beneath the Earth's crust. It never even came close.",
+   "start": 60.382,
+   "dur": 5.577,
    "sfx": []
   },
   {
    "i": 9,
-   "text": "Yet today we can draw the inside of the Earth layer by layer: a thin crust, a thick mantle, an ocean of liquid metal\u2026 and at the centre, a solid ball as hot as the surface of the Sun.",
-   "start": 59.519,
-   "dur": 13.183,
+   "text": "Final depth: a little over twelve kilometres. The deepest hole ever dug.",
+   "start": 66.859,
+   "dur": 4.946,
    "sfx": [
     {
      "at": 0.2,
@@ -97,135 +97,135 @@
   },
   {
    "i": 10,
-   "text": "That picture came from four clues \u2014 and the most important of them came from the planet's worst moments.",
-   "start": 73.402,
-   "dur": 6.285,
+   "text": "And yet, on the scale of the whole planet, it is barely a scratch.",
+   "start": 72.705,
+   "dur": 3.82,
    "sfx": []
   },
   {
    "i": 11,
-   "text": "Our first clue is a weight.",
-   "start": 80.387,
-   "dur": 1.593,
+   "text": "The centre of the Earth lies more than six thousand kilometres below our feet.",
+   "start": 77.425,
+   "dur": 4.475,
    "sfx": []
   },
   {
    "i": 12,
-   "text": "In 1798, in an outbuilding at his house in London, Henry Cavendish set out to weigh the world.",
-   "start": 82.68,
-   "dur": 7.602,
+   "text": "No one has ever been there, and no one ever will.",
+   "start": 82.8,
+   "dur": 2.705,
    "sfx": []
   },
   {
    "i": 13,
-   "text": "Not with a scale \u2014 you cannot put a planet on a scale \u2014 but by measuring how strongly lead attracts lead.",
-   "start": 90.982,
-   "dur": 6.506,
+   "text": "We cannot dig to it, we cannot see through it, and we cannot send a probe down into it.",
+   "start": 86.204,
+   "dur": 5.189,
    "sfx": []
   },
   {
    "i": 14,
-   "text": "Inside, he hung a rod from a fine wire, with a small lead ball at each end, and set two heavy lead balls close beside them.",
-   "start": 98.188,
-   "dur": 8.056,
+   "text": "Yet today we can draw the inside of the Earth layer by layer: a thin crust, a thick mantle, an ocean of liquid metal\u2026 and at the centre, a solid ball as hot as the surface of the Sun.",
+   "start": 92.093,
+   "dur": 13.183,
    "sfx": []
   },
   {
    "i": 15,
-   "text": "To keep his own warmth from stirring the air, he watched from outside, through a telescope.",
-   "start": 106.944,
-   "dur": 5.372,
+   "text": "That picture came from four clues \u2014 and the most important of them came from the planet's worst moments.",
+   "start": 105.976,
+   "dur": 6.285,
    "sfx": []
   },
   {
    "i": 16,
-   "text": "The heavy balls pulled on the small ones \u2014 gently, almost nothing \u2014 and the rod turned by a hair.",
-   "start": 113.016,
-   "dur": 5.909,
+   "text": "Our first clue is a weight.",
+   "start": 114.061,
+   "dur": 1.593,
    "sfx": []
   },
   {
    "i": 17,
-   "text": "From that tiny turn, he worked out how strongly the whole Earth pulls\u2026 and so how heavy it must be.",
-   "start": 119.625,
-   "dur": 6.17,
+   "text": "In 1798, in an outbuilding at his house in London, Henry Cavendish set out to weigh the world.",
+   "start": 116.354,
+   "dur": 7.602,
    "sfx": []
   },
   {
    "i": 18,
-   "text": "The answer was strange. On average, the Earth was about five and a half times as dense as water.",
-   "start": 126.495,
-   "dur": 6.084,
+   "text": "Not with a scale \u2014 you cannot put a planet on a scale \u2014 but by measuring how strongly lead attracts lead.",
+   "start": 124.656,
+   "dur": 6.506,
    "sfx": []
   },
   {
    "i": 19,
-   "text": "But the rocks under our feet are only about half that dense.",
-   "start": 133.279,
-   "dur": 3.571,
+   "text": "Inside, he hung a rod from a fine wire, with a small lead ball at each end, and set two heavy lead balls close beside them.",
+   "start": 131.862,
+   "dur": 8.056,
    "sfx": []
   },
   {
    "i": 20,
-   "text": "So something deep inside had to be far heavier than rock.",
-   "start": 137.55,
-   "dur": 3.69,
+   "text": "To keep his own warmth from stirring the air, he watched from outside, through a telescope.",
+   "start": 140.618,
+   "dur": 5.372,
    "sfx": []
   },
   {
    "i": 21,
-   "text": "In the 1890s, the German scientist Emil Wiechert suggested what it was: iron, like the iron meteorites that fall from the sky.",
-   "start": 141.94,
-   "dur": 10.49,
+   "text": "The heavy balls pulled on the small ones \u2014 gently, almost nothing \u2014 and the rod turned by a hair.",
+   "start": 146.689,
+   "dur": 5.909,
    "sfx": []
   },
   {
    "i": 22,
-   "text": "A heavy heart of metal. But it was only a guess. Nobody could look inside.",
-   "start": 153.13,
-   "dur": 4.727,
+   "text": "From that tiny turn, he worked out how strongly the whole Earth pulls\u2026 and so how heavy it must be.",
+   "start": 153.298,
+   "dur": 6.17,
    "sfx": []
   },
   {
    "i": 23,
-   "text": "Clue two: the planet rings.",
-   "start": 158.557,
-   "dur": 1.881,
+   "text": "The answer was strange. On average, the Earth was about five and a half times as dense as water.",
+   "start": 160.168,
+   "dur": 6.084,
    "sfx": []
   },
   {
    "i": 24,
-   "text": "When a great earthquake strikes, it sends waves through the whole Earth, the way a struck bell sends sound through its metal.",
-   "start": 161.138,
-   "dur": 7.306,
+   "text": "But the rocks under our feet are only about half that dense.",
+   "start": 166.952,
+   "dur": 3.571,
    "sfx": []
   },
   {
    "i": 25,
-   "text": "Some waves push and squeeze, like sound. Others shake from side to side, like a rope being flicked.",
-   "start": 169.143,
-   "dur": 6.321,
+   "text": "So something deep inside had to be far heavier than rock.",
+   "start": 171.224,
+   "dur": 3.69,
    "sfx": []
   },
   {
    "i": 26,
-   "text": "And their speed depends on what they pass through: faster in hard, dense rock, slower in softer or hotter material.",
-   "start": 176.164,
-   "dur": 7.513,
+   "text": "In the 1890s, the German scientist Emil Wiechert suggested what it was: iron, like the iron meteorites that fall from the sky.",
+   "start": 175.614,
+   "dur": 10.49,
    "sfx": []
   },
   {
    "i": 27,
-   "text": "By 1900, observatories around the world had seismographs: needles that drew every tremor on a turning drum of paper.",
-   "start": 184.377,
-   "dur": 8.327,
+   "text": "A heavy heart of metal. But it was only a guess. Nobody could look inside.",
+   "start": 186.804,
+   "dur": 4.727,
    "sfx": []
   },
   {
    "i": 28,
-   "text": "Each earthquake became a message, written in ink in many cities at once \u2014 but only for someone who could read it.",
-   "start": 193.404,
-   "dur": 6.871,
+   "text": "Clue two: the planet rings.",
+   "start": 193.331,
+   "dur": 1.881,
    "sfx": [
     {
      "at": 1.2,
@@ -236,9 +236,9 @@
   },
   {
    "i": 29,
-   "text": "In 1897, a huge earthquake shook Assam, in north-eastern India.",
-   "start": 200.975,
-   "dur": 6.349,
+   "text": "When a great earthquake strikes, it sends waves through the whole Earth, the way a struck bell sends sound through its metal.",
+   "start": 195.911,
+   "dur": 7.306,
    "sfx": [
     {
      "at": 1.6,
@@ -249,23 +249,23 @@
   },
   {
    "i": 30,
-   "text": "Richard Dixon Oldham, of the Geological Survey of India, collected the records of its waves from stations around the globe.",
-   "start": 208.024,
-   "dur": 8.431,
+   "text": "Some waves push and squeeze, like sound. Others shake from side to side, like a rope being flicked.",
+   "start": 203.917,
+   "dur": 6.321,
    "sfx": []
   },
   {
    "i": 31,
-   "text": "Waves that crossed near the surface arrived on time. But waves that dived deep through the middle of the Earth came in late.",
-   "start": 217.155,
-   "dur": 7.506,
+   "text": "And their speed depends on what they pass through: faster in hard, dense rock, slower in softer or hotter material.",
+   "start": 210.938,
+   "dur": 7.513,
    "sfx": []
   },
   {
    "i": 32,
-   "text": "Like runners who hit mud in the middle of a race, they had passed through something different.",
-   "start": 225.361,
-   "dur": 4.874,
+   "text": "By 1900, observatories around the world had seismographs: needles that drew every tremor on a turning drum of paper.",
+   "start": 219.151,
+   "dur": 8.327,
    "sfx": [
     {
      "at": 4.5,
@@ -276,16 +276,16 @@
   },
   {
    "i": 33,
-   "text": "Something in the centre was slowing them down.",
-   "start": 230.935,
-   "dur": 2.489,
+   "text": "Each earthquake became a message, written in ink in many cities at once \u2014 but only for someone who could read it.",
+   "start": 228.178,
+   "dur": 6.871,
    "sfx": []
   },
   {
    "i": 34,
-   "text": "In 1906, Oldham published his conclusion: the Earth has a core.",
-   "start": 234.124,
-   "dur": 5.135,
+   "text": "In 1897, a huge earthquake shook Assam, in north-eastern India.",
+   "start": 235.749,
+   "dur": 6.349,
    "sfx": [
     {
      "at": 2.6,
@@ -296,44 +296,44 @@
   },
   {
    "i": 35,
-   "text": "Clue three: a wave that goes missing.",
-   "start": 239.959,
-   "dur": 2.545,
+   "text": "Richard Dixon Oldham, of the Geological Survey of India, collected the records of its waves from stations around the globe.",
+   "start": 242.798,
+   "dur": 8.431,
    "sfx": []
   },
   {
    "i": 36,
-   "text": "In 1909, an earthquake struck near Zagreb, and the Croatian scientist Andrija Mohorovi\u010di\u0107 noticed that its waves arrived twice.",
-   "start": 243.204,
-   "dur": 10.272,
+   "text": "Waves that crossed near the surface arrived on time. But waves that dived deep through the middle of the Earth came in late.",
+   "start": 251.929,
+   "dur": 7.506,
    "sfx": []
   },
   {
    "i": 37,
-   "text": "Some came straight through the crust. But others dived a little deeper, into faster rock, and raced ahead.",
-   "start": 254.176,
-   "dur": 6.561,
+   "text": "Like runners who hit mud in the middle of a race, they had passed through something different.",
+   "start": 260.135,
+   "dur": 4.874,
    "sfx": []
   },
   {
    "i": 38,
-   "text": "He had found the bottom of the crust \u2014 only a few tens of kilometres down. Today it carries his name: the Moho.",
-   "start": 261.437,
-   "dur": 7.002,
+   "text": "Something in the centre was slowing them down.",
+   "start": 265.709,
+   "dur": 2.489,
    "sfx": []
   },
   {
    "i": 39,
-   "text": "Beneath that thin skin lies the mantle: hot, solid rock that slowly creeps, like very thick honey.",
-   "start": 269.138,
-   "dur": 6.785,
+   "text": "In 1906, Oldham published his conclusion: the Earth has a core.",
+   "start": 268.898,
+   "dur": 5.135,
    "sfx": []
   },
   {
    "i": 40,
-   "text": "In 1914, Beno Gutenberg measured where the core begins: about two thousand nine hundred kilometres down.",
-   "start": 276.624,
-   "dur": 8.366,
+   "text": "Clue three: a wave that goes missing.",
+   "start": 275.833,
+   "dur": 2.545,
    "sfx": [
     {
      "at": 0,
@@ -344,114 +344,114 @@
   },
   {
    "i": 41,
-   "text": "Then seismologists noticed something stranger. The side-to-side waves never came through the core at all.",
-   "start": 285.689,
-   "dur": 6.37,
+   "text": "In 1909, an earthquake struck near Zagreb, and the Croatian scientist Andrija Mohorovi\u010di\u0107 noticed that its waves arrived twice.",
+   "start": 279.078,
+   "dur": 10.272,
    "sfx": []
   },
   {
    "i": 42,
-   "text": "Those waves can travel through solids, but never through liquids.",
-   "start": 292.76,
-   "dur": 4.054,
+   "text": "Some came straight through the crust. But others dived a little deeper, into faster rock, and raced ahead.",
+   "start": 290.05,
+   "dur": 6.561,
    "sfx": []
   },
   {
    "i": 43,
-   "text": "So the core was liquid: an ocean of molten iron, thousands of kilometres deep.",
-   "start": 297.514,
-   "dur": 5.45,
+   "text": "He had found the bottom of the crust \u2014 only a few tens of kilometres down. Today it carries his name: the Moho.",
+   "start": 297.31,
+   "dur": 7.002,
    "sfx": []
   },
   {
    "i": 44,
-   "text": "And a liquid core, bending the waves like a lens, casts a shadow.",
-   "start": 303.664,
-   "dur": 4.056,
+   "text": "Beneath that thin skin lies the mantle: hot, solid rock that slowly creeps, like very thick honey.",
+   "start": 305.012,
+   "dur": 6.785,
    "sfx": []
   },
   {
    "i": 45,
-   "text": "Waves bend whenever they enter a new material, just as a straw seems to bend in a glass of water.",
-   "start": 308.42,
-   "dur": 6.44,
+   "text": "In 1914, Beno Gutenberg measured where the core begins: about two thousand nine hundred kilometres down.",
+   "start": 312.497,
+   "dur": 8.366,
    "sfx": []
   },
   {
    "i": 46,
-   "text": "On the far side of the planet from an earthquake, there is a ring where the main waves should never arrive.",
-   "start": 315.559,
-   "dur": 6.012,
+   "text": "Then seismologists noticed something stranger. The side-to-side waves never came through the core at all.",
+   "start": 321.563,
+   "dur": 6.37,
    "sfx": []
   },
   {
    "i": 47,
-   "text": "But they did. Faint, ghostly ones. And nobody could explain them.",
-   "start": 322.272,
-   "dur": 4.337,
+   "text": "Those waves can travel through solids, but never through liquids.",
+   "start": 328.633,
+   "dur": 4.054,
    "sfx": []
   },
   {
    "i": 48,
-   "text": "Clue four: a ghost in the shadow.",
-   "start": 327.308,
-   "dur": 2.086,
+   "text": "So the core was liquid: an ocean of molten iron, thousands of kilometres deep.",
+   "start": 333.387,
+   "dur": 5.45,
    "sfx": []
   },
   {
    "i": 49,
-   "text": "In Copenhagen, Inge Lehmann led the seismology department of Denmark's Geodetic Institute.",
-   "start": 330.094,
-   "dur": 6.807,
+   "text": "And a liquid core, bending the waves like a lens, casts a shadow.",
+   "start": 339.537,
+   "dur": 4.056,
    "sfx": []
   },
   {
    "i": 50,
-   "text": "She was a patient, exact reader of squiggles on paper.",
-   "start": 337.601,
-   "dur": 3.705,
+   "text": "Waves bend whenever they enter a new material, just as a straw seems to bend in a glass of water.",
+   "start": 344.293,
+   "dur": 6.44,
    "sfx": []
   },
   {
    "i": 51,
-   "text": "In 1929, a strong earthquake struck Buller, on New Zealand's South Island \u2014 on the far side of the world from Europe.",
-   "start": 342.006,
-   "dur": 8.626,
+   "text": "On the far side of the planet from an earthquake, there is a ring where the main waves should never arrive.",
+   "start": 351.433,
+   "dur": 6.012,
    "sfx": []
   },
   {
    "i": 52,
-   "text": "Its waves crossed the whole planet, and stations in Europe recorded them.",
-   "start": 351.331,
-   "dur": 4.369,
+   "text": "But they did. Faint, ghostly ones. And nobody could explain them.",
+   "start": 358.145,
+   "dur": 4.337,
    "sfx": []
   },
   {
    "i": 53,
-   "text": "Lehmann studied the records. In the shadow zone, where nothing should arrive, faint waves had arrived.",
-   "start": 356.401,
-   "dur": 6.366,
+   "text": "Clue four: a ghost in the shadow.",
+   "start": 364.282,
+   "dur": 2.086,
    "sfx": []
   },
   {
    "i": 54,
-   "text": "Others called them noise, or waves that had bent around the edge of the core.",
-   "start": 363.467,
-   "dur": 4.507,
+   "text": "In Copenhagen, Inge Lehmann led the seismology department of Denmark's Geodetic Institute.",
+   "start": 367.068,
+   "dur": 6.807,
    "sfx": []
   },
   {
    "i": 55,
-   "text": "Lehmann tried another idea. Was the liquid core really liquid all the way through?",
-   "start": 368.674,
-   "dur": 4.811,
+   "text": "She was a patient, exact reader of squiggles on paper.",
+   "start": 374.575,
+   "dur": 3.705,
    "sfx": []
   },
   {
    "i": 56,
-   "text": "Suppose a smaller, solid ball sat at the very centre. It would catch those waves, bend them, and throw them into the shadow \u2014 exactly where they were seen.",
-   "start": 374.185,
-   "dur": 9.875,
+   "text": "In 1929, a strong earthquake struck Buller, on New Zealand's South Island \u2014 on the far side of the world from Europe.",
+   "start": 378.979,
+   "dur": 8.626,
    "sfx": [
     {
      "at": 3.6,
@@ -462,107 +462,107 @@
   },
   {
    "i": 57,
-   "text": "She worked it out with pencil and paper, and kept her data on cards in old oatmeal boxes.",
-   "start": 384.76,
-   "dur": 5.821,
+   "text": "Its waves crossed the whole planet, and stations in Europe recorded them.",
+   "start": 388.305,
+   "dur": 4.369,
    "sfx": []
   },
   {
    "i": 58,
-   "text": "In 1936, at forty-eight, she published it. The title of her paper was a single symbol: P-prime.",
-   "start": 391.282,
-   "dur": 7.519,
+   "text": "Lehmann studied the records. In the shadow zone, where nothing should arrive, faint waves had arrived.",
+   "start": 393.374,
+   "dur": 6.366,
    "sfx": []
   },
   {
    "i": 59,
-   "text": "Her idea was so simple it was easy to doubt. But within a few years, the leading seismologists had accepted it.",
-   "start": 399.501,
-   "dur": 7.664,
+   "text": "Others called them noise, or waves that had bent around the edge of the core.",
+   "start": 400.441,
+   "dur": 4.507,
    "sfx": []
   },
   {
    "i": 60,
-   "text": "The Earth had an inner core.",
-   "start": 407.865,
-   "dur": 1.466,
+   "text": "Lehmann tried another idea. Was the liquid core really liquid all the way through?",
+   "start": 405.648,
+   "dur": 4.811,
    "sfx": []
   },
   {
    "i": 61,
-   "text": "Today we know that inner core is a ball of solid iron and nickel, about two thousand four hundred kilometres across.",
-   "start": 410.231,
-   "dur": 7.12,
+   "text": "Suppose a smaller, solid ball sat at the very centre. It would catch those waves, bend them, and throw them into the shadow \u2014 exactly where they were seen.",
+   "start": 411.159,
+   "dur": 9.875,
    "sfx": []
   },
   {
    "i": 62,
-   "text": "It is about as hot as the surface of the Sun \u2014 and yet it is solid, squeezed by the weight of the whole planet above it.",
-   "start": 418.251,
-   "dur": 7.393,
+   "text": "She worked it out with pencil and paper, and kept her data on cards in old oatmeal boxes.",
+   "start": 421.734,
+   "dur": 5.821,
    "sfx": []
   },
   {
    "i": 63,
-   "text": "Its heat is left over partly from the planet's birth, and partly made by radioactive atoms still decaying deep inside.",
-   "start": 426.544,
-   "dur": 7.891,
+   "text": "In 1936, at forty-eight, she published it. The title of her paper was a single symbol: P-prime.",
+   "start": 428.256,
+   "dur": 7.519,
    "sfx": []
   },
   {
    "i": 64,
-   "text": "Around it, the liquid iron of the outer core keeps moving, and that motion makes the Earth's magnetic field.",
-   "start": 435.335,
-   "dur": 6.545,
+   "text": "Her idea was so simple it was easy to doubt. But within a few years, the leading seismologists had accepted it.",
+   "start": 436.474,
+   "dur": 7.664,
    "sfx": []
   },
   {
    "i": 65,
-   "text": "The same field that turns a compass needle, and shields our air from the wind of the Sun.",
-   "start": 442.78,
-   "dur": 4.961,
+   "text": "The Earth had an inner core.",
+   "start": 444.838,
+   "dur": 1.466,
    "sfx": []
   },
   {
    "i": 66,
-   "text": "The deepest place on our planet was found not by going there\u2026 but by listening.",
-   "start": 448.641,
-   "dur": 4.785,
+   "text": "Today we know that inner core is a ball of solid iron and nickel, about two thousand four hundred kilometres across.",
+   "start": 447.205,
+   "dur": 7.12,
    "sfx": []
   },
   {
    "i": 67,
-   "text": "And by a woman who kept working for decades after that discovery, and lived to be one hundred and four.",
-   "start": 454.326,
-   "dur": 6.19,
+   "text": "It is about as hot as the surface of the Sun \u2014 and yet it is solid, squeezed by the weight of the whole planet above it.",
+   "start": 455.225,
+   "dur": 7.393,
    "sfx": []
   },
   {
    "i": 68,
-   "text": "So \u2014 how do we know what is inside the Earth?",
-   "start": 461.217,
-   "dur": 2.529,
+   "text": "Its heat is left over partly from the planet's birth, and partly made by radioactive atoms still decaying deep inside.",
+   "start": 463.517,
+   "dur": 7.891,
    "sfx": []
   },
   {
    "i": 69,
-   "text": "Its weight told us the middle is heavy. Its echoes told us there is a core.",
-   "start": 464.446,
-   "dur": 4.231,
+   "text": "Around it, the liquid iron of the outer core keeps moving, and that motion makes the Earth's magnetic field.",
+   "start": 472.309,
+   "dur": 6.545,
    "sfx": []
   },
   {
    "i": 70,
-   "text": "A missing wave told us the core is liquid. And a ghost in the shadow told us that, at the very centre, it turns solid again.",
-   "start": 469.377,
-   "dur": 8.219,
+   "text": "The same field that turns a compass needle, and shields our air from the wind of the Sun.",
+   "start": 479.754,
+   "dur": 4.961,
    "sfx": []
   },
   {
    "i": 71,
-   "text": "Every big earthquake is still a lesson. Thousands of seismometers listen, and each wave adds a little more to the map.",
-   "start": 478.495,
-   "dur": 7.498,
+   "text": "The deepest place on our planet was found not by going there\u2026 but by listening.",
+   "start": 485.614,
+   "dur": 4.785,
    "sfx": [
     {
      "at": 1.8,
@@ -573,23 +573,65 @@
   },
   {
    "i": 72,
-   "text": "The same trick now works on other worlds: a quake felt on another planet can reveal its heart too.",
-   "start": 486.893,
-   "dur": 5.931,
+   "text": "And by a woman who kept working for decades after that discovery, and lived to be one hundred and four.",
+   "start": 491.3,
+   "dur": 6.19,
    "sfx": []
   },
   {
    "i": 73,
-   "text": "We will never stand at the centre of the Earth.",
-   "start": 493.724,
-   "dur": 2.575,
+   "text": "So \u2014 how do we know what is inside the Earth?",
+   "start": 499.29,
+   "dur": 2.529,
    "sfx": []
   },
   {
    "i": 74,
+   "text": "Its weight told us the middle is heavy. Its echoes told us there is a core.",
+   "start": 502.52,
+   "dur": 4.231,
+   "sfx": []
+  },
+  {
+   "i": 75,
+   "text": "A missing wave told us the core is liquid. And a ghost in the shadow told us that, at the very centre, it turns solid again.",
+   "start": 507.45,
+   "dur": 8.219,
+   "sfx": []
+  },
+  {
+   "i": 76,
+   "text": "Every big earthquake is still a lesson. Thousands of seismometers listen, and each wave adds a little more to the map.",
+   "start": 517.469,
+   "dur": 7.498,
+   "sfx": []
+  },
+  {
+   "i": 77,
+   "text": "The same trick now works on other worlds: a quake felt on another planet can reveal its heart too.",
+   "start": 525.867,
+   "dur": 5.931,
+   "sfx": []
+  },
+  {
+   "i": 78,
+   "text": "We will never stand at the centre of the Earth.",
+   "start": 532.697,
+   "dur": 2.575,
+   "sfx": []
+  },
+  {
+   "i": 79,
    "text": "But we know its shape, its heat and its metal \u2014 because the planet keeps talking, and someone learned to listen.",
-   "start": 497.198,
+   "start": 536.172,
    "dur": 6.491,
+   "sfx": []
+  },
+  {
+   "i": 80,
+   "text": "So the next time you stand on solid ground, remember what lies beneath you: an ocean of liquid iron, and at its heart, a ball of solid metal as hot as the Sun.",
+   "start": 544.463,
+   "dur": 10.997,
    "sfx": []
   }
  ]

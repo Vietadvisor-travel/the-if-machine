@@ -87,7 +87,7 @@ export const EndCard: React.FC<{ k?: number; ask?: string; next?: string; flicke
 // The EPISODE title card (owner 16 Nov 2026: the opening belongs to the film's content, not the channel): a large engraved gold dial
 // (the same ring as the planet it replaces — a match) with the episode's question written inside, a short line under it, the channel
 // name only as a small kicker.  {k, title (use \n for two lines), sub?, kicker?, x=960, y=540, r=430}
-export const TitleCard: React.FC<{ k?: number; title?: string; sub?: string; kicker?: string; x?: number; y?: number; r?: number }> = ({ k = 1, title = '', sub, kicker = BRAND.name, x = 960, y = 540, r = 430 }) => {
+export const TitleCard: React.FC<{ k?: number; title?: string; sub?: string; kicker?: string; x?: number; y?: number; r?: number; textA?: number }> = ({ k = 1, title = '', sub, kicker = BRAND.name, x = 960, y = 540, r = 430, textA = 1 }) => {   // textA: the words fade while the dial stays (it travels on and becomes the next scene's moon)
   const ring = seg(k, 0, .45), ticks = seg(k, .1, .5), tl = seg(k, .3, .75), rule = seg(k, .55, .8), sb = seg(k, .7, .95), kc = seg(k, .2, .5);
   const lines = title.split('\n'), fs = lines.length > 1 ? 104 : 96;
   return <g>
@@ -97,11 +97,11 @@ export const TitleCard: React.FC<{ k?: number; title?: string; sub?: string; kic
     <circle cx={x} cy={y} r={r - 13} fill="none" stroke={SEP} strokeWidth={1.4} pathLength={1} strokeDasharray={`${ring} 1`} transform={`rotate(-90 ${x} ${y})`} />
     {Array.from({ length: 120 }, (_, i) => { const a = i / 120 * Math.PI * 2, L = i % 10 ? 9 : 20; if (i / 120 > ticks) return null;
       return <line key={i} x1={x + Math.sin(a) * (r - 13)} y1={y - Math.cos(a) * (r - 13)} x2={x + Math.sin(a) * (r - 13 - L)} y2={y - Math.cos(a) * (r - 13 - L)} stroke={SEP} strokeWidth={i % 10 ? .9 : 1.6} opacity={.75} />; })}
-    <text x={x} y={y - 150} textAnchor="middle" fontFamily="IM Fell English SC" fontSize={30} letterSpacing={10} fill="#8C3424" opacity={kc}>{kicker}</text>
+    <g opacity={textA}><text x={x} y={y - 150} textAnchor="middle" fontFamily="IM Fell English SC" fontSize={30} letterSpacing={10} fill="#8C3424" opacity={kc}>{kicker}</text>
     {lines.map((ln, i) => { const q = seg(tl, i * .35, i * .35 + .65), yy = y - 30 + (i - (lines.length - 1) / 2) * fs * 1.05 + (lines.length > 1 ? 30 : 0);
       return <text key={i} x={x} y={yy + (1 - q) * 14} textAnchor="middle" fontFamily="IM Fell English" fontStyle="italic" fontSize={fs} fill={SEP} opacity={q}
         style={{ filter: q < .98 ? `blur(${(1 - q) * 5}px)` : undefined }}>{ln}</text>; })}
     <Rule x={x} y={y + 120} w={420} k={rule} />
-    {sub && <text x={x} y={y + 178} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={36} fill={SEP} opacity={sb}>{sub}</text>}
+    {sub && <text x={x} y={y + 178} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={36} fill={SEP} opacity={sb}>{sub}</text>}</g>
   </g>;
 };

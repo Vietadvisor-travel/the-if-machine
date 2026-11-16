@@ -2,7 +2,7 @@
 """FATHOM soundtrack: placed voice + the music score (ducked under the voice) + a few sound effects → −16 LUFS.
   python3 tools/mix.py episodes/<slug>   → episodes/<slug>/build/mix.wav
 music (episode.json) is either ONE bed {file, db, start} (looped when short) or, v4 (owner 16 Nov 2026: "1 vài nhạc xuyên suốt"), a SCORE:
-  {"cues": [{"file", "at": "L0" | seconds, "start": s-in-file, "db": -22}, …], "xfade": 4, "swells": [["L3$", "L4", 7], …]}
+  {"cues": [{"file", "at": "L0" | seconds, "start": s-in-file, "db": -22}, …], "xfade": 4, "norm": -18 (LUFS each cue is levelled to; db then relative), "swells": [["L3$", "L4", 7], …]}
   each cue plays from `at` until the next cue begins (crossfaded over xfade s; a cue shorter than its span loops);
   swells lift the score by +dB between two time refs (the ident, a chapter breath, the end card), with 1.5 s ramps."""
 import json, os, re, subprocess, sys
@@ -28,7 +28,8 @@ if cues:
         a, b = starts[j], starts[j + 1]; a0 = max(0, a - (X / 2 if j else 0)); b1 = min(dur, b + (X / 2 if j + 1 < len(cues) else 0)); span = b1 - a0
         inp += ['-stream_loop', '-1', '-ss', str(c.get('start', 0)), '-i', c['file']]
         fin = f'afade=t=in:d={X if j else 1.5}' ; fout = f'afade=t=out:st={span - (X if j + 1 < len(cues) else 3)}:d={X if j + 1 < len(cues) else 3}'
-        flt.append(f'[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{span:.3f},{fin},{fout},volume={c.get("db", -22)}dB,adelay={int(a0 * 1000)}|{int(a0 * 1000)}[c{j}]'); parts.append(f'[c{j}]'); n += 1
+        nrm = f"loudnorm=I={M['norm']}:LRA=9:TP=-2," if M.get('norm') else ''   # v4: every cue brought to one loudness first, then `db` is relative to it
+        flt.append(f'[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{span:.3f},{nrm}{fin},{fout},volume={c.get("db", -22)}dB,adelay={int(a0 * 1000)}|{int(a0 * 1000)}[c{j}]'); parts.append(f'[c{j}]'); n += 1
     sw = [(tref(a), tref(b), g) for a, b, g in M.get('swells', [])]
     if sw:   # piecewise gain (dB → linear) with 1.5 s ramps
         terms = '+'.join(f'{10 ** (g / 20) - 1:.4f}*clip(min((t-{a - 1.5:.2f})/1.5,({b + 1.5:.2f}-t)/1.5),0,1)' for a, b, g in sw)

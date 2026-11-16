@@ -177,8 +177,14 @@ def emphasis_phonemes(text, lang='en-us'):
         EMPH_AT.append((len(res), len(res) + len(e), len(res) + v0, len(res) + max(v1, v0 + 1))); res += e; last = b
     return res + out[last:].replace('ˈ', 'ˌ')
 
+def blend(voice):   # 'am_santa*.6+bm_george*.4' → a mixed Kokoro voice style (FATHOM narrator, 16 Nov 2026); a plain name stays a name
+    if not isinstance(voice, str) or '+' not in voice and '*' not in voice: return voice
+    K = kokoro(); out = None
+    for part in voice.split('+'):
+        n, w = (part.split('*') + ['1'])[:2]; v = K.get_voice_style(n.strip()) * float(w); out = v if out is None else out + v
+    return out
 def tts(text, voice, speed=1.0):
-    if (voice or '').startswith('supertonic:'):
+    if isinstance(voice, str) and voice.startswith('supertonic:'):
         T = supertonic(); name = voice.split(':', 1)[1]; key = 'st_' + name
         if key not in _ST: _ST[key] = T.get_voice_style(voice_name=name)
         wav, _ = T.synthesize(speakable(text), voice_style=_ST[key], total_steps=int(os.environ.get('PP_SUPERTONIC_STEPS', 8)), speed=max(.7, min(2., speed)), lang='en')
@@ -186,8 +192,8 @@ def tts(text, voice, speed=1.0):
         a = np.abs(s); thr = max(1e-3, a.max() * .02); idx = np.where(a > thr)[0]
         if len(idx): s = s[max(0, idx[0] - int(sr * .03)): idx[-1] + int(sr * .08)]
         return s, sr
-    lang = 'en-gb' if voice.startswith('b') else 'en-us'
-    K = kokoro(); LAST_MARKS.clear()
+    lang = 'en-gb' if isinstance(voice, str) and voice.startswith('b') else 'en-us'
+    K = kokoro(); LAST_MARKS.clear(); voice = blend(voice)
     ph = emphasis_phonemes(text, lang) if '*' in text else None
     if ph is None and K.has_timings: ph = K.tokenizer.phonemize(speakable(text.replace('*', '')), lang); EMPH_AT.clear()
     tim = []
