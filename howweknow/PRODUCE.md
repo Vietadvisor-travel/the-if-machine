@@ -13,7 +13,7 @@ Commands run from `howweknow/` unless shown.
 
 ## 1. Stock
 `bash tools/sync.sh <slug>` → `public/stock/<slug>/` (+ core). Map the order ids in `lines.py` STOCK to the real file names; pick the ONE music bed
-(`python3 tools/music.py <mood>` lists Muse's beds first) → `music` in `lines.py`'s write() call. Note every credit for the delivery note.
+(`python3 tools/music.py <mood>` — the studio library, CC BY 4.0; Muse no longer sources music or sfx) → `music` in `lines.py`'s write() call. Note every credit for the delivery note.
 
 ## 2. Draw the film's own world (the heart of the job)
 - Every name in the plan's `NEW` column is a component in `src/lib/<slug>/index.tsx` (copy `src/lib/_template/`): real construction from
