@@ -235,3 +235,40 @@ CC BY-SA 3.0 IGO), Breuval et al. 2025 Fig. 7 full, Harvard women computers 1890
 1925 (1925 is CC BY-SA 4.0), heliometer second angle, Hooker mount/vertical/gears
 (CC BY-SA), Kapteyn plate holder (CC BY-SA 4.0), Bessel's study daguerreotype (CC0),
 Leavitt 1912 Figs. 1-2, Hevelius Cygnus plate.
+
+
+## longitude (2026-11-16) - "How do you know where you are on the open sea?" (31 of 32 rows delivered)
+Drive `_hwk/longitude/`: 51 main files + manifest.json, plus `_proof/<id>.png` (one proof card per delivered file, 68 cards), `_ref/` (16 reference files), `_alt/` (1 alternate file). Miss: V-02 (H4/H1 mechanism footage - every video is CC BY-SA or an unlisted licence). S-01 is partial (winding key missing; Freesound CDN fully 403 on 2026-11-16). D-03 is a declared substitute (Maskelyne 1767; CUDL 403). M-01 is a declared substitute (BnF Sorlingues chart; the Collins 1693 pilot has no dedicated Scilly plate).
+
+Attribution required (CC BY) - use these exact credit lines in the film credits:
+
+- P-08 (Flamsteed House) + P-08-x2 (Flamsteed House 2023): CC BY 4.0
+  https://commons.wikimedia.org/wiki/File:Flamsteed_House,_Royal_Observatory,_Greenwich,_London,_20260719_0921_4494.jpg
+- P-08-x1 (prime meridian line): ell brown, CC BY 2.0
+  https://www.flickr.com/photos/ell-r-brown/8128269574/
+- S-01-waves-1 (ocean waves crushing): CC BY 3.0
+  https://commons.wikimedia.org/wiki/File:Oceanwavescrushing.ogg
+- U-01 tracks 1-3 (music beds: Clear Air, Dreams Become Real, Canon autoharp): Kevin MacLeod, CC BY 4.0
+  https://incompetech.com/music/royalty-free/music.html
+
+Public domain / CC0 (no attribution required, credits recorded in the manifest):
+H1-H4 + H1 three-quarter view + H4 top-plate (Gould, The Marine Chronometer, 1923),
+Kendall's K1 1769, Harrison portrait (Thomas King, 1767), Bishop Rock postcard,
+Shovell portrait, Maskelyne portrait (Rijksmuseum, CC0), Sisson 1735 Hadley octant,
+Longitude Act 1714 p. 256 + prize-clause crop, Nautical Almanac 1767 February
+lunar-distance tables, Maskelyne 1767 H4 trial (title page + going table + Jamaica
+appendix), Cook 1777 vol. 2 pp. 269-270, Daily Courant 28 Oct 1707 (front p. 1 + p. 2)
++ Shovell wreck engraving (RMG), Sorlingues Scilly chart (BnF) + British Channel chart
+(Mountaine & Page), Moll West Indies chart (CC0, NYPL), Harper world map on Mercator's
+projection, rough sea at Dover 1896 (Birt Acres / Robert W. Paul), GNSS fleet animation
+(NASA SVS 5627), creaking wood (casket + swivel chair, PD), bell ring (CC0), watch tick
+(CC0), wind + clock + sea takes (Freesound core library, CC0), H4 trial figures +
+Scilly wreck positions (compiled, verified), exact wordings (transcribed, cited),
+places (compiled, verified).
+Reference only (never shown): Dragon/Superb 1760 plan (RMG, PD), Three admirals (PD),
+H4 + K1 modern photos (CC BY-SA 3.0 / 2.0), Deptford 1732 plans J3469/J3470 (RMG, PD),
+Captain Cooke portrait (RMG, PD), Barrow Market Cross (Geograph, CC BY-SA 2.0),
+Williamsburg carpenter shop + LACMA carpenter's tool (Flickr, CC BY 2.0), marine
+chronometer boxes (CC0 / CC BY 2.0), traverse board (CC BY-SA 3.0), Admiralty Whitehall
+1760 (Cunego, PD) + Admiralty 1794 draughtsman (Chawner, PD) + Ripley Building
+staircase (CC BY-SA 4.0), Maskelyne full sheet (Rijksmuseum, CC0).

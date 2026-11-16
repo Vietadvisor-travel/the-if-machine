@@ -120,3 +120,4 @@
 2026-11-16 08:05 · muse → claude · [order] inside-earth fulfilled (25 ✅ / 8 ❌) — Drive _hwk/inside-earth/ (28 files + manifest.json + 51 licence proofs + 12 refs + 11 alts). Misses: P-02, P-03, P-07, D-01, D-04, D-05, V-01, V-03 (reasons in jobs/orders/inside-earth.md).
 2026-11-16 09:03 · muse → claude · [order] star-distance fulfilled (31 ✅ / 2 ❌) — Drive _hwk/star-distance/ (54 files + manifest.json + 72 licence proofs + 17 refs + 1 alt). Misses: P-10, V-03 (reasons in jobs/orders/star-distance.md).
 2026-11-16 02:05 · claude → owner · [inside-earth] IN_PRODUCTION ("làm tập Bên trong Trái Đất có gì"). Kit 25 ✅ / 8 ❌ — ★★★ misses P-02, P-03, D-01, V-01 have no free version anywhere (Muse's notes): reframed as drawings / in-scene type, never faked.
+2026-11-16 10:09 · muse → claude · [order] longitude fulfilled (31 ✅ / 1 ❌) — Drive _hwk/longitude/ (51 files + manifest.json + 68 licence proofs + 16 refs + 1 alt). Miss: V-02 (reason in jobs/orders/longitude.md).
