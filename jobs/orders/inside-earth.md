@@ -1,44 +1,45 @@
 # Resource order — inside-earth · "What is inside the Earth?" · Claude → Muse · 2026-11-15
 Contract: jobs/tasks/MUSE_FATHOM.md (categories, licences, naming, manifest, proofs). Research: jobs/research/inside-earth.md. Drive: `_hwk/inside-earth/`.
+Fulfilled 2026-11-16 by Muse: 25 ✅ / 8 ❌ (33 rows). Drive _hwk/inside-earth/ (28 main + 51 proofs + 12 refs + 11 alts + manifest.json). Misses: P-02, P-03, P-07, D-01, D-04, D-05, V-01, V-03. Note: _hwk/inside-earth/ also holds one stray scratch file, 07861996_page_numbers.json (11 KB, IA page-number data, not in the manifest); pp_drive has no delete command.
 ★★★ the film needs it · ★★ strongly wanted · ★ nice to have. `part` = where in the story (hook · C1–C4 = clues · twist · end); script line numbers follow in Round 2.
 EVERY drawing in this film is made new from your **R (reference)** rows — dig them generously (3–8 views each, dimensions/materials/colours when known).
 Muse fills the last two columns.
 
 | id | ★ | category | exactly what | part | how it will be used | ✅/❌ | file · licence · credit (or what was tried) |
 |---|---|---|---|---|---|---|---|
-| P-01 | ★★★ | photo | Inge Lehmann portraits (Royal Danish Library, Niels Bohr Inst.; PD/CC BY), young and old; at her desk if exists | C4 | cabinet card + real reveal | | |
-| P-02 | ★★★ | photo | Lehmann's seismograms / her note cards (the famous oatmeal-box card file) — Danish archives | C4 | DocumentPage / Loupe | | |
-| P-03 | ★★★ | photo | Kola Superdeep Borehole site: the rig building, the welded cap on the hole (CC BY/PD) | hook | pinned plate | | |
-| P-04 | ★★ | photo | A drill core from Kola or any deep drilling (core boxes) — CC BY | hook | plate | | |
-| P-05 | ★★ | photo | Richard Dixon Oldham portrait (PD) | C2 | small plate | | |
-| P-06 | ★★ | photo | Andrija Mohorovičić portrait + Zagreb observatory (PD) | C3 | small plate | | |
-| P-07 | ★★ | photo | Beno Gutenberg portrait (Caltech, PD if available) | C3 | small plate | | |
-| P-08 | ★★ | photo | Henry Cavendish portrait (PD) + his torsion balance drawing from the 1798 paper | C1 | cabinet card | | |
-| P-09 | ★★ | photo | 1897 Assam earthquake damage photos (Oldham's memoir plates, PD) | C2 | pinned plate | | |
-| P-10 | ★★ | photo | 1929 Murchison (Buller) earthquake, New Zealand — landslide/damage photos (NZ archives, PD/CC BY) | C4 | pinned plate | | |
-| P-11 | ★★ | photo | Early seismograph instruments: Milne, Wiechert (Göttingen) — museum photos | C2 | reference + plate | | |
-| D-01 | ★★★ | document | Lehmann 1936, "P′", Publications du Bureau Central Séismologique International — the title page (the one-character title!) + the diagram page | C4 | DocumentPage, the title circled | | |
-| D-02 | ★★ | document | Oldham 1906, QJGS "The constitution of the interior of the earth as revealed by earthquakes" — first page + the travel-time figure | C2 | DocumentPage | | |
-| D-03 | ★★ | document | Cavendish 1798, Phil. Trans. "Experiments to determine the density of the earth" — the page with 5.48 + the apparatus plate | C1 | DocumentPage, the number circled | | |
-| D-04 | ★ | document | Mohorovičić 1910 paper first page | C3 | page | | |
-| D-05 | ★★ | document | A real seismogram record (paper drum trace) from the 1920s–30s, PD | C2–C4 | Loupe over the squiggles | | |
-| M-01 | ★★ | map | World map of seismograph stations c. 1930 or the ISS bulletin station list map | C4 | map with the stations that heard 1929 | | |
-| V-01 | ★★★ | footage | A drum seismograph recording an earthquake (USGS PD footage) | C2 | footage in an eyepiece / period screen | | |
-| V-02 | ★★ | footage | Volcanic lava (USGS HVO PD), slow and calm | end | footage pinned | | |
-| V-03 | ★ | footage | Kola borehole site (archival or modern) PD/CC BY | hook | screen | | |
-| A-01 | ★★ | audio | Sonified earthquake recordings (USGS / IRIS "earthquake sounds", PD/CC BY) | C2 | the sound of the planet ringing | | |
-| S-01 | ★★ | sfx | deep rumble · drill · paper drum scratching (pen on seismograph) · page turn · card file | all | few | | |
-| U-01 | ★★★ | music | 3 beds: deep, slow, mysterious-warm (low strings, piano, soft pads) | all | ONE bed | | |
-| R-01 | ★★★ | reference | Lehmann's home office/observatory in Copenhagen (1930s), her clothes and hairstyle in the 1930s | C4 | to DRAW Lehmann and her room | | |
-| R-02 | ★★★ | reference | Wiechert/Galitzin seismographs, smoked-paper drums, 1920s–30s | C2–C4 | to draw the instrument | | |
-| R-03 | ★★★ | reference | Earth interior cutaways from old books (19th–20th c.) for period flavour | C1–C4 | drawing style reference | | |
-| R-04 | ★★ | reference | Kola SG-3 drilling rig and building, drill bits | hook | to draw the rig | | |
-| R-05 | ★★ | reference | Cavendish torsion balance (the shed, the lead balls, the telescope readings) | C1 | to draw the experiment | | |
-| R-06 | ★★ | reference | Oldham in India (Geological Survey of India, 1890s costume, Shillong) | C2 | to draw Oldham | | |
-| X-01 | ★★★ | data | P and S wave travel-time curves (Jeffreys–Bullen tables or IASP91), PREM density/velocity vs depth | C2–C4 | diagrams at true proportion | | |
-| X-02 | ★★ | data | Depths: crust (Moho) range, mantle–core 2,890 km, inner core 5,150 km; Kola 12,262 m | all | true-scale cutaway | | |
-| T-01 | ★ | text | Lehmann quotes in the original (Danish/English) with source; her paper's first sentence | C4 | plate caption | | |
-| G-01 | ★★ | geo | 1929 Murchison epicentre; European stations that recorded it (Copenhagen etc.); 1897 Assam; 1909 Kulpa valley; Kola SG-3 | all | pins + rays on the globe | | |
+| P-01 | ★★★ | photo | Inge Lehmann portraits (Royal Danish Library, Niels Bohr Inst.; PD/CC BY), young and old; at her desk if exists | C4 | cabinet card + real reveal | ✅ | P-01_inge-lehmann-portrait-pd.jpg, PD (Even Neuhaus). Young portrait (1932, signed) is _ref/R-01-x1. |
+| P-02 | ★★★ | photo | Lehmann's seismograms / her note cards (the famous oatmeal-box card file) — Danish archives | C4 | DocumentPage / Loupe | ❌ | No PD/CC photo of her seismograms or the oatmeal-box card file exists. Searched Commons, IA, Danish National Archives (materials held there, not digitised), Linda Hall. Closest: _ref/D-01-x4 (Lehmann 1936 Fig. 6, the Buller P' records) + the 31 May 1932 letter quotes in T-01. |
+| P-03 | ★★★ | photo | Kola Superdeep Borehole site: the rig building, the welded cap on the hole (CC BY/PD) | hook | pinned plate | ❌ | All Commons Kola site photos are CC BY-SA 3.0/4.0; no PD/CC photo of the rig or the welded cap. Closest for drawing: _ref/R-04-x1 (museum geological section, CC0). |
+| P-04 | ★★ | photo | A drill core from Kola or any deep drilling (core boxes) — CC BY | hook | plate | ✅ | P-04_drill-core-box-dpla-pd.jpg, PD (DPLA). Not Kola specifically (Sentinel Project core drill rig); the row allows any deep drilling core. |
+| P-05 | ★★ | photo | Richard Dixon Oldham portrait (PD) | C2 | small plate | ✅ | P-05_richard-oldham-frontispiece-1899-pd.jpg, PD (Oldham 1899 memoir, IA memoirsofgeologi29geol). |
+| P-06 | ★★ | photo | Andrija Mohorovičić portrait + Zagreb observatory (PD) | C3 | small plate | ✅ | P-06_mohorovicic-portrait-pd.gif, PD (200x269, the only PD portrait). Sharper stamp portrait _alt/P-06-x1. Zagreb observatory photos are all CC BY-SA. |
+| P-07 | ★★ | photo | Beno Gutenberg portrait (Caltech, PD if available) | C3 | small plate | ❌ | Only Commons portrait is CC BY-SA 3.0 (100x137); Gutenberg-Richter photo also CC BY-SA 3.0; Caltech Archives photos are copyright. No PD portrait. |
+| P-08 | ★★ | photo | Henry Cavendish portrait (PD) + his torsion balance drawing from the 1798 paper | C1 | cabinet card | ✅ | P-08_henry-cavendish-aquatint-wellcome-ccby.jpg, CC BY 4.0 (Wellcome). Torsion balance drawing: D-03 plate (main) + _ref/R-05-x1 diagram. |
+| P-09 | ★★ | photo | 1897 Assam earthquake damage photos (Oldham's memoir plates, PD) | C2 | pinned plate | ✅ | P-09-x1 (plate 11) + P-09-x2 (plate 42), PD (Oldham 1899 memoir). |
+| P-10 | ★★ | photo | 1929 Murchison (Buller) earthquake, New Zealand — landslide/damage photos (NZ archives, PD/CC BY) | C4 | pinned plate | ✅ | P-10_nelson-college-murchison-1929-pd.jpg, PD. |
+| P-11 | ★★ | photo | Early seismograph instruments: Milne, Wiechert (Göttingen) — museum photos | C2 | reference + plate | ✅ | P-11_milne-seismograph-tokyo-cc0.jpg, CC0 (Daderot). Wiechert instrument: no PD/CC photo (Gottingen images CC BY-SA); _ref/R-02-x1 portrait + R-02-x2 Milne bust. |
+| D-01 | ★★★ | document | Lehmann 1936, "P′", Publications du Bureau Central Séismologique International — the title page (the one-character title!) + the diagram page | C4 | DocumentPage, the title circled | ❌ | Paper under copyright (Lehmann d. 1993); no PD/free scan exists (IA 0). Refs: _ref/D-01-x2 (shadow-zone diagram), x3 (Fig. 1), x4 (Fig. 6, Buller records), x5 (title page) via Linda Hall. First two sentences transcribed in T-01. |
+| D-02 | ★★ | document | Oldham 1906, QJGS "The constitution of the interior of the earth as revealed by earthquakes" — first page + the travel-time figure | C2 | DocumentPage | ✅ | D-02_oldham-1906-first-page-p456.jpg + D-02_oldham-1906-fig1-timecurves-p462.jpg, PD (IA oldham-1906-quarterlyjournal-62190geol). Fig. 2 _alt/D-02-x1. |
+| D-03 | ★★ | document | Cavendish 1798, Phil. Trans. "Experiments to determine the density of the earth" — the page with 5.48 + the apparatus plate | C1 | DocumentPage, the number circled | ✅ | D-03_cavendish-1798-first-page-p469.jpg + D-03_cavendish-1798-density-548-p522.jpg + D-03_cavendish-1798-plate-xxiii-fig1-complete.jpg, PD (IA philtrans07861996). Halves + Figs. 2-9 in _alt/D-03-x1..x5. |
+| D-04 | ★ | document | Mohorovičić 1910 paper first page | C3 | page | ❌ | The 1910 original (German/Croatian) was not found scanned anywhere (IA 0; Hrcak 418 to bots; geofizika-journal.gfz.hr dead). The 1992 English translation is _ref/D-04-x1 (53 pp., Geofizika 9, copyrighted, reference only); first page verified. Key passage quoted from LITHOSPHERE 2010. |
+| D-05 | ★★ | document | A real seismogram record (paper drum trace) from the 1920s–30s, PD | C2–C4 | Loupe over the squiggles | ❌ | No 1920s-30s paper drum seismogram in an allowed licence (Commons 1906 SF file is a modern processed plot; Potsdam records CC BY-SA). Alt: _alt/D-05-x1 (Mururoa 1995 paper record, PD) + _ref/D-01-x4 (Buller 1929 traces). |
+| M-01 | ★★ | map | World map of seismograph stations c. 1930 or the ISS bulletin station list map | C4 | map with the stations that heard 1929 | ✅ | M-01_gsn-stations-map-pd.jpg, PD (SUBSTITUTE: modern GSN map, 120 IU+II stations plotted from the official EarthScope station list on NASA Blue Marble 2002; no c. 1930/ISS map exists in an allowed licence; Commons GSN maps are CC BY-SA, USGS PD map is JS-gated). Station CSV _alt/M-01-x1. |
+| V-01 | ★★★ | footage | A drum seismograph recording an earthquake (USGS PD footage) | C2 | footage in an eyepiece / period screen | ❌ | No USGS PD drum-seismograph footage found (Commons: only a modern IRIS explainer animation + Mars/nodal items; IA 'Volcano.Seismograph' has no licence metadata). Alt: _alt/V-01-x1 (IRIS 'How Does a Seismometer Work?', CC BY 3.0). |
+| V-02 | ★★ | footage | Volcanic lava (USGS HVO PD), slow and calm | end | footage pinned | ✅ | V-02_kilauea-fissure20-overflight-pd.mp4, PD (USGS HVO), 33.5 s, best 00:06-00:33 (title card 0-5 s). Spattering _alt/V-02-x1. |
+| V-03 | ★ | footage | Kola borehole site (archival or modern) PD/CC BY | hook | screen | ❌ | Commons video: only Deepwater Horizon fire (PD, irrelevant) and Hermosa exploratory drilling (CC BY-SA). No Kola footage. |
+| A-01 | ★★ | audio | Sonified earthquake recordings (USGS / IRIS "earthquake sounds", PD/CC BY) | C2 | the sound of the planet ringing | ✅ | A-01_sumatra-2004-anmo-sonified-iris.wav, EarthScope open data. Real sonification by Muse from IU ANMO BHZ, 26 Dec 2004, 12 h, 21.6 s (2000x speedup). Best 00:00-00:08. |
+| S-01 | ★★ | sfx | deep rumble · drill · paper drum scratching (pen on seismograph) · page turn · card file | all | few | ✅ | 3 takes: S-01_drill-take1-pd.wav (PD), S-01_paper-take1-pd.wav (PD), S-01_page-turn-take1-core-cc0.wav (CC0). Deep rumble NOT found (Commons rumbles CC BY-SA; Freesound blocked from this VM). No card-file sound exists. |
+| U-01 | ★★★ | music | 3 beds: deep, slow, mysterious-warm (low strings, piano, soft pads) | all | ONE bed | ✅ | 3 Kevin MacLeod beds, CC BY 4.0 (MP3, as in the core library): Ossuary 6 - Air (mystery), Ossuary 1 - A Beginning (wonder), Meditation Impromptu 02 (warm, loopable). |
+| R-01 | ★★★ | reference | Lehmann's home office/observatory in Copenhagen (1930s), her clothes and hairstyle in the 1930s | C4 | to DRAW Lehmann and her room | ✅ | _ref/R-01-x1 (young Lehmann 1932, Linda Hall) + R-01-x2 (Holmen 1931 plan, PD). No photo of her home office/observatory found; the Holmen plan is period Copenhagen context, not her institute. |
+| R-02 | ★★★ | reference | Wiechert/Galitzin seismographs, smoked-paper drums, 1920s–30s | C2–C4 | to draw the instrument | ✅ | _ref/R-02-x1 (Wiechert portrait, PD) + R-02-x2 (Milne bust, CC0). No PD/CC photo of a Wiechert seismograph itself (Gottingen images CC BY-SA); P-11 covers the Milne instrument. |
+| R-03 | ★★★ | reference | Earth interior cutaways from old books (19th–20th c.) for period flavour | C1–C4 | drawing style reference | ✅ | _ref/R-03-x1 (Emslie 1852, PD, 5520x4452). |
+| R-04 | ★★ | reference | Kola SG-3 drilling rig and building, drill bits | hook | to draw the rig | ✅ | _ref/R-04-x1 (Kola geological section, museum display, CC0). No PD/CC rig photos (see P-03); drill bits not found. |
+| R-05 | ★★ | reference | Cavendish torsion balance (the shed, the lead balls, the telescope readings) | C1 | to draw the experiment | ✅ | _ref/R-05-x1 (Cavendish diagram, PD) + D-03 plate (main). |
+| R-06 | ★★ | reference | Oldham in India (Geological Survey of India, 1890s costume, Shillong) | C2 | to draw Oldham | ✅ | P-05 frontispiece + P-09 memoir plates (Oldham in India, 1890s). No separate costume/Shillong photos; the memoir plates are the reference. |
+| X-01 | ★★★ | data | P and S wave travel-time curves (Jeffreys–Bullen tables or IASP91), PREM density/velocity vs depth | C2–C4 | diagrams at true proportion | ✅ | X-01_iasp91-travel-times.csv + X-01_prem-velocity-density.csv (TauP 3.2.1, IASP91 + PREM). P ends at 95 deg in IASP91; Pdiff 826.8 s at 100 deg; PKIKP from 115 deg. |
+| X-02 | ★★ | data | Depths: crust (Moho) range, mantle–core 2,890 km, inner core 5,150 km; Kola 12,262 m | all | true-scale cutaway | ✅ | X-02_depths.csv (10 rows). |
+| T-01 | ★ | text | Lehmann quotes in the original (Danish/English) with source; her paper's first sentence | C4 | plate caption | ✅ | T-01_lehmann-quotes.md (1936 paper first sentences, 31 May 1932 letter to Jeffreys, Groes oatmeal-boxes recollection; all transcribed from verified images). |
+| G-01 | ★★ | geo | 1929 Murchison epicentre; European stations that recorded it (Copenhagen etc.); 1897 Assam; 1909 Kulpa valley; Kola SG-3 | all | pins + rays on the globe | ✅ | G-01_inside-earth-places.csv (7 places, verified via Wikipedia API). |
 
 ## Standing items for every film
 - U: 3 candidate music beds as listed (calm, no vocals, no ticking percussion, ≥ 4 min or loopable; WAV/FLAC, BPM + mood). One will be used, quiet under the voice.

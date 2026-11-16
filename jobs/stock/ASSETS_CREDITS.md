@@ -175,3 +175,31 @@ Ussher engraving (Rijksmuseum, CC0), Canyon Diablo meteorite (Motekov, CC0),
 Agpalilik slice (CC0), Darwin study 1930, Faraday lectures, Caltech 1944 map,
 Faculty Club 1923, uraninite specimen, SFX quill/page/clock (Freesound CC0).
 Reference only (never shown): Patterson with equipment (Caltech Archives, copyrighted).
+
+## inside-earth (2026-11-16) - "What is inside the Earth?" (25 of 33 rows delivered)
+Drive `_hwk/inside-earth/`: 28 main files + manifest.json, plus `_proof/<id>.png` (one proof card per delivered file, 51 cards), `_ref/` (12 reference files), `_alt/` (11 alternate/neighbour files). Misses: P-02, P-03, P-07, D-01, D-04, D-05, V-01, V-03 (reasons in the order file).
+
+Attribution required (CC BY) - use these exact credit lines in the film credits:
+
+- P-08 (Henry Cavendish aquatint): Wellcome Collection, CC BY 4.0
+  https://commons.wikimedia.org/wiki/File:Henry_Cavendish._Aquatint_by_C._Rosenberg_after_W._Alexander_Wellcome_V0001039.jpg
+- V-01-x1 (IRIS "How Does a Seismometer Work?", B-roll only): IRIS, CC BY 3.0
+  https://commons.wikimedia.org/wiki/File:How_Does_a_Seismometer_Work%3F.webm
+- U-01 tracks 1-3 (music beds): Kevin MacLeod, CC BY 4.0
+  https://incompetech.com/music/royalty-free/music.html
+- A-01 (Sumatra 2004 sonification): waveform data EarthScope Consortium (IRIS DMC); sonification by Muse
+  https://service.iris.edu/fdsnws/dataselect/1/query?net=IU&sta=ANMO&loc=00&cha=BHZ&starttime=2004-12-26T00:58:53&endtime=2004-12-26T12:58:53&format=geocsv
+
+Public domain / CC0 (no attribution required, credits recorded in the manifest):
+Lehmann portrait (Even Neuhaus), Oldham frontispiece + Assam memoir plates 11 and 42 (1899),
+Mohorovicic portrait + stamp portrait, Nelson College after Murchison 1929, Milne seismograph
+(Daderot, CC0), Oldham 1906 first page + Fig. 1 + Fig. 2, Cavendish 1798 first page + p. 522
++ Tab. XXIII, Mururoa 1995 seismogram, GSN station map (plotted from EarthScope data on
+NASA Blue Marble 2002), Kilauea fissure 20 overflight + spattering (USGS HVO), drill + paper
+sounds (Wikimedia Commons), page turn (trundlefly, CC0), IASP91 travel times + PREM profile
+(TauP 3.2.1), depths + places (compiled, verified), Lehmann quotes (transcribed, cited),
+Holmen 1931 plan, Wiechert portrait, Milne bust (Daderot, CC0), Emslie 1852 map,
+Kola geological section (CC0), Cavendish experiment diagram.
+Reference only (never shown): young Lehmann 1932 (Linda Hall), Lehmann 1936 title page +
+Fig. 1 + Fig. 6 + shadow-zone diagram (Linda Hall; paper under copyright), Mohorovicic 1910
+English translation 1992 (Geofizika 9, copyrighted).
