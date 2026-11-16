@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+"""v5 shot-plan gate (STORY.md §7).  python3 tools/plan_check.py episodes/<slug>   — only for films with "standard": 5."""
+import json, re, sys
+from collections import Counter
+ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); L = E['lines']
+if E.get('standard', 4) < 5: print(f'plan_check {E["slug"]}: standard {E.get("standard", 4)} film — skipped'); sys.exit(0)
+KINDS = set(re.findall(r'`([a-z-]+)`', open('FX.md').read().split('## H. BECOMES')[1])) | {'ink-on'}
+err = []; hows = []
+for i, l in enumerate(L):
+    for f in ('reads', 'focus', 'becomes', 'acts'):
+        if not l.get(f): err.append(f'L{i}: no `{f}`')
+    b = l.get('becomes') or {}; h = b.get('how'); hows.append(h)
+    if h and h not in KINDS: err.append(f'L{i}: becomes.how "{h}" is not in FX.md §H (add the row first)')
+    if b and not (b.get('from') and b.get('to')) and h != 'ink-on': err.append(f'L{i}: becomes needs from and to')
+    if i and h and h == hows[i - 1] and h != 'ink-on': err.append(f'L{i}: "{h}" twice running')
+    acts = sorted(a[0] for a in l.get('acts') or []); words = len(l['text'].split()); d = words / 2.35
+    for a, b2 in zip([0] + acts, acts + [d]):
+        if b2 - a > 2.6: err.append(f'L{i}: nothing happens for {b2 - a:.1f} s (acts at {acts}, line ≈ {d:.1f} s)'); break
+c = Counter(h for h in hows if h); n = len(L)
+if len([k for k in c if k != 'ink-on']) < 14: err.append(f'only {len(c)} kinds of becoming (≥ 14): {dict(c)}')
+for k, v in c.items():
+    if v > n * (.15 if k == 'ink-on' else .12) + 1: err.append(f'"{k}" on {v} of {n} lines (too many)')
+print(f'plan_check {E["slug"]}: {n} lines · {len(c)} kinds of becoming'); [print('  ERROR', e) for e in err[:40]]
+print('PASS' if not err else 'FAIL'); sys.exit(1 if err else 0)

@@ -12,10 +12,10 @@ out = f'{ep}/build'; os.makedirs(out, exist_ok=True)
 t, lines, parts = E.get('lead', .8), [], []
 for i, L in enumerate(E['lines']):
     if i: t += L.get('gap', .45)
-    vv, sp, pt = E.get('voice', 'af_heart'), E.get('speed', .92), E.get('pitch', 1.0); key = hashlib.md5((f"{L['text']}|{vv}|{sp}" + (f"|{pt}" if pt != 1.0 else "")).encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
+    vv, sp, pt = E.get('voice', 'af_heart'), E.get('speed', .92), E.get('pitch', 1.0); key = hashlib.md5((f"{L['text']}|{vv}|{sp}" + (f"|{pt}" if pt != 1.0 else "") + ("" if E.get("stress") else "|plain")).encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
     if os.path.exists(cf): s, sr = sf.read(cf, dtype='float32')
     else:
-        s, sr = V.tts(L['text'], vv, sp)[:2]; os.makedirs(f'{out}/cache', exist_ok=True); sf.write(cf, s, sr)
+        s, sr = V.tts(L['text'] if E.get('stress') else L['text'].replace('*', ''), vv, sp)[:2]; os.makedirs   # owner 17 Nov 2026: a plain, natural read — the *stress* drawl is off unless episode.json says "stress": true(f'{out}/cache', exist_ok=True); sf.write(cf, s, sr)
         if pt != 1.0:   # a deeper narrator (owner 16 Nov 2026): pitch down with the formants kept, same length
             import subprocess; tmp = cf + '.raw.wav'; os.replace(cf, tmp)
             subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', tmp, '-af', f'rubberband=pitch={pt}:formant=preserved', '-ar', str(SR), '-ac', '1', cf], check=True); os.remove(tmp)

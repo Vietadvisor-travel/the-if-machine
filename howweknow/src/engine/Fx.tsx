@@ -10,10 +10,16 @@
 //                     dissolveAt [x,y] = it spreads from that point · dissolveDir right|left|up|down = it sweeps that way · dissolveGrain (noise scale, default 1)
 //     blur (px) — focus pull: a thing comes into focus / falls out of it (keep short; never on a long held zoomed layer)
 //     glowfx 0..1 — a warm bloom of light over the element (a revelation, heat)
+//   v5 (owner 17 Nov 2026: many more ways for one thing to become the next):
+//     clipForm — the element is seen THROUGH a shape (an SVG path in screen px) and that shape MORPHS between keys (flubber):
+//                a keyhole that becomes a window that becomes the whole frame; the next scene seen through the outline of the last thing
+//     pour 0..1 — it fills up like liquid rising in a glass (a wavy level; pourDir up|down)
+//     brush 0..1 — it is painted in with five broad strokes of a brush, one after another
+//     wobble (px) — heat haze / seen through water: the drawing ripples (short moments only)
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { Props } from './state';
-const KEYS = ['fx_box', 'fx_x', 'fx_y', 'fx_s', 'fx_r', 'wipe', 'iris', 'unroll', 'blinds', 'tear', 'flipX', 'flipY', 'lift', 'sway', 'bob', 'tremble', 'breathe', 'sepia', 'dim', 'dissolve', 'blur', 'glowfx'];
+const KEYS = ['fx_box', 'fx_x', 'fx_y', 'fx_s', 'fx_r', 'wipe', 'iris', 'unroll', 'blinds', 'tear', 'flipX', 'flipY', 'lift', 'sway', 'bob', 'tremble', 'breathe', 'sepia', 'dim', 'dissolve', 'blur', 'glowfx', 'clipForm', 'pour', 'brush', 'wobble'];
 export const hasFx = (s: Props) => KEYS.some(k => k !== 'fx_box' && s[k] !== undefined);
 export const FX_KEYS = KEYS;
 const W0 = 1920, H0 = 1080;
@@ -59,12 +65,21 @@ export const Fx: React.FC<{ s: Props; t: number; seed: number; uid?: string; chi
   if (s.unroll !== undefined && s.unroll < 1) clip = `polygon(${R(-B, -B, B, by + bh * Math.max(0, s.unroll))})`;
   if (s.blinds !== undefined && s.blinds < 1) { const n = 10, st = bh / n, pts: string[] = []; for (let i = 0; i < n; i++) { const a = by + i * st, b = a + Math.max(0, s.blinds) * st; pts.push(`${-B}px ${a}px, ${B}px ${a}px, ${B}px ${b}px, ${-B}px ${b}px, ${-B}px ${a}px`); } clip = `polygon(evenodd, ${pts.join(', ')})`; }
   if (s.tear !== undefined && s.tear < 1) { const w = bx + bw * (s.tear * 1.1 - .05), pts = [`${-B}px ${-B}px`, `${w}px ${-B}px`]; for (let i = 0; i <= 20; i++) pts.push(`${w + (Math.sin(i * 2.7 + seed) * .016 + (i % 2 ? .012 : -.012)) * bw}px ${by + bh * i / 20}px`); pts.push(`${w}px ${B}px`, `${-B}px ${B}px`); clip = `polygon(${pts.join(', ')})`; }
+  if (s.clipForm) clip = `path('${s.clipForm}')`;
+  if (s.pour !== undefined && s.pour < 1) { const up = s.pourDir !== 'down', lv = up ? by + bh * (1 - Math.max(0, s.pour)) : by + bh * Math.max(0, s.pour), pts: string[] = [];
+    for (let i = 0; i <= 24; i++) pts.push(`${bx - 60 + (bw + 120) * i / 24}px ${lv + Math.sin(i * 1.1 + t * 3.2) * 12 * Math.sin(Math.PI * Math.min(1, Math.max(0, s.pour)))}px`);
+    clip = `polygon(${pts.join(', ')}, ${B}px ${up ? B : -B}px, ${-B}px ${up ? B : -B}px)`; }
+  if (s.brush !== undefined && s.brush < 1) { const n = 5, k = Math.max(0, s.brush), sh = bh / n, d: string[] = [];
+    for (let i = 0; i < n; i++) { const q = Math.max(0, Math.min(1, k * (n + 1.5) / 2.5 - i * .4)); if (q <= 0) continue; const y0 = by + i * sh - 14, y1 = y0 + sh + 28, x0 = i % 2 ? bx + bw + 80 - (bw + 160) * q : bx - 80, x1 = i % 2 ? bx + bw + 80 : bx - 80 + (bw + 160) * q, e = i % 2 ? x0 : x1, sg = i % 2 ? -1 : 1;
+      d.push(`M${i % 2 ? x1 : x0} ${y0} L${e} ${y0 + 6} Q${e + sg * 46} ${y0 + sh * .3} ${e + sg * 18} ${y0 + sh * .55} Q${e + sg * 52} ${y0 + sh * .8} ${e} ${y1 - 4} L${i % 2 ? x1 : x0} ${y1} Z`); }
+    clip = d.length ? `path('${d.join(' ')}')` : 'circle(0px at 0px 0px)'; }
   const dis = s.dissolve !== undefined && s.dissolve < .999 && s.dissolve > .001, fid = 'dz_' + (uid || seed).toString().replace(/[^\w-]/g, '_');
   if (s.dissolve !== undefined && s.dissolve <= .001) return null;
-  const filt = [dis ? `url(#${fid})` : '', s.blur > .05 ? `blur(${s.blur}px)` : '', s.sepia ? `sepia(${s.sepia}) saturate(${1 - s.sepia * .6})` : '', s.dim ? `brightness(${1 - s.dim * .55})` : '',
+  const wob = s.wobble > .2, wid = fid + 'w';
+  const filt = [dis ? `url(#${fid})` : '', wob ? `url(#${wid})` : '', s.blur > .05 ? `blur(${s.blur}px)` : '', s.sepia ? `sepia(${s.sepia}) saturate(${1 - s.sepia * .6})` : '', s.dim ? `brightness(${1 - s.dim * .55})` : '',
     s.glowfx > .01 ? `brightness(${1 + s.glowfx * .18}) drop-shadow(0 0 ${18 * s.glowfx}px rgba(247,214,140,${.75 * s.glowfx}))` : '', s.lift ? `drop-shadow(0 ${s.lift * .6}px ${s.lift * .5}px rgba(0,0,0,.35))` : ''].filter(Boolean).join(' ') || undefined;
   const body = <AbsoluteFill style={{ transform: tf, transformOrigin: `${ox}px ${oy}px`, clipPath: clip }}>{children}</AbsoluteFill>;
   // a filter only ever sees the frame (1920×1080): a huge drawing (a planet at 0.5 px/km is 7,000 px wide) must never be blurred or
   // dissolved off-screen — that is what made Chrome allocate gigabytes and hang (16 Nov 2026)
-  return filt ? <AbsoluteFill style={{ overflow: 'hidden', contain: 'strict' }}><AbsoluteFill style={{ filter: filt, overflow: 'hidden' }}>{dis && <Dissolve id={fid} s={s} seed={s.dissolveSeed ?? seed} />}{body}</AbsoluteFill></AbsoluteFill> : body;
+  return filt ? <AbsoluteFill style={{ overflow: 'hidden', contain: 'strict' }}><AbsoluteFill style={{ filter: filt, overflow: 'hidden' }}>{dis && <Dissolve id={fid} s={s} seed={s.dissolveSeed ?? seed} />}{wob && <svg width={0} height={0} style={{ position: 'absolute' }}><defs><filter id={wid} x={0} y={0} width={W0} height={H0} filterUnits="userSpaceOnUse"><feTurbulence type="fractalNoise" baseFrequency={`0.006 ${0.02 + 0.004 * Math.sin(t * 1.7)}`} numOctaves={2} seed={Math.floor(t * 8) % 5 + seed} result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale={s.wobble} xChannelSelector="R" yChannelSelector="G" /></filter></defs></svg>}{body}</AbsoluteFill></AbsoluteFill> : body;
 };

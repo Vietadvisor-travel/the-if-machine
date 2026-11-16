@@ -13,14 +13,14 @@ const isColor = (v: unknown) => typeof v === 'string' && /^#([0-9a-f]{3}|[0-9a-f
 const morphCache = new Map<string, (k: number) => string>();
 const morphPath = (a: string, b: string, k: number): string => { const id = a + '|' + b; let f = morphCache.get(id); if (!f) { f = morph(a, b, { maxSegmentLength: 6 }) as (k: number) => string; morphCache.set(id, f); } return f(k); };
 
-const FXDEF: Record<string, number> = { dissolve: 1, blur: 0, glowfx: 0, fx_s: 1, fx_x: 0, fx_y: 0, fx_r: 0, flipX: 0, flipY: 0, wipe: 1, iris: 1, unroll: 1, blinds: 1, tear: 1, sepia: 0, dim: 0, lift: 0 };   // a key may glide an fx prop the entity never set: it starts from its neutral value
+const FXDEF: Record<string, number> = { dissolve: 1, blur: 0, glowfx: 0, fx_s: 1, fx_x: 0, fx_y: 0, fx_r: 0, flipX: 0, flipY: 0, wipe: 1, iris: 1, unroll: 1, blinds: 1, tear: 1, sepia: 0, dim: 0, lift: 0, pour: 1, brush: 1, wobble: 0, erase: 0 };   // a key may glide an fx prop the entity never set: it starts from its neutral value
 const mix = (a: any, b: any, k: number, prop: string): any => {
   if (a === undefined && prop in FXDEF) a = FXDEF[prop];
   if (k >= 1) return b; if (k <= 0 || a === undefined) return k <= 0 && a !== undefined ? a : b;
   if (prop === 'zoom' && typeof a === 'number' && typeof b === 'number' && a > 0 && b > 0) return a * Math.pow(b / a, k);   // zoom glides geometrically: constant perceived speed
   if (typeof a === 'number' && typeof b === 'number') return a + (b - a) * k;
   if (isColor(a) && isColor(b)) return interpolateColors(k, [0, 1], [a, b]);
-  if (prop === 'form' && typeof a === 'string' && typeof b === 'string') return morphPath(a, b, k);
+  if ((prop === 'form' || prop === 'clipForm') && typeof a === 'string' && typeof b === 'string') return a === b ? a : morphPath(a, b, k);
   if (Array.isArray(a) && Array.isArray(b) && a.length === b.length) return a.map((x, i) => mix(x, b[i], k, prop));
   if (a && b && typeof a === 'object' && typeof b === 'object') { const o: Props = { ...a }; for (const q of Object.keys(b)) o[q] = mix(a[q], b[q], k, q); return o; }
   return b;

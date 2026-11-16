@@ -87,3 +87,33 @@ No shake except one deliberate `tremble` per film at most.
 5. Every film DRAWS its own things (owner, 15 Nov 2026): ≥ 10 drawings made for it in `src/lib/<slug>/`, ≥ 80 % of its non-generic elements its own, no library samples, no preset costumes; an archive drawing from another film only for the SAME real thing with a reason (ENGINE.md "Drawing"); a library scene is never re-staged the
    same way: a reused element must change at least two of {angle, scale, light, company, action}.
 6. ≥ 2 ideas new to the channel per film (a new effect in this file, or a new mechanism) — recorded in `history.json`.
+
+## H. BECOMES — engine v5 (owner 17 Nov 2026: "hình gì biến thành gì, chuyển động như nào — rất nhiều kiểu, cực xịn")
+Every line of a v5 script names ONE of these for how its picture arrives out of the last one (`plan.becomes.how`), with the exact
+FROM thing and TO thing. `tools/plan_check.py` enforces: ≥ 14 different kinds per film, none on more than 12 % of the lines, never the
+same kind twice running. Demo of the new ones: `episodes/fx-reel` (`out/fx-reel_v5.mp4`).
+| id | FROM → TO, in words | engine recipe |
+|---|---|---|
+| `solid-morph` | a body changes its very shape and colour into another body | `shape` with `fill`: key `form` + `fill` together (flubber) |
+| `outline-morph` | only the contour changes; the new thing then inks on inside it | `shape` `form` key, then the art's `draw` |
+| `swarm` | it comes apart into grains of ink that fly and settle as the next thing | `swarm` {from, to, n, arc} `k` 0→1, then the art inks on |
+| `travel-line` | one line leaves the old drawing, runs across the page and becomes the outline of the new | `shape` `draw` + `erase` (+ `form` key) |
+| `shape-window` | the next scene is seen through an opening whose shape morphs (keyhole → arch → frame) | `group` with `clipForm` keys + a gold `shape` rim with the same forms |
+| `pour` | it fills up like a liquid / drains away | `pour` 0→1 (`pourDir`) |
+| `brush` | it is painted over the old picture in broad strokes | `brush` 0→1 |
+| `ink-bleed` · `sweep` · `bloom-out` | it seeps in / is washed away / gathers to a point | `dissolve` (+`dissolveAt`/`dissolveDir`) |
+| `rack-focus` | attention passes from the near thing to the far thing | `blur` up on one, down on the other |
+| `spot` | the light narrows to the one thing that matters, the rest falls dark | `spot` {at, r} `k` |
+| `count-up` | a number runs while the thing it measures grows | `text` `num` + `fmt` keyed with the growth |
+| `shrink-into` / `grow-out-of` | the whole scene becomes a small part of the next (the planet on the pan of the balance) | `fx_s` + `fx_x/y` to the exact place, then swap |
+| `through` | we go through an opening of the old scene (eyepiece, door, borehole, a letter O) | `fx_s` up about the opening (`fx_ox/oy`) + the new scene `iris` from it |
+| `tilt` / `crane` / `whip` / `dive` | the camera travels to the next place: down through a floor, up over a roof, across | whole scenes keyed `fx_y`/`fx_x` together (or a section's own zoom) |
+| `hand-over` | a character hands/places/pulls the next thing into view | `Person` pose keys + the object's travel on the same key times |
+| `unroll` / `page-turn` / `fold` / `lift-off` | paper behaviour: a scroll opens, a page turns, a sheet is folded away or lifted | `unroll` · `flipY` on a group · `fx_s`+`fx_x/y` · `lift` |
+| `real-reveal` | the drawing was real: its photograph develops in the same place | `Pinned`/`DocumentPage` `dissolve` in over the drawing (`dissolveAt`) |
+| `heat` / `ripple-through` | it shimmers, melts or is shaken into its next state | `wobble` + the art's own state prop (melt, sag, crack) |
+| `light-change` | same place, another time | `Sky` kind + `dim`/`sepia` keys |
+| `echo` | the same shape answers from the next scene (dial ↔ planet ↔ moon ↔ coin ↔ eye of a telescope) | match size and place exactly, crossfade under an `outline-morph` |
+| `split` / `merge` | one thing divides into its parts, or parts assemble into the instrument | children with staggered `fx_x/y` from one point (`fx_ox/oy`) |
+| `trace-to` | a path being drawn arrives somewhere and that place opens | `trail` head arrives → `shape-window` / `through` at its end |
+Combine freely (a `swarm` that lands inside a `shape-window`); invent new ones — add the row here first.

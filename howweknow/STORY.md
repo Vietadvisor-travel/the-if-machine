@@ -57,3 +57,24 @@ Rules: BEATS are timed from the line's start (real times after `tools/vo.py`; es
 > 6 s without a change. `IN`, `TRANS`, `CAM`, `LIFE` use ids from `FX.md`. `NEW`/`SET` feed the variety ledger. `STOCK` ids come from
 the resource order (`jobs/orders/<slug>.md`) that Claude writes for Muse right after the script.
 `episode.json`: `"plan": { "in": "quill", "trans": "scale-in", "cam": "push", "life": ["dust"], "comp": "right-large", "set": "shadow-as-ruler", "new": ["ShadowRuler"], "stock": ["doc-aristarchus"] }`.
+
+## 7. THE v5 SHOT PLAN — "siêu chi tiết" (owner 17 Nov 2026). Applies to every film written from 17 Nov 2026 (`"standard": 5`)
+The film is designed on paper before a single thing is drawn. Each line of `lines.py` carries, besides §6's fields, an extra dict:
+```
+{ 'reads':   "what the viewer must UNDERSTAND from the picture alone, sound off (one sentence)",
+  'focus':   "the one thing the eye should be on (it is the largest / the lit / the moving thing)",
+  'becomes': { 'from': "the lead ball of the demonstration", 'to': "one of the two heavy weights of the torsion balance",
+               'how': 'shrink-into', 'dur': 1.6, 'note': "it sinks 84 px and lands as the case inks on around it" },
+  'acts':    [ [0.0, "the ball lands in the case (1.6 s)"], [1.8, "the rod swings 6° on its wire (2 s)"],
+               [3.6, "gold pull-lines stretch between big and small ball"], [5.0, "the rod settles, trembling"] ],
+  'mood':    'curious' }        # for the score planner (tools/score.py); default = the section's mood
+```
+Rules (checked by `python3 tools/plan_check.py episodes/<slug>`, then by `tools/still_check.py` on the built world):
+1. **reads** — if the sentence cannot be drawn so that it reads with the sound off, the line is rewritten or split. No abstract
+   symbol stands for a thing that has a real look: draw the thing (STYLE.md "True to life").
+2. **becomes** — every line names FROM → TO and a kind from FX.md §H; a plain appearance (`how: 'ink-on'`) on at most 15 % of lines;
+   ≥ 14 kinds per film; none on more than 12 % of lines; never the same kind twice running.
+3. **acts** — something HAPPENS at least every 2.5 s (an action of a figure, a mechanism working, a quantity growing, a mark being
+   made): beats listed with their second. Ambient life (dust, breathing) does not count. `still_check.py` measures the built film.
+4. **one idea per picture, one focus** — never two things competing; labels ≤ 4 words, counters instead of static figures.
+5. **mood** follows the story, and the music follows the mood (score.py picks the track AND the passage by measurement).

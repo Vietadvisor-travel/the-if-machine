@@ -15,6 +15,9 @@ import { TL, resolveTime } from './time';
 import { Fx, hasFx, FX_KEYS } from './Fx';
 import { SceneText } from '../kit/SceneText';
 import { random } from 'remotion';
+import { svgPathProperties } from 'svg-path-properties';
+const ptCache = new Map<string, [number, number][]>();
+const sample = (d: string, n: number): [number, number][] => { const id = n + '|' + d; let r = ptCache.get(id); if (!r) { const P = new svgPathProperties(d), L = P.getTotalLength(); r = Array.from({ length: n }, (_, i) => { const q = P.getPointAtLength(L * (i + .5) / n); return [q.x, q.y] as [number, number]; }); ptCache.set(id, r); } return r; };
 
 type Ctx = { t: number; tl: TL; cam: Cam; S: Record<string, Props> };
 const camT = (c: Cam) => `translate(${SW / 2} ${SH / 2}) rotate(${c.rot}) scale(${c.zoom}) translate(${-c.x} ${-c.y})`;
@@ -59,9 +62,26 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
       return <Svg a={a}><path d={`M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}`} fill="none" stroke="#FBF1D8" strokeOpacity={.75} strokeWidth={2} strokeDasharray="6 9" pathLength={1} style={{ strokeDasharray: `${d} 1` }} />
         {s.label && <text x={mx} y={my + 34} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={s.size ?? 32} fill="#FBF1D8" opacity={Math.min(1, d * 1.5)}>{s.label}</text>}</Svg>;
     }
-    case 'shape': {   // an inked form that MORPHS into another (form = path in a 0–100 box; draw = ink-on)
-      const [x, y] = s.space === 'world' ? toScreen(cam, s.x, s.y) : [s.x, s.y], sc = (s.s ?? 1) * (s.space === 'world' ? cam.zoom : 1);
-      return <Svg a={a}><g transform={`translate(${x} ${y}) rotate(${s.rot ?? 0}) scale(${sc}) translate(-50 -50)`}><Ink d={s.form} w={(s.sw ?? 3) / sc} draw={s.draw ?? 1} col={s.col ?? SEP} /></g></Svg>;
+    case 'shape': {   // an inked form that MORPHS into another (form = path in a 0–100 box; draw = ink-on). v5: `fill` (a colour that glides) + fillA makes it a
+      // solid body that morphs; `erase` 0..1 trims the line from its start, so with `draw` a stroke TRAVELS (leaves one thing, becomes the outline of the next)
+      const [x, y] = s.space === 'world' ? toScreen(cam, s.x, s.y) : [s.x, s.y], sc = (s.s ?? 1) * (s.space === 'world' ? cam.zoom : 1), dr = s.draw ?? 1, er = s.erase ?? 0;
+      return <Svg a={a}><g transform={`translate(${x} ${y}) rotate(${s.rot ?? 0}) scale(${sc}) translate(-50 -50)`}>
+        {s.fill && <path d={s.form} fill={s.fill} opacity={(s.fillA ?? 1) * Math.min(1, dr * 1.5)} filter={s.wash === false ? undefined : 'url(#wc)'} />}
+        {er > 0 ? <path d={s.form} fill="none" stroke={s.col ?? SEP} strokeWidth={(s.sw ?? 3) / sc} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={`${Math.max(0, dr - er)} 2`} strokeDashoffset={-er} />
+          : <Ink d={s.form} w={(s.sw ?? 3) / sc} draw={dr} col={s.col ?? SEP} />}</g></Svg>;
+    }
+    case 'swarm': {   // v5: a thing comes apart into ink grains that fly and settle as ANOTHER thing: n grains from points along path `from` to points along
+      // path `to` (screen px), k 0..1; each grain leaves a little later than the last and swings out on its own arc (`arc` px); `spin` twists the cloud
+      if (!s.from || !s.to) return null; const n = s.n ?? 160, A = sample(s.from, n), Bp = sample(s.to, n), k = Math.max(0, Math.min(1, s.k ?? 0)), arc = s.arc ?? 140, out: React.ReactNode[] = [];
+      for (let i = 0; i < n; i++) { const r1 = random(e.id + 'd' + i), r2 = random(e.id + 'e' + i), j = Math.floor(r2 * n * (s.shuffle ?? 0) + i) % n, d0 = r1 * .45, q0 = Math.max(0, Math.min(1, (k - d0) / .55)), q = q0 * q0 * (3 - 2 * q0);
+        const [x1, y1] = A[i], [x2, y2] = Bp[j], dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy) || 1, bow = Math.sin(Math.PI * q) * arc * (r2 - .5) * 2;
+        const px = x1 + dx * q - dy / L * bow, py = y1 + dy * q + dx / L * bow, sz = (s.size ?? 3) * (.6 + r1 * .9) * (1 + Math.sin(Math.PI * q) * .8);
+        out.push(<circle key={i} cx={px} cy={py} r={sz} fill={s.col ?? SEP} opacity={.55 + .45 * r2} />); }
+      return <Svg a={a}>{out}</Svg>;
+    }
+    case 'spot': {   // v5: a spotlight — everything dims except a soft circle at an anchor (guides the eye to the one thing the line is about); k 0..1
+      const [x, y] = anchor(s.at, cam, S), r = s.r ?? 220, k = s.k ?? 1; if (k <= 0) return null;
+      return <AbsoluteFill style={{ opacity: a * k, background: `radial-gradient(circle ${r * 1.5}px at ${x}px ${y}px, rgba(43,29,18,0) 0%, rgba(43,29,18,0) ${62}%, rgba(43,29,18,${s.dark ?? .5}) 100%)`, mixBlendMode: 'multiply' }} />;
     }
     case 'label': return <AbsoluteFill style={{ opacity: a }}><div style={{ position: 'absolute', left: s.x, top: s.y, translate: '-50% -50%', fontFamily: 'Fraunces', fontStyle: 'italic', fontSize: s.size ?? 30, color: s.color ?? SEP }}>{s.text}</div></AbsoluteFill>;
     case 'lens': {   // a WINDOW into another place opening from a point (the continuity device): an inked, gold-rimmed circle
@@ -76,7 +96,9 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
     }
     case 'text': {   // words IN the scene (no subtitles): title | plate | note | label | figure | stamp — kit/SceneText.tsx; to = leader-line anchor
       const [x, y] = s.space === 'world' ? toScreen(cam, s.x, s.y) : [s.x, s.y], to = s.to ? anchor(s.to, cam, S) : null;
-      return <AbsoluteFill style={{ pointerEvents: 'none' }}><SceneText {...(s as any)} x={x} y={y} to={to as any} a={a} /></AbsoluteFill>;
+      // v5: `num` (glides) + `fmt` ("{n} km", `dec` decimals) = a COUNTER — the number itself runs up while the thing it measures grows
+      const txt = s.num !== undefined ? String(s.fmt ?? '{n}').replace('{n}', Number(s.num).toLocaleString('en-US', { minimumFractionDigits: s.dec ?? 0, maximumFractionDigits: s.dec ?? 0 })) : s.text;
+      return <AbsoluteFill style={{ pointerEvents: 'none' }}><SceneText {...(s as any)} text={txt} x={x} y={y} to={to as any} a={a} /></AbsoluteFill>;
     }
     case 'group': return <AbsoluteFill style={{ opacity: a }}>{kids(e, c)}</AbsoluteFill>;   // children share this entity's fx (move/flip/wipe a whole composition)
     case 'trail': {   // something TRAVELS along a path of anchors (k 0..1): the inked path is drawn behind it; head = a gold dot or an art (headArt + headProps)

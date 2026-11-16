@@ -9,6 +9,8 @@ python3 tools/script_check.py $EP ${SHORT:+--short}
 python3 tools/vo.py $EP
 python3 tools/check_world.py $EP
 python3 tools/variety.py $EP ${SHORT:+--short}
+python3 tools/plan_check.py $EP
+if python3 -c "import json,sys;sys.exit(0 if json.load(open('$EP/episode.json')).get('standard',4)>=5 else 1)"; then python3 tools/still_check.py $EP; python3 tools/score.py $EP; fi   # v5 films: no dead stretches; the score follows the moods (world.py reads it or --write)
 python3 tools/mix.py $EP
 T0=$(date +%s)
 python3 tools/render.py $S   # chunked, resumable, crash- and hang-proof (tools/render.py)

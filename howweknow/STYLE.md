@@ -60,3 +60,17 @@ dark halo on dark scenes, sepia on paper) · Space Mono only for clue tags. No o
 Mark: the SOUNDING LINE — a line with fathom marks and a gold lead weight, dropping through engraved water rings (to fathom = to
 measure the depth / to understand fully). Wordmark: FATHOM, Fraunces 700, tracking 0.25 em, a gold rule under it.
 Tagline: "How we came to know the world."
+
+## True to life (owner 17 Nov 2026: "cố vẽ lại chính xác ngoài đời hơn nữa… nhiều hình hơi khó hiểu")
+- **Reference first.** Every real object, instrument, building and person is drawn FROM its reference image(s) (Muse's R rows): the
+  silhouette, the proportions and 3–5 telling details (how it is built, what it is made of, how it works) must match. Put the
+  reference beside the drawing (`python3 tools/refsheet.py <slug>`) and fix until a stranger would say "that is the same thing".
+- **Show how it works.** A mechanism is drawn so its working parts are visible and MOVE (the wire twists, the needle writes, the drum
+  turns) — cut-aways and exploded views beat symbols. Never a generic icon (a rectangle "tank", a plain disc "ball") where the real
+  thing has a look.
+- **Scale and place.** A human, a hand or a known object in the picture whenever size matters; ground lines and cast shadows so
+  nothing floats; consistent light from the upper right.
+- **Readable in one second.** Subject ≥ 1/3 of the frame height; strong figure/ground contrast; one focus (largest, lit, or moving);
+  everything that is not the subject is quieter (lighter line, less colour). Check each scene as a 320-px thumbnail.
+- **People act.** A figure always DOES the thing the line says (turns the screw, lifts the record, points, writes) with a pose
+  sequence — never stands as a label.
