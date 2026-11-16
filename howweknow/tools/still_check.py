@@ -24,6 +24,8 @@ def walk(e):
         if ch and d >= .2 and not (ch == ['a'] and e['type'] == 'particles'): busy.append((t0, t0 + d))
         cur.update({q: v for q, v in k.items() if q not in ('t', 'dur', 'ease')})
     if e['type'] == 'art' and (e.get('props') or {}).get('src', '').endswith(('.mp4', '.webm', '.mov')): busy.append((0, D))   # footage moves by itself (approx.)
+    if e['type'] == 'flash': busy.extend((tabs(f[0]), tabs(f[0]) + .6) for f in (e.get('props') or {}).get('at', []))   # a scintillation is an event
+    if e['type'] == 'stream': p = e.get('props') or {}; busy.append((tabs(p.get('t0', 0)), tabs(p['until']) + p.get('dur', 1.6) if 'until' in p else D))   # beads keep flowing
     for c in e.get('children') or []: walk(c)
 for e in E['world']: walk(e)
 step, dead, run = .25, [], None

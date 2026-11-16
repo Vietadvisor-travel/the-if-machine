@@ -3,7 +3,7 @@
 timeline, every asset exists in public/, keys only on known props. python3 tools/check_world.py episodes/<slug>"""
 import json, os, re, sys
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); TL = json.load(open(f'{ep}/timeline.json'))
-TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue', 'group', 'trail', 'particles', 'ripple', 'hand', 'text', 'swarm', 'spot'}
+TYPES = {'camera', 'art', 'planet', 'pin', 'beam', 'arc', 'label', 'shape', 'lens', 'clue', 'group', 'trail', 'particles', 'ripple', 'hand', 'text', 'swarm', 'spot', 'flash', 'stream'}
 TSTYLES = {'title', 'plate', 'note', 'label', 'figure', 'stamp'}
 KITS = {k for k in json.load(open('library.json')) if not k.startswith('costume:')}   # the catalog (tools/lib_index.py): core + samples + every film's drawings
 err, ids = [], set()

@@ -65,6 +65,8 @@ No shake except one deliberate `tremble` per film at most.
 `beam` (light) · `arc` (a measured distance, ONE label) · `Angle` (ONE label) · `trail` (a route, a ray, a fall) · `ShadowCone` ·
 `ripple` (waves) · a row of unit things (20 Earths) · a `shape` ruler · red ink circle on a document (`DocumentPage.circle`).
 
+`flash` (v5, empty-atom): scintillations — a point of light that blooms and fades with an afterglow, at given times and places (`flash` {at: [[t, x, y, size]…]}) · `stream` (v5): beads flowing along computed paths.
+
 ## F. REAL STOCK moves (artefacts)
 `pin` (drops with `drop`, red pin last) · `tape` · `slide` across the desk · `flip` to its back · `eyepiece` (footage through a lens) ·
 `screen` (footage in a period set) · `circle` (red ink round the key line) · `stack` (several plates fanned, top one lifts: `lift`).
@@ -116,4 +118,5 @@ same kind twice running. Demo of the new ones: `episodes/fx-reel` (`out/fx-reel_
 | `echo` | the same shape answers from the next scene (dial ↔ planet ↔ moon ↔ coin ↔ eye of a telescope) | match size and place exactly, crossfade under an `outline-morph` |
 | `split` / `merge` | one thing divides into its parts, or parts assemble into the instrument | children with staggered `fx_x/y` from one point (`fx_ox/oy`) |
 | `trace-to` | a path being drawn arrives somewhere and that place opens | `trail` head arrives → `shape-window` / `through` at its end |
+| `stream-through` | a flow of particles runs through the old picture and the new one is seen by what it does to the flow (straight through a pudding, flung round a nucleus) | `stream` {paths, n, k, every, speed} — beads with tails on computed paths (empty-atom, 2026-11) |
 Combine freely (a `swarm` that lands inside a `shape-window`); invent new ones — add the row here first.

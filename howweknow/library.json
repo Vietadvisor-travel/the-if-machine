@@ -351,6 +351,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "costume:chadwick1932": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "costume:chiton": {
   "kind": "sample",
   "origin": "people.tsx presets"
@@ -362,6 +366,10 @@
  "costume:frock19": {
   "kind": "sample",
   "origin": "people.tsx presets"
+ },
+ "costume:geiger1909": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "costume:gutenberg1914": {
   "kind": "episode",
@@ -383,6 +391,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "costume:marsden1909": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "costume:moho1909": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -399,6 +411,10 @@
   "kind": "sample",
   "origin": "people.tsx presets"
  },
+ "costume:rutherford1909": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "costume:spacesuit": {
   "kind": "sample",
   "origin": "people.tsx presets"
@@ -406,6 +422,10 @@
  "costume:suit": {
   "kind": "sample",
   "origin": "people.tsx presets"
+ },
+ "costume:thomson1897": {
+  "kind": "episode",
+  "origin": "empty-atom"
  },
  "costume:uniform": {
   "kind": "sample",

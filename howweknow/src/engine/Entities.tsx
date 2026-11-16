@@ -79,6 +79,29 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
         out.push(<circle key={i} cx={px} cy={py} r={sz} fill={s.col ?? SEP} opacity={.55 + .45 * r2} />); }
       return <Svg a={a}>{out}</Svg>;
     }
+    case 'flash': {   // v5 (empty-atom): SCINTILLATIONS — a point of light that blooms in 60 ms and fades with an afterglow, like an α particle striking
+      // zinc sulphide. at: [[time, x, y, size?], …] (time = a time ref; x,y screen px); life = afterglow s; col = core colour; glow = halo colour
+      const life = s.life ?? 1.1, out: React.ReactNode[] = [];
+      (s.at || []).forEach((f: any[], i: number) => { const t0 = resolveTime(f[0], c.tl), age = t - t0; if (age < 0 || age > life) return;
+        const I = age < .06 ? age / .06 : Math.exp(-(age - .06) * (4.2 / life)), r = (f[3] ?? 6) * (1 + (1 - I) * .4), x = f[1], y = f[2];
+        out.push(<g key={i} opacity={I}><circle cx={x} cy={y} r={r * 7} fill={s.glow ?? '#B8F0C8'} opacity={.22} filter="url(#b8)" /><circle cx={x} cy={y} r={r * 2.4} fill={s.glow ?? '#B8F0C8'} opacity={.6} />
+          <path d={`M${x - r * 4.5} ${y} L${x + r * 4.5} ${y} M${x} ${y - r * 4.5} L${x} ${y + r * 4.5}`} stroke={s.col ?? '#F4FFF0'} strokeWidth={r * .35} opacity={.7 * I} strokeLinecap="round" />
+          <circle cx={x} cy={y} r={r} fill={s.col ?? '#F4FFF0'} /></g>); });
+      return out.length ? <Svg a={a}>{out}</Svg> : null;
+    }
+    case 'stream': {   // v5 (empty-atom): a STREAM of beads flowing along computed paths (svg paths in screen px): bead j sets off at t0 + j·every on
+      // paths[j % n] and takes `dur` s to run it; `until` (time ref) stops new launches; a short tail of the path is inked behind each bead (`tail` 0..1);
+      // `trace` = how much of each run path stays drawn faintly (shows where the particles went). col / r / glow.
+      const P: string[] = s.paths || []; if (!P.length) return null; const t0 = resolveTime(s.t0 ?? 0, c.tl), t1 = s.until !== undefined ? resolveTime(s.until, c.tl) : 1e9, ev = s.every ?? .25, dur = s.dur ?? 1.6, M = 120, out: React.ReactNode[] = [];
+      if (t < t0) return null; const jmax = Math.floor((Math.min(t, t1) - t0) / ev);
+      for (let j = Math.max(0, jmax - Math.ceil(dur / ev) - 1); j <= jmax; j++) { const age = t - (t0 + j * ev), q = age / dur; if (q < 0 || q > 1) continue;
+        const pts = sample(P[s.order === 'random' ? Math.floor(random(e.id + j) * P.length) : j % P.length], M), qi = Math.min(M - 1, Math.floor(q * (M - 1))), ti = Math.max(0, qi - Math.round((s.tail ?? .12) * M));
+        const [x, y] = pts[qi], tl = 'M' + pts.slice(ti, qi + 1).map(p => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' L');
+        out.push(<g key={j}>{qi > ti && <path d={tl} fill="none" stroke={s.col ?? '#B8862B'} strokeWidth={(s.r ?? 5) * .9} strokeLinecap="round" opacity={.55} />}
+          <circle cx={x} cy={y} r={(s.r ?? 5) * 3.2} fill="url(#glowG)" opacity={s.glow ?? .8} /><circle cx={x} cy={y} r={s.r ?? 5} fill="url(#gold)" stroke={SEP} strokeWidth={1} /></g>); }
+      const tr = s.trace ?? 0;
+      return <Svg a={a}>{tr > 0 && P.map((d, i) => <path key={'t' + i} d={d} fill="none" stroke={s.col ?? '#B8862B'} strokeWidth={1.3} strokeDasharray="5 7" opacity={.5 * tr} />)}{out}</Svg>;
+    }
     case 'spot': {   // v5: a spotlight — everything dims except a soft circle at an anchor (guides the eye to the one thing the line is about); k 0..1
       const [x, y] = anchor(s.at, cam, S), r = s.r ?? 220, k = s.k ?? 1; if (k <= 0) return null;
       return <AbsoluteFill style={{ opacity: a * k, background: `radial-gradient(circle ${r * 1.5}px at ${x}px ${y}px, rgba(43,29,18,0) 0%, rgba(43,29,18,0) ${62}%, rgba(43,29,18,${s.dark ?? .5}) 100%)`, mixBlendMode: 'multiply' }} />;

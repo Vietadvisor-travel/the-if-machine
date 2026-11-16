@@ -1,8 +1,10 @@
 {
  "slug": "empty-atom",
  "title": "What is inside an atom?",
+ "standard": 5,
  "voice": "af_heart",
  "speed": 0.86,
+ "pitch": 1.0,
  "lead": 1.0,
  "tail": 3.6,
  "music": {
@@ -11,9 +13,9 @@
   "start": 0
  },
  "new_ideas": [
-  "a scale-in from a hand to a single atom that turns out to be an empty stadium (scale jump with a reveal)",
-  "the count of flashes kept as a live tally in the margin through the film",
-  "a cannon shell bouncing off tissue paper staged literally"
+  "engine: `flash` — scintillations on a screen with a real afterglow (a point of light that blooms and fades), the film’s governing image",
+  "engine: `stream` — particles flowing along computed paths (true Rutherford hyperbolas round a nucleus; straight through a pudding)",
+  "a fall back through the true emptiness of an atom (nucleus → electron haze) and a dive from a palm to one atom"
  ],
  "thumb": {
   "t": 300,
@@ -27,7 +29,7 @@
    "section": "COLD",
    "plan": {
     "in": "ink-on",
-    "trans": "scale-in",
+    "trans": "spot",
     "cam": "push",
     "comp": "left-third-medium",
     "life": [
@@ -35,26 +37,59 @@
     ],
     "new": [
      "ManchesterDarkLab",
-     "MarsdenYoung",
-     "BrassMicroscope"
+     "ScatterApparatus"
     ],
     "stock": [
-     "P-09",
-     "R-01"
+     "R-01",
+     "R-02"
     ],
-    "see": "A black room; one shaded lamp turned low; a young man bent over a brass microscope pointed at a small box.",
-    "beats": "+0.0 ink-on in near-darkness: the bench and microscope (1.6 s) | +1.8 the young man (Person, Edwardian shirt sleeves) | +3.2 push toward the eyepiece",
+    "see": "A pool of lamplight on a bench in a dark room: Marsden bent over the brass microscope of the scattering box.",
+    "beats": "+0.0 a match is struck; the shaded lamp’s flame takes | +1.6 the pool of light spreads: bench, glassware, the scattering box ink on | +3.4 Marsden inks on, sitting | +5.2 he leans in to the eyepiece (sit → sitlook) | +7.0 note “Manchester, 1909” is written on the dark wall | +8.6 the lamp is turned down; the camera pushes to the eyepiece",
     "set": "dark-room-microscope"
    },
-   "src": "S3 S4 S4 S5 S6",
-   "facts": "F3 F4"
+   "src": "S3 S4 S4 S5 S6 S18 S19",
+   "facts": "F3 F4 F13",
+   "reads": "A young man in a dark room is looking very hard into a microscope, waiting.",
+   "focus": "the young man’s eye at the microscope (the lit centre)",
+   "becomes": {
+    "from": "the black page",
+    "to": "a pool of lamplight on a bench in a dark room: Marsden bent over the brass microscope of the scattering box",
+    "how": "spot"
+   },
+   "acts": [
+    [
+     0,
+     "a match is struck; the shaded lamp’s flame takes"
+    ],
+    [
+     1.6,
+     "the pool of light spreads: bench, glassware, the scattering box ink on"
+    ],
+    [
+     3.4,
+     "Marsden inks on, sitting"
+    ],
+    [
+     5.2,
+     "he leans in to the eyepiece (sit → sitlook)"
+    ],
+    [
+     7.0,
+     "note “Manchester, 1909” is written on the dark wall"
+    ],
+    [
+     8.6,
+     "the lamp is turned down; the camera pushes to the eyepiece"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "Each flash was a single particle, smaller than an atom, striking the *screen*.",
    "gap": 0.9,
    "section": "COLD",
    "plan": {
-    "in": "bloom",
+    "in": "focus",
     "trans": "through",
     "cam": "push",
     "comp": "centre-large",
@@ -62,37 +97,105 @@
      "sparks"
     ],
     "new": [
-     "ScintillationScreen"
+     "ZincScreenField"
     ],
-    "stock": [
-     "P-07"
-    ],
-    "see": "Through the eyepiece: a dim green field where tiny points flare and vanish one at a time.",
-    "beats": "+0.0 through: into the eyepiece circle | +0.8 sparks flare one at a time (slow, random)"
+    "stock": [],
+    "see": "The round dark field of the microscope: a grey-green screen where single points of light flare and fade.",
+    "beats": "+0.0 we go through the eyepiece (it grows around us) | +1.4 a first flash, faint, lower left | +2.4 a second, upper right | +3.4 a third | +4.4 a fourth, nearer the middle"
    },
    "src": "S4 S5 S6",
-   "facts": "F4"
+   "facts": "F4",
+   "reads": "Inside the microscope you see tiny flashes, one at a time.",
+   "focus": "each flash as it lands",
+   "becomes": {
+    "from": "the brass eyepiece",
+    "to": "the round dark field of the microscope: a grey-green screen where single points of light flare and fade",
+    "how": "through"
+   },
+   "acts": [
+    [
+     0,
+     "we go through the eyepiece (it grows around us)"
+    ],
+    [
+     1.4,
+     "a first flash, faint, lower left"
+    ],
+    [
+     2.4,
+     "a second, upper right"
+    ],
+    [
+     3.4,
+     "a third"
+    ],
+    [
+     4.4,
+     "a fourth, nearer the middle"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "His job was to count them. And on that screen, he saw something that should have been *impossible*.",
    "gap": 0.9,
    "section": "COLD",
    "plan": {
-    "in": "grow",
-    "trans": "trace",
+    "in": "quill",
+    "trans": "hand-over",
     "cam": "hold",
-    "comp": "centre-large",
+    "comp": "split-two",
     "life": [
      "sparks"
     ],
-    "new": [],
+    "new": [
+     "TallySheet"
+    ],
     "stock": [],
-    "see": "A flash appears on the wrong side of the field — where nothing should reach.",
-    "beats": "+0.0 a tally grows in the margin as flashes come | +2.4 one flash on the far edge, brighter; a red ring circles it",
+    "see": "The field slides to the left; Marsden’s hand keeps a tally on a sheet beside it, until one flash lands on the wrong edge.",
+    "beats": "+0.0 the field glides left; a tally sheet slides in under a hand | +1.2 flash → a pencil stroke | +2.2 flash → stroke | +3.2 flash → stroke | +4.2 flash → the fifth stroke crosses the gate | +5.4 a brighter flash on the far edge of the field | +6.4 a red ring is drawn round it",
     "set": "flash-on-the-wrong-side"
    },
-   "src": "S4 S7",
-   "facts": "F5"
+   "src": "S4 S5 S6 S4 S7",
+   "facts": "F4 F5",
+   "reads": "Every flash gets a pencil stroke — then one flash is somewhere it should not be.",
+   "focus": "the flash on the far edge, ringed in red",
+   "becomes": {
+    "from": "the dark field filling the frame",
+    "to": "the field slides to the left; Marsden’s hand keeps a tally on a sheet beside it, until one flash lands on the wrong edge",
+    "how": "hand-over"
+   },
+   "acts": [
+    [
+     0,
+     "the field glides left; a tally sheet slides in under a hand"
+    ],
+    [
+     1.2,
+     "flash → a pencil stroke"
+    ],
+    [
+     2.2,
+     "flash → stroke"
+    ],
+    [
+     3.2,
+     "flash → stroke"
+    ],
+    [
+     4.2,
+     "flash → the fifth stroke crosses the gate"
+    ],
+    [
+     5.4,
+     "a brighter flash on the far edge of the field"
+    ],
+    [
+     6.4,
+     "a red ring is drawn round it"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "Some of the particles were bouncing straight *back*.",
@@ -100,21 +203,47 @@
    "section": "COLD",
    "plan": {
     "in": "iris",
-    "trans": "ride",
+    "trans": "trace-to",
     "cam": "ride",
     "comp": "diagonal",
     "life": [
      "photons"
     ],
     "new": [
-     "AlphaRicochet"
+     "GoldFoilFrame"
     ],
     "stock": [],
-    "see": "Ride with a particle: it flies toward a thin gold sheet… and rebounds toward us.",
-    "beats": "+0.0 iris to a tiny gold sheet | +0.8 ride with a particle toward it (2 s) | +2.8 it rebounds straight back at the camera (snap)"
+    "see": "A gold line runs back from the flash to a thin gold leaf in its frame, where a particle arrives and rebounds.",
+    "beats": "+0.0 a gold trace runs back from the flash | +1.0 it arrives at a gold leaf in its frame | +1.6 a particle streaks in at the leaf | +2.4 it rebounds straight back (ripple at the leaf)"
    },
    "src": "S4 S7",
-   "facts": "F5"
+   "facts": "F5",
+   "reads": "The flash came from a particle that hit the gold and came back.",
+   "focus": "the particle turning round at the leaf",
+   "becomes": {
+    "from": "the ringed flash",
+    "to": "a gold line runs back from the flash to a thin gold leaf in its frame, where a particle arrives and rebounds",
+    "how": "trace-to"
+   },
+   "acts": [
+    [
+     0,
+     "a gold trace runs back from the flash"
+    ],
+    [
+     1.0,
+     "it arrives at a gold leaf in its frame"
+    ],
+    [
+     1.6,
+     "a particle streaks in at the leaf"
+    ],
+    [
+     2.4,
+     "it rebounds straight back (ripple at the leaf)"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "It was like throwing stones into a cloud of mist… and having one come flying back at *you*.",
@@ -122,115 +251,276 @@
    "section": "COLD",
    "plan": {
     "in": "drop",
-    "trans": "morph",
+    "trans": "solid-morph",
     "cam": "pull",
     "comp": "wide-landscape",
     "life": [
      "dust"
     ],
     "new": [
-     "MistCloud",
-     "ThrownStone"
+     "MistHillside"
     ],
     "stock": [],
-    "see": "A bank of mist on a hillside; a thrown stone vanishes into it, then flies back out toward us.",
-    "beats": "+0.0 drop: mist bank | +1.0 a stone arcs in (trail) | +2.6 it flies back out (snap)",
+    "see": "A bank of mist on a moorland hillside; stones vanish into it, and one flies back out at us.",
+    "beats": "+0.0 the gold leaf swells and greys into a bank of mist | +1.8 an arm throws a stone; it vanishes into the mist | +3.2 a second stone vanishes | +4.6 a third — and it flies back out | +5.8 it grows toward the camera",
     "set": "stone-from-the-mist"
-   }
+   },
+   "reads": "You throw stones into fog; they vanish — but one comes back at you.",
+   "focus": "the stone that comes back",
+   "becomes": {
+    "from": "the thin gold leaf",
+    "to": "a bank of mist on a moorland hillside; stones vanish into it, and one flies back out at us",
+    "how": "solid-morph"
+   },
+   "acts": [
+    [
+     0,
+     "the gold leaf swells and greys into a bank of mist"
+    ],
+    [
+     1.8,
+     "an arm throws a stone; it vanishes into the mist"
+    ],
+    [
+     3.2,
+     "a second stone vanishes"
+    ],
+    [
+     4.6,
+     "a third — and it flies back out"
+    ],
+    [
+     5.8,
+     "it grows toward the camera"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "That one surprise would tell us what an atom really looks like inside. So how do you see inside something nobody can *see*?",
    "gap": 0.9,
    "section": "COLD",
    "plan": {
-    "in": "wipe",
-    "trans": "fold",
+    "in": "ink-bleed",
+    "trans": "echo",
     "cam": "orbit",
     "comp": "centre-medium",
     "life": [
      "boil"
     ],
     "new": [
-     "BlankAtomOutline"
+     "DottedAtom"
     ],
     "stock": [],
-    "see": "A faint dotted circle on blank paper: an atom with nothing drawn inside.",
-    "beats": "+0.0 wipe: a dotted circle | +1.6 orbit slowly around it (5 s)",
+    "see": "A dotted circle on blank paper — an atom with nothing drawn inside, and a quill that cannot begin.",
+    "beats": "+0.0 the stone’s round silhouette becomes a dotted circle | +1.6 the dots ink round the circle | +3.2 a quill comes to draw inside — and stops | +4.8 a question mark is written inside, then fades | +6.4 the circle turns slowly | +8.0 the quill hovers, lifts away",
     "set": "question-atom-blank"
-   }
+   },
+   "reads": "An atom is a circle we cannot fill in.",
+   "focus": "the empty inside of the circle",
+   "becomes": {
+    "from": "the stone flying at the camera, a round dark disc",
+    "to": "a dotted circle on blank paper — an atom with nothing drawn inside, and a quill that cannot begin",
+    "how": "echo"
+   },
+   "acts": [
+    [
+     0,
+     "the stone’s round silhouette becomes a dotted circle"
+    ],
+    [
+     1.6,
+     "the dots ink round the circle"
+    ],
+    [
+     3.2,
+     "a quill comes to draw inside — and stops"
+    ],
+    [
+     4.8,
+     "a question mark is written inside, then fades"
+    ],
+    [
+     6.4,
+     "the circle turns slowly"
+    ],
+    [
+     8.0,
+     "the quill hovers, lifts away"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
-   "text": "Atoms are small beyond imagining. Millions of them, side by side, would fit across the width of a single *hair*.",
+   "text": "Atoms are small beyond imagining. Hundreds of thousands of them, side by side, would fit across a single *hair*.",
    "gap": 0.7,
    "section": "STAKES",
    "plan": {
-    "in": "slide",
-    "trans": "scale-out",
+    "in": "grow",
+    "trans": "shrink-into",
     "cam": "pull",
     "comp": "centre-large",
     "life": [
      "dust"
     ],
     "new": [
-     "HairCrossSection",
-     "AtomRow"
+     "HairSection"
     ],
     "stock": [],
-    "see": "A human hair in cross-section, huge; along its width, a row of beads too fine to count.",
-    "beats": "+0.0 slide: the hair section | +1.4 pull back: the row of atoms becomes a hairline across it (3 s)",
+    "see": "One bead in a row of atoms that runs across a human hair, seen in section.",
+    "beats": "+0.0 the circle shrinks into a bead | +1.4 more beads line up either side | +2.8 the camera pulls back: the row is a hairline | +4.4 the hair’s section inks on round it, scales and all | +6.0 label “one human hair” | +7.2 the row keeps extending",
     "set": "atoms-across-a-hair"
    },
-   "src": "S11 S12",
-   "facts": "F8"
+   "src": "S11 S12 S12 S13",
+   "facts": "F8 F15",
+   "reads": "A single hair is wider than a huge line of atoms.",
+   "focus": "the row of beads across the hair",
+   "becomes": {
+    "from": "the dotted atom",
+    "to": "one bead in a row of atoms that runs across a human hair, seen in section",
+    "how": "shrink-into"
+   },
+   "acts": [
+    [
+     0,
+     "the circle shrinks into a bead"
+    ],
+    [
+     1.4,
+     "more beads line up either side"
+    ],
+    [
+     2.8,
+     "the camera pulls back: the row is a hairline"
+    ],
+    [
+     4.4,
+     "the hair’s section inks on round it, scales and all"
+    ],
+    [
+     6.0,
+     "label “one human hair”"
+    ],
+    [
+     7.2,
+     "the row keeps extending"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "No microscope can show you what is inside one. Light itself is far too coarse to make out the *details*.",
    "gap": 0.7,
    "section": "STAKES",
    "plan": {
-    "in": "drop",
-    "trans": "morph",
-    "cam": "push",
+    "in": "wipe",
+    "trans": "ripple-through",
+    "cam": "hold",
     "comp": "right-third-medium",
     "life": [
      "photons"
     ],
     "new": [
-     "LightWaveTooBig"
+     "LightSwell"
     ],
     "stock": [],
-    "see": "A wave of light, drawn like a wide ocean swell, rolls over a tiny atom without noticing it.",
-    "beats": "+0.0 drop: the atom | +1.2 morph: a broad wave rolls over it (2 s)"
-   }
+    "see": "One atom alone, and a long swell of light rolling over it like an ocean wave over a pebble.",
+    "beats": "+0.0 the hair falls away; one atom stays | +1.2 a long wave of light rolls in from the left | +3.0 its crest passes right over the atom — nothing changes | +4.8 a bracket marks one wavelength, far wider than the atom | +6.4 the next crest rolls over",
+    "set": "light-too-coarse"
+   },
+   "reads": "A wave of light is far too big to feel the shape of one atom.",
+   "focus": "the crest of the light wave passing over the atom",
+   "becomes": {
+    "from": "the row of atoms across the hair",
+    "to": "one atom alone, and a long swell of light rolling over it like an ocean wave over a pebble",
+    "how": "ripple-through"
+   },
+   "acts": [
+    [
+     0,
+     "the hair falls away; one atom stays"
+    ],
+    [
+     1.2,
+     "a long wave of light rolls in from the left"
+    ],
+    [
+     3.0,
+     "its crest passes right over the atom — nothing changes"
+    ],
+    [
+     4.8,
+     "a bracket marks one wavelength, far wider than the atom"
+    ],
+    [
+     6.4,
+     "the next crest rolls over"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "For most of history, atoms were just an idea: the smallest pieces of matter, solid little balls that could not be cut *apart*.",
    "gap": 0.7,
    "section": "STAKES",
    "plan": {
-    "in": "stamp",
-    "trans": "real-reveal",
-    "cam": "hold",
+    "in": "drop",
+    "trans": "solid-morph",
+    "cam": "push",
     "comp": "three-in-a-row",
     "life": [
      "boil"
     ],
     "new": [
-     "SolidBallAtoms"
+     "IvoryBalls"
     ],
     "stock": [],
-    "see": "Three polished balls on a table, like billiard balls, labelled in an old hand 'atoms'.",
-    "beats": "+0.0 stamp: three balls drop and click together · sfx click −22 | +1.6 note 'indivisible' in an old hand",
+    "see": "Three polished ivory balls clicking together on green baize; a knife glances off one.",
+    "beats": "+0.0 the atom swells into a polished ivory ball | +1.6 two more roll in and click | +3.4 a knife comes down on one | +4.6 it glances off (spark) | +6.2 note “indivisible” in an old hand | +7.8 one ball rolls a little and stops",
     "set": "billiard-ball-atoms"
-   }
+   },
+   "reads": "People thought atoms were tiny hard balls you could never cut.",
+   "focus": "the ball the knife fails to cut",
+   "becomes": {
+    "from": "the tiny atom under the wave",
+    "to": "three polished ivory balls clicking together on green baize; a knife glances off one",
+    "how": "solid-morph"
+   },
+   "acts": [
+    [
+     0,
+     "the atom swells into a polished ivory ball"
+    ],
+    [
+     1.6,
+     "two more roll in and click"
+    ],
+    [
+     3.4,
+     "a knife comes down on one"
+    ],
+    [
+     4.6,
+     "it glances off (spark)"
+    ],
+    [
+     6.2,
+     "note “indivisible” in an old hand"
+    ],
+    [
+     7.8,
+     "one ball rolls a little and stops"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "So how could anyone find out what was inside one, when nobody could ever *look*?",
    "gap": 0.7,
    "section": "STAKES",
    "plan": {
-    "in": "iris",
-    "trans": "eclipse",
+    "in": "focus",
+    "trans": "spot",
     "cam": "push",
     "comp": "centre-small",
     "life": [
@@ -238,9 +528,39 @@
     ],
     "new": [],
     "stock": [],
-    "see": "Iris tight on one of the polished balls; its surface reflects nothing.",
-    "beats": "+0.0 iris to one ball | +1.6 hold on its blank surface"
-   }
+    "see": "The light narrows to one ball; a magnifying glass passes over it and shows only its own shine.",
+    "beats": "+0.0 the light narrows to one ball | +1.4 a magnifying glass slides over it | +2.8 under the glass: only the ball’s shine, bigger | +4.2 the glass moves off | +5.2 the ball turns; the highlight slides"
+   },
+   "reads": "Even magnified, the ball shows only its surface.",
+   "focus": "the single ball in the spotlight",
+   "becomes": {
+    "from": "three balls on the baize",
+    "to": "the light narrows to one ball; a magnifying glass passes over it and shows only its own shine",
+    "how": "spot"
+   },
+   "acts": [
+    [
+     0,
+     "the light narrows to one ball"
+    ],
+    [
+     1.4,
+     "a magnifying glass slides over it"
+    ],
+    [
+     2.8,
+     "under the glass: only the ball’s shine, bigger"
+    ],
+    [
+     4.2,
+     "the glass moves off"
+    ],
+    [
+     5.2,
+     "the ball turns; the highlight slides"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "The very word comes from ancient Greek: atomos, meaning *uncuttable*.",
@@ -248,40 +568,102 @@
    "section": "STAKES",
    "plan": {
     "in": "quill",
-    "trans": "page-turn",
+    "trans": "travel-line",
     "cam": "hold",
-    "comp": "centre-small",
+    "comp": "centre-medium",
     "life": [
      "boil"
     ],
     "new": [
-     "GreekWordAtomos"
+     "AtomosPapyrus"
     ],
     "stock": [],
-    "see": "The Greek word ἄτομος is lettered in ink on a scrap of papyrus.",
-    "beats": "+0.0 quill letters the word (1.6 s) | +2.0 note 'uncuttable'"
-   }
+    "see": "The Greek word ἄτομος lettered in ink on a scrap of papyrus, underlined by that same line.",
+    "beats": "+0.0 the ball’s outline unwinds into a line that runs left | +1.2 it lays itself under a papyrus scrap as an underline | +1.8 a quill letters ἄτομος | +3.4 note “uncuttable”"
+   },
+   "reads": "The word “atom” means “cannot be cut”.",
+   "focus": "the Greek word as it is written",
+   "becomes": {
+    "from": "the ball’s round outline",
+    "to": "the Greek word ἄτομος lettered in ink on a scrap of papyrus, underlined by that same line",
+    "how": "travel-line"
+   },
+   "acts": [
+    [
+     0,
+     "the ball’s outline unwinds into a line that runs left"
+    ],
+    [
+     1.2,
+     "it lays itself under a papyrus scrap as an underline"
+    ],
+    [
+     1.8,
+     "a quill letters ἄτομος"
+    ],
+    [
+     3.4,
+     "note “uncuttable”"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "Two centuries ago, chemists like John Dalton used atoms to explain how substances combine — but they still pictured them as tiny, solid *spheres*.",
    "gap": 0.7,
    "section": "STAKES",
    "plan": {
-    "in": "slide",
-    "trans": "morph",
+    "in": "unroll",
+    "trans": "page-turn",
     "cam": "pan",
     "comp": "left-third-medium",
     "life": [
      "boil"
     ],
     "new": [
-     "DaltonSymbols"
+     "DaltonPlate"
     ],
     "stock": [],
-    "see": "A page of Dalton-style circles with dots and crosses; they harden into wooden spheres.",
-    "beats": "+0.0 slide: the page of symbols | +1.6 morph: circles → wooden balls",
+    "see": "A page of Dalton’s 1808 symbols — circles with dots and crosses — whose circles harden into wooden spheres.",
+    "beats": "+0.0 the papyrus page turns over | +1.4 Dalton’s circles ink on, one by one | +3.4 two of them glide together and join | +5.2 plate “John Dalton, 1808” | +6.8 the circles fill and harden into wooden spheres | +8.4 the spheres click together",
     "set": "dalton-spheres"
-   }
+   },
+   "src": "S1 S2",
+   "facts": "F14",
+   "reads": "A chemist drew atoms as circles that join up; they were still solid balls.",
+   "focus": "two symbols joining into one compound",
+   "becomes": {
+    "from": "the papyrus scrap",
+    "to": "a page of Dalton’s 1808 symbols — circles with dots and crosses — whose circles harden into wooden spheres",
+    "how": "page-turn"
+   },
+   "acts": [
+    [
+     0,
+     "the papyrus page turns over"
+    ],
+    [
+     1.4,
+     "Dalton’s circles ink on, one by one"
+    ],
+    [
+     3.4,
+     "two of them glide together and join"
+    ],
+    [
+     5.2,
+     "plate “John Dalton, 1808”"
+    ],
+    [
+     6.8,
+     "the circles fill and harden into wooden spheres"
+    ],
+    [
+     8.4,
+     "the spheres click together"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "The answer to what is really inside came in four steps: a crack in the ball, a cloud of flashes, a bounce… and an empty *stadium*.",
@@ -289,27 +671,62 @@
    "section": "STAKES",
    "plan": {
     "in": "assemble",
-    "trans": "ride",
-    "cam": "ride",
+    "trans": "split",
+    "cam": "hold",
     "comp": "four-in-a-row",
     "life": [
      "boil"
     ],
     "new": [
-     "FourStepIcons"
+     "ClueMedallions"
     ],
     "stock": [],
-    "see": "Four small engraved icons in a row: a cracked ball, a spray of dots, a rebounding arrow, an empty stadium.",
-    "beats": "+0.0 assemble: the four icons (0.8 s each) | +3.6 ride along them"
-   }
+    "see": "Four engraved medallions in a row: a cracked ball, a spray of flashes, a rebound, an empty stadium.",
+    "beats": "+0.0 the sphere splits into four discs | +1.6 medallion I: a cracked ball inks on | +3.4 medallion II: flashes | +5.2 medallion III: a rebounding path | +7.4 medallion IV: an empty stadium | +9.0 the four close together into a ring (the title card follows)",
+    "set": "four-medallions"
+   },
+   "reads": "The story has four steps, each a little picture.",
+   "focus": "each medallion as it is named",
+   "becomes": {
+    "from": "one wooden sphere",
+    "to": "four engraved medallions in a row: a cracked ball, a spray of flashes, a rebound, an empty stadium",
+    "how": "split"
+   },
+   "acts": [
+    [
+     0,
+     "the sphere splits into four discs"
+    ],
+    [
+     1.6,
+     "medallion I: a cracked ball inks on"
+    ],
+    [
+     3.4,
+     "medallion II: flashes"
+    ],
+    [
+     5.2,
+     "medallion III: a rebounding path"
+    ],
+    [
+     7.4,
+     "medallion IV: an empty stadium"
+    ],
+    [
+     9.0,
+     "the four close together into a ring (the title card follows)"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "Our first clue is a *crack*.",
-   "gap": 0.7,
+   "gap": 6.2,
    "section": "CLUE1",
    "plan": {
     "in": "bloom",
-    "trans": "scale-in",
+    "trans": "bloom-out",
     "cam": "rack",
     "comp": "top-centre-small",
     "life": [
@@ -317,9 +734,31 @@
     ],
     "new": [],
     "stock": [],
-    "see": "Clue tag 1/4; title 'Clue I · A Crack in the Ball'.",
-    "beats": "+0.0 clue tag 1 | +0.2 title"
-   }
+    "see": "The clue title “Clue I · A Crack in the Ball”, with a hairline crack running under it.",
+    "beats": "+0.0 the title card gathers into a point; the clue tag turns gold | +0.8 the clue title is written | +1.8 a hairline crack runs under it"
+   },
+   "reads": "Chapter one: a crack.",
+   "focus": "the crack running under the title",
+   "becomes": {
+    "from": "the title card",
+    "to": "the clue title “Clue I · A Crack in the Ball”, with a hairline crack running under it",
+    "how": "bloom-out"
+   },
+   "acts": [
+    [
+     0,
+     "the title card gathers into a point; the clue tag turns gold"
+    ],
+    [
+     0.8,
+     "the clue title is written"
+    ],
+    [
+     1.8,
+     "a hairline crack runs under it"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "In 1897, in Cambridge, J. J. Thomson was studying the strange glowing rays inside glass tubes emptied of *air*.",
@@ -327,70 +766,172 @@
    "section": "CLUE1",
    "plan": {
     "in": "unroll",
-    "trans": "window",
+    "trans": "unroll",
     "cam": "pan",
     "comp": "wide-room",
     "life": [
      "flicker"
     ],
     "new": [
-     "CavendishLab1897",
-     "ThomsonFigure",
+     "CavendishBench",
      "CathodeTube"
     ],
     "stock": [
      "P-03",
      "R-03"
     ],
-    "see": "A Victorian laboratory; a long glass tube on a stand glows faint green; Thomson leans over it; his real portrait pinned.",
-    "beats": "+0.0 unroll: the lab (1.6 s) | +1.8 the tube glows on (bloom) | +3.0 Thomson (Person, moustache) | +4.4 ★P-03 cabinet card",
+    "see": "A Victorian laboratory bench: Thomson’s long glass tube glowing faint green, Thomson leaning over it, his portrait pinned.",
+    "beats": "+0.0 the crack opens and the lab unrolls downward | +1.6 the tube’s far end begins to glow green | +3.0 Thomson inks on, leaning to look | +4.6 ★P-03 his portrait slides in on a cabinet card | +6.2 note “Cambridge, 1897” | +7.4 the glow pulses",
     "set": "cathode-glow-lab"
    },
    "src": "S1 S2",
-   "facts": "F1"
+   "facts": "F1",
+   "reads": "A scientist watches a glowing beam inside a glass tube.",
+   "focus": "the green glow in the tube",
+   "becomes": {
+    "from": "the crack under the title",
+    "to": "a Victorian laboratory bench: Thomson’s long glass tube glowing faint green, Thomson leaning over it, his portrait pinned",
+    "how": "unroll"
+   },
+   "acts": [
+    [
+     0,
+     "the crack opens and the lab unrolls downward"
+    ],
+    [
+     1.6,
+     "the tube’s far end begins to glow green"
+    ],
+    [
+     3.0,
+     "Thomson inks on, leaning to look"
+    ],
+    [
+     4.6,
+     "★P-03 his portrait slides in on a cabinet card"
+    ],
+    [
+     6.2,
+     "note “Cambridge, 1897”"
+    ],
+    [
+     7.4,
+     "the glow pulses"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "His glass tube was the ancestor of the old television screen. But what *were* the rays?",
    "gap": 0.7,
    "section": "CLUE1",
    "plan": {
-    "in": "ink-on",
-    "trans": "light-change",
+    "in": "focus",
+    "trans": "outline-morph",
     "cam": "hold",
     "comp": "right-third-medium",
     "life": [
      "flicker"
     ],
     "new": [
-     "OldTVGhost"
+     "OldTelevision"
     ],
     "stock": [],
-    "see": "The tube's outline ghosts into the shape of an old TV set, then back.",
-    "beats": "+0.0 the tube morphs into a TV outline and back (2 s)"
-   }
+    "see": "The outline of a 1950s television set, its screen glowing, which morphs back into the tube.",
+    "beats": "+0.0 the tube’s outline swells into a television cabinet | +1.6 the screen glows with scan lines | +3.4 it shrinks back into the tube | +5.0 a question mark hangs on the beam",
+    "set": "tube-to-television"
+   },
+   "reads": "This tube is the great-grandfather of the old TV.",
+   "focus": "the glowing screen",
+   "becomes": {
+    "from": "the bulb of the cathode-ray tube",
+    "to": "the outline of a 1950s television set, its screen glowing, which morphs back into the tube",
+    "how": "outline-morph"
+   },
+   "acts": [
+    [
+     0,
+     "the tube’s outline swells into a television cabinet"
+    ],
+    [
+     1.6,
+     "the screen glows with scan lines"
+    ],
+    [
+     3.4,
+     "it shrinks back into the tube"
+    ],
+    [
+     5.0,
+     "a question mark hangs on the beam"
+    ]
+   ],
+   "mood": "playful"
   },
   {
    "text": "With magnets and charged plates, he bent the rays and weighed them. They were made of particles — and those particles were far lighter than any *atom*.",
    "gap": 0.7,
    "section": "CLUE1",
    "plan": {
-    "in": "grow",
-    "trans": "trace",
+    "in": "slide",
+    "trans": "rack-focus",
     "cam": "push",
     "comp": "centre-large",
     "life": [
      "photons"
     ],
     "new": [
-     "MagnetBendsBeam"
+     "CathodeTube"
     ],
     "stock": [],
-    "see": "Inside the tube, a thin green beam curves as a horseshoe magnet is brought near.",
-    "beats": "+0.0 grow: the beam (trail) | +1.6 a magnet slides in; the beam bends (morph) | +3.6 note 'lighter than an atom'",
+    "see": "Inside the tube: the thin green beam bending as a horseshoe magnet comes near, then as the plates are charged.",
+    "beats": "+0.0 focus moves from the bench into the tube | +1.4 a horseshoe magnet glides near | +2.6 the beam bends down | +4.2 the plates are charged (+ / −) | +5.6 the beam bends back up | +7.2 a tiny balance: one speck against one atom — the atom sinks | +8.8 note “far lighter than an atom” | +10.0 the spot on the glass moves",
     "set": "bent-beam"
    },
    "src": "S1 S2",
-   "facts": "F1"
+   "facts": "F1",
+   "reads": "A magnet bends the beam, so the beam is made of light little charged bits.",
+   "focus": "the beam as it bends",
+   "becomes": {
+    "from": "the whole bench",
+    "to": "inside the tube: the thin green beam bending as a horseshoe magnet comes near, then as the plates are charged",
+    "how": "rack-focus"
+   },
+   "acts": [
+    [
+     0,
+     "focus moves from the bench into the tube"
+    ],
+    [
+     1.4,
+     "a horseshoe magnet glides near"
+    ],
+    [
+     2.6,
+     "the beam bends down"
+    ],
+    [
+     4.2,
+     "the plates are charged (+ / −)"
+    ],
+    [
+     5.6,
+     "the beam bends back up"
+    ],
+    [
+     7.2,
+     "a tiny balance: one speck against one atom — the atom sinks"
+    ],
+    [
+     8.8,
+     "note “far lighter than an atom”"
+    ],
+    [
+     10.0,
+     "the spot on the glass moves"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "He had found the electron: a piece of an atom. So atoms were not solid balls after all. They had *parts*.",
@@ -398,27 +939,64 @@
    "section": "CLUE1",
    "plan": {
     "in": "tear-in",
-    "trans": "tear-away",
+    "trans": "swarm",
     "cam": "hold",
     "comp": "centre-medium",
     "life": [
      "tremble"
     ],
-    "new": [],
+    "new": [
+     "IvoryBalls"
+    ],
     "stock": [],
-    "see": "One of the billiard-ball atoms cracks open; tiny dark specks spill from the crack.",
-    "beats": "+0.0 tear-in: a crack runs across the ball (1 s) · sfx crack −20 | +1.4 specks spill out"
+    "see": "The ivory ball again — it cracks, and tiny dark specks spill from the crack.",
+    "beats": "+0.0 the beam’s specks stream out and gather into the ivory ball | +1.8 the ball inks on | +3.0 a crack runs across it | +4.4 specks spill out of the crack | +6.0 label “electrons” | +7.4 a last speck rolls away",
+    "set": "ball-cracks"
    },
    "src": "S1 S2",
-   "facts": "F1"
+   "facts": "F1",
+   "reads": "The “solid” atom has bits that come out of it.",
+   "focus": "the crack and the spilling specks",
+   "becomes": {
+    "from": "the beam’s specks",
+    "to": "the ivory ball again — it cracks, and tiny dark specks spill from the crack",
+    "how": "swarm"
+   },
+   "acts": [
+    [
+     0,
+     "the beam’s specks stream out and gather into the ivory ball"
+    ],
+    [
+     1.8,
+     "the ball inks on"
+    ],
+    [
+     3.0,
+     "a crack runs across it"
+    ],
+    [
+     4.4,
+     "specks spill out of the crack"
+    ],
+    [
+     6.0,
+     "label “electrons”"
+    ],
+    [
+     7.4,
+     "a last speck rolls away"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "Electrons carry a negative electric charge. But atoms as a whole are neutral. So somewhere inside, there had to be positive charge to *balance* them.",
    "gap": 0.7,
    "section": "CLUE1",
    "plan": {
-    "in": "slide",
-    "trans": "morph",
+    "in": "assemble",
+    "trans": "merge",
     "cam": "hold",
     "comp": "split-two",
     "life": [
@@ -428,11 +1006,46 @@
      "ChargeBalance"
     ],
     "stock": [],
-    "see": "A balance with minus signs on one pan, and a pan of question marks opposite; it sits level.",
-    "beats": "+0.0 slide: the balance | +1.6 minus signs drop on one pan | +3.2 the other pan fills with '?' and levels"
+    "see": "A brass balance: minus signs on one pan, question marks on the other, and it hangs level.",
+    "beats": "+0.0 the specks fly together into a brass balance | +1.6 minus signs drop on the left pan; it sinks | +3.6 note “neutral” | +5.0 question marks fill the right pan | +6.8 the balance swings level | +8.4 the question marks turn into faint plus signs",
+    "set": "charge-balance"
    },
    "src": "S1 S2",
-   "facts": "F2"
+   "facts": "F2",
+   "reads": "Something positive must balance the negative electrons.",
+   "focus": "the beam of the balance coming level",
+   "becomes": {
+    "from": "the spilled specks",
+    "to": "a brass balance: minus signs on one pan, question marks on the other, and it hangs level",
+    "how": "merge"
+   },
+   "acts": [
+    [
+     0,
+     "the specks fly together into a brass balance"
+    ],
+    [
+     1.6,
+     "minus signs drop on the left pan; it sinks"
+    ],
+    [
+     3.6,
+     "note “neutral”"
+    ],
+    [
+     5.0,
+     "question marks fill the right pan"
+    ],
+    [
+     6.8,
+     "the balance swings level"
+    ],
+    [
+     8.4,
+     "the question marks turn into faint plus signs"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "In 1904, Thomson proposed a picture: a soft ball of positive charge, with electrons dotted through it… like plums in a *pudding*.",
@@ -440,7 +1053,7 @@
    "section": "CLUE1",
    "plan": {
     "in": "drop",
-    "trans": "match",
+    "trans": "pour",
     "cam": "push",
     "comp": "centre-large",
     "life": [
@@ -449,16 +1062,47 @@
     "new": [
      "PlumPudding"
     ],
-    "stock": [
-     "D-03",
-     "R-04"
-    ],
-    "see": "The question marks melt into a round Victorian Christmas pudding studded with dark plums; it becomes a diagram of an atom.",
-    "beats": "+0.0 drop: a pudding on a plate (bounce) | +1.6 morph: the pudding → a pale sphere with dots (2 s) | +3.8 ★D-03 slides in",
+    "stock": [],
+    "see": "A Victorian pudding basin filling with soft pink batter, studded with dark plums, turned out on a plate.",
+    "beats": "+0.0 the pan becomes a pudding basin | +0.4 soft pink fills it like batter | +2.8 plums drop in one by one | +4.4 the pudding is turned out on a plate | +6.0 plate “J. J. Thomson, 1904” | +7.6 steam rises",
     "set": "plum-pudding-atom"
    },
    "src": "S1 S2",
-   "facts": "F2"
+   "facts": "F2",
+   "reads": "Thomson’s atom: a soft pink ball with electrons stuck in it like plums.",
+   "focus": "the plums dotting into the pudding",
+   "becomes": {
+    "from": "the plus signs on the pan",
+    "to": "a Victorian pudding basin filling with soft pink batter, studded with dark plums, turned out on a plate",
+    "how": "pour"
+   },
+   "acts": [
+    [
+     0,
+     "the pan becomes a pudding basin"
+    ],
+    [
+     0.4,
+     "soft pink fills it like batter"
+    ],
+    [
+     2.8,
+     "plums drop in one by one"
+    ],
+    [
+     4.4,
+     "the pudding is turned out on a plate"
+    ],
+    [
+     6.0,
+     "plate “J. J. Thomson, 1904”"
+    ],
+    [
+     7.6,
+     "steam rises"
+    ]
+   ],
+   "mood": "warm"
   },
   {
    "text": "Physicists liked it. It was tidy, it was sensible, and for a few years nothing contradicted it… *yet*.",
@@ -466,19 +1110,50 @@
    "section": "CLUE1",
    "plan": {
     "in": "slide",
-    "trans": "page-turn",
+    "trans": "shrink-into",
     "cam": "pan",
     "comp": "left-third-medium",
     "life": [
      "breathe"
     ],
     "new": [
-     "TextbookPudding"
+     "PuddingTextbook"
     ],
     "stock": [],
-    "see": "A textbook page shows the pudding diagram; pages turn, it appears again and again.",
-    "beats": "+0.0 slide: a textbook | +1.4 page-turn ×3: the same diagram"
-   }
+    "see": "A textbook page with the pudding atom as its figure; the pages turn and the same figure returns, a small red mark in the margin.",
+    "beats": "+0.0 the pudding shrinks into a figure on a printed page | +1.4 the page turns: the figure again | +2.8 turns again | +4.2 and again | +5.6 a tiny red mark in the margin",
+    "set": "pudding-in-textbooks"
+   },
+   "reads": "For years every book showed the pudding.",
+   "focus": "the figure on each page",
+   "becomes": {
+    "from": "the pudding on its plate",
+    "to": "a textbook page with the pudding atom as its figure; the pages turn and the same figure returns, a small red mark in the margin",
+    "how": "shrink-into"
+   },
+   "acts": [
+    [
+     0,
+     "the pudding shrinks into a figure on a printed page"
+    ],
+    [
+     1.4,
+     "the page turns: the figure again"
+    ],
+    [
+     2.8,
+     "turns again"
+    ],
+    [
+     4.2,
+     "and again"
+    ],
+    [
+     5.6,
+     "a tiny red mark in the margin"
+    ]
+   ],
+   "mood": "warm"
   },
   {
    "text": "It made sense. The charge was spread out evenly, soft and thin, all the way *through*.",
@@ -486,19 +1161,51 @@
    "section": "CLUE1",
    "plan": {
     "in": "bloom",
-    "trans": "light-change",
+    "trans": "grow-out-of",
     "cam": "hold",
     "comp": "centre-medium",
     "life": [
      "breathe"
     ],
-    "new": [],
+    "new": [
+     "PlumPudding"
+    ],
     "stock": [],
-    "see": "The pudding atom glows evenly, calm.",
-    "beats": "+0.0 bloom: an even soft glow (1.4 s)"
+    "see": "The pudding atom filling the page, cut in half: pink all the way through, electrons dotted evenly.",
+    "beats": "+0.0 the figure grows out of the page | +1.6 a knife cuts it in half | +3.0 the halves part: even pink right through | +4.6 the electrons jiggle in place | +5.8 the even glow pulses once"
    },
    "src": "S1 S2",
-   "facts": "F2"
+   "facts": "F2",
+   "reads": "The positive part is spread evenly, like a jelly.",
+   "focus": "the even pink inside the cut",
+   "becomes": {
+    "from": "the textbook figure",
+    "to": "the pudding atom filling the page, cut in half: pink all the way through, electrons dotted evenly",
+    "how": "grow-out-of"
+   },
+   "acts": [
+    [
+     0,
+     "the figure grows out of the page"
+    ],
+    [
+     1.6,
+     "a knife cuts it in half"
+    ],
+    [
+     3.0,
+     "the halves part: even pink right through"
+    ],
+    [
+     4.6,
+     "the electrons jiggle in place"
+    ],
+    [
+     5.8,
+     "the even glow pulses once"
+    ]
+   ],
+   "mood": "warm"
   },
   {
    "text": "And if it was right, anything fired at an atom would pass straight through, barely *disturbed*.",
@@ -506,29 +1213,60 @@
    "section": "CLUE1",
    "plan": {
     "in": "ink-on",
-    "trans": "ride",
+    "trans": "stream-through",
     "cam": "ride",
     "comp": "left-to-right",
     "life": [
      "photons"
     ],
     "new": [
-     "StraightThroughDots"
+     "PlumPudding"
     ],
     "stock": [],
-    "see": "Small arrows fly through the pudding atom and out the other side, almost straight.",
-    "beats": "+0.0 arrows fly through (trail ×5, 2 s) | +2.4 they exit with tiny wiggles"
+    "see": "A stream of tiny bullets passing through the pudding atom and out the other side, almost straight.",
+    "beats": "+0.0 bullets stream in from the left | +1.2 they enter the pudding | +2.4 they leave the far side, barely wiggled | +4.0 more follow | +5.4 label “barely disturbed”",
+    "set": "pudding-stream"
    },
    "src": "S1 S2",
-   "facts": "F2"
+   "facts": "F2",
+   "reads": "If the pudding is right, bullets go straight through it.",
+   "focus": "the stream passing through",
+   "becomes": {
+    "from": "the cut pudding",
+    "to": "a stream of tiny bullets passing through the pudding atom and out the other side, almost straight",
+    "how": "stream-through"
+   },
+   "acts": [
+    [
+     0,
+     "bullets stream in from the left"
+    ],
+    [
+     1.2,
+     "they enter the pudding"
+    ],
+    [
+     2.4,
+     "they leave the far side, barely wiggled"
+    ],
+    [
+     4.0,
+     "more follow"
+    ],
+    [
+     5.4,
+     "label “barely disturbed”"
+    ]
+   ],
+   "mood": "warm"
   },
   {
    "text": "Clue two: *flashes* in the dark.",
-   "gap": 0.7,
+   "gap": 1.5,
    "section": "CLUE2",
    "plan": {
     "in": "stamp",
-    "trans": "through",
+    "trans": "light-change",
     "cam": "rack",
     "comp": "top-centre-small",
     "life": [
@@ -536,9 +1274,35 @@
     ],
     "new": [],
     "stock": [],
-    "see": "Clue tag 2/4; title 'Clue II · Flashes in the Dark'.",
-    "beats": "+0.0 clue tag 2 | +0.2 title"
-   }
+    "see": "The page goes dark; the clue title “Clue II · Flashes in the Dark” with one flash beside it.",
+    "beats": "+0.0 the light goes down on the page | +0.6 clue tag II | +1.2 the title is written | +2.2 a flash beside it"
+   },
+   "reads": "Chapter two: flashes in the dark.",
+   "focus": "the title, then the flash",
+   "becomes": {
+    "from": "the stream over the pudding",
+    "to": "the page goes dark; the clue title “Clue II · Flashes in the Dark” with one flash beside it",
+    "how": "light-change"
+   },
+   "acts": [
+    [
+     0,
+     "the light goes down on the page"
+    ],
+    [
+     0.6,
+     "clue tag II"
+    ],
+    [
+     1.2,
+     "the title is written"
+    ],
+    [
+     2.2,
+     "a flash beside it"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "In Manchester, Ernest Rutherford had a powerful tool: alpha particles — tiny, fast, heavy bullets shot out by radioactive *radium*.",
@@ -546,25 +1310,59 @@
    "section": "CLUE2",
    "plan": {
     "in": "unroll",
-    "trans": "match",
+    "trans": "brush",
     "cam": "pan",
     "comp": "wide-room",
     "life": [
      "sparks"
     ],
     "new": [
-     "RutherfordManchesterLab",
+     "ManchesterLab",
      "RadiumSource"
     ],
     "stock": [
-     "P-04",
-     "P-01"
+     "R-01"
     ],
-    "see": "Rutherford's laboratory in Manchester: benches, pumps, glass; a small lead-shielded source spits faint sparks.",
-    "beats": "+0.0 unroll: the lab (1.4 s) | +1.6 Rutherford (Person, big moustache) | +3.0 the source spits sparks | +4.0 ★P-04"
+    "see": "Rutherford’s Manchester laboratory, painted in: benches, pumps, glass; Rutherford beside a lead block from which a tiny tube of radium spits sparks.",
+    "beats": "+0.0 the lab is painted in, stroke by stroke | +2.2 Rutherford inks on | +3.8 he lifts the lead lid (present) | +4.6 the radium tube spits sparks | +6.0 note “Manchester, 1908” | +7.2 sparks again",
+    "set": "manchester-lab"
    },
-   "src": "S3 S4",
-   "facts": "F3"
+   "src": "S3 S4 S16 S17",
+   "facts": "F3 F12",
+   "reads": "Rutherford has a source that fires tiny bullets.",
+   "focus": "the radium tube spitting sparks",
+   "becomes": {
+    "from": "the dark title page",
+    "to": "Rutherford’s Manchester laboratory, painted in: benches, pumps, glass; Rutherford beside a lead block from which a tiny tube of radium spits sparks",
+    "how": "brush"
+   },
+   "acts": [
+    [
+     0,
+     "the lab is painted in, stroke by stroke"
+    ],
+    [
+     2.2,
+     "Rutherford inks on"
+    ],
+    [
+     3.8,
+     "he lifts the lead lid (present)"
+    ],
+    [
+     4.6,
+     "the radium tube spits sparks"
+    ],
+    [
+     6.0,
+     "note “Manchester, 1908”"
+    ],
+    [
+     7.2,
+     "sparks again"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "Rutherford, a farmer's son from New Zealand, had already won a Nobel Prize for his work on *radioactivity*.",
@@ -572,46 +1370,116 @@
    "section": "CLUE2",
    "plan": {
     "in": "drop",
-    "trans": "real-reveal",
+    "trans": "echo",
     "cam": "hold",
     "comp": "right-third-medium",
     "life": [
      "breathe"
     ],
     "new": [
-     "NobelMedal"
+     "NobelMedal",
+     "FlaxFarm"
     ],
-    "stock": [
-     "P-04"
-    ],
-    "see": "A gold medal drops on the bench beside his portrait; a small map pin on New Zealand.",
-    "beats": "+0.0 drop: the medal (bounce) | +1.4 a tiny NZ pin on a globe"
+    "stock": [],
+    "see": "The gold Nobel medal turning over; beside it a small farm under hills in New Zealand.",
+    "beats": "+0.0 the round glow becomes a gold medal | +1.6 the medal turns to show its face | +3.2 a farm in the hills of Nelson inks on beside it | +4.8 plate “Nelson, New Zealand” | +6.4 “Nobel Prize, 1908”",
+    "set": "farmer-to-nobel"
    },
    "src": "S14 S15",
-   "facts": "F11"
+   "facts": "F11",
+   "reads": "He came from a farm in New Zealand and had won the Nobel Prize.",
+   "focus": "the gold medal",
+   "becomes": {
+    "from": "the round glow of the radium",
+    "to": "the gold Nobel medal turning over; beside it a small farm under hills in New Zealand",
+    "how": "echo"
+   },
+   "acts": [
+    [
+     0,
+     "the round glow becomes a gold medal"
+    ],
+    [
+     1.6,
+     "the medal turns to show its face"
+    ],
+    [
+     3.2,
+     "a farm in the hills of Nelson inks on beside it"
+    ],
+    [
+     4.8,
+     "plate “Nelson, New Zealand”"
+    ],
+    [
+     6.4,
+     "“Nobel Prize, 1908”"
+    ]
+   ],
+   "mood": "warm"
   },
   {
-   "text": "Alpha particles are thousands of times heavier than electrons. They fly out of radium fast enough to cross a room in a tiny fraction of a *second*.",
+   "text": "Alpha particles are thousands of times heavier than electrons, and they shoot out of radium at around fifteen thousand kilometres a *second*.",
    "gap": 0.7,
    "section": "CLUE2",
    "plan": {
     "in": "iris",
-    "trans": "ride",
+    "trans": "real-reveal",
     "cam": "ride",
-    "comp": "diagonal",
+    "comp": "centre-large",
     "life": [
      "sparks"
     ],
     "new": [
-     "AlphaBulletTrail"
+     "AlphaBead"
     ],
-    "stock": [],
-    "see": "A single alpha particle drawn as a heavy glowing bead; ride with it as it streaks across the room.",
-    "beats": "+0.0 iris to the bead | +1.0 ride with it (2 s, linear)",
-    "set": "bullet-from-radium"
+    "stock": [
+     "V-01"
+    ],
+    "see": "Real cloud-chamber footage in a round eyepiece: white alpha tracks shooting out; beside it a scale where one alpha outweighs a pile of electrons.",
+    "beats": "+0.0 ★V-01 real footage develops in an eyepiece where the medal was | +1.4 tracks shoot across | +2.6 a scale: one alpha bead drops on one pan | +4.0 electron specks pour onto the other — it does not move | +5.6 counter “×7,300” | +7.4 a bead streaks across the frame | +8.8 counter “15,000 km/s”",
+    "set": "real-alpha-tracks"
    },
    "src": "S16 S17",
-   "facts": "F12"
+   "facts": "F12",
+   "reads": "These are real tracks left by alpha particles — heavy and very fast.",
+   "focus": "the real tracks shooting across",
+   "becomes": {
+    "from": "the medal",
+    "to": "real cloud-chamber footage in a round eyepiece: white alpha tracks shooting out; beside it a scale where one alpha outweighs a pile of electrons",
+    "how": "real-reveal"
+   },
+   "acts": [
+    [
+     0,
+     "★V-01 real footage develops in an eyepiece where the medal was"
+    ],
+    [
+     1.4,
+     "tracks shoot across"
+    ],
+    [
+     2.6,
+     "a scale: one alpha bead drops on one pan"
+    ],
+    [
+     4.0,
+     "electron specks pour onto the other — it does not move"
+    ],
+    [
+     5.6,
+     "counter “×7,300”"
+    ],
+    [
+     7.4,
+     "a bead streaks across the frame"
+    ],
+    [
+     8.8,
+     "counter “15,000 km/s”"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "What would happen if you fired them at a thin sheet of metal? He gave the job to his assistant, Hans Geiger, and to the young student Ernest *Marsden*.",
@@ -619,25 +1487,60 @@
    "section": "CLUE2",
    "plan": {
     "in": "slide",
-    "trans": "trace",
+    "trans": "hand-over",
     "cam": "pan",
     "comp": "two-figures",
     "life": [
      "breathe"
     ],
-    "new": [
-     "GeigerFigure",
-     "MarsdenFigure"
-    ],
+    "new": [],
     "stock": [
      "P-01"
     ],
-    "see": "Two figures at the bench: an older German assistant and the student from the opening shot.",
-    "beats": "+0.0 slide: Geiger enters | +1.4 Marsden (match from L0) | +2.6 ★P-01 cabinet card",
+    "see": "Rutherford handing the radium box to Geiger; Marsden — the student of the opening — beside them; their real photograph pinned.",
+    "beats": "+0.0 Rutherford turns, holding up a sheet of metal (present) | +1.8 it glints | +3.4 Geiger walks in | +5.0 Rutherford hands him the radium box | +6.8 Marsden joins them | +8.4 ★P-01 the real Manchester photograph pinned | +10.0 names written under the figures",
     "set": "two-in-the-dark"
    },
    "src": "S3 S4",
-   "facts": "F3"
+   "facts": "F3",
+   "reads": "Rutherford gives the experiment to two men.",
+   "focus": "the box passing from hand to hand",
+   "becomes": {
+    "from": "the eyepiece of footage",
+    "to": "Rutherford handing the radium box to Geiger; Marsden — the student of the opening — beside them; their real photograph pinned",
+    "how": "hand-over"
+   },
+   "acts": [
+    [
+     0,
+     "Rutherford turns, holding up a sheet of metal (present)"
+    ],
+    [
+     1.8,
+     "it glints"
+    ],
+    [
+     3.4,
+     "Geiger walks in"
+    ],
+    [
+     5.0,
+     "Rutherford hands him the radium box"
+    ],
+    [
+     6.8,
+     "Marsden joins them"
+    ],
+    [
+     8.4,
+     "★P-01 the real Manchester photograph pinned"
+    ],
+    [
+     10.0,
+     "names written under the figures"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "They fired a narrow beam of alpha particles at a sheet of gold, beaten so thin that light could almost shine through *it*.",
@@ -645,25 +1548,56 @@
    "section": "CLUE2",
    "plan": {
     "in": "grow",
-    "trans": "real-reveal",
+    "trans": "lift-off",
     "cam": "push",
     "comp": "centre-large",
     "life": [
      "photons"
     ],
     "new": [
-     "GoldFoilSheet",
-     "AlphaBeam"
+     "GoldLeafLamp"
     ],
-    "stock": [
-     "P-06"
-    ],
-    "see": "A gold leaf held to a lamp glows green-gold through its thinness; a narrow beam aims at it.",
-    "beats": "+0.0 grow: the beam (1.6 s) | +1.8 the gold leaf glows translucent | +3.0 ★P-06 real gold leaf plate",
+    "stock": [],
+    "see": "A gold leaf held up to a lamp in tweezers, glowing green-gold through its thinness, a narrow beam aimed at it.",
+    "beats": "+0.0 the photograph lifts off the page | +1.2 tweezers raise a gold leaf | +2.6 a lamp behind it lights up | +3.6 light shines through: the leaf glows green | +5.4 a narrow beam of beads streams at it | +7.4 the leaf flutters",
     "set": "gold-thinner-than-light"
    },
    "src": "S3 S4",
-   "facts": "F3"
+   "facts": "F3",
+   "reads": "The gold is so thin that lamplight shines through it.",
+   "focus": "the leaf glowing in the lamplight",
+   "becomes": {
+    "from": "the pinned photograph and the three men",
+    "to": "a gold leaf held up to a lamp in tweezers, glowing green-gold through its thinness, a narrow beam aimed at it",
+    "how": "lift-off"
+   },
+   "acts": [
+    [
+     0,
+     "the photograph lifts off the page"
+    ],
+    [
+     1.2,
+     "tweezers raise a gold leaf"
+    ],
+    [
+     2.6,
+     "a lamp behind it lights up"
+    ],
+    [
+     3.6,
+     "light shines through: the leaf glows green"
+    ],
+    [
+     5.4,
+     "a narrow beam of beads streams at it"
+    ],
+    [
+     7.4,
+     "the leaf flutters"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "The beam passed through a narrow slit inside a box pumped empty of air, so that nothing but the gold could get in its *way*.",
@@ -671,32 +1605,65 @@
    "section": "CLUE2",
    "plan": {
     "in": "ink-on",
-    "trans": "window",
+    "trans": "shrink-into",
     "cam": "pan",
     "comp": "cross-section",
     "life": [
      "photons"
     ],
     "new": [
-     "ScatterBoxSection"
+     "ScatterApparatus"
     ],
     "stock": [
-     "R-02",
-     "D-05"
+     "R-02"
     ],
-    "see": "A cut-away drawing of the apparatus: source, slit, foil, screen and microscope inside an airless box.",
-    "beats": "+0.0 grow: the section drawing (2 s) | +2.2 labels source / foil / screen | +3.4 ★D-05 in a loupe",
+    "see": "The scattering box in cut-away: source, slit, the gold leaf, the screen and the microscope; air pumped out.",
+    "beats": "+0.0 the leaf shrinks into its place inside the box | +1.4 the box inks on around it, cut away | +3.2 the pump draws: air specks leave the box | +5.0 the beam threads the slit | +6.6 labels source · gold · screen | +8.2 ★R-02 the 1913 figure in a loupe",
     "set": "vacuum-box-section"
    },
    "src": "S4 S5 S6",
-   "facts": "F4"
+   "facts": "F4",
+   "reads": "Inside a sealed box with no air, the beam hits only the gold.",
+   "focus": "the beam threading the slit to the gold",
+   "becomes": {
+    "from": "the gold leaf",
+    "to": "the scattering box in cut-away: source, slit, the gold leaf, the screen and the microscope; air pumped out",
+    "how": "shrink-into"
+   },
+   "acts": [
+    [
+     0,
+     "the leaf shrinks into its place inside the box"
+    ],
+    [
+     1.4,
+     "the box inks on around it, cut away"
+    ],
+    [
+     3.2,
+     "the pump draws: air specks leave the box"
+    ],
+    [
+     5.0,
+     "the beam threads the slit"
+    ],
+    [
+     6.6,
+     "labels source · gold · screen"
+    ],
+    [
+     8.2,
+     "★R-02 the 1913 figure in a loupe"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "There were no electronic counters. The only way to detect each particle was a screen coated with zinc sulphide, which gave off a tiny flash when one *hit*.",
    "gap": 0.7,
    "section": "CLUE2",
    "plan": {
-    "in": "iris",
+    "in": "focus",
     "trans": "through",
     "cam": "push",
     "comp": "centre-large",
@@ -704,17 +1671,57 @@
      "sparks"
     ],
     "new": [
-     "ZincScreenCloseup"
+     "ZincScreenField"
     ],
-    "stock": [
-     "P-07",
-     "R-02"
-    ],
-    "see": "A window into the box: the screen glows with a single faint spark where a particle lands.",
-    "beats": "+0.0 iris into the box (1.2 s) | +1.6 a spark lands on the screen"
+    "stock": [],
+    "see": "The screen close up: glittering zinc-sulphide crystals, and a particle landing as a flash.",
+    "beats": "+0.0 through the microscope to the screen | +1.6 the crystals glitter | +3.0 a particle lands: flash | +4.6 another flash | +6.0 label “zinc sulphide” | +7.4 flash | +9.0 flash | +10.6 two flashes at once",
+    "set": "zinc-sulphide-close"
    },
    "src": "S4 S5 S6",
-   "facts": "F4"
+   "facts": "F4",
+   "reads": "Each particle makes a tiny flash where it hits the coated screen.",
+   "focus": "one crystal flashing",
+   "becomes": {
+    "from": "the microscope of the apparatus",
+    "to": "the screen close up: glittering zinc-sulphide crystals, and a particle landing as a flash",
+    "how": "through"
+   },
+   "acts": [
+    [
+     0,
+     "through the microscope to the screen"
+    ],
+    [
+     1.6,
+     "the crystals glitter"
+    ],
+    [
+     3.0,
+     "a particle lands: flash"
+    ],
+    [
+     4.6,
+     "another flash"
+    ],
+    [
+     6.0,
+     "label “zinc sulphide”"
+    ],
+    [
+     7.4,
+     "flash"
+    ],
+    [
+     9.0,
+     "flash"
+    ],
+    [
+     10.6,
+     "two flashes at once"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "So they sat in the dark until their eyes adjusted, and counted the flashes one by one, through a *microscope*.",
@@ -722,22 +1729,56 @@
    "section": "CLUE2",
    "plan": {
     "in": "wipe",
-    "trans": "light-change",
+    "trans": "sweep",
     "cam": "hold",
     "comp": "left-third-medium",
     "life": [
      "sparks"
     ],
     "new": [
-     "DarkAdaptEye"
+     "DarkEye"
     ],
     "stock": [],
-    "see": "The room dims to almost black; slowly the eye adjusts and the screen's flashes become visible.",
-    "beats": "+0.0 light-change: to near black (2 s) | +2.2 wipe: flashes slowly become visible",
+    "see": "A human eye in the dark, its pupil slowly widening, until the faint flashes appear in it.",
+    "beats": "+0.0 darkness sweeps over the page | +1.6 an eye opens in the dark | +3.0 the pupil widens | +4.6 faint flashes appear, reflected in it | +6.2 a tally stroke | +7.4 another",
     "set": "eyes-adjusting"
    },
    "src": "S4 S5 S6",
-   "facts": "F4"
+   "facts": "F4",
+   "reads": "In the dark the pupil opens wide, and the faint flashes become visible.",
+   "focus": "the pupil widening",
+   "becomes": {
+    "from": "the bright crystal field",
+    "to": "a human eye in the dark, its pupil slowly widening, until the faint flashes appear in it",
+    "how": "sweep"
+   },
+   "acts": [
+    [
+     0,
+     "darkness sweeps over the page"
+    ],
+    [
+     1.6,
+     "an eye opens in the dark"
+    ],
+    [
+     3.0,
+     "the pupil widens"
+    ],
+    [
+     4.6,
+     "faint flashes appear, reflected in it"
+    ],
+    [
+     6.2,
+     "a tally stroke"
+    ],
+    [
+     7.4,
+     "another"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "It was exhausting work. A person could only count accurately for a short time before the eyes had to *rest*.",
@@ -745,21 +1786,52 @@
    "section": "CLUE2",
    "plan": {
     "in": "blinds",
-    "trans": "page-turn",
+    "trans": "count-up",
     "cam": "hold",
     "comp": "right-third-medium",
     "life": [
      "breathe"
     ],
     "new": [
-     "TallySheets"
+     "TallySheet"
     ],
     "stock": [],
-    "see": "Tally sheets fill with strokes; the counter rubs his eyes and swaps places.",
-    "beats": "+0.0 blinds: tally sheets fill (stagger) | +2.4 the two men swap at the eyepiece"
+    "see": "The tally sheet filling with strokes as a counter runs, while Marsden rubs his eyes and Geiger takes his place.",
+    "beats": "+0.0 the strokes multiply; the counter runs | +1.6 Marsden sits back and rubs his eyes | +3.2 Geiger takes the eyepiece | +5.2 the strokes go on | +7.0 the counter keeps running",
+    "set": "tally-and-swap"
    },
    "src": "S4 S5 S6",
-   "facts": "F4"
+   "facts": "F4",
+   "reads": "Counting flashes for long tires the eyes; they take turns.",
+   "focus": "the strokes filling the sheet",
+   "becomes": {
+    "from": "the eye",
+    "to": "the tally sheet filling with strokes as a counter runs, while Marsden rubs his eyes and Geiger takes his place",
+    "how": "count-up"
+   },
+   "acts": [
+    [
+     0,
+     "the strokes multiply; the counter runs"
+    ],
+    [
+     1.6,
+     "Marsden sits back and rubs his eyes"
+    ],
+    [
+     3.2,
+     "Geiger takes the eyepiece"
+    ],
+    [
+     5.2,
+     "the strokes go on"
+    ],
+    [
+     7.0,
+     "the counter keeps running"
+    ]
+   ],
+   "mood": "mystery"
   },
   {
    "text": "Geiger later turned that drudgery into a machine that counted particles by itself — the Geiger counter, still clicking in labs *today*.",
@@ -767,49 +1839,117 @@
    "section": "CLUE2",
    "plan": {
     "in": "stamp",
-    "trans": "match",
-    "cam": "hold",
+    "trans": "whip",
+    "cam": "whip",
     "comp": "centre-medium",
     "life": [
      "sparks"
     ],
     "new": [
-     "GeigerCounterPeriod"
+     "GeigerCounter"
     ],
     "stock": [],
-    "see": "A period Geiger counter on the bench; its needle jumps with each click.",
-    "beats": "+0.0 stamp: the counter appears | +1.0 the needle jumps (tremble) · sfx clicks −24"
+    "see": "A Geiger–Müller counter on a bench: its tube, its box and needle; the needle jumps with every click.",
+    "beats": "+0.0 whip pan along the bench, across the years | +1.2 the counter inks on | +2.6 click — the needle jumps | +3.8 click, click | +5.4 plate “Geiger–Müller counter, 1928” | +7.0 clicks | +8.0 click",
+    "set": "geiger-counter"
    },
    "src": "S16 S17",
-   "facts": "F12"
+   "facts": "F12",
+   "reads": "Geiger built a machine to do the counting.",
+   "focus": "the needle jumping",
+   "becomes": {
+    "from": "the tally sheet",
+    "to": "a Geiger–Müller counter on a bench: its tube, its box and needle; the needle jumps with every click",
+    "how": "whip"
+   },
+   "acts": [
+    [
+     0,
+     "whip pan along the bench, across the years"
+    ],
+    [
+     1.2,
+     "the counter inks on"
+    ],
+    [
+     2.6,
+     "click — the needle jumps"
+    ],
+    [
+     3.8,
+     "click, click"
+    ],
+    [
+     5.4,
+     "plate “Geiger–Müller counter, 1928”"
+    ],
+    [
+     7.0,
+     "clicks"
+    ],
+    [
+     8.0,
+     "click"
+    ]
+   ],
+   "mood": "playful"
   },
   {
    "text": "Most particles flew straight through the gold, just as the pudding *predicted*.",
    "gap": 0.7,
    "section": "CLUE2",
    "plan": {
-    "in": "ink-on",
-    "trans": "ride",
-    "cam": "ride",
+    "in": "iris",
+    "trans": "crane",
+    "cam": "crane",
     "comp": "diagonal",
     "life": [
      "photons"
     ],
-    "new": [],
+    "new": [
+     "ScatterApparatus"
+    ],
     "stock": [],
-    "see": "Ride with a stream of particles: they pass through the foil almost undeflected.",
-    "beats": "+0.0 ride with the stream (3 s)"
+    "see": "The gold leaf seen from above inside the box: a stream of particles passing straight through to the screen.",
+    "beats": "+0.0 crane up and over into the box | +1.4 the stream passes the leaf straight | +2.8 flashes at the middle of the screen | +4.2 more pass",
+    "set": "straight-through-foil"
    },
    "src": "S4 S7",
-   "facts": "F5"
+   "facts": "F5",
+   "reads": "Almost all the particles go straight through the gold.",
+   "focus": "the stream passing through",
+   "becomes": {
+    "from": "the Geiger counter",
+    "to": "the gold leaf seen from above inside the box: a stream of particles passing straight through to the screen",
+    "how": "crane"
+   },
+   "acts": [
+    [
+     0,
+     "crane up and over into the box"
+    ],
+    [
+     1.4,
+     "the stream passes the leaf straight"
+    ],
+    [
+     2.8,
+     "flashes at the middle of the screen"
+    ],
+    [
+     4.2,
+     "more pass"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "A few were nudged a little to one side. That was expected *too*.",
    "gap": 0.7,
    "section": "CLUE2",
    "plan": {
-    "in": "grow",
-    "trans": "trace",
+    "in": "focus",
+    "trans": "spot",
     "cam": "hold",
     "comp": "centre-medium",
     "life": [
@@ -817,19 +1957,45 @@
     ],
     "new": [],
     "stock": [],
-    "see": "A few paths bend slightly as they pass.",
-    "beats": "+0.0 a few trails bend a few degrees"
+    "see": "The light narrows to three paths that bend a few degrees as they cross the gold.",
+    "beats": "+0.0 the light narrows | +1.2 three paths bend a few degrees | +2.6 their flashes land a little off-centre | +4.0 label “nudged”"
    },
    "src": "S4 S7",
-   "facts": "F5"
+   "facts": "F5",
+   "reads": "A few bend a little — no surprise.",
+   "focus": "the three bent paths",
+   "becomes": {
+    "from": "the stream through the leaf",
+    "to": "the light narrows to three paths that bend a few degrees as they cross the gold",
+    "how": "spot"
+   },
+   "acts": [
+    [
+     0,
+     "the light narrows"
+    ],
+    [
+     1.2,
+     "three paths bend a few degrees"
+    ],
+    [
+     2.6,
+     "their flashes land a little off-centre"
+    ],
+    [
+     4.0,
+     "label “nudged”"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "Clue three: the one that came *back*.",
-   "gap": 0.7,
+   "gap": 1.5,
    "section": "CLUE3",
    "plan": {
     "in": "bloom",
-    "trans": "scale-in",
+    "trans": "bloom-out",
     "cam": "rack",
     "comp": "top-centre-small",
     "life": [
@@ -837,52 +2003,149 @@
     ],
     "new": [],
     "stock": [],
-    "see": "Clue tag 3/4; title 'Clue III · The One That Came Back'.",
-    "beats": "+0.0 clue tag 3 | +0.2 title"
-   }
+    "see": "The clue title “Clue III · The One That Came Back”, a path bending back under it.",
+    "beats": "+0.0 everything gathers into one point; clue tag III | +1.0 the title is written | +2.0 a path runs under it and turns back"
+   },
+   "reads": "Chapter three: one comes back.",
+   "focus": "the path bending back",
+   "becomes": {
+    "from": "the apparatus",
+    "to": "the clue title “Clue III · The One That Came Back”, a path bending back under it",
+    "how": "bloom-out"
+   },
+   "acts": [
+    [
+     0,
+     "everything gathers into one point; clue tag III"
+    ],
+    [
+     1.0,
+     "the title is written"
+    ],
+    [
+     2.0,
+     "a path runs under it and turns back"
+    ]
+   ],
+   "mood": "tension"
   },
   {
-   "text": "Rutherford asked Marsden to try something that seemed pointless: look for particles bouncing back toward the *source*.",
+   "text": "Rutherford suggested a small research for young Marsden: see if any particles bounced back toward the *source*.",
    "gap": 0.7,
    "section": "CLUE3",
    "plan": {
     "in": "slide",
-    "trans": "match",
+    "trans": "hand-over",
     "cam": "push",
     "comp": "two-figures",
     "life": [
      "breathe"
     ],
-    "new": [],
+    "new": [
+     "ScatterApparatus"
+    ],
     "stock": [],
-    "see": "Rutherford points to the side of the box nearest the source; Marsden moves the microscope there.",
-    "beats": "+0.0 slide: Rutherford leans in (pose point) | +1.6 the microscope swings round to the source side"
+    "see": "Rutherford pointing to the source side of the box; Marsden swinging the microscope round to it.",
+    "beats": "+0.0 Rutherford leans in and points | +1.8 Marsden takes the microscope | +2.8 it swings round toward the source | +5.0 Marsden sits to look | +6.4 Rutherford folds his arms",
+    "set": "swing-the-microscope"
    },
    "src": "S4 S7",
-   "facts": "F5"
+   "facts": "F5",
+   "reads": "Rutherford says: look on the side the particles came from.",
+   "focus": "the microscope swinging round",
+   "becomes": {
+    "from": "the clue title",
+    "to": "Rutherford pointing to the source side of the box; Marsden swinging the microscope round to it",
+    "how": "hand-over"
+   },
+   "acts": [
+    [
+     0,
+     "Rutherford leans in and points"
+    ],
+    [
+     1.8,
+     "Marsden takes the microscope"
+    ],
+    [
+     2.8,
+     "it swings round toward the source"
+    ],
+    [
+     5.0,
+     "Marsden sits to look"
+    ],
+    [
+     6.4,
+     "Rutherford folds his arms"
+    ]
+   ],
+   "mood": "tension"
   },
   {
-   "text": "Nobody expected to see any. A thin pudding of charge could never throw back a heavy, fast *bullet*.",
+   "text": "Rutherford did not expect any. An alpha particle was fast and heavy — a thin pudding of charge could never throw one *back*.",
    "gap": 0.7,
    "section": "CLUE3",
    "plan": {
     "in": "tear-in",
-    "trans": "eclipse",
+    "trans": "heat",
     "cam": "hold",
     "comp": "centre-medium",
     "life": [
      "boil"
     ],
     "new": [
-     "PuddingVsBullet"
+     "PlumPudding"
     ],
     "stock": [],
-    "see": "A pudding sits in the path of a speeding bullet; the bullet goes straight through it.",
-    "beats": "+0.0 the bullet streaks through the pudding (trail, 0.8 s) | +1.4 the pudding wobbles; nothing more",
+    "see": "A pudding on its plate in the path of a speeding bullet: the bullet goes straight through, the pudding just wobbles.",
+    "beats": "+0.0 the scene shimmers into the pudding | +1.6 a bullet streaks in | +2.4 it passes straight through | +3.4 the pudding wobbles | +4.6 a second bullet streaks in | +5.4 through it too | +6.4 note “nothing comes back” | +8.0 the pudding settles, untouched",
     "set": "pudding-cannot-stop"
    },
-   "src": "S1 S2 S4 S7",
-   "facts": "F2 F5"
+   "src": "S1 S2 S4 S7 S16 S17",
+   "facts": "F2 F5 F12",
+   "reads": "A soft pudding cannot bounce a bullet back.",
+   "focus": "the bullet passing through the pudding",
+   "becomes": {
+    "from": "the swung microscope",
+    "to": "a pudding on its plate in the path of a speeding bullet: the bullet goes straight through, the pudding just wobbles",
+    "how": "heat"
+   },
+   "acts": [
+    [
+     0,
+     "the scene shimmers into the pudding"
+    ],
+    [
+     1.6,
+     "a bullet streaks in"
+    ],
+    [
+     2.4,
+     "it passes straight through"
+    ],
+    [
+     3.4,
+     "the pudding wobbles"
+    ],
+    [
+     4.6,
+     "a second bullet streaks in"
+    ],
+    [
+     5.4,
+     "through it too"
+    ],
+    [
+     6.4,
+     "note “nothing comes back”"
+    ],
+    [
+     8.0,
+     "the pudding settles, untouched"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "But some *did* come back.",
@@ -890,20 +2153,44 @@
    "section": "CLUE3",
    "plan": {
     "in": "stamp",
-    "trans": "collapse",
+    "trans": "through",
     "cam": "push",
     "comp": "centre-large",
     "life": [
      "sparks"
     ],
-    "new": [],
+    "new": [
+     "ZincScreenField"
+    ],
     "stock": [],
-    "see": "The eyepiece view: a bright flash on the source side.",
-    "beats": "+0.0 stamp: a flash on the 'impossible' side (snap) · sfx glass tick −18",
+    "see": "The eyepiece field on the source side: a bright flash.",
+    "beats": "+0.0 through the eyepiece | +0.8 FLASH on the source side | +1.6 a ring spreads from it",
     "set": "rebound-flash"
    },
    "src": "S4 S7",
-   "facts": "F5"
+   "facts": "F5",
+   "reads": "A flash — one came back!",
+   "focus": "the flash",
+   "becomes": {
+    "from": "the wobbling pudding",
+    "to": "the eyepiece field on the source side: a bright flash",
+    "how": "through"
+   },
+   "acts": [
+    [
+     0,
+     "through the eyepiece"
+    ],
+    [
+     0.8,
+     "FLASH on the source side"
+    ],
+    [
+     1.6,
+     "a ring spreads from it"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "In 1909, Geiger and Marsden reported that about one in every eight thousand particles was thrown back from the *metal*.",
@@ -921,11 +2208,46 @@
     "stock": [
      "D-01"
     ],
-    "see": "The real 1909 paper ★D-01 unrolls; the sentence with '1 in 8000' is underlined.",
-    "beats": "+0.0 unroll: ★D-01 (1.6 s) | +2.0 red underline under the sentence"
+    "see": "The real 1909 paper on the desk, the sentence with “1 in 8000” under a loupe and underlined in red.",
+    "beats": "+0.0 ★D-01 the real page develops where the flash was | +1.8 a loupe slides over the sentence | +3.2 the crop of the sentence fills the loupe | +4.6 a red line underlines it | +6.0 figure “1 in 8,000” in gold | +7.4 the loupe glints",
+    "set": "paper-1909"
    },
    "src": "S4 S7",
-   "facts": "F5"
+   "facts": "F5",
+   "reads": "Their published paper says: about 1 in 8,000 came back.",
+   "focus": "the underlined sentence",
+   "becomes": {
+    "from": "the flash in the field",
+    "to": "the real 1909 paper on the desk, the sentence with “1 in 8000” under a loupe and underlined in red",
+    "how": "real-reveal"
+   },
+   "acts": [
+    [
+     0,
+     "★D-01 the real page develops where the flash was"
+    ],
+    [
+     1.8,
+     "a loupe slides over the sentence"
+    ],
+    [
+     3.2,
+     "the crop of the sentence fills the loupe"
+    ],
+    [
+     4.6,
+     "a red line underlines it"
+    ],
+    [
+     6.0,
+     "figure “1 in 8,000” in gold"
+    ],
+    [
+     7.4,
+     "the loupe glints"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "One in eight thousand sounds tiny. But for a pudding, it should have been *zero*.",
@@ -933,30 +2255,60 @@
    "section": "CLUE3",
    "plan": {
     "in": "grow",
-    "trans": "morph",
+    "trans": "swarm",
     "cam": "hold",
     "comp": "split-two",
     "life": [
      "tremble"
     ],
     "new": [
-     "EightThousandDots"
+     "DotField"
     ],
     "stock": [],
-    "see": "Eight thousand dots fill a field; one of them is red; beside it, a pudding with a large red zero.",
-    "beats": "+0.0 grow: dots fill the field (2 s) | +2.4 one dot turns red | +3.6 figure '0' beside the pudding",
+    "see": "Eight thousand dots filling a field, one of them red; beside it the pudding with a red zero.",
+    "beats": "+0.0 the printed letters lift off as grains | +1.4 they settle as dots (counter to 8,000) | +3.4 one dot turns red | +4.6 the pudding inks on beside, with a red “0” | +5.8 the red dot pulses",
     "set": "one-in-eight-thousand"
    },
    "src": "S4 S7",
-   "facts": "F5"
+   "facts": "F5",
+   "reads": "Of 8,000, one came back — the pudding allows none.",
+   "focus": "the one red dot",
+   "becomes": {
+    "from": "the letters of the paper",
+    "to": "eight thousand dots filling a field, one of them red; beside it the pudding with a red zero",
+    "how": "swarm"
+   },
+   "acts": [
+    [
+     0,
+     "the printed letters lift off as grains"
+    ],
+    [
+     1.4,
+     "they settle as dots (counter to 8,000)"
+    ],
+    [
+     3.4,
+     "one dot turns red"
+    ],
+    [
+     4.6,
+     "the pudding inks on beside, with a red “0”"
+    ],
+    [
+     5.8,
+     "the red dot pulses"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "Rutherford had worked with alpha particles for years. He knew how heavy and fast they were. A whisper-thin film should never have turned one *around*.",
    "gap": 0.7,
    "section": "CLUE3",
    "plan": {
-    "in": "quill",
-    "trans": "trace",
+    "in": "focus",
+    "trans": "rack-focus",
     "cam": "push",
     "comp": "right-third-medium",
     "life": [
@@ -964,37 +2316,117 @@
     ],
     "new": [],
     "stock": [],
-    "see": "Rutherford at his desk, pen stopped mid-line, staring at the tally.",
-    "beats": "+0.0 Rutherford pose → think | +1.6 the pen stops (tremble)"
+    "see": "Rutherford at his desk with the tally; his pen stops; he stands and paces, holding the gold leaf up to the light.",
+    "beats": "+0.0 focus passes from the dots to Rutherford | +1.4 he reads the tally | +3.0 his pen stops | +4.6 he stands (sit → think) | +6.6 he paces | +8.6 he holds up the gold leaf to the lamp",
+    "set": "rutherford-paces"
    },
    "src": "S14 S15 S16 S17",
-   "facts": "F11 F12"
+   "facts": "F11 F12",
+   "reads": "Rutherford cannot believe it: it should not happen.",
+   "focus": "Rutherford’s face and the leaf",
+   "becomes": {
+    "from": "the field of dots",
+    "to": "Rutherford at his desk with the tally; his pen stops; he stands and paces, holding the gold leaf up to the light",
+    "how": "rack-focus"
+   },
+   "acts": [
+    [
+     0,
+     "focus passes from the dots to Rutherford"
+    ],
+    [
+     1.4,
+     "he reads the tally"
+    ],
+    [
+     3.0,
+     "his pen stops"
+    ],
+    [
+     4.6,
+     "he stands (sit → think)"
+    ],
+    [
+     6.6,
+     "he paces"
+    ],
+    [
+     8.6,
+     "he holds up the gold leaf to the lamp"
+    ]
+   ],
+   "mood": "tension"
   },
   {
-   "text": "Years later, Rutherford described his shock. It was, he said, as if you fired a fifteen-inch shell at a piece of tissue paper… and it came back and hit *you*.",
+   "text": "Years later, Rutherford described his shock. It was, he said, almost as incredible as if you fired a fifteen-inch shell at a piece of tissue paper… and it came back and hit *you*.",
    "gap": 0.7,
    "section": "CLUE3",
    "plan": {
     "in": "drop",
-    "trans": "ride",
+    "trans": "tilt",
     "cam": "ride",
     "comp": "wide-landscape",
     "life": [
      "dust"
     ],
     "new": [
-     "NavalShell",
-     "TissueSheet"
+     "ShellAndTissue"
     ],
     "stock": [
      "T-01"
     ],
-    "see": "A huge naval shell flies at a sheet of tissue paper on a frame — and bounces straight back toward us.",
-    "beats": "+0.0 drop: the tissue on its frame | +1.4 the shell flies (ride 2 s) | +4.0 it rebounds at the camera (snap) | +5.0 plate with the quotation",
+    "see": "On a shingle beach a naval gun fires a huge shell at a sheet of tissue paper on a frame — it bounces straight back at us.",
+    "beats": "+0.0 the camera tilts down from the leaf to a beach: a tissue sheet on a frame | +1.8 a naval gun beside the shingle | +3.4 it fires (smoke) | +4.6 the shell flies | +6.4 it meets the tissue — and stops | +7.6 it flies back, growing toward the camera | +9.4 ★T-01 his words on a plate | +11.0 the tissue flutters | +12.6 the shell fills the frame and fades",
     "set": "shell-and-tissue"
    },
    "src": "S8 S9",
-   "facts": "F6"
+   "facts": "F6",
+   "reads": "Like a cannon shell bouncing off tissue paper.",
+   "focus": "the shell turning back",
+   "becomes": {
+    "from": "Rutherford holding up the leaf",
+    "to": "on a shingle beach a naval gun fires a huge shell at a sheet of tissue paper on a frame — it bounces straight back at us",
+    "how": "tilt"
+   },
+   "acts": [
+    [
+     0,
+     "the camera tilts down from the leaf to a beach: a tissue sheet on a frame"
+    ],
+    [
+     1.8,
+     "a naval gun beside the shingle"
+    ],
+    [
+     3.4,
+     "it fires (smoke)"
+    ],
+    [
+     4.6,
+     "the shell flies"
+    ],
+    [
+     6.4,
+     "it meets the tissue — and stops"
+    ],
+    [
+     7.6,
+     "it flies back, growing toward the camera"
+    ],
+    [
+     9.4,
+     "★T-01 his words on a plate"
+    ],
+    [
+     11.0,
+     "the tissue flutters"
+    ],
+    [
+     12.6,
+     "the shell fills the frame and fades"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "There was only one explanation. Inside the atom, there had to be something tiny, heavy, and fiercely *charged*.",
@@ -1002,100 +2434,231 @@
    "section": "CLUE3",
    "plan": {
     "in": "iris",
-    "trans": "eclipse",
+    "trans": "echo",
     "cam": "push",
     "comp": "centre-large",
     "life": [
      "photons"
     ],
-    "new": [],
+    "new": [
+     "NuclearAtom"
+    ],
     "stock": [],
-    "see": "The pudding fades; at the centre of the atom outline, a pinpoint appears.",
-    "beats": "+0.0 iris to the atom outline | +1.4 the pudding dissolves | +2.4 a pinpoint at the centre"
+    "see": "The atom outline: the pudding dissolves out of it and a single bright point appears at its centre.",
+    "beats": "+0.0 the shell’s round nose becomes the atom outline | +1.6 the pudding inside dissolves away | +3.0 a pinpoint of light at the centre | +4.6 a “+” beside it | +6.0 a ring pulses out from it",
+    "set": "nucleus-appears"
    },
    "src": "S3 S10",
-   "facts": "F7"
+   "facts": "F7",
+   "reads": "There must be a tiny, heavy, charged thing in the middle.",
+   "focus": "the bright point at the centre",
+   "becomes": {
+    "from": "the shell coming at us, nose-on",
+    "to": "the atom outline: the pudding dissolves out of it and a single bright point appears at its centre",
+    "how": "echo"
+   },
+   "acts": [
+    [
+     0,
+     "the shell’s round nose becomes the atom outline"
+    ],
+    [
+     1.6,
+     "the pudding inside dissolves away"
+    ],
+    [
+     3.0,
+     "a pinpoint of light at the centre"
+    ],
+    [
+     4.6,
+     "a “+” beside it"
+    ],
+    [
+     6.0,
+     "a ring pulses out from it"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "Rutherford spent almost two years working out the mathematics of a single concentrated *charge*.",
    "gap": 0.7,
    "section": "CLUE3",
    "plan": {
-    "in": "unroll",
-    "trans": "page-turn",
+    "in": "quill",
+    "trans": "brush",
     "cam": "hold",
     "comp": "left-third-medium",
     "life": [
      "flicker"
     ],
     "new": [
-     "RutherfordDeskSums"
+     "RutherfordDesk"
     ],
     "stock": [],
-    "see": "Rutherford at a desk under a lamp; pages of equations unroll beside him.",
-    "beats": "+0.0 unroll: pages of sums (1.6 s) | +1.8 lamp flicker",
+    "see": "Rutherford at his desk at night under a lamp, writing sums; a curve sketched on the page.",
+    "beats": "+0.0 the desk at night is painted in | +1.6 his pen writes lines of sums | +3.2 a page is turned | +4.4 a curve is sketched round a dot | +5.6 the lamp flickers",
     "set": "equations-by-lamplight"
    },
    "src": "S3 S10",
-   "facts": "F7"
+   "facts": "F7",
+   "reads": "He works it out on paper, night after night.",
+   "focus": "the pen and the curve",
+   "becomes": {
+    "from": "the bright point",
+    "to": "Rutherford at his desk at night under a lamp, writing sums; a curve sketched on the page",
+    "how": "brush"
+   },
+   "acts": [
+    [
+     0,
+     "the desk at night is painted in"
+    ],
+    [
+     1.6,
+     "his pen writes lines of sums"
+    ],
+    [
+     3.2,
+     "a page is turned"
+    ],
+    [
+     4.4,
+     "a curve is sketched round a dot"
+    ],
+    [
+     5.6,
+     "the lamp flickers"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "Most particles missed it entirely. But the rare one that came close was flung *aside* — or straight back.",
    "gap": 0.7,
    "section": "CLUE3",
    "plan": {
-    "in": "ink-on",
-    "trans": "trace",
+    "in": "grow",
+    "trans": "grow-out-of",
     "cam": "hold",
     "comp": "centre-large",
     "life": [
      "photons"
     ],
     "new": [
-     "DeflectionFan"
+     "NuclearAtom"
     ],
-    "stock": [
-     "X-01"
-    ],
-    "see": "Particle paths fan around the pinpoint: most straight, a few bending sharply, one turning back.",
-    "beats": "+0.0 trails (×12) pass the centre; the closest swing hard; one reverses (true to ★X-01 angles)",
+    "stock": [],
+    "see": "Many particle paths around one nucleus, computed true: far ones straight, near ones bent, one turned straight back.",
+    "beats": "+0.0 the curve grows out of the page into the fan | +1.4 far paths pass straight | +2.8 a nearer one bends | +4.2 a near one swings wide | +5.6 a head-on one turns straight back | +7.0 more pass",
     "set": "hyperbola-fan"
    },
    "src": "S3 S10",
-   "facts": "F7"
+   "facts": "F7",
+   "reads": "Far paths stay straight; close ones bend; a head-on one bounces back.",
+   "focus": "the one that turns back",
+   "becomes": {
+    "from": "the sketched curve",
+    "to": "many particle paths around one nucleus, computed true: far ones straight, near ones bent, one turned straight back",
+    "how": "grow-out-of"
+   },
+   "acts": [
+    [
+     0,
+     "the curve grows out of the page into the fan"
+    ],
+    [
+     1.4,
+     "far paths pass straight"
+    ],
+    [
+     2.8,
+     "a nearer one bends"
+    ],
+    [
+     4.2,
+     "a near one swings wide"
+    ],
+    [
+     5.6,
+     "a head-on one turns straight back"
+    ],
+    [
+     7.0,
+     "more pass"
+    ]
+   ],
+   "mood": "curious"
   },
   {
    "text": "Then Geiger and Marsden counted again, angle by angle, and the flashes matched his formula *exactly*.",
    "gap": 0.7,
    "section": "CLUE3",
    "plan": {
-    "in": "grow",
-    "trans": "ride",
+    "in": "ink-on",
+    "trans": "travel-line",
     "cam": "push",
     "comp": "centre-medium",
     "life": [
      "sparks"
     ],
     "new": [
-     "ScatterCurve"
+     "ScatterGraph"
     ],
-    "stock": [
-     "X-01"
-    ],
-    "see": "Counted points rise on a graph and sit right on a drawn curve.",
-    "beats": "+0.0 grow: the curve (1.6 s) | +2.0 points land on it one by one (true to ★X-01)",
+    "stock": [],
+    "see": "A graph: one line runs out of the fan and becomes the curve of the formula; counted points land on it.",
+    "beats": "+0.0 a path leaves the fan and lays itself down as the curve | +1.6 axes ink on: angle · flashes | +2.6 a point lands on the curve | +3.4 another | +4.2 another | +5.0 plate “Geiger & Marsden, 1913” | +6.2 the last point lands",
     "set": "counts-meet-curve"
    },
-   "src": "S3 S10",
-   "facts": "F7"
+   "src": "S3 S10 S6 S10",
+   "facts": "F7 F16",
+   "reads": "The counts at each angle sit on the predicted curve.",
+   "focus": "each point landing on the curve",
+   "becomes": {
+    "from": "the paths of the fan",
+    "to": "a graph: one line runs out of the fan and becomes the curve of the formula; counted points land on it",
+    "how": "travel-line"
+   },
+   "acts": [
+    [
+     0,
+     "a path leaves the fan and lays itself down as the curve"
+    ],
+    [
+     1.6,
+     "axes ink on: angle · flashes"
+    ],
+    [
+     2.6,
+     "a point lands on the curve"
+    ],
+    [
+     3.4,
+     "another"
+    ],
+    [
+     4.2,
+     "another"
+    ],
+    [
+     5.0,
+     "plate “Geiger & Marsden, 1913”"
+    ],
+    [
+     6.2,
+     "the last point lands"
+    ]
+   ],
+   "mood": "triumph"
   },
   {
    "text": "Clue four: an empty *stadium*.",
-   "gap": 0.7,
+   "gap": 1.5,
    "section": "CLUE4",
    "plan": {
     "in": "stamp",
-    "trans": "through",
+    "trans": "sweep",
     "cam": "rack",
     "comp": "top-centre-small",
     "life": [
@@ -1103,30 +2666,31 @@
     ],
     "new": [],
     "stock": [],
-    "see": "Clue tag 4/4; title 'Clue IV · The Pea in the Stadium'.",
-    "beats": "+0.0 clue tag 4 | +0.2 title"
-   }
-  },
-  {
-   "text": "Even hydrogen, the simplest atom of all, is mostly emptiness: one electron, far from a nucleus made of a single *proton*.",
-   "gap": 0.7,
-   "section": "CLUE4",
-   "plan": {
-    "in": "ink-on",
-    "trans": "scale-in",
-    "cam": "push",
-    "comp": "centre-medium",
-    "life": [
-     "breathe"
+    "see": "The clue title “Clue IV · The Pea in the Stadium”.",
+    "beats": "+0.0 the graph is washed off the page | +0.6 clue tag IV | +1.2 the title is written"
+   },
+   "reads": "Chapter four: an empty stadium.",
+   "focus": "the title",
+   "becomes": {
+    "from": "the graph",
+    "to": "the clue title “Clue IV · The Pea in the Stadium”",
+    "how": "sweep"
+   },
+   "acts": [
+    [
+     0,
+     "the graph is washed off the page"
     ],
-    "new": [
-     "HydrogenSketch"
+    [
+     0.6,
+     "clue tag IV"
     ],
-    "stock": [],
-    "see": "The simplest atom drawn: one dot at the centre, one faint electron far out.",
-    "beats": "+0.0 ink-on: centre dot and far electron (1.6 s)",
-    "set": "lonely-hydrogen"
-   }
+    [
+     1.2,
+     "the title is written"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "In 1911, Rutherford published his conclusion. Almost all of an atom's mass, and all its positive charge, are packed into a tiny centre: the *nucleus*.",
@@ -1134,24 +2698,58 @@
    "section": "CLUE4",
    "plan": {
     "in": "unroll",
-    "trans": "real-reveal",
+    "trans": "unroll",
     "cam": "push",
     "comp": "right-third-large",
     "life": [
      "boil"
     ],
     "new": [
-     "NucleusPinpoint"
+     "NuclearAtom"
     ],
     "stock": [
      "D-02"
     ],
-    "see": "The real 1911 paper ★D-02; beside it, the pinpoint labelled 'nucleus'.",
-    "beats": "+0.0 unroll: ★D-02 | +1.8 red circle on 'central charge' | +3.2 label 'nucleus' with a leader line",
+    "see": "The real 1911 paper unrolled on the desk; beside it the atom, all its weight flowing into one point labelled “nucleus”.",
+    "beats": "+0.0 ★D-02 the 1911 paper unrolls | +1.8 a red circle round its title | +3.4 beside it the atom: its weight flows into the centre | +5.6 a “+” on the point | +7.2 label “nucleus” | +8.8 the point glints",
     "set": "nucleus-named"
    },
    "src": "S3 S10",
-   "facts": "F7"
+   "facts": "F7",
+   "reads": "Rutherford’s 1911 paper: nearly all the atom is in a tiny centre.",
+   "focus": "the weight flowing into the centre",
+   "becomes": {
+    "from": "the clue title",
+    "to": "the real 1911 paper unrolled on the desk; beside it the atom, all its weight flowing into one point labelled “nucleus”",
+    "how": "unroll"
+   },
+   "acts": [
+    [
+     0,
+     "★D-02 the 1911 paper unrolls"
+    ],
+    [
+     1.8,
+     "a red circle round its title"
+    ],
+    [
+     3.4,
+     "beside it the atom: its weight flows into the centre"
+    ],
+    [
+     5.6,
+     "a “+” on the point"
+    ],
+    [
+     7.2,
+     "label “nucleus”"
+    ],
+    [
+     8.8,
+     "the point glints"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "The electrons move around it, far out. And between them and the nucleus there is… *nothing*.",
@@ -1159,21 +2757,109 @@
    "section": "CLUE4",
    "plan": {
     "in": "wipe",
-    "trans": "scale-out",
+    "trans": "dive",
     "cam": "pull",
     "comp": "centre-large",
     "life": [
      "breathe"
     ],
     "new": [
-     "ElectronCloudFar"
+     "NuclearAtom"
     ],
     "stock": [],
-    "see": "Pull back: tiny electrons far out on the edge of a huge empty circle; the nucleus a dot at the centre.",
-    "beats": "+0.0 scale-out ×20 (3 s) | +1.6 wipe: faint electron haze at the rim | +3.0 the empty space between"
+    "see": "The camera falls back through emptiness until a faint haze of electrons appears at the far rim.",
+    "beats": "+0.0 the camera falls back from the nucleus (geometric) | +1.6 it shrinks to a point | +3.0 the electron haze appears at the rim | +4.6 note “nothing” | +5.6 a speck drifts",
+    "set": "empty-between"
    },
    "src": "S3 S10 S11 S12",
-   "facts": "F7 F8"
+   "facts": "F7 F8",
+   "reads": "Between the centre and the electrons: empty space.",
+   "focus": "the emptiness growing",
+   "becomes": {
+    "from": "the nucleus close up",
+    "to": "the camera falls back through emptiness until a faint haze of electrons appears at the far rim",
+    "how": "dive"
+   },
+   "acts": [
+    [
+     0,
+     "the camera falls back from the nucleus (geometric)"
+    ],
+    [
+     1.6,
+     "it shrinks to a point"
+    ],
+    [
+     3.0,
+     "the electron haze appears at the rim"
+    ],
+    [
+     4.6,
+     "note “nothing”"
+    ],
+    [
+     5.6,
+     "a speck drifts"
+    ]
+   ],
+   "mood": "wonder"
+  },
+  {
+   "text": "Even hydrogen, the simplest atom of all, is mostly emptiness: one electron, far from a nucleus made of a single *proton*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "focus",
+    "trans": "outline-morph",
+    "cam": "hold",
+    "comp": "centre-medium",
+    "life": [
+     "breathe"
+    ],
+    "new": [
+     "NuclearAtom"
+    ],
+    "stock": [],
+    "see": "The hydrogen atom: one point at the centre, one electron cloud far out, labelled.",
+    "beats": "+0.0 the haze outline tightens into hydrogen’s cloud | +1.8 label “hydrogen” | +3.2 the electron swirls | +5.0 label “one proton” | +6.6 label “one electron” | +8.0 it swirls",
+    "set": "lonely-hydrogen"
+   },
+   "src": "S11 S13",
+   "facts": "F17",
+   "reads": "Hydrogen: one proton in the middle, one electron far out.",
+   "focus": "the single electron",
+   "becomes": {
+    "from": "the haze at the rim",
+    "to": "the hydrogen atom: one point at the centre, one electron cloud far out, labelled",
+    "how": "outline-morph"
+   },
+   "acts": [
+    [
+     0,
+     "the haze outline tightens into hydrogen’s cloud"
+    ],
+    [
+     1.8,
+     "label “hydrogen”"
+    ],
+    [
+     3.2,
+     "the electron swirls"
+    ],
+    [
+     5.0,
+     "label “one proton”"
+    ],
+    [
+     6.6,
+     "label “one electron”"
+    ],
+    [
+     8.0,
+     "it swirls"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "How empty? The nucleus is about a hundred thousand times smaller across than the atom *itself*.",
@@ -1181,19 +2867,50 @@
    "section": "CLUE4",
    "plan": {
     "in": "grow",
-    "trans": "trace",
+    "trans": "count-up",
     "cam": "hold",
-    "comp": "centre-medium",
+    "comp": "centre-large",
     "life": [
      "breathe"
     ],
     "new": [],
     "stock": [],
-    "see": "A gold ruler measures the atom; a tiny tick marks the nucleus.",
-    "beats": "+0.0 grow: a ruler across the atom | +1.6 a tick at the centre | +2.6 note '×100,000'"
+    "see": "A gold ruler across the atom; a counter runs up to ×100,000 while the nucleus stays a dot.",
+    "beats": "+0.0 a gold ruler runs across the atom | +1.4 the counter runs | +3.4 a tick marks the nucleus | +4.8 “×100,000” settles | +5.8 the nucleus glints",
+    "set": "times-100000"
    },
    "src": "S11 S12",
-   "facts": "F8"
+   "facts": "F8",
+   "reads": "The atom is 100,000 times wider than its nucleus.",
+   "focus": "the counter",
+   "becomes": {
+    "from": "the hydrogen atom",
+    "to": "a gold ruler across the atom; a counter runs up to ×100,000 while the nucleus stays a dot",
+    "how": "count-up"
+   },
+   "acts": [
+    [
+     0,
+     "a gold ruler runs across the atom"
+    ],
+    [
+     1.4,
+     "the counter runs"
+    ],
+    [
+     3.4,
+     "a tick marks the nucleus"
+    ],
+    [
+     4.8,
+     "“×100,000” settles"
+    ],
+    [
+     5.8,
+     "the nucleus glints"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "Picture an atom as big as a football stadium. The nucleus would be a pea on the centre *spot*.",
@@ -1201,25 +2918,52 @@
    "section": "CLUE4",
    "plan": {
     "in": "rise",
-    "trans": "morph",
+    "trans": "shape-window",
     "cam": "crane",
     "comp": "wide-stadium",
     "life": [
      "dust"
     ],
     "new": [
-     "EmptyStadium",
-     "PeaOnCentreSpot"
+     "EmptyStadium"
     ],
-    "stock": [
-     "P-08"
-    ],
-    "see": "An empty stadium rises around the atom outline; the nucleus becomes a green pea on the centre spot.",
-    "beats": "+0.0 rise: the stadium stands (2 s) | +2.2 morph: nucleus → pea | +3.4 crane over the stadium | +4.6 ★P-08 plate",
+    "stock": [],
+    "see": "An empty football stadium seen through an oval opening that widens to the whole frame; the nucleus becomes a green pea on the centre spot.",
+    "beats": "+0.0 the atom’s circle becomes an oval opening onto a stadium | +2.0 the stands rise and ink on | +3.6 the nucleus becomes a pea | +5.0 the camera cranes over the pitch | +6.4 label “a pea”",
     "set": "pea-in-the-stadium"
    },
    "src": "S11 S12",
-   "facts": "F8"
+   "facts": "F8",
+   "reads": "If the atom were a stadium, the nucleus would be a pea in the middle.",
+   "focus": "the pea on the centre spot",
+   "becomes": {
+    "from": "the round atom",
+    "to": "an empty football stadium seen through an oval opening that widens to the whole frame; the nucleus becomes a green pea on the centre spot",
+    "how": "shape-window"
+   },
+   "acts": [
+    [
+     0,
+     "the atom’s circle becomes an oval opening onto a stadium"
+    ],
+    [
+     2.0,
+     "the stands rise and ink on"
+    ],
+    [
+     3.6,
+     "the nucleus becomes a pea"
+    ],
+    [
+     5.0,
+     "the camera cranes over the pitch"
+    ],
+    [
+     6.4,
+     "label “a pea”"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "The electrons would be specks of dust drifting around the highest seats. And everything in between would be *empty*.",
@@ -1227,21 +2971,52 @@
    "section": "CLUE4",
    "plan": {
     "in": "drop",
-    "trans": "ride",
+    "trans": "crane",
     "cam": "ride",
     "comp": "wide-stadium",
     "life": [
      "dust"
     ],
     "new": [
-     "DustInTheStands"
+     "EmptyStadium"
     ],
     "stock": [],
-    "see": "Ride along the top rows: tiny motes drift; the vast bowl between is empty.",
-    "beats": "+0.0 dust motes appear in the top rows | +1.0 ride around the rim (4 s)"
+    "see": "The camera rises to the top rows: specks of dust drift there; the vast bowl below is empty.",
+    "beats": "+0.0 the camera rises to the top rows | +1.6 specks of dust drift in the light | +3.2 one speck circles the rim | +5.0 the empty bowl below | +6.6 label “electrons”",
+    "set": "dust-in-the-stands"
    },
    "src": "S11 S12",
-   "facts": "F8"
+   "facts": "F8",
+   "reads": "The electrons are dust in the top seats; the rest is empty.",
+   "focus": "the dust specks",
+   "becomes": {
+    "from": "the pea on the pitch",
+    "to": "the camera rises to the top rows: specks of dust drift there; the vast bowl below is empty",
+    "how": "crane"
+   },
+   "acts": [
+    [
+     0,
+     "the camera rises to the top rows"
+    ],
+    [
+     1.6,
+     "specks of dust drift in the light"
+    ],
+    [
+     3.2,
+     "one speck circles the rim"
+    ],
+    [
+     5.0,
+     "the empty bowl below"
+    ],
+    [
+     6.6,
+     "label “electrons”"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "Every chemical reaction — every flame, every breath — happens out at the edges, among the electrons. The nucleus sits untouched at the *centre*.",
@@ -1256,12 +3031,49 @@
      "embers"
     ],
     "new": [
-     "CandleAtTheRim"
+     "EmptyStadium"
     ],
     "stock": [],
-    "see": "A tiny candle flame flickers at the stadium's rim among the dust motes; the pea sits still at the centre.",
-    "beats": "+0.0 bloom: a flame at the rim | +2.0 the pea stays dark and still"
-   }
+    "see": "Dusk in the stadium: a candle flame and a breath of mist at the rim among the specks, while the pea sits dark and still.",
+    "beats": "+0.0 dusk falls on the stadium | +1.8 a flame lights at the rim | +3.6 a breath of mist at another | +5.4 sparks pass between specks | +7.2 the light narrows on the still pea | +8.8 a speck drifts past the flame",
+    "set": "flame-at-the-rim"
+   },
+   "src": "S11 S13",
+   "facts": "F18",
+   "reads": "Flames and breath happen at the edge; the centre is untouched.",
+   "focus": "the flame at the rim",
+   "becomes": {
+    "from": "the stands by day",
+    "to": "dusk in the stadium: a candle flame and a breath of mist at the rim among the specks, while the pea sits dark and still",
+    "how": "light-change"
+   },
+   "acts": [
+    [
+     0,
+     "dusk falls on the stadium"
+    ],
+    [
+     1.8,
+     "a flame lights at the rim"
+    ],
+    [
+     3.6,
+     "a breath of mist at another"
+    ],
+    [
+     5.4,
+     "sparks pass between specks"
+    ],
+    [
+     7.2,
+     "the light narrows on the still pea"
+    ],
+    [
+     8.8,
+     "a speck drifts past the flame"
+    ]
+   ],
+   "mood": "calm"
   },
   {
    "text": "Later, in 1932, James Chadwick found the other passenger in the nucleus — the neutron — completing the *picture*.",
@@ -1269,33 +3081,60 @@
    "section": "CLUE4",
    "plan": {
     "in": "slide",
-    "trans": "window",
+    "trans": "dive",
     "cam": "push",
     "comp": "right-third-medium",
     "life": [
      "boil"
     ],
     "new": [
-     "ChadwickFigure",
-     "NeutronPair"
+     "NucleusBeads"
     ],
-    "stock": [
-     "P-05",
-     "D-04"
-    ],
-    "see": "A window: Chadwick at a bench; the pea-nucleus shows two kinds of tiny beads.",
-    "beats": "+0.0 slide: a window opens (1.0 s) | +1.4 Chadwick (Person) | +2.8 the nucleus splits into two colours of beads | +3.6 ★D-04"
+    "stock": [],
+    "see": "Down into the pea: it is a cluster of beads of two kinds; James Chadwick at his bench in a round window beside it.",
+    "beats": "+0.0 we dive into the pea | +1.6 it resolves into beads of two kinds | +3.2 a round window: Chadwick at his bench | +4.8 plate “James Chadwick, 1932” | +6.2 the neutral beads glint",
+    "set": "pea-of-beads"
    },
    "src": "S1 S2",
-   "facts": "F9"
+   "facts": "F9",
+   "reads": "The centre is made of two kinds of bead: protons and neutrons.",
+   "focus": "the cluster of beads",
+   "becomes": {
+    "from": "the pea at dusk",
+    "to": "down into the pea: it is a cluster of beads of two kinds; James Chadwick at his bench in a round window beside it",
+    "how": "dive"
+   },
+   "acts": [
+    [
+     0,
+     "we dive into the pea"
+    ],
+    [
+     1.6,
+     "it resolves into beads of two kinds"
+    ],
+    [
+     3.2,
+     "a round window: Chadwick at his bench"
+    ],
+    [
+     4.8,
+     "plate “James Chadwick, 1932”"
+    ],
+    [
+     6.2,
+     "the neutral beads glint"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "Now look at your own *hand*.",
-   "gap": 0.9,
+   "gap": 1.5,
    "section": "TWIST",
    "plan": {
     "in": "iris",
-    "trans": "match",
+    "trans": "whip",
     "cam": "push",
     "comp": "centre-large",
     "life": [
@@ -1305,10 +3144,28 @@
      "OpenHand"
     ],
     "stock": [],
-    "see": "A drawn hand fills the frame, palm up.",
-    "beats": "+0.0 iris: a hand (1.2 s)",
+    "see": "A hand, palm up, filling the frame.",
+    "beats": "+0.0 a fast pan from the nucleus to a hand | +1.2 the fingers open",
     "set": "your-hand"
-   }
+   },
+   "reads": "Your own hand.",
+   "focus": "the hand opening",
+   "becomes": {
+    "from": "the nucleus of beads",
+    "to": "a hand, palm up, filling the frame",
+    "how": "whip"
+   },
+   "acts": [
+    [
+     0,
+     "a fast pan from the nucleus to a hand"
+    ],
+    [
+     1.2,
+     "the fingers open"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "It is made of atoms, and every one of them is almost entirely empty space. So why does it feel so *solid*?",
@@ -1316,20 +3173,57 @@
    "section": "TWIST",
    "plan": {
     "in": "bloom",
-    "trans": "scale-in",
+    "trans": "dive",
     "cam": "push",
     "comp": "centre-large",
     "life": [
      "dust"
     ],
-    "new": [],
+    "new": [
+     "OpenHand",
+     "SkinCells"
+    ],
     "stock": [],
-    "see": "Zoom into the skin of the palm: cells, then molecules, then one atom — the stadium again, nearly empty.",
-    "beats": "+0.0 scale-in ×1000 through the skin (4 s, geometric) | +3.0 the empty stadium-atom blooms",
-    "set": "hand-to-stadium"
+    "see": "Down through the skin of the palm: cells, then a lattice of molecules, then one atom — nearly empty.",
+    "beats": "+0.0 the dive into the palm begins | +1.6 skin ridges | +3.0 cells | +4.6 a lattice of molecules | +6.2 one atom: a point and a haze | +7.8 a question mark",
+    "set": "hand-to-atom"
    },
    "src": "S11 S13",
-   "facts": "F10"
+   "facts": "F10",
+   "reads": "Your hand, deep down, is mostly empty space.",
+   "focus": "the empty atom at the bottom of the dive",
+   "becomes": {
+    "from": "the palm",
+    "to": "down through the skin of the palm: cells, then a lattice of molecules, then one atom — nearly empty",
+    "how": "dive"
+   },
+   "acts": [
+    [
+     0,
+     "the dive into the palm begins"
+    ],
+    [
+     1.6,
+     "skin ridges"
+    ],
+    [
+     3.0,
+     "cells"
+    ],
+    [
+     4.6,
+     "a lattice of molecules"
+    ],
+    [
+     6.2,
+     "one atom: a point and a haze"
+    ],
+    [
+     7.8,
+     "a question mark"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "Press it on a table. Why doesn't it sink straight *through*?",
@@ -1337,7 +3231,7 @@
    "section": "TWIST",
    "plan": {
     "in": "slide",
-    "trans": "eclipse",
+    "trans": "tilt",
     "cam": "hold",
     "comp": "split-two",
     "life": [
@@ -1347,11 +3241,38 @@
      "HandOnTable"
     ],
     "stock": [],
-    "see": "The hand rests on a wooden table; for a moment it looks as if it could pass through.",
-    "beats": "+0.0 slide: the table | +1.6 the hand presses; tremble"
+    "see": "The hand above an oak table, pressing down on it.",
+    "beats": "+0.0 tilt back up to the hand over a table | +1.4 it lowers | +2.6 it presses — the knuckles whiten | +3.8 it stops at the surface",
+    "set": "hand-on-table"
    },
    "src": "S11 S13",
-   "facts": "F10"
+   "facts": "F10",
+   "reads": "The hand presses the table and does not pass through.",
+   "focus": "the palm meeting the wood",
+   "becomes": {
+    "from": "the empty atom",
+    "to": "the hand above an oak table, pressing down on it",
+    "how": "tilt"
+   },
+   "acts": [
+    [
+     0,
+     "tilt back up to the hand over a table"
+    ],
+    [
+     1.4,
+     "it lowers"
+    ],
+    [
+     2.6,
+     "it presses — the knuckles whiten"
+    ],
+    [
+     3.8,
+     "it stops at the surface"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "Because the electrons on the outside of your atoms push hard against the electrons of the table's *atoms*.",
@@ -1359,7 +3280,7 @@
    "section": "TWIST",
    "plan": {
     "in": "grow",
-    "trans": "trace",
+    "trans": "spot",
     "cam": "push",
     "comp": "centre-large",
     "life": [
@@ -1369,12 +3290,42 @@
      "ElectronCushion"
     ],
     "stock": [],
-    "see": "Between palm and table, two clouds of electrons meet and push apart with curved field lines.",
-    "beats": "+0.0 push to the gap | +1.4 grow: two hazes meet; curved lines push apart (ripple)",
+    "see": "The gap between skin and wood, magnified: two hazes of electrons meet and push each other apart.",
+    "beats": "+0.0 the light narrows to the line where they meet | +1.4 two hazes meet | +3.0 curved lines push apart | +4.6 they bulge back | +6.2 ripples",
     "set": "electron-cushion"
    },
    "src": "S11 S13",
-   "facts": "F10"
+   "facts": "F10",
+   "reads": "Electrons of the hand and table push each other away.",
+   "focus": "the two hazes pressing",
+   "becomes": {
+    "from": "the palm on the wood",
+    "to": "the gap between skin and wood, magnified: two hazes of electrons meet and push each other apart",
+    "how": "spot"
+   },
+   "acts": [
+    [
+     0,
+     "the light narrows to the line where they meet"
+    ],
+    [
+     1.4,
+     "two hazes meet"
+    ],
+    [
+     3.0,
+     "curved lines push apart"
+    ],
+    [
+     4.6,
+     "they bulge back"
+    ],
+    [
+     6.2,
+     "ripples"
+    ]
+   ],
+   "mood": "tension"
   },
   {
    "text": "What you feel as touch is that push. In a sense, you have never truly touched *anything*.",
@@ -1382,19 +3333,48 @@
    "section": "TWIST",
    "plan": {
     "in": "wipe",
-    "trans": "fold",
-    "cam": "hold",
+    "trans": "ink-bleed",
+    "cam": "pull",
     "comp": "centre-medium",
     "life": [
      "breathe"
     ],
-    "new": [],
+    "new": [
+     "HandOnTable"
+    ],
     "stock": [],
-    "see": "The tiny gap between hand and table glows faintly; it never closes.",
-    "beats": "+0.0 the gap glows | +1.6 hold"
+    "see": "The hand on the table again, a thin gold gap glowing between palm and wood that never closes.",
+    "beats": "+0.0 the hand and table bleed back in | +1.6 a thin gap glows gold | +3.2 the fingers press — the gap holds | +5.0 note “never touched”",
+    "set": "never-touched"
    },
    "src": "S11 S13",
-   "facts": "F10"
+   "facts": "F10",
+   "reads": "There is always a tiny gap: touch is a push.",
+   "focus": "the glowing gap",
+   "becomes": {
+    "from": "the two hazes",
+    "to": "the hand on the table again, a thin gold gap glowing between palm and wood that never closes",
+    "how": "ink-bleed"
+   },
+   "acts": [
+    [
+     0,
+     "the hand and table bleed back in"
+    ],
+    [
+     1.6,
+     "a thin gap glows gold"
+    ],
+    [
+     3.2,
+     "the fingers press — the gap holds"
+    ],
+    [
+     5.0,
+     "note “never touched”"
+    ]
+   ],
+   "mood": "calm"
   },
   {
    "text": "Even the hardest diamond and the heaviest gold are mostly empty *space*.",
@@ -1402,23 +3382,48 @@
    "section": "TWIST",
    "plan": {
     "in": "drop",
-    "trans": "light-change",
+    "trans": "split",
     "cam": "pan",
     "comp": "split-two",
     "life": [
      "sparks"
     ],
     "new": [
-     "DiamondCrystal",
-     "GoldIngot"
+     "DiamondAndIngot"
     ],
     "stock": [],
-    "see": "A cut diamond and a gold ingot side by side; through each, the faint pattern of mostly-empty atoms shows.",
-    "beats": "+0.0 drop both | +1.6 their atoms show through like lattices of dots",
+    "see": "A cut diamond and a gold ingot side by side; through each, the sparse lattice of its atoms shows.",
+    "beats": "+0.0 the gap splits into two objects | +1.4 a diamond and an ingot ink on | +2.6 a band sweeps across: their atoms show, sparse | +4.2 the diamond glints",
     "set": "diamond-and-gold-empty"
    },
    "src": "S11 S13",
-   "facts": "F10"
+   "facts": "F10",
+   "reads": "Even diamond and gold are mostly empty.",
+   "focus": "the lattice inside each",
+   "becomes": {
+    "from": "the glowing gap",
+    "to": "a cut diamond and a gold ingot side by side; through each, the sparse lattice of its atoms shows",
+    "how": "split"
+   },
+   "acts": [
+    [
+     0,
+     "the gap splits into two objects"
+    ],
+    [
+     1.4,
+     "a diamond and an ingot ink on"
+    ],
+    [
+     2.6,
+     "a band sweeps across: their atoms show, sparse"
+    ],
+    [
+     4.2,
+     "the diamond glints"
+    ]
+   ],
+   "mood": "wonder"
   },
   {
    "text": "You are solid, heavy and real — and yet you are built almost entirely of empty space, held together by electric *forces*.",
@@ -1426,40 +3431,90 @@
    "section": "TWIST",
    "plan": {
     "in": "grow",
-    "trans": "scale-out",
+    "trans": "swarm",
     "cam": "pull",
     "comp": "centre-large",
     "life": [
      "breathe"
     ],
     "new": [
-     "PersonDotted"
+     "StippleFigure"
     ],
     "stock": [],
-    "see": "Pull back from the hand to a whole standing figure drawn only as a fine stipple of dots with wide gaps.",
-    "beats": "+0.0 scale-out to a full figure (3 s) | +1.6 the figure resolves into sparse stipple",
+    "see": "A standing human figure made only of sparse dots, faint lines of force flickering between them.",
+    "beats": "+0.0 the dots fly up and settle as a standing figure | +1.8 the figure is complete | +3.4 its dots spread apart | +5.2 lines of force flicker between them | +7.0 the figure turns its head",
     "set": "person-of-space"
    },
    "src": "S11 S13",
-   "facts": "F10"
+   "facts": "F10",
+   "reads": "You are mostly empty, held together by electric forces.",
+   "focus": "the figure of dots",
+   "becomes": {
+    "from": "the atoms of diamond and gold",
+    "to": "a standing human figure made only of sparse dots, faint lines of force flickering between them",
+    "how": "swarm"
+   },
+   "acts": [
+    [
+     0,
+     "the dots fly up and settle as a standing figure"
+    ],
+    [
+     1.8,
+     "the figure is complete"
+    ],
+    [
+     3.4,
+     "its dots spread apart"
+    ],
+    [
+     5.2,
+     "lines of force flicker between them"
+    ],
+    [
+     7.0,
+     "the figure turns its head"
+    ]
+   ],
+   "mood": "awe"
   },
   {
    "text": "So — what is inside an *atom*?",
    "gap": 0.7,
    "section": "ANSWER",
    "plan": {
-    "in": "bloom",
-    "trans": "scale-in",
-    "cam": "pull",
+    "in": "focus",
+    "trans": "echo",
+    "cam": "push",
     "comp": "centre-medium",
     "life": [
      "dust"
     ],
-    "new": [],
+    "new": [
+     "DottedAtom"
+    ],
     "stock": [],
-    "see": "The dotted circle from the opening returns.",
-    "beats": "+0.0 scale-out | +1.0 bloom"
-   }
+    "see": "The dotted circle of the opening returns, empty.",
+    "beats": "+0.0 the head becomes the dotted circle | +1.4 a question mark inside"
+   },
+   "reads": "Back to the question.",
+   "focus": "the circle",
+   "becomes": {
+    "from": "the head of the dotted figure",
+    "to": "the dotted circle of the opening returns, empty",
+    "how": "echo"
+   },
+   "acts": [
+    [
+     0,
+     "the head becomes the dotted circle"
+    ],
+    [
+     1.4,
+     "a question mark inside"
+    ]
+   ],
+   "mood": "triumph"
   },
   {
    "text": "A tiny, heavy nucleus at the centre, a haze of electrons far out… and between them, almost *nothing*.",
@@ -1467,20 +3522,53 @@
    "section": "ANSWER",
    "plan": {
     "in": "assemble",
-    "trans": "collapse",
+    "trans": "merge",
     "cam": "push",
     "comp": "centre-large",
     "life": [
      "breathe"
     ],
-    "new": [],
+    "new": [
+     "ClueMedallions",
+     "NuclearAtom"
+    ],
     "stock": [],
-    "see": "The circle fills in: a pinpoint, a far haze, and an empty middle.",
-    "beats": "+0.0 assemble: the four step icons slide into the circle and become its parts (2 s)",
+    "see": "The circle filled in: the four medallions fly in and become its parts — a point, a haze, an empty middle.",
+    "beats": "+0.0 the four medallions fly into the circle | +1.6 a point at the centre | +3.0 a haze at the rim | +4.6 label “almost nothing” | +6.2 the point glints",
     "set": "circle-filled-in"
    },
    "src": "S3 S10 S11 S12",
-   "facts": "F7 F8"
+   "facts": "F7 F8",
+   "reads": "Answer: a tiny centre, electrons far out, and nothing between.",
+   "focus": "the circle filling",
+   "becomes": {
+    "from": "the four clue medallions",
+    "to": "the circle filled in: the four medallions fly in and become its parts — a point, a haze, an empty middle",
+    "how": "merge"
+   },
+   "acts": [
+    [
+     0,
+     "the four medallions fly into the circle"
+    ],
+    [
+     1.6,
+     "a point at the centre"
+    ],
+    [
+     3.0,
+     "a haze at the rim"
+    ],
+    [
+     4.6,
+     "label “almost nothing”"
+    ],
+    [
+     6.2,
+     "the point glints"
+    ]
+   ],
+   "mood": "triumph"
   },
   {
    "text": "We know because two young men sat in the dark, counting flashes, and refused to ignore the few that came *back*.",
@@ -1488,20 +3576,52 @@
    "section": "ANSWER",
    "plan": {
     "in": "ink-on",
-    "trans": "match",
+    "trans": "shrink-into",
     "cam": "pan",
     "comp": "two-figures",
     "life": [
      "sparks"
     ],
-    "new": [],
+    "new": [
+     "ManchesterDarkLab"
+    ],
     "stock": [],
-    "see": "The dark room again: Geiger and Marsden at the microscope; one flash.",
-    "beats": "+0.0 match back to the dark room | +2.4 one flash",
+    "see": "The dark room of the opening: Geiger and Marsden at the microscope by lamplight.",
+    "beats": "+0.0 the circle shrinks into the eyepiece in the dark room | +1.8 Geiger and Marsden at the bench | +3.6 a stroke on the tally | +5.2 a flash | +7.0 Marsden looks up",
     "set": "counters-again"
    },
    "src": "S4 S5 S6 S4 S7",
-   "facts": "F4 F5"
+   "facts": "F4 F5",
+   "reads": "Two men in the dark, counting.",
+   "focus": "the two figures at the microscope",
+   "becomes": {
+    "from": "the answered circle",
+    "to": "the dark room of the opening: Geiger and Marsden at the microscope by lamplight",
+    "how": "shrink-into"
+   },
+   "acts": [
+    [
+     0,
+     "the circle shrinks into the eyepiece in the dark room"
+    ],
+    [
+     1.8,
+     "Geiger and Marsden at the bench"
+    ],
+    [
+     3.6,
+     "a stroke on the tally"
+    ],
+    [
+     5.2,
+     "a flash"
+    ],
+    [
+     7.0,
+     "Marsden looks up"
+    ]
+   ],
+   "mood": "warm"
   },
   {
    "text": "Not by looking. By throwing things at it, counting what came back, and taking the strangest result *seriously*.",
@@ -1509,38 +3629,102 @@
    "section": "ANSWER",
    "plan": {
     "in": "stamp",
-    "trans": "collapse",
+    "trans": "rack-focus",
     "cam": "push",
     "comp": "centre-large",
     "life": [
      "sparks"
     ],
-    "new": [],
+    "new": [
+     "TallySheet"
+    ],
     "stock": [],
-    "see": "The tally sheet of flashes; the last stroke is drawn in red.",
-    "beats": "+0.0 the tally sheet slides in | +1.4 a red stroke"
-   }
+    "see": "The tally sheet on the bench; its last stroke is drawn in red.",
+    "beats": "+0.0 focus moves to the tally sheet | +1.4 strokes counted off | +3.2 a pencil draws one more | +5.0 the last stroke in red | +6.4 a ring round it",
+    "set": "red-stroke"
+   },
+   "reads": "The method: throw, count, believe the odd result.",
+   "focus": "the red stroke",
+   "becomes": {
+    "from": "the two men",
+    "to": "the tally sheet on the bench; its last stroke is drawn in red",
+    "how": "rack-focus"
+   },
+   "acts": [
+    [
+     0,
+     "focus moves to the tally sheet"
+    ],
+    [
+     1.4,
+     "strokes counted off"
+    ],
+    [
+     3.2,
+     "a pencil draws one more"
+    ],
+    [
+     5.0,
+     "the last stroke in red"
+    ],
+    [
+     6.4,
+     "a ring round it"
+    ]
+   ],
+   "mood": "warm"
   },
   {
    "text": "That discovery opened the door to nuclear power, to medical scans, to the physics of the *stars*.",
-   "gap": 0.9,
+   "gap": 1.5,
    "section": "MEANING",
    "plan": {
     "in": "rise",
-    "trans": "ride",
+    "trans": "tilt",
     "cam": "tilt-up",
     "comp": "wide-sky",
     "life": [
      "stars"
     ],
     "new": [
-     "NuclearDoorMontage"
+     "CoolingTowers",
+     "ScannerRing"
     ],
     "stock": [],
-    "see": "From the microscope, ride up past three small vignettes — a power plant, a hospital scanner, a star — into the night sky.",
-    "beats": "+0.0 rise: three vignettes (0.9 s each) | +2.6 ride up into the stars",
+    "see": "Rising up from the bench past a power station, a hospital scanner and the Sun, into a night full of stars.",
+    "beats": "+0.0 the camera tilts up off the bench | +1.4 cooling towers steam | +3.0 a scanner ring turns | +4.6 the Sun burns | +6.0 stars fill the sky",
     "set": "door-to-the-stars"
-   }
+   },
+   "reads": "From this came nuclear power, medical scans and the science of stars.",
+   "focus": "each vignette as we rise past",
+   "becomes": {
+    "from": "the tally sheet",
+    "to": "rising up from the bench past a power station, a hospital scanner and the Sun, into a night full of stars",
+    "how": "tilt"
+   },
+   "acts": [
+    [
+     0,
+     "the camera tilts up off the bench"
+    ],
+    [
+     1.4,
+     "cooling towers steam"
+    ],
+    [
+     3.0,
+     "a scanner ring turns"
+    ],
+    [
+     4.6,
+     "the Sun burns"
+    ],
+    [
+     6.0,
+     "stars fill the sky"
+    ]
+   ],
+   "mood": "awe"
   },
   {
    "text": "And it began with one student, one flash on the wrong side of a screen… and the courage to *believe* it.",
@@ -1548,18 +3732,54 @@
    "section": "MEANING",
    "plan": {
     "in": "iris",
-    "trans": "light-change",
+    "trans": "through",
     "cam": "pull",
     "comp": "centre-medium",
     "life": [
      "sparks"
     ],
-    "new": [],
+    "new": [
+     "ZincScreenField"
+    ],
     "stock": [],
-    "see": "The eyepiece circle in the dark; one last flash; the brand end card follows.",
-    "beats": "+0.0 iris to the eyepiece | +1.6 one flash | +3.0 light-change to the end card",
+    "see": "The eyepiece in the dark again: one last flash on the wrong side.",
+    "beats": "+0.0 one star grows and becomes the eyepiece field | +1.6 the field is dark | +3.2 the flash on the wrong side | +4.8 a ring spreads | +6.4 a red ring is drawn round it | +7.8 the light goes down",
     "set": "last-flash"
-   }
+   },
+   "reads": "It all began with one flash in the dark.",
+   "focus": "the last flash",
+   "becomes": {
+    "from": "one star in the night sky",
+    "to": "the eyepiece in the dark again: one last flash on the wrong side",
+    "how": "through"
+   },
+   "acts": [
+    [
+     0,
+     "one star grows and becomes the eyepiece field"
+    ],
+    [
+     1.6,
+     "the field is dark"
+    ],
+    [
+     3.2,
+     "the flash on the wrong side"
+    ],
+    [
+     4.8,
+     "a ring spreads"
+    ],
+    [
+     6.4,
+     "a red ring is drawn round it"
+    ],
+    [
+     7.8,
+     "the light goes down"
+    ]
+   ],
+   "mood": "awe"
   }
  ],
  "world": []
