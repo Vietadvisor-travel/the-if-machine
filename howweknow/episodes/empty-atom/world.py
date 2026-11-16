@@ -319,10 +319,10 @@ person('ruth37', 'Ernest Rutherford', L(37, .2), None, [K(L(37, .4), 1.4, 'soft'
        x=1720, y=1010, h=640, facing=-1, pose='stand', pose2='point', pk=0, z=12, **RUTH)
 person('mars37', 'Ernest Marsden', L(37, 1.6), None, [K(L(37, 1.8), 1.4, 'soft', pk=1), K(L(37, 5.0), 1.6, 'soft', pose='hold', pose2='sitlook', pk=0), K(L(37, 5.1), 1.5, 'soft', pk=1)] + gone(L(38, .4), 'ink', 1.0),
        x=1320, y=1010, h=580, facing=-1, pose='stand', pose2='hold', pk=0, z=11, **MARS)
-text('l37a', 'source', 'label', 1180, 200, L(37, 3.0), L(38), to=[1150, 300], size=34)
-text('l37b', 'lead plate', 'label', 560, 470, L(37, 3.6), L(38), to=[780, 590], size=34)
-text('l37c', 'gold', 'label', 380, 300, L(37, 4.2), L(38), to=[570, 440], size=34)
-text('l37d', 'screen', 'label', 700, 900, L(37, 4.8), L(38), to=[800, 660], size=34)
+text('l37a', 'radium source', 'label', 1220, 230, L(37, 3.0), L(38), to=[960, 400], size=34)
+text('l37b', 'lead plate', 'label', 1120, 470, L(37, 3.6), L(38), to=[1000, 585], size=34)
+text('l37c', 'gold foil', 'label', 360, 360, L(37, 4.2), L(38), to=[562, 470], size=34)
+text('l37d', 'screen', 'label', 600, 760, L(37, 4.8), L(38), to=[792, 650], size=34)
 # L38 — the room shimmers into a pudding; a bullet passes straight through it; it only wobbles
 art('pud38', 'PlumPudding', L(38, .6), None, [K(L(38, 3.4), .6, wobble=12), K(L(38, 4.6), .8, wobble=0), K(L(38, 5.4), .6, wobble=10), K(L(38, 8.0), 1.0, wobble=0)] + gone(L(39), 'ink', .9, at=[960, 520]),
     inkdur=1.2, x=960, y=720, r=250, atom=0, plums=1, plate=1, enter='bleed', z=12)

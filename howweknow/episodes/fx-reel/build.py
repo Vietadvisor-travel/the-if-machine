@@ -84,6 +84,21 @@ cap(8, '9 · ink-bleed into a title')
 [e for e in W if e['id'] == 'globe'][0]['keys'].append(K(T(8, .4), 1.8, 'linear', dissolve=0, dissolveAt=[960, 540], dissolveR=500))
 ent('title', 'art', {'name': 'TitleCard', 'k': 0, 'title': 'one picture\nbecomes the next', 'sub': 'engine v5', 'a': 0, 'r': 330}, [K(T(8, .3), .01, a=1), K(T(8, .3), 3.6, 'linear', k=1)], z=60)
 
+# 9 · FLASH — scintillations on a zinc-sulphide field (empty-atom): points that bloom in 60 ms and fade with an afterglow
+cap(9, '10 · flash — scintillations in the dark (empty-atom)')
+ent('zf9', 'shape', {**ID, 'form': "M560 540 A400 400 0 1 0 1360 540 A400 400 0 1 0 560 540Z", 'fill': '#0E1612', 'fillA': 1, 'col': '#B8862B', 'sw': 10, 'draw': 0, 'a': 0}, [K(T(9), .01, a=1), K(T(9), 1, draw=1), K(T(10, -.4), .6, a=0)])
+ent('fl9', 'flash', {'at': [[T(9, 1 + i * .45), 760 + (i * 137) % 400, 380 + (i * 89) % 320, 6] for i in range(10)]}, [])
+# 10 · STREAM — α particles on true Rutherford paths round one nucleus (empty-atom)
+cap(10, '11 · stream — particles on computed paths (empty-atom)')
+def _rp(b):
+    x, y, vx, vy, P = -40.0, 540 + b, 1.0, 0.0, []
+    for _ in range(3000):
+        rx, ry = x - 1000, y - 540; r = math.hypot(rx, ry); a = 23 / (r * r) if r > 1 else 0
+        vx += a * rx / r * 2; vy += a * ry / r * 2; x += vx * 2; y += vy * 2; P.append((x, y))
+        if x < -45 or x > 1960 or y < -60 or y > 1140: break
+    return 'M' + ' L'.join(f'{p[0]:.0f} {p[1]:.0f}' for p in P[::6])
+ent('st10', 'stream', {'paths': [_rp(b) for b in (-300, 160, -80, 40, -20, 8, .5)], 't0': T(10), 'until': T(10, 4.4), 'every': .3, 'dur': 2.0, 'r': 6, 'trace': 1.2, 'a': 1}, [K(T(11, -.3), .4, a=0)])
+N = 11
 dur = T(N) + 1
 tl = {'slug': 'fx-reel', 'duration': dur, 'lines': [{'i': i, 'text': f'segment {i}', 'start': T(i), 'dur': SEG - .2, 'sfx': []} for i in range(N)]}
 E = {'slug': 'fx-reel', 'title': 'FX reel v5', 'lines': [{'text': f'segment {i}'} for i in range(N)], 'world': W,

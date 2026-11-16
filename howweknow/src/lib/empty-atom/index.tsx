@@ -96,9 +96,11 @@ const ScatterApparatus: React.FC<{ x: N; y: N; s?: N; mode?: string; cut?: N; be
       <SR d={base} mat="wood" t={.6} ang={0} draw={draw} sw={1.3} />
       <SR d={rect(X(-300), Y(76), 30 * k, 40 * k)} mat="wood" t={.8} draw={draw} /><SR d={rect(X(270), Y(76), 30 * k, 40 * k)} mat="wood" t={.8} draw={draw} />
       {/* the glass tube AB of emanation, drawn down conically to its mica window B */}
-      <SR d={`M${X(260)} ${Y(-250)} L${X(280)} ${Y(-226)} L${X(-48)} ${Y(-58)} L${X(-60)} ${Y(-70)}Z`} mat="paper" t={.15} draw={draw} sw={1.3} hatch={0} />
-      <Line d={`M${X(250)} ${Y(-230)} L${X(-40)} ${Y(-70)}`} w={.8} a={.5 * draw} col={PIG.sky[2]} />
-      <SR d={rect(X(250), Y(-290), 60 * k, 50 * k)} mat="brass" t={.5} draw={draw} />
+      <SR d={`M${X(130)} ${Y(-196)} L${X(152)} ${Y(-160)} L${X(-48)} ${Y(-58)} L${X(-60)} ${Y(-70)}Z`} mat="sky" t={.12} draw={draw} sw={1.4} hatch={0} />
+      <Line d={`M${X(126)} ${Y(-180)} L${X(-44)} ${Y(-66)}`} w={.9} a={.6 * draw} col="#FFFFFF" />
+      <SR d={rect(X(150), Y(-80), 16 * k, 120 * k)} mat="brass" t={.55} draw={draw} ang={90} />
+      <SR d={`M${X(118)} ${Y(-206)} L${X(176)} ${Y(-170)} L${X(166)} ${Y(-150)} L${X(108)} ${Y(-186)}Z`} mat="brass" t={.5} draw={draw} />
+      <Line d={`M${X(158)} ${Y(-80)} L${X(140)} ${Y(-178)}`} w={2} a={draw} />
       <circle cx={X(-56)} cy={Y(-64)} r={7 * k} fill="#F4FFF0" opacity={.7 * draw} /><circle cx={X(-56)} cy={Y(-64)} r={22 * k} fill="url(#glowG)" opacity={.6 * draw} />
       {/* the lead plate P (hatched, heavy) */}
       <SR d={rect(X(-120), Y(-36), 320 * k, 22 * k)} mat="night" t={.7} ang={45} draw={draw} sw={1.3} />
@@ -290,8 +292,7 @@ const DaltonPlate: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; join?: N; so
     <Line d={`M${x - 160 * s} ${y0 + 90 * s} H${x + 160 * s}`} w={1} a={draw} />
     {DALTON.map((sym, i) => { const c = i % 4, rw = Math.floor(i / 4), q = ph(k, i / 9, i / 9 + .2); if (q <= 0) return null;
       let cx = x0 + 170 * s + c * 220 * s, cy = y0 + 220 * s + rw * 240 * s;
-      if (i === 0) cx += join * 80 * s; if (i === 3) { cx -= join * (440 - 2 * r / s - 0) * s * .0 + 0; }
-      if (i === 3) { cx = x0 + (170 + 3 * 220) * s - join * (3 * 220 - 80 - 108) * s; }
+      if (i === 0) cx += join * 56 * s; if (i === 1) cx -= join * 56 * s;
       const fill = sym === 'black' ? '#1A120B' : 'none';
       return <g key={i} opacity={q}>
         {solid > 0 ? <Ball x={cx} y={cy} r={r} mat="wood" t={.45} draw={solid} /> : null}
@@ -364,7 +365,8 @@ const CathodeTube: React.FC<{ x?: N; y?: N; s?: N; draw?: N; glow?: N; bend?: N;
     {[-.6, -.3, 0, .3, .6].map(f => <Line key={f} d={`M${X(500)} ${Y(f * 150)} h${16 * k}`} w={1} a={.7 * draw} />)}
     {/* the glow and the beam (green phosphorescence where it lands) */}
     {glow > 0 && <g opacity={glow}><ellipse cx={X(500)} cy={Y(0)} rx={50 * k} ry={150 * k} fill="#B8F0C8" opacity={.35} filter="url(#b8)" />
-      {beam > 0 && <path d={`M${X(-460)} ${Y(0)} L${dX} ${Y(0)} Q${X(150)} ${Y(bend * -40)} ${ex - 150 * k} ${ey}`} fill="none" stroke="#9FE8B0" strokeWidth={5 * k} opacity={.85} />}
+      {beam > 0 && <path d={`M${X(-460)} ${Y(0)} L${dX} ${Y(0)} Q${X(150)} ${Y(bend * -40)} ${ex - 150 * k} ${ey}`} fill="none" stroke="#9FE8B0" strokeWidth={8 * k} opacity={1} filter="url(#b2s)" />}
+      {beam > 0 && <path d={`M${X(-460)} ${Y(0)} L${dX} ${Y(0)} Q${X(150)} ${Y(bend * -40)} ${ex - 150 * k} ${ey}`} fill="none" stroke="#F4FFF0" strokeWidth={2.5 * k} />}
       {beam > 0 && <g><circle cx={ex - 150 * k} cy={ey} r={30 * k} fill="#B8F0C8" opacity={.6} filter="url(#b8)" /><circle cx={ex - 150 * k} cy={ey} r={8 * k} fill="#F4FFF0" /></g>}</g>}
     {plates > 0 && <g opacity={plates}><text x={X(-150)} y={Y(-124)} textAnchor="middle" fontFamily="IM Fell English" fontSize={54 * k} fill={PIG.red[2]}>+</text><text x={X(-150)} y={Y(160)} textAnchor="middle" fontFamily="IM Fell English" fontSize={60 * k} fill={PIG.sky[2]}>−</text></g>}
     {magnet > 0 && <g transform={`translate(${X(-150)} ${Y(140 + (1 - magnet) * 300)})`} opacity={Math.min(1, magnet * 2)}>
@@ -424,6 +426,7 @@ const PlumPudding: React.FC<{ x?: N; y?: N; r?: N; draw?: N; atom?: N; plums?: N
   return <g>
     {plate > 0 && <g opacity={plate}><ellipse cx={x + 10} cy={y + r * .26} rx={r * 1.45} ry={r * .3} fill="#000" opacity={.25 * draw} filter="url(#b8)" />
       <Region d={ell(x, y + r * .18, r * 1.4, r * .26)} mat="paper" t={.12} draw={draw} sw={1.6} hatch={0} /><Ink d={ell(x, y + r * .16, r * 1.05, r * .17)} w={1} draw={draw} /></g>}
+    {basin < 1 && cut <= 0 && <g opacity={1 - basin}>{body(0)}</g>}
     {basin > 0 ? <g opacity={basin}>
       <defs><clipPath id="basinK"><path d={`M${x - r * 1.1} ${y - r * 1.05 + (1 - fill) * r * 1.2} H${x + r * 1.1} V${y + r * .3} H${x - r * 1.1}Z`} /></clipPath></defs>
       <path d={`M${x - r * .98} ${y - r * .95} L${x - r * .7} ${y + r * .16} H${x + r * .7} L${x + r * .98} ${y - r * .95}Z`} fill={col} clipPath="url(#basinK)" filter="url(#wc)" />
@@ -432,7 +435,7 @@ const PlumPudding: React.FC<{ x?: N; y?: N; r?: N; draw?: N; atom?: N; plums?: N
       : cut > 0 ? <g><defs><clipPath id="pudL"><rect x={x - 3 * r} y={y - 3 * r} width={3 * r} height={6 * r} /></clipPath><clipPath id="pudR"><rect x={x} y={y - 3 * r} width={3 * r} height={6 * r} /></clipPath></defs>
         {body(-sep, 'pudL')}{body(sep, 'pudR')}
         {[-sep, sep].map((dx, i) => <path key={i} d={`M${x + dx} ${y - r * (atom > .5 ? 1.35 : 1.05)} V${y + r * .1}`} stroke={SEP} strokeWidth={2} opacity={cut} />)}</g>
-      : body(0)}
+      : null}
     {steam > 0 && [0, 1, 2].map(i => <path key={i} d={`M${x - r * .3 + i * r * .3} ${y - r * 1.1} q${-30} ${-60} 0 ${-120} q${30} ${-60} 0 ${-120}`} fill="none" stroke="#FBF6EA" strokeWidth={10} opacity={.5 * steam} filter="url(#wc)" />)}
   </g>;
 };
@@ -463,7 +466,7 @@ const RadiumBlock: React.FC<{ x: N; y: N; s?: N; draw?: N; open?: N; glow?: N }>
   const k = s; return <g>
     <SR d={rect(x - 70 * k, y - 120 * k, 140 * k, 120 * k)} mat="night" t={.6} draw={draw} sw={1.6} ang={90} />
     {glow > 0 && <g opacity={glow * draw}><circle cx={x} cy={y - 124 * k} r={60 * k} fill="url(#glowG)" /><SR d={rect(x - 6 * k, y - 160 * k, 12 * k, 44 * k)} mat="paper" t={.1} hatch={0} /><circle cx={x} cy={y - 162 * k} r={6 * k} fill="#F4FFF0" /></g>}
-    <g transform={`translate(${open * 130 * k} ${-open * 60 * k}) rotate(${open * 18} ${x} ${y - 120 * k})`}><SR d={rect(x - 80 * k, y - 150 * k, 160 * k, 30 * k)} mat="night" t={.5} draw={draw} sw={1.5} /><SR d={rect(x - 18 * k, y - 172 * k, 36 * k, 22 * k)} mat="night" t={.65} draw={draw} /></g>
+    <g transform={`translate(${open * 170 * k} ${open * 120 * k - Math.sin(open * Math.PI) * 90 * k})`}><SR d={rect(x - 80 * k, y - 150 * k, 160 * k, 30 * k)} mat="night" t={.5} draw={draw} sw={1.5} /><SR d={rect(x - 18 * k, y - 172 * k, 36 * k, 22 * k)} mat="night" t={.65} draw={draw} /></g>
   </g>;
 };
 
@@ -674,29 +677,45 @@ const NucleusBeads: React.FC<{ cx?: N; cy?: N; r?: N; draw?: N; k?: N; glint?: N
 // ================================================================ THE VIEWER'S HAND — palm up, fingers open (`open` 0..1), drawn with its creases; and pressing down on an oak
 // table in profile (mode 'press': `press` 0..1 lowers it; the knuckles whiten; `gap` = the gold line of the never-closing gap)
 const ViewerHand: React.FC<{ x?: N; y?: N; s?: N; draw?: N; open?: N; mode?: string; press?: N; gap?: N; table?: N }> = ({ x = 960, y = 600, s = 1, draw = 1, open = 1, mode = 'palm', press = 0, gap = 0, table = 1 }) => {
-  const k = s;
-  if (mode === 'palm') {
-    const fingers = [[-150, -20, 230, -14], [-60, -60, 270, -4], [30, -64, 280, 4], [115, -40, 240, 12]] as const;
+  const k = s, T = (dx: N, dy: N) => `${f1(x + dx * k)} ${f1(y + dy * k)}`;
+  if (mode === 'palm') {   // a right hand, palm up, seen from above: palm, four tapered fingers with their creases and pads, the thumb out to the right
+    const o = .35 + .65 * open, F = [[-118, -40, 238, -9, 52], [-42, -66, 270, -3, 56], [36, -62, 258, 3, 54], [108, -36, 200, 10, 46]] as const;
+    const palm = `M${T(-160, -30)} C${T(-170, 60)} ${T(-178, 190)} ${T(-120, 300)} C${T(-100, 340)} ${T(-90, 380)} ${T(-92, 560)} L${T(110, 560)} C${T(108, 380)} ${T(126, 330)} ${T(158, 270)} C${T(180, 220)} ${T(170, 80)} ${T(150, -20)} C${T(80, -64)} ${T(-80, -70)} ${T(-160, -30)}Z`;
     return <g>
-      <SR d={`M${x - 190 * k} ${y + 30 * k} Q${x - 210 * k} ${y + 240 * k} ${x - 90 * k} ${y + 330 * k} L${x - 80 * k} ${y + 560 * k} H${x + 120 * k} L${x + 130 * k} ${y + 330 * k} Q${x + 200 * k} ${y + 250 * k} ${x + 180 * k} ${y + 40 * k} Q${x} ${y - 30 * k} ${x - 190 * k} ${y + 30 * k}Z`} mat="skin" t={.35} draw={draw} sw={2} ang={80} />
-      {fingers.map(([fx, fy, L, rot], i) => { const ang = rot * (.3 + .7 * open) + (1 - open) * 30, w = 64 * k - i * 2; return <g key={i} transform={`rotate(${ang} ${x + fx * k} ${y + fy * k + 60 * k})`}>
-        <SR d={rr(x + fx * k - w / 2, y + fy * k - L * k * (.4 + .6 * open) + 60 * k, w, L * k * (.4 + .6 * open), w / 2)} mat="skin" t={.38} draw={draw} sw={1.8} ang={90} />
-        {[.33, .62].map(f => <Line key={f} d={`M${x + fx * k - w * .3} ${y + fy * k + 60 * k - L * k * (.4 + .6 * open) * f} h${w * .6}`} w={1.2} a={.6 * draw} />)}</g>; })}
-      <SR d={`M${x + 170 * k} ${y + 260 * k} Q${x + 300 * k} ${y + 150 * k} ${x + 330 * k} ${y + 30 * k} Q${x + 350 * k} ${y - 10 * k} ${x + 300 * k} ${y + 10 * k} Q${x + 260 * k} ${y + 120 * k} ${x + 160 * k} ${y + 160 * k}Z`} mat="skin" t={.4} draw={draw} sw={1.8} />
-      <Line d={`M${x - 160 * k} ${y + 120 * k} Q${x - 20 * k} ${y + 90 * k} ${x + 150 * k} ${y + 130 * k} M${x - 150 * k} ${y + 190 * k} Q${x - 10 * k} ${y + 160 * k} ${x + 80 * k} ${y + 230 * k} M${x + 110 * k} ${y + 320 * k} Q${x + 40 * k} ${y + 200 * k} ${x + 120 * k} ${y + 120 * k}`} w={1.6} a={.7 * draw} />
+      <SR d={palm} mat="skin" t={.34} draw={draw} sw={2} ang={80} />
+      {F.map(([fx, fy, L0, rot, w], i) => { const L = L0 * o * k, W = w * k, bx = x + fx * k, by = y + fy * k, ang = rot * (.4 + .6 * open) + (1 - open) * 14;
+        const fd = `M${f1(bx - W / 2)} ${f1(by + 10 * k)} L${f1(bx - W * .44)} ${f1(by - L + W * .5)} Q${f1(bx - W * .42)} ${f1(by - L)} ${f1(bx)} ${f1(by - L - 2 * k)} Q${f1(bx + W * .42)} ${f1(by - L)} ${f1(bx + W * .44)} ${f1(by - L + W * .5)} L${f1(bx + W / 2)} ${f1(by + 10 * k)}Z`;
+        return <g key={i} transform={`rotate(${ang} ${bx} ${by})`}>
+          <SR d={fd} mat="skin" t={.36} draw={draw} sw={1.8} ang={90} />
+          {[.3, .62].map(f => <Line key={f} d={`M${bx - W * .32} ${by - L * f} q${W * .32} ${3 * k} ${W * .64} 0`} w={1.3} a={.65 * draw} />)}
+          <ellipse cx={bx} cy={by - L * .86} rx={W * .26} ry={L * .07} fill={PIG.skin[1]} opacity={.35 * draw} />
+        </g>; })}
+      <SR d={`M${T(140, 250)} C${T(210, 210)} ${T(280, 150)} ${T(318, 60)} C${T(332, 22)} ${T(326, -6)} ${T(300, -8)} C${T(276, -8)} ${T(262, 30)} ${T(240, 80)} C${T(214, 132)} ${T(176, 160)} ${T(150, 170)}Z`} mat="skin" t={.38} draw={draw} sw={1.8} />
+      <Line d={`M${T(250, 70)} q${12 * k} ${8 * k} ${24 * k} ${2 * k}`} w={1.2} a={.6 * draw} />
+      <Line d={`M${T(-150, 110)} C${T(-60, 80)} ${T(40, 96)} ${T(150, 130)} M${T(-148, 180)} C${T(-60, 150)} ${T(20, 170)} ${T(90, 240)} M${T(130, 320)} C${T(60, 250)} ${T(60, 170)} ${T(140, 110)}`} w={1.6} a={.7 * draw} />
+      <SR d={`M${T(-130, 480)} H${T(140, 480).split(' ')[0]} L${T(150, 640)} H${T(-140, 640).split(' ')[0]}Z`} mat="cloth" t={.5} draw={draw} sw={1.6} ang={0} />
     </g>;
   }
-  const dy = (1 - press) * -120 * k, ty = y + 120 * k;
+  // a right hand pressed flat on an oak table, seen from the side: sleeve, wrist, the back of the hand down to the knuckles, the fingers lying on the wood,
+  // nails at the tips, the thumb in front; press 0..1 lowers it; gap = the gold line of the never-closing gap
+  const dy = (1 - press) * -120 * k, ty = y + 120 * k, B = (dx: N, dyy: N) => `${f1(x + dx * k)} ${f1(ty + dyy * k)}`;
+  const hand = `M${B(-560, -176)} C${B(-480, -172)} ${B(-430, -158)} ${B(-390, -150)} C${B(-300, -168)} ${B(-150, -150)} ${B(-60, -118)} C${B(-30, -110)} ${B(0, -96)} ${B(40, -78)}
+    C${B(110, -66)} ${B(170, -62)} ${B(220, -64)} C${B(240, -66)} ${B(258, -60)} ${B(290, -52)} C${B(340, -46)} ${B(390, -36)} ${B(418, -16)} C${B(430, -4)} ${B(418, 0)} ${B(398, 0)}
+    L${B(-90, 0)} C${B(-200, -4)} ${B(-300, -20)} ${B(-390, -46)} C${B(-450, -40)} ${B(-510, -36)} ${B(-560, -34)}Z`;
   return <g>
     {table > 0 && <g><SR d={rect(x - 1100, ty, 2200, 60 * k)} mat="wood" t={.5} draw={draw} sw={1.8} ang={0} /><SR d={rect(x - 1100, ty + 60 * k, 2200, 600)} mat="wood" t={.78} draw={draw} sw={1.2} ang={90} />
       {Array.from({ length: 9 }, (_, i) => <Line key={i} d={`M${x - 1100} ${ty + 8 + i * 6 * k} Q${x} ${ty + 4 + i * 6 * k + Math.sin(i) * 4} ${x + 1100} ${ty + 10 + i * 6 * k}`} w={.6} a={.5 * draw} />)}</g>}
     <g transform={`translate(0 ${dy})`}>
-      <SR d={`M${x - 900 * k} ${y - 140 * k} Q${x - 400 * k} ${y - 170 * k} ${x - 180 * k} ${y - 130 * k} Q${x + 60 * k} ${y - 120 * k} ${x + 260 * k} ${y - 20 * k} Q${x + 380 * k} ${y + 50 * k} ${x + 420 * k} ${y + 100 * k} Q${x + 430 * k} ${y + 120 * k} ${x + 380 * k} ${y + 120 * k} L${x - 300 * k} ${y + 120 * k} Q${x - 600 * k} ${y + 60 * k} ${x - 900 * k} ${y + 40 * k}Z`} mat="skin" t={.4} draw={draw} sw={2} ang={10} />
-      {[0, 1, 2].map(i => <Line key={i} d={`M${x + (60 + i * 90) * k} ${y - (90 - i * 30) * k} q${30 * k} ${20 * k} ${50 * k} ${60 * k}`} w={1.4} a={(.5 + press * .3) * draw} />)}
-      <SR d={`M${x + 300 * k} ${y + 40 * k} Q${x + 420 * k} ${y + 60 * k} ${x + 440 * k} ${y + 100 * k} Q${x + 440 * k} ${y + 118 * k} ${x + 400 * k} ${y + 118 * k} L${x + 300 * k} ${y + 110 * k}Z`} mat="skin" t={.3 - press * .1} draw={draw} sw={1.6} />
+      <ellipse cx={x} cy={ty + 4} rx={480 * k} ry={14 * k} fill="#000" opacity={.25 * press * draw} filter="url(#b8)" />
+      <SR d={hand} mat="skin" t={.36} draw={draw} sw={2} ang={10} />
+      <SR d={`M${B(-300, -60)} C${B(-200, -40)} ${B(-60, -26)} ${B(40, -14)} C${B(70, -10)} ${B(80, 0)} ${B(50, 0)} L${B(-120, 0)} C${B(-200, -6)} ${B(-260, -20)} ${B(-300, -40)}Z`} mat="skin" t={.28} draw={draw} sw={1.6} hatch={0} />
+      {[-40, 110, 250].map(cx => <Line key={cx} d={`M${B(cx, -100 + (cx + 40) * .2)} q${6 * k} ${16 * k} ${2 * k} ${30 * k}`} w={1.3} a={(.5 + press * .3) * draw} />)}
+      <Line d={`M${B(352, -44)} Q${B(396, -36)} ${B(414, -14)}`} w={1.4} a={.8 * draw} />
+      <SR d={`M${B(-1000, -190)} L${B(-560, -196)} L${B(-548, -16)} L${B(-1000, -10)}Z`} mat="cloth" t={.55} draw={draw} sw={1.8} ang={0} />
+      <Line d={`M${B(-600, -194)} L${B(-590, -18)}`} w={1.4} a={draw} />
     </g>
-    {gap > 0 && <path d={`M${x - 300 * k} ${ty - 2} H${x + 420 * k}`} stroke="url(#gold)" strokeWidth={4} opacity={gap} />}
-    {gap > 0 && <path d={`M${x - 300 * k} ${ty - 2} H${x + 420 * k}`} stroke="#F7E3A0" strokeWidth={14} opacity={.35 * gap} filter="url(#b8)" />}
+    {gap > 0 && <path d={`M${x - 120 * k} ${ty - 2} H${x + 410 * k}`} stroke="url(#gold)" strokeWidth={4} opacity={gap} />}
+    {gap > 0 && <path d={`M${x - 120 * k} ${ty - 2} H${x + 410 * k}`} stroke="#F7E3A0" strokeWidth={14} opacity={.35 * gap} filter="url(#b8)" />}
   </g>;
 };
 
@@ -741,8 +760,8 @@ const DiamondAndIngot: React.FC<{ y?: N; draw?: N; xray?: N; glint?: N }> = ({ y
     <SR d={ing} mat="gold" t={.4} draw={draw} sw={2} />
     <SR d={`M${gx - 200} ${y - 60} H${gx + 200} L${gx + 170} ${y - 100} H${gx - 170}Z`} mat="gold" t={.25} draw={draw} sw={1.6} hatch={0} />
     {xray > 0 && <g><defs><clipPath id="xrD"><path d={dia} /></clipPath><clipPath id="xrG"><path d={ing} /></clipPath><clipPath id="xrS"><rect x={0} y={0} width={1920 * xray} height={1080} /></clipPath></defs>
-      <g clipPath="url(#xrS)"><g clipPath="url(#xrD)"><rect x={0} y={0} width={1920} height={1080} fill="#0E1A2A" opacity={.85} />{lat(dx - 240, y - 180, 480, 420, 70)}</g>
-        <g clipPath="url(#xrG)"><rect x={0} y={0} width={1920} height={1080} fill="#2A1E08" opacity={.85} />{lat(gx - 280, y - 110, 560, 260, 64)}</g></g>
+      <g clipPath="url(#xrS)"><g clipPath="url(#xrD)"><rect x={0} y={0} width={1920} height={1080} fill="#0E1A2A" opacity={.55} />{lat(dx - 240, y - 180, 480, 420, 70)}</g>
+        <g clipPath="url(#xrG)"><rect x={0} y={0} width={1920} height={1080} fill="#2A1E08" opacity={.55} />{lat(gx - 280, y - 110, 560, 260, 64)}</g></g>
       <Line d={`M${1920 * xray} ${y - 300} V${y + 300}`} w={3} col="#B8F0C8" a={xray < 1 ? .8 : 0} /></g>}
   </g>;
 };

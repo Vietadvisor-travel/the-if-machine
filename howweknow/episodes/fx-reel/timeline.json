@@ -1,6 +1,6 @@
 {
  "slug": "fx-reel",
- "duration": 56.0,
+ "duration": 68.0,
  "lines": [
   {
    "i": 0,
@@ -62,6 +62,20 @@
    "i": 8,
    "text": "segment 8",
    "start": 49.0,
+   "dur": 5.8,
+   "sfx": []
+  },
+  {
+   "i": 9,
+   "text": "segment 9",
+   "start": 55.0,
+   "dur": 5.8,
+   "sfx": []
+  },
+  {
+   "i": 10,
+   "text": "segment 10",
+   "start": 61.0,
    "dur": 5.8,
    "sfx": []
   }
