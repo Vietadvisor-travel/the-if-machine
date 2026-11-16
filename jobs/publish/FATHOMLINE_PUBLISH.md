@@ -38,6 +38,9 @@ reference for the mechanics, this file is the live checklist.
 - Pinned comment: post the exact §B text as @fathomline-films, then pin it.
   Verify "Pinned by @fathomline-films" after reload.
   BLOCKED until the owner completes Advanced features (ID verification).
+  Status 2026-11-16 11:20 (checked live): Standard Enabled, Intermediate Enabled
+  (phone verification done — custom thumbnails work), Advanced Pending — the
+  owner started it; check the result in Studio before pinning a comment.
 - First film only: after the video is public, flip "How We Know" to Public;
   enable the Home tab and set the film as the channel trailer
   (Customization > Layout).
