@@ -9,14 +9,9 @@
    "dur": 8.859,
    "sfx": [
     {
-     "at": 1.0,
-     "file": "public/stock/_hwk/inside-earth/S-01_drill-take1-pd.wav",
-     "db": -26
-    },
-    {
-     "at": 0.2,
-     "file": "public/sfx/real_snow_wind_2.wav",
-     "db": -24
+     "at": 2.0,
+     "file": "public/sfx/real_metal_groan_1.wav",
+     "db": -30
     }
    ]
   },
@@ -46,20 +41,25 @@
    "text": "Final depth: a little over twelve kilometres. The deepest hole ever dug.",
    "start": 32.277,
    "dur": 4.946,
-   "sfx": [
-    {
-     "at": 0.2,
-     "file": "public/sfx/impact_metal_2.wav",
-     "db": -22
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 5,
    "text": "And yet, on the scale of the whole planet, it is barely a scratch.",
    "start": 38.123,
    "dur": 3.82,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.0,
+     "file": "public/stock/_hwk/inside-earth/S-01_drill-take1-pd.wav",
+     "db": -26
+    },
+    {
+     "at": 0.2,
+     "file": "public/sfx/real_snow_wind_2.wav",
+     "db": -24
+    }
+   ]
   },
   {
    "i": 6,
@@ -87,7 +87,13 @@
    "text": "Yet today we can draw the inside of the Earth layer by layer: a thin crust, a thick mantle, an ocean of liquid metal\u2026 and at the centre, a solid ball as hot as the surface of the Sun.",
    "start": 59.519,
    "dur": 13.183,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.2,
+     "file": "public/sfx/impact_metal_2.wav",
+     "db": -22
+    }
+   ]
   },
   {
    "i": 10,
@@ -185,26 +191,14 @@
    "text": "Clue two: the planet rings.",
    "start": 158.557,
    "dur": 1.881,
-   "sfx": [
-    {
-     "at": 1.2,
-     "file": "public/sfx/impact_bell_1.wav",
-     "db": -20
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 24,
    "text": "When a great earthquake strikes, it sends waves through the whole Earth, the way a struck bell sends sound through its metal.",
    "start": 161.138,
    "dur": 7.306,
-   "sfx": [
-    {
-     "at": 1.6,
-     "file": "public/stock/_hwk/inside-earth/A-01_sumatra-2004-anmo-sonified-iris.wav",
-     "db": -24
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 25,
@@ -225,20 +219,20 @@
    "text": "By 1900, observatories around the world had seismographs: needles that drew every tremor on a turning drum of paper.",
    "start": 184.377,
    "dur": 8.327,
-   "sfx": [
-    {
-     "at": 4.5,
-     "file": "public/sfx/sci_scratch_1.wav",
-     "db": -24
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 28,
    "text": "Each earthquake became a message, written in ink in many cities at once \u2014 but only for someone who could read it.",
    "start": 193.404,
    "dur": 6.871,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.2,
+     "file": "public/sfx/impact_bell_1.wav",
+     "db": -20
+    }
+   ]
   },
   {
    "i": 29,
@@ -247,9 +241,9 @@
    "dur": 6.349,
    "sfx": [
     {
-     "at": 2.6,
-     "file": "public/sfx/real_metal_groan_1.wav",
-     "db": -26
+     "at": 1.6,
+     "file": "public/stock/_hwk/inside-earth/A-01_sumatra-2004-anmo-sonified-iris.wav",
+     "db": -24
     }
    ]
   },
@@ -272,7 +266,13 @@
    "text": "Like runners who hit mud in the middle of a race, they had passed through something different.",
    "start": 225.361,
    "dur": 4.874,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 4.5,
+     "file": "public/sfx/sci_scratch_1.wav",
+     "db": -24
+    }
+   ]
   },
   {
    "i": 33,
@@ -286,20 +286,20 @@
    "text": "In 1906, Oldham published his conclusion: the Earth has a core.",
    "start": 234.124,
    "dur": 5.135,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 2.6,
+     "file": "public/sfx/real_metal_groan_1.wav",
+     "db": -26
+    }
+   ]
   },
   {
    "i": 35,
    "text": "Clue three: a wave that goes missing.",
    "start": 239.959,
    "dur": 2.545,
-   "sfx": [
-    {
-     "at": 0,
-     "file": "public/sfx/foley_page_turn_1.wav",
-     "db": -18
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 36,
@@ -334,7 +334,13 @@
    "text": "In 1914, Beno Gutenberg measured where the core begins: about two thousand nine hundred kilometres down.",
    "start": 276.624,
    "dur": 8.366,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -18
+    }
+   ]
   },
   {
    "i": 41,
@@ -411,13 +417,7 @@
    "text": "In 1929, a strong earthquake struck Buller, on New Zealand's South Island \u2014 on the far side of the world from Europe.",
    "start": 342.006,
    "dur": 8.626,
-   "sfx": [
-    {
-     "at": 3.6,
-     "file": "public/sfx/amb_thunder_roll_1.wav",
-     "db": -26
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 52,
@@ -452,7 +452,13 @@
    "text": "Suppose a smaller, solid ball sat at the very centre. It would catch those waves, bend them, and throw them into the shadow \u2014 exactly where they were seen.",
    "start": 374.185,
    "dur": 9.875,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 3.6,
+     "file": "public/sfx/amb_thunder_roll_1.wav",
+     "db": -26
+    }
+   ]
   },
   {
    "i": 57,
@@ -522,13 +528,7 @@
    "text": "The deepest place on our planet was found not by going there\u2026 but by listening.",
    "start": 448.641,
    "dur": 4.785,
-   "sfx": [
-    {
-     "at": 1.8,
-     "file": "public/sfx/impact_bell_1.wav",
-     "db": -24
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 67,
@@ -563,7 +563,13 @@
    "text": "Every big earthquake is still a lesson. Thousands of seismometers listen, and each wave adds a little more to the map.",
    "start": 478.495,
    "dur": 7.498,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.8,
+     "file": "public/sfx/impact_bell_1.wav",
+     "db": -24
+    }
+   ]
   },
   {
    "i": 72,
