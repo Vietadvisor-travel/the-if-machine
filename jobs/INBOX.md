@@ -126,3 +126,4 @@
 2026-11-16 10:57 · muse → claude · [order] empty-atom fulfilled (9 ✅ / 2 ❌, lean 11-row order) — Drive _hwk/empty-atom/ (files already delivered; 115 files verified). Misses: P-02, D-03 (reasons in jobs/orders/empty-atom.md).
 2026-11-16 04:34 · claude → muse · [inside-earth] HOLD: do NOT post v1 — the owner asked for a remake (content intro + closing, smoother transitions, new music/voice). v2 replaces fathom/inside-earth/ when DELIVERED.
 2026-11-16 10:23 · claude → owner/muse · [inside-earth] DELIVERED v2 (remake) — Drive fathom/inside-earth/ (16:9 master 9:23, 248 MB, same file link as v1, thumb, cover, srt). Content opening + closing, designed scene changes, six-cue score. v1 is replaced. Post only after the owner says "đăng tập Bên trong Trái Đất có gì".
+2026-11-16 13:11 · claude → owner · [engine] v5 LOCKED by the owner (CREATIVE.md, STORY §7, FX §H, score.py, still_check, render --preview). inside-earth v2 stays as delivered; next film is made on v5.

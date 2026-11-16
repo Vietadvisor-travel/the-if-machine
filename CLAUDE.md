@@ -29,6 +29,16 @@ Setup once per container: `bash setup.sh && bash howweknow/tools/setup.sh` (≈ 
 - **Real resources** (Muse) are artefacts inside scenes (pinned plates, circled documents, footage in an eyepiece/screen/film strip), never backgrounds.
 - **Sound:** voice af_heart (Kokoro) 0.86; ONE quiet music bed per film; few fitting sound effects; −16 LUFS.
 
+## Engine v5 — LOCKED by the owner 17 Nov 2026 ("ok đẹp đó… chốt đi")
+- **Ideas first** (`howweknow/CREATIVE.md`): one governing image per film; THREE stagings written for every line before one is chosen;
+  the engine grows to fit the idea (new primitive + FX.md row + a clip in `episodes/fx-reel`), never the reverse.
+- **v5 shot plan** (`STORY.md` §7, `standard=5`): reads · focus · becomes {from, to, how} · acts (something happens ≤ every 2.5 s) · mood.
+  Gates: `plan_check.py`, `still_check.py` (no dead stretch), plus the old three. Drawings: `STYLE.md` "True to life".
+- **Sound:** narration read plain (no stress drawl); the score is planned by measurement (`tools/score.py`) and follows the story's moods.
+- **Render — safety is Claude's call, quality is untouchable:** animatic first (`make.sh <slug> --preview`, ≈ 25 min) → critic pass →
+  ONE full render (`tools/render.py`: chunked, resumable, stall watchdog). Never change engine code while a render runs. Any speed
+  optimisation must leave the picture identical (compare stills before/after) or it is not made. Report times in Vietnam time.
+
 ## Roles
 - **Claude:** everything creative — topics, research, scripts planned to the frame, every drawing, the engine, rendering, delivery.
 - **Muse:** sourcing only (lean: ~1 hour per film, ≤ 15 rows), against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,
