@@ -1,4 +1,4 @@
-# FATHOM engine v3 — the 2D story world in the signature style (Remotion) — the one page for making a film
+# FATHOM engine v4 (v3 + smooth motion, ink-bleed transitions, camera life, parallax, content title card — FX.md §G) — the 2D story world in the signature style (Remotion) — the one page for making a film
 
 Owner (15 Nov 2026): FATHOM, 16:9, 8–12 min, English; NO subtitles — in-scene type only (`text` entity); 2D only; hand-coloured engraving (`STYLE.md`); real stock from Muse as
 ARTEFACTS in scenes; the picture transforms continuously and meaningfully; one quiet music track; few sound effects; af_heart 0.86.
@@ -55,7 +55,9 @@ Anchors: `[x, y]` world · `{entity, lon, lat}` a point on a planet · `{entity}
 
 ## FX on ANY entity (`src/engine/Fx.tsx`, vocabulary and rules in `FX.md`) — animatable props, combine freely
 `fx_box [x, y, w, h]` = the element's area (reveals run across it, turns pivot on its centre) · `fx_x fx_y fx_s fx_r` (+ origin `fx_ox fx_oy`) · reveals `wipe`(+`wipeDir`) `iris`(+`irisAt`) `unroll` `blinds` `tear` · paper moves
-`flipX` `flipY` `lift` · life `sway` `bob` `tremble` `breathe` · tone `sepia` `dim`. Eases: inOut out in soft snap linear back
+`flipX` `flipY` `lift` · life `sway` `bob` `tremble` `breathe` · tone `sepia` `dim` · v4 `dissolve` (+`dissolveAt` `dissolveDir` `dissolveSeed` `dissolveR` `dissolveGrain`) `blur` `glowfx` · layer `para` (parallax depth).
+Camera (v4): `push` `pan_x` `pan_y` move the whole screen-space page (with parallax), `drift` (0..2) the hand-held breath, `light` (0..1) the lamp. Core art: `TitleCard` {k, title, sub, kicker} · `EndCard` {k, ask, next} · `Ident` {k, title} (src/kit/Ident.tsx).
+Music (v4): `music.cues` [{file, at, start, db}] + `xfade` + `swells` [[from, to, +dB]] (tools/mix.py). Voice lines are cached (build/cache) — only changed lines are re-voiced. Eases: inOut out in soft snap linear back
 anticipate bounce elastic expo. Every line carries `plan` {in, trans, cam, life, comp, set, new, stock} (STORY.md §6);
 `python3 tools/variety.py episodes/<slug>` enforces the mix and the no-repeat ledger `history.json` (`--record` after delivery).
 

@@ -23,6 +23,8 @@ drawn set-piece mechanism).
 | `assemble` | parts fly together into the instrument | a `group` whose children each `slide`/`drop` with staggered keys |
 | `grow` | a quantity becomes visible | a `shape` morph from a point, or `fx_s` 0→1 from its base (`fx_oy`) |
 | `stamp` | a fact is fixed | `fx_s` 1.6→1, ease `expo`, + `ripple` |
+| `ink-bleed` | it seeps onto the page like ink in wet paper (v4) | `dissolve` 0→1 (+ `dissolveAt` / `dissolveDir`), ink rim on the moving edge |
+| `focus` | it comes into focus / attention lands on it (v4) | `blur` 12→0 with `a` 0→1 |
 
 ## B. TRANSFORMATIONS — how one picture becomes the next (`trans`) — never a plain cut
 | id | what it means | how |
@@ -42,6 +44,12 @@ drawn set-piece mechanism).
 | `trace` | a path becomes the next subject | `trail` head arrives; camera `ride`; destination inks on |
 | `through` | pass through an opening | camera zoom into an eyepiece/door/slit; the inside is a `lens` |
 | `collapse` | a whole diagram reduces to one number/line | group `fx_s`→0 toward a point where a `shape` remains |
+| `ink-bleed` | one picture seeps into the next (v4) | the old one `dissolve` 1→0 while the new `dissolve` 0→1 — same `dissolveSeed` so the two read as one sheet |
+| `sweep` | the page is washed clean in one direction (v4) | `dissolve` + `dissolveDir` right/left/up/down (an organic edge, never a ruler-straight wipe) |
+| `bloom-out` | everything gathers into one point (v4) | `dissolve` + `dissolveAt` (the point vanishes last) |
+| `rack-focus` | attention moves from one thing to another (v4) | old `blur` 0→12 + fade, new `blur` 12→0 |
+| `lift-off` | a sheet is taken off the desk (v4) | `lift` 0→40 + fade |
+| `dive` | down through the layers of a thing to its heart (v4) | a section drawing's own zoom/anchor keyed (geometric), the viewer riding with it |
 
 ## C. LIFE — what keeps a held picture alive (`life`)
 `boil` (always on) · `sway` (ships, palms, lanterns) · `bob` (floating things) · `breathe` (figures) · `tremble` (strain, cold, an
@@ -49,7 +57,7 @@ uncertain measurement) · `flicker` (candles) · `particles`: dust · snow · ra
 impact, sound) · clouds drifting (`Earth.lon` slow key) · star turn (camera `rot` slow) · a sweep hand (`Stopwatch.sec`).
 
 ## D. CAMERA (`cam`)
-`hold` · `push` (slow in) · `pull` · `pan` · `tilt-up` · `crane` (rise over a place) · `orbit` (planet `lon` key while holding) ·
+`drift` (v4: the page camera — `camera.push`/`pan_x`/`pan_y`, line by line, with parallax by `para`) · `dive` (v4) · `hold` · `push` (slow in) · `pull` · `pan` · `tilt-up` · `crane` (rise over a place) · `orbit` (planet `lon` key while holding) ·
 `ride` · `whip` (fast pan, ease `expo`, between two simultaneous places) · `rack` (zoom between two depths) · `roll` (`rot`, rare).
 No shake except one deliberate `tremble` per film at most.
 
@@ -60,6 +68,15 @@ No shake except one deliberate `tremble` per film at most.
 ## F. REAL STOCK moves (artefacts)
 `pin` (drops with `drop`, red pin last) · `tape` · `slide` across the desk · `flip` to its back · `eyepiece` (footage through a lens) ·
 `screen` (footage in a period set) · `circle` (red ink round the key line) · `stack` (several plates fanned, top one lifts: `lift`).
+
+## G. v4 MOTION (owner 16 Nov 2026: "mượt mà, liên tục, biến hóa — không giật, không nảy, không tĩnh")
+- Eases are smooth only: `back`/`bounce`/`elastic` now mean a long soft settle; no motion key shorter than .75 s (state.ts).
+- The page is never still: hand-held drift + lamp light (Story.tsx) and a page camera keyed every line (`push`, `pan_x`, `pan_y`, ease `sine`).
+- Depth: every layer moves by its `para` (sky −.5, art 0, people .1, words .25, particles .6) — parallax on every camera move.
+- Nothing pops or slides in from off the page: entrances ink-on, bleed in or come into focus; slides are short glides (≤ 140 px).
+- Exits are grouped by moment, one style per scene change, cycling ink-bleed · sweep · bloom-out · rack-focus · lift-off (world.py motion pass).
+- A film opens on its CONTENT (hook → the journey announced → the episode's title card, `TitleCard`) and closes on its content (a bookend
+  back to the opening image) before the small end card (`EndCard`).
 
 ## Variety rules (enforced by tools/variety.py)
 1. No `in` id on more than 20 % of a film's lines; no `trans` id on more than 20 %; never the same `in` or `trans` on two lines running.

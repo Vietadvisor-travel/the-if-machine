@@ -372,6 +372,8 @@ ent('endcard', 'art', {'name': 'EndCard', 'k': 0, 'a': 0}, [K('L80$+0.8', .01, a
 ent('enddust', 'particles', {'kind': 'dust', 'n': 40, 'k': 0, 'a': 1}, [K('L80$', 2, k=1)], z=91)
 earth['keys'] = EK
 
+# the air of the room: a few motes of dust drifting through the lamplight over the whole film (life — never a dead frame)
+ent('motes', 'particles', {'kind': 'dust', 'n': 26, 'k': 0, 'a': .8, 'speed': .5, 'para': .8}, [K(H(0), 3, k=1)], z=95)
 # ================================================================ v2 MOTION PASS (engine v4) — applied to the whole world
 import hashlib
 def tsplit(t):   # a time ref → (base, offset)
@@ -393,6 +395,10 @@ def tabs(t):   # absolute seconds for sorting (estimate if the timeline is stale
     return l['start'] + o
 seedOf = lambda t: int(hashlib.md5(str(round(tabs(t), 1)).encode()).hexdigest()[:4], 16) % 89 + 3   # everything that leaves at one moment bleeds as ONE sheet
 STILL = {'camera', 'clue'}
+# exits are grouped by the moment they happen; each moment gets ONE style, cycling so no two scene changes in a row look alike
+EXITS = sorted({round(tabs(k['t']), 1) for e in W if e['type'] not in STILL for k in e['keys'] if k.get('a') == 0 and k.get('dur', 1.2) >= .3 and 'dissolve' not in k})
+XSTY = ['ink', 'sweep-right', 'bloom', 'focus', 'ink', 'sweep-down', 'lift', 'sweep-left', 'bloom', 'ink', 'sweep-up', 'focus']
+xstyle = lambda t: XSTY[EXITS.index(round(tabs(t), 1)) % len(XSTY)] if round(tabs(t), 1) in EXITS else 'ink'
 for e in W:
     if e['type'] in STILL: continue
     ks, p = e['keys'], e['props']; inked = {str(k['t']) for k in ks if 'draw' in k}
@@ -402,11 +408,14 @@ for e in W:
         if k.get('a') == 0 and k.get('dur', 1.2) >= .3 and 'dissolve' not in k:
             rest = {q: v for q, v in k.items() if q not in ('a',)}
             if len(rest) > 2: out.append(rest)
-            if e['type'] == 'text':
+            st = 'focus' if e['type'] == 'text' else xstyle(k['t'])
+            if st == 'focus':
                 out += [K(k['t'], 1.0, 'soft', blur=10, a=0), K(tadd(k['t'], 1.05), .01, blur=0)]
+            elif st == 'lift':   # the sheet lifts off the page and is gone
+                out += [K(k['t'], 1.1, 'in', lift=40, a=0), K(tadd(k['t'], 1.15), .01, lift=0)]
             else:
-                d = max(1.1, k.get('dur', 1.2) * 1.3)
-                out += [K(k['t'], d, 'linear', dissolve=0, dissolveSeed=seedOf(k['t'])), K(tadd(k['t'], d), .01, a=0), K(tadd(k['t'], d + .03), .01, dissolve=1)]
+                d = max(1.1, k.get('dur', 1.2) * 1.3); bias = {'bloom': {'dissolveAt': [960, 540], 'dissolveR': 1100}}.get(st) or ({'dissolveDir': {'sweep-right': 'left', 'sweep-left': 'right', 'sweep-down': 'up', 'sweep-up': 'down'}[st]} if st.startswith('sweep') else {})
+                out += [K(k['t'], d, 'linear', dissolve=0, dissolveSeed=seedOf(k['t']), **bias), K(tadd(k['t'], d), .01, a=0), K(tadd(k['t'], d + .03), .01, dissolve=1)]
             continue
         # 2) an ENTRANCE that would pop (a → 1 instantly, no ink-on at that moment): photos, cards, letters bleed in; words come into focus
         if k.get('a') == 1 and k.get('dur', 1.2) <= .05 and str(k['t']) not in inked and e['type'] in ('art', 'text', 'planet'):
@@ -429,7 +438,12 @@ for i in range(len(E['lines'])):
     cam['keys'].append(K(H(i), round(d, 2), 'sine', push=[1.0, 1.045, 1.015, 1.05][i % 4], pan_x=[-14, 10, 16, -8][i % 4], pan_y=[6, -5, 3, -6][i % 4]))
 
 E['world'] = W
-E['music'] = {'file': 'public/stock/_hwk/inside-earth/U-01_mystery-ossuary-6-macleod-ccby.mp3', 'db': -25, 'start': 0}
+# v2 SCORE (owner picks; samples on Drive fathom/_music_choices): a mystery bed for the question and the clues, a warmer one from the
+# moment the inner core is found to the end; the score rises under the title card, at each chapter breath and under the end card
+MU = '../studio/music/'
+SCORE = [(MU + 'wonder_lightless_dawn.wav', H(0), 0, -23), (MU + 'tension_unwritten_return.wav', L(60, -1), 0, -23)]
+E['music'] = {'cues': [{'file': f, 'at': at, 'start': st, 'db': db} for f, at, st, db in SCORE], 'xfade': 5,
+              'swells': [['L4$', 'L5', 7], ['L15$', 'L16', 3], ['L27$', 'L28', 3], ['L39$', 'L40', 3], ['L52$', 'L53', 3], ['L80$', 'end', 7]]}
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
 E['thumb'] = {'t': 434, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom', 'side': 'left'}
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
