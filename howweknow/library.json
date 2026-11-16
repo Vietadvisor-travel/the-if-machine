@@ -3,6 +3,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "AssamHills": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Astrolabe": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -23,6 +27,14 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "BronzeBell": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "BullerSlip": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "CabinetCard": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -30,6 +42,14 @@
  "Candle": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "CardBoxes": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "CavendishHouse": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "Chair": {
   "kind": "sample",
@@ -43,6 +63,14 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "ClueMedallion": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "CrustSlab": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Desk": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -55,9 +83,21 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "EarthSection": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Eyepiece": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "FailedTools": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "FieldLines": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "FilmStrip": {
   "kind": "core",
@@ -75,13 +115,61 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "GreatBalance": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "InnerCoreBall": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "IronMeteorite": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "IvoryVernier": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "JellyWater": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "KolaBorehole": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "KolaRig": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "KolaTundra": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "LaserDome": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "LeadPair": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "LehmannRoom": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "Letter": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Loupe": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "MarsSection": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "Moon": {
   "kind": "core",
@@ -94,6 +182,10 @@
  "Mountains": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "MudTrack": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "Obelisk": {
   "kind": "sample",
@@ -123,6 +215,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "PocketCompass": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "PtSwingLamp": {
   "kind": "episode",
   "origin": "pipeline-test"
@@ -151,6 +247,14 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "SeismoRecord": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "Seismograph": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "ShadowCone": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -163,17 +267,33 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "SpeedLanes": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Stars": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "StationDrum": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "Stopwatch": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "StrawGlass": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Sun": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "SurveyDesk": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "Telescope": {
   "kind": "sample",
@@ -183,13 +303,25 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "TorsionBalance": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Tree": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "WallTelescope": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "Water": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "WaveDemo": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "Well": {
   "kind": "sample",
@@ -198,6 +330,14 @@
  "Window": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "ZagrebRoom": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "costume:cavendish1798": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "costume:chiton": {
   "kind": "sample",
@@ -211,9 +351,29 @@
   "kind": "sample",
   "origin": "people.tsx presets"
  },
+ "costume:gutenberg1914": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "costume:kolaDriller": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
  "costume:labcoat": {
   "kind": "sample",
   "origin": "people.tsx presets"
+ },
+ "costume:lehmann1932": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "costume:moho1909": {
+  "kind": "episode",
+  "origin": "inside-earth"
+ },
+ "costume:oldham1897": {
+  "kind": "episode",
+  "origin": "inside-earth"
  },
  "costume:ptStudent": {
   "kind": "episode",
@@ -234,5 +394,9 @@
  "costume:uniform": {
   "kind": "sample",
   "origin": "people.tsx presets"
+ },
+ "costume:wiechert1896": {
+  "kind": "episode",
+  "origin": "inside-earth"
  }
 }
