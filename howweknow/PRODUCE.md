@@ -24,10 +24,18 @@ Commands run from `howweknow/` unless shown.
 - Export `SAMPLE` props per component; `python3 tools/lib_index.py`; QA: `npx remotion still LibSheet out/<slug>_lib.jpg --props='{"slug":"<slug>"}' --frame=40`
   (page 1, 2… for more). Look at every sheet; redraw anything crude. Gate: ≥ 10 drawings, ≥ 80 % of non-generic elements the film's own.
 
+## 2b. Opening and closing (owner 16 Nov 2026) — of the CONTENT, not the channel
+- Open on the film's question made concrete (a hook the viewer can hold), say how we will find out (the journey), then the episode's
+  `TitleCard` (music only, `gap` ≈ 6 s). Close by returning to the opening image (a bookend that lands the answer), then a short `EndCard`.
+
 ## 3. Build the world
 `episodes/<slug>/world.py` writes `world` into `episode.json` (lines.py keeps it): one camera; every line's plan becomes entity keys at
 `L<i>`, `L<i>+s`, `L<i>@word` (ENGINE.md time refs); IN/TRANS/CAM/LIFE from FX.md; the clue tag (`clue` entity n 1..4 at each clue title);
 in-scene `text` where a name/date/number helps (≤ 9 words, never a subtitle); real stock in artefact frames (`play` for footage).
+**Every change of scene is DESIGNED (engine v4, FX.md §G):** a thing of the old scene becomes part of the new one — it travels/shrinks/grows
+into its place, an outline morphs (`shape.form`), the camera tilts, cranes, dives or goes through an opening — chosen from what the line
+says, never one transition type repeated. Inside a scene something must keep happening (an action, a needle, a reading), not a held still.
+The generic motion pass in world.py (inside-earth is the model) only handles the small leftovers (labels fall out of focus, things bleed away).
 Then `python3 lines.py` → `python3 tools/script_check.py episodes/<slug>` · `python3 tools/check_world.py episodes/<slug>` · `python3 tools/variety.py episodes/<slug>` — all PASS.
 
 ## 4. Voice, stills, render

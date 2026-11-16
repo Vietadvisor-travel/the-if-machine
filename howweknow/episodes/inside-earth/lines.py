@@ -3,7 +3,7 @@
 python3 tools/plan_md.py episodes/inside-earth → jobs/scripts/inside-earth.md. Facts: jobs/research/inside-earth.md. Stock: jobs/orders/inside-earth.md."""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')); from _lines_common import write
-VOICE, SPEED = 'af_heart', 0.86   # owner picks the narrator (samples on Drive fathom/_voice_choices)
+VOICE, SPEED = 'af_heart', 0.86   # owner 16 Nov 2026: keep the original narrator (after hearing 25 alternatives)
 R = [
 # ---------------- HOOK (v2, owner 16 Nov 2026: a film needs an opening the viewer can hold on to) → the FATHOM ident + title (music only)
 ('HOOK', "Deep beneath your feet, more than five thousand kilometres down, there is a ball of iron as hot as the surface of the *Sun*.", 'F10', 'focus', 'dive', 'dive', 'tiny-in-vast', ['sparks'], 'dive-to-the-core', ['ListenerOnTheSurface'], [],

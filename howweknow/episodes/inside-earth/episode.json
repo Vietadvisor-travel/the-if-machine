@@ -3,6 +3,7 @@
  "title": "What is inside the Earth?",
  "voice": "af_heart",
  "speed": 0.86,
+ "pitch": 1.0,
  "lead": 1.0,
  "tail": 7.5,
  "music": {
@@ -85,7 +86,7 @@
   "the bell ↔ planet morph used as the film's bookend"
  ],
  "thumb": {
-  "t": 434,
+  "t": 11.04,
   "title": "What is *inside* the Earth?",
   "kicker": "Fathom",
   "side": "left"

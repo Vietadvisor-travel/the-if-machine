@@ -12,7 +12,7 @@ out = f'{ep}/build'; os.makedirs(out, exist_ok=True)
 t, lines, parts = E.get('lead', .8), [], []
 for i, L in enumerate(E['lines']):
     if i: t += L.get('gap', .45)
-    vv, sp, pt = E.get('voice', 'af_heart'), E.get('speed', .92), E.get('pitch', 1.0); key = hashlib.md5(f"{L['text']}|{vv}|{sp}|{pt}".encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
+    vv, sp, pt = E.get('voice', 'af_heart'), E.get('speed', .92), E.get('pitch', 1.0); key = hashlib.md5((f"{L['text']}|{vv}|{sp}" + (f"|{pt}" if pt != 1.0 else "")).encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
     if os.path.exists(cf): s, sr = sf.read(cf, dtype='float32')
     else:
         s, sr = V.tts(L['text'], vv, sp)[:2]; os.makedirs(f'{out}/cache', exist_ok=True); sf.write(cf, s, sr)

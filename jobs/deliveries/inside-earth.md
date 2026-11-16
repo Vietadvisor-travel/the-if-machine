@@ -1,20 +1,33 @@
-# Delivery — Bên trong Trái Đất có gì (inside-earth) · FATHOM film · v1 · 2026-11-16
+# Delivery — Bên trong Trái Đất có gì (inside-earth) · FATHOM film · v2 (remake) · 2026-11-16
+
+> v2 replaces v1 (owner 16 Nov 2026): a content opening (hook → the question → the episode title card) and a content closing (back to the
+> opening image), every scene change designed as one picture becoming the next (engine v4), a six-cue score, same narrator (af_heart).
 
 ## Files (Drive fathom/inside-earth/)
-- inside-earth_16x9.mp4 · 172 MB (CRF-17 master) · 8:27 (507.3 s) · 1920×1080 · https://drive.google.com/file/d/1NRFbgEBequ7wviB2Wcw-If170SMuKL5c/view
+- inside-earth_16x9.mp4 · @@MB@@ (CRF-17 master) · @@LEN@@ · 1920×1080 · @@LINK@@
 - inside-earth_thumb.jpg (YouTube thumbnail 1280×720) · inside-earth_cover.jpg · inside-earth.srt (optional CC, not burned in)
 
 ## Production
-- Engine v3 (Remotion, 2D story world, howweknow/): one continuous world, every one of the 75 lines keyed to the narration; no subtitles, in-scene type only.
+- Engine v4 (Remotion, 2D story world, howweknow/): smooth eases only, ink-bleed / sweep / rack-focus changes for small things, and ~25 DESIGNED
+  scene changes where a thing becomes the next scene (title dial → the Moon over Kola · planet → the pan of a balance · tilt to 1798 London,
+  crane to the planet · lead ball → torsion weight · through the telescope's eyepiece · the view → the Earth on the pan → the planet ·
+  planet outline ↔ bell (morph, twice, + a bookend) · waves → lanes → seismograph paper → six observatories → the globe · into Oldham's
+  records · through the core into the race and back · tilt down through the Zagreb floor into the crust · Lehmann's record from her hands ·
+  a dive into a ghost ping · the inner-core ball back into the planet · stations map out of the planet → whip to Mars → back to Kola).
+- Opening (new): a dive from a person's feet to the white-hot core, "how can we possibly know?", four sealed clues, the episode title card.
+  Closing (new): back on the ground with the same person, down to the core once more, then the end card.
+- 81 lines keyed to the narration; no subtitles, in-scene type only.
 - 34 drawings made for this film (src/lib/inside-earth/) + 7 costumes (Kola drillers, Cavendish 1798, Wiechert, Oldham, Mohorovičić, Gutenberg, Lehmann 1932).
 - New to the channel: (1) a true-scale pull from the 12-km Kola hole (70 px/km) to the whole planet — the hole becomes a hairline;
   (2) every seismic ray is REAL geometry: traced through PREM (Muse X-01) by episodes/inside-earth/rays.py — the shadow zone, the core-bent PKP rays
   and Lehmann's inner-core rays land where physics puts them; (3) "ghost pings" in the shadow zone that turn solid once the ray is explained;
   (4) the bell ↔ planet bookend; (5) form-shading for a film's own drawings (hatching only on the shade side).
 - Voice: af_heart (Kokoro, Apache-2.0), speed 0.86 — machine-generated narration.
-- Music: Kevin MacLeod, "Ossuary 6 - Air" — CC BY 4.0 (incompetech.com) · Sound effects: 9 (drill, wind, bell ×2, metal hit, scratch, groan, page turn,
+- Music (owner's picks 1, 5, 7 + two more, placed by section): Kevin MacLeod — "Long Note One" (opening + closing), "Leaving Home" (Clue I),
+  "Lightless Dawn" (Clues II–III), "Dreams Become Real" (Clue IV) — CC BY 4.0 (incompetech.com); "Journey of Hope" (the answer) — public domain (FreePD).
+  Sound effects: 10 (drill, wind, bell ×2, metal hit, scratch, groan, page turn,
   thunder roll) + the real sonified Sumatra 2004 earthquake (EarthScope / IRIS data, sonification by Muse).
-- Gates: script_check PASS · check_world PASS (245 entities) · variety PASS · render 2923 s (5.8 s per film second) · QA: 80 stills looked at before the render, contact sheet after.
+- Gates: script_check PASS · check_world PASS (273 entities) · variety PASS · render @@RT@@ · QA: every designed scene change looked at in stills, a 6-s contact sheet of the whole film before the render, the contact sheet after.
 
 ## Facts (research pack jobs/research/inside-earth.md; S1…S15)
 - Kola SG-3 began 1970, 12,262 m by 1989, rock too hot / plastic, ≈ 0.2 % of the way — S1, S2
@@ -46,6 +59,8 @@
 | A-01_sumatra-2004-anmo-sonified-iris.wav | the 2004 Sumatra quake as sound (IU ANMO) | EarthScope open data | EarthScope Consortium (IRIS DMC); sonification by Muse |
 | S-01_drill-take1-pd.wav | drilling sound | Public domain | Wikimedia Commons |
 
+Music and sound files are from the studio library (studio/music, studio/sfx_ifm), not from Muse's kit.
+
 ## Honest notes
 - Drawn reenactments are explanations, not records. Not drawn as real: no portrait of Gutenberg exists in a free licence — he is a DRAWN figure (no likeness claimed); Cavendish, Wiechert, Oldham, Mohorovičić and Lehmann are drawn by period costume only.
 - Reframed ★★★ misses (no free version exists anywhere — Muse's notes): Kola rig photos/footage (P-03, V-03) → drawn; Lehmann's own seismograms/card file (P-02, D-05) →
@@ -57,6 +72,6 @@
 
 ## For Muse
 - Title options: 1) What Is Inside the Earth? Nobody Has Been There — Here's How We Know  2) The Deepest Hole Reached 12 km. So How Do We Know the Earth Has a Solid Core?  3) How a Woman Reading Squiggles Found the Earth's Inner Core
-- Description credits: music (Kevin MacLeod, CC BY 4.0), stock (table above), EarthScope/IRIS data acknowledgement, Natural Earth (public domain).
+- Description credits: music (Kevin MacLeod: Long Note One, Leaving Home, Lightless Dawn, Dreams Become Real — CC BY 4.0; Journey of Hope — public domain), stock (table above), EarthScope/IRIS data acknowledgement, Natural Earth (public domain).
 - Kit note: P-05 in the manifest is described as Oldham's portrait, but the image is the report's frontispiece (Monument to George Inglis, Chhatak) — please correct the manifest.
 - Post only after the owner says "đăng tập Bên trong Trái Đất có gì".
