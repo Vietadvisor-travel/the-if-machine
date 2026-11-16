@@ -28,6 +28,12 @@ Commands run from `howweknow/` unless shown.
 - Open on the film's question made concrete (a hook the viewer can hold), say how we will find out (the journey), then the episode's
   `TitleCard` (music only, `gap` ≈ 6 s). Close by returning to the opening image (a bookend that lands the answer), then a short `EndCard`.
 
+## 2c. v5 standard (owner 17 Nov 2026) — every new film
+`lines.py` → `write(..., standard=5)`; each line carries reads · focus · becomes {from, to, how} · acts · mood (STORY.md §7, kinds in
+FX.md §H, demo `episodes/fx-reel`). Narration is read plain (no stress drawl). Music is planned by measurement: `python3 tools/score.py
+episodes/<slug> --write`. Gates added to make.sh: `plan_check.py` (the plan) and `still_check.py` (no stretch > 2.5 s where nothing
+happens — inside-earth v2 had 21 % dead time; a v5 film must have none). Drawings follow STYLE.md "True to life" (reference beside drawing).
+
 ## 3. Build the world
 `episodes/<slug>/world.py` writes `world` into `episode.json` (lines.py keeps it): one camera; every line's plan becomes entity keys at
 `L<i>`, `L<i>+s`, `L<i>@word` (ENGINE.md time refs); IN/TRANS/CAM/LIFE from FX.md; the clue tag (`clue` entity n 1..4 at each clue title);
