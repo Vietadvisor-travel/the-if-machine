@@ -141,3 +141,37 @@ Render check tool: ~/workspace/ifm-staging/assets2/render_check.py (pure-Python 
   not done; Carbon (item b) was packed instead. Next queue item remains (a) Poly Haven retry,
   then (b) Fluent UI icons / Ant Design icons, (c) Lottie (needs an account), (d) Kenney SVG,
   (e) new ambientCG set or OpenMoji-style SVG set.
+
+## FATHOM earth-age (2026-11-16, Muse sourcing, order jobs/orders/earth-age.md)
+
+Full per-file credits, sources and licence proofs: Drive `_hwk/earth-age/manifest.json`
+plus `_hwk/earth-age/_proof/<id>.png` (one proof card per delivered file). 34 of 42 rows
+delivered; misses: P-01, P-02, D-07, D-08, D-09, V-01, V-02, V-03 (reasons in the order file).
+
+Attribution required (CC BY) - use these exact credit lines in the film credits:
+
+- P-10 (North Downs, Weald): Gareth1953 All Right Now, CC BY 2.0
+  https://www.flickr.com/photos/gareth1953/4448019945/
+- P-11 + P-11-x1 (EastGRIP ice core, Greenland): Hellefys, CC BY 4.0
+  https://commons.wikimedia.org/wiki/File:Ice_core_researchers_from_AWI_drilling_at_the_EastGRIP_ice_core_site,_Greenland_1.jpg
+- A-01 take 1 (Geiger counter): jo0ls, CC BY 3.0
+  https://commons.wikimedia.org/wiki/File:Geiger_counter.ogg
+- A-01 take 2 (Geiger counter, KCl): uyt384, CC BY 3.0
+  https://commons.wikimedia.org/wiki/File:Geiger_counter_sound_KCl.oga
+- U-01 tracks 1-3 (music beds): Kevin MacLeod, CC BY 4.0
+  https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreams%20Become%20Real.mp3
+  https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ossuary%206%20-%20Air.mp3
+  https://incompetech.com/music/royalty-free/mp3-royaltyfree/Meditation%20Impromptu%2001.mp3
+- V-01-x1 (Meteor Crater rim video, B-roll only): Angel Schatz, CC BY 2.0
+  https://commons.wikimedia.org/wiki/File:Meteor_Crater_in_Arizona,_USA.webm
+
+Public domain / CC0 (no attribution required, credits recorded in the manifest):
+Kelvin portrait 1895, Rutherford portrait (Bain News Service), Boltwood lab 1917,
+Meteor Crater aerial (USGS), Nier mass spectrometer tube (Smithsonian / DPLA),
+Atlantic Ethyl pump (John Margolies, LOC), zircon (USGS), Ussher Annales 1650,
+KJV Bible 1806, Darwin Origin 1859 p.287, Kelvin 1862 paper, Joly 1899 paper,
+Boltwood 1907 Table VI, William Smith map 1815 (British Library, CC0),
+Ussher engraving (Rijksmuseum, CC0), Canyon Diablo meteorite (Motekov, CC0),
+Agpalilik slice (CC0), Darwin study 1930, Faraday lectures, Caltech 1944 map,
+Faculty Club 1923, uraninite specimen, SFX quill/page/clock (Freesound CC0).
+Reference only (never shown): Patterson with equipment (Caltech Archives, copyrighted).

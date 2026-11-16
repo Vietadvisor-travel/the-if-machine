@@ -4,7 +4,7 @@
 | slug | tên (VI) | research | production | delivered | approved | published |
 |---|---|---|---|---|---|---|
 | moon-distance | Mặt Trăng cách ta bao xa | RESEARCH_READY (script v2 ready; order ON HOLD) | - | - | - | - |
-| earth-age | Trái Đất bao nhiêu tuổi | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
+| earth-age | Trái Đất bao nhiêu tuổi | KIT_READY (Muse, 2026-11-16: 34 ✅ / 8 ❌, Drive _hwk/earth-age/) | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting production | - | - | - |
 | inside-earth | Bên trong Trái Đất có gì | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
 | star-distance | Các vì sao xa đến đâu | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
 | longitude | Giữa biển khơi làm sao biết mình ở đâu | RESEARCH_READY (Claude) · order → Muse | SCRIPT READY (frame-level plan, jobs/scripts/) · waiting KIT_READY | - | - | - |
