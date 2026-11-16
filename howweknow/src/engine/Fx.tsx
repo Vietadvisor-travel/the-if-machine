@@ -64,5 +64,7 @@ export const Fx: React.FC<{ s: Props; t: number; seed: number; uid?: string; chi
   const filt = [dis ? `url(#${fid})` : '', s.blur > .05 ? `blur(${s.blur}px)` : '', s.sepia ? `sepia(${s.sepia}) saturate(${1 - s.sepia * .6})` : '', s.dim ? `brightness(${1 - s.dim * .55})` : '',
     s.glowfx > .01 ? `brightness(${1 + s.glowfx * .18}) drop-shadow(0 0 ${18 * s.glowfx}px rgba(247,214,140,${.75 * s.glowfx}))` : '', s.lift ? `drop-shadow(0 ${s.lift * .6}px ${s.lift * .5}px rgba(0,0,0,.35))` : ''].filter(Boolean).join(' ') || undefined;
   const body = <AbsoluteFill style={{ transform: tf, transformOrigin: `${ox}px ${oy}px`, clipPath: clip }}>{children}</AbsoluteFill>;
-  return filt ? <AbsoluteFill style={{ filter: filt }}>{dis && <Dissolve id={fid} s={s} seed={s.dissolveSeed ?? seed} />}{body}</AbsoluteFill> : body;
+  // a filter only ever sees the frame (1920×1080): a huge drawing (a planet at 0.5 px/km is 7,000 px wide) must never be blurred or
+  // dissolved off-screen — that is what made Chrome allocate gigabytes and hang (16 Nov 2026)
+  return filt ? <AbsoluteFill style={{ overflow: 'hidden', contain: 'strict' }}><AbsoluteFill style={{ filter: filt, overflow: 'hidden' }}>{dis && <Dissolve id={fid} s={s} seed={s.dissolveSeed ?? seed} />}{body}</AbsoluteFill></AbsoluteFill> : body;
 };
