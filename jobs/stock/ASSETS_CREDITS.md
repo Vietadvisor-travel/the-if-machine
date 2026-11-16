@@ -203,3 +203,35 @@ Kola geological section (CC0), Cavendish experiment diagram.
 Reference only (never shown): young Lehmann 1932 (Linda Hall), Lehmann 1936 title page +
 Fig. 1 + Fig. 6 + shadow-zone diagram (Linda Hall; paper under copyright), Mohorovicic 1910
 English translation 1992 (Geofizika 9, copyrighted).
+
+## star-distance (2026-11-16) - "How far away are the stars?" (31 of 33 rows delivered)
+Drive `_hwk/star-distance/`: 54 main files + manifest.json, plus `_proof/<id>.png` (one proof card per delivered file, 72 cards), `_ref/` (17 reference files), `_alt/` (1 alternate file). Misses: P-10, V-03 (both ESA CC BY-SA 3.0 IGO, banned for shown use; renders in _ref for drawing).
+
+Attribution required (CC BY) - use these exact credit lines in the film credits:
+
+- P-07-x1 (M31-V1 region), P-07-x2 (V1 time-lapse), P-07-x3 (V1 light curve): ESA/Hubble, CC BY 4.0
+  https://commons.wikimedia.org/wiki/File:Hubble%27s_cepheid_variable_star_in_M31_(ann1110a)
+- P-08 (VISTA SMC): ESO/VISTA, CC BY 4.0
+  https://commons.wikimedia.org/wiki/File:Highlights_from_VISTA%27s_view_of_the_Small_Magellanic_Cloud_(eso1714b)
+- U-01 tracks 1-3 (music beds): Kevin MacLeod, CC BY 4.0
+  https://incompetech.com/music/royalty-free/music.html
+
+Public domain / CC0 (no attribution required, credits recorded in the manifest):
+Hubble VAR! plate H335H (Carnegie Observatories, 1923), Leavitt portrait + Harvard computers
+group photo, Harvard plate B20678 with Leavitt's annotations (Harvard Plate Stacks, 1897),
+Hooker 100-inch 1917 + Hubble at the eyepiece 1922, Bessel portrait (Herterich, 1825) +
+Königsberg heliometer, 61 Cygni DSS2 field (STScI), Hubble M31 mosaic 2025 (NASA/ESA),
+Roberts 1888 M31 photo, Shapley + Curtis portraits, Arequipa station 1904, Flamsteed Atlas
+Coelestis pl. 11 + Hevelius Andromeda chart, Leavitt & Pickering 1912 Circular 173 (pp. 1-3),
+Bessel 1838 pp. 65 + 91-92, Hubble 1925 Observatory p. 139, Hubble 1929 PNAS pp. 168-172,
+Lemaître 1927 p. 49, Victoria Daily Times 24 Nov 1924 (front p. 1 + p. 3), Milky Way
+time-lapse over Joshua tree, Mount Wilson dome + 100-inch 1950s film (Periscope Film 65524),
+clock tick (ST303, CC0), night crickets (PhilllChabbb, CC0), glass slide (CC0), pen scribble
+(CC0), servo motor (CC0), Leavitt's 25 Cepheids + Hubble Table 1 + 61 Cygni parallax (compiled,
+verified), key texts (transcribed, cited), places (compiled, verified).
+Reference only (never shown): H335H plate photo on display (Sarah Al-Ahmed / Planetary
+Society, copyrighted), Gaia spacecraft render + Gaia stellar-nurseries animation (ESA,
+CC BY-SA 3.0 IGO), Breuval et al. 2025 Fig. 7 full, Harvard women computers 1890/1891/1913/
+1925 (1925 is CC BY-SA 4.0), heliometer second angle, Hooker mount/vertical/gears
+(CC BY-SA), Kapteyn plate holder (CC BY-SA 4.0), Bessel's study daguerreotype (CC0),
+Leavitt 1912 Figs. 1-2, Hevelius Cygnus plate.
