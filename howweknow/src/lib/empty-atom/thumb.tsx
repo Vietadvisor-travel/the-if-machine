@@ -4,6 +4,7 @@
 // La Belle Aurore (the hand note). 1280×720.
 import React from 'react';
 import { AbsoluteFill, Img, staticFile } from 'remotion';
+import { BigTitle } from './thumb_kit';
 
 const CX = 870, CY = 372, R = 300;   // the atom
 const HX = 520, HY = CY + 250;   // where the returning particle is caught, flying out at the viewer
@@ -21,7 +22,7 @@ const TRACK = (() => {
 })();
 const seeded = (n: number) => { let s = n; return () => (s = (s * 16807) % 2147483647) / 2147483647; };
 
-export const THUMB: React.FC<{ title?: string; kicker?: string; note?: string }> = ({ title = 'It came *back.*', kicker = 'Manchester · 1909', note = '1 in 8,000' }) => {
+export const Back: React.FC<{ title?: string; kicker?: string; note?: string }> = ({ title = 'It came *back.*', kicker = 'Manchester · 1909', note = '1 in 8,000' }) => {
   const r = seeded(11);
   // beams: most go straight through the emptiness, a few are nudged (deflection grows as they pass closer to the nucleus)
   const beams = Array.from({ length: 23 }, (_, i) => {
@@ -31,8 +32,7 @@ export const THUMB: React.FC<{ title?: string; kicker?: string; note?: string }>
     return { d: `M -20 ${y.toFixed(1)} L ${CX - 40} ${y.toFixed(1)} Q ${CX + 30} ${y.toFixed(1)} 1300 ${(y + bend).toFixed(1)}`, w: 1.6 + r() * 1.2, a: .35 + r() * .35 };
   }).filter(Boolean) as { d: string; w: number; a: number }[];
   const dots = Array.from({ length: 70 }, () => { const t = r() * Math.PI * 2, rr = R * (.92 + r() * .1); return [CX + Math.cos(t) * rr, CY + Math.sin(t) * rr, .6 + r() * 1.6]; });
-  const words = title.split(/(\*[^*]+\*)/).filter(Boolean);
-  return <AbsoluteFill style={{ background: '#110c08', overflow: 'hidden' }}>
+    return <AbsoluteFill style={{ background: '#110c08', overflow: 'hidden' }}>
     {/* paper + engraving: a dark printed sheet, warm light from the atom */}
     <Img src={staticFile('core/paper.jpg')} style={{ position: 'absolute', inset: 0, width: 1280, height: 720, objectFit: 'cover', opacity: .16, mixBlendMode: 'screen' }} />
     <svg width={1280} height={720} style={{ position: 'absolute', inset: 0 }}>
@@ -83,14 +83,14 @@ export const THUMB: React.FC<{ title?: string; kicker?: string; note?: string }>
       <rect width="1280" height="720" fill="url(#vig)" />
     </svg>
     <Img src={staticFile('core/fibres.jpg')} style={{ position: 'absolute', inset: 0, width: 1280, height: 720, objectFit: 'cover', opacity: .12, mixBlendMode: 'overlay' }} />
-    {/* words */}
-    <div style={{ position: 'absolute', left: 58, top: 92, width: 640 }}>
-      <div style={{ fontFamily: 'IM Fell English SC', fontSize: 34, letterSpacing: 6, color: '#e6c266', marginBottom: 14 }}>{kicker}</div>
-      <div style={{ fontFamily: 'IM Fell French Canon SC', fontSize: 146, lineHeight: .92, color: '#fbf1d8', letterSpacing: 1, textShadow: '0 6px 28px rgba(0,0,0,.85), 0 0 2px rgba(0,0,0,.9)' }}>
-        {words.map((w, i) => w.startsWith('*') ? <div key={i} style={{ color: '#ff5a3c', textShadow: '0 0 30px rgba(255,74,51,.45), 0 6px 28px rgba(0,0,0,.85)' }}>{w.slice(1, -1)}</div> : <span key={i}>{w}</span>)}
-      </div>
-    </div>
+    {/* words: big, heavy, outlined (owner: "chữ to cần dầy hơn và to hơn") */}
+    <div style={{ position: 'absolute', left: 52, top: 70, fontFamily: 'IM Fell English SC', fontSize: 36, letterSpacing: 6, color: '#7fd3e6', textShadow: '0 2px 10px #000' }}>{kicker}</div>
+    <BigTitle x={46} y={120} lines={[{ t: 'IT CAME', size: 150, fill: '#fbf1d8' }, { t: 'BACK!', size: 232, fill: '#ff4f33' }]} font="IM Fell French Canon SC" stroke="#140b05" sw={14} />
     <div style={{ position: 'absolute', left: 566, top: 640, fontFamily: 'La Belle Aurore', fontSize: 50, color: '#ffd9a0', transform: 'rotate(-6deg)', textShadow: '0 2px 10px rgba(0,0,0,.9)' }}>{note}</div>
     <Img src={staticFile('brand/fathom_mark.png')} style={{ position: 'absolute', right: 26, bottom: 22, width: 78, height: 78, opacity: .95 }} />
   </AbsoluteFill>;
 };
+
+import { Stadium, Shell, Wrong } from './thumb_more';
+// four designs (owner picks one; episode.json thumb.v): A · It came back · B · Mostly empty (stadium) · C · Impossible (the shell) · D · What's really inside (1904 vs 1911)
+export const THUMB: React.FC<any> = (p) => p.v === 'B' ? <Stadium /> : p.v === 'C' ? <Shell /> : p.v === 'D' ? <Wrong /> : <Back {...p} />;
