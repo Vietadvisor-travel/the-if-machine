@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Render farm (owner 17 Nov 2026: "càng bào được càng tốt" — free, quality untouched).
-  python3 tools/farm.py <slug> [--chunk S] [--only 0,6] [--to DIR] [--wait 50] [--local-only]
+  python3 tools/farm.py <slug> [--chunk S] [--only 0,6] [--to DIR] [--wait 50] [--local-only (dry run)]
 The film's chunks are rendered IN PARALLEL on free GitHub runners (public repo vietadvisor-travel/frame-batch, up to 20 at once),
 then tools/render.py joins them and renders locally whatever did not come back. Same bundle, same Remotion, same Chromium build
 (Playwright's headless shell), same flags → the same frames; tools/farm_check.py proves it before the farm is trusted.
@@ -30,7 +30,7 @@ def frames_in(p):
 
 
 def finish():
-    if A.to or A.only: return
+    if A.to or A.only or A.local_only: return   # --local-only = dry run: show the plan, render nothing
     log(f'local pass: render.py --chunk {CH:g} (joins, fills anything missing)')
     os.execvp('python3', ['python3', 'tools/render.py', S, '--chunk', f'{CH:g}', '--concurrency', str(A.conc), '--crf', str(A.crf)])
 
@@ -59,8 +59,44 @@ def pack():
     log(f'pack {os.path.getsize(out) / 1e6:.0f} MB (Chromium {shell}, Playwright {pw})'); return out
 
 
+def footage_spans():
+    """[(t0, t1)] where real footage plays: decoding video frames is the one place the runners' picture differed (17 Nov test:
+    chunks without footage were bit-identical, the chunk with footage was not) — so those chunks are always rendered locally."""
+    E = json.load(open(f'public/ep/{S}/episode.json')); LN = tl['lines']; out = []
+    def tabs(t):
+        if isinstance(t, (int, float)): return float(t)
+        if t == 'end': return tl['duration']
+        m = re.match(r'^L(\d+)(\$|@([^+\-]+))?([+\-]\d*\.?\d+)?$', t); l = LN[int(m.group(1))]; x = l['start']
+        if m.group(2) == '$': x += l['dur']
+        elif m.group(3): j = l['text'].lower().find(m.group(3).lower()); x += l['dur'] * max(0, j) / max(1, len(l['text'])) * .97
+        return x + float(m.group(4) or 0)
+    def walk(e):
+        p = e.get('props') or {}
+        if str(p.get('src', '')).endswith(('.mp4', '.webm', '.mov')):
+            ks = [(tabs(k['t']), k.get('dur', 1.2)) for k in e.get('keys') or []]
+            out.append((min([t for t, _ in ks] or [0]) - 1, max([t + d for t, d in ks] or [tl['duration']]) + 1) if ks else (0, tl['duration']))
+        for c in e.get('children') or []: walk(c)
+    for e in E['world']: walk(e)
+    return out
+
+
+def spot_check(done, B):
+    """Re-render ONE farm chunk here and compare every decoded frame (tools/farm_check.py). Any difference → all farm chunks are dropped."""
+    i = done[len(done) // 2]; ref = f'/tmp/farm_ref_{S}_{i}.mp4'; a = i * STEP; b = min(N - 1, a + STEP - 1)
+    subprocess.run(['npx', 'remotion', 'render', B, 'Story', ref, f'--props={json.dumps({"slug": S})}', f'--frames={a}-{b}', '--muted', f'--crf={A.crf}',
+                    f'--concurrency={A.conc}', '--timeout=120000', '--log=error'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    ok = subprocess.run(['python3', 'tools/farm_check.py', ref, name(i)], capture_output=True, text=True); log('spot check chunk', i, ok.stdout.strip().replace('\n', ' · '))
+    try: os.remove(ref)
+    except OSError: pass
+    return ok.returncode == 0
+
+
 def main():
     todo = [int(x) for x in A.only.split(',')] if A.only else [i for i in range(NCH) if not (os.path.exists(name(i)) and frames_in(name(i)) == want(i))]
+    if not A.only:
+        FS = footage_spans(); vid = [i for i in todo if any(i * STEP / 30 < t1 and (i + 1) * STEP / 30 > t0 for t0, t1 in FS)]
+        todo = [i for i in todo if i not in vid]
+        if vid: log(f'{len(vid)} chunks with real footage stay local: {vid}')
     log(f'{S}: {N} frames · {NCH} chunks of {CH:g} s · {len(todo)} to farm · sig {sig}')
     if not todo or A.local_only: return
     if not os.path.isdir(f'{FB}/.git'):
@@ -92,6 +128,12 @@ def main():
             if frames_in(tmp) == want(i): os.replace(tmp, name(i)); left.discard(i); log(f'chunk {i} back ({len(todo) - len(left)}/{len(todo)})')
             else: os.remove(tmp)
     if left: log(f'{len(left)} chunks did not come back in time: {sorted(left)} — local pass renders them')
+    back = [i for i in todo if i not in left]
+    if back and not A.only and not spot_check(back, f'/tmp/farm_{S}/b'):
+        for i in back:
+            try: os.remove(name(i))
+            except OSError: pass
+        log('SPOT CHECK FAILED — every farm chunk dropped; the local pass renders the whole film')
     try: dv.call(f'files/{fd}', method='DELETE')   # the film's files leave Drive's _farm
     except SystemExit: pass
     try: os.remove(p)

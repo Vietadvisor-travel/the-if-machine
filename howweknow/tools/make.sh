@@ -18,7 +18,7 @@ if [[ "${2:-}" == "--preview" ]]; then   # the animatic: half size, 15 fps, with
   echo "ANIMATIC → out/${S}_animatic.mp4"; exit 0
 fi
 T0=$(date +%s)
-python3 tools/render.py $S   # chunked, resumable, crash- and hang-proof (tools/render.py)
+python3 tools/farm.py $S   # free GitHub runners render the chunks in parallel (pixel-checked), then render.py joins + fills the rest locally
 RT=$(( $(date +%s) - T0 )); echo "render ${RT} s ($(python3 -c "import json;d=json.load(open('$EP/timeline.json'))['duration'];print(f'{$RT/d:.1f} s per film second')"))"
 ffmpeg -v error -y -i out/${S}_silent.mp4 -i $B/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart out/${S}_16x9.mp4
 D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 out/${S}_16x9.mp4)

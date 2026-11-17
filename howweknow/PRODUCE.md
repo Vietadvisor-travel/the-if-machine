@@ -58,3 +58,12 @@ facts with sources, honest notes, 3 title options for Muse) · STATUS → `DELIV
 ## 6. Report to the owner (≤ 8 Vietnamese lines)
 Drive link · length · what is new in this film (2–3 ideas) · gates · anything uncertain or reframed · the line to send Muse when he approves:
 "đăng tập <tên>".
+
+## Render farm (owner 17 Nov 2026: "càng bào được càng tốt" — free, quality untouched)
+`make.sh` renders through `tools/farm.py`: the film's chunks go to free GitHub runners (public repo vietadvisor-travel/frame-batch,
+generic runner, no names; the pack and the chunks travel through the owner's private Drive `_farm/<sig>` and are deleted after),
+then `render.py` joins them and renders locally whatever did not come back. Needs, once per session: `add_repo vietadvisor-travel/frame-batch`
+(push) — without it farm.py says so and everything renders locally as before. Proven 17 Nov: chunks WITHOUT real footage are bit-identical
+to a local render (farm_check 300/300); a chunk WITH footage differed slightly (video decoding), so footage chunks always render locally,
+and every run re-renders one farm chunk here and compares every frame (`tools/farm_check.py`) — any difference drops all farm chunks.
+
