@@ -9,8 +9,10 @@ reference for the mechanics, this file is the live checklist.
 
 - `git pull` first. Read jobs/deliveries/<slug>.md: title options, description credits,
   files on Drive fathom/<slug>/.
-- Download from Drive via pp_drive: master mp4, _thumb.jpg (1280x720), _cover.jpg,
-  .srt. Verify with ffprobe (duration, 1920x1080) and that the .srt is readable.
+- Download from Drive via pp_drive: master mp4, _thumb.jpg (1280x720, horizontal),
+  vertical thumb 9:16 (Claude delivers one per film from 17/11; file name per the
+  delivery note), _cover.jpg, .srt. Verify with ffprobe (duration, 1920x1080)
+  and that the .srt is readable.
 - Title: delivery note option 1, unless the owner picks another option.
 - File size warning: the master is ~172 MB. If the browser file grant rejects it,
   try browser direct-download from the Drive share link first; fallback: re-encode
@@ -23,8 +25,9 @@ reference for the mechanics, this file is the live checklist.
   disclosure), tags: fathomline, how we know, [topic tags].
 - Category Education, language English, audience not made for kids: all already
   channel defaults. Verify they are still set.
-- Custom thumbnail: upload the delivery _thumb.jpg.
-  BLOCKED until the owner completes Intermediate features (phone verification).
+- Custom thumbnail: upload the delivery _thumb.jpg (horizontal 1280x720).
+  Intermediate is Enabled since 16/11 (owner's phone verification), so custom
+  thumbnails work.
 - Subtitles: upload the .srt (English). Verify the player menu shows Subtitles/CC
   English and the first line renders.
 - End screen (Video elements step): Subscribe element + one video element linking
@@ -51,25 +54,35 @@ reference for the mechanics, this file is the live checklist.
   question §C). If the browser file grant rejects the file, re-encode CRF 28.
 - Caption: hook (2-3 sentences) + hashtags #fathomline #howweknow #[topic].
   Max 1-2 emoji. No links (TikTok captions have none).
-- Cover: pick a strong frame. Turn ON auto-captions. Comments on, duet/stitch on.
-- Add to playlist "How We Know" (create the TikTok playlist on the first film).
+- Cover: use the "Sửa ảnh bìa" (Edit cover) control at upload; upload the vertical
+  thumb (9:16) if the uploader offers an upload option, otherwise pick a strong
+  frame. (Confirmed by owner screenshot 17/11.)
+- Auto-captions: turn ON if the uploader offers it (web has no control; otherwise
+  owner phone-app job). Comments on. Duet/stitch are unavailable for videos over
+  60 s (platform limit).
+- Playlist + pinned comment: DROPPED per owner 16/11 21:06 (not available for
+  this account). Do not ask for them again.
 - Publish as Everyone. KNOWN QUIRK (old channel, twice): the upload can save as
   "Only me" despite Everyone selected. Check Studio > Content right after posting
   and fix the privacy to Everyone if needed.
-- Pinned comment: post the §B text as @fathomlinefilms and pin it
-  (TikTok lets you pin your own comment).
 - Verify on the public video page (plays, caption exact, privacy Everyone).
 
 ## 3. Facebook Page Fathomline (API, ifm-graph.py — never the browser)
 
 - Caption: hook + hashtags, NO link, ever.
 - Post as a reel via the API helper. Verify via API read (post id, public URL).
+- Cover: the OWNER sets the cover himself after posting (decision 17/11). The
+  API route has no cover parameter.
 
 ## 4. Instagram @fathomlinefilms (API, ifm-graph.py ig-reel — never the browser)
 
 - Caption: hook + "Full run on YouTube, link in bio." + hashtags, NO link.
 - The API needs a public video URL: upload the master to Muse storage for a
   public link (the old channel used that route). Verify via API read (media id).
+- Cover: pass the vertical thumb as --cover-url (public URL via Muse storage,
+  same as the video URL). The API takes cover_url (custom 9:16 JPEG) or
+  thumb_offset (a frame in ms); cover_url wins if both are given.
+  ifm-graph.py ig-reel supports --cover-url since 17/11.
 
 ## 5. Record (every film)
 
@@ -106,7 +119,9 @@ We didn't go there. Nobody did. So how do we know? What should we figure out nex
    Feature eligibility): phone verification unlocks custom thumbnails; ID
    verification unlocks pinning comments. Without them the first film ships with
    no thumbnail and no pinned comment.
-2. TikTok / Instagram / Facebook format: the FATHOM master is 16:9 long-form.
-   Owner decision 2026-11-16: post the 16:9 master as-is on all 4 channels, no
-   vertical cuts.
+2. RESOLVED 17/11: the 16:9 master posts as-is on all 4 channels; Claude also
+   delivers one vertical thumb (9:16) per film for covers. IG uses it via
+   cover_url, TikTok via the upload cover editor ("Sửa ảnh bìa"), FB the owner
+   sets himself after posting, YouTube keeps the horizontal _thumb.jpg.
+   (inside-earth has no vertical thumb; it shipped before this decision.)
 3. Approve the §A description template and §B pinned comment above (or rewrite).
