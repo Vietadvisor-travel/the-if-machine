@@ -120,3 +120,18 @@ same kind twice running. Demo of the new ones: `episodes/fx-reel` (`out/fx-reel_
 | `trace-to` | a path being drawn arrives somewhere and that place opens | `trail` head arrives → `shape-window` / `through` at its end |
 | `stream-through` | a flow of particles runs through the old picture and the new one is seen by what it does to the flow (straight through a pudding, flung round a nucleus) | `stream` {paths, n, k, every, speed} — beads with tails on computed paths (empty-atom, 2026-11) |
 Combine freely (a `swarm` that lands inside a `shape-window`); invent new ones — add the row here first.
+
+## I. ENGINE v6 (owner 17 Nov 2026) — light, depth, lens, life (ENGINE.md "ENGINE v6")
+| name | what you see | use it when the line… |
+|---|---|---|
+| `lamp` | a warm pool of light; the room falls into shade around it | …is IN a place: every interior scene has its key light |
+| `shaft` | beams falling from a lamp or a window, swaying a hair | …asks for atmosphere, quiet, discovery in a room |
+| `motes` | dust drifting and twinkling in the light | …holds on a lit place (life without an event) |
+| `shadow` | the soft contact shadow under a thing | …puts anything on a floor, a bench, a table (always) |
+| `haze` | air between layers: the far things pale | …shows a deep space: a landscape, a hall, a sky |
+| `sheen` | a band of light crossing glass, a photo, brass | …reveals an artefact, a document, an instrument |
+| `rack-focus` | the room goes soft and one thing is sharp (camera `focus`/`dof`) | …points at ONE thing among many |
+| `push-close` | the camera travels from the wide set to a close or insert shot (`shot()`) | …moves from the place to the person or the detail |
+| `hand-held` | a nervous camera (`shake`) | …is tense, sudden, a surprise |
+| `grade` | the colour of the act changes (cold → warm) | …turns the story (a chapter, a discovery) |
+| `face` | the person's face changes: focus → surprise → awe (`expr`) | …is about what a person felt or saw |

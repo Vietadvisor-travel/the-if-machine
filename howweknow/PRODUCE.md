@@ -34,6 +34,13 @@ FX.md §H, demo `episodes/fx-reel`). Narration is read plain (no stress drawl). 
 episodes/<slug> --write`. Gates added to make.sh: `plan_check.py` (the plan) and `still_check.py` (no stretch > 2.5 s where nothing
 happens — inside-earth v2 had 21 % dead time; a v5 film must have none). Drawings follow STYLE.md "True to life" (reference beside drawing).
 
+## 2d. v6 standard (owner 17 Nov 2026) — every new film
+`E['engine'] = 6` in world.py and `standard=6` in lines.py (STORY §8: `shot` + `light` on every line). Build with `tools/v6.py`
+(shot · rack · shake · grade_keys · cascade) and the v6 entities (lamp, shaft, motes, shadow, haze, sheen); people get `expr`, `look`,
+`alive` and close-ups (h ≥ 460 px). KEYFRAMES FIRST: as soon as the opening, the governing image and the answer are built, run
+`python3 tools/keyframes.py <slug>`; the critic scores them (CREATIVE §4b) — every one ≥ 8/10 before the rest is drawn to match.
+Muse's order asks for 2–3 period ENGRAVINGS of the film's subject as line references (how the cuts follow form).
+
 ## 3. Build the world
 `episodes/<slug>/world.py` writes `world` into `episode.json` (lines.py keeps it): one camera; every line's plan becomes entity keys at
 `L<i>`, `L<i>+s`, `L<i>@word` (ENGINE.md time refs); IN/TRANS/CAM/LIFE from FX.md; the clue tag (`clue` entity n 1..4 at each clue title);

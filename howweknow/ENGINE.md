@@ -93,3 +93,22 @@ anticipate bounce elastic expo. Every line carries `plan` {in, trans, cam, life,
 `tools/` vo.py · mix.py · script_check.py · check_world.py · make.sh · sync.sh · setup.sh · paper.py · brand.cjs ·
 `brand/` fathom-core.js · brand.html · `design/styles/` (the style exploration boards) · fixtures `episodes/engine-test`, `episodes/fx-test` · `FX.md` · `history.json` · `tools/variety.py` · `tools/book.cjs` (brand book).
 Render cost: ≈ 0.2–0.5 s/frame on 4 cores (10 min ≈ 1–2 h). Never CSS-blur a big zoomed layer.
+
+## ENGINE v6 — the look of a finished film (owner 17 Nov 2026: "nâng toàn diện… đạt đỉnh cao thật sự")
+A film is v6 when `episode.json` has `"engine": 6` (world.py: `E['engine'] = 6`). Films made before keep rendering exactly as they did.
+- **The Look** (`src/engine/Look.tsx`, on by itself, keyable on `camera`): `engrave` 0..1 (the hand-coloured-engraving pass: a small
+  wash lift + two line screens by blend — the dark of the picture becomes cut lines, riding with the camera) · `warm` −1..1 · `sat` ·
+  `con` · `expo` (the grade; sat/con/expo cost a full extra pass, use only when needed) · `grain` · `weave` · `flick` (the projector) ·
+  `focus` + `dof` (depth of field: layer blur = dof × |para − focus|; key `focus` to pull focus; any entity can force `defocus` px) ·
+  `shake` 0..1 (hand-held tension). Text entities sit above the engraving (never cut by it).
+- **Light & depth entities** (`src/engine/Light6.tsx`): `lamp` {at, r, k, dark, warm} · `shaft` {from, to, w0, w1, n, k} · `motes`
+  {box, n, k, seed} · `shadow` {x, y, rx, ry, k} · `haze` {y0, y1, k, col} · `sheen` {box, rot, k (0→1 sweeps), w}. They blend with the whole
+  picture and follow the page camera by their `para`.
+- **People** (`src/paint/people.tsx`): `expr` neutral|focus|surprise|awe|smile|worry (+ `ek` 0..1 glides it) · `look` [x, y] (the eyes) ·
+  `alive` 1 (breathing, a living head). At h ≥ 460 px the face draws its close-up detail (iris, catch-light, lid, nostril, lips, modelling).
+- **Eases**: `hand` (a hand drawing: sets off, slows at the turns) · `weight` (a heavy thing: slow start, very long landing). Still no bounce.
+- **Helpers for world.py** (`tools/v6.py`): `shot('wide'|'medium'|'close'|'insert'|'detail'|'over', at=(x, y))` → camera push/pan ·
+  `rack(depth, dof)` · `shake(k)` · `grade(mood)` / `grade_keys(lines, K)` (the colour of each act) · `cascade(...)` (parts arriving in turn).
+- **Keyframes first**: `python3 tools/keyframes.py <slug>` — 3 frames at final quality before the film is built out (CREATIVE.md §4b).
+- Cost (measured 17 Nov 2026, 90 frames, 4 cores): v5 25 s · v6 ≈ 2×. The farm absorbs it (≈ 25–30 min per film).
+- Demo: `episodes/v6-demo/build.py` (the atom film's opening re-shot with v6 only — nothing redrawn).

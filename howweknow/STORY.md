@@ -78,3 +78,12 @@ Rules (checked by `python3 tools/plan_check.py episodes/<slug>`, then by `tools/
    made): beats listed with their second. Ambient life (dust, breathing) does not count. `still_check.py` measures the built film.
 4. **one idea per picture, one focus** — never two things competing; labels ≤ 4 words, counters instead of static figures.
 5. **mood** follows the story, and the music follows the mood (score.py picks the track AND the passage by measurement).
+
+## 8. THE v6 SHOT PLAN (owner 17 Nov 2026: "đạt đỉnh cao thật sự") — every film written from 17 Nov on, `standard=6`
+Every line adds two fields to the v5 five (reads · focus · becomes · acts · mood):
+- `shot` — wide | medium | close | insert | detail | over (over the shoulder). A film is SHOT, not laid out: ≥ 30 % close / insert /
+  detail, ≤ 40 % wide, never four shots of one size running. People get close-ups (the face that sees it); hands get inserts; artefacts
+  get details. world.py frames them with `shot()` (tools/v6.py).
+- `light` — where the light comes from in this picture ("the lamp over the bench", "a window, left", "open noon sky", "the glow of the
+  tube"): world.py shows it with `lamp` / `shaft` / `motes` / `shadow` / `haze`.
+Gate: `plan_check.py` checks both (with the v5 rules) for `standard` ≥ 6.

@@ -12,8 +12,10 @@ import { PaperSheet, PaperFibres } from '../paint/world';
 import { Captions } from '../kit/Caption';
 import { ClueTag } from '../kit/ClueTag';
 import { Brand } from '../kit/Brand';
+import { LIGHT6_TYPES } from './Light6';
+import { lookOf, EngraveOver, gradeFilter, weaveT, shakeOf, LookOver, blurOf } from './Look';
 
-export type StoryProps = { slug: string; ep?: { world: Entity[]; captions?: boolean }; tl?: TL; at?: number; nocap?: boolean };   // at/nocap: a still of the world at time `at` without captions/brand (thumbnail)
+export type StoryProps = { slug: string; ep?: { world: Entity[]; captions?: boolean; engine?: number }; tl?: TL; at?: number; nocap?: boolean; look?: number; lookcfg?: Record<string, number> };   // look: 6 = force the v6 look (demos)   // at/nocap: a still of the world at time `at` without captions/brand (thumbnail)
 export const storyMeta: CalculateMetadataFunction<StoryProps> = async ({ props }) => {
   const get = (f: string) => fetch(staticFile(`ep/${props.slug}/${f}.json`)).then(r => r.json());
   const [ep, tl] = await Promise.all([get('episode'), get('timeline')]);
@@ -39,13 +41,42 @@ const Light: React.FC<{ t: number; k: number }> = ({ t, k }) => { if (k <= 0) re
     <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 60% at ${x}% ${y}%, rgba(255,236,190,.22), rgba(255,236,190,0) 70%)`, mixBlendMode: 'soft-light' }} />
     <AbsoluteFill style={{ background: 'radial-gradient(ellipse 85% 80% at 50% 50%, rgba(0,0,0,0) 55%, rgba(43,29,18,.22) 100%)', mixBlendMode: 'multiply' }} /></AbsoluteFill>; };
 
-export const Story: React.FC<StoryProps> = ({ ep, tl, at, nocap }) => {
+export const Story: React.FC<StoryProps> = ({ ep, tl, at, nocap, look, lookcfg }) => {
   const fr = useCurrentFrame(), { fps } = useVideoConfig(), f = at !== undefined ? Math.round(at * fps) : fr, t = f / fps;
   if (!ep || !tl) return null;
   const S: Record<string, any> = {}; for (const e of ep.world) S[e.id] = { ...stateAt(e, t, tl), _type: e.type };
   const cam: Cam = { x: 0, y: 0, zoom: 1, rot: 0, ...(S.camera || {}) }, ctx = { t, tl, cam, S };
   const L = camLife(t, S.camera?.drift ?? 1, S.camera);
   const clue = ep.world.find(e => e.type === 'clue'), layers = ep.world.filter(e => e.type !== 'camera' && e.type !== 'clue').map((e, i) => ({ e, z: e.z ?? i })).sort((a, b) => a.z - b.z);
+  const Lk0 = lookOf(S.camera, (ep.engine ?? 0) >= 6 || look === 6), Lk = Lk0 && lookcfg ? { ...Lk0, ...lookcfg } : Lk0;
+  if (Lk) {   // ENGINE v6 (Look.tsx): engraving pass + grade + projector + depth of field + shake; v5 films never reach this branch
+    const [sx, sy, sr] = shakeOf(Lk, t); L.dx += sx; L.dy += sy; L.r += sr;
+    const moving = true, wrap = (e: Entity, st: Record<string, any>, body: React.ReactNode) => { const d = st.para ?? depthOf(e, st), b = st.defocus ?? blurOf(Lk, d);
+      return <AbsoluteFill key={e.id} style={{ transform: lifeT(L, d), filter: b > .3 ? `blur(${b.toFixed(1)}px)` : undefined }}>{body}</AbsoluteFill>; };
+    const map6 = (d: number) => { const kk = 1 + d, sc = (1.035 + L.sc * kk) * (1 + (L.push - 1) * Math.max(0, kk)), tx = (L.dx + L.px) * kk, ty = (L.dy + L.py) * kk;
+      return { sc, pt: (p: [number, number]): [number, number] => [960 + (p[0] - 960) * sc + tx, 540 + (p[1] - 540) * sc + ty] }; };
+    const draw = (want: (e: Entity) => boolean) => layers.filter(({ e }) => want(e)).map(({ e }, i) => { const st = S[e.id];
+      if (LIGHT6_TYPES.includes(e.type)) return <React.Fragment key={e.id}>{renderEntity(e, st, { ...ctx, M6: map6(st.para ?? 0) } as any)}</React.Fragment>;   // lights blend with the picture: no wrapper
+      const n = renderEntity(e, st, ctx); if (!n) return null;
+      return wrap(e, st, hasFx(st) ? <Fx s={st} t={t} seed={i} uid={e.id}>{n}</Fx> : n); });
+    const isWord = (e: Entity) => e.type === 'text';
+    return (
+      <AbsoluteFill style={{ background: '#1a120b' }}>
+        <PaintDefs boil={Math.floor(f / 4) % 3} />
+        <AbsoluteFill style={{ filter: gradeFilter(Lk), transform: Lk.weave > 0 ? weaveT(Lk, f) : undefined }}>
+          <AbsoluteFill>
+            {moving && <AbsoluteFill style={{ transform: lifeT(L, -.6) }}><PaperSheet /></AbsoluteFill>}
+            {draw(e => !isWord(e))}
+          </AbsoluteFill>
+          <EngraveOver k={Lk.engrave} ox={L.dx + L.px} oy={L.dy + L.py} />
+          <Light t={t} k={S.camera?.light ?? 0} />
+          {draw(isWord)}
+          <PaperFibres />
+          <LookOver L={Lk} f={f} />
+        </AbsoluteFill>
+        {clue && (S[clue.id].a ?? 1) > 0 && <ClueTag n={Math.round(S[clue.id].n ?? 1)} of={S[clue.id].of ?? 4} label={S[clue.id].label} />}
+      </AbsoluteFill>);
+  }
   return (
     <AbsoluteFill>
       <PaintDefs boil={Math.floor(f / 4) % 3} />

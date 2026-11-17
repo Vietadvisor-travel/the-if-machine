@@ -9,6 +9,7 @@ import * as Id from '../kit/Ident';
 import { LIB_ART, LIB_COSTUMES } from '../lib';
 import { Ink, Line, SEP, PIG } from '../paint/paint';
 import { FONT } from '../kit/style';
+import { renderLight6, LIGHT6_TYPES } from './Light6';
 import { Entity, Props, stateAt } from './state';
 import { Cam, SW, SH, toScreen, anchor, planetPoint } from './space';
 import { TL, resolveTime } from './time';
@@ -37,6 +38,7 @@ const kids = (e: Entity, c: Ctx) => (e.children || []).map((ch, i) => { const cs
 export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
   if ((s.a ?? 1) <= 0.002) return null;
   const { cam, S, t } = c, a = s.a ?? 1;
+  if (LIGHT6_TYPES.includes(e.type)) return renderLight6(e.type, s, cam, S, t, e.id, (c as any).M6);   // v6 light & depth (Light6.tsx)
   switch (e.type) {
     case 'art': {   // any drawn element of the library; space "world" = it lives in the world and the camera moves past it
       const C = ART[s.name]; if (!C) return null; const p: Props = strip(s); if (s.play !== undefined) p.t0 = resolveTime(s.play, c.tl);

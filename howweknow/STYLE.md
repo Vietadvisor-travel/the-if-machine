@@ -74,3 +74,9 @@ Tagline: "How we came to know the world."
   everything that is not the subject is quieter (lighter line, less colour). Check each scene as a 320-px thumbnail.
 - **People act.** A figure always DOES the thing the line says (turns the screw, lifts the record, points, writes) with a pose
   sequence — never stands as a label.
+
+## v6 — the engraving pass and the light (owner 17 Nov 2026)
+In a v6 film the whole picture passes through the engraving pass (Look.tsx): the shadows of every drawing are cut in parallel lines that
+cross in the deepest tones, over a slightly lifted wash — so even a flat-filled drawing reads as a hand-coloured engraving. Draw for it:
+keep fills honest mid-tones (the pass makes the darks), give every object a light side and a shade side, never pure black except night.
+Every scene names its light (STORY §8) and shows it: a `lamp` pool, `shaft`s, `motes`, `shadow`s under things, `haze` for depth.

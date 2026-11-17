@@ -26,4 +26,8 @@ export const EASE: Record<string, (x: number) => number> = {
   back: settle, anticipate: Easing.bezier(0.6, 0, 0.3, 1), bounce: settle, elastic: settle, expo: Easing.bezier(0.8, 0, 0.2, 1),
   linear: (x: number) => x, soft: Easing.bezier(0.4, 0, 0.3, 1), snap: Easing.bezier(0.6, 0, 0.15, 1),
   glide: Easing.bezier(0.45, 0.05, 0.25, 1), sine: (x: number) => 0.5 - 0.5 * Math.cos(Math.PI * x),
+  // v6: `hand` — the pace of a hand drawing a line: it sets off, slows at the turns, never mechanical (still no overshoot, no bounce)
+  hand: (x: number) => { const y = x + .03 * Math.sin(3 * 2 * Math.PI * x) + .012 * Math.sin(7 * 2 * Math.PI * x); return Easing.bezier(0.4, 0, 0.3, 1)(Math.max(0, Math.min(1, y))); },
+  // v6: `weight` — a heavy thing: slow to start, a very long landing (weight without bounce or pull-back)
+  weight: Easing.bezier(0.5, 0, 0.2, 1),
 };

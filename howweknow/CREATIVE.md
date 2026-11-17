@@ -34,6 +34,13 @@ approved animatic gets the full-quality render. Nothing about the final picture 
 Scene by scene, score 1–10: reads without sound · something happens (still_check) · true to the real thing · the change INTO this
 scene is an idea, not a habit · beauty. Any scene under 7 is rebuilt from its reserve concepts. The scores go in the delivery note.
 
+## 4b. Keyframes and the 8/10 bar (engine v6, owner 17 Nov 2026)
+Before the film is built out, three frames at final quality (`tools/keyframes.py`): the opening, the governing image, the answer. A critic
+who did not build them scores each 1–10 on DRAWING (true to life, detailed, hands and faces), LIGHT & DEPTH (a named light, layers,
+shadows, air), COMPOSITION (one clear subject, the eye led to it, shot size right for the line) and STYLE (it reads as a hand-coloured
+engraving, the channel's pigments). Every frame ≥ 8 on every axis, or it is redrawn first — the rest of the film is drawn to that bar.
+The animatic critic (§4) uses the same four axes per scene; a scene under 8 is rebuilt before the full render.
+
 ## 5. Growing the engine
 When a concept needs something the engine cannot do, add the primitive (src/engine), a row in FX.md, and a clip in `episodes/fx-reel`.
 A film is expected to add at least two; the reel is the running proof of what the engine can do.

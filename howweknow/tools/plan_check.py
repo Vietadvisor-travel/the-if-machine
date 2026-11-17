@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""v5 shot-plan gate (STORY.md §7).  python3 tools/plan_check.py episodes/<slug>   — only for films with "standard": 5."""
+"""v5/v6 shot-plan gate (STORY.md §7, §8).  python3 tools/plan_check.py episodes/<slug>   — films with "standard" ≥ 5; v6 adds shot + light."""
 import json, re, sys
 from collections import Counter
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); L = E['lines']
@@ -16,6 +16,15 @@ for i, l in enumerate(L):
     acts = sorted(a[0] for a in l.get('acts') or []); words = len(l['text'].split()); d = words / 2.35
     for a, b2 in zip([0] + acts, acts + [d]):
         if b2 - a > 2.6: err.append(f'L{i}: nothing happens for {b2 - a:.1f} s (acts at {acts}, line ≈ {d:.1f} s)'); break
+if E.get('standard', 4) >= 6:   # v6 (STORY.md §8): the film is SHOT like a film — shot sizes vary, every scene has a light, people have faces
+    SHOTS = {'wide', 'medium', 'close', 'insert', 'detail', 'over'}; sh = [l.get('shot') for l in L]
+    for i, l in enumerate(L):
+        if l.get('shot') not in SHOTS: err.append(f'L{i}: no `shot` (one of {sorted(SHOTS)})')
+        if not l.get('light'): err.append(f'L{i}: no `light` (where the light comes from: "lamp over the bench", "window left", "open sky"…)')
+        if i >= 3 and len(set(sh[i - 3:i + 1])) == 1: err.append(f'L{i}: four `{sh[i]}` shots running — change the size')
+    near = sum(1 for x in sh if x in ('close', 'insert', 'detail')); nn = len(L)
+    if near < nn * .3: err.append(f'only {near} of {nn} lines are close / insert / detail shots (≥ 30 %)')
+    if sum(1 for x in sh if x == 'wide') > nn * .4: err.append('more than 40 % wide shots — come closer')
 c = Counter(h for h in hows if h); n = len(L)
 if len([k for k in c if k != 'ink-on']) < 14: err.append(f'only {len(c)} kinds of becoming (≥ 14): {dict(c)}')
 for k, v in c.items():

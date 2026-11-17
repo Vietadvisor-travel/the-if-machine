@@ -54,12 +54,14 @@ const limb = (a: Pt, b: Pt, c: Pt, ra: N, rb: N, rc: N) => {
 const angOf = (a: Pt, b: Pt) => Math.atan2(b[1] - a[1], b[0] - a[0]) / D;
 
 export type PersonP = { x: N; y: N; h: N; facing?: N; pose?: string; pose2?: string; pk?: N; walk?: N; costume?: string | Partial<Costume>; mat?: string; t?: N; skin?: N; hair?: string; hairCol?: string;
-  beard?: string; hat?: string; holds?: string; face?: { nose?: N; brow?: N; chin?: N; age?: N; build?: N }; draw?: N; armF?: [N, N]; armB?: [N, N]; nod?: N; lean?: N; blink?: N; flicker?: N };
+  beard?: string; hat?: string; holds?: string; face?: { nose?: N; brow?: N; chin?: N; age?: N; build?: N }; draw?: N; armF?: [N, N]; armB?: [N, N]; nod?: N; lean?: N; blink?: N; flicker?: N;
+  expr?: string; ek?: N; look?: [N, N]; alive?: N };   // v6: expr neutral|focus|surprise|awe|smile|worry (ek 0..1 glides it in) · look = where the eye looks (−1..1) · alive = breathing life (micro nod)
 export const Person: React.FC<PersonP> = (pp) => {
   const { x, y, h, facing = 1, pose = 'stand', pose2, pk = 0, walk, costume = 'frock19', skin = .32, beard = 'none', holds, draw = 1, flicker = 0 } = pp;
   const C: Costume = typeof costume === 'object' ? { ...COSTUMES.frock19, ...costume } : { ...(COSTUMES[costume] || COSTUMES.frock19) };   // a film's own costume (object) or a sample preset
   const fc = { nose: 0, brow: 0, chin: 0, age: 0, build: 1, ...(pp.face || {}) }; if (pp.mat) C.mat = pp.mat; if (pp.t !== undefined) C.t = pp.t; if (pp.hat) C.hat = pp.hat; if (pp.hair) C.hair = pp.hair;
   let P = blend(POSES[pose] || POSES.stand, POSES[pose2 || pose] || POSES.stand, pk);
+  if (pp.alive) P = { ...P, nod: (P.nod ?? 0) + pp.alive * (1.1 * Math.sin(flicker * 1.3 + x * .013) + .5 * Math.sin(flicker * .57 + 1)) };   // v6: nobody holds perfectly still
   if (walk != null && !P.sit) { const s = Math.sin(walk * Math.PI * 2), c = Math.cos(walk * Math.PI * 2);   // a real gait: legs swing, the knee bends on the swing, arms counter-swing
     P = { ...P, legF: [s * 24, Math.max(4, -c * 30 + 10)], legB: [-s * 24, Math.max(4, c * 30 + 10)], ...(pp.armF ? {} : { armF: [P.hand === 'point' ? P.armF[0] : -s * 20 + 4, 16] as [N, N] }), ...(pp.armB ? {} : { armB: [s * 20 - 4, 18] as [N, N] }) }; }
   if (pp.armF) P = { ...P, armF: pp.armF }; if (pp.armB) P = { ...P, armB: pp.armB }; if (pp.nod !== undefined) P = { ...P, nod: pp.nod }; if (pp.lean !== undefined) P = { ...P, lean: pp.lean };
@@ -136,6 +138,9 @@ export const Person: React.FC<PersonP> = (pp) => {
       : beard === 'short' ? `M${q(-.08, .12)} C${q(-.02, .34)} ${q(.12, .46)} ${q(.26, .44)} C${q(.36, .4)} ${q(.38, .3)} ${q(.375, .25)} L${q(.33, .26)} C${q(.3, .3)} ${q(.2, .32)} ${q(.12, .28)} C${q(.04, .22)} ${q(0, .16)} ${q(-.04, .1)}Z`
       : beard === 'moustache' ? `M${q(.27, .16)} C${q(.32, .14)} ${q(.38, .15)} ${q(.4, .18)} C${q(.36, .2)} ${q(.3, .2)} ${q(.26, .2)}Z` : '';
     const blink = (pp.blink ?? 0) > .5 || (Math.floor(flicker * 10) % 47 === 0), eyeY = -.04;
+    // v6 expression: b = brow raise (− = knit) · e = how open the eye is · m = mouth corner (+ smile, − worry) · o = mouth open
+    const EX: Record<string, number[]> = { neutral: [0, 1, 0, 0], focus: [-.8, .72, -.15, 0], surprise: [1, 1.55, 0, 1], awe: [.7, 1.35, .1, .55], smile: [.25, .85, 1, 0], worry: [-.35, 1.05, -1, 0] };
+    const ek = pp.expr ? (pp.ek ?? 1) : 0, [xb, xe0, xm, xo] = (EX[pp.expr || 'neutral'] || EX.neutral), eb = xb * ek, ee = 1 + (xe0 - 1) * ek, em = xm * ek, eo = xo * ek, lk = pp.look || [0, 0], big = hh > 62;
     const hat = C.hat;
     return <g key="head" transform={`rotate(${P.nod * f} ${f1(neck[0])} ${f1(neck[1])})`}>
       {!C.suit && <Region d={cap(neck, [hc[0] - .01 * u * f, hc[1] + .02 * u], .026 * u, .03 * u)} mat={skinMat} t={sk + .12} ang={0} draw={draw} sw={inkW * .8} rim={false} />}
@@ -144,14 +149,25 @@ export const Person: React.FC<PersonP> = (pp) => {
       {C.neck === 'tie' && <Region d={`M${q(.1, .55)} L${q(.16, .62)} L${q(.13, 1.05)} L${q(.07, 1.1)} L${q(.05, .62)}Z`} mat={costume === 'labcoat' ? 'red' : 'wood'} t={.6} ang={90} draw={draw} sw={inkW * .7} rim={false} />}
       <Region d={face} mat={skinMat} t={sk} ang={70} draw={draw} sw={inkW} hatchA={.35} />
       <Region d={`M${q(-.06, -.06)} C${q(-.13, -.07)} ${q(-.15, .12)} ${q(-.06, .14)} C${q(-.02, .12)} ${q(-.02, -.04)} ${q(-.06, -.06)}Z`} mat={skinMat} t={sk + .15} draw={draw} sw={inkW * .7} rim={false} hatch={0} />
+      {big && <g opacity={draw * .5} style={{ mixBlendMode: 'multiply' }}>{/* v6 close-up modelling: the shade side of the head, under the jaw, the eye socket */}
+        <path d={`M${q(-.05, -.5)} C${q(-.3, -.46)} ${q(-.4, -.1)} ${q(-.3, .2)} C${q(-.2, .36)} ${q(-.02, .44)} ${q(.12, .44)} C${q(.02, .3)} ${q(-.04, .1)} ${q(.02, -.12)} C${q(.04, -.3)} ${q(.02, -.42)} ${q(-.05, -.5)}Z`} fill={tone(skinMat, Math.min(1, sk + .34))} filter="url(#b2s)" />
+        <path d={`M${q(.06, .34)} C${q(.16, .4)} ${q(.28, .4)} ${q(.36, .3)} L${q(.3, .46)} C${q(.2, .5)} ${q(.1, .46)} ${q(.06, .34)}Z`} fill={tone(skinMat, Math.min(1, sk + .3))} filter="url(#b2s)" />
+        <ellipse cx={hc[0] + .25 * hh * f} cy={hc[1] - .05 * hh} rx={.085 * hh} ry={.05 * hh} fill={tone(skinMat, Math.min(1, sk + .22))} filter="url(#b2s)" /></g>}
       <g opacity={draw}>
         {blink ? <Line d={`M${q(.2, eyeY)} Q${q(.25, eyeY + .02)} ${q(.3, eyeY)}`} w={inkW} /> : <>
-          <path d={`M${q(.19, eyeY)} Q${q(.25, eyeY - .06)} ${q(.32, eyeY - .005)} Q${q(.26, eyeY + .04)} ${q(.19, eyeY)}Z`} fill="#FBF6EA" stroke={SEP} strokeWidth={inkW * .7} />
-          <circle cx={hc[0] + .275 * hh * f} cy={hc[1] + (eyeY - .005) * hh} r={.03 * hh} fill={SEP} /></>}
-        <Line d={`M${q(.17, -.13 + fc.brow * .02)} Q${q(.25, -.17 - fc.brow * .03)} ${q(.34, -.12 + fc.brow * .02)}`} w={inkW * 1.3} />
+          <path d={`M${q(.19, eyeY)} Q${q(.25, eyeY - .06 * ee)} ${q(.32, eyeY - .005)} Q${q(.26, eyeY + .04 * ee)} ${q(.19, eyeY)}Z`} fill="#FBF6EA" stroke={SEP} strokeWidth={inkW * .7} />
+          {big && <circle cx={hc[0] + (.275 + lk[0] * .02) * hh * f} cy={hc[1] + (eyeY - .005 + lk[1] * .012) * hh} r={.045 * hh * Math.min(1, ee)} fill="#6A4A2E" stroke={SEP} strokeWidth={inkW * .4} />}
+          <circle cx={hc[0] + (.275 + lk[0] * .02) * hh * f} cy={hc[1] + (eyeY - .005 + lk[1] * .012) * hh} r={(big ? .022 : .03) * hh} fill={SEP} />
+          {big && <circle cx={hc[0] + (.268 + lk[0] * .02) * hh * f} cy={hc[1] + (eyeY - .018 + lk[1] * .012) * hh} r={.008 * hh} fill="#FBF6EA" />}
+          {big && <Line d={`M${q(.18, eyeY - .02 * ee)} Q${q(.25, eyeY - .095 * ee)} ${q(.33, eyeY - .02)}`} w={inkW * .55} a={.7} />}</>}
+        <Line d={`M${q(.17, -.13 + fc.brow * .02 - eb * .03)} Q${q(.25, -.17 - fc.brow * .03 - eb * .045)} ${q(.34, -.12 + fc.brow * .02 - eb * .02 + (eb < 0 ? -eb * .035 : 0))}`} w={inkW * 1.3} />
+        {big && <><Line d={`M${q(.4, .09)} q${f1(.02 * hh * f)} ${f1(.03 * hh)} ${f1(-.012 * hh * f)} ${f1(.04 * hh)}`} w={inkW * .5} a={.7} />
+          {[0, 1, 2, 3].map(i => <Line key={i} d={`M${q(.08 + i * .035, .06 + i * .012)} l${f1(.05 * hh * f)} ${f1(.11 * hh)}`} w={inkW * .4} a={.28} />)}
+          <Line d={`M${q(.31, .262)} Q${q(.335, .278)} ${q(.36, .262)}`} w={inkW * .45} a={.5} /></>}
         {fc.age > 0 && <g opacity={fc.age}><Line d={`M${q(.12, -.26)} q${f1(.1 * hh * f)} ${f1(-.02 * hh)} ${f1(.2 * hh * f)} 0 M${q(.14, -.21)} q${f1(.08 * hh * f)} ${f1(-.015 * hh)} ${f1(.16 * hh * f)} 0`} w={inkW * .5} /><Line d={`M${q(.33, .02)} q${f1(-.04 * hh * f)} ${f1(.08 * hh)} ${f1(-.02 * hh * f)} ${f1(.16 * hh)}`} w={inkW * .5} /><Line d={`M${q(.31, -.05)} l${f1(.04 * hh * f)} ${f1(-.03 * hh)} M${q(.31, -.02)} l${f1(.05 * hh * f)} 0`} w={inkW * .4} /></g>}
         <Line d={`M${q(.42, .12)} q${f1(-.04 * hh * f)} ${f1(.02 * hh)} ${f1(-.06 * hh * f)} ${f1(-.01 * hh)}`} w={inkW * .7} />
-        <Line d={`M${q(.3, .215)} L${q(.36, .215)}`} w={inkW * .9} />
+        {eo > .15 ? <ellipse cx={hc[0] + .338 * hh * f} cy={hc[1] + .222 * hh} rx={.024 * hh} ry={.034 * hh * eo} fill="#3A1E14" stroke={SEP} strokeWidth={inkW * .6} />
+          : <Line d={`M${q(.295, .215 - em * .022)} Q${q(.33, .215 + em * .02)} ${q(.365, .215 - em * .012)}`} w={inkW * .9} />}
         <Line d={`M${q(.27, .1)} Q${q(.22, .2)} ${q(.28, .28)}`} w={inkW * .5} a={.45} />
       </g>
       {hairD && hat !== 'helmet' && <Region d={hairD} color={hc2} mat="wood" t={.5} ang={20} draw={draw} sw={inkW * .9} hatchA={.4} />}

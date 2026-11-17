@@ -44,6 +44,13 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   ONE full render (`tools/render.py`: chunked, resumable, stall watchdog). Never change engine code while a render runs. Any speed
   optimisation must leave the picture identical (compare stills before/after) or it is not made. Report times in Vietnam time.
 
+## Engine v6 (owner 17 Nov 2026: "nâng toàn diện… đạt đỉnh cao thật sự") — every new film
+- `E['engine'] = 6` + `standard=6`: the engraving pass, grade per act, grain/weave, depth of field, shake (`src/engine/Look.tsx`); light &
+  depth entities lamp · shaft · motes · shadow · haze · sheen (`Light6.tsx`); faces with expressions and close-up detail; every line has
+  a `shot` size and a named `light` (STORY §8, gate `plan_check.py`); helpers `tools/v6.py`. ENGINE.md "ENGINE v6", FX.md §I.
+- KEYFRAMES FIRST (`tools/keyframes.py`): opening, governing image, answer at final quality, each ≥ 8/10 on drawing · light · composition
+  · style (CREATIVE §4b) before the rest is drawn to match. Demo of the look: `episodes/v6-demo/build.py`.
+
 ## Roles
 - **Claude:** everything creative — topics, research, scripts planned to the frame, every drawing, the engine, rendering, delivery.
 - **Muse:** sourcing only (lean: ~1 hour per film, ≤ 15 rows), against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,
