@@ -22,6 +22,12 @@ ret = re.search(r'returns.*?:(.*)', t)
 if not ret or len(re.findall(r'L\d+', ret.group(1))) < 4: err.append('motif returns: name ≥ 4 lines (L12 — …)')
 hb = re.search(r'held breaths.*?:(.*)', t)
 if not hb or len([x for x in re.split(r'[·;,]', hb.group(1)) if len(x.strip()) > 3]) < 3: err.append('rhythm: three held breaths')
+C = f'{H}/../jobs/scripts/{slug}_chain.md'   # CINEMA §0: the unbroken chain of transformations
+if not os.path.exists(C): err.append(f'no chain {C} (CINEMA §0: 40–70 links "picture → how/why → picture", ★ on ten inventions)')
+else:
+    links = [l for l in open(C).read().splitlines() if '→' in l]; stars = sum(1 for l in links if '★' in l)
+    if len(links) < 40: err.append(f'chain: {len(links)} links (need ≥ 40)')
+    if stars < 10: err.append(f'chain: {stars} ★ inventions (need 10)')
 E_ = f'{H}/episodes/{slug}/episode.json'
 if os.path.exists(E_):
     L = json.load(open(E_)).get('lines', [])

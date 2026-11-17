@@ -1,8 +1,29 @@
 # CINEMA — directing a FATHOM film (owner 17 Nov 2026: "điện ảnh với anh nó rất rất nhiều yếu tố nên cần toàn diện, quan trọng là ý tưởng
 # và sáng tạo, và các skill. nâng cấp đi")
 
-A FATHOM film is DIRECTED, not illustrated. Before a single line is drawn, the film exists as a director's treatment; every scene is then
+A FATHOM film is DIRECTED, not illustrated. Before a single line is drawn, the film exists as a CHAIN of transformations (§0) and a director's treatment; every scene is then
 shot, lit, acted, cut and scored to serve it. This file is the method. Engine tools: ENGINE.md (v6 look, light, lens) · FX.md · tools/v6.py.
+
+## 0. THE HEART — invention and the unbroken chain of transformations (owner 17 Nov 2026: "mấy cái cử động… chỉ là 1 phần rất nhỏ,
+## quan trọng là sự sáng tạo và diễn biến biến đổi — anh nói rất nhiều để mày thấy tầm quan trọng")
+Gestures, light and lenses are finish. What makes a FATHOM film is INVENTION: the whole film is ONE unbroken visual journey in which every
+picture TURNS INTO the next in a way the viewer did not see coming and instantly understands. The idea moves, so the picture moves.
+- **The chain** — before anything else, the film is written as a chain of 40–70 links: `picture → (how it transforms, and why that is
+  the idea) → picture`. Example: the green flash → swells into the eyepiece's circle → the circle hardens into a polished "uncuttable"
+  ball → the ball cracks like an egg and electrons spill out → they settle into a plum pudding → a gold beam fires through the pudding
+  → one bead turns round and races back at the camera → the pudding melts away leaving a single point of gold in an empty circle → the
+  circle widens into a stadium seen from the sky → the stadium's pitch becomes the palm of your hand.
+- **Every link must be**: (1) a TRANSFORMATION, not a cut or a fade — one thing becomes the next (morph, grow, fold, pour, crack, unfold,
+  zoom-through, turn inside out, burn, flow, assemble, fly into); (2) MEANINGFUL — the way it changes says the idea (the ball cracks
+  because the "uncuttable" atom was cut); (3) SURPRISING — not the obvious picture; if a stock educational video would show it, find
+  another; (4) DIFFERENT — no transformation mechanism twice in a row, ≥ 20 different mechanisms per film.
+- **Ten inventions per film** — mark the 10 links that are pure invention (an image nobody has used for this idea). The critic scores
+  INVENTION first; a film without ten real inventions is not ready, however beautiful.
+- **Where ideas come from** (use them every film): the object's own physics (what would this thing do if it could?) · scale jumps (in
+  and out by powers of ten) · the period's own artefacts coming alive (the plate, the notebook, the letter) · the viewer's body and world ·
+  a visual pun on the words of the line · reversing time · seeing from the thing's point of view · the impossible camera (inside the atom,
+  riding the particle) · two ideas collided into one image.
+- **Written in** `jobs/scripts/<slug>_chain.md` (one link per line, ★ on the ten inventions) and checked by `tools/treatment_check.py`.
 
 ## 1. The director's treatment — `jobs/scripts/<slug>_treatment.md` (template: `jobs/scripts/_TREATMENT.md`; gate: `tools/treatment_check.py`)
 Written after the research pack, BEFORE lines.py. Short, concrete, visual. Ten parts:

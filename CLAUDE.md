@@ -52,6 +52,8 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   · style (CREATIVE §4b) before the rest is drawn to match. Demo of the look: `episodes/v6-demo/build.py`.
 
 ## Cinema v7 (owner 17 Nov 2026: "điện ảnh… toàn diện, quan trọng là ý tưởng và sáng tạo, và các skill… vẫn hợp phong cách tổng thể")
+- THE HEART (owner: "quan trọng là sự sáng tạo và diễn biến biến đổi"): the film is ONE unbroken chain of 40–70 transformations, each
+  meaningful, surprising, a different mechanism, ten pure inventions ★ — `jobs/scripts/<slug>_chain.md`, written FIRST (CINEMA.md §0).
 - Every film is DIRECTED: the director's treatment `jobs/scripts/<slug>_treatment.md` (CINEMA.md §1: logline, feeling, governing image +
   motif, metaphor ladders, THREE SET PIECES, hero & acting beats, colour/light scripts, rhythm with held breaths, bookends, material) is
   written BEFORE lines.py — gate `tools/treatment_check.py`; lines tag `setpiece` and `motif`. Model: `jobs/scripts/empty-atom_treatment.md`.
