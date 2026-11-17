@@ -109,6 +109,8 @@ A film is v6 when `episode.json` has `"engine": 6` (world.py: `E['engine'] = 6`)
 - **Eases**: `hand` (a hand drawing: sets off, slows at the turns) · `weight` (a heavy thing: slow start, very long landing). Still no bounce.
 - **Helpers for world.py** (`tools/v6.py`): `shot('wide'|'medium'|'close'|'insert'|'detail'|'over', at=(x, y))` → camera push/pan ·
   `rack(depth, dof)` · `shake(k)` · `grade(mood)` / `grade_keys(lines, K)` (the colour of each act) · `cascade(...)` (parts arriving in turn).
+- **Shots move words too**: in-scene text rides the page camera (depth .25), so a `shot('close')` can carry a note out of frame —
+  place words inside the framed area of the shot they appear in (the v6 demo lost "Manchester, 1909" this way; check the keyframes).
 - **Keyframes first**: `python3 tools/keyframes.py <slug>` — 3 frames at final quality before the film is built out (CREATIVE.md §4b).
 - Cost (measured 17 Nov 2026, 90 frames, 4 cores): v5 25 s · v6 ≈ 2×. The farm absorbs it (≈ 25–30 min per film).
 - Demo: `episodes/v6-demo/build.py` (the atom film's opening re-shot with v6 only — nothing redrawn).
