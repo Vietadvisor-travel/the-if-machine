@@ -48,3 +48,6 @@ Fulfilled 2026-11-16 by Muse: 31 ✅ / 2 ❌ (33 rows). Drive _hwk/star-distance
 - Neighbours: for each ★★★ row also look for the page before/after, another angle, the maker's drawing → `_alt/` (`<id>-x1…`).
 
 ## Round 2 (follow-up needs found during the build)
+
+## Round 2 — engravings (17 Nov 2026, v7)
+4–8 public-domain engravings → `_hwk/star-distance/_pd/`: Königsberg observatory / Bessel's heliometer; Harvard College Observatory 1890s–1910s (the plate room); Mount Wilson 100-inch telescope and dome; 19th-c. star charts / celestial atlas plates (e.g., Bayer, Flamsteed); a 19th-c. telescope eyepiece/micrometer. Manifest line each (file · title · artist · date · licence · source).
