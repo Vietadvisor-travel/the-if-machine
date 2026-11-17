@@ -19,6 +19,14 @@ export const POSES: Record<string, Pose> = {
   present: { armF: [64, -14], armB: [-4, 12], legF: [5, 2], legB: [-5, 3], nod: -2, lean: 0, sit: 0, hand: 'open' },
   sit: { armF: [34, 56], armB: [26, 62], legF: [88, 86], legB: [80, 82], nod: 14, lean: 8, sit: 1, hand: 'fist' },
   sitlook: { armF: [62, 118], armB: [34, 104], legF: [88, 86], legB: [80, 82], nod: -8, lean: 4, sit: 1, hand: 'fist' },
+  // v7 ACTING (owner 17 Nov 2026: "điện ảnh… toàn diện"): poses that carry a feeling or a deed; glide between them with pose → pose2 + pk
+  sitpeer: { armF: [70, 122], armB: [40, 112], legF: [88, 86], legB: [80, 82], nod: -2, lean: 16, sit: 1, hand: 'fist' },        // leaning right into the eyepiece
+  sitadjust: { armF: [82, 36], armB: [36, 106], legF: [88, 86], legB: [80, 82], nod: -4, lean: 12, sit: 1, hand: 'point' },     // one hand on a knob, eye still at the glass
+  sitstartle: { armF: [40, 128], armB: [30, 118], legF: [84, 80], legB: [76, 78], nod: -16, lean: -10, sit: 1, hand: 'open' },  // pulls back from what he saw
+  headhands: { armF: [40, 150], armB: [36, 150], legF: [88, 86], legB: [80, 82], nod: 24, lean: 14, sit: 1, hand: 'open' },     // exhausted / despairing, head in hands
+  startle: { armF: [70, 100], armB: [60, 100], legF: [10, 2], legB: [-10, 3], nod: -14, lean: -8, sit: 0, hand: 'open' },
+  explain: { armF: [52, 60], armB: [-4, 12], legF: [5, 2], legB: [-5, 3], nod: -2, lean: 3, sit: 0, hand: 'open' },
+  reach: { armF: [74, 8], armB: [-2, 14], legF: [14, 3], legB: [-10, 4], nod: 6, lean: 10, sit: 0, hand: 'open' },
 };
 export type Costume = { coat: N; mat: string; t: N; flare: N; leg: string; legT: N; stock?: boolean; shoe: string; neck: string; hat: string; hair: string; sleeve: N; vest?: string; bare?: boolean; suit?: boolean };
 export const COSTUMES: Record<string, Costume> = {   // coat = hem height (fraction of h; 0 = no coat, .03 = ankle-long robe)

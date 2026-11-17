@@ -237,6 +237,37 @@ export const Media: React.FC<{ src: string; w: N; h: N; style?: React.CSSPropert
 const mp = (p: MediaP) => ({ t0: p.t0, vin: p.vin, vdur: p.vdur, rate: p.rate });
 type Art = MediaP & { src: string; x: N; y: N; draw?: N };
 // a photo (or a moving frame) pinned on the board/desk, paper mount + red pin + italic plate caption
+// v7 ETCH — a real antique engraving (public domain, tools/etch.py) cut from its paper: the ink layer multiplies onto the film's paper, so
+// the engine's light, washes, engraving pass and camera all play on it. colour = an optional coloured copy laid under the ink (a hand-
+// coloured plate, washA its strength); draw 0..1 inks it in from `from` (left|right|top|bottom); crop [x, y, w, h] in 0..1 of the image.
+export const Etch: React.FC<{ src: string; x: N; y: N; w: N; h: N; rot?: N; draw?: N; colour?: string; washA?: N; inkA?: N; from?: string; tint?: string }> =
+  ({ src, x, y, w, h, rot = 0, draw = 1, colour, washA = .6, inkA = 1, from = 'left', tint }) => {
+    const id = 'et' + Math.abs(Math.round(x * 7 + y * 13 + w)), d = Math.max(0, Math.min(1, draw));
+    const r = from === 'right' ? [x + w * (1 - d), y, w * d, h] : from === 'top' ? [x, y, w, h * d] : from === 'bottom' ? [x, y + h * (1 - d), w, h * d] : [x, y, w * d, h];
+    if (d <= 0) return null;
+    return <g transform={`rotate(${rot} ${x + w / 2} ${y + h / 2})`}>
+      <defs><clipPath id={id}><rect x={r[0]} y={r[1]} width={r[2]} height={r[3]} /></clipPath></defs>
+      <g clipPath={`url(#${id})`}>
+        {colour && <image href={staticFile(colour)} x={x} y={y} width={w} height={h} preserveAspectRatio="xMidYMid meet" opacity={washA} style={{ mixBlendMode: 'multiply' }} />}
+        {tint && <rect x={x} y={y} width={w} height={h} fill={tint} opacity={washA * .5} style={{ mixBlendMode: 'multiply' }} />}
+        <image href={staticFile(src)} x={x} y={y} width={w} height={h} preserveAspectRatio="xMidYMid meet" opacity={inkA} style={{ mixBlendMode: 'multiply' }} />
+      </g></g>;
+  };
+// v7 MARK — a hand-drawn annotation in red ink, drawn on (k 0..1): circle | underline | arrow | box | cross | bracket. box = [x, y, w, h].
+export const Mark: React.FC<{ kind?: string; box: number[]; k?: N; col?: string; w?: N; seed?: N }> = ({ kind = 'circle', box, k = 1, col = '#B8432A', w = 5, seed = 1 }) => {
+  const [x, y, bw, bh] = box, j = (n: number) => Math.sin(seed * 12.9898 + n * 78.233) * 4, cx = x + bw / 2, cy = y + bh / 2, rx = bw / 2, ry = bh / 2;
+  const P: Record<string, string> = {
+    circle: `M${cx - rx * .9} ${cy - ry * .55} C${cx - rx * .4 + j(1)} ${cy - ry * 1.12}, ${cx + rx * 1.05} ${cy - ry * .95 + j(2)}, ${cx + rx * 1.02} ${cy + j(3)} C${cx + rx} ${cy + ry * 1.05}, ${cx - rx * .7 + j(4)} ${cy + ry * 1.1}, ${cx - rx * 1.02} ${cy + ry * .2} C${cx - rx * 1.1} ${cy - ry * .3}, ${cx - rx * .8} ${cy - ry * .85}, ${cx - rx * .55 + j(5)} ${cy - ry * 1.02}`,
+    underline: `M${x} ${y + bh + j(1) * .3} C${x + bw * .3} ${y + bh + 4 + j(2) * .3}, ${x + bw * .7} ${y + bh - 3 + j(3) * .3}, ${x + bw} ${y + bh + 2}`,
+    arrow: `M${x} ${y + bh} C${x + bw * .3} ${y + bh * .5 + j(1)}, ${x + bw * .6} ${y + bh * .2}, ${x + bw} ${y} M${x + bw} ${y} l${-bw * .12 - 6} ${4 + j(2) * .5} M${x + bw} ${y} l${-4 + j(3) * .5} ${bh * .14 + 6}`,
+    box: `M${x - 6} ${y + j(1) * .5} L${x + bw + 4} ${y - 3} L${x + bw + 2 + j(2) * .4} ${y + bh + 4} L${x - 4} ${y + bh + 1} Z`,
+    cross: `M${x} ${y} L${x + bw} ${y + bh} M${x + bw} ${y + j(1) * .5} L${x + j(2) * .5} ${y + bh}`,
+    bracket: `M${x + 14} ${y} L${x} ${y + 6} L${x} ${y + bh - 6} L${x + 14} ${y + bh}`,
+  };
+  const d = P[kind] || P.circle, kk = Math.max(0, Math.min(1, k));
+  return <g style={{ mixBlendMode: 'multiply' }}><path d={d} fill="none" stroke={col} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={`${kk} 1`} opacity={.92} />
+    <path d={d} fill="none" stroke={col} strokeWidth={w * .45} strokeLinecap="round" pathLength={1} strokeDasharray={`${kk} 1`} opacity={.5} transform="translate(1.5 -1)" /></g>;
+};
 export const Pinned: React.FC<Art & { w: N; h: N; rot?: N; caption?: string; pin?: boolean }> = ({ src, x, y, w, h, rot = -2, caption, draw = 1, pin = true, ...m }) => (
   <g opacity={Math.min(1, draw * 1.4)} transform={`rotate(${rot} ${x} ${y})`}>
     <rect x={x - w / 2 - 16} y={y - h / 2 - 16} width={w + 32} height={h + (caption ? 64 : 32)} fill="#000" opacity={.28} filter="url(#b8)" transform="translate(8 12)" />
