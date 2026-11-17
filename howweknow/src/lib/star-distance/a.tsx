@@ -6,15 +6,15 @@ import { Region, Ink, Line, Stipple, SEP, ell, SR, Ball, Star, starField, NightW
 
 // ================================================================ THE NIGHT WINDOW — a sash window seen from a lamplit room; beyond it old rooftops and a
 // chimney, the sky going from dusk to night (night), stars (stars), the Moon (moon). The chimney stands at (x + 30s, y + 60s): the thumb jumps against it.
-const NightWindow: React.FC<{ x?: N; y?: N; s?: N; draw?: N; night?: N; stars?: N; lamp?: N; moon?: N; mx?: N; my?: N; glass?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, night = 1, stars = 1, lamp = 1, moon = 0, mx = 1180, my = 300, glass = 1 }) => {
+const NightWindow: React.FC<{ x?: N; y?: N; s?: N; draw?: N; night?: N; stars?: N; lamp?: N; moon?: N; mx?: N; my?: N; glass?: N; wall?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, night = 1, stars = 1, lamp = 1, moon = 0, mx = 1180, my = 300, glass = 1, wall = 1 }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s, W = 820 * s, H = 900 * s, x0 = X(-410), y0 = Y(-470);
   const sky = useMemo(() => starField(31, 160, -400, -460, 800, 470, 2.4), []);
   const roofs: [N, N, N, N][] = [[-420, 120, 170, 0], [-250, 60, 150, 1], [-100, 150, 130, 0], [30, 70, 160, 2], [190, 130, 140, 0], [330, 40, 120, 1]];   // [x, roof-top y, width, kind]
   const id = 'nwc' + Math.round(x);
   return <g>
     {/* the room's wall, warm in the lamp, with a papered stripe */}
-    <SR d={rect(X(-1200), Y(-800), 2400 * s, 1600 * s)} mat="wood" t={.22 + .3 * (1 - lamp)} draw={draw} sw={0} hatch={0} rim={false} />
-    {Array.from({ length: 30 }, (_, i) => <Line key={i} d={`M${X(-1200 + i * 80)} ${Y(-800)} V${Y(800)}`} w={.6} a={.18 * draw} />)}
+    {wall > 0 && <><SR d={rect(X(-2600), Y(-1600), 5200 * s, 3200 * s)} mat="wood" t={.22 + .3 * (1 - lamp)} draw={draw} sw={0} hatch={0} rim={false} />
+    {Array.from({ length: 64 }, (_, i) => <Line key={i} d={`M${X(-2600 + i * 80)} ${Y(-1600)} V${Y(1600)}`} w={.6} a={.18 * draw} />)}</>}
     <defs><clipPath id={id}><rect x={x0} y={y0} width={W} height={H * .72} /></clipPath></defs>
     <g clipPath={`url(#${id})`}>
       <rect x={x0} y={y0} width={W} height={H} fill="#D9B98A" opacity={draw * (1 - night)} />
@@ -22,11 +22,18 @@ const NightWindow: React.FC<{ x?: N; y?: N; s?: N; draw?: N; night?: N; stars?: 
       {sky.map(([sx, sy, r], i) => <Star key={i} x={X(sx)} y={Y(sy)} r={r * s * .8} a={stars * night * draw * (.4 + rnd(i) * .6)} glow={r > 2 ? .6 : 0} />)}
       {moon > 0 && <g opacity={moon * draw}><circle cx={mx} cy={my} r={70 * s} fill="url(#glowW)" opacity={.7} /><Ball x={mx} y={my} r={30 * s} mat="paper" t={.15} draw={draw} hi={.6} /></g>}
       {/* rooftops, gables, chimneys; a few lit attic windows */}
-      {roofs.map(([rx, ry, rw, k], i) => { const b = 300; return <g key={i}>
-        <SR d={k === 1 ? pathOf([[X(rx), Y(b)], [X(rx), Y(ry + 60)], [X(rx + rw / 2), Y(ry)], [X(rx + rw), Y(ry + 60)], [X(rx + rw), Y(b)]], true) : rect(X(rx), Y(ry + 30), rw * s, (b - ry - 30) * s)}
-          mat="night" t={.55 + .1 * (i % 2)} draw={draw} sw={1.1} hatch={0} />
-        {k !== 1 && <SR d={pathOf([[X(rx - 8), Y(ry + 32)], [X(rx + rw / 2), Y(ry)], [X(rx + rw + 8), Y(ry + 32)]], true)} mat="wall" t={.85} draw={draw} sw={1} hatch={0} />}
-        {(i % 2 === 0) && <rect x={X(rx + rw * .4)} y={Y(ry + 90)} width={22 * s} height={30 * s} fill="#F0D9A8" opacity={draw * .85 * night} />}
+      {roofs.map(([rx, ry, rw, k], i) => { const b = 300, top = ry + 30, gab = k === 1;
+        const wall = gab ? pathOf([[X(rx), Y(b)], [X(rx), Y(ry + 60)], [X(rx + rw / 2), Y(ry)], [X(rx + rw), Y(ry + 60)], [X(rx + rw), Y(b)]], true) : rect(X(rx), Y(top + 22), rw * s, (b - top - 22) * s);
+        const roof = gab ? '' : pathOf([[X(rx - 10), Y(top + 24)], [X(rx + 18), Y(top - 26)], [X(rx + rw - 18), Y(top - 26)], [X(rx + rw + 10), Y(top + 24)]], true);
+        return <g key={i}>
+        <SR d={wall} mat="night" t={.58 + .08 * (i % 2)} draw={draw} sw={1.1} hatch={0} />
+        {Array.from({ length: Math.floor(rw / 12) }, (_, j) => <Line key={j} d={`M${X(rx + 6 + j * 12)} ${Y(gab ? ry + 66 : top + 26)} V${Y(b)}`} w={.6} col="#0B1030" a={.5 * draw} />)}
+        {!gab && <SR d={roof} mat="wall" t={.82} draw={draw} sw={1.1} hatch={0} />}
+        {!gab && Array.from({ length: 4 }, (_, j) => <Line key={j} d={`M${X(rx - 4 + j * 4)} ${Y(top + 12 - j * 12)} H${X(rx + rw + 4 - j * 4)}`} w={.7} col="#1A120B" a={.7 * draw} />)}
+        {gab && Array.from({ length: 5 }, (_, j) => <Line key={j} d={`M${X(rx + rw / 2 - (j + 1) * rw / 12)} ${Y(ry + (j + 1) * 10)} H${X(rx + rw / 2 + (j + 1) * rw / 12)}`} w={.6} col="#1A120B" a={.5 * draw} />)}
+        {!gab && <g><SR d={rect(X(rx + rw * .72), Y(top - 56), 18 * s, 36 * s)} mat="wall" t={.75} draw={draw} sw={.9} hatch={0} /><SR d={rect(X(rx + rw * .72 + 2), Y(top - 64), 6 * s, 8 * s)} mat="wall" t={.6} draw={draw} sw={.7} hatch={0} /></g>}
+        {[.25, .6].map((u, j) => { const lit = (i + j) % 3 === 0; return <g key={j}><rect x={X(rx + rw * u)} y={Y(ry + (gab ? 100 : 80))} width={20 * s} height={28 * s} fill={lit ? '#F0D9A8' : '#141C38'} stroke={SEP} strokeWidth={.8} opacity={draw * (lit ? .9 * night : 1)} />
+          <Line d={`M${X(rx + rw * u + 10)} ${Y(ry + (gab ? 100 : 80))} v${28 * s} M${X(rx + rw * u)} ${Y(ry + (gab ? 114 : 94))} h${20 * s}`} w={.7} a={draw} /></g>; })}
       </g>; })}
       {/* THE chimney the thumb is held against */}
       <SR d={rect(X(14), Y(-10), 36 * s, 90 * s)} mat="wall" t={.8} draw={draw} sw={1.2} />
@@ -54,7 +61,7 @@ const NightWindow: React.FC<{ x?: N; y?: N; s?: N; draw?: N; night?: N; stars?: 
 // curled fingers, the thumb upright with its nail toward you. nail 0..1 = the nail pales and glows (it will become the Moon).
 const ThumbHand: React.FC<{ x?: N; y?: N; s?: N; draw?: N; nail?: N; rot?: N; sleeve?: string }> = ({ x = 960, y = 640, s = 1, draw = 1, nail = 0, rot = 0, sleeve = 'sky' }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s;
-  const thumb = `M${X(-118)} ${Y(-40)} C${X(-132)} ${Y(-130)} ${X(-128)} ${Y(-250)} ${X(-96)} ${Y(-300)} C${X(-74)} ${Y(-334)} ${X(-24)} ${Y(-334)} ${X(-8)} ${Y(-296)} C${X(8)} ${Y(-250)} ${X(4)} ${Y(-150)} ${X(10)} ${Y(-60)}Z`;
+  const thumb = `M${X(-118)} ${Y(-40)} C${X(-134)} ${Y(-110)} ${X(-140)} ${Y(-150)} ${X(-128)} ${Y(-176)} C${X(-122)} ${Y(-230)} ${X(-112)} ${Y(-282)} ${X(-92)} ${Y(-306)} C${X(-70)} ${Y(-334)} ${X(-26)} ${Y(-332)} ${X(-10)} ${Y(-298)} C${X(0)} ${Y(-262)} ${X(2)} ${Y(-214)} ${X(-2)} ${Y(-176)} C${X(10)} ${Y(-150)} ${X(8)} ${Y(-110)} ${X(10)} ${Y(-60)}Z`;
   const fist = `M${X(-130)} ${Y(-60)} C${X(-150)} ${Y(20)} ${X(-140)} ${Y(170)} ${X(-80)} ${Y(220)} C${X(-10)} ${Y(270)} ${X(110)} ${Y(250)} ${X(150)} ${Y(170)} C${X(185)} ${Y(90)} ${X(170)} ${Y(-40)} ${X(120)} ${Y(-80)} C${X(70)} ${Y(-110)} ${X(-60)} ${Y(-100)} ${X(-130)} ${Y(-60)}Z`;
   const arm = `M${X(40)} ${Y(200)} C${X(160)} ${Y(330)} ${X(300)} ${Y(500)} ${X(420)} ${Y(760)} L${X(760)} ${Y(760)} C${X(600)} ${Y(500)} ${X(330)} ${Y(220)} ${X(160)} ${Y(80)}Z`;
   const cuff = `M${X(210)} ${Y(330)} C${X(290)} ${Y(300)} ${X(380)} ${Y(250)} ${X(440)} ${Y(220)} C${X(560)} ${Y(380)} ${X(660)} ${Y(560)} ${X(760)} ${Y(760)} L${X(330)} ${Y(760)} C${X(300)} ${Y(560)} ${X(260)} ${Y(430)} ${X(210)} ${Y(330)}Z`;
@@ -72,24 +79,27 @@ const ThumbHand: React.FC<{ x?: N; y?: N; s?: N; draw?: N; nail?: N; rot?: N; sl
     {/* knuckles along the top, tendons on the back of the hand */}
     {[0, 1, 2, 3].map(i => <Line key={i} d={`M${X(10 + i * 38)} ${Y(-82 + i * 6)} C${X(40 + i * 40)} ${Y(-10 + i * 10)} ${X(80 + i * 30)} ${Y(80)} ${X(120 + i * 16)} ${Y(150)}`} w={.9} a={.3 * draw} />)}
     <SR d={thumb} mat="skin" t={.36} ang={80} draw={draw} sw={1.8} />
-    <Line d={`M${X(-120)} ${Y(-150)} C${X(-100)} ${Y(-140)} ${X(-40)} ${Y(-140)} ${X(-6)} ${Y(-156)}`} w={1} a={.6 * draw} />
-    <Line d={`M${X(-114)} ${Y(-170)} C${X(-90)} ${Y(-162)} ${X(-50)} ${Y(-162)} ${X(-12)} ${Y(-176)}`} w={.7} a={.4 * draw} />
+    {[0, 1, 2].map(j => <Line key={j} d={`M${X(-126 + j * 3)} ${Y(-166 + j * 12)} C${X(-96)} ${Y(-152 + j * 12)} ${X(-44)} ${Y(-154 + j * 12)} ${X(-4)} ${Y(-170 + j * 12)}`} w={j === 1 ? 1.1 : .7} a={(.65 - j * .15) * draw} />)}
+    {[0, 1, 2, 3, 4, 5].map(j => <Line key={'h' + j} d={`M${X(-124 + j * 4)} ${Y(-60 - j * 38)} C${X(-110 + j * 3)} ${Y(-70 - j * 38)} ${X(-100 + j * 2)} ${Y(-74 - j * 38)} ${X(-92)} ${Y(-80 - j * 38)}`} w={.6} a={.45 * draw} />)}
+    <path d={`M${X(-8)} ${Y(-296)} C${X(2)} ${Y(-262)} ${X(2)} ${Y(-214)} ${X(-2)} ${Y(-176)} C${X(10)} ${Y(-150)} ${X(8)} ${Y(-110)} ${X(10)} ${Y(-60)}`} fill="none" stroke="#C9DDE6" strokeWidth={4 * s} opacity={.55 * draw} />
+    <path d={`M${X(-100)} ${Y(-244)} C${X(-104)} ${Y(-260)} ${X(-24)} ${Y(-262)} ${X(-20)} ${Y(-244)}`} fill="none" stroke={SEP} strokeWidth={1} opacity={.6 * draw} />
     {/* the nail */}
     <path d={`M${X(-96)} ${Y(-262)} C${X(-98)} ${Y(-312)} ${X(-30)} ${Y(-318)} ${X(-24)} ${Y(-266)} C${X(-40)} ${Y(-248)} ${X(-80)} ${Y(-248)} ${X(-96)} ${Y(-262)}Z`}
       fill={nail > 0 ? '#FFF8E4' : '#EBC9AE'} stroke={SEP} strokeWidth={1.3} opacity={draw} />
     <path d={`M${X(-90)} ${Y(-282)} C${X(-80)} ${Y(-300)} ${X(-44)} ${Y(-302)} ${X(-32)} ${Y(-284)}`} fill="none" stroke="#FFFDF4" strokeWidth={2.4 * s} opacity={.6 * draw} />
+    <path d={`M${X(-84)} ${Y(-256)} C${X(-74)} ${Y(-266)} ${X(-46)} ${Y(-266)} ${X(-36)} ${Y(-256)}`} fill="#FBF4E2" stroke={SEP} strokeWidth={.6} opacity={.7 * draw} />
     {nail > 0 && <circle cx={X(-60)} cy={Y(-280)} r={(40 + 120 * nail) * s} fill="url(#glowW)" opacity={nail * .9} />}
   </g>;
 };
 
 // ================================================================ THE EYE — engraved like an anatomy plate: lids, lashes, crease, brow, an iris with radial fibres,
 // pupil, catch-light. pair = both eyes (gap apart); lidL / lidR 0 open … 1 shut; look = where the irises turn (−1..1).
-const OneEye: React.FC<{ x: N; y: N; r: N; lid: N; look: [N, N]; draw: N; flip?: boolean }> = ({ x, y, r, lid, look, draw, flip }) => {
+const OneEye: React.FC<{ x: N; y: N; r: N; lid: N; look: [N, N]; draw: N; flip?: boolean; skin?: boolean }> = ({ x, y, r, lid, look, draw, flip, skin = true }) => {
   const f = flip ? -1 : 1, up = (k: N) => `M${x - r} ${y} C${x - r * .5} ${y - r * .62 * (1 - k)} ${x + r * .45} ${y - r * .7 * (1 - k)} ${x + r} ${y - r * .04}`;
   const lo = `C${x + r * .5} ${y + r * .44} ${x - r * .5} ${y + r * .46} ${x - r} ${y}`, id = `eyec${Math.round(x)}${Math.round(y)}`;
   const ix = x + look[0] * r * .32, iy = y + look[1] * r * .18, ir = r * .4, open = 1 - lid;
   return <g transform={flip ? `translate(${2 * x} 0) scale(-1 1)` : undefined}>
-    <SR d={`M${x - r * 1.5} ${y - r * 1.25} C${x - r * .4} ${y - r * 1.6} ${x + r * .9} ${y - r * 1.5} ${x + r * 1.55} ${y - r * .9} L${x + r * 1.5} ${y + r * .9} C${x + r * .4} ${y + r * 1.2} ${x - r * .9} ${y + r * 1.1} ${x - r * 1.5} ${y + r * .6}Z`} mat="skin" t={.3} draw={draw} sw={0} hatch={0} rim={false} />
+    {skin && <SR d={`M${x - r * 1.5} ${y - r * 1.25} C${x - r * .4} ${y - r * 1.6} ${x + r * .9} ${y - r * 1.5} ${x + r * 1.55} ${y - r * .9} L${x + r * 1.5} ${y + r * .9} C${x + r * .4} ${y + r * 1.2} ${x - r * .9} ${y + r * 1.1} ${x - r * 1.5} ${y + r * .6}Z`} mat="skin" t={.3} draw={draw} sw={0} hatch={0} rim={false} />}
     <defs><clipPath id={id}><path d={`${up(0)} ${lo}Z`} /></clipPath></defs>
     <path d={`${up(0)} ${lo}Z`} fill="#FBF4E2" opacity={draw} />
     <g clipPath={`url(#${id})`} opacity={draw}>
@@ -107,22 +117,27 @@ const OneEye: React.FC<{ x: N; y: N; r: N; lid: N; look: [N, N]; draw: N; flip?:
     <path d={`M${x - r} ${y} C${x - r * .5} ${lerp(y - r * .62, y + r * .44, lid)} ${x + r * .45} ${lerp(y - r * .7, y + r * .46, lid)} ${x + r} ${y - r * .04}`} fill="none" stroke={SEP} strokeWidth={2.4} opacity={draw} />
     {Array.from({ length: 11 }, (_, i) => { const u = .12 + i * .075, px = lerp(x - r, x + r, u), py = lerp(y, lerp(y - r * .66, y + r * .45, lid), Math.sin(u * Math.PI)); return <Line key={i} d={`M${px} ${py} q${(u - .5) * r * .2} ${-r * .16 * open - r * .08} ${(u - .4) * r * .26} ${-r * .2 * open - r * .1}`} w={1.2} a={.8 * draw} />; })}
     <Line d={`M${x - r * .9} ${y - r * .3} C${x - r * .4} ${y - r * .95} ${x + r * .5} ${y - r * .95} ${x + r * 1.05} ${y - r * .4}`} w={1} a={.5 * draw} />
+    {Array.from({ length: 6 }, (_, j) => <Line key={'s' + j} d={`M${x - r * (1.15 - j * .05)} ${y - r * (.15 + j * .1)} C${x - r * .6} ${y - r * (.85 + j * .07)} ${x + r * .3} ${y - r * (.95 + j * .07)} ${x + r * (.9 - j * .06)} ${y - r * (.6 + j * .08)}`} w={.55} a={.3 * draw} />)}
+    {Array.from({ length: 4 }, (_, j) => <Line key={'u' + j} d={`M${x - r * .8} ${y + r * (.42 + j * .12)} C${x - r * .3} ${y + r * (.62 + j * .12)} ${x + r * .3} ${y + r * (.6 + j * .12)} ${x + r * .8} ${y + r * (.36 + j * .12)}`} w={.5} a={(.32 - j * .06) * draw} />)}
+    {Array.from({ length: 5 }, (_, j) => <Line key={'n' + j} d={`M${x - r * (1.2 + j * .05)} ${y - r * .5 + j * r * .2} q${-r * .1} ${r * .3} 0 ${r * .5}`} w={.55} a={.3 * draw} />)}
     <Line d={lo.replace('C', `M${x + r} ${y - r * .04} C`)} w={1.2} a={.6 * draw} />
     <SR d={`M${x - r * 1.2} ${y - r * 1.05} C${x - r * .5} ${y - r * 1.45} ${x + r * .6} ${y - r * 1.42} ${x + r * 1.3} ${y - r * 1.05} C${x + r * .6} ${y - r * 1.25} ${x - r * .5} ${y - r * 1.27} ${x - r * 1.2} ${y - r * 1.05}Z`} mat="wood" t={.7} ang={10} draw={draw} sw={1} />
   </g>;
 };
 const BlinkEye: React.FC<{ x?: N; y?: N; r?: N; draw?: N; pair?: N; gap?: N; lidL?: N; lidR?: N; look?: [N, N]; ring?: N }> = ({ x = 960, y = 540, r = 120, draw = 1, pair = 0, gap = 340, lidL = 0, lidR = 0, look = [0, 0], ring = 0 }) => <g>
-  {ring > 0 && <g opacity={ring * draw}><circle cx={x} cy={y} r={r * 1.9} fill="#EBDDBC" /><circle cx={x} cy={y} r={r * 1.9} fill="none" stroke="url(#gold)" strokeWidth={r * .12} /><Ink d={ell(x, y, r * 1.97, r * 1.97)} w={1.6} draw={draw} /></g>}
+  {ring > 0 && (() => { const R = pair > 0 ? gap / 2 + r * 1.75 : r * 1.9; return <g opacity={ring * draw}><circle cx={x} cy={y} r={R} fill="#EBDDBC" /><circle cx={x} cy={y} r={R} fill="none" stroke="url(#gold)" strokeWidth={r * .12} /><Ink d={ell(x, y, R * 1.04, R * 1.04)} w={1.6} draw={draw} /></g>; })()}
   {pair > 0 ? <g>
-    <OneEye x={x - gap / 2} y={y} r={r} lid={lidL} look={look} draw={draw} flip />
-    <OneEye x={x + gap / 2} y={y} r={r} lid={lidR} look={look} draw={draw} />
-    <SR d={`M${x - r * .25} ${y - r * .9} C${x - r * .2} ${y - r * .1} ${x - r * .45} ${y + r * .9} ${x - r * .35} ${y + r * 1.4} C${x - r * .1} ${y + r * 1.6} ${x + r * .2} ${y + r * 1.6} ${x + r * .4} ${y + r * 1.4}`} mat="skin" t={.4} draw={draw} sw={1.3} hatch={0} rim={false} />
+    <defs><radialGradient id={`fc${Math.round(x)}`}><stop offset=".55" stopColor="#E5B892" stopOpacity={1} /><stop offset="1" stopColor="#E5B892" stopOpacity={0} /></radialGradient></defs>
+    <ellipse cx={x} cy={y + r * .2} rx={gap / 2 + r * 2.1} ry={r * 2.3} fill={`url(#fc${Math.round(x)})`} opacity={draw} />
+    <OneEye x={x - gap / 2} y={y} r={r} lid={lidL} look={look} draw={draw} flip skin={false} />
+    <OneEye x={x + gap / 2} y={y} r={r} lid={lidR} look={look} draw={draw} skin={false} />
+    <path d={`M${x - r * .12} ${y - r * .7} C${x - r * .1} ${y} ${x - r * .3} ${y + r * .8} ${x - r * .42} ${y + r * 1.25} C${x - r * .25} ${y + r * 1.45} ${x + r * .1} ${y + r * 1.42} ${x + r * .3} ${y + r * 1.3}`} fill="none" stroke="#2B1D12" strokeWidth={1.4} opacity={.7 * draw} />
   </g> : <OneEye x={x} y={y} r={r} lid={lidL} look={look} draw={draw} />}
 </g>;
 
 // ================================================================ THE STAR CABINET — a collector's case: carved walnut frame, a glazed door, dark velvet, the stars
 // pinned in rows like specimens on brass pins, each with a blank paper label. sheen 0..1 = a band of light across the glass.
-const StarCabinet: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sheen?: N; dim?: N; one?: N; tremble?: N; t?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, sheen = 0, dim = 0, one = 0, tremble = 0, t = 0 }) => {
+const StarCabinet: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sheen?: N; dim?: N; one?: N; tremble?: N; ph?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, sheen = 0, dim = 0, one = 0, tremble = 0, ph: t = 0 }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s, W = 1240 * s, H = 820 * s, x0 = X(-620), y0 = Y(-410);
   const rows = 4, cols = 7;
   return <g>
@@ -361,6 +376,10 @@ const Heliometer: React.FC<{ x?: N; y?: N; s?: N; draw?: N; turn?: N; cut?: N; s
       {[-460, -60, 520].map(b => <SR key={b} d={rect(hx + b * s, hy - 48 * s, 26 * s, 72 * s)} mat="brass" t={.45} draw={draw} sw={1.1} />)}
       {/* objective cell (far end) */}
       <SR d={rect(hx + 590 * s, hy - 58 * s, 70 * s, 92 * s)} mat="brass" t={.4} draw={draw} sw={1.3} />
+      <SR d={ell(hx + 664 * s, hy - 12 * s, 14 * s, 44 * s)} mat="sky" t={.35} draw={draw} sw={1.2} hatch={0} />
+      <Line d={`M${hx + 652 * s} ${hy - 56 * s} L${hx + 676 * s} ${hy + 32 * s}`} w={1.6} a={draw} />
+      <SR d={rect(hx + 600 * s, hy + 34 * s, 50 * s, 12 * s)} mat="brass" t={.55} draw={draw} sw={1} />
+      <Line d={`M${hx + 625 * s} ${hy + 46 * s} L${hx - 470 * s} ${hy + 52 * s}`} w={1.2} col="#8A6420" a={draw} />
       {/* eye end: draw tube, eyepiece, the micrometer screw and its drum, the long slow-motion rods */}
       <SR d={rect(hx - 560 * s, hy - 26 * s, 100 * s, 28 * s)} mat="brass" t={.45} draw={draw} sw={1.1} />
       <SR d={rect(hx - 610 * s, hy - 20 * s, 50 * s, 16 * s)} mat="brass" t={.6} draw={draw} sw={1} />
@@ -427,8 +446,8 @@ const CoinFarHill: React.FC<{ x?: N; y?: N; draw?: N; cr?: N; cx?: N; cy?: N; gl
   const vp: Pt = [x, y - 130];
   return <g>
     <rect x={-200} y={-200} width={2320} height={y - 120 + 200} fill="#F0D9A8" opacity={draw} />
-    <circle cx={1660} cy={y - 260} r={300} fill="url(#glowW)" opacity={.6 * draw} /><Ball x={1660} y={y - 260} r={46} mat="gold" t={.25} draw={draw} hi={.3} />
-    {[[.0, 'stone', .3], [.35, 'land', .32], [.7, 'land', .5]].map(([d, m, t], i) => <SR key={i} d={`M-200 ${y - 140 + (d as N) * 120} C300 ${y - 200 + (d as N) * 140} 700 ${y - 160 + (d as N) * 130} ${x} ${y - 138 + (d as N) * 128} C1300 ${y - 120 + (d as N) * 120} 1700 ${y - 190 + (d as N) * 150} 2120 ${y - 150 + (d as N) * 130} V1300 H-200Z`} mat={m as string} t={t as N} draw={draw} sw={1.2} hatch={0} />)}
+    <circle cx={1700} cy={y - 300} r={420} fill="url(#glowW)" opacity={.75 * draw} /><circle cx={1700} cy={y - 300} r={70} fill="#FFF4D2" opacity={.85 * draw} />
+    {[[.0, 'stone', .28], [.35, 'sand', .32], [.7, 'stone', .45]].map(([d, m, t], i) => <SR key={i} d={`M-200 ${y - 140 + (d as N) * 120} C300 ${y - 200 + (d as N) * 140} 700 ${y - 160 + (d as N) * 130} ${x} ${y - 138 + (d as N) * 128} C1300 ${y - 120 + (d as N) * 120} 1700 ${y - 190 + (d as N) * 150} 2120 ${y - 150 + (d as N) * 130} V1300 H-200Z`} mat={m as string} t={t as N} draw={draw} sw={1.2} hatch={0} />)}
     {/* the road, straight to the hill */}
     <path d={`M${vp[0] - 3} ${vp[1] + 10} L${x - 520} 1300 L${x + 520} 1300 L${vp[0] + 3} ${vp[1] + 10}Z`} fill="#E2CF94" stroke={SEP} strokeWidth={1.3} opacity={draw} />
     {Array.from({ length: 14 }, (_, i) => { const k = Math.pow((i + 1) / 14, 2.2), yy = lerp(vp[1] + 12, 1300, k); return <g key={i} opacity={draw}>

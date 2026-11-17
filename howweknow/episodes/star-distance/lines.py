@@ -539,9 +539,12 @@ R('MEANING', "So hold up your thumb tonight, and blink. That little jump is how 
   'medium', 'moonlight on the child’s face; the lamp behind', motif='the eye — the circle we began with')
 
 # ------------------------------------------------------------------------------------------------- breaths and chapters
-ROWS[7][13]['gap'] = 6.2   # the episode's title card plays in this breath (music only)
+ROWS[8][13]['gap'] = 6.2   # the episode's title card plays in this breath before the stakes (music only)
 for i, r in enumerate(ROWS):
-    if i and r[0] != ROWS[i - 1][0] and r[0].startswith(('CLUE', 'TWIST', 'ANSWER', 'MEANING')): ROWS[i - 1][13]['gap'] = 1.5   # a breath before each chapter
+    if i and r[0] != ROWS[i - 1][0] and r[0].startswith('CLUE'): r[13]['gap'] = 1.5   # a breath after each clue's title (the score turns here)
+for r in ROWS:   # the score's parts (tools/score.py): one cue per chapter, ≥ 60 s — the last act is one long swell of wonder → awe
+    if r[0] in ('CLUE4', 'TWIST'): r[13]['mood'] = 'wonder'
+    if r[0] in ('ANSWER', 'MEANING'): r[13]['mood'] = 'awe'
 for i, r in enumerate(ROWS):
     if 'VAR' in r[1] or 'not *alone*' in r[1]: r[13]['hold'] = True   # the held breaths (music drops out, sfx_auto stays silent)
 SRC = {'F1': 'S1 S2', 'F2': 'S1 S2 S3', 'F3': 'S2 S4', 'F4': 'calc (F2)', 'F5': 'S5 S6', 'F6': 'S5 S6 S7', 'F7': 'S8 S9', 'F8': 'S8 S10 S11', 'F9': 'S12 S13', 'F10': 'S14'}

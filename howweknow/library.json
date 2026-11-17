@@ -447,6 +447,10 @@
   "kind": "episode",
   "origin": "star-distance"
  },
+ "PenHand": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "Pendulum": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"

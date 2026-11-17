@@ -1,0 +1,722 @@
+{
+ "slug": "star-distance",
+ "duration": 524.063,
+ "lines": [
+  {
+   "i": 0,
+   "text": "Hold up your thumb at arm's length, and look past it, at something far away.",
+   "start": 1.0,
+   "dur": 4.772,
+   "sfx": [
+    {
+     "at": 0.3,
+     "file": "public/sfx/real_electric_flicker_1.wav",
+     "db": -30
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "text": "Now close one eye\u2026 then the other. Your thumb jumps.",
+   "start": 6.672,
+   "dur": 3.213,
+   "sfx": [
+    {
+     "at": 1.2,
+     "file": "public/sfx/blip_click_1.wav",
+     "db": -26
+    },
+    {
+     "at": 2.6,
+     "file": "public/sfx/blip_click_2.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Nothing moved but your point of view. And that little jump, it turns out, can measure the distance to the stars.",
+   "start": 10.785,
+   "dur": 6.673,
+   "sfx": []
+  },
+  {
+   "i": 3,
+   "text": "For thousands of years, people looked up at those lights and wondered how far away they were.",
+   "start": 18.358,
+   "dur": 5.343,
+   "sfx": []
+  },
+  {
+   "i": 4,
+   "text": "But the stars never seemed to move. They looked pinned in place, like jewels in a cabinet.",
+   "start": 24.601,
+   "dur": 5.343,
+   "sfx": []
+  },
+  {
+   "i": 5,
+   "text": "Astronomers called them the fixed stars. And for two thousand years, nobody could say how far away a single one of them was.",
+   "start": 30.844,
+   "dur": 7.996,
+   "sfx": [
+    {
+     "at": 4.8,
+     "file": "public/sfx/dial_tick_1.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "text": "The answer took a split telescope in Prussia, a woman with a magnifying glass, and one word scrawled on a glass plate.",
+   "start": 39.741,
+   "dur": 7.873,
+   "sfx": []
+  },
+  {
+   "i": 7,
+   "text": "And the answer turned out to be far stranger than the question.",
+   "start": 48.514,
+   "dur": 3.337,
+   "sfx": []
+  },
+  {
+   "i": 8,
+   "text": "A star is a dot of light. It has no size you can see, no edge, no label.",
+   "start": 58.051,
+   "dur": 5.106,
+   "sfx": []
+  },
+  {
+   "i": 9,
+   "text": "A bright star could be close\u2026 or huge, and very far away. From here, the two look exactly the same.",
+   "start": 63.857,
+   "dur": 6.816,
+   "sfx": []
+  },
+  {
+   "i": 10,
+   "text": "To find the distance, you need something you can measure. And the first clue was the one in your own eyes.",
+   "start": 71.374,
+   "dur": 6.17,
+   "sfx": []
+  },
+  {
+   "i": 11,
+   "text": "Clue one: the wobble.",
+   "start": 79.044,
+   "dur": 1.412,
+   "sfx": []
+  },
+  {
+   "i": 12,
+   "text": "Your eyes see from two places, a few centimetres apart. So a near thing seems to jump against a far one. That jump is called parallax.",
+   "start": 81.156,
+   "dur": 9.379,
+   "sfx": []
+  },
+  {
+   "i": 13,
+   "text": "Now spread your eyes as far apart as they could ever be: the two ends of the Earth's path around the Sun.",
+   "start": 91.235,
+   "dur": 6.291,
+   "sfx": [
+    {
+     "at": 3.0,
+     "file": "public/sfx/cue_reveal_1.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "text": "Look at a nearby star in January, and again in July. Against the stars far behind it, it should shift, very slightly.",
+   "start": 98.226,
+   "dur": 8.267,
+   "sfx": [
+    {
+     "at": 7.8,
+     "file": "public/sfx/dial_tick_2.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "text": "Astronomers looked for that shift for centuries. So why did they see nothing?",
+   "start": 107.193,
+   "dur": 4.475,
+   "sfx": []
+  },
+  {
+   "i": 16,
+   "text": "The shift was there. But for every star, it is less than one three-thousand-six-hundredth of a degree.",
+   "start": 112.368,
+   "dur": 6.78,
+   "sfx": [
+    {
+     "at": 1.4,
+     "file": "public/sfx/motion_whoosh_airy_1.wav",
+     "db": -26
+    },
+    {
+     "at": 4.2,
+     "file": "public/sfx/motion_whoosh_airy_1.wav",
+     "db": -28
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "text": "In the 1830s, in K\u00f6nigsberg, Friedrich Bessel set out to catch it, with a telescope built for one job: measuring tiny angles.",
+   "start": 119.847,
+   "dur": 10.554,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/machine_gear_whirr_1.wav",
+     "db": -28
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "text": "His heliometer cut the image of the sky in two, so he could slide one star onto another and read the gap between them.",
+   "start": 131.101,
+   "dur": 7.725,
+   "sfx": [
+    {
+     "at": 4.2,
+     "file": "public/sfx/machine_ratchet_1.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "text": "His target was a faint double star in the Swan, called 61 Cygni. It crawls across the sky faster than almost any other.",
+   "start": 139.526,
+   "dur": 8.5,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "text": "A fast crawl hinted that it was close. But how close? Night after night for more than a year, he measured it against two faint stars nearby.",
+   "start": 148.727,
+   "dur": 9.038,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/stock/_hwk/star-distance/S-01_clock-tick-take1-core-cc0.wav",
+     "db": -30
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "text": "In 1838 he had it: a shift of about a third of a second of arc.",
+   "start": 158.464,
+   "dur": 6.148,
+   "sfx": [
+    {
+     "at": 3.4,
+     "file": "public/sfx/impact_bell_1.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "text": "That is the width of a small coin\u2026 seen from thirteen kilometres away.",
+   "start": 165.312,
+   "dur": 4.502,
+   "sfx": [
+    {
+     "at": 0.2,
+     "file": "public/sfx/foley_coins_1.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "text": "From that tiny angle, the rest is a triangle. Its base is the Earth's orbit, and its far point is the star.",
+   "start": 170.514,
+   "dur": 7.317,
+   "sfx": []
+  },
+  {
+   "i": 24,
+   "text": "The answer: roughly ten light-years. About a hundred million million kilometres.",
+   "start": 178.532,
+   "dur": 5.184,
+   "sfx": [
+    {
+     "at": 1.2,
+     "file": "public/sfx/motion_whoosh_long_1.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "text": "Its light had been travelling for about ten years to reach his telescope.",
+   "start": 184.416,
+   "dur": 4.263,
+   "sfx": []
+  },
+  {
+   "i": 26,
+   "text": "Bessel's number went into print, and for the first time, a star had a distance.",
+   "start": 189.378,
+   "dur": 4.835,
+   "sfx": [
+    {
+     "at": 3.6,
+     "file": "public/stock/_hwk/star-distance/S-01_pen-scribble-take1-cc0.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "text": "Almost at the same time, two more were measured: Alpha Centauri, from the Cape of Good Hope, and Vega, from Russia.",
+   "start": 194.914,
+   "dur": 7.271,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "text": "But there was a catch. Most stars are so far away that their wobble is far too small to measure.",
+   "start": 202.885,
+   "dur": 6.292,
+   "sfx": [
+    {
+     "at": 5.4,
+     "file": "public/sfx/real_air_pocket_1.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "text": "Clue two: stars that blink.",
+   "start": 210.677,
+   "dur": 1.888,
+   "sfx": []
+  },
+  {
+   "i": 30,
+   "text": "Around 1900, Harvard College Observatory was photographing the sky on thousands of glass plates.",
+   "start": 213.265,
+   "dur": 7.402,
+   "sfx": [
+    {
+     "at": 2.8,
+     "file": "public/stock/_hwk/star-distance/S-01_glass-slide-take1-cc0.wav",
+     "db": -22
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "text": "To study them, the observatory hired women, to measure and catalogue every star, one plate at a time.",
+   "start": 221.367,
+   "dur": 6.922,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/real_cloth_1.wav",
+     "db": -30
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "text": "One of them was Henrietta Swan Leavitt. Her task: find the stars that change in brightness.",
+   "start": 228.988,
+   "dur": 6.242,
+   "sfx": []
+  },
+  {
+   "i": 33,
+   "text": "Her plates came from a Harvard station in Arequipa, Peru, that photographed the southern sky, and two misty patches called the Magellanic Clouds.",
+   "start": 235.931,
+   "dur": 9.683,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/motion_whoosh_short_1.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "text": "Comparing plate after plate through her loupe, she found stars that swelled and faded, again and again\u2026 like slow breathing.",
+   "start": 246.314,
+   "dur": 7.765,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/stock/_hwk/star-distance/S-01_glass-slide-take1-cc0.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "text": "And she noticed something nobody expected: the brighter the star, the slower its breath.",
+   "start": 254.779,
+   "dur": 5.438,
+   "sfx": []
+  },
+  {
+   "i": 36,
+   "text": "All of them sat in the same cloud, at roughly the same distance. So the difference in brightness was real.",
+   "start": 260.917,
+   "dur": 6.673,
+   "sfx": []
+  },
+  {
+   "i": 37,
+   "text": "In 1912 she published twenty-five of them. The longer the period, the brighter the star: a straight line.",
+   "start": 268.289,
+   "dur": 7.472,
+   "sfx": [
+    {
+     "at": 2.8,
+     "file": "public/stock/_hwk/star-distance/S-01_pen-scribble-take1-cc0.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "text": "The circular was signed by the observatory's director, noting it had been prepared by Miss Leavitt.",
+   "start": 276.462,
+   "dur": 6.091,
+   "sfx": []
+  },
+  {
+   "i": 39,
+   "text": "Here was the trick. Time a star's beat, and you know how bright it truly is. See how faint it looks, and you know how far away.",
+   "start": 283.253,
+   "dur": 7.947,
+   "sfx": []
+  },
+  {
+   "i": 40,
+   "text": "Astronomers call such stars standard candles: like a candle of known brightness, carried further and further down a dark road.",
+   "start": 291.899,
+   "dur": 8.224,
+   "sfx": []
+  },
+  {
+   "i": 41,
+   "text": "Leavitt had found a measuring tape for the universe. She died in 1921, two years before it would change everything we knew about its size.",
+   "start": 300.823,
+   "dur": 9.975,
+   "sfx": []
+  },
+  {
+   "i": 42,
+   "text": "Clue three: one word on a glass plate.",
+   "start": 312.299,
+   "dur": 2.419,
+   "sfx": []
+  },
+  {
+   "i": 43,
+   "text": "Across the sky, astronomers had found faint spiral smudges. Were they clouds inside our own galaxy\u2026 or whole galaxies of their own?",
+   "start": 315.417,
+   "dur": 9.424,
+   "sfx": []
+  },
+  {
+   "i": 44,
+   "text": "In April 1920, at the Smithsonian in Washington, two astronomers argued it out in public. Neither could prove his case.",
+   "start": 325.542,
+   "dur": 9.226,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/real_crowd_1.wav",
+     "db": -34
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "text": "What they needed was a distance. And for that, you had to find one of Leavitt's breathing stars inside a spiral.",
+   "start": 335.468,
+   "dur": 6.971,
+   "sfx": []
+  },
+  {
+   "i": 46,
+   "text": "On Mount Wilson in California stood the largest telescope in the world, its mirror one hundred inches across.",
+   "start": 343.138,
+   "dur": 7.169,
+   "sfx": [
+    {
+     "at": 3.0,
+     "file": "public/stock/_hwk/star-distance/S-01_dome-motor-servo-take1-cc0.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 47,
+   "text": "Edwin Hubble turned it toward the great spiral in Andromeda, and photographed it on glass, night after night.",
+   "start": 351.007,
+   "dur": 6.642,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/motion_whoosh_deep_1.wav",
+     "db": -26
+    }
+   ]
+  },
+  {
+   "i": 48,
+   "text": "In October 1923, one plate showed a new point of light. He marked it with an N: a nova, a star that flares up once\u2026 and never again.",
+   "start": 358.349,
+   "dur": 10.193,
+   "sfx": [
+    {
+     "at": 4.2,
+     "file": "public/stock/_hwk/star-distance/S-01_pen-scribble-take1-cc0.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 49,
+   "text": "Then he checked the older plates of the same spot. It was not flaring once. It was brightening and fading, again and again.",
+   "start": 369.242,
+   "dur": 7.732,
+   "sfx": [
+    {
+     "at": 0.2,
+     "file": "public/stock/_hwk/star-distance/S-01_glass-slide-take1-cc0.wav",
+     "db": -24
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "text": "He crossed out the N, and wrote three letters and an exclamation mark: VAR!",
+   "start": 377.674,
+   "dur": 4.844,
+   "sfx": [
+    {
+     "at": 1.0,
+     "file": "public/stock/_hwk/star-distance/S-01_pen-scribble-take1-cc0.wav",
+     "db": -18
+    },
+    {
+     "at": 2.2,
+     "file": "public/stock/_hwk/star-distance/S-01_pen-scribble-take1-cc0.wav",
+     "db": -18
+    }
+   ]
+  },
+  {
+   "i": 51,
+   "text": "Variable. A breathing star. One of Leavitt's candles.",
+   "start": 383.218,
+   "dur": 3.545,
+   "sfx": []
+  },
+  {
+   "i": 52,
+   "text": "Its beat told him how bright it truly was. And its faintness told him how far: far, far outside our own galaxy.",
+   "start": 387.463,
+   "dur": 7.797,
+   "sfx": []
+  },
+  {
+   "i": 53,
+   "text": "Andromeda was not a cloud among our stars. It was a galaxy of its own. And it was not alone.",
+   "start": 395.96,
+   "dur": 6.454,
+   "sfx": []
+  },
+  {
+   "i": 54,
+   "text": "Clue four: galaxies that run.",
+   "start": 403.914,
+   "dur": 2.077,
+   "sfx": []
+  },
+  {
+   "i": 55,
+   "text": "Spread a galaxy's light into a rainbow, and dark lines appear in it. In most galaxies, those lines had shifted toward the red.",
+   "start": 406.691,
+   "dur": 8.491,
+   "sfx": []
+  },
+  {
+   "i": 56,
+   "text": "A red shift means the source is moving away, like the whistle of a train that drops as it leaves.",
+   "start": 415.882,
+   "dur": 6.374,
+   "sfx": [
+    {
+     "at": 0.4,
+     "file": "public/sfx/machine_chime_1.wav",
+     "db": -28
+    }
+   ]
+  },
+  {
+   "i": 57,
+   "text": "So why was nearly every galaxy running from us, and from each other? Picture raisins in a rising loaf.",
+   "start": 422.955,
+   "dur": 6.86,
+   "sfx": []
+  },
+  {
+   "i": 58,
+   "text": "In 1927, a Belgian priest and physicist, Georges Lema\u00eetre, had worked out what this meant: the universe is expanding.",
+   "start": 430.516,
+   "dur": 9.389,
+   "sfx": []
+  },
+  {
+   "i": 59,
+   "text": "In 1929, Hubble set his distances beside the speeds. The farther the galaxy, the faster it was moving away.",
+   "start": 440.605,
+   "dur": 8.521,
+   "sfx": []
+  },
+  {
+   "i": 60,
+   "text": "Think about what had happened.",
+   "start": 450.026,
+   "dur": 1.566,
+   "sfx": []
+  },
+  {
+   "i": 61,
+   "text": "People set out to measure how far away the stars are\u2026 and found that the universe is growing, and has a history.",
+   "start": 452.492,
+   "dur": 6.828,
+   "sfx": [
+    {
+     "at": 1.4,
+     "file": "public/sfx/motion_reverse_cymbal_1.wav",
+     "db": -28
+    }
+   ]
+  },
+  {
+   "i": 62,
+   "text": "Run the film backwards, and everything was once closer together, all the way back to a beginning.",
+   "start": 460.22,
+   "dur": 5.692,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/motion_riser_3s.wav",
+     "db": -28
+    }
+   ]
+  },
+  {
+   "i": 63,
+   "text": "And Bessel's trick never went away. A space telescope called Gaia has now measured the wobble of nearly one and a half billion stars.",
+   "start": 466.811,
+   "dur": 8.888,
+   "sfx": []
+  },
+  {
+   "i": 64,
+   "text": "Each one, a tiny tick of parallax: the same jump as your thumb.",
+   "start": 476.6,
+   "dur": 4.182,
+   "sfx": [
+    {
+     "at": 0,
+     "file": "public/sfx/phase_hologram_1.wav",
+     "db": -30
+    }
+   ]
+  },
+  {
+   "i": 65,
+   "text": "So, how far away are the stars?",
+   "start": 481.481,
+   "dur": 2.129,
+   "sfx": []
+  },
+  {
+   "i": 66,
+   "text": "The nearest, a few light-years away: close enough for their wobble to give them away.",
+   "start": 484.31,
+   "dur": 4.959,
+   "sfx": []
+  },
+  {
+   "i": 67,
+   "text": "Farther ones, by the beat of their breathing stars. And the galaxies, farther than anyone had dared to imagine\u2026 and still drifting apart.",
+   "start": 489.969,
+   "dur": 9.054,
+   "sfx": []
+  },
+  {
+   "i": 68,
+   "text": "None of them ever left the Earth.",
+   "start": 499.924,
+   "dur": 1.917,
+   "sfx": []
+  },
+  {
+   "i": 69,
+   "text": "They measured the universe from a dome, a desk and a pile of glass plates.",
+   "start": 502.741,
+   "dur": 4.552,
+   "sfx": []
+  },
+  {
+   "i": 70,
+   "text": "And every distance out there still rests on that first small step: a wobble, seen from here.",
+   "start": 508.193,
+   "dur": 5.442,
+   "sfx": []
+  },
+  {
+   "i": 71,
+   "text": "So hold up your thumb tonight, and blink. That little jump is how we learned the size of the sky.",
+   "start": 514.536,
+   "dur": 5.927,
+   "sfx": [
+    {
+     "at": 0.3,
+     "file": "public/sfx/blip_click_1.wav",
+     "db": -26
+    },
+    {
+     "at": 1.5,
+     "file": "public/sfx/blip_click_2.wav",
+     "db": -26
+    }
+   ]
+  }
+ ]
+}

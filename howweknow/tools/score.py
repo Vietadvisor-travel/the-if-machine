@@ -20,7 +20,7 @@ SECTION = {'OPEN': 'mystery', 'HOOK': 'mystery', 'COLD': 'mystery', 'STAKES': 'm
 WIN = 8.0
 MAXPART = 120     # s: chapters with the same mood share a cue only up to this long
 MINPART = 60      # s: no music part shorter than this (owner: "nhạc chèn lung tung quá")
-BLOCK = {'tension_sneaky_snitch'}   # comic pizzicato despite its tag — wrong for FATHOM's mysterious score
+BLOCK = {'tension_sneaky_snitch', 'study_and_relax'}   # + FreePD 'Study and Relax': a YouTube Content ID claim on empty-atom (Muse, 17 Nov 2026)   # comic pizzicato despite its tag — wrong for FATHOM's mysterious score
 LEAN = .45        # every mood target leans this far toward 'mystery' (owner: "ưu tiên nhạc kiểu bí ẩn")
 LEVEL = {'mystery': -15, 'awe': -15, 'tension': -15, 'wonder': -15.5, 'triumph': -14.5, 'sad': -16,   # dB per part — owner 17 Nov: "nhỏ hơn ~30 %",
          'warm': -16.5, 'curious': -17, 'calm': -17, 'playful': -17}                                   # then "vẫn to quá, nhỏ đi 30 % nữa" (−3 dB twice vs -9)

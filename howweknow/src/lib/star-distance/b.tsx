@@ -20,7 +20,7 @@ const MilkyWayBand: React.FC<{ x?: N; y?: N; draw?: N; rot?: N; w?: N; glow?: N;
 
 // ================================================================ A HARVARD GLASS PLATE — 8 × 10 inches of glass with the sky printed as black dots (a negative),
 // a paper label in the corner; frame 0..1 = the wooden holder; neg 0..1 = the stars printed in.
-const GlassPlateSky: React.FC<{ x?: N; y?: N; w?: N; h?: N; draw?: N; neg?: N; frame?: N; rot?: N; seed?: N; label?: string; cloud?: N }> = ({ x = 960, y = 540, w = 640, h = 520, draw = 1, neg = 1, frame = 1, rot = 0, seed = 8, label = 'A 4672', cloud = 0 }) => {
+const GlassPlateSky: React.FC<{ x?: N; y?: N; w?: N; h?: N; draw?: N; neg?: N; frame?: N; rot?: N; seed?: N; label?: string; cloud?: N; vr?: N; vx?: N; vy?: N; ring?: N }> = ({ x = 960, y = 540, w = 640, h = 520, draw = 1, neg = 1, frame = 1, rot = 0, seed = 8, label = 'A 4672', cloud = 0, vr = 0, vx = .6, vy = .4, ring = 0 }) => {
   const st = useMemo(() => starField(seed, 420, 0, 0, 1, 1, 3), [seed]), x0 = x - w / 2, y0 = y - h / 2;
   return <g transform={rot ? `rotate(${rot} ${x} ${y})` : undefined} opacity={Math.min(1, draw * 1.3)}>
     <rect x={x0 + 14} y={y0 + 18} width={w} height={h} fill="#000" opacity={.25} filter="url(#b8)" />
@@ -29,6 +29,8 @@ const GlassPlateSky: React.FC<{ x?: N; y?: N; w?: N; h?: N; draw?: N; neg?: N; f
     <rect x={x0 + 6} y={y0 + 6} width={w - 12} height={h - 12} fill="none" stroke="#9CCAD6" strokeWidth={2} opacity={.5} />
     {cloud > 0 && <g opacity={cloud}><ellipse cx={x0 + w * .38} cy={y0 + h * .55} rx={w * .22} ry={h * .14} fill="#2B1D12" opacity={.18} filter="url(#b30)" /><ellipse cx={x0 + w * .72} cy={y0 + h * .3} rx={w * .1} ry={h * .07} fill="#2B1D12" opacity={.14} filter="url(#b30)" /></g>}
     {st.map(([u, v, r], i) => <circle key={i} cx={x0 + 8 + u * (w - 16)} cy={y0 + 8 + v * (h - 16)} r={r * .9} fill="#1A120B" opacity={neg * (.6 + rnd(i) * .4)} />)}
+    {vr > 0 && <circle cx={x0 + vx * w} cy={y0 + vy * h} r={vr} fill="#1A120B" />}
+    {ring > 0 && <path d={ell(x0 + vx * w, y0 + vy * h, 26, 26)} fill="none" stroke="#B8432A" strokeWidth={3} opacity={ring} />}
     <rect x={x0 + 16} y={y0 + 14} width={120} height={36} fill="#FBF4E2" stroke={SEP} strokeWidth={.8} />
     <Hand x={x0 + 76} y={y0 + 40} s={22} t={label} />
     <path d={`M${x0 + w * .6} ${y0} L${x0 + w * .75} ${y0} L${x0 + w * .35} ${y0 + h} L${x0 + w * .2} ${y0 + h}Z`} fill="#FFFDF4" opacity={.14} />
@@ -91,7 +93,7 @@ const HarvardPlateRoom: React.FC<{ x?: N; y?: N; s?: N; draw?: N; dusk?: N; lamp
 
 // ================================================================ BREATHING STARS IN THE LOUPE — Leavitt's lens on a plate (black dots on glass): three of the dots
 // SWELL and FADE, each with its own period (the brightest the slowest); t = seconds (key it linearly), sort 0..1 lines them up by brightness.
-const BreathingField: React.FC<{ x?: N; y?: N; r?: N; draw?: N; t?: N; sort?: N; cloud?: N; marks?: N; neg?: N }> = ({ x = 960, y = 540, r = 380, draw = 1, t = 0, sort = 0, cloud = 1, marks = 1, neg = 1 }) => {
+const BreathingField: React.FC<{ x?: N; y?: N; r?: N; draw?: N; ph?: N; sort?: N; cloud?: N; marks?: N; neg?: N }> = ({ x = 960, y = 540, r = 380, draw = 1, ph: t = 0, sort = 0, cloud = 1, marks = 1, neg = 1 }) => {
   const st = useMemo(() => starField(61, 340, -1, -1, 2, 2, 2.4), []), id = 'brf' + Math.round(x);
   const V: [N, N, N, N][] = [[-.42, .24, 7.5, 1.4], [.1, -.3, 11, 2.6], [.4, .3, 15, 4.2]];   // [u, v, size at max, period s]
   const rowX = [-.5, 0, .5];
@@ -138,7 +140,7 @@ const LeavittGraph: React.FC<{ x?: N; y?: N; w?: N; h?: N; draw?: N; pts?: N; li
 
 // ================================================================ THE RULER OF LIGHT — a bar of gold light marked in beats, a breathing star at its head; len 0..1 = how
 // far it is laid out from (x, y) toward angle `ang`.
-const LightRuler: React.FC<{ x?: N; y?: N; L?: N; ang?: N; draw?: N; len?: N; t?: N; star?: N; ticks?: N }> = ({ x = 300, y = 600, L = 1300, ang = -10, draw = 1, len = 1, t = 0, star = 1, ticks = 24 }) => {
+const LightRuler: React.FC<{ x?: N; y?: N; L?: N; ang?: N; draw?: N; len?: N; ph?: N; star?: N; ticks?: N }> = ({ x = 300, y = 600, L = 1300, ang = -10, draw = 1, len = 1, ph: t = 0, star = 1, ticks = 24 }) => {
   const b = .55 + .45 * Math.sin(t * Math.PI * 2 / 2.4);
   return <g opacity={draw} transform={`rotate(${ang} ${x} ${y})`}>
     <rect x={x} y={y - 16} width={L * len} height={32} rx={6} fill="#F7E3A0" opacity={.3} filter="url(#b8)" />

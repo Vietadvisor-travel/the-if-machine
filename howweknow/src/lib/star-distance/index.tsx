@@ -48,6 +48,7 @@ export const ART: Record<string, React.FC<any>> = {
   HubbleDiagram: C.HubbleDiagram,
   GaiaProbe: C.GaiaProbe,
   TickSky: C.TickSky,
+  PenHand: C.PenHand,
 };
 export const COSTUMES: Record<string, object> = {
   bessel1838: { coat: .3, mat: 'night', t: .78, flare: .05, leg: 'stone', legT: .68, shoe: 'boot', neck: 'cravat', hat: 'none', hair: 'short', sleeve: 1.08, vest: 'cloth' },
@@ -68,5 +69,5 @@ export const SAMPLE: Record<string, object> = {
   MilkyWayBand: {}, GlassPlateSky: { cloud: 1 }, HarvardPlateRoom: { s: .85 }, BreathingField: { t: .6 }, LeavittGraph: { pts: 1, line: 1 }, LightRuler: { len: .8, t: .5 }, CandleRoad: { far: .35 },
   SpiralNebula: { night: 1, q: .3 }, DebateHall: { s: .85 }, HookerDome: { mode: 'out', open: .8 }, LightTable: { s: .85, n: 1, strike: 1, v: 4, date: 1 }, AndromedaEngraving: { beat: 1, t: .5, ring: 1 },
   GalaxyStorm: { mw: .2, ring: 1 }, SpectrumStrip: { shift: .6 }, TrainWhistle: { pos: .55 }, RisingLoaf: { rise: .6 }, LemaitreDesk: { s: .85 }, HubbleDiagram: {},
-  GaiaProbe: { spin: 20, sweep: .5 }, TickSky: { fly: .2 },
+  GaiaProbe: { spin: 20 }, TickSky: { fly: .2 }, PenHand: { s: 1.4 },
 };

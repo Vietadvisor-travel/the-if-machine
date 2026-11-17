@@ -265,6 +265,7 @@ export const Mark: React.FC<{ kind?: string; box: number[]; k?: N; col?: string;
     bracket: `M${x + 14} ${y} L${x} ${y + 6} L${x} ${y + bh - 6} L${x + 14} ${y + bh}`,
   };
   const d = P[kind] || P.circle, kk = Math.max(0, Math.min(1, k));
+  if (kk <= .001) return null;   // a zero-length dash with round caps would print stray dots
   return <g style={{ mixBlendMode: 'multiply' }}><path d={d} fill="none" stroke={col} strokeWidth={w} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={`${kk} 1`} opacity={.92} />
     <path d={d} fill="none" stroke={col} strokeWidth={w * .45} strokeLinecap="round" pathLength={1} strokeDasharray={`${kk} 1`} opacity={.5} transform="translate(1.5 -1)" /></g>;
 };
