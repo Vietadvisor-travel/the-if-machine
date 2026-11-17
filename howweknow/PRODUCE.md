@@ -68,6 +68,8 @@ Drive link · length · what is new in this film (2–3 ideas) · gates · anyth
 - **Safety, all automatic:** no runner starts within 10 min → all here · a runner fails (`.fail`) or is too slow → that chunk here ·
   every returned chunk: frame count + one frame re-rendered here and measured (`quality`: overall ≥ 45 dB and worst 64×64 detail
   ≥ 32 dB — owner: overall + detail OK, not pixel-exact) → a miss → every farm chunk dropped, the whole film renders here · any error in farm.py → the plain local render.
+- Full-film test 17 Nov (empty-atom, 16,048 frames, 20 chunks): all 20 back in 14.9 min (local: 1 h 50 min), every check frame
+  identical except one at 107 dB, joined to the exact frame count. Expect ≈ 15 min + ≈ 3 min packing/joining per film.
 - Measured 17 Nov: footage-free chunks are bit-identical to local renders; footage frames differ a hair (49–52 dB overall, ≥ 36 dB
   worst detail) — inside the gate, so footage chunks farm too (`FARM_FOOTAGE_LOCAL=1` keeps them here).
 - Never edit `src/` while a farm run is in flight (the runners and the local pass must render the same bundle).
