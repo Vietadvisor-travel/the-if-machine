@@ -547,7 +547,7 @@ E['world'] = W
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
 TLP = os.path.join(H, 'timeline.json'); LN = json.load(open(TLP))['lines'] if os.path.exists(TLP) else None
 if LN and len(LN) != len(E['lines']): LN = None
-E['thumb'] = {'t': 1, 'title': 'It came *back.*', 'kicker': 'Manchester · 1909', 'note': '1 in 8,000'}   # drawn: src/lib/empty-atom/thumb.tsx
+E['thumb'] = {'t': 1, 'title': "What's inside an atom?", 'v': 'S', 'kicker': 'Manchester · 1909', 'lines': ["WHAT'S", 'INSIDE', 'AN ATOM?'], 'accent': 1, 'note': '1 in 8,000 came back.'}   # the standard poster (kit/ThumbPoster) + this film's hero: src/lib/empty-atom/thumb_more.tsx Standard
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
 if LN:
     T = json.load(open(TLP))

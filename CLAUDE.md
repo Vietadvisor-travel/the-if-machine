@@ -55,8 +55,9 @@ Setup once per container: `bash setup.sh && bash howweknow/tools/setup.sh` (≈ 
 - Run each film end to end without stopping; talk to the owner only at the start and in the final report; stop early only for blockers
   only he can fix (keys, credentials, Muse's kit missing), saying exactly what is missing. Every background job gets a watchdog (`send_later`);
   wait on a PID, never `pgrep -f` on a pattern your own command contains.
-- Thumbnail: DESIGNED for each film, not cut from it (owner 17 Nov 2026: "wow hơn, chất hơn… như thumbnail thật sự") —
-  `src/lib/<slug>/thumb.tsx` (`PRODUCE.md` "Thumbnail"); deliver master + thumb + .srt.
+- Thumbnail: DESIGNED for each film on the standard poster (owner 17 Nov 2026, design F): lamp-lit engraved scene in the channel's
+  pigments, the film's hero object right, its BIG QUESTION in gold Special Elite left, kicker + one handwritten line (`PRODUCE.md` "Thumbnail",
+  `src/kit/ThumbPoster.tsx`); deliver master + thumb + .srt.
 - Drive: masters (CRF 17) to `fathom/<slug>/` via `tools/make.sh --ship`; never squeeze below 30 MB.
 
 ## Git

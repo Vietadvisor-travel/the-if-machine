@@ -72,11 +72,15 @@ Drive link · length · what is new in this film (2–3 ideas) · gates · anyth
   worst detail) — inside the gate, so footage chunks farm too (`FARM_FOOTAGE_LOCAL=1` keeps them here).
 - Never edit `src/` while a farm run is in flight (the runners and the local pass must render the same bundle).
 
-## Thumbnail (owner 17 Nov 2026: "wow hơn, chất hơn nữa, bố cục và visual như thumbnail thật sự, không nhất thiết cắt từ tập ra")
-Every film DRAWS its thumbnail: `src/lib/<slug>/thumb.tsx` exports `THUMB` (1280×720; re-exported from the lib's index.tsx);
-`episode.json` `thumb` carries its words ({title with one *accent* word, kicker, note}). Rules: ONE idea a stranger gets in a second
-(the film's governing image at poster scale, lit for drama), ≤ 4 title words, the house faces (title IM Fell French Canon SC, kicker
-IM Fell English SC, hand La Belle Aurore, numbers Special Elite), one hot accent colour against the engraving's gold and sepia, the
-FATHOM mark small; every word and number true and from the research pack; no faces of real people drawn as photos. Check it at 168 px.
-Sample: `src/lib/empty-atom/thumb.tsx` ("It came back." — the one red track thrown back out of a vast, empty gold atom).
-
+## Thumbnail — the standard (owner 17 Nov 2026: chose design F, then "title thể hiện nội dung chính, nền ấn tượng hơn… quy chuẩn lại")
+Every film draws its thumbnail with `src/kit/ThumbPoster.tsx` and its OWN hero, in `src/lib/<slug>/thumb.tsx` (`THUMB`, re-exported from the
+lib's index.tsx); `episode.json` `thumb` = {v: 'S', kicker, lines, accent, note}. The poster, always:
+- **Scene:** a lamp-lit, engraved dark interior in the channel's pigments only (sepia, gold leaf, cream, vermilion, indigo — STYLE.md §2):
+  lamp glow + light shafts + hatching + motes + vignette; the film's own furniture behind (`back`: shelves, a lamp, a bench, a map wall…).
+- **Hero, right ≈ 55 %:** the film's governing object, drawn big in brass/gold leaf with a hard drop shadow, holding the story's key
+  moment inside it — and ONE vermilion ink ring on the thing that matters.
+- **Title, left:** the film's BIG QUESTION (the channel's promise: how we came to know), ≤ 4 words on 2–3 lines, Special Elite in gold leaf
+  with a heavy dark outline; one line (the key word) in cream and bigger (`accent`).
+- **Kicker** above: place · year (IM Fell English SC, gold). **Note** below: ONE handwritten line (La Belle Aurore) with the twist or number.
+- Every word and number from the research pack. Check it at 168 px wide. FATHOM mark bottom right.
+Sample: `src/lib/empty-atom/thumb_more.tsx` `Standard` ("WHAT'S INSIDE AN ATOM?" + the brass eyepiece, one flash on the wrong side).

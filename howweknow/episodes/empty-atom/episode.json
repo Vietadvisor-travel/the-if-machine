@@ -77,9 +77,16 @@
  ],
  "thumb": {
   "t": 1,
-  "title": "It came *back.*",
+  "title": "What's inside an atom?",
+  "v": "S",
   "kicker": "Manchester · 1909",
-  "note": "1 in 8,000"
+  "lines": [
+   "WHAT'S",
+   "INSIDE",
+   "AN ATOM?"
+  ],
+  "accent": 1,
+  "note": "1 in 8,000 came back."
  },
  "lines": [
   {
