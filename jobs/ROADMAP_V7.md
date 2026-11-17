@@ -2,7 +2,9 @@
 DONE: v6 look (engraving pass, grade, grain/weave, DOF, shake) · light & depth entities · faces with expressions · acting poses ·
 Mark (ink annotation) · Etch (antique engraving layers) + tools/etch.py · director's treatment + gate · CINEMA.md · STORY §1b openings ·
 skills fathom-director / cinematographer / engraver / critic · keyframes gate · render farm · thumbnails 16:9 + 9:16 · samples v6-demo, v7-demo.
-NEXT (do these in the first new film, each proven in that film, then added to FX.md + fx-reel):
+DONE in the final v7 pass (17 Nov, evening): close-up five-finger hands with grips (1, partly: front/3-4 heads and cloth folds still to do) ·
+camera dolly through layered sets (2) · transition helpers match_iris / ink_bleed / page_turn / scale_dive (3) · bignum (4) · tools/sfx_auto.py (5).
+NEXT (prove each in the first new film, then FX.md + fx-reel):
 1. Character drawing upgrade: a new Person rig v7 — 3/4 and front heads, real hands (5 fingers, grips: knob, pen, glass), cloth folds,
    ages; walk / turn-head / gesture cycles. The biggest single lift after the engraving pass.
 2. Multiplane flythrough: foreground objects (`para` ≥ .8, `defocus`) that pass the lens; a camera that travels THROUGH a set (dolly), not only pushes.

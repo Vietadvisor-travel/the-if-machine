@@ -56,6 +56,8 @@ says, never one transition type repeated. Inside a scene something must keep hap
 The generic motion pass in world.py (inside-earth is the model) only handles the small leftovers (labels fall out of focus, things bleed away).
 Then `python3 lines.py` → `python3 tools/script_check.py episodes/<slug>` · `python3 tools/check_world.py episodes/<slug>` · `python3 tools/variety.py episodes/<slug>` — all PASS.
 
+After world.py: `python3 tools/sfx_auto.py episodes/<slug>` (sound on the frame, v7).
+
 ## 4. Voice, stills, render
 1. `python3 tools/vo.py episodes/<slug>` (real timing) → stills of ~15 key moments: `npx remotion render Story out/f --props='{"slug":"<slug>"}' --frames=a,b,… --sequence --image-format=jpeg`;
    look, fix, repeat (cheap). Cover the opening, every clue title, every real-stock reveal, the twist, the end.

@@ -7,7 +7,7 @@ import { Region, Ink, Line, SEP, PIG, tone } from './paint';
 
 type N = number; type Pt = [N, N];
 const D = Math.PI / 180;
-export type Pose = { armF: [N, N]; armB: [N, N]; legF: [N, N]; legB: [N, N]; nod: N; lean: N; sit: N; hand: 'fist' | 'open' | 'point' };
+export type Pose = { armF: [N, N]; armB: [N, N]; legF: [N, N]; legB: [N, N]; nod: N; lean: N; sit: N; hand: 'fist' | 'open' | 'point' | 'grip' | 'flat' };
 export const POSES: Record<string, Pose> = {
   stand: { armF: [8, 14], armB: [-6, 10], legF: [4, 3], legB: [-4, 3], nod: 0, lean: 0, sit: 0, hand: 'fist' },
   point: { armF: [96, 6], armB: [-4, 12], legF: [6, 2], legB: [-5, 3], nod: -4, lean: 2, sit: 0, hand: 'point' },
@@ -21,7 +21,7 @@ export const POSES: Record<string, Pose> = {
   sitlook: { armF: [62, 118], armB: [34, 104], legF: [88, 86], legB: [80, 82], nod: -8, lean: 4, sit: 1, hand: 'fist' },
   // v7 ACTING (owner 17 Nov 2026: "điện ảnh… toàn diện"): poses that carry a feeling or a deed; glide between them with pose → pose2 + pk
   sitpeer: { armF: [70, 122], armB: [40, 112], legF: [88, 86], legB: [80, 82], nod: -2, lean: 16, sit: 1, hand: 'fist' },        // leaning right into the eyepiece
-  sitadjust: { armF: [82, 36], armB: [36, 106], legF: [88, 86], legB: [80, 82], nod: -4, lean: 12, sit: 1, hand: 'point' },     // one hand on a knob, eye still at the glass
+  sitadjust: { armF: [82, 36], armB: [36, 106], legF: [88, 86], legB: [80, 82], nod: -4, lean: 12, sit: 1, hand: 'grip' },     // one hand on a knob, eye still at the glass
   sitstartle: { armF: [40, 128], armB: [30, 118], legF: [84, 80], legB: [76, 78], nod: -16, lean: -10, sit: 1, hand: 'open' },  // pulls back from what he saw
   headhands: { armF: [40, 150], armB: [36, 150], legF: [88, 86], legB: [80, 82], nod: 24, lean: 14, sit: 1, hand: 'open' },     // exhausted / despairing, head in hands
   startle: { armF: [70, 100], armB: [60, 100], legF: [10, 2], legB: [-10, 3], nod: -14, lean: -8, sit: 0, hand: 'open' },
@@ -101,6 +101,24 @@ export const Person: React.FC<PersonP> = (pp) => {
       {C.stock && <Line d={`M${f1(kn[0] - .03 * u)} ${f1(kn[1] + .02 * u)} L${f1(kn[0] + .03 * u)} ${f1(kn[1] + .02 * u)}`} w={inkW * 1.5} a={draw} col={SEP} />}</>}
       {shoe(an, back)}</g>; };
   const hand = (wr: Pt, el: Pt, kind: string, back: boolean) => { const a = angOf(el, wr), r = .02 * u, c = Math.cos(a * D), s = Math.sin(a * D), at = (l: N, w: N): Pt => [wr[0] + c * l * u - s * w * u, wr[1] + s * l * u + c * w * u];
+    if (u >= 452 && !C.suit) {   // v7 CLOSE-UP HAND (owner 17 Nov 2026): five fingers in two joints, knuckles, nails; grips that hold things
+      const curl: Record<string, number[]> = { open: [0, 0, 0, 0, .1], flat: [0, 0, 0, 0, 0], point: [0, 1, 1, 1, .6], fist: [1, 1, 1, 1, 1], grip: [.55, .9, 1, 1, .5] };
+      const cu = curl[kind] || curl.fist, spread = kind === 'open' ? 1 : kind === 'flat' ? .3 : .15, tone2 = sk + (back ? .12 : 0);
+      const dirAt = (deg: N) => [Math.cos((a + deg) * D), Math.sin((a + deg) * D)];
+      const seg = (p0: Pt, deg: N, len: N, w0: N, w1: N, key: string) => { const d = dirAt(deg), p1: Pt = [p0[0] + d[0] * len * u, p0[1] + d[1] * len * u];
+        return { p1, el: <Region key={key} d={cap(p0, p1, w0 * u, w1 * u)} mat={skinMat} t={tone2} ang={a + deg} draw={draw} sw={inkW * .7} rim={false} hatch={0} /> }; };
+      const els: React.ReactNode[] = [<Region key="palm" d={cap(at(.002, 0), at(.036, 0), r * 1.05, r * .95)} mat={skinMat} t={tone2} ang={a} draw={draw} sw={inkW * .85} rim={false} hatch={0} />];
+      [[-.013, .021], [-.0045, .025], [.0045, .024], [.013, .019]].forEach(([w, len], i) => {
+        const base = at(.034, w), sp = (i - 1.5) * 7 * spread, k = cu[i], bend = 95 * k * f;
+        const s1 = seg(base, sp + bend * .45, len * .55, .0058, .0052, 'f' + i + 'a'), s2 = seg(s1.p1, sp + bend * 1.05, len * .5 * (1 - .25 * k), .0052, .0042, 'f' + i + 'b');
+        els.push(s1.el, s2.el);
+        if (k < .5) { const d = dirAt(sp + bend), tip = s2.p1; els.push(<path key={'n' + i} d={`M${f1(tip[0] - d[0] * .006 * u)} ${f1(tip[1] - d[1] * .006 * u)} l${f1(d[0] * .004 * u)} ${f1(d[1] * .004 * u)}`} stroke={SEP} strokeWidth={inkW * .35} opacity={.5 * draw} />); }
+        els.push(<circle key={'k' + i} cx={base[0]} cy={base[1]} r={.0022 * u} fill={SEP} opacity={.25 * draw} />);
+      });
+      const tb = at(.008, -.017 * f), t1 = seg(tb, -42 * f + cu[4] * 38 * f, .02, .0068, .006, 'ta'), t2 = seg(t1.p1, -30 * f + cu[4] * 70 * f, .016, .006, .0048, 'tb');
+      els.push(t1.el, t2.el);
+      return <g key={'hd' + back}>{els}</g>;
+    }
     const palm = cap(at(.004, 0), at(kind === 'open' ? .045 : .03, 0), r * .95, r * (kind === 'open' ? .8 : .9)), th = cap(at(.01, -.016 * f), at(.032, -.024 * f), r * .36, r * .28);
     return <g key={'hd' + back}><Region d={palm} mat={C.suit ? 'regolith' : skinMat} t={C.suit ? .35 : sk + (back ? .12 : 0)} ang={a} draw={draw} sw={inkW * .9} rim={false} hatch={0} />
       <Region d={th} mat={C.suit ? 'regolith' : skinMat} t={C.suit ? .35 : sk + .05} ang={a} draw={draw} sw={inkW * .8} rim={false} hatch={0} />

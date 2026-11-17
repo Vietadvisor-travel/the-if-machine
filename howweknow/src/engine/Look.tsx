@@ -9,7 +9,7 @@
 import React from 'react';
 import { AbsoluteFill, Img, staticFile } from 'remotion';
 
-export const LOOK_DEF = { engrave: .8, warm: 0, sat: 1, con: 1, expo: 1, grain: .35, weave: .7, flick: .25, dof: 0, focus: 0, shake: 0 };
+export const LOOK_DEF = { engrave: .8, warm: 0, sat: 1, con: 1, expo: 1, grain: .35, weave: .7, flick: .25, dof: 0, focus: 0, shake: 0, dolly: 0 };
 export type LookS = typeof LOOK_DEF;
 export const lookOf = (cam: Record<string, any> | undefined, v6: boolean): LookS | null => {
   if (!v6) return null; const o: any = { ...LOOK_DEF };
@@ -63,3 +63,11 @@ export const LookOver: React.FC<{ L: LookS; f: number }> = ({ L, f }) => <>
     transform: `translate(${Math.round(hash(f) * 40 - 20)}px, ${Math.round(hash(f + 3) * 40 - 20)}px) scale(1.05)` }} />}
 </>;
 export const blurOf = (L: LookS | null, para: number) => L && L.dof > 0 ? Math.min(14, L.dof * Math.abs(para - L.focus)) : 0;
+
+// v7 DOLLY — the camera TRAVELS INTO the set (not a zoom): every layer grows by its own perspective, near layers (high `para`) far faster
+// than far ones, and a layer that passes the lens (scale > 3) fades away as the camera goes through it. dolly 0 = resting, 1 = deep in.
+export const dollyOf = (L: LookS | null, para: number): [number, number] => {
+  if (!L || !L.dolly) return [1, 1];
+  const w = Math.max(0, Math.min(.96, (para + 1) / 2.4)), sc = 1 / Math.max(.04, 1 - L.dolly * w);
+  return [sc, sc > 3 ? Math.max(0, 1 - (sc - 3) / 2) : 1];
+};

@@ -13,7 +13,7 @@ import { Captions } from '../kit/Caption';
 import { ClueTag } from '../kit/ClueTag';
 import { Brand } from '../kit/Brand';
 import { LIGHT6_TYPES } from './Light6';
-import { lookOf, EngraveOver, gradeFilter, weaveT, shakeOf, LookOver, blurOf } from './Look';
+import { lookOf, EngraveOver, gradeFilter, weaveT, shakeOf, LookOver, blurOf, dollyOf } from './Look';
 
 export type StoryProps = { slug: string; ep?: { world: Entity[]; captions?: boolean; engine?: number }; tl?: TL; at?: number; nocap?: boolean; look?: number; lookcfg?: Record<string, number> };   // look: 6 = force the v6 look (demos)   // at/nocap: a still of the world at time `at` without captions/brand (thumbnail)
 export const storyMeta: CalculateMetadataFunction<StoryProps> = async ({ props }) => {
@@ -52,7 +52,8 @@ export const Story: React.FC<StoryProps> = ({ ep, tl, at, nocap, look, lookcfg }
   if (Lk) {   // ENGINE v6 (Look.tsx): engraving pass + grade + projector + depth of field + shake; v5 films never reach this branch
     const [sx, sy, sr] = shakeOf(Lk, t); L.dx += sx; L.dy += sy; L.r += sr;
     const moving = true, wrap = (e: Entity, st: Record<string, any>, body: React.ReactNode) => { const d = st.para ?? depthOf(e, st), b = st.defocus ?? blurOf(Lk, d);
-      return <AbsoluteFill key={e.id} style={{ transform: lifeT(L, d), filter: b > .3 ? `blur(${b.toFixed(1)}px)` : undefined }}>{body}</AbsoluteFill>; };
+      const [ds, da] = dollyOf(Lk, d); if (da <= 0) return null;
+      return <AbsoluteFill key={e.id} style={{ transform: lifeT(L, d) + (ds !== 1 ? ` scale(${ds.toFixed(4)})` : ''), opacity: da < 1 ? da : undefined, filter: b > .3 ? `blur(${b.toFixed(1)}px)` : undefined }}>{body}</AbsoluteFill>; };
     const map6 = (d: number) => { const kk = 1 + d, sc = (1.035 + L.sc * kk) * (1 + (L.push - 1) * Math.max(0, kk)), tx = (L.dx + L.px) * kk, ty = (L.dy + L.py) * kk;
       return { sc, pt: (p: [number, number]): [number, number] => [960 + (p[0] - 960) * sc + tx, 540 + (p[1] - 540) * sc + ty] }; };
     const draw = (want: (e: Entity) => boolean) => layers.filter(({ e }) => want(e)).map(({ e }, i) => { const st = S[e.id];

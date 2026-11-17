@@ -114,3 +114,17 @@ A film is v6 when `episode.json` has `"engine": 6` (world.py: `E['engine'] = 6`)
 - **Keyframes first**: `python3 tools/keyframes.py <slug>` — 3 frames at final quality before the film is built out (CREATIVE.md §4b).
 - Cost (measured 17 Nov 2026, 90 frames, 4 cores): v5 25 s · v6 ≈ 2×. The farm absorbs it (≈ 25–30 min per film).
 - Demo: `episodes/v6-demo/build.py` (the atom film's opening re-shot with v6 only — nothing redrawn).
+
+## ENGINE v7 — cinema tools (owner 17 Nov 2026: "nâng cấp bản final đỉnh cao nhất")
+- **Dolly** (camera `dolly` 0..1, `tools/v6.py dolly()`): the camera travels INTO the set — each layer grows by its own perspective
+  (near `para` fastest), a layer that passes the lens fades away. Build sets in planes (far −.5 … near 1) so the move has depth.
+- **Close-up hands** (people.tsx, h ≥ 452 px): five fingers in two joints, knuckles, nails, thumb; hand kinds fist · open · point ·
+  grip (holds a knob/pen) · flat (on a table). Acting poses: sitpeer · sitadjust · sitstartle · headhands · startle · explain · reach.
+- **Etch** (art): public-domain engraving layers (`tools/etch.py`, ink multiplies onto our paper, `colour`/`tint` washes, `draw`/`from`).
+- **Mark** (art): vermilion ink annotations drawn on — circle · underline · arrow · box · cross · bracket.
+- **Transition helpers** (`tools/v6.py`): `match_iris` (the next scene opens inside the motif's circle) · `ink_bleed` (spreads from a
+  point) · `page_turn` · `scale_dive` (dive into a detail) · `bignum` (a giant figure the camera flies through, with `dolly`).
+- **Sound on the frame**: `tools/sfx_auto.py episodes/<slug>` places quiet signature sounds on flashes, marks, shakes, stamps, sheens and
+  dollies (≤ 4 per line, held-breath lines `hold: true` stay silent).
+- **Direction**: CINEMA.md (§0 the chain of transformations — the heart; §1 the treatment; §2 shot grammar; §3 acting; §4 material;
+  §4b ONE STYLE; §5 sound; §6 the bar) · skills fathom-director / cinematographer / engraver / critic · `tools/treatment_check.py`.

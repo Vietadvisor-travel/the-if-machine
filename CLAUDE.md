@@ -59,6 +59,8 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   written BEFORE lines.py — gate `tools/treatment_check.py`; lines tag `setpiece` and `motif`. Model: `jobs/scripts/empty-atom_treatment.md`.
 - Skills (load them): `fathom-director` (treatment) · `fathom-cinematographer` (shots, light, acting, grade in world.py) · `fathom-engraver`
   (public-domain antique engravings via `tools/etch.py`, cut to the house sepia ink, `Etch` layers) · `fathom-critic` (keyframes, animatic, ≥ 8 on every axis).
+- v7 tools: camera `dolly` through layered sets, close-up hands with grips, `Mark`, `Etch`, transition helpers (match_iris, ink_bleed,
+  page_turn, scale_dive, bignum in `tools/v6.py`), `tools/sfx_auto.py` (sound on the frame). ENGINE.md "ENGINE v7", FX.md §J.
 - Engravings from old books are allowed as raw material (owner: "nới… không vi phạm pháp luật"): public domain / CC0 only, recorded in
   `jobs/stock_pd/<slug>.md`, credited. ONE STYLE always (CINEMA §4b): sepia ink, house pigments as washes, cream paper, house type.
 

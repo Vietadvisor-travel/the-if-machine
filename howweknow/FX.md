@@ -135,3 +135,15 @@ Combine freely (a `swarm` that lands inside a `shape-window`); invent new ones �
 | `hand-held` | a nervous camera (`shake`) | …is tense, sudden, a surprise |
 | `grade` | the colour of the act changes (cold → warm) | …turns the story (a chapter, a discovery) |
 | `face` | the person's face changes: focus → surprise → awe (`expr`) | …is about what a person felt or saw |
+
+## J. ENGINE v7 (owner 17 Nov 2026) — travel, match, hands, sound
+| name | what you see | use it when the line… |
+|---|---|---|
+| `dolly` | the camera travels INTO the set; near things rush past and dissolve | …enters a place, goes deeper, finds the hidden thing |
+| `match-iris` | the next scene opens inside the motif's circle | …connects two ideas that share a shape (the film's motif) |
+| `ink-bleed` | the new picture spreads like ink in wet paper from a point | …starts from one thing (a drop, a flash, a word) |
+| `page-turn` | the old picture turns over like a page | …moves on in a book, a record, a history |
+| `scale-dive` | the camera dives into a detail until it is a world | …goes inside (the skin, the atom, the rock) |
+| `bignum` | a giant number in gold the camera flies through | …gives the one number that matters |
+| `grip-hand` | a close-up hand that really holds the knob, the pen, the glass | …is about the physical work of finding out |
+| `mark` | a vermilion ring/underline/arrow drawn by hand | …points at the one fact on a document or picture |
