@@ -76,3 +76,10 @@ Real whole-disc photos of Earth and Moon; Sun (SDO); planets; flat world maps (B
 and sea charts; star charts; sky and terrain photos; paper/ink/film textures; short real loops (clouds, sea, stars, candle, rain);
 SFX families for the style (quill, paper, page turn, brass, clockwork, sea, wind, chalk, lab hum, radio static, laser); 20 calm music
 beds (wonder, mystery, tension, warm). All with manifest rows.
+
+## Antique engravings (from 17 Nov 2026 — owner: old public-domain engravings may be used as raw material)
+For every film, besides the order's rows: 4–8 PUBLIC-DOMAIN engravings or plates (18th–19th c. books, journals, prints; Wikimedia
+Commons "Public domain"/PD-*/CC0, Internet Archive, Biodiversity Heritage Library, national-library scans) that show the film's places,
+instruments, people at work or period interiors — large scans (≥ 2000 px), clean paper. Put them in Drive `_hwk/<slug>/_pd/` with a line
+each in the manifest: file · title · artist · date · licence · source URL. Claude's order names the subjects (section "Engravings").
+Never anything with a CC-BY-SA/NC or unknown licence.

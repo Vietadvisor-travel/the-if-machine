@@ -7,6 +7,7 @@ Old engravings (18th–19th c. books, journals, plates) are public domain; cut f
   python3 tools/etch.py cut <slug> <name> [--keep-colour] [--crop x,y,w,h] [--soft .1]
         → <name>_ink.png: the INK alone on transparency (sepia), so the engine's paper, washes and light show through;
           --keep-colour keeps the scan's own colour (a coloured plate) with the paper made transparent instead
+  python3 tools/etch.py local <slug> <file> --as <name> --licence "…" --source <url>   → a plate from Muse's kit (Wikimedia rate-limits us)
   python3 tools/etch.py ship <slug>                               → copies the folder to Drive _hwk/<slug>/_pd/ (sync.sh brings it back)
 In episode.json: an `art` entity {name: 'Etch', src: 'stock/_pd/<slug>/<name>_ink.png', x, y, w, …} (src/paint/world.tsx Etch) — or `Pinned`.
 LAW: only files whose Commons licence is Public domain / PD-* / CC0 are taken; author, date, source page and licence are recorded and the
@@ -104,6 +105,12 @@ if __name__ == '__main__':
     elif a[0] == 'cats': cats(a[1], int(opt('n', 15)))
     elif a[0] == 'incat': incat(a[1], int(opt('n', 40)))
     elif a[0] == 'get': get(a[1], a[2], opt('as'))
+    elif a[0] == 'local':   # a plate Muse delivered (public domain, proof in her manifest): python3 tools/etch.py local <slug> <path> --as name --licence "PD (…)" --source <url>
+        import shutil; D = f'public/stock/_pd/{a[1]}'; os.makedirs(D, exist_ok=True); nm = opt('as') or os.path.basename(a[2]).rsplit('.', 1)[0]
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', a[2], '-q:v', '2', f'{D}/{nm}.jpg'], check=True)
+        os.makedirs('../jobs/stock_pd', exist_ok=True); L = f'../jobs/stock_pd/{a[1]}.md'
+        if not os.path.exists(L): open(L, 'w').write(f'# Public-domain engravings — {a[1]}\n\n| file | title | artist | date | licence | source |\n|---|---|---|---|---|---|\n')
+        open(L, 'a').write(f"| {nm}.jpg | {os.path.basename(a[2])} | — | — | {opt('licence', 'see Muse manifest')} | {opt('source', 'Muse kit')} |\n"); print(f'{D}/{nm}.jpg')
     elif a[0] == 'cut': cut(a[1], a[2], '--keep-colour' in a, opt('crop'), float(opt('soft', .1)))
     elif a[0] == 'ship': subprocess.run(['python3', '../studio/tools/pp_drive.py', 'put', *[f'public/stock/_pd/{a[1]}/{f}' for f in sorted(os.listdir(f'public/stock/_pd/{a[1]}'))], '--to', f'_hwk/{a[1]}/_pd'], check=True)
     else: sys.exit(__doc__)
