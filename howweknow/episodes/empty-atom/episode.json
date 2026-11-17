@@ -13,85 +13,85 @@
     "file": "../studio/music/curious_anamalie.wav",
     "at": 0,
     "start": 48.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/tension_achaidh_cheide.wav",
     "at": "L5-1.6",
     "start": 0.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/wonder_floating_cities.wav",
     "at": "L8-1.6",
     "start": 32.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/study_and_relax.wav",
     "at": "L12-1.6",
     "start": 160.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/curious_shaving_mirror.wav",
     "at": "L15-1.6",
     "start": 112.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/wonder_dreamer.wav",
     "at": "L19-1.6",
     "start": 80.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/relaxing_ballad.wav",
     "at": "L23-1.6",
     "start": 48.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/infinite_wonder.wav",
     "at": "L30-1.6",
     "start": 48.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/tension_darkness_is_coming.wav",
     "at": "L33-1.6",
     "start": 48.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/epic_the_complex.wav",
     "at": "L45-1.6",
     "start": 16.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/journey_of_hope.wav",
     "at": "L48-1.6",
     "start": 192.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/montauk_point.wav",
     "at": "L55-1.6",
     "start": 16.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/travelers_notebook.wav",
     "at": "L61-1.6",
     "start": 32.0,
-    "db": -9
+    "db": -11
    },
    {
     "file": "../studio/music/curious_almost_new.wav",
     "at": "L64-1.6",
     "start": 0.0,
-    "db": -9
+    "db": -11
    }
   ],
   "xfade": 4,
@@ -166,6 +166,11 @@
     "L69$",
     "end",
     7
+   ],
+   [
+    "L12$",
+    "L13",
+    6
    ]
   ]
  },
