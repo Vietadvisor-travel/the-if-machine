@@ -11,14 +11,16 @@ import hashlib, json, math, os, signal, subprocess, sys, time, argparse
 ap = argparse.ArgumentParser(); ap.add_argument('slug'); ap.add_argument('--chunk', type=float, default=60); ap.add_argument('--concurrency', type=int, default=4)
 ap.add_argument('--preview', action='store_true', help='a fast look at the whole film: half size, 15 fps → out/<slug>_preview.mp4 (minutes, not hours)')
 ap.add_argument('--stall', type=int, default=300); ap.add_argument('--tries', type=int, default=3); ap.add_argument('--crf', type=int, default=17)
+ap.add_argument('--only', default='', help='render just these chunk indexes (comma list), no join — used by tools/farm.py')
+ap.add_argument('--bundle', default='', help='use this ready bundle instead of bundling again (tools/farm.py builds it once)')
 A = ap.parse_args(); R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); os.chdir(R)
 S = A.slug; tl = json.load(open(f'public/ep/{S}/timeline.json')); N = math.ceil(tl['duration'] * 30)
 sig = hashlib.md5(open(f'public/ep/{S}/episode.json', 'rb').read() + open(f'public/ep/{S}/timeline.json', 'rb').read()
                   + b''.join(open(os.path.join(d, f), 'rb').read() for d, _, fs in os.walk('src') for f in sorted(fs) if f.endswith(('.ts', '.tsx')))).hexdigest()[:10]
-PV = A.preview; D = f'out/chunks/{S}' + ('_pv' if PV else ''); os.makedirs(D, exist_ok=True); OUT = f'out/{S}_preview.mp4' if PV else f'out/{S}_silent.mp4'; NTH = 2 if PV else 1; B = f'/tmp/fathom_bundle_{S}'
+PV = A.preview; D = f'out/chunks/{S}' + ('_pv' if PV else ''); os.makedirs(D, exist_ok=True); OUT = f'out/{S}_preview.mp4' if PV else f'out/{S}_silent.mp4'; NTH = 2 if PV else 1; B = A.bundle or f'/tmp/fathom_bundle_{S}'
 log = lambda *a: print(time.strftime('%H:%M:%S'), *a, flush=True)
 log(f'render {S}: {N} frames · chunks of {A.chunk:g} s · signature {sig}')
-subprocess.run(['npx', 'remotion', 'bundle', '--out-dir', B], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+if not A.bundle: subprocess.run(['npx', 'remotion', 'bundle', '--out-dir', B], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 def frames_in(p):
     r = subprocess.run(['ffprobe', '-v', 'error', '-count_packets', '-select_streams', 'v', '-show_entries', 'stream=nb_read_packets', '-of', 'csv=p=0', p], capture_output=True, text=True)
@@ -43,9 +45,10 @@ def run_chunk(a, b, out, conc):
     if p.returncode == 0 and frames_in(tmp) == len(range(a, b + 1, NTH)): os.replace(tmp, out); return True, buf
     return False, buf
 
-step = int(A.chunk * 30); parts = []
+step = int(A.chunk * 30); parts = []; ONLY = {int(x) for x in A.only.split(',') if x.strip()}
 for i, a in enumerate(range(0, N, step)):
     b = min(N - 1, a + step - 1); out = f'{D}/{sig}_{i:03d}.mp4'; parts.append(out)
+    if ONLY and i not in ONLY: continue
     if os.path.exists(out) and frames_in(out) == len(range(a, b + 1, NTH)): log(f'chunk {i} ({a}-{b}) already rendered'); continue
     for k in range(A.tries):
         t0 = time.time(); ok, tail = run_chunk(a, b, out, max(1, A.concurrency - k))
@@ -53,6 +56,7 @@ for i, a in enumerate(range(0, N, step)):
         log(f'chunk {i} ({a}-{b}) FAILED (try {k + 1}/{A.tries}):', tail.strip().splitlines()[-1:] if tail.strip() else '')
         subprocess.run(['pkill', '-9', '-f', 'chrome-headless-shell'], stderr=subprocess.DEVNULL)
     else: sys.exit(f'render: chunk {i} failed {A.tries} times — see the error above')
+if ONLY: sys.exit(0)   # farm helper: chunks only, the join comes later
 with open(f'{D}/list.txt', 'w') as f: f.writelines(f"file '{os.path.abspath(p)}'\n" for p in parts)
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', f'{D}/list.txt', '-c', 'copy', OUT], check=True)
 n = frames_in(OUT); log(f'joined {len(parts)} chunks → {OUT} ({n} frames)')

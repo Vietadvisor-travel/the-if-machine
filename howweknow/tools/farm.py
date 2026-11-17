@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
-"""Render farm (owner 17 Nov 2026: "càng bào được càng tốt" — free, quality untouched).
-  python3 tools/farm.py <slug> [--chunk S] [--only 0,6] [--to DIR] [--wait 50] [--local-only (dry run)]
-The film's chunks are rendered IN PARALLEL on free GitHub runners (public repo vietadvisor-travel/frame-batch, up to 20 at once),
-then tools/render.py joins them and renders locally whatever did not come back. Same bundle, same Remotion, same Chromium build
-(Playwright's headless shell), same flags → the same frames; tools/farm_check.py proves it before the farm is trusted.
-Privacy: the public repo holds only a generic runner; job.json carries opaque Drive ids, never names. The pack (bundle + only this
-film's files) and the returned chunks travel through the owner's private Drive (_farm/<sig>) and are deleted afterwards.
-Needs: the repo attached to the session (add_repo vietadvisor-travel/frame-batch, push) and a clone at /home/user/frame-batch."""
-import argparse, hashlib, json, math, os, re, shutil, subprocess, sys, tarfile, time
+"""Render farm (owner 17 Nov 2026: "càng bào được càng tốt… ổn định, tốc độ, nhưng vẫn fall back được về cơ chế cũ").
+  python3 tools/farm.py <slug> [--chunk S] [--wait 60] [--dry]          (make.sh calls this; FARM=0 bash tools/make.sh … skips it)
+  python3 tools/farm.py <slug> --only 0,6 --to DIR                       (test: farm just these chunks into DIR, no local pass)
+HOW: the film is cut into ≤ 20 chunks. Chunks with real footage (video decoding differs between machines) are rendered HERE while every
+other chunk goes to a free GitHub runner (public repo vietadvisor-travel/frame-batch, generic runner, no names; the pack and the results
+travel through the owner's private Drive `_farm/<sig>`, deleted afterwards). Same bundle, same Remotion, same Chromium build, same flags.
+SAFETY (the old engine is never at risk — the farm only ever ADDS finished chunks; tools/render.py joins and renders anything missing):
+- each runner first drops `<i>.start`; no start at all within 10 min → the farm is down → everything renders here
+- a runner that fails drops `<i>.fail` → that chunk renders here; a started chunk that does not come back in time → renders here
+- every returned chunk: frame count checked, and ONE frame of it (`<i>.png`, a still the runner rendered) is rendered here too and
+  compared pixel for pixel → any difference anywhere → ALL farm chunks are dropped and the whole film renders here (quality untouchable)
+- any error in this script → the plain local render (render.py), exactly as before the farm existed."""
+import argparse, hashlib, json, math, os, random, re, shutil, subprocess, sys, tarfile, time
 H = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(H); sys.path.insert(0, os.path.join(H, '..', 'studio', 'tools'))
 ap = argparse.ArgumentParser(); ap.add_argument('slug'); ap.add_argument('--chunk', type=float, default=0); ap.add_argument('--only', default='')
-ap.add_argument('--to', default=''); ap.add_argument('--wait', type=float, default=50); ap.add_argument('--local-only', action='store_true')
+ap.add_argument('--to', default=''); ap.add_argument('--wait', type=float, default=60); ap.add_argument('--dry', '--local-only', action='store_true')
 ap.add_argument('--conc', type=int, default=4); ap.add_argument('--crf', type=int, default=17)
-A = ap.parse_args(); S = A.slug; FB = '/home/user/frame-batch'
+A = ap.parse_args(); S = A.slug; FB = '/home/user/frame-batch'; BUNDLE = f'/tmp/fathom_bundle_{S}'
 log = lambda *a: print(time.strftime('%H:%M:%S'), 'farm', *a, flush=True)
 tl = json.load(open(f'public/ep/{S}/timeline.json')); N = math.ceil(tl['duration'] * 30)
 CH = A.chunk or max(15, math.ceil(tl['duration'] / 20)); STEP = int(CH * 30); NCH = math.ceil(N / STEP)
@@ -20,7 +24,10 @@ sig = hashlib.md5(open(f'public/ep/{S}/episode.json', 'rb').read() + open(f'publ
                   + b''.join(open(os.path.join(d, f), 'rb').read() for d, _, fs in os.walk('src') for f in sorted(fs) if f.endswith(('.ts', '.tsx')))).hexdigest()[:10]
 D = A.to or f'out/chunks/{S}'; os.makedirs(D, exist_ok=True)
 name = lambda i: f'{D}/{sig}_{i:03d}.mp4'
-want = lambda i: min(N - 1, i * STEP + STEP - 1) - i * STEP + 1
+rng = lambda i: (i * STEP, min(N - 1, i * STEP + STEP - 1))
+want = lambda i: rng(i)[1] - rng(i)[0] + 1
+TEST = bool(A.to or A.only)
+LOCALCMD = lambda idx: ['python3', 'tools/render.py', S, '--chunk', f'{CH:g}', '--concurrency', str(A.conc), '--crf', str(A.crf), '--bundle', BUNDLE] + (['--only', ','.join(map(str, idx))] if idx else [])
 
 
 def frames_in(p):
@@ -29,25 +36,23 @@ def frames_in(p):
     except ValueError: return -1
 
 
-def finish():
-    if A.to or A.only or A.local_only: return   # --local-only = dry run: show the plan, render nothing
-    log(f'local pass: render.py --chunk {CH:g} (joins, fills anything missing)')
-    os.execvp('python3', ['python3', 'tools/render.py', S, '--chunk', f'{CH:g}', '--concurrency', str(A.conc), '--crf', str(A.crf)])
+def pixels(p):   # md5 of the decoded RGB image (PNG metadata cannot fool it)
+    r = subprocess.run(['ffmpeg', '-v', 'error', '-i', p, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True)
+    return hashlib.md5(r.stdout).hexdigest() if r.returncode == 0 and r.stdout else None
+
+
+def bundle():
+    subprocess.run(['npx', 'remotion', 'bundle', '--out-dir', BUNDLE], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 def pack():
-    B = f'/tmp/farm_{S}'; shutil.rmtree(B, ignore_errors=True)
-    subprocess.run(['npx', 'remotion', 'bundle', '--out-dir', f'{B}/b'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    pub = f'{B}/b/public'; keep = set()
-    E = open(f'public/ep/{S}/episode.json').read()
-    for top in ('ep/' + S, 'fonts', 'brand', 'core', 'tex', 'music'): keep.add(top)
-    for m in set(re.findall(r'"((?:stock|sfx|core|tex|brand)/[^"]+)"', E)): keep.add(m)
-    tmp = f'{B}/keep'; os.makedirs(tmp)
+    B = f'/tmp/farm_{S}'; shutil.rmtree(B, ignore_errors=True); os.makedirs(B)
+    shutil.copytree(BUNDLE, f'{B}/b', ignore=shutil.ignore_patterns('public'))   # the very bundle the local pass uses, minus the media library
+    keep = {'ep/' + S, 'fonts', 'brand', 'core', 'tex', 'music'} | set(re.findall(r'"((?:stock|sfx|core|tex|brand)/[^"]+)"', open(f'public/ep/{S}/episode.json').read()))
     for k in keep:
-        src = f'{pub}/{k}'
-        if os.path.isdir(src): shutil.copytree(src, f'{tmp}/{k}', dirs_exist_ok=True)
-        elif os.path.isfile(src): os.makedirs(os.path.dirname(f'{tmp}/{k}'), exist_ok=True); shutil.copy2(src, f'{tmp}/{k}')
-    shutil.rmtree(pub); os.rename(tmp, pub)
+        src = f'{BUNDLE}/public/{k}'; dst = f'{B}/b/public/{k}'
+        if os.path.isdir(src): shutil.copytree(src, dst, dirs_exist_ok=True)
+        elif os.path.isfile(src): os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy2(src, dst)
     for f in ('package.json', 'package-lock.json', 'remotion.config.ts', 'tsconfig.json'): shutil.copy2(f, f'{B}/{f}')
     shell = os.path.basename(os.path.dirname(os.path.dirname(os.path.realpath('/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell'))))
     pw = subprocess.run(['node', '-e', "console.log(require('playwright/package.json').version)"], cwd='/tmp', capture_output=True, text=True).stdout.strip()
@@ -56,12 +61,12 @@ def pack():
     out = f'/tmp/farm_{S}.tgz'
     with tarfile.open(out, 'w:gz') as t:
         for f in os.listdir(B): t.add(f'{B}/{f}', arcname=f)
+    shutil.rmtree(B, ignore_errors=True)
     log(f'pack {os.path.getsize(out) / 1e6:.0f} MB (Chromium {shell}, Playwright {pw})'); return out
 
 
 def footage_spans():
-    """[(t0, t1)] where real footage plays: decoding video frames is the one place the runners' picture differed (17 Nov test:
-    chunks without footage were bit-identical, the chunk with footage was not) — so those chunks are always rendered locally."""
+    """[(t0, t1)] where real footage plays (17 Nov test: footage-free chunks were bit-identical on the runners; a chunk with footage was not)."""
     E = json.load(open(f'public/ep/{S}/episode.json')); LN = tl['lines']; out = []
     def tabs(t):
         if isinstance(t, (int, float)): return float(t)
@@ -74,72 +79,108 @@ def footage_spans():
         p = e.get('props') or {}
         if str(p.get('src', '')).endswith(('.mp4', '.webm', '.mov')):
             ks = [(tabs(k['t']), k.get('dur', 1.2)) for k in e.get('keys') or []]
-            out.append((min([t for t, _ in ks] or [0]) - 1, max([t + d for t, d in ks] or [tl['duration']]) + 1) if ks else (0, tl['duration']))
+            out.append((min(t for t, _ in ks) - 1, max(t + d for t, d in ks) + 1) if ks else (0, tl['duration']))
         for c in e.get('children') or []: walk(c)
     for e in E['world']: walk(e)
     return out
 
 
-def spot_check(done, B):
-    """Re-render ONE farm chunk here and compare every decoded frame (tools/farm_check.py). Any difference → all farm chunks are dropped."""
-    i = done[len(done) // 2]; ref = f'/tmp/farm_ref_{S}_{i}.mp4'; a = i * STEP; b = min(N - 1, a + STEP - 1)
-    subprocess.run(['npx', 'remotion', 'render', B, 'Story', ref, f'--props={json.dumps({"slug": S})}', f'--frames={a}-{b}', '--muted', f'--crf={A.crf}',
-                    f'--concurrency={A.conc}', '--timeout=120000', '--log=error'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    ok = subprocess.run(['python3', 'tools/farm_check.py', ref, name(i)], capture_output=True, text=True); log('spot check chunk', i, ok.stdout.strip().replace('\n', ' · '))
-    try: os.remove(ref)
-    except OSError: pass
-    return ok.returncode == 0
+def still_ok(i, png, k):
+    """Render the same frame the runner rendered, here, and compare every pixel."""
+    a, b = rng(i); f = a + (k * 7919 + i * 104729) % (b - a + 1); ref = f'/tmp/farm_ref_{S}_{i}.png'
+    for _ in range(2):
+        subprocess.run(['npx', 'remotion', 'still', BUNDLE, 'Story', ref, f'--props={json.dumps({"slug": S})}', f'--frame={f}', '--image-format=png',
+                        '--timeout=120000', '--log=error'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        mine = pixels(ref)
+        if mine: break
+    theirs = pixels(png)
+    for x in (ref, png):
+        try: os.remove(x)
+        except OSError: pass
+    return mine is not None and mine == theirs, f
 
 
 def main():
-    todo = [int(x) for x in A.only.split(',')] if A.only else [i for i in range(NCH) if not (os.path.exists(name(i)) and frames_in(name(i)) == want(i))]
-    if not A.only:
-        FS = footage_spans(); vid = [i for i in todo if any(i * STEP / 30 < t1 and (i + 1) * STEP / 30 > t0 for t0, t1 in FS)]
+    vid = []
+    if A.only: todo = [int(x) for x in A.only.split(',')]
+    else:
+        todo = [i for i in range(NCH) if not (os.path.exists(name(i)) and frames_in(name(i)) == want(i))]
+        FS = footage_spans(); vid = [i for i in todo if any(rng(i)[0] / 30 < t1 and (rng(i)[1] + 1) / 30 > t0 for t0, t1 in FS)]
         todo = [i for i in todo if i not in vid]
-        if vid: log(f'{len(vid)} chunks with real footage stay local: {vid}')
-    log(f'{S}: {N} frames · {NCH} chunks of {CH:g} s · {len(todo)} to farm · sig {sig}')
-    if not todo or A.local_only: return
-    if not os.path.isdir(f'{FB}/.git'):
-        r = subprocess.run(['git', 'clone', '-q', '--depth', '1', 'https://github.com/Vietadvisor-travel/frame-batch', FB])
-        if r.returncode: log('frame-batch not reachable (add_repo vietadvisor-travel/frame-batch) — rendering locally'); return
+    log(f'{S}: {N} frames · {NCH} chunks of {CH:g} s · {len(todo)} to the farm · {len(vid)} with footage stay here {vid} · sig {sig}')
+    if A.dry or (not todo and not vid): return
+    bundle()
+    local = None
+    if vid: local = subprocess.Popen(LOCALCMD(vid), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); log(f'local: rendering footage chunks {vid} meanwhile')
+    if not todo: return local
+    if not os.path.isdir(f'{FB}/.git') and subprocess.run(['git', 'clone', '-q', '--depth', '1', 'https://github.com/Vietadvisor-travel/frame-batch', FB]).returncode:
+        log('frame-batch not attached to this session (add_repo vietadvisor-travel/frame-batch, push) — rendering here'); return local
+    if not all(os.environ.get(k) for k in ('GDRIVE_CLIENT_ID', 'GDRIVE_CLIENT_SECRET', 'GDRIVE_REFRESH_TOKEN')):
+        log('no Drive keys in this environment — rendering here'); return local
     import pp_drive as dv
     p = pack(); root = dv.folder(create=True); fd = dv.mkdir(sig, dv.mkdir('_farm', root))
     for f in dv.children(fd): dv.call(f"files/{f['id']}", method='DELETE')   # a clean slate for this run
-    dv.put([p], f'_farm/{sig}'); pid = next(f['id'] for f in dv.children(fd) if f['name'] == os.path.basename(p))
-    json.dump({'p': pid, 'o': fd, 'todo': todo, 't': int(time.time())}, open(f'{FB}/job.json', 'w')); open(f'{FB}/job.json', 'a').write('\n')
+    dv.put([p], f'_farm/{sig}'); pid = next(f['id'] for f in dv.children(fd) if f['name'] == os.path.basename(p)); os.remove(p)
+    k = random.randint(1, 10 ** 6)
     g = lambda *a: subprocess.run(['git', '-C', FB, *a], capture_output=True, text=True)
-    g('pull', '-q', '--rebase'); g('add', 'job.json'); g('commit', '-qm', 'batch')
-    for k in range(4):
-        if g('-c', 'push.negotiate=true', 'push', '-q', 'origin', 'main').returncode == 0: break
-        time.sleep(2 ** (k + 1))
-    else: log('push to frame-batch failed — rendering locally'); return
-    log(f'dispatched {len(todo)} chunks to the farm; waiting up to {A.wait:g} min')
-    left, t0 = set(todo), time.time()
-    while left and time.time() - t0 < A.wait * 60:
-        time.sleep(30)
+    g('fetch', '-q', '--depth', '1', 'origin', 'main'); g('reset', '-q', '--hard', 'origin/main')
+    json.dump({'p': pid, 'o': fd, 'todo': todo, 'k': k, 't': int(time.time())}, open(f'{FB}/job.json', 'w')); open(f'{FB}/job.json', 'a').write('\n')
+    g('add', 'job.json'); g('commit', '-qm', 'batch')
+    for n in range(4):
+        if g('-c', 'push.negotiate=true', 'push', '-q', 'origin', 'HEAD:main').returncode == 0: break
+        time.sleep(2 ** (n + 1))
+    else: log('push to frame-batch failed — rendering here'); dv.call(f'files/{fd}', method='DELETE'); return local
+    t0 = time.time(); log(f'dispatched {len(todo)} chunks; waiting up to {A.wait:g} min')
+    left, started, back, gone, durs, pend = set(todo), {}, [], [], [], []
+    def to_local(idx, why):
+        idx = sorted(set(idx) & left)
+        if not idx: return
+        for i in idx: left.discard(i); gone.append(i)
+        pend.extend(idx); log(f'chunks {idx} → rendered here ({why})')
+    def pump():   # one local renderer at a time (4 cores): start the next batch when the last one is done
+        nonlocal local
+        if pend and not TEST and (local is None or local.poll() is not None):
+            local = subprocess.Popen(LOCALCMD(sorted(pend)), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL); pend.clear()
+    while left:
+        time.sleep(20); now = time.time(); pump()
         try: have = {f['name']: f for f in dv.children(fd)}
         except SystemExit: continue
         for i in sorted(left):
-            f = have.get(f'{i}.mp4')
-            if not f: continue
-            tmp = name(i) + '.farm.mp4'
-            r = dv.call(f"files/{f['id']}", {'alt': 'media'})
-            with open(tmp, 'wb') as w: shutil.copyfileobj(r, w, 1 << 22)
-            if frames_in(tmp) == want(i): os.replace(tmp, name(i)); left.discard(i); log(f'chunk {i} back ({len(todo) - len(left)}/{len(todo)})')
-            else: os.remove(tmp)
-    if left: log(f'{len(left)} chunks did not come back in time: {sorted(left)} — local pass renders them')
-    back = [i for i in todo if i not in left]
-    if back and not A.only and not spot_check(back, f'/tmp/farm_{S}/b'):
-        for i in back:
-            try: os.remove(name(i))
-            except OSError: pass
-        log('SPOT CHECK FAILED — every farm chunk dropped; the local pass renders the whole film')
-    try: dv.call(f'files/{fd}', method='DELETE')   # the film's files leave Drive's _farm
+            if f'{i}.start' in have and i not in started: started[i] = now
+            if f'{i}.fail' in have: to_local([i], 'the runner failed'); continue
+            f, png = have.get(f'{i}.mp4'), have.get(f'{i}.png')
+            if not (f and png): continue
+            tmp = name(i) + '.farm.mp4'; tpng = f'/tmp/farm_{S}_{i}.png'
+            with open(tmp, 'wb') as w: shutil.copyfileobj(dv.call(f"files/{f['id']}", {'alt': 'media'}), w, 1 << 22)
+            with open(tpng, 'wb') as w: shutil.copyfileobj(dv.call(f"files/{png['id']}", {'alt': 'media'}), w, 1 << 22)
+            if frames_in(tmp) != want(i): os.remove(tmp); to_local([i], 'wrong frame count'); continue
+            ok, fr = still_ok(i, tpng, k)
+            if not ok:   # quality is untouchable: one differing pixel and the farm's work is thrown away
+                os.remove(tmp); log(f'PIXEL CHECK FAILED on chunk {i} (frame {fr}) — every farm chunk dropped, the whole film renders here')
+                for j in back:
+                    try: os.remove(name(j))
+                    except OSError: pass
+                back.clear(); left.clear(); break
+            os.replace(tmp, name(i)); left.discard(i); back.append(i); durs.append(now - t0)
+            log(f'chunk {i} back · frame {fr} identical · {len(back)}/{len(todo)}')
+        if not left: break
+        if not started and now - t0 > 600: to_local(list(left), 'no runner started within 10 min'); break
+        late = [i for i in left if i in started and now - started[i] > max(1500, 3 * (max(durs) if durs else 0))]
+        if late: to_local(late, 'too slow')
+        if now - t0 > A.wait * 60: to_local(list(left), f'not back after {A.wait:g} min'); break
+    pump()
+    log(f'farm: {len(back)} chunks back in {(time.time() - t0) / 60:.1f} min · {len(gone)} rendered here instead')
+    try: dv.call(f'files/{fd}', method='DELETE')   # the film's files leave Drive
     except SystemExit: pass
-    try: os.remove(p)
-    except OSError: pass
+    return local
 
 
-try: main()
-except Exception as e: log(f'farm error ({type(e).__name__}: {e}) — rendering locally')
-finish()
+local = None
+try: local = main()
+except Exception as e: log(f'farm error ({type(e).__name__}: {e}) — the local render takes over')
+if local is not None:
+    try: local.wait()
+    except Exception: pass
+if not TEST and not A.dry:
+    log(f'final pass: render.py --chunk {CH:g} (joins; renders anything still missing)')
+    os.execvp('python3', LOCALCMD([]) if os.path.isdir(BUNDLE) else LOCALCMD([])[:-2])

@@ -59,11 +59,14 @@ facts with sources, honest notes, 3 title options for Muse) · STATUS → `DELIV
 Drive link · length · what is new in this film (2–3 ideas) · gates · anything uncertain or reframed · the line to send Muse when he approves:
 "đăng tập <tên>".
 
-## Render farm (owner 17 Nov 2026: "càng bào được càng tốt" — free, quality untouched)
-`make.sh` renders through `tools/farm.py`: the film's chunks go to free GitHub runners (public repo vietadvisor-travel/frame-batch,
-generic runner, no names; the pack and the chunks travel through the owner's private Drive `_farm/<sig>` and are deleted after),
-then `render.py` joins them and renders locally whatever did not come back. Needs, once per session: `add_repo vietadvisor-travel/frame-batch`
-(push) — without it farm.py says so and everything renders locally as before. Proven 17 Nov: chunks WITHOUT real footage are bit-identical
-to a local render (farm_check 300/300); a chunk WITH footage differed slightly (video decoding), so footage chunks always render locally,
-and every run re-renders one farm chunk here and compares every frame (`tools/farm_check.py`) — any difference drops all farm chunks.
-
+## Render farm (owner 17 Nov 2026: "càng bào được càng tốt… ổn định, tốc độ, nhưng vẫn fall back được về cơ chế cũ")
+- **Session start (once):** attach the runner repo — `add_repo vietadvisor-travel/frame-batch` (access: push) and clone it to
+  `/home/user/frame-batch`. Without it the farm says so and everything renders here, exactly as before.
+- `make.sh` renders through `tools/farm.py` (≤ 20 chunks): footage chunks render HERE while the rest go to free GitHub runners
+  (public repo, generic runner, no names; pack + results via the owner's private Drive `_farm/<sig>`, deleted after). Then
+  `render.py` joins and renders anything missing. `FARM=0 bash tools/make.sh <slug>` = the plain local render.
+- **Safety, all automatic:** no runner starts within 10 min → all here · a runner fails (`.fail`) or is too slow → that chunk here ·
+  every returned chunk: frame count + one frame re-rendered here and compared pixel for pixel (`still_ok`) → one differing pixel →
+  every farm chunk dropped, the whole film renders here · any error in farm.py → the plain local render.
+- Proven 17 Nov: footage-free chunks are bit-identical to local renders (farm_check 300/300); footage chunks differed (video decode) → local.
+- Never edit `src/` while a farm run is in flight (the runners and the local pass must render the same bundle).
