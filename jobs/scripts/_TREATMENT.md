@@ -3,6 +3,12 @@
 
 ## 1. Logline
 
+## 1b. The opening (three candidates, STORY §1b patterns — keep one)
+- A:
+- B:
+- C:
+- chosen, and why:
+
 ## 2. The feeling
 - word:
 - the moment it lands:

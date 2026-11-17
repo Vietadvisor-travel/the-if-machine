@@ -12,6 +12,20 @@ The owner wants "kịch bản đỉnh cao": a script you cannot stop watching, e
 | **The answer** | ≈ 1 min | Put the clues together in one continuous move; say the answer plainly. |
 | **What it means** | 0:30–0:45 | Why it matters today + one closing line with meaning (an image, not a moral). No spoken outro; brand end 3 s. |
 
+### 1b. Opening patterns — how the best science channels lead a viewer in (owner 17 Nov 2026: "nội dung mở đầu phải như kênh thật,
+### hay, dẫn dắt khán giả"). Write THREE openings for every film (different patterns), read them aloud, keep the one you cannot stop at.
+- **The familiar made strange** — start with something the viewer touches every day, then one sentence that breaks it ("This table feels
+  solid. It is almost entirely empty. And we know that because of a twenty-year-old who sat in the dark…").
+- **The moment before** — a real person, a real place, the minute before the discovery, told with the senses (the cold room, the faint
+  green flash, the pencil), and the question they could not answer yet.
+- **The impossible number** — a true number so big or so small it sounds wrong, then "how could anyone possibly know that?"
+- **The wrong answer everyone believed** — what the smartest people were sure of, shown as fact… then the crack in it.
+- **The question the viewer already had** — the child's question ("what is the Moon made of?") asked seriously, with the promise that
+  the answer is stranger than they think and that we will SEE how it was found.
+Every opening, whatever the pattern: (1) a concrete image in the first sentence, (2) the BIG QUESTION said plainly by 0:30, (3) a promise
+of a journey ("it took four clues, and the last one…"), (4) a human being on screen by 0:45, (5) no throat-clearing, no channel talk,
+no "in this video". The opening is planned as SET PIECE 0 in the treatment (CINEMA §1): its image, camera, sound and the line it lands on.
+
 ## 2. Retention rules
 - **An open loop at least every 45 s**: a question, a "but", a missing piece, a promise ("we'll come back to that number").
 - **A new real fact every 30–40 s** (a number, a name, a place, a date) — from the research pack, with its source id.
