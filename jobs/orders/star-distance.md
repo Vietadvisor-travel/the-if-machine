@@ -51,3 +51,13 @@ Fulfilled 2026-11-16 by Muse: 31 ✅ / 2 ❌ (33 rows). Drive _hwk/star-distance
 
 ## Round 2 — engravings (17 Nov 2026, v7)
 4–8 public-domain engravings → `_hwk/star-distance/_pd/`: Königsberg observatory / Bessel's heliometer; Harvard College Observatory 1890s–1910s (the plate room); Mount Wilson 100-inch telescope and dome; 19th-c. star charts / celestial atlas plates (e.g., Bayer, Flamsteed); a 19th-c. telescope eyepiece/micrometer. Manifest line each (file · title · artist · date · licence · source).
+
+Fulfilled 2026-11-17 by Muse: 6 ✅ / 2 subjects ❌ (see below). Drive `_hwk/star-distance/_pd/` (6 files) + 6 entries appended to `manifest.json` (78 items total). All eye-checked, all Public domain.
+- ✅ PD-01_cygnus-uranometria-bayer-1603.jpg (3840x2880, PD, Johann Bayer, 1603) — Cygnus plate from Uranometria; 61 Cygni is in Cygnus. Commons File:Cygnus_Uranometria.jpg (original 4560x3420 rate-limited HTTP 429, delivered via Special:FilePath?width=3000).
+- ✅ PD-02_61cygni-comparison-stars-ball-1891.jpg (2014x3280, PD, Robert S. Ball, 1891) — Fig. 80, 61 Cygni and the Comparison Stars (Bessel 1838 / Struve 1853 / Brunnow 1878). IA The Story of the Heavens, p. 410.
+- ✅ PD-03_hooker-100inch-hale-1922.jpg (2595x4316, PD, George Ellery Hale, 1922) — Fig. 4, The 100-inch Hooker telescope. IA The New Heavens, p. 7.
+- ✅ PD-04_hooker-dome-hale-1922.jpg (2595x4316, PD, Hale, 1922) — Fig. 8, erecting the steel building and revolving dome that cover the Hooker telescope. IA The New Heavens, p. 15.
+- ✅ PD-05_harvard-observatory-1847-holden-1897.jpg (1838x3072, PD, Annals HCO 1850) — Harvard College Observatory in 1847, engraving of the building with two domes. IA Holden, Memorials of William Cranch Bond, to face p. 22. NOTE: 1847 building, not the 1890s–1910s plate room (no PD engraving of the plate room found).
+- ✅ PD-06_15inch-refractor-holden-1897.jpg (1838x3072, PD, Annals HCO Vol. I) — The Fifteen-inch Refractor and the Observer's Chair, line engraving inside the dome. IA Holden, to face p. 26. NOTE: whole telescope + chair, no close-up eyepiece/micrometer engraving found.
+- ❌ Königsberg observatory building — only small versions exist on Commons (785x445 max; de.wikipedia article uses the same), none ≥ 2000 px; no engraving in Ball (1891) or Clerke (1885).
+- ❌ Bessel's heliometer (instrument figure) — no figure in Ball or Clerke; EB1911 heliometer figures are small crops (< 700 px).
