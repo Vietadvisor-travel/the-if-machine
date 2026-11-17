@@ -50,3 +50,37 @@ export const ThumbPoster: React.FC<PosterProps> = ({ kicker, title, accent = -1,
     <Img src={staticFile('brand/fathom_mark.png')} style={{ position: 'absolute', right: 22, bottom: 18, width: 74, height: 74 }} />
   </AbsoluteFill>;
 };
+
+// ── the VERTICAL cover (1080×1920) for TikTok / Instagram / Facebook Reels (owner 17 Nov 2026) — the same poster, stacked:
+//    kicker → the BIG QUESTION → the hero → the handwritten line. Safe zones: everything that matters sits inside the centre 1080×1440
+//    (Instagram's 3:4 grid crop, y 240–1680) and above TikTok's caption/buttons (bottom ≈ 380 px, right edge ≈ 140 px).
+export const ThumbPosterV: React.FC<PosterProps> = ({ kicker, title, accent = -1, note, hero, back }) => {
+  const r = seeded(9), W = 1080, H = 1920, big = title.length <= 2 ? 190 : 150;
+  return <AbsoluteFill style={{ overflow: 'hidden', background: '#140d07' }}>
+    <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}>
+      <defs>
+        <radialGradient id="vLamp" cx=".5" cy=".55" r=".7"><stop offset="0" stopColor="#8a5a2c" stopOpacity=".95" /><stop offset=".4" stopColor="#4a2e16" stopOpacity=".85" /><stop offset=".8" stopColor="#1e130a" /><stop offset="1" stopColor="#0d0805" /></radialGradient>
+        <linearGradient id="vRay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#ffdca0" stopOpacity=".22" /><stop offset="1" stopColor="#ffdca0" stopOpacity="0" /></linearGradient>
+        <pattern id="vHatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><line x1="0" y1="0" x2="0" y2="5" stroke="#000" strokeWidth="1.1" /></pattern>
+        <radialGradient id="vVig" cx=".5" cy=".5" r=".75"><stop offset=".55" stopColor="#000" stopOpacity="0" /><stop offset="1" stopColor="#000" stopOpacity=".8" /></radialGradient>
+        <filter id="vSh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#000" floodOpacity=".85" /></filter>
+        <linearGradient id="vLeaf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#fff2c0" /><stop offset=".45" stopColor={TONE.gold[0]} /><stop offset=".8" stopColor={TONE.gold[1]} /><stop offset="1" stopColor="#e9c36a" /></linearGradient>
+      </defs>
+      <rect width={W} height={H} fill="url(#vLamp)" />
+      {[[-200, 60], [-40, 30], [140, 70]].map(([dx, w], i) => <polygon key={i} points={`${540 + dx - 40},-20 ${540 + dx + 40 + w},-20 ${540 + dx + 240 + w},${H} ${540 + dx - 120},${H}`} fill="url(#vRay)" />)}
+      {back}
+      <rect width={W} height={H} fill="url(#vHatch)" opacity=".2" />
+      {Array.from({ length: 70 }, (_, i) => <circle key={i} cx={r() * W} cy={r() * H} r={.9 + r() * 2} fill="#ffe2b0" opacity={.15 + r() * .45} />)}
+    </svg>
+    {hero}
+    <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}><rect width={W} height={H} fill="url(#vVig)" /></svg>
+    <Img src={staticFile('core/fibres.jpg')} style={{ position: 'absolute', inset: 0, width: W, height: H, objectFit: 'cover', opacity: .13, mixBlendMode: 'screen' }} />
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 268, textAlign: 'center', fontFamily: 'IM Fell English SC', fontSize: 46, letterSpacing: 8, color: TONE.gold[0], textShadow: '0 2px 8px #000' }}>{kicker}</div>
+    <svg width={W} height={H} style={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
+      <g filter="url(#vSh)">{title.map((t, i) => <text key={i} x={540} y={340 + big * (i + 1) * .98} textAnchor="middle" fontFamily="Special Elite" fontSize={i === accent ? big * 1.12 : big}
+        fill={i === accent ? TONE.cream : 'url(#vLeaf)'} stroke="#120a04" strokeWidth={16} strokeLinejoin="round" paintOrder="stroke">{t}</text>)}</g>
+    </svg>
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 1388, textAlign: 'center', fontFamily: 'La Belle Aurore', fontSize: 84, color: TONE.cream, transform: 'rotate(-3deg)', textShadow: '0 3px 14px #000' }}>{note}</div>
+    <Img src={staticFile('brand/fathom_mark.png')} style={{ position: 'absolute', left: 495, top: 1490, width: 90, height: 90 }} />
+  </AbsoluteFill>;
+};

@@ -83,4 +83,8 @@ lib's index.tsx); `episode.json` `thumb` = {v: 'S', kicker, lines, accent, note}
   with a heavy dark outline; one line (the key word) in cream and bigger (`accent`).
 - **Kicker** above: place · year (IM Fell English SC, gold). **Note** below: ONE handwritten line (La Belle Aurore) with the twist or number.
 - Every word and number from the research pack. Check it at 168 px wide. FATHOM mark bottom right.
+- **Vertical cover** (TikTok / Instagram / Facebook Reels, 1080×1920): the same poster stacked — `THUMB_V` → kit `ThumbPosterV`
+  (composition `ThumbV`), shipped as `<slug>_cover_9x16.jpg`. All that matters inside Instagram's 3:4 grid crop (y 240–1680) and above
+  TikTok's caption/buttons (bottom 380 px, right 140 px). Muse: Instagram `cover_url` = this file; TikTok = upload it as the cover in the
+  app; Facebook Reels' API takes no cover (it picks a frame).
 Sample: `src/lib/empty-atom/thumb_more.tsx` `Standard` ("WHAT'S INSIDE AN ATOM?" + the brass eyepiece, one flash on the wrong side).

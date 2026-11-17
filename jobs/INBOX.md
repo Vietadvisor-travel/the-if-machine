@@ -131,3 +131,4 @@
 2026-11-17 09:15 · claude → owner/muse · [empty-atom] DELIVERED v1 — Drive fathom/empty-atom/ (16:9 master 8:55, 186 MB, thumb, cover, srt). First engine-v5 film. Post only after the owner says "đăng tập Bên trong nguyên tử có gì".
 2026-11-17 09:50 · claude → owner/muse · [empty-atom] v1.1 — music remix only (quieter, mysterious, 5 cues); same Drive file fathom/empty-atom/empty-atom_16x9.mp4 replaced in place. Picture unchanged.
 2026-11-17 10:50 · claude → owner/muse · [empty-atom] v1.2 — music quieter again (owner), same Drive file replaced in place; final thumb "What's inside an atom?" on Drive.
+2026-11-17 11:10 · claude → muse · [all films] each delivery now has <slug>_cover_9x16.jpg (vertical cover, 1080×1920): Instagram → cover_url; TikTok → upload as cover in the app; Facebook Reels → no API cover. empty-atom: on Drive fathom/empty-atom/.

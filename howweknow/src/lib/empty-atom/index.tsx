@@ -822,4 +822,4 @@ export const SAMPLE: Record<string, object> = {
   CoolingTowers: { steam: 1 }, ScannerRing: {}, Stone: { x: 960, y: 540, s: 4 },
 };
 export const FULL = true;
-export { THUMB } from './thumb';   // the episode's own designed thumbnail (kit/Thumb.tsx uses it when present)
+export { THUMB, THUMB_V } from './thumb';   // the episode's own designed thumbnail (kit/Thumb.tsx uses it when present)

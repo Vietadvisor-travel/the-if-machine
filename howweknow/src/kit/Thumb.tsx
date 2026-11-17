@@ -22,3 +22,6 @@ export const Thumb: React.FC<ThumbProps> = (p) => {
     <Img src={staticFile('brand/fathom_mark.png')} style={{ position: 'absolute', [right ? 'left' : 'right']: 30, bottom: 26, width: 86, height: 86 }} />
   </AbsoluteFill>;
 };
+
+// the vertical cover for TikTok / Instagram / Facebook Reels (1080×1920): the film's own THUMB_V (src/lib/<slug>/thumb.tsx)
+export const ThumbV: React.FC<ThumbProps> = (p) => { const Own = LIB_EP[p.slug]?.THUMB_V; return Own ? <Own {...p} /> : <AbsoluteFill style={{ background: '#140d07' }} />; };

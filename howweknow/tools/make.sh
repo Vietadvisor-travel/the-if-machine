@@ -28,9 +28,10 @@ python3 tools/srt.py $EP
 TH=$(python3 -c "import json;t=json.load(open('$EP/episode.json')).get('thumb');print(json.dumps({'slug':'$S',**t}) if t else '')")
 # the thumbnail is DESIGNED per film (src/lib/<slug>/thumb.tsx → THUMB; owner 17 Nov 2026: "wow hơn, chất hơn… không nhất thiết cắt từ tập ra")
 if [ -n "$TH" ]; then npx remotion still Thumb out/${S}_thumb.jpg --props="$TH" --image-format=jpeg --jpeg-quality=92 >/dev/null 2>&1 && echo "thumb → out/${S}_thumb.jpg"; else echo "WARN no thumb in episode.json"; fi
+if [ -n "$TH" ]; then npx remotion still ThumbV out/${S}_cover_9x16.jpg --props="$TH" --image-format=jpeg --jpeg-quality=92 >/dev/null 2>&1 && echo "vertical cover → out/${S}_cover_9x16.jpg"; fi   # TikTok / IG / FB Reels
 echo "DONE → out/${S}_16x9.mp4 ($(printf %.1f $D) s) · sheet out/${S}_sheet.jpg"
 if [[ "${2:-}" == "--ship" ]]; then
-  python3 ../studio/tools/pp_drive.py put out/${S}_16x9.mp4 out/${S}_thumb.jpg out/${S}.srt --to "fathom/$S" | tail -2
+  python3 ../studio/tools/pp_drive.py put out/${S}_16x9.mp4 out/${S}_thumb.jpg out/${S}_cover_9x16.jpg out/${S}.srt --to "fathom/$S" | tail -2
   [ -f ../jobs/deliveries/$S.md ] || sed "s/@@SLUG@@/$S/g" ../jobs/deliveries/_TEMPLATE_P3.md > ../jobs/deliveries/$S.md
   echo "shipped to Drive fathom/$S · fill jobs/deliveries/$S.md"
 fi

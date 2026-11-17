@@ -212,11 +212,11 @@ export const Eyepiece: React.FC = () => {
 };
 
 // ── the standard (design F, owner 17 Nov 2026): kit/ThumbPoster + this film's hero (the brass eyepiece) and its lab furniture ──
-import { ThumbPoster } from '../../kit/ThumbPoster';
-const EyepieceHero: React.FC<{ cx?: number; cy?: number; R?: number }> = ({ cx = 935, cy = 385, R = 222 }) => {
+import { ThumbPoster, ThumbPosterV } from '../../kit/ThumbPoster';
+const EyepieceHero: React.FC<{ cx?: number; cy?: number; R?: number; W?: number; H?: number; tube?: boolean }> = ({ cx = 935, cy = 385, R = 222, W = 1280, H = 720, tube = true }) => {
   const r = seeded(33);
   const flashes = Array.from({ length: 24 }, () => { const t = r() * Math.PI * 2, rr = Math.sqrt(r()) * (R - 40); return [cx + 50 + Math.cos(t) * rr * .55, cy + Math.sin(t) * rr * .8, .4 + r() * .6]; });
-  return <svg width={1280} height={720} style={{ position: 'absolute', inset: 0 }}>
+  return <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}>
     <defs>
       <radialGradient id="ehScreen" cx=".55" cy=".5" r=".6"><stop offset="0" stopColor="#21402f" /><stop offset=".8" stopColor="#0c1a13" /><stop offset="1" stopColor="#040906" /></radialGradient>
       <linearGradient id="ehBrass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fff0b8" /><stop offset=".25" stopColor={GOLD[0]} /><stop offset=".5" stopColor={GOLD[1]} /><stop offset=".62" stopColor="#ffeeb0" /><stop offset=".85" stopColor={GOLD[1]} /><stop offset="1" stopColor={GOLD[2]} /></linearGradient>
@@ -227,7 +227,7 @@ const EyepieceHero: React.FC<{ cx?: number; cy?: number; R?: number }> = ({ cx =
     </defs>
     <circle cx={cx} cy={cy} r={R + 110} fill="url(#ehHalo)" />
     {/* the microscope tube coming down into the eyepiece from the upper right */}
-    <polygon points={`${cx + 120},${cy - 170} ${cx + 330},${cy - 420} ${cx + 430},${cy - 340} ${cx + 210},${cy - 100}`} fill="url(#ehBrass)" stroke="#3a2414" strokeWidth="4" opacity=".9" />
+    {tube && <polygon points={`${cx + 120},${cy - 170} ${cx + 330},${cy - 420} ${cx + 430},${cy - 340} ${cx + 210},${cy - 100}`} fill="url(#ehBrass)" stroke="#3a2414" strokeWidth="4" opacity=".9" />}
     <g filter="url(#ehSh)">
       <circle cx={cx} cy={cy} r={R + 48} fill="url(#ehBrass)" stroke="#3a2414" strokeWidth="5" />
       {Array.from({ length: 130 }, (_, i) => { const t = i / 130 * Math.PI * 2; return <line key={i} x1={cx + Math.cos(t) * (R + 24)} y1={cy + Math.sin(t) * (R + 24)} x2={cx + Math.cos(t) * (R + 44)} y2={cy + Math.sin(t) * (R + 44)} stroke={GOLD[2]} strokeWidth="2" />; })}
@@ -257,3 +257,11 @@ const LabBack: React.FC = () => <g opacity=".55">
 </g>;
 export const Standard: React.FC<any> = (p) => <ThumbPoster kicker={p.kicker ?? 'Manchester · 1909'} title={p.lines ?? ["WHAT'S", 'INSIDE', 'AN ATOM?']} accent={p.accent ?? 1}
   note={p.note ?? '1 in 8,000 came back.'} hero={<EyepieceHero />} back={<LabBack />} lamp={[935, 300]} />;
+
+const LampV: React.FC = () => <g opacity=".6">
+  <line x1="540" y1="0" x2="540" y2="70" stroke="#120a05" strokeWidth="5" />
+  <path d="M 470 140 L 500 70 L 580 70 L 610 140 Z" fill="#2f5440" stroke="#d4a846" strokeWidth="4" /><ellipse cx="540" cy="142" rx="58" ry="10" fill="#fff1c8" />
+  <rect x="0" y="1808" width="1080" height="112" fill="#24160b" /><rect x="0" y="1802" width="1080" height="8" fill="#6a4430" />
+</g>;
+export const StandardV: React.FC<any> = (p) => <ThumbPosterV kicker={p.kicker ?? 'Manchester · 1909'} title={p.lines ?? ["WHAT'S", 'INSIDE', 'AN ATOM?']} accent={p.accent ?? 1}
+  note={p.note ?? '1 in 8,000 came back.'} hero={<EyepieceHero W={1080} H={1920} cx={540} cy={1062} R={250} tube={false} />} back={<LampV />} />;
