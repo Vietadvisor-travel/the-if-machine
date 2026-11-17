@@ -717,3 +717,4 @@ export const SAMPLE: Record<string, object> = {
   InnerCoreBall: { x: 960, y: 540, r: 260, press: 1 }, FieldLines: { x: 960, y: 540, r: 140, wind: 1 }, PocketCompass: { x: 960, y: 520 }, MarsSection: { x: 960, y: 540, r: 300, cut: 1 }, ClueMedallion: { x: 960, y: 540, r: 200, kind: 'drum', n: 2 },
 };
 export const FULL = true;
+export { THUMB, THUMB_V } from './thumb';   // the designed thumbnail + vertical cover (kit/ThumbPoster)

@@ -13,7 +13,8 @@ export type PosterProps = { kicker: string; title: string[]; accent?: number; no
 
 export const ThumbPoster: React.FC<PosterProps> = ({ kicker, title, accent = -1, note, hero, back, lamp = [900, 330] }) => {
   const r = seeded(7), [lx, ly] = lamp;
-  const big = title.length <= 2 ? 150 : title.length === 3 ? 122 : 104;
+  const longest = Math.max(...title.map(t => t.length));   // Special Elite caps ≈ 0.62 em wide: keep the longest line inside ≈ 600 px (clear of the hero)
+  const big = Math.min(title.length <= 2 ? 150 : title.length === 3 ? 122 : 104, Math.floor(600 / (longest * .62 * (accent >= 0 ? 1 : 1))));
   return <AbsoluteFill style={{ overflow: 'hidden', background: '#140d07' }}>
     <svg width={1280} height={720} style={{ position: 'absolute', inset: 0 }}>
       <defs>
@@ -46,7 +47,7 @@ export const ThumbPoster: React.FC<PosterProps> = ({ kicker, title, accent = -1,
       <g filter="url(#tpSh)">{title.map((t, i) => <text key={i} x={44} y={100 + big * (i + 1) * .98} fontFamily="Special Elite" fontSize={i === accent ? big * 1.12 : big}
         fill={i === accent ? TONE.cream : 'url(#tpLeaf)'} stroke="#120a04" strokeWidth={13} strokeLinejoin="round" paintOrder="stroke">{t}</text>)}</g>
     </svg>
-    <div style={{ position: 'absolute', left: 58, top: 112 + big * title.length * .98 + 26, fontFamily: 'La Belle Aurore', fontSize: 62, color: TONE.cream, transform: 'rotate(-4deg)', transformOrigin: 'left', textShadow: '0 3px 12px #000' }}>{note}</div>
+    <div style={{ position: 'absolute', left: 58, top: 112 + big * title.length * .98 + 26, fontFamily: 'La Belle Aurore', fontSize: note.length > 20 ? 54 : 62, color: TONE.cream, transform: 'rotate(-4deg)', transformOrigin: 'left', textShadow: '0 3px 12px #000' }}>{note}</div>
     <Img src={staticFile('brand/fathom_mark.png')} style={{ position: 'absolute', right: 22, bottom: 18, width: 74, height: 74 }} />
   </AbsoluteFill>;
 };

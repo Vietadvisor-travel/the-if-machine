@@ -584,7 +584,7 @@ E['music'] = {'cues': [{'file': f, 'at': at, 'start': st, 'db': db + 14} for f, 
               'swells': [['L4$', 'L5', 7], ['L15$', 'L16', 3], ['L27$', 'L28', 3], ['L39$', 'L40', 3], ['L52$', 'L53', 3], ['L80$', 'end', 7]]}
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
 THUMB_T = round(LN[65]['start'] + 1.6, 2) if LN else 446   # 'The Earth had an inner core': the whole section, the inner core white-hot
-E['thumb'] = {'t': THUMB_T, 'title': 'What is *inside* the Earth?', 'kicker': 'Fathom', 'side': 'left'}
+E['thumb'] = {'t': 1, 'title': "What's inside the Earth?", 'v': 'S', 'kicker': 'Copenhagen · 1936', 'lines': ["WHAT'S", 'INSIDE', 'THE EARTH?'], 'accent': 1, 'note': 'We have dug only 12 km.'}   # the standard poster: src/lib/inside-earth/thumb.tsx
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
 TP = os.path.join(H_, 'timeline.json')
 if os.path.exists(TP):   # keep the voiced timeline's sfx in step (vo.py copies them on the next voice run)

@@ -86,10 +86,17 @@
   "the bell ↔ planet morph used as the film's bookend"
  ],
  "thumb": {
-  "t": 446.44,
-  "title": "What is *inside* the Earth?",
-  "kicker": "Fathom",
-  "side": "left"
+  "t": 1,
+  "title": "What's inside the Earth?",
+  "v": "S",
+  "kicker": "Copenhagen · 1936",
+  "lines": [
+   "WHAT'S",
+   "INSIDE",
+   "THE EARTH?"
+  ],
+  "accent": 1,
+  "note": "We have dug only 12 km."
  },
  "lines": [
   {
