@@ -48,7 +48,7 @@ def pack():
         if os.path.isdir(src): shutil.copytree(src, f'{tmp}/{k}', dirs_exist_ok=True)
         elif os.path.isfile(src): os.makedirs(os.path.dirname(f'{tmp}/{k}'), exist_ok=True); shutil.copy2(src, f'{tmp}/{k}')
     shutil.rmtree(pub); os.rename(tmp, pub)
-    for f in ('package.json', 'package-lock.json', 'remotion.config.ts'): shutil.copy2(f, f'{B}/{f}')
+    for f in ('package.json', 'package-lock.json', 'remotion.config.ts', 'tsconfig.json'): shutil.copy2(f, f'{B}/{f}')
     shell = os.path.basename(os.path.dirname(os.path.dirname(os.path.realpath('/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell'))))
     pw = subprocess.run(['node', '-e', "console.log(require('playwright/package.json').version)"], cwd='/tmp', capture_output=True, text=True).stdout.strip()
     json.dump({'slug': S}, open(f'{B}/props.json', 'w'))
