@@ -13,31 +13,31 @@
     "file": "../studio/music/study_and_relax.wav",
     "at": 0,
     "start": 112.0,
-    "db": -14
+    "db": -17
    },
    {
     "file": "../studio/music/wonder_floating_cities.wav",
     "at": "L13-1.6",
     "start": 64.0,
-    "db": -14
+    "db": -17
    },
    {
     "file": "../studio/music/wonder_dreamer.wav",
     "at": "L23-1.6",
     "start": 48.0,
-    "db": -14
+    "db": -17
    },
    {
     "file": "../studio/music/curious_anamalie.wav",
     "at": "L36-1.6",
     "start": 48.0,
-    "db": -12
+    "db": -15
    },
    {
     "file": "../studio/music/curious_almost_new.wav",
     "at": "L48-1.6",
     "start": 32.0,
-    "db": -12.5
+    "db": -15.5
    }
   ],
   "xfade": 6,
@@ -46,27 +46,27 @@
    [
     "L12$",
     "L13",
-    2
+    1.5
    ],
    [
     "L22$",
     "L23",
-    2
+    1.5
    ],
    [
     "L35$",
     "L36",
-    2
+    1.5
    ],
    [
     "L47$",
     "L48",
-    2
+    1.5
    ],
    [
     "L69$",
     "end",
-    4
+    3
    ]
   ]
  },

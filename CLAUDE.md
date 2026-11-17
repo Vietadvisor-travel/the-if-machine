@@ -28,7 +28,7 @@ Setup once per container: `bash setup.sh && bash howweknow/tools/setup.sh` (≈ 
 - **Text on screen:** NO subtitles. Words live in the scene (`text` entity: title, plate, note, label, figure, stamp). Faces (owner 17 Nov 2026):
   titles/stamps IM Fell English SC · captions/labels IM Fell DW Pica italic · hand La Belle Aurore · figures Special Elite · brand IM Fell French Canon SC.
 - **Real resources** (Muse) are artefacts inside scenes (pinned plates, circled documents, footage in an eyepiece/screen/film strip), never backgrounds.
-- **Sound:** voice af_heart (Kokoro) 0.86; music quiet (owner 17 Nov: ≈30 % lower), leaning MYSTERIOUS, changing only where the story's
+- **Sound:** voice af_heart (Kokoro) 0.86; music quiet (owner 17 Nov: 30 % lower, then 30 % lower again — `score.py` LEVEL), leaning MYSTERIOUS, changing only where the story's
   part changes (one cue per chapter, `tools/score.py`), each part at its own level; few fitting sound effects; −16 LUFS.
 - **Opening:** narrated, leading the viewer in like a science channel — not a bang (`STORY.md` §1 "Narrated opening").
 

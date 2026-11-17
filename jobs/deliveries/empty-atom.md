@@ -1,5 +1,7 @@
 # Delivery — Bên trong nguyên tử có gì (empty-atom) · FATHOM film · v1.1 (music remix) · 17 Nov 2026
 
+> v1.2 (17 Nov, owner "nhạc vẫn to quá, nhỏ đi 30 % nữa"): every music level −3 dB more, and the mix now reaches −16 LUFS by one fixed
+> gain + limiter (the old dynamic loudnorm pushed quiet music back up in the pauses). Music-only pauses ≈ −26 LUFS (v1: −16).
 > v1.1 (17 Nov, owner): picture unchanged; the score re-planned to the new rule — ≈30 % quieter, leaning mysterious, one cue per part
 > (5 cues instead of 14, 6 s crossfades, explaining parts lowest). Same Drive file, replaced in place. Thumb/cover dropped (owner: no thumbnails).
 

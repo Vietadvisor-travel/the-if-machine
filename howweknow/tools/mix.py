@@ -42,6 +42,12 @@ for L in TL['lines']:
     for s in L.get('sfx', []):
         inp += ['-i', s['file']]; at = int((L['start'] + s['at']) * 1000)
         flt.append(f'[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={s.get("db", -18)}dB,adelay={at}|{at}[s{n}]'); mixes.append(f'[s{n}]'); n += 1
-flt.append(f'{"".join(mixes)}amix=inputs={len(mixes)}:normalize=0:duration=first,loudnorm=I=-16:TP=-1.5:LRA=11[out]')
-subprocess.run(['ffmpeg', '-v', 'error', '-y', *inp, '-filter_complex', ';'.join(flt), '-map', '[out]', '-ar', '48000', f'{B}/mix.wav'], check=True)
+flt.append(f'{"".join(mixes)}amix=inputs={len(mixes)}:normalize=0:duration=first[out]')
+subprocess.run(['ffmpeg', '-v', 'error', '-y', *inp, '-filter_complex', ';'.join(flt), '-map', '[out]', '-ar', '48000', f'{B}/pre.wav'], check=True)
+# −16 LUFS by ONE fixed gain + a true-peak limiter (owner 17 Nov 2026: the music must really be as quiet as score.py sets it — the old
+# one-pass dynamic loudnorm acted like an automatic volume knob and pushed quiet music back up in the pauses)
+meas = subprocess.run(['ffmpeg', '-nostats', '-i', f'{B}/pre.wav', '-af', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
+I = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', meas)[-1]); g = -16 - I
+subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f'{B}/pre.wav', '-af', f'volume={g:.2f}dB,alimiter=limit=0.84:attack=5:release=50:level=disabled', '-ar', '48000', f'{B}/mix.wav'], check=True)
+os.remove(f'{B}/pre.wav')
 print('mix →', f'{B}/mix.wav', f'({len(cues)} music cue(s), {len(mixes) - 1 - (1 if cues else 0)} effects under the voice)')

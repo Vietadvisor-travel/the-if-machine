@@ -22,8 +22,8 @@ MAXPART = 120     # s: chapters with the same mood share a cue only up to this l
 MINPART = 60      # s: no music part shorter than this (owner: "nhạc chèn lung tung quá")
 BLOCK = {'tension_sneaky_snitch'}   # comic pizzicato despite its tag — wrong for FATHOM's mysterious score
 LEAN = .45        # every mood target leans this far toward 'mystery' (owner: "ưu tiên nhạc kiểu bí ẩn")
-LEVEL = {'mystery': -12, 'awe': -12, 'tension': -12, 'wonder': -12.5, 'triumph': -11.5, 'sad': -13,   # dB per part (was -9 everywhere):
-         'warm': -13.5, 'curious': -14, 'calm': -14, 'playful': -14}                                   # ≈30 % quieter, explaining parts lowest
+LEVEL = {'mystery': -15, 'awe': -15, 'tension': -15, 'wonder': -15.5, 'triumph': -14.5, 'sad': -16,   # dB per part — owner 17 Nov: "nhỏ hơn ~30 %",
+         'warm': -16.5, 'curious': -17, 'calm': -17, 'playful': -17}                                   # then "vẫn to quá, nhỏ đi 30 % nữa" (−3 dB twice vs -9)
 
 def analyze():
     import soundfile as sf
@@ -90,12 +90,12 @@ def plan(ep, write=False):
                 cost = fit + .5 * steady + .3 * first + (.0 if k not in used else (.03 if n == len(parts) - 1 and used[k] == 0 else .6)) + (.15 if v['dur'] < need else 0)
                 if best is None or cost < best[0]: best = (cost, k, s * WIN, fit)
         cost, k, st, fit = best; used.setdefault(k, n)
-        cues.append({'file': f"../studio/{M[k]['file']}", 'at': f'L{a}-1.6' if n else 0, 'start': round(st, 1), 'db': LEVEL.get(m, -13)})
-        sheet.append(f"  {t0 / 60:4.1f}–{t1 / 60:4.1f} min  L{a}–L{b}  {m:8} {LEVEL.get(m, -13):5.1f} dB → {k} from {st:.0f} s  (fit {1 - fit:.2f}){'  · returns (bookend)' if used[k] != n else ''}")
+        cues.append({'file': f"../studio/{M[k]['file']}", 'at': f'L{a}-1.6' if n else 0, 'start': round(st, 1), 'db': LEVEL.get(m, -16)})
+        sheet.append(f"  {t0 / 60:4.1f}–{t1 / 60:4.1f} min  L{a}–L{b}  {m:8} {LEVEL.get(m, -16):5.1f} dB → {k} from {st:.0f} s  (fit {1 - fit:.2f}){'  · returns (bookend)' if used[k] != n else ''}")
     print(f'score {E["slug"]}: {len(cues)} cues (one per part of the story, lean to mystery)'); print('\n'.join(sheet))
     credits = sorted({M[c['file'].split('/')[-1][:-4]]['credit'][:60] for c in cues if c['file'].split('/')[-1][:-4] in M}); print('  credits:', *credits, sep='\n    ')
     if write:
-        sw = [[f'L{a - 1}$', f'L{a}', 2] for a, b, m in parts[1:]] + [[f'L{len(L) - 1}$', 'end', 4]]
+        sw = [[f'L{a - 1}$', f'L{a}', 1.5] for a, b, m in parts[1:]] + [[f'L{len(L) - 1}$', 'end', 3]]
         E['music'] = {'cues': cues, 'xfade': 6, 'norm': -18, 'swells': sw}; json.dump(E, open(f'{ep}/episode.json', 'w'), indent=1, ensure_ascii=False); print('  written to episode.json')
 
 if __name__ == '__main__':
