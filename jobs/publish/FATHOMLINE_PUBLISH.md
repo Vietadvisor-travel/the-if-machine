@@ -62,10 +62,7 @@ reference for the mechanics, this file is the live checklist.
   60 s (platform limit).
 - Playlist + pinned comment: DROPPED per owner 16/11 21:06 (not available for
   this account). Do not ask for them again.
-- Publish as Everyone. KNOWN QUIRK (old channel, twice): the upload can save as
-  "Only me" despite Everyone selected. Check Studio > Content right after posting
-  and fix the privacy to Everyone if needed.
-- Verify on the public video page (plays, caption exact, privacy Everyone).
+- Publish as Everyone. RULE (owner 17/11): post directly and stop. NO post checks: do NOT open Studio > Content to check privacy, do NOT verify on the public page. Extra navigation triggers TikTok's captcha/bot check. The "Only me" quirk (seen twice on the old channel) is accepted as a risk; the owner fixes privacy himself if it happens.
 
 ## 3. Facebook Page Fathomline (API, ifm-graph.py — never the browser)
 
