@@ -1,7 +1,7 @@
 # Delivery — Các vì sao xa đến đâu (star-distance) · FATHOM film · v1 · 17 Nov 2026
 
-## Files (Drive fathom/star-distance/)
-- star-distance_16x9.mp4 · @@SIZE@@ (CRF-17 master) · @@LEN@@ · 1920×1080
+## Files (Drive fathom/star-distance/ · https://drive.google.com/drive/folders/1_m9Cj5qLSrwt35HKMDhHHny1El7J3e5u)
+- star-distance_16x9.mp4 · 1.53 GB (the grain/engraving pass makes the CRF-17 file large; YouTube takes it as is) (CRF-17 master) · 8:44 · 1920×1080
 - star-distance_thumb.jpg (YouTube 1280×720, standard poster) · star-distance_cover_9x16.jpg (Instagram/TikTok cover) · star-distance.srt (optional CC, not burned in)
 
 ## Production
@@ -23,7 +23,7 @@
   Milky Way shrinking). FreePD "Study and Relax" is now blocked in the planner (it drew a Content ID claim on empty-atom).
 - Sound: Muse kit (CC0: clock tick, glass plate slide, pen scribble, dome motor) + the studio library.
 - Gates: script_check PASS · check_world PASS · variety PASS · plan_check PASS (33 kinds of becoming) · still_check PASS (0 s dead) ·
-  treatment_check PASS · @@RENDER@@
+  treatment_check PASS · full render 15,722 frames on the render farm (20 chunks, every one pixel-checked ≥ 61 dB overall / ≥ 37 dB detail) — 37 min including packing and joining (4.2 s per film second) · mix −16 LUFS · QA sheet looked at
 
 ## Facts (jobs/research/star-distance.md)
 - Parallax: a near star shifts against far ones as the Earth moves; under one arcsecond for every star — S1, S2
@@ -64,7 +64,15 @@
 - Not used: V-02 Mount Wilson footage (its distributor's watermark), the ESA Gaia images (CC BY-SA, banned; Gaia is drawn from _ref).
 
 ## Critic pass
-@@CRITIC@@
+- Pass 1 (fresh critic, 4 keyframes + 72 stills): keyframes 4–7/10. Fixed before the master: people put AT their instruments (Bessel's eye on the
+  eyepiece and hand on the micrometer; Leavitt and the Harvard women at their plate stands, hair up, long dresses), a pen hand that writes N, strikes it
+  and writes VAR!, older plates fanned with the star big/small/big, three lit windows at the end, more named light, galaxies redrawn, stray red specks
+  removed (a bug in the shared Mark tool, fixed for every film), cut-off titles moved into frame.
+- Pass 2 (fresh critic, the animatic): invention 7 · style 6 · drawing 5 · light & depth 4 · composition 7 · acting 4 · rhythm 6; keyframes 4–8.
+  Strongest: the star cabinet, Bessel's page folding into a paper boat, the breathing stars in Leavitt's loupe → ruler of light → candle, the "!" that
+  becomes a star and the ruler laid to Andromeda, the bookend in the window. NOT YET AT THE 8/10 BAR on drawing, light and acting: the people are still
+  the shared Person rig (mannequin-like, no close-up faces for Leavitt), few scenes have a visible key light with cast shadows, the spectrum/train/
+  Gaia read as flat vector. Proposed v2 (owner's call): Leavitt close-up beats, a lamp and shadows in every interior, engraved locomotive and spectrum.
 
 ## For Muse
 - Title options: 1) How Far Away Are the Stars? The Blink That Measured the Universe 2) One Blink, One Plate, One Word: How We Measured the Stars
