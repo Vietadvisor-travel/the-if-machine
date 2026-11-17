@@ -209,7 +209,7 @@ export const Rose: React.FC<{ x: N; y: N; r: N; draw?: N }> = ({ x, y, r, draw =
   {Array.from({ length: 16 }, (_, i) => { const a = i / 16 * Math.PI * 2 - Math.PI / 2, L = i % 4 ? (i % 2 ? .45 : .68) : 1, w = i % 4 ? .08 : .14;
     return <Region key={i} d={`M${x} ${y} L${x + Math.cos(a - .3) * r * w} ${y + Math.sin(a - .3) * r * w} L${x + Math.cos(a) * r * L} ${y + Math.sin(a) * r * L}Z`} mat={i % 4 ? 'gold' : 'paper'} t={i % 2 ? .6 : .1} ang={a * 57} sw={.9} draw={draw} />; })}
   <circle cx={x} cy={y} r={r * .78} fill="none" stroke={SEP} strokeWidth={1.4} opacity={draw} /><circle cx={x} cy={y} r={r * .84} fill="none" stroke={SEP} strokeWidth={.6} opacity={draw} />
-  <text x={x} y={y - r * 1.1} textAnchor="middle" fontFamily="Fraunces" fontWeight={700} fontSize={r * .24} fill={SEP} opacity={draw}>N</text></g>;
+  <text x={x} y={y - r * 1.1} textAnchor="middle" fontFamily="IM Fell English SC" fontWeight={400} fontSize={r * .24} fill={SEP} opacity={draw}>N</text></g>;
 export const Ship: React.FC<{ x: N; y: N; s: N; draw?: N; flip?: N }> = ({ x, y, s, draw = 1, flip = 1 }) => {
   const k = s / 300, P = (a: N, b: N) => [x + a * k * flip, y + b * k];
   return <g>
@@ -243,7 +243,7 @@ export const Pinned: React.FC<Art & { w: N; h: N; rot?: N; caption?: string; pin
     <Region d={poly([[x - w / 2 - 16, y - h / 2 - 16], [x + w / 2 + 16, y - h / 2 - 16], [x + w / 2 + 16, y + h / 2 + (caption ? 48 : 16)], [x - w / 2 - 16, y + h / 2 + (caption ? 48 : 16)]])} mat="paper" t={.06} draw={draw} rim={false} />
     <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h}><div style={{ width: w, height: h, clipPath: `inset(0 ${100 - Math.min(100, draw * 140)}% 0 0)` }}><Media src={src} w={w} h={h} style={{ filter: toneCss }} {...mp(m)} /></div></foreignObject>
     <Ink d={`M${x - w / 2} ${y - h / 2} H${x + w / 2} V${y + h / 2} H${x - w / 2}Z`} w={1} draw={draw} />
-    {caption && <text x={x} y={y + h / 2 + 34} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={20} fill={SEP} opacity={draw}>{caption}</text>}
+    {caption && <text x={x} y={y + h / 2 + 34} textAnchor="middle" fontFamily="IM Fell DW Pica" fontStyle="italic" fontSize={20} fill={SEP} opacity={draw}>{caption}</text>}
     {pin && <g opacity={draw}><circle cx={x} cy={y - h / 2 - 4} r={9} fill={PIG.red[1]} stroke={SEP} strokeWidth={1} /><circle cx={x - 3} cy={y - h / 2 - 7} r={3} fill="#FFFFFF" opacity={.6} /></g>}
   </g>);
 // a real document page (Muse's scan), with the key passage CIRCLED in red ink as the narration reaches it (or underlined: mark="line")
@@ -315,7 +315,7 @@ export const CabinetCard: React.FC<Art & { w: N; h: N; rot?: N; caption?: string
     <Region d={`M${x0 + 10} ${y0} H${x0 + W2 - 10} Q${x0 + W2} ${y0} ${x0 + W2} ${y0 + 10} V${y0 + H2 - 10} Q${x0 + W2} ${y0 + H2} ${x0 + W2 - 10} ${y0 + H2} H${x0 + 10} Q${x0} ${y0 + H2} ${x0} ${y0 + H2 - 10} V${y0 + 10} Q${x0} ${y0} ${x0 + 10} ${y0}Z`} mat="wall" t={.25} hatch={0} draw={draw} rim={false} sw={1} />
     <rect x={x0 + 8} y={y0 + 8} width={W2 - 16} height={H2 - 16} rx={6} fill="none" stroke="url(#gold)" strokeWidth={3} opacity={draw} />
     <foreignObject x={x - w / 2} y={y - h / 2} width={w} height={h}><div style={{ width: w, height: h, borderRadius: '6px 6px 40% 40% / 6px 6px 12% 12%', overflow: 'hidden', opacity: Math.min(1, draw * 1.6) }}><Media src={src} w={w} h={h} style={{ filter: 'sepia(.8) saturate(.7) contrast(1.05)' }} {...mp(m)} /></div></foreignObject>
-    {caption && <text x={x} y={y0 + H2 - 30} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={19} fill="#F3D98A" opacity={draw}>{caption}</text>}
+    {caption && <text x={x} y={y0 + H2 - 30} textAnchor="middle" fontFamily="IM Fell DW Pica" fontStyle="italic" fontSize={19} fill="#F3D98A" opacity={draw}>{caption}</text>}
   </g>;
 };
 
@@ -324,7 +324,7 @@ export const Angle: React.FC<{ x: N; y: N; a0: N; a1: N; r: N; label?: string; d
   const R = Math.PI / 180, p = (a: N, l: N) => [x + Math.cos(a * R) * l, y + Math.sin(a * R) * l];
   return <g><Line d={`M${x} ${y} L${p(a0, len).join(' ')}`} w={2} col={PIG.red[1]} a={1} draw={draw} /><Line d={`M${x} ${y} L${p(a1, len).join(' ')}`} w={2} col={PIG.red[1]} a={1} draw={draw} />
     <Line d={`M${p(a0, r).join(' ')} A${r} ${r} 0 0 ${a1 > a0 ? 1 : 0} ${p(a1, r).join(' ')}`} w={2.4} col={PIG.red[1]} draw={Math.max(0, draw * 1.5 - .5)} a={1} />
-    {label && <text x={p((a0 + a1) / 2, r + 34)[0]} y={p((a0 + a1) / 2, r + 34)[1]} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={34} fill={PIG.red[2]} opacity={Math.max(0, draw * 2 - 1)}>{label}</text>}</g>;
+    {label && <text x={p((a0 + a1) / 2, r + 34)[0]} y={p((a0 + a1) / 2, r + 34)[1]} textAnchor="middle" fontFamily="IM Fell DW Pica" fontStyle="italic" fontSize={34} fill={PIG.red[2]} opacity={Math.max(0, draw * 2 - 1)}>{label}</text>}</g>;
 };
 export const GoldBeam: React.FC<{ x1: N; y1: N; x2: N; y2: N; k?: N; w?: N }> = ({ x1, y1, x2, y2, k = 1, w = 3 }) => {
   const x = x1 + (x2 - x1) * k, y = y1 + (y2 - y1) * k; if (k <= 0) return null;

@@ -51,7 +51,7 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
     case 'pin': {   // a place marked on a planet: gold ring + red dot (+ an italic name), drawn in
       const p = S[s.on]; if (!p) return null; const q = planetPoint(cam, p, s.lon, s.lat); if (q.vis <= 0) return null; const r = s.r ?? 10, d = s.draw ?? 1;
       return <Svg a={a}><circle cx={q.x} cy={q.y} r={r * 3} fill="url(#glowG)" opacity={.6 * d} /><Ink d={`M${q.x - r} ${q.y} a${r} ${r} 0 1 0 ${2 * r} 0 a${r} ${r} 0 1 0 ${-2 * r} 0`} w={1.6} draw={d} />
-        <circle cx={q.x} cy={q.y} r={r * .38 * d} fill={PIG.red[1]} />{s.label && <text x={q.x + r * 1.8} y={q.y + 7} fontFamily="Fraunces" fontStyle="italic" fontSize={s.size ?? 28} fill={s.color ?? '#FBF1D8'} opacity={d} style={{ paintOrder: 'stroke' }} stroke={SEP} strokeWidth={4} strokeOpacity={.6}>{s.label}</text>}</Svg>;
+        <circle cx={q.x} cy={q.y} r={r * .38 * d} fill={PIG.red[1]} />{s.label && <text x={q.x + r * 1.8} y={q.y + 7} fontFamily="IM Fell DW Pica" fontStyle="italic" fontSize={s.size ?? 28} fill={s.color ?? '#FBF1D8'} opacity={d} style={{ paintOrder: 'stroke' }} stroke={SEP} strokeWidth={4} strokeOpacity={.6}>{s.label}</text>}</Svg>;
     }
     case 'beam': {   // gold light between two anchors (world, planet points, screen), k = how far it has travelled
       const [x1, y1] = anchor(s.from, cam, S), [x2, y2] = anchor(s.to, cam, S);
@@ -60,7 +60,7 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
     case 'arc': {   // a dashed sepia measuring arc between anchors with ONE small italic label
       const [x1, y1] = anchor(s.from, cam, S), [x2, y2] = anchor(s.to, cam, S), mx = (x1 + x2) / 2, my = (y1 + y2) / 2 - (s.bend ?? 160), d = s.k ?? 1;
       return <Svg a={a}><path d={`M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}`} fill="none" stroke="#FBF1D8" strokeOpacity={.75} strokeWidth={2} strokeDasharray="6 9" pathLength={1} style={{ strokeDasharray: `${d} 1` }} />
-        {s.label && <text x={mx} y={my + 34} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={s.size ?? 32} fill="#FBF1D8" opacity={Math.min(1, d * 1.5)}>{s.label}</text>}</Svg>;
+        {s.label && <text x={mx} y={my + 34} textAnchor="middle" fontFamily="IM Fell DW Pica" fontStyle="italic" fontSize={s.size ?? 32} fill="#FBF1D8" opacity={Math.min(1, d * 1.5)}>{s.label}</text>}</Svg>;
     }
     case 'shape': {   // an inked form that MORPHS into another (form = path in a 0–100 box; draw = ink-on). v5: `fill` (a colour that glides) + fillA makes it a
       // solid body that morphs; `erase` 0..1 trims the line from its start, so with `draw` a stroke TRAVELS (leaves one thing, becomes the outline of the next)
@@ -106,7 +106,7 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
       const [x, y] = anchor(s.at, cam, S), r = s.r ?? 220, k = s.k ?? 1; if (k <= 0) return null;
       return <AbsoluteFill style={{ opacity: a * k, background: `radial-gradient(circle ${r * 1.5}px at ${x}px ${y}px, rgba(43,29,18,0) 0%, rgba(43,29,18,0) ${62}%, rgba(43,29,18,${s.dark ?? .5}) 100%)`, mixBlendMode: 'multiply' }} />;
     }
-    case 'label': return <AbsoluteFill style={{ opacity: a }}><div style={{ position: 'absolute', left: s.x, top: s.y, translate: '-50% -50%', fontFamily: 'Fraunces', fontStyle: 'italic', fontSize: s.size ?? 30, color: s.color ?? SEP }}>{s.text}</div></AbsoluteFill>;
+    case 'label': return <AbsoluteFill style={{ opacity: a }}><div style={{ position: 'absolute', left: s.x, top: s.y, translate: '-50% -50%', fontFamily: 'IM Fell DW Pica', fontStyle: 'italic', fontSize: s.size ?? 30, color: s.color ?? SEP }}>{s.text}</div></AbsoluteFill>;
     case 'lens': {   // a WINDOW into another place opening from a point (the continuity device): an inked, gold-rimmed circle
       const [ax, ay] = anchor(s.at, cam, S), k = s.center ?? 0, lx = ax + (SW / 2 - ax) * k, ly = ay + (SH / 2 - ay) * k, r = s.r ?? 0; if (r < 1) return null;
       const inner: Ctx = { ...c, cam: { x: SW / 2, y: SH / 2, zoom: 1, rot: 0 } }, sc = s.inner ?? 1, ring = Math.max(0, 1 - r / 1400);

@@ -9,8 +9,10 @@ mkdir -p public/fonts public/sfx public/tex public/music public/core public/bran
 F=node_modules/@fontsource
 cp -n $F/fraunces/files/fraunces-latin-{400-normal,700-normal,400-italic}.woff2 $F/inter/files/inter-latin-{400,600}-normal.woff2 \
       $F/space-mono/files/space-mono-latin-400-normal.woff2 $F/im-fell-english/files/im-fell-english-latin-400-{normal,italic}.woff2 \
-      $F/im-fell-english-sc/files/im-fell-english-sc-latin-400-normal.woff2 $F/pinyon-script/files/pinyon-script-latin-400-normal.woff2 public/fonts/ 2>/dev/null
-[ $(ls public/fonts | wc -l) -ge 10 ] && echo "· fonts ok" || { echo "FAIL fonts"; ok=0; }
+      $F/im-fell-english-sc/files/im-fell-english-sc-latin-400-normal.woff2 $F/pinyon-script/files/pinyon-script-latin-400-normal.woff2 \
+      $F/im-fell-dw-pica/files/im-fell-dw-pica-latin-400-{normal,italic}.woff2 $F/la-belle-aurore/files/la-belle-aurore-latin-400-normal.woff2 \
+      $F/special-elite/files/special-elite-latin-400-normal.woff2 $F/im-fell-french-canon-sc/files/im-fell-french-canon-sc-latin-400-normal.woff2 public/fonts/ 2>/dev/null
+[ $(ls public/fonts | wc -l) -ge 15 ] && echo "· fonts ok" || { echo "FAIL fonts"; ok=0; }
 cp -n ../studio/sfx_ifm/*.wav public/sfx/ 2>/dev/null; echo "· sfx: $(ls public/sfx | wc -l) (Muse's per-film sfx come with tools/sync.sh)"
 [ -f public/tex/regolith_photo.jpg ] || ffmpeg -v error -y -f lavfi -i "mandelbrot=size=1600x1100:rate=1" -frames:v 1 -vf hue=s=0 public/tex/regolith_photo.jpg   # PaintTest placeholder only
 python3 - <<'PY'

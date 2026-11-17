@@ -25,9 +25,12 @@ Setup once per container: `bash setup.sh && bash howweknow/tools/setup.sh` (≈ 
 - **Every film draws its own world:** people (costume + face), objects, places are drawn NEW for each film in `howweknow/src/lib/<slug>/`
   from its content and Muse's reference images; the library is samples + an archive, never a kit (`tools/variety.py` enforces it).
 - **Variety:** effects chosen by meaning from `howweknow/FX.md`; no repeated scenes inside a film or across films (`history.json`).
-- **Text on screen:** NO subtitles. Words live in the scene (`text` entity: title, plate, note, label, figure, stamp — IM Fell / Pinyon Script).
+- **Text on screen:** NO subtitles. Words live in the scene (`text` entity: title, plate, note, label, figure, stamp). Faces (owner 17 Nov 2026):
+  titles/stamps IM Fell English SC · captions/labels IM Fell DW Pica italic · hand La Belle Aurore · figures Special Elite · brand IM Fell French Canon SC.
 - **Real resources** (Muse) are artefacts inside scenes (pinned plates, circled documents, footage in an eyepiece/screen/film strip), never backgrounds.
-- **Sound:** voice af_heart (Kokoro) 0.86; ONE quiet music bed per film; few fitting sound effects; −16 LUFS.
+- **Sound:** voice af_heart (Kokoro) 0.86; music quiet (owner 17 Nov: ≈30 % lower), leaning MYSTERIOUS, changing only where the story's
+  part changes (one cue per chapter, `tools/score.py`), each part at its own level; few fitting sound effects; −16 LUFS.
+- **Opening:** narrated, leading the viewer in like a science channel — not a bang (`STORY.md` §1 "Narrated opening").
 
 ## Engine v5 — LOCKED by the owner 17 Nov 2026 ("ok đẹp đó… chốt đi")
 - **Ideas first** (`howweknow/CREATIVE.md`): one governing image per film; THREE stagings written for every line before one is chosen;

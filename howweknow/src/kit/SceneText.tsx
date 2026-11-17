@@ -1,5 +1,6 @@
 // In-scene TYPE (owner, 15 Nov 2026: no subtitles — words live IN the picture, where they belong, in the style's own type).
-// Faces: IM Fell English (the 17th-c. Fell types of Oxford — engraved-book print), its small caps, Pinyon Script (a copperplate hand).
+// Faces (owner's choice, 17 Nov 2026): IM Fell English SC (titles, stamps) · IM Fell DW Pica italic (plates, labels) · La Belle Aurore (the hand)
+//   · Special Elite (big figures) — all period print or hand; no modern faces on screen.
 // styles:  title  — small-caps heading with a ruled line and fleurons (a chapter/clue opening)       ·  plate — italic figure caption under a thing
 //          note   — a handwritten line, written on left→right (margin notes, sums, a name on a map)  ·  label — italic name + a leader line to `to`
 //          figure — a big engraved number in gold leaf with an ink edge (the one key quantity)        ·  stamp — red-ink small caps in a double frame
@@ -17,16 +18,16 @@ export const SceneText: React.FC<TextS & { a?: number }> = ({ text, style = 'pla
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: align === 'left' ? 'flex-start' : 'center', gap: 14, marginTop: 10, opacity: Math.min(1, k * 2) }}>
         <span style={{ height: 1.5, width: 220 * Math.min(1, k * 1.4), background: ink }} /><span style={{ fontFamily: 'IM Fell English', fontSize: sz * .5 }}>❦</span><span style={{ height: 1.5, width: 220 * Math.min(1, k * 1.4), background: ink }} /></div></div>; }
   if (style === 'note') { const sz = size ?? 52, m = `linear-gradient(90deg, #000 ${k * 108 - 8}%, transparent ${k * 108}%)`;
-    return <div style={{ ...box, fontFamily: 'Pinyon Script', fontSize: sz, lineHeight: 1.15, color: col || (light ? CREAM : '#3A2414'), WebkitMaskImage: m, maskImage: m }}>{text}</div>; }
+    return <div style={{ ...box, fontFamily: 'La Belle Aurore', fontSize: sz, lineHeight: 1.15, color: col || (light ? CREAM : '#3A2414'), WebkitMaskImage: m, maskImage: m }}>{text}</div>; }
   if (style === 'figure') { const sz = size ?? 150;
-    return <div style={{ ...box, fontFamily: 'IM Fell English', fontSize: sz, lineHeight: 1, textShadow: 'none' }}>
+    return <div style={{ ...box, fontFamily: 'Special Elite', fontSize: sz, lineHeight: 1, textShadow: 'none' }}>
       <Chars t={text} k={k} rise={14} cs={{ background: 'linear-gradient(160deg,#F7E3A0,#D9AE4C 40%,#F3D88E 55%,#B8862B 80%,#E6C266)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', WebkitTextStroke: `1.4px ${INK}`, filter: 'drop-shadow(2px 3px 0 rgba(20,12,6,.45))' }} /></div>; }
   if (style === 'stamp') { const sz = size ?? 40, p = Math.min(1, k * 1.5);
     return <div style={{ ...box, width: 'auto', marginLeft: 0, transform: `translate(${tx}, -50%) rotate(${rot || -6}deg) scale(${1.25 - .25 * p})`, opacity: p * a }}>
       <div style={{ display: 'inline-block', padding: '8px 22px', border: `3px double ${col || (light ? '#E0866A' : RED)}`, color: col || (light ? '#E0866A' : RED), fontFamily: 'IM Fell English SC', fontSize: sz, letterSpacing: sz * .1, textShadow: 'none', mixBlendMode: light ? 'normal' : 'multiply', background: light ? 'rgba(251,241,216,.08)' : 'none' }}>{text}</div></div>; }
   if (style === 'label') { const sz = size ?? 34;
-    return <><div style={{ ...box, fontFamily: 'IM Fell English', fontStyle: 'italic', fontSize: sz }}><Chars t={text} k={k} /></div>
+    return <><div style={{ ...box, fontFamily: 'IM Fell DW Pica', fontStyle: 'italic', fontSize: sz }}><Chars t={text} k={k} /></div>
       {to && <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0, opacity: a * Math.min(1, k * 1.5) }}><path d={`M${x + (align === 'left' ? -10 : align === 'right' ? 10 : 0)} ${y + sz * .45} L${x + (to[0] - x) * Math.min(1, k * 1.3)} ${y + sz * .45 + (to[1] - y - sz * .45) * Math.min(1, k * 1.3)}`} stroke={ink} strokeWidth={1.4} fill="none" />{k > .7 && <circle cx={to[0]} cy={to[1]} r={4} fill={ink} />}</svg>}</>; }
   const sz = size ?? 32;   // plate
-  return <div style={{ ...box, fontFamily: 'IM Fell English', fontStyle: 'italic', fontSize: sz, lineHeight: 1.25 }}><Chars t={text} k={k} rise={3} /></div>;
+  return <div style={{ ...box, fontFamily: 'IM Fell DW Pica', fontStyle: 'italic', fontSize: sz, lineHeight: 1.25 }}><Chars t={text} k={k} rise={3} /></div>;
 };

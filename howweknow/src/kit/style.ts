@@ -8,7 +8,8 @@ export const P = {
   ocean: '#1E5C8F', oceanLit: '#4E98CF', land: '#6F8E5E', landLit: '#9DB57F', desert: '#B89A6A', ice: '#E8EEF2',
   rock: '#8F8A80', rockDark: '#4E4B46', moonLit: '#F4EFE3', moonMid: '#D6D0C1', moonDark: '#9C968A',
 };
-export const FONT = { head: 'Fraunces', body: 'Inter', mono: 'Space Mono' };
+// Faces (owner, 17 Nov 2026): titles IM Fell English SC · captions/labels IM Fell DW Pica italic · hand La Belle Aurore · figures Special Elite · brand IM Fell French Canon SC
+export const FONT = { head: 'IM Fell English SC', body: 'IM Fell DW Pica', mono: 'Special Elite', hand: 'La Belle Aurore', brand: 'IM Fell French Canon SC' };
 export const W = 1920, H = 1080;
 // light direction (unit vector, screen space): from upper right
 export const LIGHT = { x: 0.62, y: -0.78 };

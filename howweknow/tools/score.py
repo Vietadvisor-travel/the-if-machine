@@ -16,8 +16,14 @@ MOODS = {  # energy, pulse, bright, major
     'awe':      (.45, .15, .35, .55), 'mystery': (.25, .20, .25, .15), 'curious': (.45, .50, .55, .50), 'tension': (.60, .55, .40, .10),
     'wonder':   (.50, .35, .65, .75), 'warm':    (.40, .35, .50, .85), 'triumph': (.75, .55, .65, .90), 'calm':    (.20, .15, .45, .65),
     'sad':      (.25, .20, .30, .10), 'playful': (.55, .75, .70, .80)}
-SECTION = {'HOOK': 'awe', 'COLD': 'mystery', 'STAKES': 'mystery', 'CLUE': 'curious', 'TWIST': 'tension', 'ANSWER': 'triumph', 'MEANING': 'warm', 'CLOSE': 'awe', 'OUTRO': 'awe'}
+SECTION = {'OPEN': 'mystery', 'HOOK': 'mystery', 'COLD': 'mystery', 'STAKES': 'mystery', 'CLUE': 'curious', 'TWIST': 'tension', 'ANSWER': 'triumph', 'MEANING': 'warm', 'CLOSE': 'awe', 'OUTRO': 'awe'}
 WIN = 8.0
+MAXPART = 120     # s: chapters with the same mood share a cue only up to this long
+MINPART = 60      # s: no music part shorter than this (owner: "nhạc chèn lung tung quá")
+BLOCK = {'tension_sneaky_snitch'}   # comic pizzicato despite its tag — wrong for FATHOM's mysterious score
+LEAN = .45        # every mood target leans this far toward 'mystery' (owner: "ưu tiên nhạc kiểu bí ẩn")
+LEVEL = {'mystery': -12, 'awe': -12, 'tension': -12, 'wonder': -12.5, 'triumph': -11.5, 'sad': -13,   # dB per part (was -9 everywhere):
+         'warm': -13.5, 'curious': -14, 'calm': -14, 'playful': -14}                                   # ≈30 % quieter, explaining parts lowest
 
 def analyze():
     import soundfile as sf
@@ -50,34 +56,33 @@ def analyze():
 
 def plan(ep, write=False):
     E = json.load(open(f'{ep}/episode.json')); TL = json.load(open(f'{ep}/timeline.json')); M = json.load(open(MOODP)); L = E['lines']; T = TL['lines']
-    # parts of the story = runs of lines with the same mood (a line's own `mood` wins over its section's)
-    mood = [l.get('mood') or SECTION.get(l.get('section', ''), 'curious') for l in L]; parts = []
-    l_break = lambda i: False
-    for i, m in enumerate(mood):
-        if parts and parts[-1][2] == m and not l_break(i): parts[-1][1] = i
-        else: parts.append([i, i, m])
-    # a part longer than 2.5 min is cut at its chapter breaths (lines with gap ≥ 1.5 s): each clue gets its own passage of music
-    cut = []
-    for a, b, m in parts:
-        st = a
-        for i in range(a + 1, b + 1):
-            if L[i].get('gap', 0) >= 1.5 and T[b]['start'] - T[a]['start'] > 150 and T[i]['start'] - T[st]['start'] > 45: cut.append([st, i - 1, m]); st = i
-        cut.append([st, b, m])
-    parts = cut
-    # a part shorter than 20 s joins its neighbour (music must not twitch)
-    j = 0
-    while j < len(parts):
+    # owner 17 Nov 2026: "nhạc nền nhỏ hơn khoảng 30%, ưu tiên nhạc bí ẩn, đổi linh hoạt theo PHẦN của nội dung, nhỏ đi cho phù hợp từng đoạn
+    #   — giờ nhạc chèn lung tung quá". So: music changes only where a CHAPTER changes (a breath: gap >= 1.5 s, or the section changes),
+    #   each chapter takes the mood most of its lines ask for, chapters with the same mood share one cue, nothing shorter than MINPART,
+    #   every target leans toward mystery, and each part sits at its own (quieter) level.
+    mood = [l.get('mood') or SECTION.get(l.get('section', ''), 'curious') for l in L]
+    span = lambda i: T[i]['dur'] + L[i].get('gap', 0)
+    heads = [0] + [i for i in range(1, len(L)) if L[i].get('gap', 0) >= 1.5 or (L[i].get('section') and L[i].get('section') != L[i - 1].get('section'))]
+    parts = []
+    for n, a in enumerate(heads):
+        b = (heads[n + 1] - 1) if n + 1 < len(heads) else len(L) - 1; w = {}
+        for i in range(a, b + 1): w[mood[i]] = w.get(mood[i], 0) + span(i)
+        m = max(w, key=w.get)
+        if parts and parts[-1][2] == m and T[b]['start'] + T[b]['dur'] - T[parts[-1][0]]['start'] <= MAXPART: parts[-1][1] = b
+        else: parts.append([a, b, m])
+    j = 0   # a part shorter than MINPART joins the neighbour it is closest to in mood
+    while j < len(parts) and len(parts) > 1:
         a, b, m = parts[j]; d = (T[b]['start'] + T[b]['dur']) - T[a]['start']
-        if d < 20 and len(parts) > 1:
-            if j + 1 < len(parts): parts[j + 1][0] = a
-            else: parts[j - 1][1] = b
-            parts.pop(j); continue
+        if d < MINPART:
+            near = lambda k: np.abs(np.array(MOODS[parts[k][2]]) - np.array(MOODS[m])).sum()
+            k = j + 1 if j == 0 else j - 1 if j == len(parts) - 1 else (j - 1 if near(j - 1) <= near(j + 1) else j + 1)
+            parts[k][0], parts[k][1] = min(parts[k][0], a), max(parts[k][1], b); parts.pop(j); j = 0; continue
         j += 1
     used, cues, sheet = {}, [], []
     for n, (a, b, m) in enumerate(parts):
-        t0 = T[a]['start'] - (1.6 if n else 0); t1 = (T[parts[n + 1][0]]['start'] if n + 1 < len(parts) else TL['duration']); need = t1 - t0; tgt = np.array(MOODS[m]); best = None
+        t0 = T[a]['start'] - (1.6 if n else 0); t1 = (T[parts[n + 1][0]]['start'] if n + 1 < len(parts) else TL['duration']); need = t1 - t0; tgt = (1 - LEAN) * np.array(MOODS[m]) + LEAN * np.array(MOODS['mystery']); best = None
         for k, v in M.items():
-            if (set(v['tags']) & {'comedy', 'tech', 'momentum'} and m != 'playful') or v['dur'] < min(need, 150): continue
+            if k in BLOCK or (set(v['tags']) & {'comedy', 'tech', 'momentum'} and m != 'playful') or v['dur'] < min(need, 150): continue
             F = np.array(v['f'])[:, :4]; nw = max(1, int(round(min(need, v['dur'] - 4) / WIN)))
             for s in range(0, max(1, len(F) - nw), 2):
                 seg = F[s:s + nw]; fit = np.abs(seg - tgt).mean(); steady = seg[:, 0].std()   # fits the mood, and stays in it
@@ -85,13 +90,13 @@ def plan(ep, write=False):
                 cost = fit + .5 * steady + .3 * first + (.0 if k not in used else (.03 if n == len(parts) - 1 and used[k] == 0 else .6)) + (.15 if v['dur'] < need else 0)
                 if best is None or cost < best[0]: best = (cost, k, s * WIN, fit)
         cost, k, st, fit = best; used.setdefault(k, n)
-        cues.append({'file': f"../studio/{M[k]['file']}", 'at': f'L{a}-1.6' if n else 0, 'start': round(st, 1), 'db': -9})
-        sheet.append(f"  {t0 / 60:4.1f}–{t1 / 60:4.1f} min  L{a}–L{b}  {m:8} → {k} from {st:.0f} s  (fit {1 - fit:.2f}){'  · returns (bookend)' if used[k] != n else ''}")
-    print(f'score {E["slug"]}: {len(cues)} cues'); print('\n'.join(sheet))
+        cues.append({'file': f"../studio/{M[k]['file']}", 'at': f'L{a}-1.6' if n else 0, 'start': round(st, 1), 'db': LEVEL.get(m, -13)})
+        sheet.append(f"  {t0 / 60:4.1f}–{t1 / 60:4.1f} min  L{a}–L{b}  {m:8} {LEVEL.get(m, -13):5.1f} dB → {k} from {st:.0f} s  (fit {1 - fit:.2f}){'  · returns (bookend)' if used[k] != n else ''}")
+    print(f'score {E["slug"]}: {len(cues)} cues (one per part of the story, lean to mystery)'); print('\n'.join(sheet))
     credits = sorted({M[c['file'].split('/')[-1][:-4]]['credit'][:60] for c in cues if c['file'].split('/')[-1][:-4] in M}); print('  credits:', *credits, sep='\n    ')
     if write:
-        sw = [[f'L{a - 1}$', f'L{a}', 3] for a, b, m in parts[1:]] + [[f'L{len(L) - 1}$', 'end', 7]]
-        E['music'] = {'cues': cues, 'xfade': 4, 'norm': -18, 'swells': sw}; json.dump(E, open(f'{ep}/episode.json', 'w'), indent=1, ensure_ascii=False); print('  written to episode.json')
+        sw = [[f'L{a - 1}$', f'L{a}', 2] for a, b, m in parts[1:]] + [[f'L{len(L) - 1}$', 'end', 4]]
+        E['music'] = {'cues': cues, 'xfade': 6, 'norm': -18, 'swells': sw}; json.dump(E, open(f'{ep}/episode.json', 'w'), indent=1, ensure_ascii=False); print('  written to episode.json')
 
 if __name__ == '__main__':
     if '--analyze' in sys.argv: analyze()

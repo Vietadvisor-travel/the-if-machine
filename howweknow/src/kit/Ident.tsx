@@ -46,7 +46,7 @@ export const Mark: React.FC<{ x: number; y: number; r: number; k?: number; id?: 
 const Word: React.FC<{ x: number; y: number; size: number; k: number; spacing?: number }> = ({ x, y, size, k, spacing = .25 }) => {
   const letters = BRAND.name.split(''), adv = size * (.78 + spacing), x0 = x - (letters.length - 1) * adv / 2;
   return <g>{letters.map((c, i) => { const q = seg(k, i * .1, i * .1 + .45);
-    return <text key={i} x={x0 + i * adv} y={y + (1 - q) * 18} textAnchor="middle" fontFamily="Fraunces" fontWeight={700} fontSize={size} fill={SEP} opacity={q}
+    return <text key={i} x={x0 + i * adv} y={y + (1 - q) * 18} textAnchor="middle" fontFamily="IM Fell French Canon SC" fontWeight={400} fontSize={size} fill={SEP} opacity={q}
       style={{ filter: q < .98 ? `blur(${(1 - q) * 6}px)` : undefined }}>{c}</text>; })}</g>;
 };
 const Rule: React.FC<{ x: number; y: number; w: number; k: number }> = ({ x, y, w, k }) => <g>
@@ -60,7 +60,7 @@ export const Ident: React.FC<{ k?: number; title?: string; kicker?: string; x?: 
     <Mark x={x} y={y - 120} r={150} k={mk} id="idm" t={flicker} />
     <Word x={x} y={y + 140} size={110} k={word} />
     <Rule x={x} y={y + 180} w={560} k={rule} />
-    <text x={x} y={y + 236} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={40} fill={SEP} opacity={tag}>{BRAND.tagline}</text>
+    <text x={x} y={y + 236} textAnchor="middle" fontFamily="IM Fell French Canon SC" fontSize={34} letterSpacing={3} fill={SEP} opacity={tag}>{BRAND.tagline}</text>
     {title && <g opacity={tit} transform={`translate(0 ${(1 - tit) * 20})`}>
       {kicker && <text x={x} y={y + 330} textAnchor="middle" fontFamily="IM Fell English SC" fontSize={30} letterSpacing={8} fill="#8C3424">{kicker}</text>}
       <text x={x} y={y + 400} textAnchor="middle" fontFamily="IM Fell English" fontStyle="italic" fontSize={74} fill={SEP}>{title}</text></g>}
@@ -74,7 +74,7 @@ export const EndCard: React.FC<{ k?: number; ask?: string; next?: string; flicke
     <Mark x={960} y={300} r={150} k={mk} id="endm" t={flicker} />
     <Word x={960} y={560} size={96} k={word} />
     <Rule x={960} y={598} w={500} k={rule} />
-    <text x={960} y={652} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={38} fill={SEP} opacity={tag}>{BRAND.tagline}</text>
+    <text x={960} y={652} textAnchor="middle" fontFamily="IM Fell French Canon SC" fontSize={32} letterSpacing={3} fill={SEP} opacity={tag}>{BRAND.tagline}</text>
     <g opacity={rib} transform={`translate(0 ${(1 - rib) * 24})`}>
       <path d={`M${960 - rw / 2 - 40} ${ry - 30} l40 30 l-40 30 h60 v-60 Z M${960 + rw / 2 + 40} ${ry - 30} l-40 30 l40 30 h-60 v-60 Z`} fill="#8C3424" stroke={SEP} strokeWidth={1.4} />
       <rect x={960 - rw / 2} y={ry - 38} width={rw} height={76} fill="#B4432F" stroke={SEP} strokeWidth={1.6} />
@@ -102,6 +102,6 @@ export const TitleCard: React.FC<{ k?: number; title?: string; sub?: string; kic
       return <text key={i} x={x} y={yy + (1 - q) * 14} textAnchor="middle" fontFamily="IM Fell English" fontStyle="italic" fontSize={fs} fill={SEP} opacity={q}
         style={{ filter: q < .98 ? `blur(${(1 - q) * 5}px)` : undefined }}>{ln}</text>; })}
     <Rule x={x} y={y + 120} w={420} k={rule} />
-    {sub && <text x={x} y={y + 178} textAnchor="middle" fontFamily="Fraunces" fontStyle="italic" fontSize={36} fill={SEP} opacity={sb}>{sub}</text>}</g>
+    {sub && <text x={x} y={y + 178} textAnchor="middle" fontFamily="IM Fell DW Pica" fontStyle="italic" fontSize={36} fill={SEP} opacity={sb}>{sub}</text>}</g>
   </g>;
 };

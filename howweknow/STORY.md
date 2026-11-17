@@ -5,8 +5,8 @@ The owner wants "kịch bản đỉnh cao": a script you cannot stop watching, e
 ## 1. Shape (≈ 1,300–1,700 words at af_heart 0.86 ≈ 9–12 min)
 | part | time | job |
 |---|---|---|
-| **Cold story** | 0:00–0:25 | A real moment, told vividly (who, where, the impossible detail), ending on THE question. No "what if", no title card, no "in this video". |
-| **The stakes** | 0:25–0:50 | Why the answer is hard / why it matters / what everyone assumes. End on a promise ("…the answer came from a stick and a shadow"). |
+| **Narrated opening** | 0:00–0:50 | (owner 17 Nov 2026: "mở đầu kiểu dẫn chuyện hơn… dẫn dẫn như kênh khoa học", not a bang.) The narrator LEADS the viewer in, calmly: start from something familiar the viewer can picture (an everyday object, a sky, a map, their own hand), widen to the old question humans asked about it, then step back in time to the place and the people — and only then arrive at THE question, said plainly. 4–7 lines, unhurried, each one opening the next ("For thousands of years…", "And yet…", "In 1909, in a quiet lab in Manchester…"). The picture eases in too: a slow establishing move, one thing drawing itself at a time. Mood `mystery`. No shock first line, no mid-action start, no "what if", no title card, no "in this video". |
+| **The stakes** | 0:50–1:15 | Why the answer is hard / why it matters / what everyone assumed. End on a promise ("…the answer came from a stick and a shadow"). |
 | **Clue 1–4** | ≈ 2 min each | Each clue = a mini-mystery: a sharper question → real evidence (a photo, a map, a document, a measurement) → the reasoning, step by step → a small payoff → an open loop into the next clue. |
 | **The twist** | ≈ 1 min | The complication or the surprising consequence the viewer did not see coming (sourced). |
 | **The answer** | ≈ 1 min | Put the clues together in one continuous move; say the answer plainly. |
