@@ -1,7 +1,7 @@
 # Delivery — Bên trong nguyên tử có gì (empty-atom) · FATHOM film · v1 · 17 Nov 2026
 
-## Files (Drive fathom/empty-atom/)
-- empty-atom_16x9.mp4 · @@MB@@ MB (CRF-17 master) · @@LEN@@ · 1920×1080
+## Files (Drive fathom/empty-atom/ · https://drive.google.com/drive/folders/1K4IszrmION-xAAr2qFhjFRJV2J6V_EtP)
+- empty-atom_16x9.mp4 · 186 MB (CRF-17 master) · 8:55 · 1920×1080
 - empty-atom_thumb.jpg (1280×720) · empty-atom_cover.jpg · empty-atom.srt (optional CC, not burned in)
 
 ## Production
@@ -16,7 +16,7 @@
   "Achaidh Cheide", "Floating Cities", "Shaving Mirror", "Dreamer", "Darkness is Coming", "The Complex", "Montauk Point", "Almost New";
   FreePD (CC0) — "Study and Relax", "Relaxing Ballad", "Infinite Wonder", "Journey of Hope", "Traveler's Notebook". (Exact titles: studio/music/library.json.)
 - Sound effects: studio library + Muse kit (CC0 / public domain: paper, pen, gas hiss, glass bell).
-- Gates: script_check PASS · check_world PASS · variety PASS · plan_check PASS (33 kinds of becoming) · still_check PASS (0 s dead) · @@RENDER@@
+- Gates: script_check PASS · check_world PASS · variety PASS · plan_check PASS (33 kinds of becoming) · still_check PASS (0 s dead) · full render 16,048 frames in 9 chunks, 1 h 50 min on 4 cores (CRF 17), mix −16 LUFS
 
 ## Facts (jobs/research/empty-atom.md)
 - 1897 Thomson finds the electron; 1904 the "plum pudding" — S1, S2
