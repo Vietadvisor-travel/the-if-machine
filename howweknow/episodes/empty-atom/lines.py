@@ -310,9 +310,9 @@ R('CLUE3', "There was only one explanation. Inside the atom, there had to be som
   'tension', 'A: the word nucleus · B: a cherry stone in a cherry · C: the shell becomes the atom and leaves a point — PICK C (flash motif → nucleus)')
 R('CLUE3', "Rutherford spent almost two years working out the mathematics of a single concentrated *charge*.", 'F7',
   'quill', 'hold', 'left-third-medium', ['flicker'], 'equations-by-lamplight', ['RutherfordDesk'], [],
-  'brush', 'the bright point', 'Rutherford at his desk at night under a lamp, writing sums; a curve sketched on the page',
+  'ink-bleed', 'the bright point', 'Rutherford at his desk at night under a lamp, writing sums; a curve sketched on the page',
   'He works it out on paper, night after night.', 'the pen and the curve',
-  [(0, 'the desk at night is painted in'), (1.6, 'his pen writes lines of sums'), (3.2, 'a page is turned'), (4.4, 'a curve is sketched round a dot'), (5.6, 'the lamp flickers')],
+  [(0, 'the desk at night seeps in like ink'), (1.6, 'his pen writes lines of sums'), (3.2, 'a page is turned'), (4.4, 'a curve is sketched round a dot'), (5.6, 'the lamp flickers')],
   'curious', 'A: a calendar · B: a puzzle box · C: the night desk painted around the point — PICK C')
 R('CLUE3', "Most particles missed it entirely. But the rare one that came close was flung *aside* — or straight back.", 'F7',
   'grow', 'hold', 'centre-large', ['photons'], 'hyperbola-fan', ['NuclearAtom'], [],

@@ -55,7 +55,6 @@ const ManchesterLab: React.FC<{ x?: N; y?: N; s?: N; draw?: N; dark?: N; lamp?: 
       : kind === 1 ? <SR key={i} d={`M${b[0] - 26 * k} ${b[1]} L${b[0] - 6 * k} ${b[1] - 60 * k} V${b[1] - 90 * k} H${b[0] + 6 * k} V${b[1] - 60 * k} L${b[0] + 26 * k} ${b[1]}Z`} mat="paper" t={.3} draw={draw} sw={.9} />
       : <SR key={i} d={rect(b[0] - 14 * k, b[1] - 70 * k, 28 * k, 70 * k)} mat="wood" t={.7} draw={draw} sw={.9} />; })}
     {/* cables looping down the wall (as in P-01) */}
-    <Line d={`M${X(-300)} ${Y(-780)} q${60 * k} ${200 * k} ${10 * k} ${380 * k} M${X(-260)} ${Y(-780)} q${80 * k} ${180 * k} ${40 * k} ${420 * k} M${X(240)} ${Y(-780)} q${-40 * k} ${150 * k} ${30 * k} ${400 * k}`} w={1.6 * k} a={.8 * draw} />
     {/* the bench */}
     <SR d={bench} mat="wood" t={.55} ang={0} draw={draw} sw={1.4} />
     <SR d={apron} mat="wood" t={.72} ang={0} draw={draw} sw={1.2} />
@@ -96,8 +95,8 @@ const ScatterApparatus: React.FC<{ x: N; y: N; s?: N; mode?: string; cut?: N; be
       <SR d={base} mat="wood" t={.6} ang={0} draw={draw} sw={1.3} />
       <SR d={rect(X(-300), Y(76), 30 * k, 40 * k)} mat="wood" t={.8} draw={draw} /><SR d={rect(X(270), Y(76), 30 * k, 40 * k)} mat="wood" t={.8} draw={draw} />
       {/* the glass tube AB of emanation, drawn down conically to its mica window B */}
-      <SR d={`M${X(130)} ${Y(-196)} L${X(152)} ${Y(-160)} L${X(-48)} ${Y(-58)} L${X(-60)} ${Y(-70)}Z`} mat="sky" t={.12} draw={draw} sw={1.4} hatch={0} />
-      <Line d={`M${X(126)} ${Y(-180)} L${X(-44)} ${Y(-66)}`} w={.9} a={.6 * draw} col="#FFFFFF" />
+      <Region d={`M${X(136)} ${Y(-188)} L${X(146)} ${Y(-172)} L${X(-52)} ${Y(-62)} L${X(-57)} ${Y(-69)}Z`} mat="paper" t={.05} draw={draw} sw={1.2} hatch={0} a={.85} />
+      <Line d={`M${X(136)} ${Y(-182)} L${X(-50)} ${Y(-66)}`} w={.8} a={.5 * draw} col={PIG.sky[2]} />
       <SR d={rect(X(150), Y(-80), 16 * k, 120 * k)} mat="brass" t={.55} draw={draw} ang={90} />
       <SR d={`M${X(118)} ${Y(-206)} L${X(176)} ${Y(-170)} L${X(166)} ${Y(-150)} L${X(108)} ${Y(-186)}Z`} mat="brass" t={.5} draw={draw} />
       <Line d={`M${X(158)} ${Y(-80)} L${X(140)} ${Y(-178)}`} w={2} a={draw} />
@@ -105,7 +104,7 @@ const ScatterApparatus: React.FC<{ x: N; y: N; s?: N; mode?: string; cut?: N; be
       {/* the lead plate P (hatched, heavy) */}
       <SR d={rect(X(-120), Y(-36), 320 * k, 22 * k)} mat="night" t={.7} ang={45} draw={draw} sw={1.3} />
       {/* the reflector RR: a sheet of gold foil standing at the left */}
-      <SR d={rect(X(-196), Y(-150), 10 * k, 190 * k)} color={gold} mat="brass" t={.4} draw={draw} sw={1.2} hatch={0} />
+      <SR d={rect(X(-200), Y(-150), 16 * k, 190 * k)} color={gold} mat="brass" t={.3} draw={draw} sw={1.2} hatch={0} /><circle cx={X(-192)} cy={Y(-80)} r={40 * k} fill="url(#glowG)" opacity={.35 * draw} />
       <SR d={rect(X(-204), Y(36), 26 * k, 8 * k)} mat="brass" t={.6} draw={draw} />
       {/* the screen S under the lead plate, facing the reflector; the microscope M behind it, pointing to the observer */}
       <SR d={rect(X(-20), Y(-12), 8 * k, 46 * k)} mat="leaf" t={.3} draw={draw} sw={1} />
@@ -206,7 +205,6 @@ const MistHillside: React.FC<{ y?: N; draw?: N; fog?: N; drift?: N }> = ({ y = 7
     <SR d={hills[0]} mat="tundra" t={.35} ang={-6} draw={draw} sw={1} hatchA={.3} />
     <SR d={hills[1]} mat="leaf" t={.55} ang={-4} draw={draw} sw={1.2} />
     <Stipple x={0} y={y} w={1920} h={360} n={700} seed="heather" col={PIG.red[2]} r0={.6} a={.3 * draw} />
-    {Array.from({ length: 30 }, (_, i) => <SR key={i} d={ell(80 + i * 36, y + 150 - Math.sin(i / 4) * 30, 20, 12)} mat="stone" t={.55} draw={draw} sw={.8} />)}
     <g opacity={fog * draw} filter="url(#b30)">{blobs.map(([bx, by, rx, ry], i) => <ellipse key={i} cx={bx + Math.sin(drift + i) * 20} cy={by} rx={rx} ry={ry} fill="#FBF7EC" opacity={.8} />)}</g>
     <g opacity={fog * draw * .9} filter="url(#b8)">{blobs.slice(0, 12).map(([bx, by, rx, ry], i) => <ellipse key={i} cx={bx + 30 + Math.sin(drift * 1.3 + i) * 26} cy={by + 20} rx={rx * .8} ry={ry * .6} fill="#FFFFFF" opacity={.55} />)}</g>
   </g>;
@@ -349,7 +347,7 @@ const CavendishBench: React.FC<{ x?: N; y?: N; s?: N; draw?: N }> = ({ x = 960, 
 const CathodeTube: React.FC<{ x?: N; y?: N; s?: N; draw?: N; glow?: N; bend?: N; magnet?: N; plates?: N; stand?: N; beam?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, glow = 0, bend = 0, magnet = 0, plates = 0, stand = 1, beam = 1 }) => {
   const k = s, X = (d: N) => x + d * k, Y = (d: N) => y + d * k;
   const body = `M${X(-560)} ${Y(-22)} Q${X(-650)} ${Y(-80)} ${X(-700)} ${Y(-20)} Q${X(-720)} ${Y(0)} ${X(-700)} ${Y(20)} Q${X(-650)} ${Y(80)} ${X(-560)} ${Y(22)} L${X(-420)} ${Y(22)} L${X(-420)} ${Y(34)} L${X(220)} ${Y(34)} Q${X(300)} ${Y(34)} ${X(340)} ${Y(120)} A${170 * k} ${170 * k} 0 1 0 ${X(340)} ${Y(-120)} Q${X(300)} ${Y(-34)} ${X(220)} ${Y(-34)} L${X(-420)} ${Y(-34)} L${X(-420)} ${Y(-22)}Z`;
-  const ex = X(650), ey = Y(bend * -110), dX = X(-150);
+  const ex = X(650), ey = Y(bend * -200), dX = X(-150);
   return <g>
     {stand > 0 && <g>{[-480, 120].map(sx => <SR key={sx} d={`M${X(sx - 30)} ${Y(330)} L${X(sx - 14)} ${Y(40)} H${X(sx + 14)} L${X(sx + 30)} ${Y(330)}Z`} mat="wood" t={.55} ang={90} draw={draw} sw={1.3} />)}
       <SR d={rect(X(-620), Y(330), 1000 * k, 36 * k)} mat="wood" t={.62} draw={draw} sw={1.3} />
@@ -571,7 +569,7 @@ const DotField: React.FC<{ x?: N; y?: N; w?: N; h?: N; n?: N; k?: N; red?: N; ri
   const d = useMemo(() => { let s = ''; for (let i = 0; i < m; i++) { const c = i % cols, r = Math.floor(i / cols); s += `M${f1(x0 + (c + .5) * dx)} ${f1(y0 + (r + .5) * dy)}h.01`; } return s; }, [m, x0, y0, dx, dy, cols]);
   const rc = ri % cols, rr2 = Math.floor(ri / cols);
   return <g opacity={draw}><path d={d} stroke={SEP} strokeWidth={Math.min(dx, dy) * .55} strokeLinecap="round" opacity={.75} />
-    {red > 0 && <g><circle cx={x0 + (rc + .5) * dx} cy={y0 + (rr2 + .5) * dy} r={Math.min(dx, dy) * .5} fill={PIG.red[1]} /><circle cx={x0 + (rc + .5) * dx} cy={y0 + (rr2 + .5) * dy} r={26} fill="none" stroke={PIG.red[1]} strokeWidth={3} opacity={red} /></g>}</g>;
+    {red > 0 && <g><circle cx={x0 + (rc + .5) * dx} cy={y0 + (rr2 + .5) * dy} r={Math.min(dx, dy) * .5} fill={PIG.red[1]} /><circle cx={x0 + (rc + .5) * dx} cy={y0 + (rr2 + .5) * dy} r={Math.min(dx, dy) * 1.6} fill={PIG.red[1]} opacity={red} /><circle cx={x0 + (rc + .5) * dx} cy={y0 + (rr2 + .5) * dy} r={48} fill="none" stroke={PIG.red[1]} strokeWidth={5} opacity={red} /></g>}</g>;
 };
 
 // ================================================================ RUTHERFORD'S DESK AT NIGHT — a green-shaded lamp, sheets of sums, the curve sketched round a dot, an inkwell, his pipe
@@ -614,7 +612,7 @@ const NavalShell: React.FC<{ x: N; y: N; s?: N; rot?: N }> = ({ x, y, s = 1, rot
 // ================================================================ THE NUCLEAR ATOM — the atom's outline (dotted), Thomson's pink charge that can dissolve (pudding),
 // the nucleus as a bright point (point), the electrons as a faint haze at the rim (haze), mass flowing to the centre (flow), and `h` = hydrogen
 // (one electron cloud, labelled separately). Paths of α particles are the engine's `stream`.
-const NuclearAtom: React.FC<{ cx?: N; cy?: N; r?: N; draw?: N; pudding?: N; point?: N; haze?: N; flow?: N; ring?: N; swirl?: N; dots?: N; glint?: N }> = ({ cx = 960, cy = 540, r = 380, draw = 1, pudding = 0, point = 0, haze = 0, flow = 0, ring = 1, swirl = 0, dots = 1, glint = 0 }) => {
+const NuclearAtom: React.FC<{ cx?: N; cy?: N; r?: N; draw?: N; pudding?: N; point?: N; haze?: N; flow?: N; ring?: N; swirl?: N; dots?: N; glint?: N; one?: N; ps?: N }> = ({ cx = 960, cy = 540, r = 380, draw = 1, pudding = 0, point = 0, haze = 0, flow = 0, ring = 1, swirl = 0, dots = 1, glint = 0, one = 0, ps = 1 }) => {
   const hz = useMemo(() => { const q = seq('haze'); return Array.from({ length: 420 }, () => { const a = q() * Math.PI * 2, d = .82 + q() * .2; return [a, d, q()]; }); }, []);
   const fl = useMemo(() => { const q = seq('flow'); return Array.from({ length: 60 }, () => { const a = q() * Math.PI * 2, d = Math.sqrt(q()) * .9; return [Math.cos(a) * d, Math.sin(a) * d, q()]; }); }, []);
   return <g>
@@ -622,7 +620,8 @@ const NuclearAtom: React.FC<{ cx?: N; cy?: N; r?: N; draw?: N; pudding?: N; poin
     {pudding > 0 && <circle cx={cx} cy={cy} r={r * .97} fill="#F2C4B4" opacity={.75 * pudding * draw} filter="url(#wc)" />}
     {haze > 0 && <g opacity={haze * draw}>{hz.map(([a, d, w], i) => { const aa = a + swirl * (1.5 - d); return <circle key={i} cx={cx + Math.cos(aa) * r * d} cy={cy + Math.sin(aa) * r * d} r={Math.max(.8, r / 160) * (0.6 + w)} fill={PIG.sky[2]} opacity={.25 + .4 * w} />; })}</g>}
     {flow > 0 && fl.map(([u, v, w], i) => { const q = cl(flow * 1.5 - w * .5); if (q >= 1 || q <= 0) return null; return <circle key={i} cx={cx + u * r * (1 - q)} cy={cy + v * r * (1 - q)} r={Math.max(1.5, r / 90)} fill="#B8862B" opacity={.8} />; })}
-    {point > 0 && <g opacity={point * draw}><circle cx={cx} cy={cy} r={Math.max(8, r * .08) * (1 + glint * .5)} fill="url(#glowG)" /><circle cx={cx} cy={cy} r={Math.max(2.5, r * .012)} fill="url(#gold)" stroke={SEP} strokeWidth={.8} /></g>}
+    {point > 0 && <g opacity={point * draw}><circle cx={cx} cy={cy} r={Math.max(8, r * .1) * ps * (1 + glint * .5)} fill="url(#glowG)" /><circle cx={cx} cy={cy} r={Math.max(2.5, r * .012) * ps} fill="url(#gold)" stroke={SEP} strokeWidth={.8} /></g>}
+    {one > 0 && <g opacity={one * draw}><circle cx={cx + Math.cos(2.36 + swirl * .3) * r * .95} cy={cy + Math.sin(2.36 + swirl * .3) * r * .95} r={Math.max(10, r * .05)} fill="url(#glowG)" /><circle cx={cx + Math.cos(2.36 + swirl * .3) * r * .95} cy={cy + Math.sin(2.36 + swirl * .3) * r * .95} r={Math.max(3, r * .016)} fill={PIG.sky[2]} stroke={SEP} strokeWidth={.8} /></g>}
   </g>;
 };
 
@@ -794,7 +793,13 @@ const ScannerRing: React.FC<{ x?: N; y?: N; s?: N; draw?: N; spin?: N }> = ({ x 
   </g>;
 };
 
+const LabStool: React.FC<{ x: N; y: N; h?: N; draw?: N }> = ({ x, y, h = 150, draw = 1 }) => <g>
+  {[-46, 46].map(dx => <SR key={dx} d={`M${x + dx * .7 - 6} ${y - h + 14} L${x + dx - 6} ${y} H${x + dx + 6} L${x + dx * .7 + 6} ${y - h + 14}Z`} mat="wood" t={.7} draw={draw} sw={1.1} ang={90} />)}
+  <Line d={`M${x - 40} ${y - h * .35} H${x + 40}`} w={4} a={draw} />
+  <SR d={ell(x, y - h + 8, 62, 14)} mat="wood" t={.5} draw={draw} sw={1.4} /><SR d={rect(x - 62, y - h + 8, 124, 14)} mat="wood" t={.62} draw={draw} sw={1.2} />
+</g>;
 export const ART: Record<string, React.FC<any>> = {
+  LabStool: LabStool,
   ManchesterLab: ManchesterLab, ScatterApparatus: ScatterApparatus, ZincScreenField: ZincScreenField, TallySheet: TallySheet, GoldFoilFrame: GoldFoilFrame, MistHillside: MistHillside, Stone: Stone, DottedAtom: DottedAtom, HairSection: HairSection, LightSwell: LightSwell, IvoryBalls: IvoryBalls, AtomosPapyrus: AtomosPapyrus, DaltonPlate: DaltonPlate, ClueMedallions: ClueMedallions, CavendishBench: CavendishBench, CathodeTube: CathodeTube, OldTelevision: OldTelevision, ChargeBalance: ChargeBalance, PlumPudding: PlumPudding, PuddingTextbook: PuddingTextbook, RadiumBlock: RadiumBlock, NobelMedal: NobelMedal, NelsonFarm: NelsonFarm, GoldLeafLamp: GoldLeafLamp, DarkEye: DarkEye, GeigerCounter: GeigerCounter, DotField: DotField, RutherfordDesk: RutherfordDesk, ShellAndTissue: ShellAndTissue, NavalShell: NavalShell, NuclearAtom: NuclearAtom, ScatterGraph: ScatterGraph, EmptyStadium: EmptyStadium, NucleusBeads: NucleusBeads, ViewerHand: ViewerHand, PalmDive: PalmDive, ElectronCushion: ElectronCushion, DiamondAndIngot: DiamondAndIngot, StippleFigure: StippleFigure, CoolingTowers: CoolingTowers, ScannerRing: ScannerRing,
 };
 // the people of this film — costumes designed from their portraits and the Manchester photographs (P-01, P-01-x1: dark three-piece suits, high

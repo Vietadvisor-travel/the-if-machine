@@ -54,8 +54,8 @@ def person(id, who, t_in, t_out=None, keys=(), **p):
 def shape(id, form, t_in, t_out=None, keys=(), dur=1.2, **p):
     pr = {'form': form, 'x': 50, 'y': 50, 's': 1, 'draw': 0, 'a': 0, 'col': '#2B1D12', 'sw': 3, **p}
     return ent(id, 'shape', pr, [K(t_in, .01, a=1), K(t_in, dur, 'out', draw=1)] + list(keys) + ([K(t_out, .9, a=0)] if t_out else []), z=p.pop('z', 50) if 'z' in p else 50)
-def flash(id, at, **p):   # at: [[timeref, x, y, size]]
-    return ent(id, 'flash', {'at': at, **p}, [], z=70)
+def flash(id, at, **p):   # at: [[timeref, x, y, size]] — drawn at twice the given size so a single scintillation reads on a phone
+    return ent(id, 'flash', {'at': [[f[0], f[1], f[2], f[3] * 2] for f in at], **p}, [], z=70)
 def stream(id, paths, t0, until, t_out=None, **p):
     return ent(id, 'stream', {'paths': paths, 't0': t0, 'until': until, 'a': 1, **p}, ([K(t_out, .8, a=0)] if t_out else []), z=55)
 def trail(id, pts, t_in, dur, t_out=None, col='#B8862B', w=3, r=6, ease='linear', keys=(), **p):
@@ -82,6 +82,8 @@ GEIG = {'costume': 'geiger1909', 'beard': 'moustache', 'face': {'nose': .5, 'bro
 RUTH = {'costume': 'rutherford1909', 'beard': 'moustache', 'face': {'nose': .6, 'brow': .55, 'chin': .45, 'age': .35, 'build': 1.25}, 'hairCol': '#5A4632', 'skin': .3}
 THOM = {'costume': 'thomson1897', 'beard': 'moustache', 'face': {'nose': .55, 'brow': .45, 'chin': .3, 'age': .4, 'build': .95}, 'hairCol': '#2A1E16', 'skin': .26}
 
+def stool(id, x, y, h, t_in, t_out=None, keys=(), z=3, xs='ink'):
+    return art(id, 'LabStool', t_in, t_out, keys, inkdur=1.0, x=x, y=y, h=h, z=z, xs=xs)
 ent('camera', 'camera', {'x': 960, 'y': 540, 'zoom': 1, 'drift': 0, 'light': 0})
 # ======================================================================== COLD — a flash in the dark
 dark('night0', 0, 'L4+0.4', dur=.01)
@@ -89,6 +91,8 @@ EYE = (1254, 643)                                       # the microscope's eyepi
 COLDK = [K(L(1), 1.5, 'in', fx_s=7)]                    # L1: we go THROUGH the eyepiece
 art('lab0', 'ManchesterLab', L(0, 1.4), None, COLDK + [K(L(0), 1.6, lamp=1), K(L(0, 8.6), 1.6, 'soft', pool=380)] + gone(L(1, .9), 'ink', .8, at=list(EYE)), inkdur=2.2, dark=1, lamp=0, pool=560, fx_ox=EYE[0], fx_oy=EYE[1], z=2)
 art('app0', 'ScatterApparatus', L(0, 1.8), None, COLDK + gone(L(1, .9), 'ink', .8, at=list(EYE)), inkdur=1.8, x=820, y=630, s=1.3, mode='reflect', fx_ox=EYE[0], fx_oy=EYE[1], z=3)
+stool('stool0', 1316, 1000, 150, L(0, 3.2), None, COLDK + gone(L(1, .9), 'ink', .8, at=list(EYE)), z=4)
+G('stool0')['props'].update(fx_ox=EYE[0], fx_oy=EYE[1])
 person('mars0', 'Ernest Marsden, 20, counting scintillations (1909)', L(0, 3.4), None, [K(L(0, 5.2), 1.6, 'soft', pk=1)] + COLDK + gone(L(1, .9), 'ink', .8, at=list(EYE)),
        x=1310, y=1000, h=560, facing=-1, pose='sit', pose2='sitlook', pk=0, fx_ox=EYE[0], fx_oy=EYE[1], z=4, **MARS)
 ent('lampshade', 'shape', {'form': circ(1180, 330, 600), 'x': 50, 'y': 50, 's': 1, 'draw': 1, 'a': 0, 'fill': '#F7D98C', 'fillA': .0, 'sw': 0}, [], z=1)
@@ -111,8 +115,10 @@ sfx(2, 5.4, FX + 'sci_ui_tick_1.wav', -16)
 # L3 — trace back along the path to the gold leaf; a particle arrives and rebounds
 trail('back3', [[250, 420], [700, 470], [1230, 520]], L(3), 1.0, L(4, .2), col='#B8862B', w=3, ease='inOut')
 art('foil3', 'GoldFoilFrame', L(3, .6), None, [K(L(4), 1.6, 'inOut', a=0)], inkdur=1.0, x=1260, y=500, s=1.2, z=12)
-trail('in3', [[1960, 470], [1265, 500]], L(3, 1.6), .5, L(3, 2.2), col='#F7E3A0', w=3, r=7)
-trail('out3', [[1265, 500], [1960, 560]], L(3, 2.2), .5, L(4), col='#F7E3A0', w=3, r=7)
+trail('in3', [[160, 560], [1252, 500]], L(3, 1.4), .7, L(3, 2.3), col='#F7E3A0', w=3, r=11)
+trail('out3', [[1252, 500], [250, 420]], L(3, 2.2), .8, L(4), col='#D2643E', w=4, r=11)
+flash('fl3', [[L(3, 3.0), 250, 420, 9]])
+text('bk3', 'back!', 'note', 420, 330, L(3, 2.6), L(4, .3), size=70, col='#F3E7CC', light=True)
 ripple('rp3', [1265, 500], L(3, 2.2), r=180, col='#F7E3A0')
 sfx(3, 2.2, FX + 'impact_glass_2.wav', -20)
 # L4 — the leaf becomes a bank of mist on the moor; stones vanish into it; one flies back
@@ -133,10 +139,10 @@ text('q5h', 'What is inside?', 'title', 960, 140, L(5, 6.0), L(6, .3), size=56)
 # ======================================================================== STAKES
 # L6 — the atom shrinks into one bead of a row that runs across a human hair (pull back: the row becomes a hairline)
 G('atom5')['keys'] += [K(L(6), 1.4, 'in', r=6)] + gone(L(6, 1.6), 'ink', .6)
-art('hair6', 'HairSection', L(6, 1.0), None, [K(L(6, 1.0), 1.4, row=1), K(L(6, 2.8), 1.2, 'in', r=1600, bead=3.2), K(L(6, 4.0), 1.2, r=700, bead=1.4), K(L(6, 5.2), 1.0, 'out', r=380, bead=.8)] + gone(L(7), 'ink', 1.2, at=[960, 540]),
-    inkdur=1.2, cx=960, cy=540, r=3000, row=0, bead=6, z=12)
+art('hair6', 'HairSection', L(6, 1.0), None, [K(L(6, 1.0), 1.4, row=1), K(L(6, 3.4), 1.2, 'in', r=1600, bead=8.5), K(L(6, 4.4), 1.0, r=700, bead=3.7), K(L(6, 5.2), 1.0, 'out', r=380, bead=.8)] + gone(L(7), 'ink', 1.2, at=[960, 540]),
+    inkdur=1.2, cx=960, cy=540, r=3000, row=0, bead=16, z=12)
 text('l6', 'one human hair', 'label', 1500, 220, L(6, 6.0), L(7), to=[1240, 300], size=40)
-text('l6b', 'atoms, side by side', 'label', 520, 860, L(6, 7.0), L(7), to=[760, 545], size=36)
+text('l6b', 'atoms, side by side', 'label', 520, 860, L(6, 1.8), L(6, 4.0), to=[700, 560], size=40)
 # L7 — a single atom and a long swell of light rolling over it
 art('swell7', 'LightSwell', L(7, .4), None, [K(L(7), 9, 'linear', phase=1.4)] + gone(L(8, .2), 'right'), inkdur=1.2, y=640, amp=120, lam=1000, phase=-.15, atomX=960, wobble=0, enter='bleed', z=10)
 G('swell7')['keys'] += [K(L(7, 1.2), .6, wobble=10), K(L(7, 2.2), .8, wobble=0)]
@@ -175,8 +181,8 @@ ent('title', 'art', {'name': 'TitleCard', 'k': 0, 'title': 'What is inside\nan a
     [K(L(13, -5.8), .01, a=1), K(L(13, -5.8), 4.4, 'linear', k=1), K(L(13, -.9), 1.4, 'linear', dissolve=0, dissolveAt=[960, 540], dissolveR=520), K(L(13, .6), .01, a=0)], z=90)
 # ======================================================================== CLUE I — A CRACK IN THE BALL
 ent('clue', 'clue', {'n': 1, 'of': 4, 'label': 'A Crack in the Ball', 'a': 0},
-    [K(L(13), .01, a=1), K(L(23), .01, n=2, label='Flashes in the Dark'), K(L(36), .01, n=3, label='The One That Came Back'), K(L(48), .01, n=4, label='The Pea in the Stadium'), K(L(57), .8, a=0)])
-text('t13', 'Clue I · A Crack in the Ball', 'title', 960, 170, L(13, .8), L(14, .6), size=60)
+    [K(L(13), .01, a=1), K(L(23), .01, n=2, label='Flashes in the Dark'), K(L(36), .01, n=3, label='The One That Came Back'), K(L(48), .01, n=4, label='An Empty Stadium'), K(L(57), .8, a=0)])
+text('t13', 'Clue I · A Crack in the Ball', 'title', 960, 170, L(13, .3), L(14, .6), size=60)
 shape('cr13', "M640 230 L760 236 L800 250 L900 244 L960 262 L1060 248 L1140 258 L1280 236", L(13, 1.8), None, [K(L(14, .3), 1.0, a=0)], dur=1.0, sw=2.4)
 # L14 — the lab unrolls; Thomson's tube glows; Thomson leans to look; his portrait
 art('cav14', 'CavendishBench', L(14), None, [K(L(14), 1.6, 'linear', unroll=1), K(L(16), 1.2, 'soft', blur=10, a=.25)] + gone(L(17), 'ink', 1.0), ink=False, draw=1, unroll=0, fx_box=[0, 0, 1920, 1080], z=5)
@@ -184,9 +190,9 @@ TUBEK = [K(L(14, 1.6), 1.6, glow=.75), K(L(14, 7.4), .8, glow=1), K(L(14, 8.2), 
          K(L(15), .9, a=.25), K(L(15, 3.4), .9, a=1),
          K(L(16), 1.4, 'inOut', fx_s=1.45, fx_y=40), K(L(16, 1.4), 1.2, magnet=1), K(L(16, 2.6), 1.2, 'inOut', bend=-.7), K(L(16, 4.2), 1.0, plates=1, magnet=0), K(L(16, 5.6), 1.4, 'inOut', bend=.7), K(L(16, 10), 1.0, bend=.4)]
 art('tube14', 'CathodeTube', L(14, .8), None, TUBEK + gone(L(17, .4), 'ink', 1.0), inkdur=1.6, x=860, y=520, s=.9, glow=0, bend=0, magnet=0, plates=0, fx_ox=860, fx_oy=520, z=10)
-person('thom14', 'J. J. Thomson at the Cavendish Laboratory, Cambridge (1897)', L(14, 3.0), None, [K(L(14, 3.6), 1.6, 'soft', pk=1), K(L(16), 1.0, 'soft', blur=10, a=0)], x=1720, y=1010, h=600, facing=-1, pose='stand', pose2='look', pk=0, z=11, **THOM)
-art('thcard', 'CabinetCard', L(14, 4.6), None, [K(L(14, 4.6), 1.4, 'glide', fx_x=0)] + gone(L(15, .4), 'up'), ink=False, src=ST + 'P-03_thomson-1913-pd.jpg', x=300, y=320, w=250, h=350, rot=-4, caption='J. J. Thomson', draw=1, fx_x=-140, z=20)
-text('n14', 'Cambridge, 1897', 'note', 760, 150, L(14, 6.2), L(15, .2), size=56)
+person('thom14', 'J. J. Thomson at the Cavendish Laboratory, Cambridge (1897)', L(14, 3.0), None, [K(L(14, 3.6), 1.6, 'soft', pk=1), K(L(16), 1.0, 'soft', blur=10, a=0)], x=1720, y=1010, h=600, facing=-1, pose='stand', pose2='hold', pk=0, z=11, **THOM)
+art('thcard', 'CabinetCard', L(14, 4.6), None, [K(L(14, 4.6), 1.4, 'glide', fx_x=0)] + gone(L(15, .4), 'up'), ink=False, src=ST + 'P-03_thomson-1913-pd.jpg', x=910, y=330, w=230, h=322, rot=-4, caption='J. J. Thomson', draw=1, fx_x=-140, z=20)
+text('n14', 'Cambridge, 1897', 'note', 1650, 130, L(14, 6.2), L(15, .2), size=56)
 # L15 — the tube's bulb becomes a television and back
 ent('tv15s', 'shape', {'form': circ(1310, 520, 155), 'x': 50, 'y': 50, 's': 1, 'draw': 0, 'a': 0, 'col': '#B8862B', 'sw': 6},
     [K(L(15), .01, a=1), K(L(15), .6, draw=1), K(L(15, .2), 1.4, 'inOut', form="M1070 300 L1550 300 Q1580 300 1580 330 L1580 720 Q1580 750 1550 750 L1070 750 Q1040 750 1040 720 L1040 330 Q1040 300 1070 300Z"),
@@ -195,10 +201,10 @@ art('tv15', 'OldTelevision', L(15, 1.4), None, [K(L(15, 1.6), 1.0, glow=1), K(L(
 text('q15', '?', 'note', 1100, 380, L(15, 5.0), L(16, .6), size=120, width=200)
 # L16 — inside the tube: the magnet bends the beam; the plates bend it back; it is lighter than an atom
 text('pm16', 'a magnet', 'label', 520, 900, L(16, 1.8), L(16, 4.2), to=[700, 760], size=34)
-art('bal16', 'ChargeBalance', L(16, 7.2), None, [K(L(16, 7.6), 1.4, 'inOut', tilt=-14)] + gone(L(17, .2), 'right'), inkdur=1.0, x=1600, y=930, s=.38, tilt=0, minus=.15, q=0, z=26)
-text('b16a', 'electron', 'label', 1390, 700, L(16, 7.8), L(17, .2), to=[1470, 805], size=28)
-text('b16b', 'atom', 'label', 1800, 980, L(16, 7.8), L(17, .2), to=[1740, 880], size=28)
-ent('atm16', 'shape', {'form': circ(1737, 860, 22), 'x': 50, 'y': 50, 's': 1, 'draw': 0, 'a': 0, 'fill': '#4A88AE', 'fillA': 1, 'sw': 1.2}, [K(L(16, 7.5), .01, a=1), K(L(16, 7.5), .8, draw=1), K(L(16, 7.6), 1.4, 'inOut', form=circ(1737, 890, 22)), K(L(17, .2), .8, a=0)], z=27)
+art('bal16', 'ChargeBalance', L(16, 7.2), None, [K(L(16, 7.6), 1.4, 'inOut', tilt=-14)] + gone(L(17, .2), 'right'), inkdur=1.0, x=330, y=1000, s=.42, tilt=0, minus=.15, q=0, z=26)
+text('b16a', 'electron', 'label', 150, 740, L(16, 7.8), L(17, .2), to=[180, 900], size=34)
+text('b16b', 'atom', 'label', 620, 760, L(16, 7.8), L(17, .2), to=[490, 915], size=34)
+ent('atm16', 'shape', {'form': circ(481, 880, 24), 'x': 50, 'y': 50, 's': 1, 'draw': 0, 'a': 0, 'fill': '#4A88AE', 'fillA': 1, 'sw': 1.2}, [K(L(16, 7.5), .01, a=1), K(L(16, 7.5), .8, draw=1), K(L(16, 7.6), 1.4, 'inOut', form=circ(481, 912, 24)), K(L(17, .2), .8, a=0)], z=27)
 text('n16', 'far lighter than any atom', 'note', 1420, 210, L(16, 8.8), L(17, .4), size=52)
 sfx(16, 1.4, FX + 'impact_metal_3.wav', -26)
 # L17 — the beam's specks swarm into the ivory ball; it cracks; electrons spill out
@@ -237,10 +243,11 @@ dark('night23', L(23), L(24, .4), k=.92, dur=1.2, z=30)
 text('t23', 'Clue II · Flashes in the Dark', 'title', 960, 190, L(23, 1.2), L(24, .5), size=60, col='#F3E7CC', light=True)
 flash('fl23', [[L(23, 2.2), 1380, 300, 8], [L(24, 4.6), 900, 562, 6], [L(24, 7.2), 912, 548, 6]])
 # L24 — Rutherford's Manchester laboratory is painted in; the lead pot opens; radium spits sparks
-art('lab24', 'ManchesterLab', L(24), None, [K(L(24), 2.0, 'linear', brush=1), K(L(25), 1.2, dim=.55), K(L(27), 1.2, dim=0)] + gone(L(28, .2), 'ink', 1.0), ink=False, draw=1, dark=0, lamp=1, brush=0, fx_box=[0, 0, 1920, 1080], z=5)
+art('lab24', 'ManchesterLab', L(24), None, [K(L(24), 2.0, 'linear', brush=1), K(L(25), 1.2, a=0), K(L(27), 1.4, a=1)] + gone(L(28, .2), 'ink', 1.0), ink=False, draw=1, dark=0, lamp=1, brush=0, fx_box=[0, 0, 1920, 1080], z=5)
 person('ruth24', 'Ernest Rutherford in Manchester (c. 1909)', L(24, 2.2), None, [K(L(24, 3.8), 1.4, 'soft', pk=1), K(L(25), 1.0, a=0)], x=1360, y=1010, h=640, facing=-1, pose='stand', pose2='present', pk=0, z=11, **RUTH)
 art('rad24', 'RadiumBlock', L(24, 1.8), None, [K(L(24, 3.8), 1.4, 'inOut', open=1), K(L(24, 4.0), 1.0, glow=1), K(L(25, 1.0), 1.0, glow=.3)] + gone(L(26, .2), 'ink', .8), inkdur=1.0, x=900, y=780, s=1.3, open=0, glow=0, z=12)
 text('n24', 'Manchester', 'note', 600, 160, L(24, 6.0), L(25, .3), size=60)
+stream('st24', ['M900 560 L520 220', 'M900 560 L640 140', 'M900 560 L420 330', 'M900 560 L760 120'], L(24, 4.6), L(25, .2), L(25, .9), every=.3, dur=.7, r=6, tail=.25)
 text('l24', 'radium', 'label', 520, 640, L(24, 5.0), L(25, .3), to=[880, 610], size=36)
 # L25 — the radium's round glow becomes the gold Nobel medal; his farm country beside it
 art('med25', 'NobelMedal', L(25), None, [K(L(25, 1.6), 1.4, 'inOut', turn=1)] + gone(L(26, .4), 'ink', 1.0, at=[700, 520]), inkdur=1.2, x=700, y=520, r=210, turn=0, enter='bleed', z=20)
@@ -273,6 +280,7 @@ text('l28', 'gold, beaten thinner than light can tell', 'plate', 900, 960, L(28,
 # L29 — the leaf shrinks into its place in the evacuated tube; the pump draws out the air; the beam threads the slit
 G('leaf28')['keys'] += [K(L(29), 1.4, 'inOut', fx_s=.05, fx_x=144, fx_y=0)] + gone(L(29, 1.4), 'ink', .4)
 TUBE = dict(x=960, y=560, s=1.0)
+TUBE2 = dict(x=900, y=560, s=1.3)
 art('tube29', 'ScatterApparatus', L(29, 1.0), None, [K(L(29, 3.2), 2.2, 'inOut', pump=1), K(L(29, 5.0), 1.2, beam=1), K(L(30), 1.4, 'in', fx_s=6), K(L(30, .9), .5, a=0)], inkdur=1.8, mode='tube', pump=0, beam=0, fx_ox=1546, fx_oy=560, z=10, **TUBE)
 stream('st29', ["M422 560 L1544 560"], L(29, 5.4), L(30, .1), L(30, .5), every=.2, dur=1.0, r=4, tail=.1)
 text('l29a', 'source', 'label', 380, 330, L(29, 6.6), L(30), to=[400, 520], size=34)
@@ -292,6 +300,8 @@ art('tally31', 'TallySheet', L(31, 5.6), None, [K(L(31, 6.2), .4, n=1), K(L(31, 
 # L32 — the count runs; Marsden sits back and rubs his eyes; Geiger takes his place
 G('tally31')['keys'] += [K(L(32), 1.4, 'inOut', x=700, y=560), K(L(32, .6), 6.4, 'linear', n=47)] + gone(L(33), 'left', 1.0)
 counter('c32', '{n} flashes', 700, 960, L(32, .4), L(33), [K(L(32, .6), 6.4, 'linear', num=47)], size=56, style='note')
+stool('stool32', 1306, 1010, 150, L(32, 0), None, gone(L(33), 'left', 1.0), z=11)
+stool('stool32b', 1566, 1010, 156, L(32, 4.4), None, gone(L(33), 'left', 1.0), z=11)
 person('mars32', 'Ernest Marsden', L(32, .2), None, [K(L(32, 1.6), 1.6, 'soft', pk=1)] + gone(L(33), 'left', 1.0), x=1300, y=1010, h=600, facing=-1, pose='sitlook', pose2='think', pk=0, z=12, **MARS)
 person('geig32', 'Hans Geiger', L(32, 2.8), None, [K(L(32, 3.0), 2.0, 'linear', x=1560, walk=2), K(L(32, 5.0), .01, walk=None), K(L(32, 5.2), 1.4, 'soft', pk=1)] + gone(L(33), 'left', 1.0),
        x=1980, y=1010, h=620, facing=-1, walk=0, pose='stand', pose2='sitlook', pk=0, z=12, **GEIG)
@@ -302,26 +312,27 @@ for j, t in enumerate((2.6, 3.8, 4.4, 7.0, 8.0)): ripple(f'rp33{j}', [480, 530],
 text('p33', 'a Geiger–Müller counter, 1928', 'plate', 1060, 900, L(33, 5.4), L(34), size=38)
 sfx(33, 0, FX + 'motion_whoosh_long_1.wav', -24)
 # L34 — crane over into the tube: the stream passes the gold straight
-art('tube34', 'ScatterApparatus', L(34), None, [K(L(34), 1.4, 'inOut', fx_y=0), K(L(36), 1.2, 'linear', dissolve=0, dissolveAt=[1010, 560], dissolveR=1000), K(L(36, 1.25), .01, a=0)], ink=False, draw=1, mode='tube', pump=1, beam=0, air=0, fx_y=-1100, z=10, **TUBE)
-stream('st34', [f"M422 {560 + d} L1544 {560 + d * 1.1}" for d in (-3, 0, 2, -1, 3, 1)], L(34, 1.4), L(35, 5.0), L(36), every=.15, dur=1.0, r=4, tail=.12)
-flash('fl34', [[L(34, t), 1552, 560 + o, 4] for t, o in ((2.8, 0), (3.4, 3), (4.2, -2), (4.8, 1))] + [[L(35, 2.6), 1552, 500, 5], [L(35, 3.2), 1552, 622, 5]])
+art('tube34', 'ScatterApparatus', L(34), None, [K(L(34), 1.4, 'inOut', fx_y=0), K(L(36), 1.2, 'linear', dissolve=0, dissolveAt=[952, 560], dissolveR=1000), K(L(36, 1.25), .01, a=0)], ink=False, draw=1, mode='tube', pump=1, beam=0, air=0, scope=0, fx_y=-1100, z=10, **TUBE2)
+stream('st34', [f"M115 {560 + d} L1574 {560 + d * 1.1}" for d in (-3, 0, 2, -1, 3, 1)], L(34, 1.4), L(35, 5.0), L(36), every=.15, dur=1.0, r=7, tail=.12)
+flash('fl34', [[L(34, t), 1580, 560 + o, 5] for t, o in ((2.8, 0), (3.4, 3), (4.2, -2), (4.8, 1))] + [[L(35, 2.6), 1580, 470, 6], [L(35, 3.2), 1580, 650, 6]])
 # L35 — the light narrows: three paths bend a few degrees as they cross the gold
-spot('sp35', [1010, 560], 260, L(35), L(36))
-stream('st35', ["M422 560 L1010 560 L1544 500", "M422 560 L1010 560 L1544 622", "M422 560 L1010 560 L1544 530"], L(35, 1.0), L(35, 4.0), L(36), every=.55, dur=1.0, r=5, tail=.15, col='#D2643E')
+spot('sp35', [1100, 560], 320, L(35), L(36))
+stream('st35', ["M115 560 L952 560 L1574 470", "M115 560 L952 560 L1574 650", "M115 560 L952 560 L1574 505"], L(35, 1.0), L(35, 4.0), L(36), every=.55, dur=1.0, r=8, tail=.2, col='#D2643E', trace=1.2)
 text('l35', 'nudged', 'note', 1320, 400, L(35, 4.0), L(36, .4), size=56)
 # ======================================================================== CLUE III — THE ONE THAT CAME BACK
-text('t36', 'Clue III · The One That Came Back', 'title', 960, 190, L(36, 1.0), L(37, .5), size=60)
+text('t36', 'Clue III · The One That Came Back', 'title', 960, 190, L(36, .6), L(37, .5), size=50, width=1500)
 shape('ret36', "M560 260 L1280 260 Q1360 260 1340 300 Q1300 330 1100 312", L(36, 2.0), None, [K(L(37, .2), 1.0, a=0)], dur=1.2, col='#D2643E', sw=3)
 # L37 — the true 1909 arrangement: Rutherford points to the source side; Marsden fits the microscope beside the source, behind lead
 art('lab37', 'ManchesterLab', L(37), None, gone(L(38, .3), 'ink', 1.0), inkdur=1.4, dark=0, lamp=1, dim=.25, enter='bleed', z=5)
 art('app37', 'ScatterApparatus', L(37, .2), None, [K(L(37, 2.8), 1.8, 'inOut', scope=1), K(L(38), 1.2, wobble=14)] + gone(L(38, .4), 'ink', 1.0), inkdur=1.4, x=820, y=630, s=1.3, mode='reflect', scope=0, beam=0, z=10)
 person('ruth37', 'Ernest Rutherford', L(37, .2), None, [K(L(37, .4), 1.4, 'soft', pk=1), K(L(37, 6.4), 1.4, 'soft', pose='point', pose2='think', pk=0), K(L(37, 6.5), 1.3, 'soft', pk=1)] + gone(L(38, .4), 'ink', 1.0),
        x=1720, y=1010, h=640, facing=-1, pose='stand', pose2='point', pk=0, z=12, **RUTH)
+stool('stool37', 1326, 1010, 150, L(37, 4.6), None, gone(L(38, .4), 'ink', 1.0), z=10)
 person('mars37', 'Ernest Marsden', L(37, 1.6), None, [K(L(37, 1.8), 1.4, 'soft', pk=1), K(L(37, 5.0), 1.6, 'soft', pose='hold', pose2='sitlook', pk=0), K(L(37, 5.1), 1.5, 'soft', pk=1)] + gone(L(38, .4), 'ink', 1.0),
        x=1320, y=1010, h=580, facing=-1, pose='stand', pose2='hold', pk=0, z=11, **MARS)
-text('l37a', 'radium source', 'label', 1220, 230, L(37, 3.0), L(38), to=[960, 400], size=34)
-text('l37b', 'lead plate', 'label', 1120, 470, L(37, 3.6), L(38), to=[1000, 585], size=34)
-text('l37c', 'gold foil', 'label', 360, 360, L(37, 4.2), L(38), to=[562, 470], size=34)
+text('l37a', 'radium source', 'label', 1260, 430, L(37, 3.0), L(38), to=[975, 405], size=36)
+text('l37b', 'lead plate', 'label', 1120, 520, L(37, 3.6), L(38), to=[1000, 585], size=34)
+text('l37c', 'gold foil', 'label', 330, 610, L(37, 4.2), L(38), to=[555, 500], size=36)
 text('l37d', 'screen', 'label', 600, 760, L(37, 4.8), L(38), to=[792, 650], size=34)
 # L38 — the room shimmers into a pudding; a bullet passes straight through it; it only wobbles
 art('pud38', 'PlumPudding', L(38, .6), None, [K(L(38, 3.4), .6, wobble=12), K(L(38, 4.6), .8, wobble=0), K(L(38, 5.4), .6, wobble=10), K(L(38, 8.0), 1.0, wobble=0)] + gone(L(39), 'ink', .9, at=[960, 520]),
@@ -333,7 +344,8 @@ sfx(38, 1.6, FX + 'motion_whoosh_short_1.wav', -22); sfx(38, 4.6, FX + 'motion_w
 # L39 — through the eyepiece: a bright flash on the source side
 art('zns39', 'ZincScreenField', L(39), None, [K(L(39), .9, 'in', iris=1), K(L(39), 10, 'linear', flicker=20)] + gone(L(40, .2), 'ink', 1.2, at=[620, 470]), ink=False, draw=1, cx=960, cy=540, r=420, glitter=.5, flicker=0, iris=0, irisAt=[960, 520], z=14)
 dark('night39', L(39), L(40, .4), k=.9, dur=.8, z=9)
-flash('fl39', [[L(39, .8), 620, 470, 11]], life=1.6)
+flash('fl39', [[L(39, .8), 620, 470, 12]], life=2.0)
+text('so39', 'on the source side!', 'note', 760, 300, L(39, 1.0), L(40, .3), size=56, col='#F3E7CC', light=True)
 ripple('rp39', [620, 470], L(39, 1.6), r=220, col='#B8F0C8')
 sfx(39, .8, SK + 'S-01_glass-bell-cc0.wav', -20)
 # L40 — the real 1909 paper develops where the flash was; the key sentence, underlined; 1 in 8,000
@@ -354,44 +366,44 @@ art('lab42', 'ManchesterLab', L(42), None, [K(L(43), 1.4, 'inOut', fx_y=-1100)] 
 person('ruth42', 'Ernest Rutherford', L(42, .4), None, [K(L(42, 3.0), .8, nod=18), K(L(42, 4.6), 1.6, 'soft', pk=1), K(L(42, 6.6), 2.0, 'linear', x=1260, walk=2), K(L(42, 8.6), .01, walk=None),
        K(L(42, 8.6), 1.4, 'soft', pose='think', pose2='present', pk=0), K(L(42, 8.7), 1.3, 'soft', pk=1), K(L(43), 1.4, 'inOut', fx_y=-1100), K(L(43, 1.4), .01, a=0)],
        x=820, y=1010, h=640, facing=1, pose='sitlook', pose2='think', pk=0, enter='focus', z=12, **RUTH)
+stool('stool42', 826, 1010, 164, L(42), None, [K(L(43), 1.4, 'inOut', fx_y=-1100), K(L(43, 1.4), .01, a=0)], z=11)
 art('tally42', 'TallySheet', L(42, .6), None, [K(L(43), 1.4, 'inOut', fx_y=-1100), K(L(43, 1.4), .01, a=0)], ink=False, x=520, y=700, w=260, h=330, n=37, red=0, rot=-6, draw=1, enter='focus', z=13)
-shape('lf42', rectp(1330, 330, 70, 90), L(42, 9.0), None, [K(L(43), 1.4, 'inOut', y=-1050), K(L(43, 1.4), .01, a=0)], dur=.8, col='#B8862B', sw=2, fill='#E8C25C', fillA=.9)
 # L43 — the camera tilts down to a shingle beach: a 15-inch gun fires a shell at tissue paper; it comes back at us
 art('beach43', 'ShellAndTissue', L(43), None, [K(L(43), 1.4, 'inOut', fx_y=0), K(L(43, 1.8), 1.2, gun=1), K(L(43, 3.4), 1.4, 'out', smoke=1), K(L(43, 5.0), 8, 'linear', flutter=6)] + gone(L(44, .4), 'ink', 1.2, at=[960, 540]),
     ink=False, draw=1, y=800, gun=0, smoke=0, flutter=0, fx_y=1100, z=8)
 trail('sh43', [[770, 486], [1100, 470], [1338, 600]], L(43, 4.6), 1.6, L(43, 6.3), col='#8C6E4A', w=0, r=0, ease='in', headArt='NavalShell', headProps={'s': .9, 'rot': 8})
-art('shb43', 'NavalShell', L(43, 6.3), None, [K(L(43, 7.4), 2.0, 'in', x=960, y=560, s=14, rot=200), K(L(44), .01, a=1)] + gone(L(44, .3), 'ink', 1.4, at=[960, 560]), ink=False, x=1330, y=600, s=.9, rot=180, z=30)
+art('shb43', 'NavalShell', L(43, 6.3), None, [K(L(43, 7.4), 2.0, 'in', x=960, y=600, s=7, rot=200), K(L(44), .01, a=1)] + gone(L(44, .3), 'ink', 1.4, at=[960, 560]), ink=False, x=1330, y=600, s=.9, rot=180, z=30)
 ripple('rp43', [1410, 600], L(43, 6.3), r=200, col='#2B1D12')
 text('q43', '“a 15-inch shell at a piece of tissue paper”', 'plate', 960, 120, L(43, 9.4), L(44, .2), size=40)
 text('q43b', '— Rutherford, 1936', 'plate', 1300, 175, L(43, 9.8), L(44, .2), size=30)
 sfx(43, 3.4, FX + 'impact_bass_drop_1.wav', -16); sfx(43, 6.3, FX + 'impact_soft_2.wav', -20); sfx(43, 7.4, FX + 'motion_whoosh_deep_1.wav', -18)
 # L44 — the shell's round nose becomes the atom: the pudding dissolves, a bright point is left at the centre
 art('at44', 'NuclearAtom', L(44, .2), None, [K(L(44, 1.6), 1.4, pudding=0), K(L(44, 3.0), 1.0, point=1), K(L(44, 6.0), .8, glint=1), K(L(44, 6.8), .8, glint=0)] + gone(L(45), 'ink', 1.2, at=[960, 540]),
-    inkdur=1.2, cx=960, cy=540, r=380, pudding=1, point=0, haze=0, z=12)
+    inkdur=1.2, cx=960, cy=540, r=380, pudding=1, point=0, haze=0, ps=2.4, z=12)
 text('pl44', '+', 'figure', 1010, 500, L(44, 4.6), L(45), size=70)
 ripple('rp44', [960, 540], L(44, 6.0), r=420, col='#B8862B')
 sfx(44, 3.0, FX + 'cue_reveal_1.wav', -22)
 # L45 — his desk at night is painted in: sums by lamplight; a curve sketched round a dot
-art('desk45', 'RutherfordDesk', L(45), None, [K(L(45), 1.6, 'linear', brush=1), K(L(45, 1.6), 2.4, 'linear', sums=1), K(L(45, 4.4), 1.2, curve=1), K(L(45), 8, 'linear', flicker=6)] + gone(L(46, 1.0), 'ink', 1.0, at=[1000, 640]),
-    ink=False, draw=1, x=960, y=700, s=1, sums=0, curve=0, brush=0, fx_box=[0, 0, 1920, 1080], z=8)
+art('desk45', 'RutherfordDesk', L(45), None, [K(L(45), 1.6, 'linear', dissolve=1, dissolveSeed=41), K(L(45, 1.6), 2.4, 'linear', sums=1), K(L(45, 4.4), 1.2, curve=1), K(L(45), 8, 'linear', flicker=6)] + gone(L(46, 1.0), 'ink', 1.0, at=[1000, 640]),
+    ink=False, draw=1, x=960, y=700, s=1, sums=0, curve=0, dissolve=0, z=8)
 quill('q45', [[680, 530], [820, 556], [960, 580], [760, 610], [900, 640]], L(45, 1.6), L(45, 4.2))
 sfx(45, 1.6, SK + 'S-01_pen-1-cc0.wav', -22)
 # L46 — the sketched curve grows out of the page into the true fan of paths round one nucleus
 NUC = (1060, 540)
-def ruth_path(b, d=46.0, x0=-60.0, x1=2000.0):
+def ruth_path(b, d=110.0, x0=-60.0, x1=2000.0):
     """α path past a point charge (repulsive Coulomb), integrated: start far left at height b, speed 1."""
-    x, y, vx, vy, pts, dt = x0, NUC[1] + b, 1.0, 0.0, [], 2.0
+    x, y, vx, vy, pts, dt = x0, NUC[1] + b, 1.0, 0.0, [], 1.0
     k = d / 2   # strength so that head-on closest approach = d (px)
-    for _ in range(4000):
+    for _ in range(8000):
         rx, ry = x - NUC[0], y - NUC[1]; r = math.hypot(rx, ry); a = k / (r * r) if r > 1 else 0
         vx += a * rx / r * dt; vy += a * ry / r * dt; x += vx * dt; y += vy * dt
         pts.append((x, y))
         if x < x0 - 5 or x > x1 or y < -80 or y > 1160: break
-    return 'M' + ' L'.join(f'{p[0]:.1f} {p[1]:.1f}' for p in pts[::6])
-FAN = [ruth_path(b) for b in (-420, 300, -200, 130, -90, 60, -40, 24, -14, 7, .5, -260, 180, -110)]
+    return 'M' + ' L'.join(f'{p[0]:.1f} {p[1]:.1f}' for p in pts[::8])
+FAN = [ruth_path(b) for b in (-420, 320, -220, 160, -110, 80, -55, 35, -20, 10, .3, -280, 200, -140)]
 art('at46', 'NuclearAtom', L(46, .2), None, [K(L(46, .2), 1.4, 'out', fx_s=1)] + gone(L(47, .3), 'ink', 1.0), ink=False, draw=1, cx=NUC[0], cy=NUC[1], r=430, point=1, haze=0, dots=.35, fx_s=.2, fx_ox=1000, fx_oy=640, z=12)
 stream('st46', FAN, L(46, 1.2), L(47, .2), L(47, .8), every=.42, dur=2.4, r=6.5, tail=.16, trace=1.5)
-text('l46', 'one came straight back', 'label', 420, 230, L(46, 5.6), L(47, .2), to=[700, 520], size=36)
+text('l46', 'one came straight back', 'label', 420, 260, L(46, 5.6), L(47, .2), to=[860, 535], size=40)
 # L47 — a path leaves the fan and lays itself down as the formula's curve; the real 1913 counts land on it
 CURVE = "M330 260 Q420 520 620 640 Q900 760 1520 780"
 ent('tl47', 'shape', {'form': FAN[8], 'x': 50, 'y': 50, 's': 1, 'draw': 1, 'erase': 0, 'a': 0, 'col': '#D2643E', 'sw': 3}, [K(L(47), .01, a=1), K(L(47), 1.6, 'inOut', form=CURVE), K(L(47, 1.8), .6, a=0)], z=30)
@@ -400,7 +412,7 @@ text('ax47', 'scintillations a minute (gold)', 'plate', 900, 170, L(47, 1.6), L(
 text('p47', 'Geiger & Marsden, 1913 — their counts', 'plate', 900, 990, L(47, 5.0), L(48), size=34)
 art('tb47', 'DocumentPage', L(47, 3.0), None, gone(L(48), 'right', 1.2), ink=False, src=ST + 'D-05-x5_geiger-marsden-1913-p610-table2-pd.jpg', x=1700, y=330, w=300, h=470, rot=4, draw=1, enter='bleed', z=20)
 # ======================================================================== CLUE IV — THE PEA IN THE STADIUM
-text('t48', 'Clue IV · The Pea in the Stadium', 'title', 960, 190, L(48, 1.2), L(49, .5), size=60)
+text('t48', 'Clue IV · An Empty Stadium', 'title', 960, 190, L(48, .6), L(49, .5), size=56, width=1500)
 # L49 — the real 1911 paper unrolls; beside it the atom, all its weight flowing into one point: the nucleus
 art('d49', 'DocumentPage', L(49), None, [K(L(49), 1.6, 'linear', unroll=1), K(L(49, 1.8), 1.4, circleK=1)] + gone(L(50, .4), 'left', 1.2), ink=False, src=ST + 'D-02_rutherford-1911-p669-pd.jpg', x=520, y=560, w=520, h=865, rot=-2,
     circle=[.5, .085, .95, .07], circleK=0, draw=1, unroll=0, fx_box=[260, 120, 520, 880], z=20)
@@ -413,10 +425,10 @@ G('at49')['keys'] += [K(L(50, .1), .01, r=30000), K(L(50, .1), 1.0, 'in', r=6000
 text('n50', 'nothing', 'note', 960, 760, L(50, 4.6), L(51, .4), size=70)
 # L51 — the haze tightens into hydrogen's single electron cloud
 ent('hy51', 'shape', {'form': circ(960, 540, 380), 'x': 50, 'y': 50, 's': 1, 'draw': 1, 'a': 0, 'col': '#B8862B', 'sw': 4}, [K(L(51), .01, a=1), K(L(51), 1.6, 'inOut', form="M640 540 Q640 230 960 210 Q1300 230 1290 560 Q1280 860 960 870 Q650 850 640 540Z"), K(L(51, 2.2), .8, a=0)], z=30)
-G('at49')['keys'] += [K(L(51), 1.6, 'inOut', r=330), K(L(51, 3.2), 2, 'linear', swirl=1.4), K(L(51, 8.0), 2, 'linear', swirl=2.2)]
+G('at49')['keys'] += [K(L(51), 1.6, 'inOut', r=330), K(L(51, .8), 1.4, haze=.18, one=1), K(L(51, 3.2), 2, 'linear', swirl=1.4), K(L(51, 8.0), 2, 'linear', swirl=2.2), K(L(52, .2), 1.0, one=0)]
 text('h51', 'hydrogen', 'title', 960, 120, L(51, 1.8), L(52, .2), size=56)
 text('h51a', 'one proton', 'label', 1500, 420, L(51, 5.0), L(52, .2), to=[968, 536], size=38)
-text('h51b', 'one electron', 'label', 420, 880, L(51, 6.6), L(52, .2), to=[700, 760], size=38)
+text('h51b', 'one electron', 'label', 420, 900, L(51, 6.6), L(52, .2), to=[700, 760], size=40)
 # L52 — a gold ruler runs across; a counter runs to ×100,000 while the nucleus stays a point
 shape('ru52', "M630 540 L1290 540 M630 525 L630 555 M1290 525 L1290 555", L(52), L(53), dur=1.4, col='#B8862B', sw=4)
 counter('c52', '× {n}', 960, 130, L(52, 1.4), L(53), [K(L(52, 1.4), 2.6, 'out', num=100000)], size=110)
@@ -438,15 +450,15 @@ ent('rim53', 'shape', {'form': OV[0], 'x': 50, 'y': 50, 's': 1, 'draw': 1, 'a': 
 text('pea53', 'a pea', 'label', 1360, 330, L(53, 6.4), L(54), to=[966, 596], size=44)
 text('st53', 'the atom, as big as a stadium', 'plate', 960, 1010, L(53, 5.2), L(54), size=36)
 # L54 — rise to the top rows: specks of dust drift there, the bowl below is empty
-ent('dust54', 'particles', {'kind': 'dust', 'n': 70, 'box': [80, 60, 1760, 380], 'k': 0, 'a': 1, 'speed': .5}, [K(L(54, 1.6), 1.6, k=1), K(L(55, 4), 1.2, a=0)], z=20)
-trail('sp54', [[200, 330], [500, 220], [960, 190], [1420, 220], [1720, 330]], L(54, 3.2), 2.4, L(55), col='#2B1D12', w=1, r=4, ease='inOut')
-text('e54', 'electrons: specks of dust', 'label', 960, 560, L(54, 6.6), L(55, .4), to=[960, 210], size=40)
+ent('dust54', 'particles', {'kind': 'photons', 'n': 46, 'box': [80, 60, 1760, 380], 'k': 0, 'a': 1, 'speed': .5}, [K(L(54, 1.6), 1.6, k=1), K(L(55, 4), 1.2, a=0)], z=20)
+trail('sp54', [[200, 330], [500, 220], [960, 190], [1420, 220], [1720, 330]], L(54, 3.2), 2.4, L(55), col='#2B1D12', w=0, r=6, ease='inOut')
+text('e54', 'electrons: specks of dust', 'label', 960, 560, L(54, 6.6), L(55, .4), to=[960, 250], size=44)
 text('e54b', 'empty', 'note', 960, 820, L(54, 5.0), L(55, .4), size=70)
 # L55 — dusk: a flame and a breath at the rim among the specks; the pea at the centre sits still
 flash('fl55', [[L(55, 5.4), 360, 380, 4], [L(55, 5.7), 1560, 380, 4], [L(55, 6.1), 900, 250, 4]], col='#FFF4D2', glow='#F7D98C')
 spot('sp55', [960, 600], 110, L(55, 7.2), L(56))
 trail('sp55b', [[1600, 360], [1700, 470], [1640, 600]], L(55, 8.8), 1.6, L(56), col='#2B1D12', w=1, r=4)
-text('l55', 'flame, breath: out at the edges', 'plate', 960, 1010, L(55, 2.4), L(56), size=36)
+text('l55', 'flame, breath: out at the edges', 'plate', 960, 1010, L(55, 2.4), L(56), size=40, col='#F3E7CC', light=True)
 # L56 — dive into the pea: a cluster of two kinds of bead; James Chadwick's real portrait beside it
 art('nb56', 'NucleusBeads', L(56, 1.2), None, [K(L(56, 1.2), 1.8, 'out', k=1), K(L(56, 6.2), .8, glint=1), K(L(56, 7.0), .8, glint=0)], ink=False, cx=820, cy=540, r=280, k=0, draw=1, z=14)
 art('ch56', 'CabinetCard', L(56, 3.2), None, [K(L(56, 3.2), 1.4, 'glide', fx_x=0)], ink=False, src=ST + 'P-05_chadwick-1943-pd.jpg', x=1500, y=470, w=320, h=430, rot=3, caption='James Chadwick', draw=1, fx_x=140, z=20)
@@ -476,12 +488,12 @@ ripple('rp60', [960, 540], L(60, 6.2), r=300, col='#8C3424')
 # L61 — the hand and table bleed back in; a thin gold gap glows between palm and wood and never closes
 art('press61', 'ViewerHand', L(61), None, [K(L(61, 1.6), 1.2, gap=1), K(L(61, 3.2), 1.0, press=1.03, tremble=1.5), K(L(61, 4.4), .8, tremble=0)] + gone(L(62), 'ink', 1.2, at=[960, 640]),
     ink=False, draw=1, x=960, y=520, s=1, mode='press', press=1, gap=0, enter='bleed', z=12)
-text('n61', 'never touched', 'note', 960, 900, L(61, 5.0), L(62, .2), size=70)
+text('n61', 'never touched', 'note', 960, 300, L(61, 5.0), L(62, .2), size=70)
 # L62 — the gap splits into two objects: a diamond and a gold ingot; an X-ray band shows their sparse atoms
 art('dg62', 'DiamondAndIngot', L(62), None, [K(L(62), 1.4, 'out', fx_s=1), K(L(62, 2.6), 1.6, 'inOut', xray=1), K(L(62, 4.2), .8, glint=1)], inkdur=1.2, y=560, xray=0, glint=0, fx_s=.2, fx_ox=960, fx_oy=640, z=12)
 text('l62a', 'diamond', 'plate', 580, 880, L(62, 1.6), L(63, .3), size=36); text('l62b', 'gold', 'plate', 1340, 760, L(62, 1.8), L(63, .3), size=36)
 # L63 — their atoms fly up and settle as a standing human figure made only of sparse dots
-ent('sw63', 'swarm', {'from': "M360 500 L800 500 L580 780Z M1080 680 L1600 680 L1540 500 L1140 500Z", 'to': "M960 160 C900 160 900 260 960 260 C1020 260 1020 160 960 160Z M900 300 L1020 300 L1060 560 L1010 980 L910 980 L860 560Z", 'n': 300, 'k': 0, 'arc': 260, 'size': 2.6, 'col': '#2B1D12', 'a': 0},
+ent('sw63', 'swarm', {'from': "M360 500 L800 500 L580 780Z M1080 680 L1600 680 L1540 500 L1140 500Z", 'to': "M960 150 C905 150 905 250 960 250 C1015 250 1015 150 960 150Z M890 290 L1030 290 L1110 540 L1080 550 L1020 400 L1030 600 L1015 980 L975 980 L960 650 L945 980 L905 980 L890 600 L900 400 L840 550 L810 540Z", 'n': 300, 'k': 0, 'arc': 260, 'size': 2.6, 'col': '#2B1D12', 'a': 0},
     [K(L(63), .3, a=1), K(L(63), 1.9, 'inOut', k=1), K(L(63, 2.0), .6, a=0)], z=40)
 G('dg62')['keys'] += gone(L(63), 'ink', .8)
 art('fig63', 'StippleFigure', L(63, 1.6), None, [K(L(63, 3.4), 1.8, 'inOut', spread=.55), K(L(63, 5.2), 1.2, lines=1), K(L(63, 5.2), 5, 'linear', flick=6), K(L(63, 7.0), 1.4, 'soft', turn=1)], ink=False, draw=1, x=960, y=1000, h=860, spread=0, lines=0, turn=0, flick=0, enter='bleed', z=14)
@@ -500,10 +512,11 @@ text('l65', 'almost nothing', 'label', 1450, 260, L(65, 4.6), L(66), to=[1080, 4
 dark('night66', L(65, 7.0), L(68, .8), k=.96, dur=1.4, z=2)
 art('lab66', 'ManchesterLab', L(65, 7.4), None, [K(L(67), 1.2, 'soft', blur=10, a=.3)] + gone(L(68), 'ink', 1.0), inkdur=1.6, dark=1, lamp=1, pool=560, enter='bleed', z=3)
 art('app66', 'ScatterApparatus', L(65, 7.6), None, [K(L(67), 1.2, 'soft', blur=10, a=.3)] + gone(L(68), 'ink', 1.0), inkdur=1.4, x=820, y=630, s=1.3, mode='reflect', z=4)
+stool('stool66', 1316, 1000, 150, L(66, .6), None, [K(L(67), 1.2, 'soft', blur=10, a=.3)] + gone(L(68), 'ink', 1.0), z=5)
 person('mars66', 'Ernest Marsden', L(66, .8), None, [K(L(66, 7.0), 1.4, 'soft', pk=1), K(L(67), 1.2, 'soft', blur=10, a=.3)] + gone(L(68), 'ink', 1.0), x=1310, y=1000, h=560, facing=-1, pose='sitlook', pose2='sit', pk=0, z=6, **MARS)
-person('geig66', 'Hans Geiger', L(66, 1.6), None, [K(L(67), 1.2, 'soft', blur=10, a=.3)] + gone(L(68), 'ink', 1.0), x=1660, y=1004, h=600, facing=-1, pose='write', z=5, **GEIG)
-art('tally66', 'TallySheet', L(66, 2.2), None, [K(L(66, 3.6), .4, n=31), K(L(67), 1.4, 'inOut', x=960, y=540, w=620, h=760, rot=-2), K(L(67, 1.4), 1.4, n=34), K(L(67, 3.2), .5, n=35), K(L(67, 5.0), 1.2, red=1)] + gone(L(68, 1.6), 'down', 1.2),
-    ink=False, x=1720, y=800, w=300, h=380, n=30, red=0, rot=5, draw=1, enter='bleed', z=8)
+person('geig66', 'Hans Geiger', L(66, 1.6), None, [K(L(67), 1.2, 'soft', blur=10, a=.3)] + gone(L(68), 'ink', 1.0), x=1720, y=1004, h=600, facing=-1, pose='stand', z=5, **GEIG)
+art('tally66', 'TallySheet', L(66, 2.2), None, [K(L(66, 3.6), .4, n=31), K(L(67), 1.4, 'inOut', x=960, y=540, w=620, h=760, rot=-2), K(L(67, 1.4), 1.4, n=34), K(L(67, 3.2), .5, n=35), K(L(67, 5.0), 1.2, red=1)] + gone(L(68, .1), 'down', 1.2),
+    ink=False, x=560, y=800, w=300, h=380, n=30, red=0, rot=5, draw=1, enter='bleed', z=8)
 flash('fl66', [[L(66, 5.2), EYE[0] - 4, EYE[1], 4]])
 # L67 — focus moves to the tally sheet; one more stroke, then the last one in red; a ring round it
 shape('ring67', ellp(1150, 288, 46, 40), L(67, 6.4), L(68, 1.0), dur=.9, col='#D2643E', sw=4, z=62)
@@ -516,8 +529,8 @@ ent('stars68', 'art', {'name': 'Stars', 'n': 200, 'h': 1080, 'seed': 'ea', 'a': 
 art('ct68', 'CoolingTowers', L(68, 1.2), None, [K(L(68, 1.2), 3, steam=1)] + RISE + gone(L(69), 'ink', 1.0), inkdur=1.2, x=380, y=900, s=.7, steam=0, fx_y=-140, z=10)
 art('sc68', 'ScannerRing', L(68, 2.8), None, [K(L(68, 2.8), 5, 'linear', spin=1)] + RISE + gone(L(69), 'ink', 1.0), inkdur=1.2, x=960, y=560, s=.6, spin=0, fx_y=-140, z=10)
 art('sun68', 'Sun', L(68, 4.4), None, RISE + gone(L(69), 'ink', 1.0, at=[1500, 260]), ink=False, x=1520, y=270, r=95, enter='bleed', fx_y=-140, z=10)
-text('m68a', 'nuclear power', 'plate', 460, 1010, L(68, 2.2), L(68, 5.6), size=34)
-text('m68b', 'medical scans', 'plate', 960, 800, L(68, 3.8), L(69), size=34)
+text('m68a', 'nuclear power', 'plate', 460, 1010, L(68, 2.2), L(68, 5.6), size=34, col='#F3E7CC', light=True)
+text('m68b', 'medical scans', 'plate', 960, 800, L(68, 3.8), L(69), size=34, col='#F3E7CC', light=True)
 text('m68c', 'the stars', 'plate', 1520, 450, L(68, 5.6), L(69), size=34, col='#F3E7CC', light=True)
 # L69 — one star grows and becomes the dark field of the eyepiece; the last flash on the wrong side, ringed in red
 art('zns69', 'ZincScreenField', L(69), None, [K(L(69), 1.6, 'in', iris=1), K(L(69), 9, 'linear', flicker=18), K(L(69, 7.8), 2.2, dim=.7)], ink=False, draw=1, cx=960, cy=540, r=420, glitter=.4, flicker=0, iris=0, irisAt=[1520, 300], z=14)

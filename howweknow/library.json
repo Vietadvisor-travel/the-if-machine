@@ -227,6 +227,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "LabStool": {
+  "kind": "episode",
+  "origin": "empty-atom"
+ },
  "LaserDome": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
