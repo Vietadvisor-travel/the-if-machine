@@ -34,6 +34,11 @@ FX.md §H, demo `episodes/fx-reel`). Narration is read plain (no stress drawl). 
 episodes/<slug> --write`. Gates added to make.sh: `plan_check.py` (the plan) and `still_check.py` (no stretch > 2.5 s where nothing
 happens — inside-earth v2 had 21 % dead time; a v5 film must have none). Drawings follow STYLE.md "True to life" (reference beside drawing).
 
+## 2e. v7 — directed (CINEMA.md) — every new film, FIRST
+Load the skill `fathom-director` → treatment → `tools/treatment_check.py <slug>` PASS → then lines.py (tag `setpiece`/`motif`), the
+material hunt with `fathom-engraver` (public-domain plates for sets and instruments), and world.py with `fathom-cinematographer`.
+The critic (`fathom-critic`, a fresh agent) judges keyframes and the animatic on style · drawing · light · composition · acting · rhythm · sound.
+
 ## 2d. v6 standard (owner 17 Nov 2026) — every new film
 `E['engine'] = 6` in world.py and `standard=6` in lines.py (STORY §8: `shot` + `light` on every line). Build with `tools/v6.py`
 (shot · rack · shake · grade_keys · cascade) and the v6 entities (lamp, shaft, motes, shadow, haze, sheen); people get `expr`, `look`,

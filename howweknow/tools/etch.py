@@ -2,6 +2,7 @@
 """ETCH — real antique engravings as the film's raw material (owner 17 Nov 2026: "nới… thoải mái mà làm, không vi phạm pháp luật").
 Old engravings (18th–19th c. books, journals, plates) are public domain; cut from their paper they become layers we colour, light and move.
   python3 tools/etch.py search "<words>" [--n 12]                 → candidates on Wikimedia Commons that are PUBLIC DOMAIN / CC0 only
+  python3 tools/etch.py cats "<words>" · incat "<Category name>"  → find engravings by CATEGORY (far better than text search)
   python3 tools/etch.py get <slug> "File:<title>" [--as name]     → public/stock/_pd/<slug>/<name>.jpg + licence proof in jobs/stock_pd/<slug>.md
   python3 tools/etch.py cut <slug> <name> [--keep-colour] [--crop x,y,w,h] [--soft .1]
         → <name>_ink.png: the INK alone on transparency (sepia), so the engine's paper, washes and light show through;
@@ -51,6 +52,21 @@ def search(words, n=12):
     return rows
 
 
+def cats(words, n=15):
+    """Commons CATEGORIES matching words (engravings are best found by category, not by description text)."""
+    d = q({'action': 'query', 'list': 'search', 'srsearch': words, 'srnamespace': 14, 'srlimit': n})
+    for r in d.get('query', {}).get('search', []): print(r['title'])
+
+
+def incat(cat, n=40):
+    """Files in a category, public-domain ones marked PD."""
+    d = q({'action': 'query', 'generator': 'categorymembers', 'gcmtitle': cat if cat.startswith('Category:') else 'Category:' + cat, 'gcmtype': 'file',
+           'gcmlimit': n, 'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata'})
+    rows = info(d.get('query', {}).get('pages', {}))
+    for r in rows: print(('PD  ' if r['pd'] else 'no  ') + f"{r['title'][:90]}  [{r['licence']}] {r['w']}×{r['h']}  {r['date']}")
+    return rows
+
+
 def get(slug, title, name=None):
     d = q({'action': 'query', 'titles': title, 'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata', 'iiurlwidth': 2400})
     r = info(d.get('query', {}).get('pages', {}))[0]
@@ -85,6 +101,8 @@ if __name__ == '__main__':
     a = sys.argv[1:]; opt = lambda k, d=None: a[a.index('--' + k) + 1] if '--' + k in a else d
     if not a: sys.exit(__doc__)
     if a[0] == 'search': search(a[1], int(opt('n', 12)))
+    elif a[0] == 'cats': cats(a[1], int(opt('n', 15)))
+    elif a[0] == 'incat': incat(a[1], int(opt('n', 40)))
     elif a[0] == 'get': get(a[1], a[2], opt('as'))
     elif a[0] == 'cut': cut(a[1], a[2], '--keep-colour' in a, opt('crop'), float(opt('soft', .1)))
     elif a[0] == 'ship': subprocess.run(['python3', '../studio/tools/pp_drive.py', 'put', *[f'public/stock/_pd/{a[1]}/{f}' for f in sorted(os.listdir(f'public/stock/_pd/{a[1]}'))], '--to', f'_hwk/{a[1]}/_pd'], check=True)
