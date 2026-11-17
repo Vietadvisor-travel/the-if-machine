@@ -44,3 +44,9 @@ The animatic critic (§4) uses the same four axes per scene; a scene under 8 is 
 ## 5. Growing the engine
 When a concept needs something the engine cannot do, add the primitive (src/engine), a row in FX.md, and a clip in `episodes/fx-reel`.
 A film is expected to add at least two; the reel is the running proof of what the engine can do.
+
+## 6. Novelty (engine v8, owner 17 Nov 2026: "nhiều thành phần, hiệu ứng dùng lại nhiều lần giữa 1 tập và giữa các tập")
+A habit is not a style. Before world.py, list the film's DEVICES (how things arrive and leave, how real documents are shown, how a number or a
+name is pointed at) and, for each one the last two films leaned on (`python3 tools/novelty.py` prints them), find another way. Invent ≥ 3 devices
+for the film (FX.md §K) — the thing the idea needs that the engine cannot yet do — and build them (src/engine or the film's own drawings).
+The world helpers are not a style either: a `gone()` that always ink-bleeds is exactly the repetition the owner saw. Gate: `tools/novelty.py`.

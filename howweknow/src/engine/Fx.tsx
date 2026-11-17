@@ -16,38 +16,62 @@
 //     pour 0..1 — it fills up like liquid rising in a glass (a wavy level; pourDir up|down)
 //     brush 0..1 — it is painted in with five broad strokes of a brush, one after another
 //     wobble (px) — heat haze / seen through water: the drawing ripples (short moments only)
+//   v8 (owner 17 Nov 2026: "sáng tạo ra các thứ mới để dùng nếu cần thay vì chỉ dùng đi dùng lại"):
+//     burn 0..1 — the paper BURNS away (1 = whole, 0 = gone): a charred edge with a glowing ember rim eats across it (burnAt / dissolveDir
+//                 steer it like the ink-bleed). For an idea that is destroyed, a page of the past, a letter that is lost.
+//     shatter 0..1 — the picture is a pane of GLASS that cracks (0 → .12) and breaks (→ 1) into shards that fly from shatterAt [x,y] and fall.
+//                 For a belief that breaks, a glass plate, a certainty. Costly while it moves (the layer is drawn once per shard): keep it short.
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { Props } from './state';
-const KEYS = ['fx_box', 'fx_x', 'fx_y', 'fx_s', 'fx_r', 'wipe', 'iris', 'unroll', 'blinds', 'tear', 'flipX', 'flipY', 'lift', 'sway', 'bob', 'tremble', 'breathe', 'sepia', 'dim', 'dissolve', 'blur', 'glowfx', 'clipForm', 'pour', 'brush', 'wobble'];
+const KEYS = ['fx_box', 'fx_x', 'fx_y', 'fx_s', 'fx_r', 'wipe', 'iris', 'unroll', 'blinds', 'tear', 'flipX', 'flipY', 'lift', 'sway', 'bob', 'tremble', 'breathe', 'sepia', 'dim', 'dissolve', 'blur', 'glowfx', 'clipForm', 'pour', 'brush', 'wobble', 'burn', 'shatter'];
 export const hasFx = (s: Props) => KEYS.some(k => k !== 'fx_box' && s[k] !== undefined);
 export const FX_KEYS = KEYS;
 const W0 = 1920, H0 = 1080;
-const gradUri = (s: Props) => {   // the bias field for a directed dissolve: 0 where it starts, 1 where it ends
+const gradUri = (s: Props, inv = false) => {   // inv: the burn starts AT the point (a fire spreads out from where it was lit)   // the bias field for a directed dissolve: 0 where it starts, 1 where it ends
   const at = s.dissolveAt, d = s.dissolveDir; let g = '';
-  if (at) g = `<radialGradient id='g' gradientUnits='userSpaceOnUse' cx='${at[0]}' cy='${at[1]}' r='${s.dissolveR ?? 1500}'><stop offset='0' stop-color='black'/><stop offset='1' stop-color='white'/></radialGradient>`;
+  if (at) g = `<radialGradient id='g' gradientUnits='userSpaceOnUse' cx='${at[0]}' cy='${at[1]}' r='${s.dissolveR ?? 1500}'><stop offset='0' stop-color='${inv ? 'white' : 'black'}'/><stop offset='1' stop-color='${inv ? 'black' : 'white'}'/></radialGradient>`;
   else { const [x1, y1, x2, y2] = d === 'left' ? [1, 0, 0, 0] : d === 'up' ? [0, 1, 0, 0] : d === 'down' ? [0, 0, 0, 1] : [0, 0, 1, 0];
     g = `<linearGradient id='g' x1='${x1}' y1='${y1}' x2='${x2}' y2='${y2}'><stop offset='0' stop-color='black'/><stop offset='1' stop-color='white'/></linearGradient>`; }
   return 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='${W0}' height='${H0}'><defs>${g}</defs><rect width='${W0}' height='${H0}' fill='url(#g)'/></svg>`);
 };
 // the ink-bleed filter: noise (+ optional bias toward a point/direction) → threshold at `dissolve` with a soft edge + a dark ink rim
-const Dissolve: React.FC<{ id: string; s: Props; seed: number }> = ({ id, s, seed }) => {
-  const k = Math.max(0, Math.min(1, s.dissolve)), w = .07, rim = .035, kk = k * (1 + 2 * w + rim) - w, biased = !!(s.dissolveAt || s.dissolveDir), b = biased ? .62 : 0;
+const Dissolve: React.FC<{ id: string; s: Props; seed: number; burn?: boolean }> = ({ id, s, seed, burn }) => {
+  const k = Math.max(0, Math.min(1, burn ? s.burn : s.dissolve)), w = burn ? .035 : .07, rim = burn ? .022 : .035, kk = k * (1 + 2 * w + rim) - w, biased = !!(s.dissolveAt || s.dissolveDir), b = biased ? .62 : 0;
   const f = .0032 / (s.dissolveGrain ?? 1), S = 3.0, O = .5 - S * .5;
   return <svg width={0} height={0} style={{ position: 'absolute' }}><defs><filter id={id} x={0} y={0} width={W0} height={H0} filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
     <feTurbulence type="fractalNoise" baseFrequency={`${f} ${f * 1.15}`} numOctaves={4} seed={(seed * 13) % 97} result="n0" />
     <feColorMatrix in="n0" type="matrix" values={`${S} 0 0 0 ${O}  ${S} 0 0 0 ${O}  ${S} 0 0 0 ${O}  0 0 0 0 1`} result="n" />
-    {biased && <feImage href={gradUri(s)} x={0} y={0} width={W0} height={H0} preserveAspectRatio="none" result="g" />}
+    {biased && <feImage href={gradUri(s, !!burn && !!s.dissolveAt)} x={0} y={0} width={W0} height={H0} preserveAspectRatio="none" result="g" />}
     {biased && <feComposite in="n" in2="g" operator="arithmetic" k1={0} k2={1 - b} k3={b} k4={0} result="nb" />}
     <feColorMatrix in={biased ? 'nb' : 'n'} type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0" result="v" />
     <feComponentTransfer in="v" result="m"><feFuncA type="linear" slope={-1 / w} intercept={kk / w} /></feComponentTransfer>
     <feComponentTransfer in="v" result="m2"><feFuncA type="linear" slope={-1 / w} intercept={(kk - rim) / w} /></feComponentTransfer>
     <feComposite in="SourceGraphic" in2="m2" operator="in" result="vis" />
     <feComposite in="m" in2="m2" operator="out" result="band" />
-    <feFlood floodColor="#2B1D12" floodOpacity={.7} result="ink" /><feComposite in="ink" in2="band" operator="in" result="inkb" />
+    <feFlood floodColor={burn ? '#1A0E06' : '#2B1D12'} floodOpacity={burn ? .92 : .7} result="ink" /><feComposite in="ink" in2="band" operator="in" result="inkb" />
     <feComposite in="inkb" in2="SourceGraphic" operator="in" result="rimg" />
-    <feMerge><feMergeNode in="vis" /><feMergeNode in="rimg" /></feMerge>
+    {burn && <><feComponentTransfer in="v" result="m3"><feFuncA type="linear" slope={-1 / w} intercept={(kk + .007) / w} /></feComponentTransfer>
+      <feComposite in="m3" in2="m" operator="out" result="band2" /><feFlood floodColor="#F2A672" floodOpacity={.9} result="emb" />
+      <feComposite in="emb" in2="band2" operator="in" result="emb2" /><feGaussianBlur in="emb2" stdDeviation={2.2} result="glow" /></>}
+    <feMerge><feMergeNode in="vis" /><feMergeNode in="rimg" />{burn && <feMergeNode in="glow" />}{burn && <feMergeNode in="emb2" />}</feMerge>
   </filter></defs></svg>;
+};
+// v8 SHATTER: a pane of glass — jittered grid → triangles; cracks first (k ≤ .12: dark lines, nothing moves), then each shard flies from the
+// impact point, turns and falls, fading. Every shard is the same layer clipped to its triangle.
+const rnd = (n: number) => { const x = Math.sin(n * 91.7 + 13.1) * 43758.5453; return x - Math.floor(x); };
+const Shatter: React.FC<{ s: Props; seed: number; bx: number; by: number; bw: number; bh: number; tf: string; ox: number; oy: number; children: React.ReactNode }> = ({ s, seed, bx, by, bw, bh, tf, ox, oy, children }) => {
+  const k = Math.min(1, s.shatter), nx = 5, ny = 4, [ix, iy] = s.shatterAt || [bx + bw / 2, by + bh / 2];
+  const P = (i: number, j: number) => [bx + bw * i / nx + (i % nx && i ? (rnd(seed + i * 7 + j * 3) - .5) * bw / nx * .6 : 0), by + bh * j / ny + (j % ny && j ? (rnd(seed + i * 5 + j * 11) - .5) * bh / ny * .6 : 0)];
+  const tris: number[][][] = [];
+  for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) { const a = P(i, j), b = P(i + 1, j), c = P(i + 1, j + 1), d = P(i, j + 1); tris.push([a, b, c], [a, c, d]); }
+  const cr = Math.min(1, k / .12), go = Math.max(0, (k - .12) / .88);
+  return <AbsoluteFill style={{ transform: tf, transformOrigin: `${ox}px ${oy}px` }}>
+    {tris.map((t, n) => { const cx = (t[0][0] + t[1][0] + t[2][0]) / 3, cy = (t[0][1] + t[1][1] + t[2][1]) / 3, dx = cx - ix, dy = cy - iy, d = Math.hypot(dx, dy) || 1;
+      const m = go * (240 + rnd(n + seed) * 260), fx = dx / d * m, fy = dy / d * m + go * go * 520, r = (rnd(n * 3 + seed) - .5) * 70 * go;
+      return <AbsoluteFill key={n} style={{ clipPath: `polygon(${t.map(p => `${p[0].toFixed(1)}px ${p[1].toFixed(1)}px`).join(', ')})`, transform: `translate(${fx}px, ${fy}px) rotate(${r}deg)`, transformOrigin: `${cx}px ${cy}px`, opacity: 1 - go * go }}>{children}</AbsoluteFill>; })}
+    {cr > 0 && go < 1 && <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0, opacity: (1 - go) * cr }}>{tris.map((t, n) => <path key={n} d={`M${t[0][0]} ${t[0][1]} L${t[1][0]} ${t[1][1]} L${t[2][0]} ${t[2][1]}Z`} fill="none" stroke="#1A120B" strokeWidth={1.4} strokeDasharray={`${cr * 900} 900`} />)}</svg>}
+  </AbsoluteFill>;
 };
 export const Fx: React.FC<{ s: Props; t: number; seed: number; uid?: string; children: React.ReactNode }> = ({ s, t, seed, uid, children }) => {
   // fx_box [x, y, w, h] = the element's area: reveals run across IT (not the whole frame) and turns/scales pivot on its centre
@@ -73,13 +97,15 @@ export const Fx: React.FC<{ s: Props; t: number; seed: number; uid?: string; chi
     for (let i = 0; i < n; i++) { const q = Math.max(0, Math.min(1, k * (n + 1.5) / 2.5 - i * .4)); if (q <= 0) continue; const y0 = by + i * sh - 14, y1 = y0 + sh + 28, x0 = i % 2 ? bx + bw + 80 - (bw + 160) * q : bx - 80, x1 = i % 2 ? bx + bw + 80 : bx - 80 + (bw + 160) * q, e = i % 2 ? x0 : x1, sg = i % 2 ? -1 : 1;
       d.push(`M${i % 2 ? x1 : x0} ${y0} L${e} ${y0 + 6} Q${e + sg * 46} ${y0 + sh * .3} ${e + sg * 18} ${y0 + sh * .55} Q${e + sg * 52} ${y0 + sh * .8} ${e} ${y1 - 4} L${i % 2 ? x1 : x0} ${y1} Z`); }
     clip = d.length ? `path('${d.join(' ')}')` : 'circle(0px at 0px 0px)'; }
-  const dis = s.dissolve !== undefined && s.dissolve < .999 && s.dissolve > .001, fid = 'dz_' + (uid || seed).toString().replace(/[^\w-]/g, '_');
-  if (s.dissolve !== undefined && s.dissolve <= .001) return null;
+  const brn = s.burn !== undefined && s.burn < .999 && s.burn > .001;
+  const dis = brn || (s.dissolve !== undefined && s.dissolve < .999 && s.dissolve > .001), fid = 'dz_' + (uid || seed).toString().replace(/[^\w-]/g, '_');
+  if ((s.dissolve !== undefined && s.dissolve <= .001) || (s.burn !== undefined && s.burn <= .001)) return null;
+  if (s.shatter !== undefined && s.shatter > .001) return <Shatter s={s} seed={seed} bx={bx0} by={by0} bw={bw0} bh={bh0} tf={tf} ox={ox} oy={oy}>{children}</Shatter>;
   const wob = s.wobble > .2, wid = fid + 'w';
   const filt = [dis ? `url(#${fid})` : '', wob ? `url(#${wid})` : '', s.blur > .05 ? `blur(${s.blur}px)` : '', s.sepia ? `sepia(${s.sepia}) saturate(${1 - s.sepia * .6})` : '', s.dim ? `brightness(${1 - s.dim * .55})` : '',
     s.glowfx > .01 ? `brightness(${1 + s.glowfx * .18}) drop-shadow(0 0 ${18 * s.glowfx}px rgba(247,214,140,${.75 * s.glowfx}))` : '', s.lift ? `drop-shadow(0 ${s.lift * .6}px ${s.lift * .5}px rgba(0,0,0,.35))` : ''].filter(Boolean).join(' ') || undefined;
   const body = <AbsoluteFill style={{ transform: tf, transformOrigin: `${ox}px ${oy}px`, clipPath: clip }}>{children}</AbsoluteFill>;
   // a filter only ever sees the frame (1920×1080): a huge drawing (a planet at 0.5 px/km is 7,000 px wide) must never be blurred or
   // dissolved off-screen — that is what made Chrome allocate gigabytes and hang (16 Nov 2026)
-  return filt ? <AbsoluteFill style={{ overflow: 'hidden', contain: 'strict' }}><AbsoluteFill style={{ filter: filt, overflow: 'hidden' }}>{dis && <Dissolve id={fid} s={s} seed={s.dissolveSeed ?? seed} />}{wob && <svg width={0} height={0} style={{ position: 'absolute' }}><defs><filter id={wid} x={0} y={0} width={W0} height={H0} filterUnits="userSpaceOnUse"><feTurbulence type="fractalNoise" baseFrequency={`0.006 ${0.02 + 0.004 * Math.sin(t * 1.7)}`} numOctaves={2} seed={Math.floor(t * 8) % 5 + seed} result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale={s.wobble} xChannelSelector="R" yChannelSelector="G" /></filter></defs></svg>}{body}</AbsoluteFill></AbsoluteFill> : body;
+  return filt ? <AbsoluteFill style={{ overflow: 'hidden', contain: 'strict' }}><AbsoluteFill style={{ filter: filt, overflow: 'hidden' }}>{dis && <Dissolve id={fid} s={brn ? { ...s, dissolveAt: s.burnAt ?? s.dissolveAt } : s} seed={s.dissolveSeed ?? seed} burn={brn} />}{wob && <svg width={0} height={0} style={{ position: 'absolute' }}><defs><filter id={wid} x={0} y={0} width={W0} height={H0} filterUnits="userSpaceOnUse"><feTurbulence type="fractalNoise" baseFrequency={`0.006 ${0.02 + 0.004 * Math.sin(t * 1.7)}`} numOctaves={2} seed={Math.floor(t * 8) % 5 + seed} result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale={s.wobble} xChannelSelector="R" yChannelSelector="G" /></filter></defs></svg>}{body}</AbsoluteFill></AbsoluteFill> : body;
 };

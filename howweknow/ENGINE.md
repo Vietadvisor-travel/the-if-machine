@@ -128,3 +128,22 @@ A film is v6 when `episode.json` has `"engine": 6` (world.py: `E['engine'] = 6`)
   dollies (≤ 4 per line, held-breath lines `hold: true` stay silent).
 - **Direction**: CINEMA.md (§0 the chain of transformations — the heart; §1 the treatment; §2 shot grammar; §3 acting; §4 material;
   §4b ONE STYLE; §5 sound; §6 the bar) · skills fathom-director / cinematographer / engraver / critic · `tools/treatment_check.py`.
+
+## ENGINE v8 — new things, true drawings, a lighter film (owner 17 Nov 2026: "hình ảnh mới được 7 điểm… nhiều thành phần, hiệu ứng dùng lại
+## nhiều lần giữa 1 tập và giữa các tập… sáng tạo ra các thứ mới… vẽ chi tiết còn chưa giống… hạt phim vừa phải")
+A film is v8 when `episode.json` has `"engine": 8` (world.py: `E['engine'] = 8`). Older films render exactly as before.
+- **Look**: grain lighter (.2) and grain / weave / flicker HELD 3 frames (`hold`), weave .3 px. Measured on star-distance: the grain was NOT the
+  size — the engraving pass's line screens over a camera that always moves are (3 s: 9.0 MB with the pass, 4.1 MB without). Snapping or freezing
+  the screens made it larger (12.4 / 10.8 MB), x264 presets gave ~10 %. A full v7/v8 master at CRF 17 is ≈ 1.3–1.5 GB; at CRF 20 ≈ 0.95 GB and
+  CRF 22 ≈ 0.7 GB with no difference visible at 1:1 (PSNR vs CRF 17: 41.2 / 39.9 dB). The CRF stays 17 until the owner chooses (`render.py --crf`).
+- **New Fx primitives** (any entity): `burn` 1→0 (paper burns away from `burnAt`, charred edge + ember rim) · `shatter` 0→1 (a pane of glass
+  cracks, then breaks into shards flying from `shatterAt`). FX.md §K. Demo: `episodes/v8-demo/build.py`.
+- **Novelty gate** `tools/novelty.py` (in make.sh for v8 films): how things come in / go out, the artefact frames, the pointers, the film's own
+  drawings — no recipe on > 35 % of entities, frames ≤ 4, own drawings brought on ≤ 4 times unless `motif_art`, nothing the last two films
+  leaned on used more than 60 % as much, and ≥ 3 `new_devices` INVENTED for the film. Baselines of inside-earth, empty-atom, star-distance are
+  in history.json (all three would fail it: exits 52–100 % one recipe, DocumentPage 8×, CabinetCard 7×, ripple 31× …).
+- **True drawings**: `tools/refcheck.py <slug> <Drawing> <ref>` (reference | drawing | the drawing laid over the reference in red) — every hero
+  drawing is checked before keyframes; `tools/trace.py` turns a PUBLIC-DOMAIN / CC0 plate, patent drawing or clean photo into true geometry
+  (outline, tone parts, construction lines) that `src/paint/traced.tsx` `Traced` inks in the house style; never a copyrighted reference.
+- **People**: costumes take a `top` (+ `topT`) — a bodice / shirtwaist in its own pigment over a skirt or coat of `mat`; a long skirt drapes over
+  the knees when she sits (no more "women read as men in suits").

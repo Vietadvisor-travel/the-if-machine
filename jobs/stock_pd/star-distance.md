@@ -7,3 +7,5 @@
 | hale_hooker.jpg | PD-03_hooker-100inch-hale-1922.jpg | — | — | Public domain (G. E. Hale, The New Heavens, 1922, fig. 4) | https://archive.org/details/newheavens00hale |
 | hco_1847.jpg | PD-05_harvard-observatory-1847-holden-1897.jpg | — | — | Public domain (Annals HCO 1850; Holden, Memorials of W. C. Bond, 1897) | https://archive.org/details/memorialsofwilli00hold |
 | hco_refractor.jpg | PD-06_15inch-refractor-holden-1897.jpg | — | — | Public domain (Annals HCO vol. I; Holden 1897) | https://archive.org/details/memorialsofwilli00hold |
+| traced/HeliometerTrue.json | traced from P-05-x1_heliometer-koenigsberg-pd.jpg | — | — | Public domain (P-05-x1, the Königsberg heliometer) | (trace) |
+| traced/RefractorHCO.json | traced from hco_refractor.jpg | — | — | Public domain (Annals HCO vol. I; Holden 1897) | (trace) |

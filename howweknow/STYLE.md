@@ -64,7 +64,7 @@ Tagline: "How we came to know the world."
 ## True to life (owner 17 Nov 2026: "cố vẽ lại chính xác ngoài đời hơn nữa… nhiều hình hơi khó hiểu")
 - **Reference first.** Every real object, instrument, building and person is drawn FROM its reference image(s) (Muse's R rows): the
   silhouette, the proportions and 3–5 telling details (how it is built, what it is made of, how it works) must match. Put the
-  reference beside the drawing (`python3 tools/refsheet.py <slug>`) and fix until a stranger would say "that is the same thing".
+  reference beside the drawing — and laid over it — (`python3 tools/refcheck.py <slug> <Drawing> <ref>`; v8; true geometry from PD/CC0 sources: `tools/trace.py`) and fix until a stranger would say "that is the same thing".
 - **Show how it works.** A mechanism is drawn so its working parts are visible and MOVE (the wire twists, the needle writes, the drum
   turns) — cut-aways and exploded views beat symbols. Never a generic icon (a rectangle "tank", a plain disc "ball") where the real
   thing has a look.

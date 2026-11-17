@@ -64,6 +64,13 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
 - Engravings from old books are allowed as raw material (owner: "nới… không vi phạm pháp luật"): public domain / CC0 only, recorded in
   `jobs/stock_pd/<slug>.md`, credited. ONE STYLE always (CINEMA §4b): sepia ink, house pigments as washes, cream paper, house type.
 
+## Engine v8 (owner 17 Nov 2026: "sáng tạo ra các thứ mới… vẽ chi tiết giống hơn… hạt phim vừa phải") — every new film
+- `E['engine'] = 8`: lighter, held grain/weave. NOVELTY gate `tools/novelty.py` (make.sh): no way-in / way-out on > 35 % of things, artefact frames
+  ≤ 4, own drawings ≤ 4 entrances unless `motif_art`, nothing the last two films leaned on used > 60 % as much, ≥ 3 `new_devices` INVENTED per film
+  (FX.md §K, e.g. v8's `burn`, `shatter`). TRUE drawings: `tools/refcheck.py` (drawing laid over its reference) for every hero object/person;
+  `tools/trace.py` + `Traced` for true geometry from PD/CC0 sources; costumes take `top` (bodice/blouse over a skirt). ENGINE.md "ENGINE v8".
+- File size: the engraving pass, not the grain, makes a master ≈ 1.3–1.5 GB at CRF 17 (CRF 20 ≈ 0.95 GB, CRF 22 ≈ 0.7 GB, no visible difference) — the CRF is the owner's call.
+
 ## Roles
 - **Claude:** everything creative — topics, research, scripts planned to the frame, every drawing, the engine, rendering, delivery.
 - **Muse:** sourcing only (lean: ~1 hour per film, ≤ 15 rows), against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,

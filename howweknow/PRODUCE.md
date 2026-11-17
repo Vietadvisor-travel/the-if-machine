@@ -104,3 +104,10 @@ lib's index.tsx); `episode.json` `thumb` = {v: 'S', kicker, lines, accent, note}
   TikTok's caption/buttons (bottom 380 px, right 140 px). Muse: Instagram `cover_url` = this file; TikTok = upload it as the cover in the
   app; Facebook Reels' API takes no cover (it picks a frame).
 Sample: `src/lib/empty-atom/thumb_more.tsx` `Standard` ("WHAT'S INSIDE AN ATOM?" + the brass eyepiece, one flash on the wrong side).
+
+## v8 (owner 17 Nov 2026) — new things, true drawings
+- `E['engine'] = 8`. Before world.py: run `python3 tools/novelty.py episodes/<slug>` on the previous film to see what it leaned on; plan ≥ 3
+  `new_devices` (FX.md §K) and build them first.
+- Drawing: for every hero object/person, `python3 tools/refcheck.py <slug> <Drawing> <reference>` until the red overlay sits on the real edges;
+  where a PD/CC0 plate or clean photo exists, `python3 tools/trace.py` gives the true geometry (`Traced`). The critic sees the refcheck sheets.
+- make.sh runs `novelty.py` for v8 films (PASS needed); after delivery `python3 tools/novelty.py episodes/<slug> --record`.

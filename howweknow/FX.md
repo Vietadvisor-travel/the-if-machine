@@ -147,3 +147,14 @@ Combine freely (a `swarm` that lands inside a `shape-window`); invent new ones �
 | `bignum` | a giant number in gold the camera flies through | …gives the one number that matters |
 | `grip-hand` | a close-up hand that really holds the knob, the pen, the glass | …is about the physical work of finding out |
 | `mark` | a vermilion ring/underline/arrow drawn by hand | …points at the one fact on a document or picture |
+
+## K. ENGINE v8 — invented devices (owner 17 Nov 2026: "sáng tạo ra các thứ mới để dùng nếu cần thay vì chỉ dùng đi dùng lại")
+Every film INVENTS ≥ 3 devices of its own (a new Fx prop, entity type, or a drawn mechanism with its own moving parts), declares them in
+`episode.json` `new_devices`, adds a row here and a clip in `episodes/fx-reel` (or a demo build). `tools/novelty.py` refuses a device recorded
+for an earlier film. A device in this table is open to later films only as a starting point — each film must change what it does.
+| name | what you see | invented for |
+|---|---|---|
+| `burn` | the paper burns away from a point: charred edge, ember rim (Fx, any entity; `burnAt`) | v8 (engine) |
+| `shatter` | a pane of glass cracks, then breaks into shards that fly and fall (Fx, any entity; `shatterAt`) | v8 (engine) |
+| `breathe` (drawing) | Cepheid stars that swell and fade with their own periods (BreathingField) | star-distance |
+| `parallax` (drawing) | two eyepiece fields laid over each other like tracing paper (ParallaxField) | star-distance |

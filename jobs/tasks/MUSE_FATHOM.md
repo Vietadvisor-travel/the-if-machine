@@ -79,3 +79,8 @@ beds (wonder, mystery, tension, warm). All with manifest rows.
 
 ## 7. Antique engravings (owner order, 17 Nov 2026 — from the next episode on)
 Besides the order's rows, every film needs 4–8 public-domain antique engravings or plates (18th–19th c. books, journals, prints; Wikimedia Commons Public domain/PD/CC0, Internet Archive, Biodiversity Heritage Library, national-library scans) showing the film's places, instruments, people at work or period interiors. Large scans (≥ 2000 px), clean paper. Put them in Drive `_hwk/<slug>/_pd/` with one line each in the manifest: file · title · artist · year · licence · source URL. Never CC-BY-SA, NC or unknown licence. Claude's order names the subjects (section "Engravings").
+
+## v8 — references Claude can TRACE (17 Nov 2026)
+For every R (reference) row, put first any view that is Public domain / CC0 (an old plate, a patent drawing, a museum's CC0 photo on a plain
+ground, a NASA/USGS photo): Claude traces true geometry only from those (`tools/trace.py`); CC BY-SA / NC / unknown references stay "look only".
+Mark each R file's licence in the manifest as before.

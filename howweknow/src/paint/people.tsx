@@ -28,7 +28,9 @@ export const POSES: Record<string, Pose> = {
   explain: { armF: [52, 60], armB: [-4, 12], legF: [5, 2], legB: [-5, 3], nod: -2, lean: 3, sit: 0, hand: 'open' },
   reach: { armF: [74, 8], armB: [-2, 14], legF: [14, 3], legB: [-10, 4], nod: 6, lean: 10, sit: 0, hand: 'open' },
 };
-export type Costume = { coat: N; mat: string; t: N; flare: N; leg: string; legT: N; stock?: boolean; shoe: string; neck: string; hat: string; hair: string; sleeve: N; vest?: string; bare?: boolean; suit?: boolean };
+export type Costume = { coat: N; mat: string; t: N; flare: N; leg: string; legT: N; stock?: boolean; shoe: string; neck: string; hat: string; hair: string; sleeve: N; vest?: string; bare?: boolean; suit?: boolean;
+  top?: string; topT?: N };   // v8 (owner 17 Nov 2026: "vẽ ra chi tiết còn chưa giống"): `top` = a bodice / blouse / shirtwaist in its own pigment over a skirt or coat of `mat`
+                              // (an 1900s woman: a white shirtwaist over a dark long skirt); her long skirt now drapes over the knees when she sits
 export const COSTUMES: Record<string, Costume> = {   // coat = hem height (fraction of h; 0 = no coat, .03 = ankle-long robe)
   chiton: { coat: .04, mat: 'paper', t: .25, flare: .05, leg: 'skin', legT: .3, shoe: 'sandal', neck: 'none', hat: 'none', hair: 'short', sleeve: 0, bare: true },
   robe: { coat: .03, mat: 'cloth', t: .4, flare: .09, leg: 'cloth', legT: .5, shoe: 'sandal', neck: 'none', hat: 'none', hair: 'short', sleeve: 1.5 },
@@ -128,7 +130,7 @@ export const Person: React.FC<PersonP> = (pp) => {
   const arm = (sh: Pt, el: Pt, wr: Pt, back: boolean) => { const mt = back ? Math.min(1, C.t + .12) : C.t, cuffW = sleeveW * u, a1 = angOf(sh, el), a2 = angOf(el, wr);
     const bell = null as string | null, wide = C.sleeve > 1.4 && !C.suit ? 1.45 : 1;
     return <g key={'arm' + back}>
-      <Region d={limb(sh, el, wr, C.bare ? .027 * u : cuffW * 1.05, C.bare ? .021 * u : cuffW * .9, C.bare ? .017 * u : cuffW * .82 * wide)} mat={C.bare ? skinMat : C.mat} t={C.bare ? sk : mt} ang={a1} draw={draw} sw={inkW} />
+      <Region d={limb(sh, el, wr, C.bare ? .027 * u : cuffW * 1.05, C.bare ? .021 * u : cuffW * .9, C.bare ? .017 * u : cuffW * .82 * wide)} mat={C.bare ? skinMat : (C.top || C.mat)} t={C.bare ? sk : (C.top ? (C.topT ?? .2) + (mt - C.t) : mt)} ang={a1} draw={draw} sw={inkW} />
       {bell && <Region d={bell} mat={C.mat} t={mt + .05} ang={a2} draw={draw} sw={inkW} />}
       {!C.bare && <Line d={`M${f1(el[0] - .015 * u)} ${f1(el[1] - .012 * u)} q${f1(.012 * u * f)} ${f1(.01 * u)} ${f1(.026 * u * f)} ${f1(.004 * u)}`} w={inkW * .7} a={.6 * draw} />}
       {(C.neck === 'cravat' || costume === 'coat18') && <Region d={cap([wr[0] - Math.cos(a2 * D) * .03 * u, wr[1] - Math.sin(a2 * D) * .03 * u], wr, cuffW * 1.25, cuffW * 1.15)} mat={C.mat} t={mt - .25} ang={a2} draw={draw} sw={inkW} rim={false} />}
@@ -143,6 +145,9 @@ export const Person: React.FC<PersonP> = (pp) => {
     const d = pts[0], open = C.vest && !P.sit;
     return <g key="torso">
       <Region d={d} mat={C.mat} t={C.t} ang={80} draw={draw} sw={inkW * 1.1} />
+      {C.top && <Region d={`M${o(-.028, -.36)} C${o(.03, -.372)} ${o(.08, -.33)} ${o(.082, -.25)} C${o(.085, -.17)} ${o(.062, -.11)} ${o(.06, -.06)} L${o(-.066, -.065)} C${o(-.07, -.18)} ${o(-.085, -.26)} ${o(-.06, -.33)}Z`} mat={C.top} t={C.topT ?? .2} ang={80} draw={draw} sw={inkW} />}
+      {C.top && <Region d={`M${o(.062, -.068)} L${o(-.068, -.07)} L${o(-.068, -.05)} L${o(.063, -.048)}Z`} mat={C.mat} t={Math.min(1, C.t + .15)} ang={0} draw={draw} sw={inkW * .7} rim={false} />}
+      {C.top && [-.3, -.26, -.22, -.18, -.14].map(k => <circle key={'b' + k} cx={ov(.062, k)[0]} cy={ov(.062, k)[1]} r={.0035 * u} fill={SEP} opacity={.7 * draw} />)}
       {open && <Region d={`M${o(.06, -.3)} C${o(.075, -.24)} ${o(.07, -.16)} ${o(.055, -.07)} L${o(.035, -.07)} C${o(.04, -.16)} ${o(.035, -.25)} ${o(.03, -.31)}Z`} mat={C.vest!} t={.45} ang={80} draw={draw} sw={inkW * .8} />}
       {open && [-.25, -.2, -.15, -.1].map(k => <circle key={k} cx={ov(.052, k)[0]} cy={ov(.052, k)[1]} r={.005 * u} fill="url(#gold)" stroke={SEP} strokeWidth={.5} opacity={draw} />)}
       {C.coat > 0 && !P.sit && <Line d={`M${o(.06, -.06)} C${o(.03, -.02)} ${o(.03, hemDy * .5)} ${o(fr * .6, hemDy)}`} w={inkW * .8} a={.6 * draw} />}
@@ -222,6 +227,8 @@ export const Person: React.FC<PersonP> = (pp) => {
     <g transform={`rotate(${lean} ${f1(hip[0])} ${f1(hip[1])})`}>{arm(shB, elB, wrB, true)}</g>
     {leg(hipB, kneeB, ankB, true)}
     {leg(hipF, kneeF, ankF, false)}
+    {P.sit > .5 && C.coat > 0 && C.coat < .06 && <Region d={`M${f1(hipB[0] - .05 * u * f)} ${f1(hipY - .03 * u)} L${f1(kneeF[0] + .035 * u * f)} ${f1(kneeF[1] - .03 * u)} Q${f1(kneeF[0] + .06 * u * f)} ${f1(kneeF[1] + .02 * u)} ${f1(kneeF[0] + .045 * u * f)} ${f1(Math.min(ankF[1], kneeF[1] + .2 * u))} L${f1(kneeF[0] - .07 * u * f)} ${f1(Math.min(ankF[1], kneeF[1] + .21 * u))} Q${f1(hipB[0] - .02 * u * f)} ${f1(hipY + .12 * u)} ${f1(hipB[0] - .06 * u * f)} ${f1(hipY + .02 * u)}Z`} mat={C.mat} t={C.t} ang={90} draw={draw} sw={inkW} />}
+    {P.sit > .5 && C.coat > 0 && C.coat < .06 && [0, 1, 2].map(k => <Line key={'fold' + k} d={`M${f1(kneeF[0] - (.01 + k * .025) * u * f)} ${f1(kneeF[1])} q${f1(-.01 * u * f)} ${f1(.1 * u)} ${f1(-.005 * u * f)} ${f1(.18 * u)}`} w={inkW * .6} a={.5 * draw} />)}
     <g transform={`rotate(${lean} ${f1(hip[0])} ${f1(hip[1])})`}>
       {torso()}
       {P.sit > .5 && C.coat > 0 && <Region d={cap(hipF, [kneeF[0] - .01 * u * f, kneeF[1] - .005 * u], .055 * u, .045 * u)} mat={C.mat} t={C.t} ang={0} draw={draw} sw={inkW} />}

@@ -9,10 +9,14 @@
 import React from 'react';
 import { AbsoluteFill, Img, staticFile } from 'remotion';
 
-export const LOOK_DEF = { engrave: .8, warm: 0, sat: 1, con: 1, expo: 1, grain: .35, weave: .7, flick: .25, dof: 0, focus: 0, shake: 0, dolly: 0 };
+export const LOOK_DEF = { engrave: .8, warm: 0, sat: 1, con: 1, expo: 1, grain: .35, weave: .7, flick: .25, dof: 0, focus: 0, shake: 0, dolly: 0, hold: 1 };
+// ENGINE v8 (owner 17 Nov 2026: "hạt phim không cần quá cầu kỳ, vừa phải thôi" — the v7 master was 1.5 GB because grain + weave changed EVERY
+// frame and nothing could be compressed): a v8 film's grain is lighter and the grain / weave / flicker are HELD for `hold` frames (3 = 10 per
+// second, still alive to the eye), so the encoder can reuse what did not change. Films before v8 keep the v6 values exactly.
+export const LOOK_V8 = { grain: .2, weave: .3, flick: .18, hold: 3 };
 export type LookS = typeof LOOK_DEF;
-export const lookOf = (cam: Record<string, any> | undefined, v6: boolean): LookS | null => {
-  if (!v6) return null; const o: any = { ...LOOK_DEF };
+export const lookOf = (cam: Record<string, any> | undefined, v6: boolean, v8 = false): LookS | null => {
+  if (!v6) return null; const o: any = { ...LOOK_DEF, ...(v8 ? LOOK_V8 : {}) };
   for (const k of Object.keys(LOOK_DEF)) if (cam && typeof cam[k] === 'number') o[k] = cam[k];
   return o;
 };
@@ -52,16 +56,16 @@ export const EngraveOver: React.FC<{ k: number; ox: number; oy: number }> = ({ k
 // sat / con / expo away from neutral; flicker is a faint light/dark veil instead (nearly free)
 export const gradeFilter = (L: LookS) => Math.abs(L.sat - 1) < .01 && Math.abs(L.con - 1) < .01 && Math.abs(L.expo - 1) < .01 ? undefined
   : `brightness(${L.expo.toFixed(3)}) contrast(${L.con}) saturate(${L.sat})`;
-export const weaveT = (L: LookS, f: number) => `translate(${(L.weave * (hash(f * 1.3) - .5)).toFixed(2)}px, ${(L.weave * 1.4 * (hash(f * 2.1 + 7) - .5)).toFixed(2)}px)`;
+export const weaveT = (L: LookS, f0: number) => { const f = Math.floor(f0 / Math.max(1, L.hold || 1)); return `translate(${(L.weave * (hash(f * 1.3) - .5)).toFixed(2)}px, ${(L.weave * 1.4 * (hash(f * 2.1 + 7) - .5)).toFixed(2)}px)`; };
 export const shakeOf = (L: LookS, t: number) => { const s = L.shake; if (!s) return [0, 0, 0];
   const n = (a: number) => Math.sin(t * a) * .6 + Math.sin(t * a * 2.3 + 1.7) * .4;
   return [s * 9 * n(13.1), s * 7 * n(11.7 + .3), s * .35 * n(9.3)]; };
-export const LookOver: React.FC<{ L: LookS; f: number }> = ({ L, f }) => <>
+export const LookOver: React.FC<{ L: LookS; f: number }> = ({ L, f: f0 }) => { const f = Math.floor(f0 / Math.max(1, L.hold || 1)); return <>
   {L.flick > 0 && <AbsoluteFill style={{ pointerEvents: 'none', background: hash(f) > .5 ? `rgba(255,240,210,${(L.flick * .03 * (hash(f) - .5)).toFixed(4)})` : `rgba(20,12,6,${(L.flick * .03 * (.5 - hash(f))).toFixed(4)})` }} />}
   {L.warm !== 0 && <AbsoluteFill style={{ pointerEvents: 'none', mixBlendMode: 'soft-light', background: L.warm > 0 ? `rgba(255,170,80,${(.38 * L.warm).toFixed(3)})` : `rgba(60,110,170,${(-.42 * L.warm).toFixed(3)})` }} />}
   {L.grain > 0 && <Img src={staticFile(`core/grain_${f % 4}.png`)} style={{ position: 'absolute', inset: 0, width: 1920, height: 1080, objectFit: 'cover', opacity: .22 * L.grain, mixBlendMode: 'overlay',
     transform: `translate(${Math.round(hash(f) * 40 - 20)}px, ${Math.round(hash(f + 3) * 40 - 20)}px) scale(1.05)` }} />}
-</>;
+</>; };
 export const blurOf = (L: LookS | null, para: number) => L && L.dof > 0 ? Math.min(14, L.dof * Math.abs(para - L.focus)) : 0;
 
 // v7 DOLLY — the camera TRAVELS INTO the set (not a zoom): every layer grows by its own perspective, near layers (high `para`) far faster
