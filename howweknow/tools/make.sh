@@ -25,10 +25,12 @@ ffmpeg -v error -y -i out/${S}_silent.mp4 -i $B/mix.wav -map 0:v -map 1:a -c:v c
 D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 out/${S}_16x9.mp4)
 ffmpeg -v error -y -i out/${S}_16x9.mp4 -vf "fps=1/5,scale=320:-1,tile=8x$(python3 -c "import math;print(max(1,math.ceil($D/5/8)))")" -frames:v 1 out/${S}_sheet.jpg
 python3 tools/srt.py $EP
-# no thumbnail / cover (owner 17 Nov 2026: "ko cần làm thumbnail nữa từ nay về sau")
+TH=$(python3 -c "import json;t=json.load(open('$EP/episode.json')).get('thumb');print(json.dumps({'slug':'$S',**t}) if t else '')")
+# the thumbnail is DESIGNED per film (src/lib/<slug>/thumb.tsx → THUMB; owner 17 Nov 2026: "wow hơn, chất hơn… không nhất thiết cắt từ tập ra")
+if [ -n "$TH" ]; then npx remotion still Thumb out/${S}_thumb.jpg --props="$TH" --image-format=jpeg --jpeg-quality=92 >/dev/null 2>&1 && echo "thumb → out/${S}_thumb.jpg"; else echo "WARN no thumb in episode.json"; fi
 echo "DONE → out/${S}_16x9.mp4 ($(printf %.1f $D) s) · sheet out/${S}_sheet.jpg"
 if [[ "${2:-}" == "--ship" ]]; then
-  python3 ../studio/tools/pp_drive.py put out/${S}_16x9.mp4 out/${S}.srt --to "fathom/$S" | tail -2
+  python3 ../studio/tools/pp_drive.py put out/${S}_16x9.mp4 out/${S}_thumb.jpg out/${S}.srt --to "fathom/$S" | tail -2
   [ -f ../jobs/deliveries/$S.md ] || sed "s/@@SLUG@@/$S/g" ../jobs/deliveries/_TEMPLATE_P3.md > ../jobs/deliveries/$S.md
   echo "shipped to Drive fathom/$S · fill jobs/deliveries/$S.md"
 fi

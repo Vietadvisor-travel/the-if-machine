@@ -547,7 +547,7 @@ E['world'] = W
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
 TLP = os.path.join(H, 'timeline.json'); LN = json.load(open(TLP))['lines'] if os.path.exists(TLP) else None
 if LN and len(LN) != len(E['lines']): LN = None
-E['thumb'] = {'t': round(LN[46]['start'] + 5.0, 2) if LN else 380, 'title': 'What is *inside* an atom?', 'kicker': 'Fathom', 'side': 'left'}
+E['thumb'] = {'t': 1, 'title': 'It came *back.*', 'kicker': 'Manchester · 1909', 'note': '1 in 8,000'}   # drawn: src/lib/empty-atom/thumb.tsx
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
 if LN:
     T = json.load(open(TLP))

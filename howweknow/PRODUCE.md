@@ -48,8 +48,8 @@ Then `python3 lines.py` → `python3 tools/script_check.py episodes/<slug>` · `
 1. `python3 tools/vo.py episodes/<slug>` (real timing) → stills of ~15 key moments: `npx remotion render Story out/f --props='{"slug":"<slug>"}' --frames=a,b,… --sequence --image-format=jpeg`;
    look, fix, repeat (cheap). Cover the opening, every clue title, every real-stock reveal, the twist, the end.
 2. `bash tools/make.sh <slug> --ship` in the background (`run_in_background`) + a `send_later` watchdog (≈ 100 min). It runs the gates, voice,
-   mix, render, mux, contact sheet, .srt (optional CC), and uploads to Drive `fathom/<slug>/`.
-3. Look at `out/<slug>_sheet.jpg`. No thumbnail is made (owner, 17 Nov 2026). Fix and re-render only what is wrong.
+   mix, render, mux, contact sheet, .srt (optional CC), the thumbnail (`thumb` in episode.json → the film's own `THUMB`), and uploads to Drive `fathom/<slug>/`.
+3. Look at `out/<slug>_sheet.jpg` and `out/<slug>_thumb.jpg` (and the thumb at phone size, 168 px wide). Fix only what is wrong. Fix and re-render only what is wrong.
 
 ## 5. Deliver
 `python3 tools/variety.py episodes/<slug> --record` · `jobs/deliveries/<slug>.md` (from `_TEMPLATE_P3.md`: files + links, music/stock credits,
@@ -71,3 +71,12 @@ Drive link · length · what is new in this film (2–3 ideas) · gates · anyth
 - Measured 17 Nov: footage-free chunks are bit-identical to local renders; footage frames differ a hair (49–52 dB overall, ≥ 36 dB
   worst detail) — inside the gate, so footage chunks farm too (`FARM_FOOTAGE_LOCAL=1` keeps them here).
 - Never edit `src/` while a farm run is in flight (the runners and the local pass must render the same bundle).
+
+## Thumbnail (owner 17 Nov 2026: "wow hơn, chất hơn nữa, bố cục và visual như thumbnail thật sự, không nhất thiết cắt từ tập ra")
+Every film DRAWS its thumbnail: `src/lib/<slug>/thumb.tsx` exports `THUMB` (1280×720; re-exported from the lib's index.tsx);
+`episode.json` `thumb` carries its words ({title with one *accent* word, kicker, note}). Rules: ONE idea a stranger gets in a second
+(the film's governing image at poster scale, lit for drama), ≤ 4 title words, the house faces (title IM Fell French Canon SC, kicker
+IM Fell English SC, hand La Belle Aurore, numbers Special Elite), one hot accent colour against the engraving's gold and sepia, the
+FATHOM mark small; every word and number true and from the research pack; no faces of real people drawn as photos. Check it at 168 px.
+Sample: `src/lib/empty-atom/thumb.tsx` ("It came back." — the one red track thrown back out of a vast, empty gold atom).
+
