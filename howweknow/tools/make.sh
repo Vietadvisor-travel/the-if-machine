@@ -23,6 +23,7 @@ if [ "${FARM:-1}" = 1 ]; then python3 tools/farm.py $S   # free GitHub runners r
 else python3 tools/render.py $S; fi                       # FARM=0: the plain local render, exactly as before the farm
 RT=$(( $(date +%s) - T0 )); echo "render ${RT} s ($(python3 -c "import json;d=json.load(open('$EP/timeline.json'))['duration'];print(f'{$RT/d:.1f} s per film second')"))"
 ffmpeg -v error -y -i out/${S}_silent.mp4 -i $B/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart out/${S}_16x9.mp4
+python3 tools/fit.py out/${S}_16x9.mp4 --mb ${FIT_MB:-560}   # owner 17 Nov 2026: a master of ≈ 500–600 MB
 D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 out/${S}_16x9.mp4)
 ffmpeg -v error -y -i out/${S}_16x9.mp4 -vf "fps=1/5,scale=320:-1,tile=8x$(python3 -c "import math;print(max(1,math.ceil($D/5/8)))")" -frames:v 1 out/${S}_sheet.jpg
 python3 tools/srt.py $EP
