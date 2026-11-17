@@ -48,8 +48,8 @@ Then `python3 lines.py` → `python3 tools/script_check.py episodes/<slug>` · `
 1. `python3 tools/vo.py episodes/<slug>` (real timing) → stills of ~15 key moments: `npx remotion render Story out/f --props='{"slug":"<slug>"}' --frames=a,b,… --sequence --image-format=jpeg`;
    look, fix, repeat (cheap). Cover the opening, every clue title, every real-stock reveal, the twist, the end.
 2. `bash tools/make.sh <slug> --ship` in the background (`run_in_background`) + a `send_later` watchdog (≈ 100 min). It runs the gates, voice,
-   mix, render, mux, contact sheet, .srt (optional CC), thumbnail (`thumb` in episode.json), and uploads to Drive `fathom/<slug>/`.
-3. Look at `out/<slug>_sheet.jpg` and the thumbnail. Fix and re-render only what is wrong.
+   mix, render, mux, contact sheet, .srt (optional CC), and uploads to Drive `fathom/<slug>/`.
+3. Look at `out/<slug>_sheet.jpg`. No thumbnail is made (owner, 17 Nov 2026). Fix and re-render only what is wrong.
 
 ## 5. Deliver
 `python3 tools/variety.py episodes/<slug> --record` · `jobs/deliveries/<slug>.md` (from `_TEMPLATE_P3.md`: files + links, music/stock credits,
