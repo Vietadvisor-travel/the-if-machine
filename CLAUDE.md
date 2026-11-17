@@ -7,6 +7,8 @@ used for its voice (Kokoro) and Drive tools and its music library; the old rules
 ## Every session (token-lean)
 Read this file + `tail -5 jobs/INBOX.md`. For an episode: `howweknow/PRODUCE.md` (the runbook) and what it points to. Nothing else up front.
 Setup once per container: `bash setup.sh && bash howweknow/tools/setup.sh` (≈ 2–3 min, ends with "FATHOM READY").
+Render farm once per session (free parallel render, `PRODUCE.md` "Render farm"): attach `vietadvisor-travel/frame-batch` with add_repo (push)
+and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders locally as before (`FARM=0` forces local).
 
 ## What the owner says → what you do
 - **"làm tập <tên>"** → make that film end to end: `howweknow/PRODUCE.md`. Find the slug by its Vietnamese name in `jobs/STATUS.md`.

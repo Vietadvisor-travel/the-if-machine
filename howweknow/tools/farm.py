@@ -191,6 +191,11 @@ def main():
         if late: to_local(late, 'too slow')
         if now - t0 > A.wait * 60: to_local(list(left), f'not back after {A.wait:g} min'); break
     pump()
+    if left or gone:   # withdraw whatever is still running on GitHub (an empty batch cancels the old one)
+        try:
+            json.dump({'todo': [], 't': int(time.time())}, open(f'{FB}/job.json', 'w')); g('add', 'job.json'); g('commit', '-qm', 'batch')
+            g('-c', 'push.negotiate=true', 'push', '-q', 'origin', 'HEAD:main')
+        except Exception: pass
     log(f'farm: {len(back)} chunks back in {(time.time() - t0) / 60:.1f} min · {len(gone)} rendered here instead')
     try: dv.call(f'files/{fd}', method='DELETE')   # the film's files leave Drive
     except SystemExit: pass
