@@ -44,7 +44,14 @@
   Geiger's evacuated tube; the 1913 box appears only as the graph's source. The "stones into mist" image is the film's own comparison.
 - Not to scale on purpose: the pea on the centre spot is enlarged so it can be seen; the "×100,000" is the hydrogen figure (≈10,000× for heavy atoms).
 - The order was the lean 11-row one; P-02 and D-03 were missing and were not needed (the apparatus is drawn from the papers' own figures).
-@@CRITIC@@
+
+## Critic pass (CREATIVE.md §4 — a fresh reviewer on the animatic, picture only)
+- Average 6.2/10 on the animatic; strongest: the Greek word, the charge balance, the real 1909 paper. Under 7 and REBUILT before the master:
+  people sitting on air (stools drawn), the same fists-up pose (Thomson now holds, Geiger stands), dark words on dark grounds (moved / lightened;
+  the lab steps back for the Nobel and α scenes), flashes too faint (twice the size), the bounce of L3 (the particle now visibly returns to the flash),
+  the straight-through and nudged paths (larger tube, visible deflection), the fan round the nucleus (stronger, truly curved paths), hydrogen
+  (one electron shown), the "Clue III" title that wrapped, the white bars at L45 (ink-bleed entrance), stray cables in every lab scene (removed).
+- Not re-scored after the fixes (checked by stills of every changed line).
 
 ## For Muse
 - Title options: 1) What Is Inside an Atom? The Flash That Changed Physics 2) You Are Mostly Empty Space — How We Found Out 3) The Particle That Came Back: Inside the Atom
