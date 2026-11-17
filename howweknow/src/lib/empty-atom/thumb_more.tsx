@@ -129,3 +129,84 @@ export const Wrong: React.FC = () => {
     <Mark />
   </AbsoluteFill>;
 };
+
+// ── the channel's own tone (owner 17 Nov 2026: "màu sắc phải theo tone của kênh") — hand-coloured engraving: cream paper, sepia ink,
+//    gold leaf, vermilion, indigo (STYLE.md §2 pigments) ──
+const INK = '#2B1D12', SEPIA = '#5A3A22', CREAM = '#FBF4E2', GOLD = ['#F3D98A', '#D4A846', '#8A6420'], VERM = '#B8432A', INDIGO = ['#7FA8C4', '#2E5C86', '#1D3557'];
+
+// E · An engraved plate: the atom as Rutherford drew it, on paper — "MOSTLY EMPTY."
+export const Plate: React.FC = () => {
+  const cx = 860, cy = 380, R = 250, r = seeded(21);
+  const hatch = Array.from({ length: 60 }, (_, i) => { const y = cy - R + i * (2 * R / 60), w = Math.sqrt(Math.max(0, R * R - (y - cy) ** 2)); return [cx - w, y, cx + w, y]; });
+  const beams = Array.from({ length: 13 }, (_, i) => { const y = cy - 216 + i * 36, b = y - cy; if (Math.abs(b) < 12) return null; const bend = Math.sign(b) * Math.min(120, 2200 / Math.abs(b)); return `M 470 ${y} L ${cx - 30} ${y} Q ${cx + 40} ${y} 1250 ${y + bend}`; }).filter(Boolean) as string[];
+  return <AbsoluteFill style={{ overflow: 'hidden', background: CREAM }}>
+    <Img src={staticFile('core/paper.jpg')} style={{ position: 'absolute', inset: 0, width: 1280, height: 720, objectFit: 'cover' }} />
+    <svg width={1280} height={720} style={{ position: 'absolute', inset: 0 }}>
+      <defs>
+        <radialGradient id="wash" cx=".4" cy=".35" r=".7"><stop offset="0" stopColor={INDIGO[0]} stopOpacity=".15" /><stop offset=".8" stopColor={INDIGO[1]} stopOpacity=".32" /><stop offset="1" stopColor={INDIGO[2]} stopOpacity=".5" /></radialGradient>
+        <radialGradient id="leaf"><stop offset="0" stopColor="#fff6d2" /><stop offset=".35" stopColor={GOLD[0]} /><stop offset=".7" stopColor={GOLD[1]} stopOpacity=".6" /><stop offset="1" stopColor={GOLD[1]} stopOpacity="0" /></radialGradient>
+        <clipPath id="ball"><circle cx={cx} cy={cy} r={R} /></clipPath>
+        <radialGradient id="vg" cx=".5" cy=".5" r=".75"><stop offset=".65" stopColor="#5a3a22" stopOpacity="0" /><stop offset="1" stopColor="#5a3a22" stopOpacity=".45" /></radialGradient>
+      </defs>
+      {/* the plate's double rule */}
+      <rect x="18" y="18" width="1244" height="684" fill="none" stroke={INK} strokeWidth="3" /><rect x="28" y="28" width="1224" height="664" fill="none" stroke={INK} strokeWidth="1.2" />
+      {/* the atom: an indigo-washed sphere of electron haze, engraved with horizontal hatching that thins toward the light */}
+      <circle cx={cx} cy={cy} r={R} fill="url(#wash)" />
+      <g clipPath="url(#ball)">{hatch.map(([x1, y, x2], i) => <line key={i} x1={x1} y1={y} x2={x2} y2={y} stroke={INK} strokeWidth={.5 + .9 * Math.max(0, (i / 60 + (y - cy) / R * .2))} opacity=".55" />)}</g>
+      <circle cx={cx} cy={cy} r={R} fill="none" stroke={INK} strokeWidth="3" />
+      {Array.from({ length: 22 }, (_, i) => { const t = r() * Math.PI * 2; return <circle key={i} cx={cx + Math.cos(t) * (R - 6)} cy={cy + Math.sin(t) * (R - 6)} r="3.4" fill={INK} />; })}
+      {/* alpha tracks in sepia ink */}
+      {beams.map((d, i) => <path key={i} d={d} fill="none" stroke={SEPIA} strokeWidth="2.2" strokeDasharray="10 6" opacity=".85" />)}
+      {/* gold-leaf nucleus */}
+      <circle cx={cx} cy={cy} r="58" fill="url(#leaf)" /><circle cx={cx} cy={cy} r="9" fill={GOLD[0]} stroke={GOLD[2]} strokeWidth="2.5" />
+      {/* the one that came back: vermilion */}
+      <path d={`M 470 ${cy} L ${cx - 16} ${cy}`} stroke={SEPIA} strokeWidth="2.6" strokeDasharray="10 6" />
+      <path d={`M ${cx - 16} ${cy + 4} C ${cx - 140} ${cy + 40}, ${cx - 300} ${cy + 150}, 470 ${cy + 270}`} fill="none" stroke={VERM} strokeWidth="9" strokeLinecap="round" />
+      <path d={`M 470 ${cy + 270} l 36 -2 M 470 ${cy + 270} l 18 -30`} stroke={VERM} strokeWidth="9" strokeLinecap="round" />
+      <path d={`M ${cx - 46} ${cy - 30} C ${cx - 10} ${cy - 62}, ${cx + 48} ${cy - 40}, ${cx + 42} ${cy + 6} C ${cx + 36} ${cy + 48}, ${cx - 34} ${cy + 52}, ${cx - 52} ${cy + 18} C ${cx - 62} ${cy - 2}, ${cx - 56} ${cy - 24}, ${cx - 38} ${cy - 38}`} fill="none" stroke={VERM} strokeWidth="4.5" strokeLinecap="round" />
+      <rect width="1280" height="720" fill="url(#vg)" />
+    </svg>
+    <div style={{ position: 'absolute', left: cx + 40, top: cy - 112, fontFamily: 'La Belle Aurore', fontSize: 40, color: VERM, transform: 'rotate(-8deg)' }}>the nucleus</div>
+    <div style={{ position: 'absolute', left: 56, top: 646, width: 600, textAlign: 'left', fontFamily: 'IM Fell DW Pica', fontStyle: 'italic', fontSize: 24, color: INK }}>Fig. 1 — inside the atom, Manchester, 1911</div>
+    <div style={{ position: 'absolute', left: 56, top: 54, fontFamily: 'IM Fell English SC', fontSize: 36, letterSpacing: 6, color: SEPIA }}>what is inside an atom?</div>
+    <BigTitle x={48} y={88} font="Abril Fatface" stroke={CREAM} sw={14} gap={.88}
+      lines={[{ t: 'MOSTLY', size: 136, fill: INK }, { t: 'EMPTY.', size: 168, fill: VERM }]} />
+    <Mark />
+  </AbsoluteFill>;
+};
+
+// F · The eyepiece in the dark lab: the governing image of the film — "1 IN 8,000 came back."
+export const Eyepiece: React.FC = () => {
+  const cx = 880, cy = 360, R = 260, r = seeded(33);
+  const flashes = Array.from({ length: 26 }, () => { const t = r() * Math.PI * 2, rr = Math.sqrt(r()) * (R - 40); return [cx + 60 + Math.cos(t) * rr * .55, cy + Math.sin(t) * rr * .8, .4 + r() * .6]; });
+  return <AbsoluteFill style={{ overflow: 'hidden', background: '#1a120b' }}>
+    <svg width={1280} height={720} style={{ position: 'absolute', inset: 0 }}>
+      <defs>
+        <radialGradient id="lamp" cx=".7" cy=".45" r=".7"><stop offset="0" stopColor="#6a4424" stopOpacity=".9" /><stop offset=".5" stopColor="#3a2414" stopOpacity=".7" /><stop offset="1" stopColor="#140d07" stopOpacity="1" /></radialGradient>
+        <radialGradient id="screen" cx=".55" cy=".5" r=".6"><stop offset="0" stopColor="#1f3a2c" /><stop offset=".8" stopColor="#0c1a13" /><stop offset="1" stopColor="#050b08" /></radialGradient>
+        <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor={GOLD[0]} /><stop offset=".35" stopColor={GOLD[1]} /><stop offset=".55" stopColor="#fff0b8" /><stop offset=".75" stopColor={GOLD[1]} /><stop offset="1" stopColor={GOLD[2]} /></linearGradient>
+        <radialGradient id="fl"><stop offset="0" stopColor="#f2fff4" /><stop offset=".25" stopColor="#a8f0c0" /><stop offset="1" stopColor="#5ad08a" stopOpacity="0" /></radialGradient>
+        <filter id="g5" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" /></filter>
+        <pattern id="h5" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="6" stroke="#000" strokeWidth="1.2" /></pattern>
+      </defs>
+      <rect width="1280" height="720" fill="url(#lamp)" />
+      <rect width="1280" height="720" fill="url(#h5)" opacity=".18" />
+      {/* the brass eyepiece, engraved knurling round its rim */}
+      <circle cx={cx} cy={cy} r={R + 46} fill="url(#brass)" stroke="#3a2414" strokeWidth="5" />
+      {Array.from({ length: 120 }, (_, i) => { const t = i / 120 * Math.PI * 2; return <line key={i} x1={cx + Math.cos(t) * (R + 22)} y1={cy + Math.sin(t) * (R + 22)} x2={cx + Math.cos(t) * (R + 42)} y2={cy + Math.sin(t) * (R + 42)} stroke={GOLD[2]} strokeWidth="2" />; })}
+      <circle cx={cx} cy={cy} r={R + 8} fill="none" stroke="#3a2414" strokeWidth="6" />
+      <circle cx={cx} cy={cy} r={R} fill="url(#screen)" />
+      {/* the scintillations: most on the far side, where the beam goes */}
+      {flashes.map(([x, y, s], i) => <g key={i}><circle cx={x} cy={y} r={22 * s} fill="url(#fl)" opacity=".75" /><circle cx={x} cy={y} r={2.6 * s + 1} fill="#f2fff4" /></g>)}
+      {/* THE flash on the wrong side, ringed in red ink */}
+      <circle cx={cx - 170} cy={cy - 40} r="54" fill="url(#fl)" /><circle cx={cx - 170} cy={cy - 40} r="7" fill="#fff" filter="url(#g5)" /><circle cx={cx - 170} cy={cy - 40} r="5" fill="#fff" />
+      <path d={`M ${cx - 214} ${cy - 66} C ${cx - 186} ${cy - 100}, ${cx - 120} ${cy - 88}, ${cx - 118} ${cy - 40} C ${cx - 116} ${cy + 6}, ${cx - 178} ${cy + 20}, ${cx - 212} ${cy - 6} C ${cx - 230} ${cy - 22}, ${cx - 228} ${cy - 50}, ${cx - 204} ${cy - 72}`} fill="none" stroke={VERM} strokeWidth="5" strokeLinecap="round" />
+    </svg>
+    <Img src={staticFile('core/fibres.jpg')} style={{ position: 'absolute', inset: 0, width: 1280, height: 720, objectFit: 'cover', opacity: .12, mixBlendMode: 'screen' }} />
+    <div style={{ position: 'absolute', left: 52, top: 70, fontFamily: 'IM Fell English SC', fontSize: 36, letterSpacing: 6, color: GOLD[0] }}>Manchester · 1909</div>
+    <BigTitle x={44} y={110} font="Special Elite" stroke="#140d07" sw={14} gap={.95}
+      lines={[{ t: '1 IN', size: 150, fill: GOLD[0] }, { t: '8,000', size: 172, fill: GOLD[0] }]} />
+    <div style={{ position: 'absolute', left: 60, top: 470, fontFamily: 'La Belle Aurore', fontSize: 74, color: CREAM, transform: 'rotate(-5deg)', textShadow: '0 3px 12px #000' }}>came back.</div>
+    <Mark />
+  </AbsoluteFill>;
+};

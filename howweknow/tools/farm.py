@@ -6,7 +6,7 @@ HOW: the film is cut into ≤ 20 chunks. Chunks with real footage (video decodin
 other chunk goes to a free GitHub runner (public repo vietadvisor-travel/frame-batch, generic runner, no names; the pack and the results
 travel through the owner's private Drive `_farm/<sig>`, deleted afterwards). Same bundle, same Remotion, same Chromium build, same flags.
 SAFETY (the old engine is never at risk — the farm only ever ADDS finished chunks; tools/render.py joins and renders anything missing):
-- each runner first drops `<i>.start`; no start at all within 10 min → the farm is down → everything renders here
+- each runner first drops `<i>.start`; no start at all within 15 min (a new batch cancels any older one still running) → the farm is down → everything renders here
 - a runner that fails drops `<i>.fail` → that chunk renders here; a started chunk that does not come back in time → renders here
 - every returned chunk: frame count checked, and ONE frame of it (`<i>.png`, a still the runner rendered) is rendered here too and
   measured: overall ≥ 45 dB PSNR AND the worst 64×64 detail ≥ 32 dB (quality(); owner: overall + detail OK, not pixel-exact) → a miss →
@@ -186,7 +186,7 @@ def main():
             os.replace(tmp, name(i)); left.discard(i); back.append(i); durs.append(now - t0)
             log(f'chunk {i} back · frame {fr} · {len(back)}/{len(todo)}')
         if not left: break
-        if not started and now - t0 > 600: to_local(list(left), 'no runner started within 10 min'); break
+        if not started and now - t0 > 900: to_local(list(left), 'no runner started within 15 min'); break
         late = [i for i in left if i in started and now - started[i] > max(1500, 3 * (max(durs) if durs else 0))]
         if late: to_local(late, 'too slow')
         if now - t0 > A.wait * 60: to_local(list(left), f'not back after {A.wait:g} min'); break

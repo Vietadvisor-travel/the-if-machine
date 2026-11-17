@@ -91,6 +91,6 @@ export const Back: React.FC<{ title?: string; kicker?: string; note?: string }> 
   </AbsoluteFill>;
 };
 
-import { Stadium, Shell, Wrong } from './thumb_more';
+import { Stadium, Shell, Wrong, Plate, Eyepiece } from './thumb_more';
 // four designs (owner picks one; episode.json thumb.v): A · It came back · B · Mostly empty (stadium) · C · Impossible (the shell) · D · What's really inside (1904 vs 1911)
-export const THUMB: React.FC<any> = (p) => p.v === 'B' ? <Stadium /> : p.v === 'C' ? <Shell /> : p.v === 'D' ? <Wrong /> : <Back {...p} />;
+export const THUMB: React.FC<any> = (p) => p.v === 'E' ? <Plate /> : p.v === 'F' ? <Eyepiece /> : p.v === 'B' ? <Stadium /> : p.v === 'C' ? <Shell /> : p.v === 'D' ? <Wrong /> : <Back {...p} />;
