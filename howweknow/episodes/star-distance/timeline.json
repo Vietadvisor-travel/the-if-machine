@@ -45,14 +45,7 @@
    "text": "For thousands of years, people looked up at those lights and wondered how far away they were.",
    "start": 18.358,
    "dur": 5.343,
-   "sfx": [
-    {
-     "at": 2.51,
-     "file": "public/sfx/blip_click_1.wav",
-     "db": -30,
-     "auto": true
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 4,
@@ -79,14 +72,7 @@
    "text": "The answer took a split telescope in Prussia, a woman with a magnifying glass, and one word scrawled on a glass plate.",
    "start": 39.741,
    "dur": 7.873,
-   "sfx": [
-    {
-     "at": 6.52,
-     "file": "public/sfx/transition_whoosh_airy_1.wav",
-     "db": -32,
-     "auto": true
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 7,
@@ -396,14 +382,7 @@
    "text": "And she noticed something nobody expected: the brighter the star, the slower its breath.",
    "start": 254.779,
    "dur": 5.438,
-   "sfx": [
-    {
-     "at": 3.65,
-     "file": "public/sfx/scratch_1.wav",
-     "db": -26,
-     "auto": true
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 36,
@@ -430,14 +409,7 @@
    "text": "The circular was signed by the observatory's director, noting it had been prepared by Miss Leavitt.",
    "start": 276.462,
    "dur": 6.091,
-   "sfx": [
-    {
-     "at": 2.68,
-     "file": "public/sfx/scratch_1.wav",
-     "db": -26,
-     "auto": true
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 39,
@@ -597,14 +569,7 @@
    "text": "Spread a galaxy's light into a rainbow, and dark lines appear in it. In most galaxies, those lines had shifted toward the red.",
    "start": 406.691,
    "dur": 8.491,
-   "sfx": [
-    {
-     "at": 6.07,
-     "file": "public/sfx/scratch_1.wav",
-     "db": -26,
-     "auto": true
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 56,
@@ -726,14 +691,7 @@
    "text": "They measured the universe from a dome, a desk and a pile of glass plates.",
    "start": 502.741,
    "dur": 4.552,
-   "sfx": [
-    {
-     "at": 2.3,
-     "file": "public/sfx/transition_whoosh_airy_1.wav",
-     "db": -32,
-     "auto": true
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 70,

@@ -101,7 +101,7 @@
    "STARS?"
   ],
   "accent": 2,
-  "note": "A coin, seen from 13 km away."
+  "note": "A coin, 13 km away."
  },
  "lines": [
   {
@@ -9221,8 +9221,8 @@
    "props": {
     "text": "Königsberg, 1837",
     "style": "note",
-    "x": 520,
-    "y": 180,
+    "x": 600,
+    "y": 260,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -9336,14 +9336,14 @@
      "ease": "linear"
     },
     {
-     "t": "L20+0.31",
-     "dur": 1.0,
+     "t": "L20-1.0",
+     "dur": 0.9,
      "dissolve": 0,
      "dissolveSeed": 8,
      "ease": "linear"
     },
     {
-     "t": "L20+1.33",
+     "t": "L20-0.08",
      "dur": 0.01,
      "a": 0
     }
@@ -9382,14 +9382,14 @@
      "ease": "linear"
     },
     {
-     "t": "L20+0.31",
+     "t": "L20-1.0",
      "dur": 0.8,
      "dissolve": 0,
      "dissolveSeed": 15,
      "ease": "linear"
     },
     {
-     "t": "L20+1.13",
+     "t": "L20-0.18",
      "dur": 0.01,
      "a": 0
     }
@@ -12182,45 +12182,6 @@
    "z": 60
   },
   {
-   "id": "dk33",
-   "type": "shape",
-   "props": {
-    "form": "M-60 -60 L1980 -60 L1980 1140 L-60 1140Z",
-    "x": 50,
-    "y": 50,
-    "s": 1,
-    "draw": 1,
-    "a": 0,
-    "fill": "#0B1030",
-    "fillA": 0.5,
-    "wash": false,
-    "sw": 0,
-    "col": "#0B1030"
-   },
-   "keys": [
-    {
-     "t": "L33+3.96",
-     "dur": 1.4,
-     "a": 1,
-     "ease": "soft"
-    },
-    {
-     "t": "L34+0.73",
-     "dur": 1.6,
-     "dissolve": 0,
-     "dissolveSeed": 40,
-     "dissolveDir": "up",
-     "ease": "linear"
-    },
-    {
-     "t": "L34+2.35",
-     "dur": 0.01,
-     "a": 0
-    }
-   ],
-   "z": 4
-  },
-  {
    "id": "br34",
    "type": "art",
    "props": {
@@ -12280,7 +12241,7 @@
      "t": "L37",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 47,
+     "dissolveSeed": 40,
      "ease": "linear"
     },
     {
@@ -12316,14 +12277,14 @@
      "t": "L34+1.28",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 54,
+     "dissolveSeed": 47,
      "ease": "linear"
     },
     {
      "t": "L35",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 54,
+     "dissolveSeed": 47,
      "dissolveDir": "right",
      "ease": "linear"
     },
@@ -12554,7 +12515,7 @@
      "t": "L37",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 61,
+     "dissolveSeed": 54,
      "ease": "linear"
     },
     {
@@ -12842,7 +12803,7 @@
      "t": "L37",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 68,
+     "dissolveSeed": 61,
      "ease": "linear"
     },
     {
@@ -12878,7 +12839,7 @@
      "t": "L40",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 68,
+     "dissolveSeed": 61,
      "ease": "linear"
     },
     {
@@ -12914,14 +12875,14 @@
      "t": "L37+5.46",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 75,
+     "dissolveSeed": 68,
      "ease": "linear"
     },
     {
      "t": "L38",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 75,
+     "dissolveSeed": 68,
      "dissolveDir": "right",
      "ease": "linear"
     },
@@ -13029,14 +12990,14 @@
      "t": "L38",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 82,
+     "dissolveSeed": 75,
      "ease": "linear"
     },
     {
      "t": "L39",
      "dur": 0.9,
      "dissolve": 0,
-     "dissolveSeed": 82,
+     "dissolveSeed": 75,
      "ease": "linear"
     },
     {
@@ -13090,8 +13051,8 @@
    "props": {
     "text": "prepared by Miss Leavitt",
     "style": "note",
-    "x": 1250,
-    "y": 170,
+    "x": 1080,
+    "y": 175,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -13280,7 +13241,7 @@
      "t": "L40",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 89,
+     "dissolveSeed": 82,
      "ease": "linear"
     },
     {
@@ -13293,7 +13254,7 @@
      "t": "L41+0.56",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 89,
+     "dissolveSeed": 82,
      "dissolveAt": [
       1040,
       390
@@ -13383,7 +13344,7 @@
      "t": "L41",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 7,
+     "dissolveSeed": 89,
      "ease": "linear"
     },
     {
@@ -13401,7 +13362,7 @@
      "t": "L42+0.28",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 7,
+     "dissolveSeed": 89,
      "dissolveAt": [
       460,
       760
@@ -13444,14 +13405,14 @@
      "t": "L41+4.13",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 14,
+     "dissolveSeed": 7,
      "ease": "linear"
     },
     {
      "t": "L42+0.14",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 14,
+     "dissolveSeed": 7,
      "dissolveAt": [
       460,
       760
@@ -13557,7 +13518,7 @@
      "t": "L44+0.22",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 21,
+     "dissolveSeed": 14,
      "ease": "linear"
     },
     {
@@ -13588,7 +13549,7 @@
      "t": "L44+0.22",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 28,
+     "dissolveSeed": 21,
      "ease": "linear"
     },
     {
@@ -13624,7 +13585,7 @@
      "t": "L42",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 35,
+     "dissolveSeed": 28,
      "ease": "linear"
     },
     {
@@ -13643,7 +13604,7 @@
      "t": "L44+0.33",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 35,
+     "dissolveSeed": 28,
      "dissolveAt": [
       960,
       540
@@ -13683,14 +13644,14 @@
      "t": "L43+1.41",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 42,
+     "dissolveSeed": 35,
      "ease": "linear"
     },
     {
      "t": "L44+0.33",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 42,
+     "dissolveSeed": 35,
      "ease": "linear"
     },
     {
@@ -13725,14 +13686,14 @@
      "t": "L43+1.71",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 49,
+     "dissolveSeed": 42,
      "ease": "linear"
     },
     {
      "t": "L44+0.33",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 49,
+     "dissolveSeed": 42,
      "ease": "linear"
     },
     {
@@ -13767,14 +13728,14 @@
      "t": "L43+2.01",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 56,
+     "dissolveSeed": 49,
      "ease": "linear"
     },
     {
      "t": "L44+0.33",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 56,
+     "dissolveSeed": 49,
      "ease": "linear"
     },
     {
@@ -13809,14 +13770,14 @@
      "t": "L43+2.32",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 63,
+     "dissolveSeed": 56,
      "ease": "linear"
     },
     {
      "t": "L44+0.33",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 63,
+     "dissolveSeed": 56,
      "ease": "linear"
     },
     {
@@ -13919,8 +13880,8 @@
    "props": {
     "text": "or galaxies of their own?",
     "style": "note",
-    "x": 1480,
-    "y": 560,
+    "x": 1340,
+    "y": 640,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -13994,7 +13955,7 @@
      "t": "L45+0.94",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 70,
+     "dissolveSeed": 63,
      "dissolveAt": [
       960,
       270
@@ -14065,7 +14026,7 @@
      "t": "L45+0.31",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 77,
+     "dissolveSeed": 70,
      "ease": "linear"
     },
     {
@@ -14132,7 +14093,7 @@
      "t": "L45+0.31",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 84,
+     "dissolveSeed": 77,
      "ease": "linear"
     },
     {
@@ -14212,14 +14173,14 @@
      "t": "L44+3.69",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 91,
+     "dissolveSeed": 84,
      "ease": "linear"
     },
     {
      "t": "L45+0.16",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 91,
+     "dissolveSeed": 84,
      "dissolveDir": "up",
      "ease": "linear"
     },
@@ -14257,14 +14218,14 @@
      "t": "L44+5.2",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 9,
+     "dissolveSeed": 91,
      "ease": "linear"
     },
     {
      "t": "L45+0.16",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 9,
+     "dissolveSeed": 91,
      "dissolveDir": "up",
      "ease": "linear"
     },
@@ -14358,7 +14319,7 @@
      "t": "L46+0.37",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 16,
+     "dissolveSeed": 9,
      "ease": "linear"
     },
     {
@@ -14389,7 +14350,7 @@
      "t": "L46+0.37",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 23,
+     "dissolveSeed": 16,
      "ease": "linear"
     },
     {
@@ -14424,14 +14385,14 @@
      "t": "L45+0.47",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 30,
+     "dissolveSeed": 23,
      "ease": "linear"
     },
     {
      "t": "L46+0.37",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 30,
+     "dissolveSeed": 23,
      "ease": "linear"
     },
     {
@@ -14489,7 +14450,7 @@
      "t": "L46+0.19",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 37,
+     "dissolveSeed": 30,
      "ease": "linear"
     },
     {
@@ -14571,7 +14532,7 @@
      "t": "L46",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 44,
+     "dissolveSeed": 37,
      "ease": "linear"
     },
     {
@@ -14602,7 +14563,7 @@
      "t": "L47+0.87",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 44,
+     "dissolveSeed": 37,
      "dissolveAt": [
       960,
       330
@@ -14644,14 +14605,14 @@
      "t": "L46+5.43",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 51,
+     "dissolveSeed": 44,
      "ease": "linear"
     },
     {
      "t": "L47+0.35",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 51,
+     "dissolveSeed": 44,
      "dissolveDir": "right",
      "ease": "linear"
     },
@@ -14741,14 +14702,14 @@
      "t": "L47+0.52",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 58,
+     "dissolveSeed": 51,
      "ease": "linear"
     },
     {
      "t": "L48+0.17",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 58,
+     "dissolveSeed": 51,
      "ease": "linear"
     },
     {
@@ -14821,7 +14782,7 @@
      "t": "L48+0.17",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 65,
+     "dissolveSeed": 58,
      "ease": "linear"
     },
     {
@@ -14858,14 +14819,14 @@
      "t": "L47+1.39",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 72,
+     "dissolveSeed": 65,
      "ease": "linear"
     },
     {
      "t": "L48+0.17",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 72,
+     "dissolveSeed": 65,
      "dissolveDir": "up",
      "ease": "linear"
     },
@@ -14941,7 +14902,7 @@
      "t": "L48",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 72,
+     "dissolveSeed": 65,
      "ease": "linear"
     },
     {
@@ -15015,7 +14976,7 @@
      "t": "L48+2.91",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 79,
+     "dissolveSeed": 72,
      "ease": "linear"
     },
     {
@@ -15043,7 +15004,7 @@
      "t": "L49",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 79,
+     "dissolveSeed": 72,
      "ease": "linear"
     },
     {
@@ -15151,7 +15112,7 @@
      "t": "L49+0.95",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 86,
+     "dissolveSeed": 79,
      "ease": "linear"
     },
     {
@@ -15163,7 +15124,7 @@
      "t": "L50",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 86,
+     "dissolveSeed": 79,
      "ease": "linear"
     },
     {
@@ -15206,7 +15167,7 @@
      "t": "L49+1.9",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 93,
+     "dissolveSeed": 86,
      "ease": "linear"
     },
     {
@@ -15218,7 +15179,7 @@
      "t": "L50",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 93,
+     "dissolveSeed": 86,
      "ease": "linear"
     },
     {
@@ -15261,7 +15222,7 @@
      "t": "L49+2.84",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 11,
+     "dissolveSeed": 93,
      "ease": "linear"
     },
     {
@@ -15273,7 +15234,7 @@
      "t": "L50",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 11,
+     "dissolveSeed": 93,
      "ease": "linear"
     },
     {
@@ -15316,7 +15277,7 @@
      "t": "L49+3.79",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 18,
+     "dissolveSeed": 11,
      "ease": "linear"
     },
     {
@@ -15328,7 +15289,7 @@
      "t": "L50",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 18,
+     "dissolveSeed": 11,
      "ease": "linear"
     },
     {
@@ -15400,7 +15361,7 @@
      "t": "L50+0.81",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 25,
+     "dissolveSeed": 18,
      "ease": "linear"
     },
     {
@@ -15434,7 +15395,7 @@
      "t": "L50+0.16",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 32,
+     "dissolveSeed": 25,
      "ease": "linear"
     },
     {
@@ -15490,7 +15451,7 @@
      "t": "L50+3.9",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 32,
+     "dissolveSeed": 25,
      "ease": "linear"
     },
     {
@@ -15526,14 +15487,14 @@
      "t": "L50+3.74",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 39,
+     "dissolveSeed": 32,
      "ease": "linear"
     },
     {
      "t": "L51+0.62",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 39,
+     "dissolveSeed": 32,
      "dissolveAt": [
       1080,
       300
@@ -15639,7 +15600,7 @@
      "t": "L54+0.2",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 46,
+     "dissolveSeed": 39,
      "ease": "linear"
     },
     {
@@ -15670,7 +15631,7 @@
      "t": "L54+0.2",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 53,
+     "dissolveSeed": 46,
      "ease": "linear"
     },
     {
@@ -15709,7 +15670,7 @@
      "t": "L51+0.83",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 60,
+     "dissolveSeed": 53,
      "ease": "linear"
     },
     {
@@ -15742,7 +15703,7 @@
      "t": "L53+0.3",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 60,
+     "dissolveSeed": 53,
      "ease": "linear"
     },
     {
@@ -15779,14 +15740,14 @@
      "t": "L51+2.5",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 67,
+     "dissolveSeed": 60,
      "ease": "linear"
     },
     {
      "t": "L52",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 67,
+     "dissolveSeed": 60,
      "dissolveDir": "down",
      "ease": "linear"
     },
@@ -15823,14 +15784,14 @@
      "t": "L52",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 74,
+     "dissolveSeed": 67,
      "ease": "linear"
     },
     {
      "t": "L53+0.3",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 74,
+     "dissolveSeed": 67,
      "ease": "linear"
     },
     {
@@ -15879,7 +15840,7 @@
      "t": "L53+0.15",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 81,
+     "dissolveSeed": 74,
      "ease": "linear"
     },
     {
@@ -16006,7 +15967,7 @@
      "t": "L53",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 81,
+     "dissolveSeed": 74,
      "ease": "linear"
     },
     {
@@ -16039,18 +16000,13 @@
     },
     {
      "t": "L55",
-     "dur": 1.4,
-     "a": 0.35
-    },
-    {
-     "t": "L56",
-     "dur": 1.0,
+     "dur": 1.2,
      "dissolve": 0,
-     "dissolveSeed": 88,
+     "dissolveSeed": 81,
      "ease": "linear"
     },
     {
-     "t": "L56+1.02",
+     "t": "L55+1.22",
      "dur": 0.01,
      "a": 0
     }
@@ -16227,7 +16183,7 @@
      "t": "L56+0.45",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 95,
+     "dissolveSeed": 88,
      "ease": "linear"
     },
     {
@@ -16328,7 +16284,7 @@
      "t": "L56",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 13,
+     "dissolveSeed": 95,
      "ease": "linear"
     },
     {
@@ -16341,7 +16297,7 @@
      "t": "L57+0.34",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 13,
+     "dissolveSeed": 95,
      "ease": "linear"
     },
     {
@@ -16394,7 +16350,7 @@
      "t": "L58+1.86",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 20,
+     "dissolveSeed": 13,
      "dissolveAt": [
       960,
       400
@@ -16470,14 +16426,14 @@
      "t": "L58+0.93",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 27,
+     "dissolveSeed": 20,
      "ease": "linear"
     },
     {
      "t": "L59+0.42",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 27,
+     "dissolveSeed": 20,
      "ease": "linear"
     },
     {
@@ -16555,7 +16511,7 @@
      "t": "L59+0.42",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 34,
+     "dissolveSeed": 27,
      "ease": "linear"
     },
     {
@@ -16591,14 +16547,14 @@
      "t": "L58+4.88",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 41,
+     "dissolveSeed": 34,
      "ease": "linear"
     },
     {
      "t": "L59+0.42",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 41,
+     "dissolveSeed": 34,
      "dissolveDir": "right",
      "ease": "linear"
     },
@@ -16707,7 +16663,7 @@
      "t": "L59",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 48,
+     "dissolveSeed": 41,
      "ease": "linear"
     },
     {
@@ -16731,7 +16687,7 @@
      "t": "L61+0.15",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 48,
+     "dissolveSeed": 41,
      "dissolveDir": "up",
      "ease": "linear"
     },
@@ -16768,14 +16724,14 @@
      "t": "L59+5.9",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 55,
+     "dissolveSeed": 48,
      "ease": "linear"
     },
     {
      "t": "L60",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 55,
+     "dissolveSeed": 48,
      "dissolveDir": "right",
      "ease": "linear"
     },
@@ -16876,7 +16832,7 @@
      "t": "L65+0.29",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 62,
+     "dissolveSeed": 55,
      "ease": "linear"
     },
     {
@@ -16907,7 +16863,7 @@
      "t": "L65+0.29",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 69,
+     "dissolveSeed": 62,
      "ease": "linear"
     },
     {
@@ -16943,7 +16899,7 @@
      "t": "L61",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 76,
+     "dissolveSeed": 69,
      "ease": "linear"
     },
     {
@@ -16970,7 +16926,7 @@
      "t": "L63+1.04",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 76,
+     "dissolveSeed": 69,
      "dissolveAt": [
       960,
       540
@@ -17042,7 +16998,7 @@
      "t": "L64+0.91",
      "dur": 0.6,
      "dissolve": 0,
-     "dissolveSeed": 83,
+     "dissolveSeed": 76,
      "ease": "linear"
     },
     {
@@ -17172,7 +17128,7 @@
      "t": "L65+1",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 90,
+     "dissolveSeed": 83,
      "ease": "linear"
     },
     {
@@ -17225,7 +17181,7 @@
      "t": "L68-1.2",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 8,
+     "dissolveSeed": 90,
      "ease": "linear"
     },
     {
@@ -17317,7 +17273,7 @@
      "t": "L68",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 15,
+     "dissolveSeed": 8,
      "ease": "linear"
     },
     {
@@ -17409,7 +17365,7 @@
      "t": "L68",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 22,
+     "dissolveSeed": 15,
      "ease": "linear"
     },
     {
@@ -17455,7 +17411,7 @@
      "t": "L68",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 29,
+     "dissolveSeed": 22,
      "ease": "linear"
     },
     {
@@ -17647,7 +17603,7 @@
      "t": "L69+0.43",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 36,
+     "dissolveSeed": 29,
      "ease": "linear"
     },
     {
@@ -17678,7 +17634,7 @@
      "t": "L69+0.43",
      "dur": 1.0,
      "dissolve": 0,
-     "dissolveSeed": 43,
+     "dissolveSeed": 36,
      "ease": "linear"
     },
     {
@@ -17721,7 +17677,7 @@
      "t": "L69+0.14",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 50,
+     "dissolveSeed": 43,
      "ease": "linear"
     },
     {
@@ -17837,7 +17793,7 @@
      "t": "L69+0.14",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 57,
+     "dissolveSeed": 50,
      "ease": "linear"
     },
     {
@@ -17953,7 +17909,7 @@
      "t": "L69+0.14",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 64,
+     "dissolveSeed": 57,
      "ease": "linear"
     },
     {
@@ -18066,14 +18022,14 @@
      "t": "L69",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 71,
+     "dissolveSeed": 64,
      "ease": "linear"
     },
     {
      "t": "L70+0.3",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 71,
+     "dissolveSeed": 64,
      "ease": "linear"
     },
     {
@@ -18110,14 +18066,14 @@
      "t": "L69+0.43",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 78,
+     "dissolveSeed": 71,
      "ease": "linear"
     },
     {
      "t": "L70+0.3",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 78,
+     "dissolveSeed": 71,
      "ease": "linear"
     },
     {
@@ -18155,14 +18111,14 @@
      "t": "L69+0.86",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 85,
+     "dissolveSeed": 78,
      "ease": "linear"
     },
     {
      "t": "L70+0.3",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 85,
+     "dissolveSeed": 78,
      "ease": "linear"
     },
     {
@@ -18417,7 +18373,7 @@
      "t": "L71+2.24",
      "dur": 0.8,
      "dissolve": 0,
-     "dissolveSeed": 92,
+     "dissolveSeed": 85,
      "ease": "linear"
     },
     {
@@ -18478,7 +18434,7 @@
      "t": "L71+2.52",
      "dur": 1.4,
      "dissolve": 1,
-     "dissolveSeed": 92,
+     "dissolveSeed": 85,
      "ease": "linear"
     },
     {

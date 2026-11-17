@@ -210,15 +210,15 @@ person('bes17', 'Friedrich Bessel, 53, at Königsberg (1837)', L(17, 4.8), None,
 shadow('sh17', 1180, 1012, 160, 22, L(17, 5.0), L(18, .6))
 shaft('sf17', [1100, -20], [1240, 900], L(17, 1.2), L(18, .8), w0=120, w1=380, n=3, k=.7)
 lamp('lp17', [340, 820], L(17, 1.0), L(18, 1.2), r=700, dark=.45, warm=.75)
-text('n17', 'Königsberg, 1837', 'note', 520, 180, L(17, 6.4), L(18, .4), size=58)
+text('n17', 'Königsberg, 1837', 'note', 600, 260, L(17, 6.4), L(18, .4), size=58)
 sfx(17, 0, FX + 'machine_gear_whirr_1.wav', -28)
 # L18 — insert on the micrometer drum; through the eyepiece: the split field slides one star onto the other
 art('spl18', 'SplitField', L(18, 1.6), None, [K(L(18, 1.6), 1.2, 'in', iris=1), K(L(18, 4.2), 2.0, 'weight', slide=1)] + gone(L(19, .3), 'ink', 1.0),
     ink=False, draw=1, x=960, y=500, r=360, slide=0, vernier=1, iris=0, irisAt=[960, 500], z=20)
 sfx(18, 4.2, FX + 'machine_ratchet_1.wav', -26)
 # L19 — the Swan unrolls (Bayer, 1603); a small double star crawls across it; the real photograph beside
-art('bay19', 'Etch', L(19), None, [K(L(19), 1.8, 'linear', draw=1)] + gone(L(20, .4), 'ink', 1.0), ink=False, src=PD + 'bayer_cygnus_ink.png', x=240, y=0, w=1440, h=1080, draw=0, **{'from': 'left'}, tint='#D9AE6C', washA=.35, z=12)
-art('crawl19', 'CygniCrawl', L(19, 3.0), None, [K(L(19, 3.0), 1.0, ring=1), K(L(19, 6.0), 3.0, 'linear', crawl=1)] + gone(L(20, .4), 'ink', .8), ink=False, draw=1, x=1180, y=640, crawl=0, ring=0, len=200, ang=-160, z=20)
+art('bay19', 'Etch', L(19), None, [K(L(19), 1.8, 'linear', draw=1)] + gone('L20-1.0', 'ink', .9), ink=False, src=PD + 'bayer_cygnus_ink.png', x=240, y=0, w=1440, h=1080, draw=0, **{'from': 'left'}, tint='#D9AE6C', washA=.35, z=12)
+art('crawl19', 'CygniCrawl', L(19, 3.0), None, [K(L(19, 3.0), 1.0, ring=1), K(L(19, 6.0), 3.0, 'linear', crawl=1)] + gone('L20-1.0', 'ink', .8), ink=False, draw=1, x=1180, y=640, crawl=0, ring=0, len=200, ang=-160, z=20)
 text('l19', '61 Cygni', 'label', 1450, 820, L(19, 4.6), L(20, .4), to=[1180, 650], size=42)
 art('pin19', 'Pinned', L(19, 7.4), None, gone(L(20, .4), 'up', 1.0), ink=False, src=ST + 'P-06_61cygni-dss2.jpg', x=1640, y=290, w=300, h=300, rot=3, caption='61 Cygni today', draw=1, enter='bleed', z=30)
 sfx(19, 0, FX + 'foley_page_turn_1.wav', -22)
@@ -312,7 +312,6 @@ WHIP = [K(L(33), 1.0, 'expo', fx_x=0)]
 art('aq33', 'Pinned', L(33, .6), None, WHIP + gone(L(34, .4), 'left', 1.0), ink=False, src=ST + 'P-11_arequipa-station-1904-pd.png', x=560, y=420, w=640, h=400, rot=-3, caption='Harvard’s station, Arequipa, Peru (1904)', draw=1, fx_x=600, z=20)
 art('smc33', 'Pinned', L(33, 4.6), None, gone(L(34, .4), 'ink', 1.0, at=[1420, 560]), ink=False, src=ST + 'P-08_smc-vista-ccby.jpg', x=1420, y=560, w=420, h=420, rot=3, caption='Small Magellanic Cloud', draw=1, enter='bleed', z=22)
 text('l33', 'Arequipa, Peru', 'note', 560, 760, L(33, 2.8), L(34, .2), size=56)
-dark('dk33', L(33, 4.0), L(34, .8), k=.5, d=1.4, z=4, col='#0B1030')
 sfx(33, 0, FX + 'motion_whoosh_short_1.wav', -24)
 # L34 — through the loupe: dots on the plate swell and shrink in rhythm (the breathing stars)
 art('br34', 'BreathingField', L(34), None, [K(L(34), 1.4, 'in', iris=1), K(L(34, .1), 26, 'linear', ph=26), K(L(35, 3.0), 2.0, 'weight', sort=1),
@@ -340,7 +339,7 @@ sfx(37, 2.8, SK + 'S-01_pen-scribble-take1-cc0.wav', -26)
 # L38 — the real 1912 circular; a vermilion line under "Miss Leavitt"
 art('d38', 'DocumentPage', L(38), None, gone(L(39), 'ink', .9), ink=False, src=ST + 'D-01_leavitt-1912-p1.jpg', x=960, y=540, w=760, h=960, rot=-1, draw=1, enter='bleed', z=24)
 mark('mk38', 'underline', [700, 340, 520, 30], L(38, 3.0), L(39), w=6)
-text('n38', 'prepared by Miss Leavitt', 'note', 1250, 170, L(38, 3.2), L(39), size=44, col='#8C3424')
+text('n38', 'prepared by Miss Leavitt', 'note', 1080, 175, L(38, 3.2), L(39), size=44, col='#8C3424')
 # L39 — the line lifts off the page and becomes a ruler of light
 art('ru39', 'LightRuler', L(39, 1.2), None, [K(L(39, 1.2), 2.0, 'out', len=1), K(L(39, .2), 12, 'linear', ph=12), K(L(40), 1.2, a=0)], ink=False, draw=1, x=280, y=640, L=1360, ang=-8, len=0, ph=0, star=1, enter='focus', z=22)
 text('l39a', 'true brightness', 'note', 400, 470, L(39, 4.2), L(40), size=46)
@@ -362,7 +361,7 @@ for j, (x, y, r) in enumerate(((330, 300, 130), (1590, 290, 150), (1560, 820, 11
     art(f'sp43{j}', 'SpiralNebula', L(43, 1.4 + j * .3), None, gone(L(44, .3), 'ink', .8), ink=False, draw=1, x=x, y=y, r=r, rot=j * 60, night=1, enter='bleed', z=18)
 text('t42', 'Clue III · One Word', 'title', 960, 240, L(42, .3), L(43, .6), size=56, col='#F3E7CC', light=True)
 text('q43a', 'inside our galaxy?', 'note', 600, 560, L(43, 5.6), L(44, .3), size=48, col='#F3E7CC', light=True)
-text('q43b', 'or galaxies of their own?', 'note', 1480, 560, L(43, 7.0), L(44, .3), size=48, col='#F3E7CC', light=True)
+text('q43b', 'or galaxies of their own?', 'note', 1340, 640, L(43, 7.0), L(44, .3), size=48, col='#F3E7CC', light=True)
 # L44 — the debate hall: Shapley and Curtis at facing lecterns, a lantern slide of a spiral between them
 art('hall44', 'DebateHall', L(44), None, [K(L(45), 1.6, 'inOut', fx_s=2.8, fx_y=420)] + gone(L(45, 1.2), 'ink', .8, at=[960, 270]), inkdur=1.6, x=960, y=540, s=1, slide=1, chand=1, fx_ox=960, fx_oy=270, z=8)
 person('sha44', 'Harlow Shapley, 34 (1920)', L(44, 2.8), None, [K(L(44, 7.0), 1.4, 'soft', pk=1)] + gone(L(45, .4), 'ink', .8), x=470, y=660, h=420, facing=1, pose='stand', pose2='explain', pk=0, expr='focus', ek=.7, look=[1, 0], **SHAP, z=12)
@@ -426,7 +425,7 @@ text('l52b', 'far outside', 'note', 1380, 520, L(52, 7.0), L(53, .2), size=56, c
 art('gs53', 'GalaxyStorm', L(53), None, [K(L(53), 5.4, 'in', mw=0), K(L(53, 5.8), 1.2, 'hand', ring=1), K(L(54), 1.0, ring=0)], ink=False, draw=1, x=960, y=540, spread=1, red=0, mw=1, ring=0, sky=1, enter='bleed', z=8)
 text('l53', 'our galaxy', 'label', 1300, 300, L(53, 6.4), L(54, .6), to=[990, 520], size=40, col='#F3E7CC', light=True)
 # ======================================================================== CLUE 4 — the runaway galaxies (set piece 3)
-G('gs53')['keys'] += [K(L(54), 1.6, 'soft', spread=1.04), K(L(54, 1.6), 1.0, spread=1.0), K(L(55), 1.4, a=.35)] + gone(L(56), 'ink', 1.0)
+G('gs53')['keys'] += [K(L(54), 1.6, 'soft', spread=1.04), K(L(54, 1.6), 1.0, spread=1.0)] + gone(L(55), 'ink', 1.2)
 ripple('rp54', [960, 540], L(54), r=900, n=5, d=2.4, col='#F7E3A0')
 text('t54', 'Clue IV · Runaway Galaxies', 'title', 960, 240, L(54, .3), L(55, .6), size=56, col='#F3E7CC', light=True)
 art('spec55', 'SpectrumStrip', L(55), None, [K(L(55, 1.4), 1.0, prism=1), K(L(55, .2), 1.4, 'out', beam=1), K(L(55, 2.8), 1.8, 'linear', paint=1), K(L(55, 4.2), .8, lines=1), K(L(55, 5.6), 2.0, 'weight', shift=1)] + gone(L(56, .6), 'ink', .8),
@@ -535,7 +534,7 @@ mu = E.get('music') or {}
 if isinstance(mu.get('swells'), list):   # the held breaths (treatment §9): the score drops away under VAR! and under the shrinking Milky Way
     mu['swells'] = [w for w in mu['swells'] if w[2] > 0] + [['L50', 'L50$', -14], ['L53+2', 'L53$', -10], ['L14+5', 'L14$', -8]]
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
-E['thumb'] = {'t': 1, 'title': 'How far are the stars?', 'v': 'S', 'kicker': 'Königsberg · 1838', 'lines': ['HOW FAR', 'ARE THE', 'STARS?'], 'accent': 2, 'note': 'A coin, seen from 13 km away.'}
+E['thumb'] = {'t': 1, 'title': 'How far are the stars?', 'v': 'S', 'kicker': 'Königsberg · 1838', 'lines': ['HOW FAR', 'ARE THE', 'STARS?'], 'accent': 2, 'note': 'A coin, 13 km away.'}
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)
 if _LN:
     TLP = os.path.join(H, 'timeline.json'); T = json.load(open(TLP))
