@@ -1,891 +1,1125 @@
 # FATHOM — "How far away are the stars?" (star-distance) — script + frame-level shot plan
 Generated from `howweknow/episodes/star-distance/episode.json` (edit `lines.py`, not this file). Times are ESTIMATED (2.35 words/s) until the voice is made.
-Voice af_heart 0.86 · 71 lines · 1252 words · ★ = real stock id from `jobs/orders/star-distance.md`
+Voice af_heart 0.86 · 72 lines · 1277 words · ★ = real stock id from `jobs/orders/star-distance.md`
 
 ## COLD
 
-### L0 · 00:01.0–00:10.8 (9.8 s)
+### L0 · 00:01.0–00:07.4 (6.4 s)
 ```
-VO     One night in October 1923, on a mountain above Los Angeles, a young astronomer took a photograph of a faint smudge of *light*.   [S8 S10 S11]
-SEE    Night: a white dome on a wooded ridge, its slit open to a starry sky; far below, a scatter of city lights.
-NEW    MountWilsonRidge, HookerDome1923
-BEATS  +0.0 rise: the ridge and dome come up from the bottom (1.6 s)
-       +1.8 the slit opens (blinds 0.8 s)
-       +3.0 tilt up along the telescope's line to a small oval smudge among the stars
-IN     rise       TRANS  ride          CAM  tilt-up  COMP  low-left-small
-LIFE   stars                  SET  mountain-dome-night
-STOCK  ★P-04 ★R-03
-```
-
-### L1 · 00:11.7–00:22.3 (10.6 s)
-```
-VO     The next day, he looked at the glass plate, crossed out one letter in red ink… and wrote a new word, with an exclamation *mark*.   [S8 S10 S11]
-SEE    A glass plate on a light box; a hand with a red pencil strikes out an 'N' and writes 'VAR!'; the real plate ★P-01 takes its place.
-NEW    GlassPlateOnLightbox, RedPencilHand
-BEATS  +0.0 slide: the plate onto a glowing light box (1.0 s)
-       +1.6 hand crosses out 'N' (quill, 0.8 s)
-       +3.2 writes 'VAR!' (note style, red)
-       +5.0 real-reveal ★P-01 (1.0 s)
-IN     slide      TRANS  real-reveal   CAM  push     COMP  centre-large
-LIFE   boil                   SET  var-exclamation
-STOCK  ★P-01
+VO     Hold up your thumb at arm's length, and look past it, at something far *away*.   [—]
+SEE    A window at night over old rooftops; a hand rises into the frame and holds up its thumb against the glass.
+NEW    NightWindow, ThumbHand
+BEATS  +0.0 a lamp is lit inside the room; the window frame inks on
+       +1.4 rooftops and a chimney ink on beyond the glass
+       +2.8 a hand rises into the frame
+       +4.0 the thumb lifts, upright, against a far chimney
+       +5.4 the camera settles on the thumb
+IN     ink-on     TRANS  ink-on        CAM  push     COMP  right-third-large
+LIFE   dust                   SET  thumb-at-the-night-window
+STOCK  —
 ```
 
-### L2 · 00:23.2–00:27.9 (4.7 s)
+### L1 · 00:08.3–00:12.5 (4.3 s)
 ```
-VO     That one word moved a whole galaxy a million light-years *away*.   [S8 S10 S11]
-SEE    Through the plate, the smudge becomes the Andromeda galaxy; it slides back and back into a vast dark page.
-NEW    AndromedaEngraved
-BEATS  +0.0 iris into the plate (1.0 s)
-       +1.0 the smudge becomes the engraved spiral
-       +2.4 scale-out: it recedes geometrically (3 s)
-IN     iris       TRANS  scale-out     CAM  pull     COMP  tiny-in-vast
-LIFE   stars                  SET  galaxy-pushed-away
-STOCK  ★P-07
+VO     Now close one eye… then the other. Your thumb *jumps*.   [—]
+SEE    An eye in a circle beside the thumb; it blinks, and the thumb leaps sideways against the chimney behind.
+NEW    ThumbHand, BlinkEye
+BEATS  +0.0 focus racks to the thumb; a round inset of an eye inks on
+       +1.2 the left eyelid shuts
+       +1.9 the thumb jumps left of the chimney
+       +2.6 the lid opens, the right one shuts
+       +3.2 the thumb jumps right
+IN     focus      TRANS  rack-focus    CAM  hold     COMP  centre-large
+LIFE   breathe                SET  the-thumb-jumps
+STOCK  —
 ```
 
-### L3 · 00:28.8–00:34.3 (5.5 s)
+### L2 · 00:13.4–00:22.4 (8.9 s)
 ```
-VO     So how do you measure the distance to something you can never *reach*?   [—]
-SEE    A slowly turning starfield; nothing in it carries a label or a number.
-NEW    —
-BEATS  +0.0 the sky turns slowly (camera rot 3°, 5 s)
-       +1.0 blinds: the stars shimmer into place
-IN     blinds     TRANS  fold          CAM  orbit    COMP  centre-large
-LIFE   stars                  SET  question-starfield
+VO     Nothing moved but your point of view. And that little jump, it turns out, can measure the distance to the *stars*.   [S1 S2]
+SEE    The thumbnail swells into a pale disc and the rooftops darken into a night sky: the Moon, then stars coming out.
+NEW    ThumbHand, NightWindow
+BEATS  +0.0 two ink ticks mark where the thumb stood each time
+       +1.6 a dotted arc joins the ticks
+       +3.0 the thumbnail swells and pales
+       +4.4 it is the Moon; the street darkens
+       +5.8 the first stars prick out round it
+       +7.2 the camera tilts up into them
+IN     iris       TRANS  solid-morph   CAM  tilt-up  COMP  centre-medium
+LIFE   stars                  SET  —
+STOCK  —
+```
+
+### L3 · 00:23.3–00:30.5 (7.2 s)
+```
+VO     For thousands of years, people looked up at those lights and wondered how far away they *were*.   [S1 S2]
+SEE    The camera rises past the Moon into a full engraved night sky; old constellation figures ghost through it.
+NEW    StarCabinet
+BEATS  +0.0 the camera cranes up past the Moon
+       +1.6 the black fills with pinpricks
+       +3.2 the old figure of the Swan ghosts over the stars (★M-01)
+       +4.8 the figure fades; the stars stay
+       +7.0 the light shifts across the field of stars filling the frame
+IN     wipe       TRANS  crane         CAM  crane    COMP  wide-sky
+LIFE   stars                  SET  sky-of-fixed-stars
+STOCK  ★M-01
+```
+
+### L4 · 00:31.4–00:38.6 (7.2 s)
+```
+VO     But the stars never seemed to move. They looked pinned in place, like jewels in a *cabinet*.   [—]
+SEE    The stars shrink onto a velvet board behind glass: a collector’s cabinet, every star on a brass pin with a paper label.
+NEW    StarCabinet
+BEATS  +0.0 the sky shrinks back onto dark velvet
+       +1.6 the cabinet frame inks on round it
+       +3.0 brass pins glint under the stars
+       +4.4 small paper labels, all blank
+       +5.6 a sheen crosses the glass
+IN     drop       TRANS  shrink-into   CAM  pull     COMP  centre-large
+LIFE   dust                   SET  star-cabinet
+STOCK  —
+```
+
+### L5 · 00:39.5–00:49.3 (9.8 s)
+```
+VO     Astronomers called them the fixed stars. And for two thousand years, nobody could say how far away a single one of them *was*.   [S1 S2]
+SEE    One pinned star in the cabinet, its blank label; the light narrows to it.
+NEW    StarCabinet
+BEATS  +0.0 the light narrows to one star
+       +1.6 its blank label turns to the camera
+       +3.2 a quill writes “? miles” and stops
+       +4.8 the star trembles on its pin
+       +6.4 note “stellae fixae” in an old hand on the frame
+       +8.6 the camera travels on toward the blank label under one star
+IN     stamp      TRANS  spot          CAM  push     COMP  right-third-medium
+LIFE   dust                   SET  —
+STOCK  —
+```
+
+### L6 · 00:50.2–00:59.6 (9.4 s)
+```
+VO     The answer took a split telescope in Prussia, a woman with a magnifying glass, and one word scrawled on a glass *plate*.   [S1 S2 S3 S5 S6 S8 S10 S11]
+SEE    Three cabinet cards slide out from the case: Bessel’s portrait, Leavitt’s, and Hubble at the eyepiece.
+NEW    StarCabinet
+BEATS  +0.0 the star’s pin splits into three
+       +1.2 Bessel’s card slides out (★P-05)
+       +2.8 Leavitt’s card (★P-02)
+       +4.4 Hubble at the eyepiece (★P-04-x1)
+       +6.0 the camera pans along the three
+       +7.4 a sheen crosses them
+IN     slide      TRANS  split         CAM  pan      COMP  three-in-a-row
+LIFE   dust                   SET  three-cards-in-the-cabinet
+STOCK  ★P-05 ★P-02 ★P-04
+```
+
+### L7 · 01:05.8–01:10.9 (5.1 s)
+```
+VO     And the answer turned out to be far stranger than the *question*.   [—]
+SEE    The cards slide back; the cabinet glass darkens and the episode’s title is engraved on it.
+NEW    StarCabinet
+BEATS  +0.0 the cards slide back into the case
+       +1.4 the cabinet’s stars gather to one point
+       +2.6 the title card inks on
+       +4.8 the camera travels on toward the title on the glass
+IN     ink-bleed  TRANS  bloom-out     CAM  push     COMP  centre-medium
+LIFE   stars                  SET  —
 STOCK  —
 ```
 
 ## STAKES
 
-### L4 · 00:35.0–00:42.7 (7.7 s)
+### L8 · 01:11.6–01:19.3 (7.7 s)
 ```
 VO     A star is a dot of light. It has no size you can see, no edge, no *label*.   [—]
-SEE    Push to a single star: under any magnification it stays a point.
-NEW    SinglePointStar
-BEATS  +0.0 push ×4 (3 s)
-       +1.6 an eyepiece ring inks around it: still a point
-IN     ink-on     TRANS  through       CAM  push     COMP  centre-medium
-LIFE   stars                  SET  —
+SEE    The round field of a telescope: one star, magnified again and again, stays a point.
+NEW    ScopeField
+BEATS  +0.0 we go through into the round field
+       +1.2 the star is a point
+       +2.4 the field magnifies — still a point
+       +3.6 again — still a point
+       +4.6 crosshairs ink on, finding nothing to measure
+       +6.8 the camera travels on toward the single point in the eyepiece
+IN     focus      TRANS  through       CAM  push     COMP  centre-large
+LIFE   stars                  SET  point-that-stays-a-point
 STOCK  —
 ```
 
-### L5 · 00:43.4–00:52.8 (9.4 s)
+### L9 · 01:20.0–01:28.5 (8.5 s)
 ```
-VO     A bright star might be close… or it might be huge and very far away. From here, they look exactly the *same*.   [—]
-SEE    Split: a candle close up and a lighthouse far off; both shrink to the same dot.
-NEW    CandleNear, LighthouseFar
-BEATS  +0.0 slide in the two halves
-       +1.6 morph: each shrinks to an identical dot (1.6 s)
-IN     slide      TRANS  morph         CAM  hold     COMP  split-two
-LIFE   photons                SET  near-lamp-far-lighthouse
+VO     A bright star could be close… or huge, and very far away. From here, the two look exactly the *same*.   [—]
+SEE    The field splits in two: a candle near at hand and a lighthouse far off on a headland, each shining as the same dot.
+NEW    CandleAndLighthouse
+BEATS  +0.0 the field splits down the middle
+       +1.4 left: a candle on a sill, close
+       +2.8 right: a lighthouse far out on a headland
+       +4.2 the camera pulls back: both shrink
+       +5.6 they become two identical dots
+       +7.8 the camera travels on toward the two equal dots
+IN     slide      TRANS  split         CAM  pull     COMP  split-two
+LIFE   photons                SET  candle-and-lighthouse
 STOCK  —
 ```
 
-### L6 · 00:53.5–01:00.3 (6.8 s)
+### L10 · 01:30.0–01:38.9 (8.9 s)
 ```
-VO     For two thousand years, astronomers knew the stars must be far. How far, nobody could *say*.   [S1 S2]
-SEE    An old star chart unrolls; its constellations are figures and lines, with no distances anywhere.
-NEW    OldStarChart
-BEATS  +0.0 unroll: the chart (1.6 s)
-       +1.8 pan across figures (3 s)
-IN     unroll     TRANS  page-turn     CAM  pan      COMP  wide-chart
-LIFE   boil                   SET  —
-STOCK  ★M-01
-```
-
-### L7 · 01:01.0–01:12.0 (11.1 s)
-```
-VO     The answer came in four steps: a wobble, a blinking star, a red word on a glass plate… and a universe that would not keep *still*.   [—]
-SEE    A ladder of four rungs rises into the sky; on each rung, a small sign: a wobbling dot, a blinking star, 'VAR!', a fleeing galaxy.
-NEW    FourRungLadder
-BEATS  +0.0 assemble: rungs appear one by one (0.9 s each)
-       +4.0 ride up the ladder
-IN     assemble   TRANS  ride          CAM  ride     COMP  four-in-a-row
-LIFE   boil                   SET  four-steps-ladder
+VO     To find the distance, you need something you can measure. And the first clue was the one in your own *eyes*.   [—]
+SEE    The two dots slide together and become the catch-lights of a pair of eyes, close.
+NEW    BlinkEye
+BEATS  +0.0 the dots slide toward each other
+       +1.6 they settle as catch-lights
+       +3.0 a pair of eyes inks on round them
+       +4.4 the eyes look up
+       +5.8 they blink
+       +8.0 the camera travels on toward the two eyes
+IN     blinds     TRANS  merge         CAM  push     COMP  right-third-medium
+LIFE   breathe                SET  —
 STOCK  —
 ```
 
 ## CLUE1
 
-### L8 · 01:12.7–01:15.3 (2.6 s)
+### L11 · 01:39.6–01:41.3 (1.7 s)
 ```
-VO     Our first clue is a *wobble*.   [—]
-SEE    Clue tag 1/4; title 'Clue I · The Wobble'.
-NEW    —
-BEATS  +0.0 clue tag 1
-       +0.2 title
-IN     stamp      TRANS  scale-in      CAM  hold     COMP  top-centre-small
+VO     Clue one: the *wobble*.   [—]
+SEE    The clue tag; the eyes’ blink keeps a slow beat, left, right.
+NEW    BlinkEye
+BEATS  +0.0 the clue tag inks on (1 of 4)
+       +1.0 the eyes blink, left, right
+IN     stamp      TRANS  count-up      CAM  hold     COMP  centre-medium
 LIFE   boil                   SET  —
 STOCK  —
 ```
 
-### L9 · 01:16.0–01:24.9 (8.9 s)
+### L12 · 01:42.0–01:53.1 (11.1 s)
 ```
-VO     Hold a finger in front of your face, and close one eye, then the other. Your finger jumps against the *background*.   [S1 S2]
-SEE    A drawn hand holds up a finger before a window; the finger jumps left and right as the two eyes blink in turn.
-NEW    FingerAndWindow
-BEATS  +0.0 wipe: hand and window (1.0 s)
-       +1.6 the finger jumps left/right twice (0.6 s each)
-IN     wipe       TRANS  match         CAM  hold     COMP  centre-large
-LIFE   breathe                SET  finger-jump
+VO     Your eyes see from two places, a few centimetres apart. So a near thing seems to jump against a far one. That jump is called *parallax*.   [S1 S2]
+SEE    From each eye a gold sightline runs past the thumb to the chimney; where they land is the jump.
+NEW    BlinkEye, ThumbHand
+BEATS  +0.0 a gold line leaves the left eye
+       +1.4 it passes the thumb and lands on the chimney
+       +2.8 a second line leaves the right eye
+       +4.2 it lands a little further over
+       +5.6 the gap between the landings is bracketed
+       +7.0 label “parallax” on the bracket
+       +9.2 the light shifts across the two lines crossing at the thumb
+IN     ink-on     TRANS  travel-line   CAM  pull     COMP  diagonal
+LIFE   dust                   SET  two-sightlines
 STOCK  —
 ```
 
-### L10 · 01:25.6–01:31.2 (5.5 s)
+### L13 · 01:53.8–02:03.1 (9.4 s)
 ```
-VO     That jump is called parallax. The nearer the finger, the bigger the *jump*.   [S1 S2]
-SEE    Two sight lines from two eyes cross at the finger; as the finger moves closer, the angle widens.
-NEW    SightLinesTwoEyes
-BEATS  +0.0 grow: two sight lines (1.2 s)
-       +1.6 the finger comes closer; the angle opens (back)
-IN     grow       TRANS  trace         CAM  push     COMP  centre-medium
-LIFE   breathe                SET  —
+VO     Now spread your eyes as far apart as they could ever be: the two ends of the Earth's path around the *Sun*.   [S1 S2]
+SEE    The eyes fly apart and become the Earth in January and the Earth in July, on either side of a gold Sun.
+NEW    OrbitTriangle
+BEATS  +0.0 the eyes fly apart
+       +1.6 an ellipse of orbit inks on between them
+       +3.0 the Sun blooms gold in the middle
+       +4.4 each eye becomes an Earth
+       +5.8 labels “January” and “July”
+       +8.0 the camera travels on toward the two Earths at the ends of the orbit
+IN     grow       TRANS  grow-out-of   CAM  pull     COMP  wide-orbit
+LIFE   stars                  SET  eyes-become-the-orbit
 STOCK  —
 ```
 
-### L11 · 01:31.9–01:42.9 (11.1 s)
+### L14 · 02:03.8–02:13.2 (9.4 s)
 ```
-VO     The idea is ancient. The Greeks looked for this kind of shift in the stars, found none, and some concluded the Earth could not be *moving*.   [S1 S2]
-SEE    A Greek observer on a flat roof under the stars, a measuring rod raised; nothing moves.
-NEW    GreekObserverRoof
-BEATS  +0.0 unroll: the roof scene (1.4 s)
-       +1.6 the observer (Person, chiton) raises a rod
-       +3.4 stars hold still
-IN     unroll     TRANS  page-turn     CAM  pan      COMP  left-third-medium
-LIFE   boil                   SET  greek-sky-no-shift
+VO     Look at a nearby star in January, and again in July. Against the stars far behind it, it should shift, very *slightly*.   [S1 S2]
+SEE    Two round eyepiece fields side by side — January and July — then laid one over the other like tracing paper.
+NEW    ParallaxField
+BEATS  +0.0 from each Earth a round field opens
+       +1.6 January: a near star among far ones
+       +3.2 July: the same field
+       +4.8 the July field slides over the January one
+       +6.4 the far stars match; the near one has slid a hair
+       +7.8 an ink tick marks the shift
+IN     iris       TRANS  shape-window  CAM  push     COMP  split-two
+LIFE   stars                  SET  january-july-fields
 STOCK  —
 ```
 
-### L12 · 01:43.6–01:53.0 (9.4 s)
+### L15 · 02:13.9–02:19.4 (5.5 s)
 ```
-VO     Now make your two eyes as far apart as they can possibly be: two sides of the Earth's path around the *Sun*.   [S1 S2]
-SEE    The two eyes become two Earths on opposite sides of a wide orbit around a gold Sun.
-NEW    EarthOrbitJanJuly
-BEATS  +0.0 scale-out (2.4 s)
-       +1.2 bloom: the Sun
-       +2.0 morph: eyes → two Earths labelled 'January' and 'July'
-IN     bloom      TRANS  scale-out     CAM  pull     COMP  wide-space
-LIFE   stars                  SET  eyes-become-orbit
+VO     Astronomers looked for that shift for centuries. So why did they see *nothing*?   [S1 S2]
+SEE    A row of telescopes through the centuries, each pointed at the same star, each with an empty notebook.
+NEW    TelescopeRow
+BEATS  +0.0 the fields turn over like a page
+       +1.4 a 17th-century tube, an 18th-century reflector, a refractor ink on in a row
+       +3.0 each notebook turns its empty pages
+       +5.2 the camera travels on toward the notebooks turning, empty
+IN     ink-bleed  TRANS  page-turn     CAM  pan      COMP  wide-landscape
+LIFE   stars                  SET  centuries-of-looking
 STOCK  —
 ```
 
-### L13 · 01:53.7–02:04.3 (10.6 s)
+### L16 · 02:20.1–02:27.4 (7.2 s)
 ```
-VO     Look at a nearby star in January, and again in July. It should shift, very slightly, against the stars far behind it. But does *it*?   [S1 S2]
-SEE    From each Earth, a sight line to a near star; it lands on two different points of the far background.
-NEW    ParallaxShift
-BEATS  +0.0 the Earth rides around the orbit half a turn (3 s)
-       +1.0 sight lines grow
-       +3.2 the near star jumps against the background (small, clear)
-IN     grow       TRANS  ride          CAM  ride     COMP  wide-space
-LIFE   stars                  SET  —
+VO     The shift was there. But for every star, it is less than one three-thousand-six-hundredth of a *degree*.   [S1 S2]
+SEE    A brass protractor; we dive into one degree, which divides into sixty, then sixty again — a sliver too thin to see.
+NEW    ArcDial
+BEATS  +0.0 a brass protractor inks on
+       +1.4 we dive into one degree
+       +2.8 it splits into sixty minutes
+       +4.2 we dive into one
+       +5.6 it splits into sixty seconds
+       +7.0 one second of arc, a hair
+IN     grow       TRANS  dive          CAM  push     COMP  centre-large
+LIFE   tremble                SET  degree-cut-to-slivers
 STOCK  —
 ```
 
-### L14 · 02:05.0–02:08.8 (3.8 s)
+### L17 · 02:28.1–02:37.8 (9.8 s)
 ```
-VO     For centuries, astronomers looked. Why did they see *nothing*?   [S1 S2]
-SEE    A log book drops open; page after page records 'no shift'.
-NEW    EmptyLogBook
-BEATS  +0.0 drop: the log book (bounce)
-       +1.2 pages flip; each says 'no shift' (note style)
-IN     drop       TRANS  collapse      CAM  hold     COMP  centre-medium
-LIFE   tremble                SET  —
+VO     In the 1830s, in Königsberg, Friedrich Bessel set out to catch it, with a telescope built for one job: measuring tiny *angles*.   [S1 S2 S3 S2 S4]
+SEE    The sliver is the slit of a dome opening on the night: inside, Bessel beside the brass heliometer on its mount.
+NEW    KoenigsbergDome, Heliometer
+BEATS  +0.0 the sliver widens into the dome’s open slit
+       +1.6 the dome interior inks on, moonlight through the slit
+       +3.2 the heliometer on its iron mount
+       +4.8 Bessel inks on beside it
+       +6.4 note “Königsberg, 1837”
+       +8.0 he lays a hand on the tube
+IN     rise       TRANS  grow-out-of   CAM  crane    COMP  left-third-medium
+LIFE   dust                   SET  bessel-tower
+STOCK  ★R-02 ★R-05 ★P-05
+```
+
+### L18 · 02:38.5–02:48.8 (10.2 s)
+```
+VO     His heliometer cut the image of the sky in two, so he could slide one star onto another and read the gap between *them*.   [S1 S2 S3]
+SEE    Through the eyepiece: the field cut in two halves; one half slides until one star sits on another; a vernier scale reads the gap.
+NEW    Heliometer, SplitField
+BEATS  +0.0 insert: his hand on the micrometer screw
+       +1.4 we go through the eyepiece
+       +2.8 the field splits along a line
+       +4.2 one half slides
+       +5.6 one star settles on the other
+       +7.0 a vernier reads the gap
+       +9.2 the light shifts across the two stars meeting
+IN     quill      TRANS  through       CAM  dive     COMP  centre-large
+LIFE   tremble                SET  split-lens-slide
+STOCK  ★R-02
+```
+
+### L19 · 02:49.5–02:59.2 (9.8 s)
+```
+VO     His target was a faint double star in the Swan, called 61 Cygni. It crawls across the sky faster than almost any *other*.   [S1 S2 S3]
+SEE    An old atlas of the Swan unrolls; one small double star in its wing crawls, leaving a dotted trail across the years.
+NEW    SwanChart
+BEATS  +0.0 the chart of the Swan unrolls (★M-01)
+       +1.6 the wing of the Swan
+       +3.0 a small double star ringed
+       +4.6 label “61 Cygni”
+       +6.0 it crawls, leaving dots year by year
+       +7.4 the real photograph pins beside it (★P-06)
+IN     unroll     TRANS  unroll        CAM  pan      COMP  wide-chart
+LIFE   boil                   SET  swan-chart-crawl
+STOCK  ★M-01 ★P-06
+```
+
+### L20 · 02:59.9–03:11.4 (11.5 s)
+```
+VO     A fast crawl hinted that it was close. But how close? Night after night for more than a year, he measured it against two faint stars *nearby*.   [S1 S2 S3]
+SEE    Bessel at the eyepiece; nights pass: the moonlight sweeps round the dome, his breath fogs, the log fills.
+NEW    KoenigsbergDome, Heliometer
+BEATS  +0.0 Bessel at the eyepiece, close
+       +1.4 the moonlight sweeps across the dome (a night)
+       +2.8 again (a night)
+       +4.2 his breath fogs in the cold
+       +5.6 the log book fills with figures
+       +7.0 snow on the slit, then gone (seasons)
+       +9.2 the light shifts across Bessel’s face at the eyepiece
+IN     wipe       TRANS  light-change  CAM  hold     COMP  left-third-close
+LIFE   tremble                SET  nights-in-the-tower
 STOCK  —
 ```
 
-### L15 · 02:09.5–02:13.4 (3.8 s)
+### L21 · 03:12.1–03:18.9 (6.8 s)
 ```
-VO     The shift was there. It was just unbelievably *small*.   [S1 S2 calc(F2)]
-SEE    Iris into the gap between two dots: the distance between them is a hair.
-NEW    —
-BEATS  +0.0 iris to the two dots (1.2 s)
-       +1.6 a hairline arc between them
-IN     iris       TRANS  eclipse       CAM  push     COMP  centre-small
-LIFE   boil                   SET  —
+VO     In 1838 he had it: a shift of about a third of a second of *arc*.   [S1 S2 S3]
+SEE    The eyepiece field again: the near star slides its hair-width and stops; a gold figure stands beside it.
+NEW    ParallaxField
+BEATS  +0.0 his eye’s circle becomes the field
+       +1.2 the star slides its hair-width
+       +2.4 a vermilion tick
+       +3.4 gold figure “0.314″”
+       +5.6 the light shifts across the gold figure 0.3″
+IN     stamp      TRANS  echo          CAM  push     COMP  centre-large
+LIFE   sparks                 SET  —
+STOCK  ★X-03
+```
+
+### L22 · 03:19.6–03:25.2 (5.5 s)
+```
+VO     That is the width of a small coin… seen from thirteen kilometres *away*.   [calc (F2)]
+SEE    The figure shrinks to a coin standing on a far hilltop; the road between runs thirteen kilometres to us.
+NEW    CoinFarHill
+BEATS  +0.0 the figure shrinks to a gold coin
+       +1.2 it stands on a hill
+       +2.4 the camera pulls back down a long road
+       +3.6 label “13 km”
+       +4.6 the coin is a glint
+IN     drop       TRANS  shrink-into   CAM  pull     COMP  wide-landscape
+LIFE   dust                   SET  coin-on-a-far-hill
 STOCK  —
 ```
 
-### L16 · 02:14.1–02:22.6 (8.5 s)
+### L23 · 03:25.9–03:35.2 (9.4 s)
 ```
-VO     In 1838, in Königsberg, Friedrich Bessel finally caught it, with a telescope built for one job: measuring tiny *angles*.   [S1 S2 S3]
-SEE    The Königsberg observatory; inside, the split-lens heliometer on its mount; Bessel at the eyepiece; his real portrait pinned.
-NEW    KonigsbergObservatory, Heliometer, BesselFigure
-BEATS  +0.0 unroll: the observatory (1.4 s)
-       +1.6 the heliometer inks on, its split lens visible
-       +3.2 Bessel (Person, look)
-       +4.6 ★P-05 cabinet card
-IN     unroll     TRANS  window        CAM  push     COMP  right-third-large
-LIFE   breathe                SET  heliometer-night
-STOCK  ★P-05 ★R-02 ★R-05
-```
-
-### L17 · 02:23.3–02:33.9 (10.6 s)
-```
-VO     His heliometer split the image of the sky in two, so he could slide one star onto another and read the gap with great *precision*.   [S1 S2 S3]
-SEE    Through the eyepiece: two half-images of the sky slide past each other until two stars touch.
-NEW    SplitLensView
-BEATS  +0.0 the view splits in two halves (wipe diag)
-       +1.4 one half slides until the stars meet (2 s)
-       +3.4 a fine scale reads the gap
-IN     grow       TRANS  morph         CAM  push     COMP  centre-large
-LIFE   boil                   SET  split-lens-slide
+VO     From that tiny angle, the rest is a triangle. Its base is the Earth's orbit, and its far point is the *star*.   [S1 S2 S1 S2 S3]
+SEE    The road and hill tilt up into a long thin triangle: its base the Earth’s orbit, its point a star far off.
+NEW    OrbitTriangle
+BEATS  +0.0 the road’s edges tilt up into two lines
+       +1.6 the base becomes the orbit
+       +3.0 the lines meet at a point
+       +4.4 the point stretches away
+       +6.0 the camera rides out along it
+       +8.2 the camera travels on toward the far point of the triangle
+IN     ink-on     TRANS  outline-morph CAM  ride     COMP  diagonal
+LIFE   stars                  SET  hill-tilts-to-triangle
 STOCK  —
 ```
 
-### L18 · 02:34.6–02:43.1 (8.5 s)
+### L24 · 03:35.9–03:40.6 (4.7 s)
 ```
-VO     His target was a faint double star called 61 Cygni, which crawls across the sky faster than almost any *other*.   [S1 S2 S3]
-SEE    In the eyepiece: a faint pair of stars; a dotted track shows it creeping across the background over years.
-NEW    CygnusChartPatch
-BEATS  +0.0 Eyepiece with ★P-06
-       +1.6 a dotted track grows behind the pair (trail)
-IN     ink-on     TRANS  trace         CAM  hold     COMP  centre-medium
-LIFE   stars                  SET  —
-STOCK  ★P-06 ★M-01
-```
-
-### L19 · 02:43.8–02:54.0 (10.2 s)
-```
-VO     Night after night for more than a year, he compared it with two faint stars nearby that he believed were far, far *behind* it.   [S1 S2 S3]
-SEE    Two faint companion stars are ringed in pencil; nights tick by in the margin.
-NEW    ReferenceStars
-BEATS  +0.0 blinds: night after night (the sky strip repeats ×5)
-       +2.0 pencil rings the two reference stars
-IN     blinds     TRANS  ride          CAM  hold     COMP  centre-medium
-LIFE   stars                  SET  —
+VO     The answer: roughly ten light-years. About a hundred million million *kilometres*.   [S1 S2 S3]
+SEE    The triangle’s point runs off faster than the camera can follow; a counter of kilometres spins to 100,000,000,000,000.
+NEW    OrbitTriangle
+BEATS  +0.0 the point runs on
+       +1.4 the counter spins
+       +2.8 “10 light-years” in gold
+       +4.0 the orbit is a speck behind
+IN     grow       TRANS  count-up      CAM  ride     COMP  tiny-in-vast
+LIFE   stars                  SET  the-point-runs-away
 STOCK  —
 ```
 
-### L20 · 02:54.7–02:59.4 (4.7 s)
+### L25 · 03:41.3–03:46.9 (5.5 s)
 ```
-VO     A fast crawl meant it was probably close. But how *close*?   [S1 S2 S3]
-SEE    A small note 'close?' in the margin.
-NEW    —
-BEATS  +0.0 note 'close?' writes on
-IN     stamp      TRANS  morph         CAM  hold     COMP  centre-small
-LIFE   boil                   SET  —
+VO     Its light had been travelling for about ten years to reach his *telescope*.   [S1 S2 S3]
+SEE    From the star a thread of light unspools off a bobbin, ten winding marks for ten years, all the way to a telescope.
+NEW    LightBobbin
+BEATS  +0.0 a bobbin appears at the star
+       +1.4 a gold thread unspools toward us
+       +2.8 year marks tick past: 1828… 1838
+       +4.2 the thread reaches the heliometer
+IN     slide      TRANS  trace-to      CAM  pan      COMP  wide-landscape
+LIFE   photons                SET  thread-of-light
 STOCK  —
 ```
 
-### L21 · 03:00.1–03:06.5 (6.4 s)
+### L26 · 03:47.6–03:53.9 (6.4 s)
 ```
-VO     Over a year, he measured its wobble: about a third of a second of *arc*.   [S1 S2 S3]
-SEE    The real announcement page ★D-02; the number circled; a tiny ellipse drawn beside the star.
-NEW    —
-BEATS  +0.0 a tiny ellipse traces around the star over a year (2 s)
-       +2.2 ★D-02 slides in; red circle round 0.3136″
-IN     grow       TRANS  real-reveal   CAM  push     COMP  centre-large
-LIFE   boil                   SET  —
+VO     Bessel's number went into print, and for the first time, a star had a *distance*.   [S1 S2 S3]
+SEE    The thread pulls taut and becomes a line of type; Bessel’s 1838 page develops around it, the number circled in red.
+NEW    BesselPage
+BEATS  +0.0 the thread pulls taut
+       +1.2 it is a printed line
+       +2.4 the real page develops (★D-02)
+       +3.6 a vermilion ring round “0.3136”
+       +4.8 sheen across the page
+IN     tear-in    TRANS  real-reveal   CAM  push     COMP  centre-large
+LIFE   dust                   SET  thread-becomes-print
 STOCK  ★D-02
 ```
 
-### L22 · 03:07.2–03:12.7 (5.5 s)
+### L27 · 03:54.6–04:03.6 (8.9 s)
 ```
-VO     That is the width of a small coin… seen from thirteen kilometres *away*.   [calc(F2)]
-SEE    A small coin on a far hilltop, seen from another hill across a wide valley.
-NEW    CoinOnHill
-BEATS  +0.0 drop: a coin on a post (bounce)
-       +1.0 scale-out across the landscape (3 s)
-       +3.0 label '13 km'
-IN     drop       TRANS  scale-out     CAM  pull     COMP  wide-landscape
-LIFE   dust                   SET  coin-thirteen-km
-STOCK  —
-```
-
-### L23 · 03:13.4–03:20.3 (6.8 s)
-```
-VO     From that angle, Bessel worked out the distance: roughly ten light-years — a hundred million million *kilometres*.   [S1 S2 S3]
-SEE    The gold figure '≈ 10 light-years' appears beside 61 Cygni.
-NEW    —
-BEATS  +0.0 figure '≈ 10 light-years' (1.4 s)
-IN     stamp      TRANS  collapse      CAM  hold     COMP  centre-medium
-LIFE   stars                  SET  —
-STOCK  —
+VO     Almost at the same time, two more were measured: Alpha Centauri, from the Cape of Good Hope, and Vega, from *Russia*.   [S2 S4]
+SEE    The page turns to a hand-drawn globe: two more pins go in — the Cape, and Dorpat in the Russian Empire — each with a star above.
+NEW    GlobePins
+BEATS  +0.0 a hand turns the page
+       +1.4 a globe inks on
+       +2.8 a pin at the Cape, “Alpha Centauri” above
+       +4.4 a pin at Dorpat, “Vega” above
+       +6.0 the globe turns a little
+       +8.2 the camera travels on toward the two new pins
+IN     flip       TRANS  hand-over     CAM  pan      COMP  split-two
+LIFE   boil                   SET  two-more-pins
+STOCK  ★G-01
 ```
 
-### L24 · 03:21.0–03:25.6 (4.7 s)
+### L28 · 04:05.1–04:13.6 (8.5 s)
 ```
-VO     And it was one of the nearest stars in the *sky*.   [S1 S2 S3 S2 S4]
-SEE    Pull back: 61 Cygni is a speck among countless others.
-NEW    —
-BEATS  +0.0 scale-out ×20 (3 s)
-       +1.0 stars bloom around it
-IN     bloom      TRANS  scale-out     CAM  pull     COMP  tiny-in-vast
-LIFE   stars                  SET  —
-STOCK  —
-```
-
-### L25 · 03:26.3–03:35.3 (8.9 s)
-```
-VO     Almost at the same time, others measured two more: Alpha Centauri from the Cape of Good Hope, and Vega from *Russia*.   [S2 S4]
-SEE    Whip between two more small eyepieces with their stars and their places pinned on a little globe.
-NEW    TwoMorePins
-BEATS  +0.0 whip to Alpha Centauri (expo 0.6 s)
-       +1.6 whip to Vega
-       +3.0 both pinned
-IN     slide      TRANS  whip          CAM  whip     COMP  three-in-a-row
-LIFE   stars                  SET  —
-STOCK  —
-```
-
-### L26 · 03:36.0–03:44.1 (8.1 s)
-```
-VO     But parallax only works for the closest stars. For almost everything else, the wobble is too small to *measure*.   [S5 S6]
-SEE    A ruler of light reaches out from the Sun to the nearby stars — and then simply ends, frayed, in the dark.
-NEW    ParallaxRulerEnds
-BEATS  +0.0 a gold ruler grows outward (2 s)
-       +2.4 it frays and tears off at its end (tear 1.0 s)
-IN     tear-in    TRANS  tear-away     CAM  pull     COMP  wide-space
-LIFE   stars                  SET  ruler-runs-out
+VO     But there was a catch. Most stars are so far away that their wobble is far too small to *measure*.   [S5 S6]
+SEE    The page folds itself into a paper boat that sails off into a black sea of a thousand thousand stars and sinks.
+NEW    PaperBoat
+BEATS  +0.0 the page folds once, twice
+       +1.4 it is a paper boat
+       +2.8 it sails out onto a dark sea of stars
+       +4.2 it tips
+       +5.4 it sinks among the stars
+       +7.6 the camera travels on toward the paper boat sinking
+IN     ink-bleed  TRANS  fold          CAM  pull     COMP  centre-medium
+LIFE   ripple                 SET  paper-boat-into-dark
 STOCK  —
 ```
 
 ## CLUE2
 
-### L27 · 03:44.8–03:46.9 (2.1 s)
+### L29 · 04:14.3–04:16.4 (2.1 s)
 ```
 VO     Clue two: stars that *blink*.   [—]
-SEE    Clue tag 2/4; title 'Clue II · Stars That Blink'.
-NEW    —
-BEATS  +0.0 clue tag 2
-       +0.2 title
-IN     stamp      TRANS  through       CAM  hold     COMP  top-centre-small
-LIFE   photons                SET  —
+SEE    The stars swirl up into the band of the Milky Way; the clue tag.
+NEW    MilkyWayBand
+BEATS  +0.0 the stars swirl up into a band
+       +1.2 the clue tag (2 of 4)
+IN     focus      TRANS  swarm         CAM  hold     COMP  centre-medium
+LIFE   stars                  SET  —
 STOCK  —
 ```
 
-### L28 · 03:47.6–03:54.8 (7.2 s)
+### L30 · 04:17.1–04:23.1 (6.0 s)
 ```
-VO     At Harvard College Observatory, around 1900, women were hired to examine thousands of photographs of the *sky*.   [S5 S6]
-SEE    A long room with tall windows; women at desks with light frames and magnifiers; stacks of glass plates; a real group photo ★P-02.
-NEW    HarvardPlateRoom, PlateWomen
-BEATS  +0.0 unroll: the room (1.6 s)
-       +1.6 pan along the desks (4 s)
-       +4.0 ★P-02 pinned plate
-IN     unroll     TRANS  real-reveal   CAM  pan      COMP  wide-room
-LIFE   dust                   SET  plate-room-1900
-STOCK  ★P-02 ★R-01
-```
-
-### L29 · 03:55.5–04:00.2 (4.7 s)
-```
-VO     They measured, catalogued and compared stars, one plate at a *time*.   [S5 S6]
-SEE    Glass plates slide one after another onto a light frame; on each, tiny dots are ticked off.
-NEW    GlassPlateStack
-BEATS  +0.0 slide: plates enter and leave (stagger 0.5 s)
-       +1.6 ticks appear on dots
-IN     slide      TRANS  trace         CAM  push     COMP  centre-medium
-LIFE   dust                   SET  —
-STOCK  ★R-04
+VO     Around 1900, Harvard College Observatory was photographing the sky on thousands of glass *plates*.   [S5 S6]
+SEE    A glass plate slides in front of the Milky Way and catches it, inverted: black dots on clear glass; it is lifted out and stacked.
+NEW    GlassPlateSky
+BEATS  +0.0 a glass plate slides in front of the band
+       +1.4 the stars print on it as black dots
+       +2.8 it lifts away in a wooden frame
+       +4.0 onto a stack of plates
+IN     slide      TRANS  lift-off      CAM  push     COMP  centre-large
+LIFE   dust                   SET  sky-caught-on-glass
+STOCK  ★P-03
 ```
 
-### L30 · 04:00.9–04:07.3 (6.4 s)
+### L31 · 04:23.8–04:31.4 (7.7 s)
 ```
-VO     One of them was Henrietta Swan Leavitt. Her task: find stars that changed in *brightness*.   [S5 S6]
-SEE    Leavitt at her desk with a magnifier over a plate; her real portrait as a cabinet card.
-NEW    LeavittDesk, LeavittFigure
-BEATS  +0.0 iris to her desk (1.2 s)
-       +1.4 Leavitt (Person, 1900s dress)
-       +3.0 cabinet card from ★P-02
-IN     iris       TRANS  match         CAM  push     COMP  right-third-large
+VO     To study them, the observatory hired women, to measure and catalogue every star, one plate at a *time*.   [S5 S6]
+SEE    We pull back: a room of women at desks by tall windows, each with a plate on a frame and a loupe.
+NEW    HarvardPlateRoom
+BEATS  +0.0 the stack is on a desk
+       +1.4 the room grows round it
+       +2.8 women at desks lean to their plates
+       +4.2 one writes in a ledger
+       +5.6 one lifts a plate to the window
+       +7.0 plate “Harvard, c. 1900”
+IN     assemble   TRANS  grow-out-of   CAM  pull     COMP  wide-room
+LIFE   dust                   SET  harvard-plate-room
+STOCK  ★R-01 ★P-02
+```
+
+### L32 · 04:32.1–04:38.9 (6.8 s)
+```
+VO     One of them was Henrietta Swan Leavitt. Her task: find the stars that change in *brightness*.   [S5 S6]
+SEE    One desk comes forward: Henrietta Leavitt at her plate, loupe in hand; her portrait card is pinned on the wall above.
+NEW    HarvardPlateRoom
+BEATS  +0.0 focus moves to one desk
+       +1.4 Leavitt lifts her loupe
+       +2.8 her portrait card is pinned above (★P-02)
+       +4.2 name “Henrietta Swan Leavitt”
+       +5.6 she bends to the plate
+IN     focus      TRANS  rack-focus    CAM  push     COMP  left-third-close
 LIFE   breathe                SET  —
 STOCK  ★P-02
 ```
 
-### L31 · 04:08.0–04:16.9 (8.9 s)
+### L33 · 04:39.6–04:49.4 (9.8 s)
 ```
-VO     Her plates came from Peru, where a Harvard telescope photographed the southern sky — including two misty patches called the Magellanic *Clouds*.   [S5 S6]
-SEE    A window to the Andes: a small observatory under a southern sky with two pale clouds of stars.
-NEW    ArequipaStation, MagellanicClouds
-BEATS  +0.0 window to Arequipa (1.2 s)
-       +1.4 crane up into the sky
-       +3.0 the two Clouds bloom; ★P-08 in an eyepiece
-IN     drop       TRANS  window        CAM  crane    COMP  wide-landscape
-LIFE   stars                  SET  andes-to-clouds
+VO     Her plates came from a Harvard station in Arequipa, Peru, that photographed the southern sky, and two misty patches called the Magellanic *Clouds*.   [S5 S6]
+SEE    A fast pan along the plate’s journey: the station under the volcano at Arequipa, then the two clouds in the southern sky.
+NEW    GlassPlateSky
+BEATS  +0.0 whip-pan south along the plate’s label
+       +1.4 the station at Arequipa pinned (★P-11)
+       +2.8 pin “Arequipa, Peru”
+       +4.2 the southern sky
+       +5.6 two misty patches glow
+       +7.0 the real cloud photograph in a frame (★P-08)
+       +9.2 the light shifts across the two misty clouds
+IN     ink-on     TRANS  whip          CAM  whip     COMP  left-third-medium
+LIFE   dust                   SET  plate-from-peru
 STOCK  ★P-11 ★P-08
 ```
 
-### L32 · 04:17.6–04:24.9 (7.2 s)
+### L34 · 04:50.1–04:58.6 (8.5 s)
 ```
-VO     In the Small Magellanic Cloud, she found stars that slowly swelled and faded, like a beating *heart*.   [S5 S6 S7]
-SEE    Under her magnifier, several stars on a real plate ★P-03 pulse slowly — each with its own rhythm.
-NEW    CepheidPulse
-BEATS  +0.0 Loupe over ★P-03
-       +1.2 the stars pulse (breathe, different rates)
-IN     bloom      TRANS  morph         CAM  push     COMP  centre-large
-LIFE   breathe                SET  heartbeat-stars
+VO     Comparing plate after plate through her loupe, she found stars that swelled and faded, again and again… like slow *breathing*.   [S5 S6 S7]
+SEE    Leavitt’s loupe fills the frame: inside, black dots on the plate swell and shrink in rhythm.
+NEW    BreathingField
+BEATS  +0.0 the loupe’s circle fills the frame
+       +1.4 the plate in the lens, her pencil marks (★P-03)
+       +2.8 one dot swells
+       +4.0 and shrinks
+       +5.2 another, slower
+       +6.6 a third, slower still
+IN     iris       TRANS  through       CAM  push     COMP  centre-large
+LIFE   breathe                SET  loupe-of-breathing-stars
 STOCK  ★P-03
 ```
 
-### L33 · 04:25.6–04:31.5 (6.0 s)
+### L35 · 04:59.3–05:05.3 (6.0 s)
 ```
-VO     She noticed something that no one had expected: the brighter stars beat more *slowly*.   [S5 S6 S7]
-SEE    Two stars side by side: a bright one pulsing slowly, a dim one pulsing fast.
-NEW    TwoPulses
-BEATS  +0.0 two pulses (loops)
-       +1.6 labels 'bright · slow' / 'faint · fast'
-IN     grow       TRANS  trace         CAM  hold     COMP  split-two
+VO     And she noticed something nobody expected: the brighter the star, the slower its *breath*.   [S5 S6 S7]
+SEE    The breathing dots sort themselves in a row from small and quick to big and slow.
+NEW    BreathingField
+BEATS  +0.0 the dots line up
+       +1.4 small ones breathe fast
+       +2.8 big ones breathe slow
+       +4.0 a vermilion arrow from quick to slow
+IN     grow       TRANS  split         CAM  hold     COMP  split-two
 LIFE   breathe                SET  —
 STOCK  —
 ```
 
-### L34 · 04:32.2–04:40.7 (8.5 s)
+### L36 · 05:06.0–05:14.5 (8.5 s)
 ```
-VO     All those stars were in the same cloud, at about the same distance — so the difference in brightness was *real*.   [S5 S6 S7]
-SEE    The pulsing stars gather into one cloud; a single distance line runs to them all.
-NEW    —
-BEATS  +0.0 assemble: stars slide together (1.6 s)
-       +2.0 one dashed distance line
-IN     assemble   TRANS  collapse      CAM  pull     COMP  centre-medium
-LIFE   stars                  SET  —
+VO     All of them sat in the same cloud, at roughly the same distance. So the difference in brightness was *real*.   [S5 S6 S7]
+SEE    The row flows back into the misty cloud; dotted lines from each to Earth are all the same length.
+NEW    BreathingField
+BEATS  +0.0 the dots stream back into the cloud
+       +1.6 dotted lines run to the Earth
+       +3.0 a bracket shows they are equal
+       +4.4 note “same distance”
+       +6.6 the light shifts across the equal lines
+IN     blinds     TRANS  stream-through CAM  pull     COMP  centre-medium
+LIFE   dust                   SET  same-cloud-same-distance
 STOCK  —
 ```
 
-### L35 · 04:41.4–04:50.4 (8.9 s)
+### L37 · 05:15.2–05:22.9 (7.7 s)
 ```
-VO     In 1912, she published a graph of twenty-five of them. The longer the beat, the brighter the star — a straight *line*.   [S5 S6 S7]
-SEE    Twenty-five points appear on a graph and fall along a straight line; the real circular page ★D-01 slides under it.
+VO     In 1912 she published twenty-five of them. The longer the period, the brighter the star: a straight *line*.   [S5 S6 S7]
+SEE    Each breath leaves a mark on a strip; the marks pour into a graph of the 25 stars, and a ruled line runs through them.
 NEW    LeavittGraph
-BEATS  +0.0 quill plots 25 points (true to ★X-01, stagger 0.12 s)
-       +3.4 a straight line through them
-       +4.6 ★D-01 slides in; underline
-IN     quill      TRANS  real-reveal   CAM  push     COMP  centre-large
-LIFE   boil                   SET  line-of-25-stars
+BEATS  +0.0 the breaths fall as points onto a grid
+       +1.4 twenty-five points (X-01)
+       +2.8 a ruler lays a line through them
+       +4.2 the line inks
+       +5.6 the real circular beside it (★D-01)
+       +7.0 “1912”
+IN     quill      TRANS  pour          CAM  drift    COMP  right-third-large
+LIFE   boil                   SET  breaths-to-a-graph
 STOCK  ★D-01 ★X-01
 ```
 
-### L36 · 04:51.1–04:60.0 (8.9 s)
+### L38 · 05:23.6–05:30.4 (6.8 s)
 ```
-VO     Her name was not on the title line. The director signed it, noting that it had been prepared by Miss *Leavitt*.   [S5 S6 S7]
-SEE    The circular's heading; a small handwritten note 'prepared by Miss Leavitt' circled.
-NEW    —
-BEATS  +0.0 drop: the circular's title area
-       +1.4 red circle round the line
-IN     drop       TRANS  match         CAM  hold     COMP  right-third-medium
-LIFE   breathe                SET  —
+VO     The circular was signed by the observatory's director, noting it had been prepared by Miss *Leavitt*.   [S5 S6 S7]
+SEE    The real 1912 circular; a vermilion line under “prepared by Miss Leavitt”.
+NEW    LeavittGraph
+BEATS  +0.0 the graph becomes the printed page (★D-01)
+       +1.6 the signature at the top
+       +3.0 a vermilion underline under her name
+       +4.4 the camera holds on it
+       +6.6 the light shifts across the words “Miss Leavitt”
+IN     tear-in    TRANS  real-reveal   CAM  push     COMP  centre-large
+LIFE   dust                   SET  —
 STOCK  ★D-01
 ```
 
-### L37 · 05:00.7–05:12.2 (11.5 s)
+### L39 · 05:31.1–05:42.6 (11.5 s)
 ```
-VO     Time a star's beat, and you know how bright it really is. Compare that with how faint it looks… and you know how far away it *is*.   [S5 S6 S7]
-SEE    A stopwatch times a pulse; its hand becomes a dial of true brightness; the dial becomes a long ruler stretching into space.
-NEW    StopwatchToRuler
-BEATS  +0.0 a stopwatch times the beat
-       +2.4 morph: the hand → a brightness dial
-       +4.4 ride along a ruler into space
-IN     grow       TRANS  ride          CAM  ride     COMP  left-to-right
-LIFE   photons                SET  beat-to-distance
+VO     Here was the trick. Time a star's beat, and you know how bright it truly is. See how faint it looks, and you know how far *away*.   [S5 S6 S7]
+SEE    The graph’s line lifts off the page and becomes a ruler of light, marked in beats.
+NEW    LeavittGraph, CandleRoad
+BEATS  +0.0 the line lifts off
+       +1.4 it becomes a ruler of light
+       +2.8 a breathing star beats at one end
+       +4.2 its true brightness fills a gauge
+       +5.6 it slides along the ruler, dimming
+       +7.0 a mark: “how far”
+       +9.2 the light shifts across the ruler of light
+IN     ink-on     TRANS  solid-morph   CAM  ride     COMP  diagonal
+LIFE   breathe                SET  ruler-of-light
 STOCK  —
 ```
 
-### L38 · 05:12.9–05:19.7 (6.8 s)
+### L40 · 05:43.3–05:51.8 (8.5 s)
 ```
-VO     Astronomers call these stars standard candles. Leavitt had given us a measuring tape for the *universe*.   [S5 S6 S7]
-SEE    The ruler extends far beyond where parallax ended; at its tip, a small flame.
-NEW    —
-BEATS  +0.0 the ruler passes the frayed parallax end (2 s)
-       +2.4 a small candle flame at its tip
-IN     stamp      TRANS  scale-out     CAM  pull     COMP  wide-space
-LIFE   stars                  SET  —
+VO     Astronomers call such stars standard candles: like a candle of known brightness, carried further and further down a dark *road*.   [S5 S6 S7]
+SEE    The ruler becomes a candle; carried down a long dark road, it dims exactly as the rule says.
+NEW    CandleRoad
+BEATS  +0.0 the ruler becomes a candle
+       +1.4 a hand carries it off down a dark road
+       +2.8 it dims
+       +4.2 milestones ink on: 1, 2, 4
+       +5.6 it is a faint point
+       +7.8 the camera travels on toward the candle shrinking down the road
+IN     rise       TRANS  hand-over     CAM  pull     COMP  wide-landscape
+LIFE   flicker                SET  candle-down-the-road
 STOCK  —
 ```
 
-### L39 · 05:20.4–05:30.2 (9.8 s)
+### L41 · 05:53.3–06:03.9 (10.6 s)
 ```
-VO     She never saw how far it would reach. She died in 1921 — two years before her stars changed the size of the *universe*.   [S5 S6]
-SEE    Her desk again, empty, the magnifier lying on a plate; the lamp dims.
-NEW    LeavittDeskEmpty
-BEATS  +0.0 iris to the desk
-       +1.6 light-change: the lamp dims slowly (3 s)
-IN     iris       TRANS  light-change  CAM  hold     COMP  centre-medium
-LIFE   breathe                SET  empty-desk-lamp
-STOCK  —
+VO     Leavitt had found a measuring tape for the universe. She died in 1921, two years before it would change everything we knew about its *size*.   [S5 S6]
+SEE    The candle is a lamp on Leavitt’s empty desk; the window darkens; her loupe lies on the plate.
+NEW    HarvardPlateRoom
+BEATS  +0.0 the candle is her desk lamp
+       +1.6 the desk is empty
+       +3.0 the window light dims to evening
+       +4.4 her loupe on the plate
+       +5.8 note “1868–1921”
+       +7.2 the lamp gutters
+       +9.4 the light shifts across the loupe on the empty desk
+IN     ink-bleed  TRANS  light-change  CAM  push     COMP  centre-medium
+LIFE   dust                   SET  —
+STOCK  ★P-02
 ```
 
 ## CLUE3
 
-### L40 · 05:30.9–05:33.0 (2.1 s)
+### L42 · 06:04.6–06:08.0 (3.4 s)
 ```
-VO     Clue three: one red *word*.   [—]
-SEE    Clue tag 3/4; title 'Clue III · One Red Word'.
-NEW    —
-BEATS  +0.0 page-turn
-       +0.4 clue tag 3
-       +0.6 title
-IN     flip       TRANS  page-turn     CAM  hold     COMP  top-centre-small
-LIFE   boil                   SET  —
+VO     Clue three: one word on a glass *plate*.   [—]
+SEE    The loupe’s circle becomes a faint spiral smudge in the sky; the clue tag.
+NEW    SpiralNebula
+BEATS  +0.0 the loupe’s circle becomes a spiral smudge
+       +1.2 the clue tag (3 of 4)
+IN     stamp      TRANS  echo          CAM  hold     COMP  centre-medium
+LIFE   dust                   SET  —
 STOCK  —
 ```
 
-### L41 · 05:33.7–05:44.8 (11.1 s)
+### L43 · 06:08.7–06:18.1 (9.4 s)
 ```
-VO     By 1920, astronomers were split over the faint spiral smudges in the sky. Were they inside our own galaxy… or were they galaxies of their *own*?   [S8 S9]
-SEE    A hall with two lecterns; two men in 1920 suits face each other; between them, a spiral smudge hangs in the air.
-NEW    DebateHall, ShapleyFigure, CurtisFigure
-BEATS  +0.0 slide: the hall (1.2 s)
-       +1.4 the two figures (Person)
-       +3.0 a spiral drawn between them
-       +4.6 ★P-09 two small plates
-IN     slide      TRANS  match         CAM  pan      COMP  split-two
-LIFE   breathe                SET  great-debate-podium
+VO     Across the sky, astronomers had found faint spiral smudges. Were they clouds inside our own galaxy… or whole galaxies of their *own*?   [S8 S9]
+SEE    The engraved spiral turns slowly; its arms unwind and curl into a question mark.
+NEW    SpiralNebula
+BEATS  +0.0 the spiral turns
+       +1.4 more smudges ink on around it
+       +2.8 one arm unwinds
+       +4.2 it curls into a question mark
+       +5.6 the question mark hangs
+       +7.0 it splits in two
+IN     ink-on     TRANS  heat          CAM  orbit    COMP  centre-large
+LIFE   stars                  SET  spiral-to-question
+STOCK  —
+```
+
+### L44 · 06:18.8–06:27.3 (8.5 s)
+```
+VO     In April 1920, at the Smithsonian in Washington, two astronomers argued it out in public. Neither could prove his *case*.   [S8 S9]
+SEE    The question splits into two lecterns facing each other in a lecture hall; Shapley and Curtis, each with a lantern slide.
+NEW    DebateHall
+BEATS  +0.0 the question splits in two
+       +1.4 the hall inks on: tiers, a chandelier
+       +2.8 Shapley at one lectern
+       +4.2 Curtis at the other
+       +5.6 plate “Washington, 26 April 1920”
+       +7.0 each points at a lantern slide
+       +8.4 the scales between them stay level
+IN     rise       TRANS  split         CAM  pan      COMP  two-figures
+LIFE   dust                   SET  debate-lecterns
 STOCK  ★P-09
 ```
 
-### L42 · 05:45.5–05:52.7 (7.2 s)
+### L45 · 06:28.0–06:36.9 (8.9 s)
 ```
-VO     In April 1920, two leading astronomers debated it in public in Washington. Neither could *prove* his case.   [S8 S9]
-SEE    The spiral between them tears in half.
-NEW    —
-BEATS  +0.0 tear: the spiral splits (1.0 s)
-       +1.4 tremble
-IN     tear-in    TRANS  tear-away     CAM  hold     COMP  split-two
-LIFE   tremble                SET  —
-STOCK  —
-```
-
-### L43 · 05:53.4–06:04.9 (11.5 s)
-```
-VO     The missing piece was a distance. And for that, you needed one of Leavitt's beating stars inside a spiral — and a telescope powerful enough to *see* it.   [S8 S9 S5 S6 S7]
-SEE    The torn spiral mends; inside it, a tiny pulsing point appears.
-NEW    —
-BEATS  +0.0 the halves rejoin
-       +1.4 iris: a tiny pulsing dot inside the spiral
-IN     iris       TRANS  window        CAM  push     COMP  centre-large
-LIFE   stars                  SET  —
-STOCK  —
-```
-
-### L44 · 06:05.6–06:16.2 (10.6 s)
-```
-VO     On Mount Wilson stood the largest telescope in the world, with a mirror two and a half metres across. But would even that be *enough*?   [S8 S10 S11]
-SEE    Inside the dome: the giant open-tube telescope on its yoke mount, an observer's cage high on top; footage ★V-02 of a dome opening in an old screen.
-NEW    HookerTelescope
-BEATS  +0.0 rise: the mount from the floor up (2 s)
-       +2.0 tilt up the tube to the cage
-       +3.6 ★V-02 in an OldScreen
-IN     rise       TRANS  scale-in      CAM  tilt-up  COMP  tall-centre
-LIFE   stars                  SET  hundred-inch-climb
-STOCK  ★P-04 ★R-03 ★V-02
-```
-
-### L45 · 06:16.9–06:24.2 (7.2 s)
-```
-VO     Edwin Hubble used it to photograph the great spiral in Andromeda, night after night, on glass *plates*.   [S8 S10 S11]
-SEE    Hubble in the observer's cage, sliding a plate holder in; the spiral appears on the plate.
-NEW    HubbleAtCage, PlateHolder
-BEATS  +0.0 Hubble (Person, 1920s coat, pipe) in the cage
-       +1.6 slide: a plate holder
-       +3.0 ride down the light into the plate
-IN     slide      TRANS  ride          CAM  ride     COMP  right-third-large
-LIFE   stars                  SET  —
-STOCK  —
-```
-
-### L46 · 06:24.9–06:33.8 (8.9 s)
-```
-VO     Each exposure took a long time, with Hubble guiding the giant telescope by hand to keep every star a sharp *point*.   [S8 S10 S11]
-SEE    Close on Hubble's hands at the guide controls, making tiny corrections; a cross-hair on a guide star.
-NEW    GuidingHands
-BEATS  +0.0 slide: hands on the controls
-       +1.2 Eyepiece with cross-hair: the guide star drifts and is nudged back (tremble small)
-IN     drop       TRANS  trace         CAM  hold     COMP  right-third-large
-LIFE   tremble                SET  —
-STOCK  —
-```
-
-### L47 · 06:34.5–06:42.6 (8.1 s)
-```
-VO     But on one plate, he marked a new point of light as a nova — a star flaring up *once*.   [S8 S10 S11]
-SEE    On the plate, a small 'N' is written beside a point.
-NEW    —
-BEATS  +0.0 push into the plate
-       +1.0 quill writes 'N' (0.6 s)
-IN     quill      TRANS  ride          CAM  push     COMP  centre-large
-LIFE   boil                   SET  —
-STOCK  ★P-01
-```
-
-### L48 · 06:43.3–06:52.6 (9.4 s)
-```
-VO     Then he checked older plates of the same spot. It wasn't a nova. It was getting brighter and fainter, again and *again*.   [S8 S10 S11]
-SEE    Older plates flip by like a flip-book; the point brightens, fades, brightens.
-NEW    PlateFlipBook
-BEATS  +0.0 blinds: three plates side by side
-       +1.0 page-turn through them; the point pulses
-IN     blinds     TRANS  page-turn     CAM  hold     COMP  three-in-a-row
-LIFE   breathe                SET  plate-flip-book
-STOCK  —
-```
-
-### L49 · 06:53.3–06:56.3 (3.0 s)
-```
-VO     A beating star. One of Leavitt's *candles*.   [S8 S10 S11 S5 S6 S7]
-SEE    The pulsing point matches the heartbeat star from clue two, side by side.
-NEW    —
-BEATS  +0.0 match: Leavitt's star slides in beside it; both pulse together
-IN     bloom      TRANS  match         CAM  hold     COMP  centre-medium
+VO     What they needed was a distance. And for that, you had to find one of Leavitt's breathing stars inside a *spiral*.   [S8 S9 S5 S6 S7]
+SEE    The slide grows into the spiral; a round window in its arm shows a breathing star — if one could be found.
+NEW    SpiralNebula, BreathingField
+BEATS  +0.0 the lantern slide fills the frame
+       +1.4 a round window opens in the spiral’s arm
+       +2.8 a breathing star inside
+       +4.2 it fades: not yet found
+       +5.6 a question mark
+       +7.8 the camera travels on toward the round window in the arm
+IN     focus      TRANS  shape-window  CAM  push     COMP  centre-large
 LIFE   breathe                SET  —
 STOCK  —
 ```
 
-### L50 · 06:57.0–07:01.3 (4.3 s)
+### L46 · 06:37.6–06:45.3 (7.7 s)
 ```
-VO     He crossed out the 'N', and wrote 'VAR!' — *variable*.   [S8 S10 S11]
-SEE    The famous plate ★P-01, his red mark circled.
-NEW    —
-BEATS  +0.0 ★P-01 real-reveal
-       +1.4 red circle round 'VAR!'
-IN     stamp      TRANS  real-reveal   CAM  push     COMP  centre-large
-LIFE   boil                   SET  —
+VO     On Mount Wilson in California stood the largest telescope in the world, its mirror one hundred inches *across*.   [S8 S10 S11]
+SEE    The chandelier becomes the dome of Mount Wilson; it rotates and its shutter opens on the night; the 100-inch inside.
+NEW    HookerDome
+BEATS  +0.0 the chandelier rises into a dome
+       +1.6 the dome on its mountain
+       +3.0 its shutter opens
+       +4.4 the great telescope inside tilts up
+       +5.8 real footage in an old screen (★V-02)
+       +7.2 label “100 inches”
+IN     rise       TRANS  crane         CAM  crane    COMP  left-third-medium
+LIFE   stars                  SET  chandelier-to-dome
+STOCK  ★P-04 ★R-03 ★V-02
+```
+
+### L47 · 06:46.0–06:53.6 (7.7 s)
+```
+VO     Edwin Hubble turned it toward the great spiral in Andromeda, and photographed it on glass, night after *night*.   [S8 S10 S11]
+SEE    Down the tube to the observer’s platform: Hubble in coat and tie, pipe, eye at the guiding eyepiece, a plate holder loaded.
+NEW    HookerDome
+BEATS  +0.0 down the tube to the platform
+       +1.4 Hubble at the guider (★P-04-x1)
+       +2.8 he slides a plate holder in
+       +4.2 his hand on the slow-motion knob
+       +5.6 stars drift and are held
+IN     slide      TRANS  dive          CAM  push     COMP  right-third-large
+LIFE   breathe                SET  hubble-in-the-cage
+STOCK  ★P-04
+```
+
+### L48 · 06:54.3–07:06.3 (11.9 s)
+```
+VO     In October 1923, one plate showed a new point of light. He marked it with an N: a nova, a star that flares up once… and never *again*.   [S8 S10 S11]
+SEE    Hubble lays a plate on a light table; a new point of light; his pen writes a small “N” beside it.
+NEW    LightTable
+BEATS  +0.0 he lays the plate on the light table
+       +1.4 the table glows through it
+       +2.8 a new point among the stars
+       +4.2 his pen writes “N”
+       +5.6 note “October 1923”
+       +7.0 he sets the pen down
+       +9.2 the light shifts across the new point and the N
+       +11.4 the camera travels on toward the new point and the N
+IN     flip       TRANS  hand-over     CAM  push     COMP  centre-large
+LIFE   dust                   SET  —
 STOCK  ★P-01
 ```
 
-### L51 · 07:02.0–07:13.0 (11.1 s)
+### L49 · 07:07.0–07:16.7 (9.8 s)
 ```
-VO     Timing its beat told him how bright it really was. Its faintness told him how far: hundreds of thousands of light-years, far outside our own *galaxy*.   [S8 S10 S11]
-SEE    Pull back from Andromeda past the edge of our own galaxy's disc, which shrinks to a small disc far away.
-NEW    MilkyWayDisc
-BEATS  +0.0 scale-out across the gap (4 s)
-       +2.0 our galaxy's disc appears, small
-       +3.4 label 'our galaxy'
-IN     grow       TRANS  scale-out     CAM  pull     COMP  tiny-in-vast
-LIFE   stars                  SET  milky-way-left-behind
+VO     Then he checked the older plates of the same spot. It was not flaring once. It was brightening and fading, again and *again*.   [S8 S10 S11]
+SEE    Older plates are fanned out on the table, one after another; on each, the same point is bigger, smaller, bigger.
+NEW    LightTable
+BEATS  +0.0 the plate lifts; an older one beneath
+       +1.4 the point is small
+       +2.8 another plate: big
+       +4.2 another: small
+       +5.6 another: big
+       +7.0 Hubble’s face, close: he sees it
+       +9.2 the light shifts across the point changing from plate to plate
+IN     wipe       TRANS  lift-off      CAM  hold     COMP  right-third-close
+LIFE   breathe                SET  older-plates-fanned
 STOCK  —
 ```
 
-### L52 · 07:13.7–07:23.1 (9.4 s)
+### L50 · 07:17.4–07:23.4 (6.0 s)
 ```
-VO     Andromeda was not a cloud in our galaxy. It was a galaxy in its own right — and the universe was suddenly *enormous*.   [S8 S10 S11]
-SEE    Two galaxies on one dark page; the space between them is vast.
-NEW    —
-BEATS  +0.0 bloom: countless faint galaxies appear around them
-IN     bloom      TRANS  collapse      CAM  pull     COMP  two-galaxies
-LIFE   stars                  SET  —
+VO     He crossed out the N, and wrote three letters and an exclamation mark: *VAR*!   [S8 S10 S11]
+SEE    Insert on the plate: the pen strikes through the N and writes VAR! in vermilion; then the real plate H335H develops in place.
+NEW    LightTable
+BEATS  +0.0 the music drops out; the pen comes down
+       +1.0 a stroke through the N
+       +2.0 V
+       +2.6 A
+       +3.2 R
+       +3.8 the exclamation mark, glowing red
+       +4.8 the real plate develops (★P-01)
+IN     quill      TRANS  real-reveal   CAM  hold     COMP  centre-large
+LIFE   dust                   SET  var-stroke
+STOCK  ★P-01
+```
+
+### L51 · 07:24.1–07:27.5 (3.4 s)
+```
+VO     Variable. A breathing star. One of Leavitt's *candles*.   [S8 S10 S11 S5 S6 S7]
+SEE    The exclamation point’s dot becomes a breathing star in the arm of the Andromeda spiral, beating like Leavitt’s.
+NEW    AndromedaEngraving, BreathingField
+BEATS  +0.0 the dot of the “!” swells
+       +1.2 it breathes
+       +2.4 Andromeda grows round it (★P-07)
+       +3.6 Leavitt’s loupe circle rings it
+IN     bloom      TRANS  grow-out-of   CAM  rack     COMP  centre-large
+LIFE   breathe                SET  var-becomes-cepheid
+STOCK  ★P-07
+```
+
+### L52 · 07:28.2–07:37.6 (9.4 s)
+```
+VO     Its beat told him how bright it truly was. And its faintness told him how far: far, far outside our own *galaxy*.   [S8 S10 S11]
+SEE    Leavitt’s ruler of light is laid from the Milky Way to Andromeda; it runs out, and runs on, far past the edge of our galaxy.
+NEW    AndromedaEngraving, CandleRoad
+BEATS  +0.0 the ruler of light lays down from us
+       +1.4 it reaches the edge of the Milky Way
+       +2.8 it keeps going
+       +4.2 and going
+       +5.6 it touches Andromeda
+       +7.0 a mark: far outside
+IN     grow       TRANS  trace-to      CAM  pull     COMP  tiny-in-vast
+LIFE   stars                  SET  ruler-laid-on-andromeda
 STOCK  —
+```
+
+### L53 · 07:39.1–07:47.6 (8.5 s)
+```
+VO     Andromeda was not a cloud among our stars. It was a galaxy of its own. And it was not *alone*.   [S8 S10 S11]
+SEE    The camera pulls back and back: the Milky Way, which filled the sky, shrinks to one swirl among thousands, like a raindrop in a storm.
+NEW    GalaxyStorm
+BEATS  +0.0 the camera pulls back from Andromeda
+       +1.6 the Milky Way shrinks
+       +3.0 more swirls appear around it
+       +4.4 thousands, like rain
+       +5.8 a vermilion ring round ours
+       +8.0 the camera travels on toward the Milky Way, one swirl among thousands
+IN     iris       TRANS  bloom-out     CAM  pull     COMP  tiny-in-vast
+LIFE   stars                  SET  milky-way-one-raindrop
+STOCK  ★D-06
 ```
 
 ## CLUE4
 
-### L53 · 07:23.8–07:27.6 (3.8 s)
+### L54 · 07:48.3–07:50.4 (2.1 s)
 ```
-VO     Clue four: a universe that will not keep *still*.   [—]
-SEE    Clue tag 4/4; title 'Clue IV · Runaway Galaxies'.
-NEW    —
-BEATS  +0.0 clue tag 4
-       +0.2 title
-IN     stamp      TRANS  scale-in      CAM  hold     COMP  top-centre-small
+VO     Clue four: galaxies that *run*.   [—]
+SEE    A slow shiver runs through the galaxies; the clue tag.
+NEW    GalaxyStorm
+BEATS  +0.0 a shiver runs through the galaxies
+       +1.2 the clue tag (4 of 4)
+IN     focus      TRANS  ripple-through CAM  hold     COMP  centre-medium
 LIFE   stars                  SET  —
 STOCK  —
 ```
 
-### L54 · 07:28.3–07:36.4 (8.1 s)
+### L55 · 07:51.1–08:00.9 (9.8 s)
 ```
-VO     Light from a galaxy can be spread into a rainbow. In most galaxies, the colours were shifted toward *red*.   [S12 S13]
-SEE    A spectrum strip with dark lines; the lines slide toward the red end.
-NEW    SpectrumStrip
-BEATS  +0.0 grow: the spectrum strip
-       +1.6 morph: dark lines slide red-ward (2 s)
-IN     grow       TRANS  morph         CAM  push     COMP  centre-large
-LIFE   photons                SET  rainbow-slides-red
+VO     Spread a galaxy's light into a rainbow, and dark lines appear in it. In most galaxies, those lines had shifted toward the *red*.   [S12 S13]
+SEE    A beam from one galaxy through a prism paints a rainbow strip; its dark lines slide toward the red end.
+NEW    SpectrumStrip, GalaxyStorm
+BEATS  +0.0 a beam leaves one galaxy
+       +1.4 it passes a prism
+       +2.8 a rainbow strip is painted
+       +4.2 dark lines appear
+       +5.6 they slide toward red
+       +7.0 a vermilion arrow
+       +9.2 the light shifts across the dark lines sliding
+IN     unroll     TRANS  brush         CAM  push     COMP  centre-large
+LIFE   photons                SET  galaxy-rainbow
+STOCK  ★D-04
+```
+
+### L56 · 08:01.6–08:10.1 (8.5 s)
+```
+VO     A red shift means the source is moving away, like the whistle of a train that drops as it *leaves*.   [S12 S13]
+SEE    The lines become the sound waves of a train’s whistle: bunched ahead, stretched behind as it pulls away.
+NEW    TrainWhistle
+BEATS  +0.0 the lines become rings of sound
+       +1.4 a steam train crosses the plain
+       +2.8 rings bunch ahead
+       +4.0 and stretch behind
+       +5.2 it pulls away
+       +7.4 the camera travels on toward the stretched waves behind the train
+IN     slide      TRANS  stream-through CAM  pan      COMP  wide-landscape
+LIFE   ripple                 SET  whistle-drops
 STOCK  —
 ```
 
-### L55 · 07:37.1–07:46.5 (9.4 s)
+### L57 · 08:10.8–08:18.9 (8.1 s)
 ```
-VO     A red shift means the galaxy is moving away from us, the way a siren drops in pitch as it races *off*.   [S12 S13]
-SEE    An old ambulance drives away; behind it, the sound rings stretch out.
-NEW    AmbulanceSiren
-BEATS  +0.0 slide: the vehicle drives off (3 s)
-       +1.0 ripples behind it stretch
-IN     slide      TRANS  match         CAM  pan      COMP  left-to-right
-LIFE   ripple                 SET  siren-going-away
+VO     So why was nearly every galaxy running from us, and from each other? Picture raisins in a rising *loaf*.   [S12 S13]
+SEE    The galaxies become raisins in a loaf of dough that rises: every raisin moves away from every other.
+NEW    RisingLoaf
+BEATS  +0.0 the waves curl into a loaf of dough
+       +1.4 galaxies are raisins in it
+       +2.8 it rises
+       +4.2 dotted lines between raisins stretch
+       +5.4 every gap grows
+       +7.6 the camera travels on toward the raisins spreading apart
+IN     rise       TRANS  solid-morph   CAM  push     COMP  centre-large
+LIFE   breathe                SET  raisin-galaxies
 STOCK  —
 ```
 
-### L56 · 07:47.2–07:57.4 (10.2 s)
+### L58 · 08:19.6–08:28.1 (8.5 s)
 ```
-VO     When Hubble set the distances from Leavitt's stars beside these speeds, a pattern leapt out: the farther a galaxy, the faster it was *fleeing*.   [S12 S13]
-SEE    Points plotted from the real 1929 table rise along a line; the real paper ★D-04 slides in.
-NEW    HubbleGraph
-BEATS  +0.0 quill plots the points (true to ★X-02)
-       +3.0 a line through them
-       +4.4 ★D-04
-IN     quill      TRANS  real-reveal   CAM  push     COMP  centre-large
-LIFE   boil                   SET  velocity-distance-line
-STOCK  ★D-04 ★X-02
-```
-
-### L57 · 07:58.1–08:06.6 (8.5 s)
-```
-VO     His first numbers were rough — his rate of expansion was several times too high — but the pattern itself was *real*.   [S12 S13]
-SEE    On the graph, Hubble's steep line is redrawn, much shallower, in modern ink — still a straight line.
-NEW    —
-BEATS  +0.0 a second, shallower line is drawn over his (quill, 1.6 s)
-       +2.0 note 'still a straight line'
-IN     tear-in    TRANS  fold          CAM  hold     COMP  right-third-medium
-LIFE   tremble                SET  —
-STOCK  —
-```
-
-### L58 · 08:07.3–08:15.0 (7.7 s)
-```
-VO     A Belgian priest and physicist, Georges Lemaître, had already seen what it meant. The universe is *expanding*.   [S12 S13]
-SEE    A small window: Lemaître at a desk, his 1927 paper beside him.
-NEW    LemaitreFigure
-BEATS  +0.0 iris: the window (1.0 s)
-       +1.4 Lemaître (Person, collar)
-       +2.6 ★D-05
-IN     iris       TRANS  window        CAM  hold     COMP  right-third-medium
-LIFE   breathe                SET  —
+VO     In 1927, a Belgian priest and physicist, Georges Lemaître, had worked out what this meant: the universe is *expanding*.   [S12 S13]
+SEE    The oven door’s window becomes the window of a study: Lemaître at his desk in his collar, writing; his 1927 page.
+NEW    LemaitreDesk
+BEATS  +0.0 the oven door opens on a study
+       +1.4 Lemaître at his desk
+       +2.8 he writes
+       +4.2 his page (★D-05)
+       +5.6 plate “Georges Lemaître, 1927”
+       +7.0 he looks up
+IN     ink-bleed  TRANS  shape-window  CAM  pull     COMP  left-third-medium
+LIFE   dust                   SET  oven-to-study
 STOCK  ★D-05
 ```
 
-### L59 · 08:15.7–08:21.6 (6.0 s)
+### L59 · 08:29.6–08:37.7 (8.1 s)
 ```
-VO     Not galaxies flying through space — but space itself stretching, carrying the galaxies further *apart*.   [S12 S13]
-SEE    A grid of fine ink lines with galaxies on its crossings stretches evenly; every galaxy moves away from every other.
-NEW    StretchingGrid
-BEATS  +0.0 grow: the grid with galaxies
-       +1.6 the grid stretches (4 s, linear)
-IN     grow       TRANS  light-change  CAM  pull     COMP  grid-stretching
-LIFE   stars                  SET  raisin-loaf-space
-STOCK  —
+VO     In 1929, Hubble set his distances beside the speeds. The farther the galaxy, the faster it was moving *away*.   [S12 S13]
+SEE    A line of Lemaître’s page runs off and becomes the straight line of Hubble’s 1929 graph, its points inking on.
+NEW    HubbleDiagram
+BEATS  +0.0 a line leaves the page
+       +1.4 it lands on a grid
+       +2.8 points ink on, one by one (X-02)
+       +4.2 the line rises through them
+       +5.6 the real graph pinned (★D-04)
+       +7.0 “1929”
+IN     ink-on     TRANS  travel-line   CAM  push     COMP  right-third-large
+LIFE   boil                   SET  hubble-line-1929
+STOCK  ★D-04 ★X-02
 ```
 
 ## TWIST
 
-### L60 · 08:22.5–08:24.7 (2.1 s)
+### L60 · 08:38.6–08:40.7 (2.1 s)
 ```
 VO     Think about what had *happened*.   [—]
-SEE    The ladder of four rungs returns, small.
-NEW    —
-BEATS  +0.0 ink-on: the ladder
-IN     ink-on     TRANS  fold          CAM  hold     COMP  centre-medium
-LIFE   boil                   SET  —
+SEE    The light narrows on the graph’s line.
+NEW    HubbleDiagram
+BEATS  +0.0 the light narrows
+       +1.0 the line glows
+IN     focus      TRANS  spot          CAM  hold     COMP  centre-medium
+LIFE   breathe                SET  —
 STOCK  —
 ```
 
-### L61 · 08:25.6–08:34.5 (8.9 s)
+### L61 · 08:41.6–08:51.0 (9.4 s)
 ```
-VO     People set out to measure how far away the stars are, and ended up discovering that the universe has a *history*.   [—]
-SEE    Ride up the ladder; at the top, the stretching grid; the camera keeps rising into the past.
-NEW    —
-BEATS  +0.0 ride up the rungs (3 s)
-       +2.4 the grid shrinks backward
-IN     rise       TRANS  ride          CAM  tilt-up  COMP  tall-centre
-LIFE   stars                  SET  ladder-to-the-beginning
+VO     People set out to measure how far away the stars are… and found that the universe is growing, and has a *history*.   [S12 S13]
+SEE    The line lifts into the sky and becomes a streak through the galaxies, all drifting apart.
+NEW    GalaxyStorm
+BEATS  +0.0 the line lifts off
+       +1.4 it becomes a streak through the galaxies
+       +2.8 they drift apart
+       +4.2 they keep drifting
+       +6.4 the light shifts across the drifting galaxies
+       +8.6 the camera travels on toward the drifting galaxies
+IN     wipe       TRANS  crane         CAM  pull     COMP  wide-sky
+LIFE   stars                  SET  —
 STOCK  —
 ```
 
-### L62 · 08:35.4–08:43.9 (8.5 s)
+### L62 · 08:51.9–08:59.1 (7.2 s)
 ```
-VO     If everything is moving apart now, then long ago, everything was closer together — all the way back to a *beginning*.   [S12 S13]
-SEE    The grid runs backward; galaxies crowd together toward a bright point.
-NEW    GridToPoint
-BEATS  +0.0 the stretch runs in reverse (3 s)
-       +2.6 all lines converge on a bright point
-IN     collapse   TRANS  eclipse       CAM  push     COMP  centre-large
-LIFE   photons                SET  grid-runs-backward
+VO     Run the film backwards, and everything was once closer together, all the way back to a *beginning*.   [S12 S13]
+SEE    Time runs backward: the galaxies rush together to one point of light.
+NEW    GalaxyStorm
+BEATS  +0.0 the galaxies reverse
+       +1.6 they rush together
+       +3.2 they meet
+       +4.4 one point of light
+       +6.6 the light shifts across the single point
+IN     ink-bleed  TRANS  bloom-out     CAM  push     COMP  centre-large
+LIFE   sparks                 SET  run-backwards-to-a-point
 STOCK  —
 ```
 
-### L63 · 08:44.8–08:54.2 (9.4 s)
+### L63 · 09:00.0–09:10.2 (10.2 s)
 ```
-VO     And the same trick Bessel used for one star, a space telescope called Gaia now uses for more than a billion *stars*.   [S14]
-SEE    A small spacecraft spins slowly; around it the sky fills with countless tiny ellipses — each a measured wobble.
-NEW    GaiaCraft, BillionDots
-BEATS  +0.0 bloom: the craft
-       +1.6 tiny ellipses appear across the sky (particles, many)
-       +4.0 ★P-10 (if allowed)
-IN     bloom      TRANS  scale-out     CAM  pull     COMP  tiny-in-vast
-LIFE   stars                  SET  billion-wobbles
-STOCK  ★P-10
+VO     And Bessel's trick never went away. A space telescope called Gaia has now measured the wobble of nearly one and a half billion *stars*.   [S14]
+SEE    The point opens like an eye: the round sunshield of Gaia, spinning slowly in space.
+NEW    GaiaProbe
+BEATS  +0.0 the point opens
+       +1.4 Gaia’s round sunshield
+       +2.8 it spins
+       +4.2 its two telescopes sweep the sky
+       +5.6 counter to 1,470,000,000
+       +7.0 label “Gaia”
+       +9.2 the light shifts across Gaia spinning
+IN     iris       TRANS  echo          CAM  pull     COMP  right-third-medium
+LIFE   stars                  SET  point-opens-as-gaia
+STOCK  —
+```
+
+### L64 · 09:11.7–09:17.2 (5.5 s)
+```
+VO     Each one, a tiny tick of parallax: the same jump as your *thumb*.   [S14]
+SEE    From Gaia a billion tiny ink ticks fill the sky at once; the camera flies through them into the Milky Way in depth.
+NEW    TickSky
+BEATS  +0.0 the ticks spray out
+       +1.4 they fill the sky
+       +2.8 the camera flies through
+       +5.0 the camera travels on toward the ticks filling the sky
+IN     grow       TRANS  swarm         CAM  ride     COMP  tiny-in-vast
+LIFE   stars                  SET  billion-ticks
+STOCK  —
 ```
 
 ## ANSWER
 
-### L64 · 08:54.9–08:57.8 (3.0 s)
+### L65 · 09:17.9–09:20.9 (3.0 s)
 ```
-VO     So — how far away are the *stars*?   [—]
-SEE    The starfield of the opening returns.
-NEW    —
-BEATS  +0.0 iris: the starfield
-IN     iris       TRANS  scale-in      CAM  push     COMP  centre-medium
+VO     So, how far away are the *stars*?   [—]
+SEE    We fly out through the map, down through the atmosphere, back to the night window.
+NEW    TickSky, NightWindow
+BEATS  +0.0 we fly out of the map
+       +1.4 through the air
+       +2.4 the window of the opening
+IN     focus      TRANS  through       CAM  ride     COMP  centre-medium
 LIFE   stars                  SET  —
 STOCK  —
 ```
 
-### L65 · 08:58.5–09:04.9 (6.4 s)
+### L66 · 09:21.6–09:28.0 (6.4 s)
 ```
-VO     The nearest ones, a few light-years: close enough for a wobble to give them *away*.   [S1 S2 S3 S2 S4]
-SEE    The tiny ellipse around 61 Cygni.
-NEW    —
-BEATS  +0.0 the ellipse traces again
-IN     grow       TRANS  trace         CAM  hold     COMP  centre-medium
+VO     The nearest, a few light-years away: close enough for their wobble to give them *away*.   [S1 S2 S3 S2 S4]
+SEE    In the window glass a round field: the near star’s little shift, and “≈ 10 light-years”.
+NEW    NightWindow, ParallaxField
+BEATS  +0.0 a round field in the glass
+       +1.4 the near star shifts
+       +2.8 gold “a few light-years”
+       +4.2 the tick
+IN     ink-on     TRANS  shape-window  CAM  push     COMP  right-third-medium
 LIFE   stars                  SET  —
 STOCK  —
 ```
 
-### L66 · 09:05.6–09:14.6 (8.9 s)
+### L67 · 09:29.5–09:39.3 (9.8 s)
 ```
-VO     Farther ones, by the beat of their brightest stars. And the galaxies — millions and billions of light-years away, still moving *apart*.   [S5 S6 S7 S8 S10 S11 S12 S13]
-SEE    Ride outward along the ladder of methods: the beating star, the red word, the stretching grid.
-NEW    —
-BEATS  +0.0 ride outward (5 s) past each rung's sign
-IN     assemble   TRANS  ride          CAM  ride     COMP  four-in-a-row
-LIFE   stars                  SET  ladder-complete
+VO     Farther ones, by the beat of their breathing stars. And the galaxies, farther than anyone had dared to imagine… and still drifting *apart*.   [S5 S6 S7 S8 S10 S11 S12 S13]
+SEE    The three rungs in the window glass: a wobble, a breathing star, a drift of galaxies — one ladder.
+NEW    NightWindow, BreathingField, GalaxyStorm
+BEATS  +0.0 a breathing star joins above the first
+       +1.6 a drift of galaxies above that
+       +3.2 gold lines join them like rungs
+       +4.8 the galaxies drift
+       +6.4 the ladder glows
+       +8.6 the camera travels on toward the ladder of three
+IN     bloom      TRANS  merge         CAM  pull     COMP  wide-sky
+LIFE   breathe                SET  —
 STOCK  —
 ```
 
 ## MEANING
 
-### L67 · 09:15.5–09:18.4 (3.0 s)
+### L68 · 09:40.2–09:43.2 (3.0 s)
 ```
 VO     None of them ever left the *Earth*.   [—]
-SEE    Four small figures in a row at four eyepieces: Bessel, Leavitt with her magnifier, Hubble, and a modern astronomer at a screen.
-NEW    —
-BEATS  +0.0 pan along the row; each inks on as passed (stagger 1.0 s)
-IN     drop       TRANS  match         CAM  pan      COMP  row-left-to-right
-LIFE   breathe                SET  four-at-the-eyepiece
+SEE    Three small lit windows in the night: the tower in Königsberg, the plate room at Harvard, the dome on Mount Wilson.
+NEW    KoenigsbergDome, HarvardPlateRoom, HookerDome
+BEATS  +0.0 the ladder sweeps away
+       +1.4 three lit windows in the dark
+IN     ink-bleed  TRANS  sweep         CAM  pull     COMP  two-figures
+LIFE   dust                   SET  three-who-never-left
 STOCK  —
 ```
 
-### L68 · 09:19.3–09:28.7 (9.4 s)
+### L69 · 09:44.1–09:50.5 (6.4 s)
 ```
-VO     Every distance in the universe still rests on that ladder, and its first rung is still a tiny wobble, measured from *here*.   [S14]
-SEE    The ladder rises from the row of figures into the sky; its lowest rung glows.
-NEW    —
-BEATS  +0.0 grow: the ladder rises (2 s)
-       +2.4 the first rung glows gold
-IN     grow       TRANS  trace         CAM  tilt-up  COMP  tall-centre
-LIFE   stars                  SET  —
-STOCK  —
-```
-
-### L69 · 09:29.6–09:36.0 (6.4 s)
-```
-VO     They measured the universe from a desk, a dome and a pile of glass *plates*.   [—]
-SEE    The figures dissolve into a stack of glass plates on a desk, under a lamp.
-NEW    —
-BEATS  +0.0 slide: the stack
-       +1.6 light-change: lamp warms
-IN     slide      TRANS  light-change  CAM  pull     COMP  centre-medium
+VO     They measured the universe from a dome, a desk and a pile of glass *plates*.   [—]
+SEE    The heliometer, a loupe and a stack of plates settle together on one table.
+NEW    GlassPlateSky, Heliometer
+BEATS  +0.0 from each window an instrument comes
+       +1.4 they settle on one table
+       +2.8 a sheen across the plates
+       +5.0 the camera travels on toward the three instruments together
+IN     drop       TRANS  merge         CAM  push     COMP  centre-large
 LIFE   dust                   SET  —
 STOCK  —
 ```
 
-### L70 · 09:36.9–09:45.0 (8.1 s)
+### L70 · 09:51.4–09:58.6 (7.2 s)
 ```
-VO     Look up tonight. Some of that light left its star before anyone measured how far it had to *travel*.   [—]
-SEE    Tilt up from the desk through a window into the real night sky; the brand end card follows.
-NEW    —
-BEATS  +0.0 tilt up through the window (3 s)
-       +2.0 the sky fills the frame
-       +4.0 end card
-IN     rise       TRANS  eclipse       CAM  tilt-up  COMP  wide-sky
+VO     And every distance out there still rests on that first small step: a wobble, seen from *here*.   [S14]
+SEE    Focus goes past the table to the window; the thumb rises again against the night.
+NEW    NightWindow, ThumbHand
+BEATS  +0.0 focus racks to the window
+       +1.6 the hand rises
+       +3.2 the thumb against the stars
+       +5.4 the camera travels on toward the thumb rising
+IN     focus      TRANS  rack-focus    CAM  push     COMP  right-third-large
 LIFE   stars                  SET  —
+STOCK  —
+```
+
+### L71 · 09:59.5–10:08.0 (8.5 s)
+```
+VO     So hold up your thumb tonight, and blink. That little jump is how we learned the size of the *sky*.   [—]
+SEE    The thumb jumps; the camera pulls back to a child at the window, looking up at the stars.
+NEW    NightWindow, ThumbHand, BlinkEye
+BEATS  +0.0 the eye blinks; the thumb jumps against a star
+       +1.6 it jumps back
+       +3.0 the camera pulls back
+       +4.4 a child at the window
+       +5.8 looking up
+       +7.0 the stars
+IN     iris       TRANS  outline-morph CAM  pull     COMP  two-figures
+LIFE   stars                  SET  child-at-the-window
 STOCK  —
 ```

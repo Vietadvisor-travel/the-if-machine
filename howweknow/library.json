@@ -1,7 +1,15 @@
 {
+ "AndromedaEngraving": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "Angle": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "ArcDial": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "AssamHills": {
   "kind": "episode",
@@ -23,6 +31,10 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "BlinkEye": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "BloodWash": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -30,6 +42,10 @@
  "Bookshelf": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "BreathingField": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "BronzeBell": {
   "kind": "episode",
@@ -46,6 +62,14 @@
  "Candle": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "CandleAndLighthouse": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "CandleRoad": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "CardBoxes": {
   "kind": "episode",
@@ -87,6 +111,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "CoinFarHill": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "CoolingTowers": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -95,6 +123,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "CygniCrawl": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "DaltonPlate": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -102,6 +134,10 @@
  "DarkEye": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "DebateHall": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Desk": {
   "kind": "sample",
@@ -143,6 +179,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "Etch": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
  "Eyepiece": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -159,9 +199,21 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "GaiaProbe": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "GalaxyStorm": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "GeigerCounter": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "GlassPlateSky": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Glassware": {
   "kind": "sample",
@@ -170,6 +222,10 @@
  "Globe": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "GlobeStand": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "GoldBeam": {
   "kind": "core",
@@ -190,6 +246,22 @@
  "HairSection": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "HarvardPlateRoom": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "Heliometer": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "HookerDome": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "HubbleDiagram": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Ident": {
   "kind": "core",
@@ -215,6 +287,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "KoenigsbergDome": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "KolaBorehole": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -239,17 +315,37 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "LeavittGraph": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "LehmannRoom": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "LemaitreDesk": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Letter": {
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "LightBobbin": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "LightRuler": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "LightSwell": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "LightTable": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Loupe": {
   "kind": "core",
@@ -259,9 +355,17 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "Mark": {
+  "kind": "core",
+  "origin": "library v3 (src/paint/)"
+ },
  "MarsSection": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "MilkyWayBand": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "MistHillside": {
   "kind": "episode",
@@ -291,6 +395,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "NightWindow": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "NobelMedal": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -319,6 +427,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "OrbitTriangle": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "Palm": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -326,6 +438,14 @@
  "PalmDive": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "PaperBoat": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "ParallaxField": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Pendulum": {
   "kind": "sample",
@@ -371,6 +491,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "RisingLoaf": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "Rose": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -394,6 +518,10 @@
  "Scholar": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "ScopeField": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "SeaChart": {
   "kind": "core",
@@ -423,9 +551,29 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "SpectrumStrip": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "SpeedLanes": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "SpiralNebula": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "SplitField": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "StarCabinet": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "StarSea": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Stars": {
   "kind": "core",
@@ -467,9 +615,21 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "TelescopeRow": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "Temple": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "ThumbHand": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "TickSky": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "TitleCard": {
   "kind": "core",
@@ -478,6 +638,10 @@
  "TorsionBalance": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "TrainWhistle": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "Tree": {
   "kind": "sample",
@@ -515,6 +679,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "costume:bessel1838": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "costume:cavendish1798": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -523,6 +691,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "costume:child2026": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "costume:chiton": {
   "kind": "sample",
   "origin": "people.tsx presets"
@@ -530,6 +702,10 @@
  "costume:coat18": {
   "kind": "sample",
   "origin": "people.tsx presets"
+ },
+ "costume:curtis1920": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "costume:frock19": {
   "kind": "sample",
@@ -543,6 +719,14 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "costume:harvard1900": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
+ "costume:hubble1923": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "costume:kolaDriller": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -551,9 +735,17 @@
   "kind": "sample",
   "origin": "people.tsx presets"
  },
+ "costume:leavitt1910": {
+  "kind": "episode",
+  "origin": "star-distance"
+ },
  "costume:lehmann1932": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "costume:lemaitre1927": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "costume:listener2026": {
   "kind": "episode",
@@ -582,6 +774,10 @@
  "costume:rutherford1909": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "costume:shapley1920": {
+  "kind": "episode",
+  "origin": "star-distance"
  },
  "costume:spacesuit": {
   "kind": "sample",

@@ -2,6 +2,7 @@
 import * as empty_atom from './empty-atom';
 import * as inside_earth from './inside-earth';
 import * as pipeline_test from './pipeline-test';
-export const LIB_EP: Record<string, any> = { 'empty-atom': empty_atom, 'inside-earth': inside_earth, 'pipeline-test': pipeline_test };   // slug → module (ART, COSTUMES, SAMPLE)
-export const LIB_ART: Record<string, any> = Object.assign({}, empty_atom.ART, inside_earth.ART, pipeline_test.ART);
-export const LIB_COSTUMES: Record<string, any> = Object.assign({}, (empty_atom as any).COSTUMES || {}, (inside_earth as any).COSTUMES || {}, (pipeline_test as any).COSTUMES || {});
+import * as star_distance from './star-distance';
+export const LIB_EP: Record<string, any> = { 'empty-atom': empty_atom, 'inside-earth': inside_earth, 'pipeline-test': pipeline_test, 'star-distance': star_distance };   // slug → module (ART, COSTUMES, SAMPLE)
+export const LIB_ART: Record<string, any> = Object.assign({}, empty_atom.ART, inside_earth.ART, pipeline_test.ART, star_distance.ART);
+export const LIB_COSTUMES: Record<string, any> = Object.assign({}, (empty_atom as any).COSTUMES || {}, (inside_earth as any).COSTUMES || {}, (pipeline_test as any).COSTUMES || {}, (star_distance as any).COSTUMES || {});

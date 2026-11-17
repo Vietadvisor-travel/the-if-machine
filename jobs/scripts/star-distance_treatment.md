@@ -12,12 +12,12 @@ A blink of your own eyes, a German astronomer's hair-width measurement, a deaf w
 
 ## 2. The feeling
 - word: vertigo of scale
-- the moment it lands: L31, the Milky Way shrinking to one swirl among thousands
+- the moment it lands: L54, the Milky Way shrinking to one swirl among thousands
 
 ## 3. Governing image & motif
 - image: the parallax blink — one point that jumps against the background
 - motif (shape): the CIRCLE of the lens: the eye, the eyepiece, the loupe, the telescope dome, Gaia's mirror
-- returns (≥ 4): L1 — the eye blinks · L6 — the eyepiece · L18 — Leavitt's loupe · L26 — the dome opens · L37 — Gaia's mirror
+- returns (≥ 4): L1 — the eye blinks · L8 — the eyepiece with nothing to measure · L14 — January and July · L18 — the heliometer's split field · L34 — Leavitt's loupe · L46 — the dome opens · L51 — the loupe rings Hubble's star · L64 — Gaia's shield · L71 — the eye again
 
 ## 4. Visual metaphors
 - distance too big to imagine: (1) a coin seen from 13 km → (2) a thread of light unspooling for ten years → (3) the Milky Way as one raindrop in a storm of galaxies
@@ -63,7 +63,7 @@ A blink of your own eyes, a German astronomer's hair-width measurement, a deaf w
 
 ## 9. Rhythm
 - tension curve: quiet opening, rising at Leavitt's discovery, peak at VAR!, release into wonder
-- held breaths (3): the hair-width shift (L8) · VAR! (L28) · the Milky Way becomes one swirl (L31)
+- held breaths (3): the hair-width shift (L14) · VAR! (L50) · the Milky Way becomes one swirl (L54)
 - accelerations: the plates of the Harvard women, months in seconds
 
 ## 10. Bookends & material
