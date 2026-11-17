@@ -9,7 +9,8 @@ SAFETY (the old engine is never at risk — the farm only ever ADDS finished chu
 - each runner first drops `<i>.start`; no start at all within 10 min → the farm is down → everything renders here
 - a runner that fails drops `<i>.fail` → that chunk renders here; a started chunk that does not come back in time → renders here
 - every returned chunk: frame count checked, and ONE frame of it (`<i>.png`, a still the runner rendered) is rendered here too and
-  compared pixel for pixel → any difference anywhere → ALL farm chunks are dropped and the whole film renders here (quality untouchable)
+  measured: overall ≥ 45 dB PSNR AND the worst 64×64 detail ≥ 32 dB (quality(); owner: overall + detail OK, not pixel-exact) → a miss →
+  ALL farm chunks are dropped and the whole film renders here
 - any error in this script → the plain local render (render.py), exactly as before the farm existed."""
 import argparse, hashlib, json, math, os, random, re, shutil, subprocess, sys, tarfile, time
 H = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(H); sys.path.insert(0, os.path.join(H, '..', 'studio', 'tools'))
@@ -36,9 +37,29 @@ def frames_in(p):
     except ValueError: return -1
 
 
-def pixels(p):   # md5 of the decoded RGB image (PNG metadata cannot fool it)
+# Quality gate (owner 17 Nov 2026: "không nhất thiết lệch 1 điểm là render lại… miễn là chất lượng tổng thể và chi tiết ok"):
+#   OVERALL — PSNR of the whole frame ≥ PSNR_MIN dB (≥ 45 dB is far below what an eye can see; the 17 Nov footage chunk measured 50–57)
+#   DETAIL  — the worst 64×64 tile ≥ TILE_MIN dB, so a local defect (a missing drawing, a wrong word, a broken corner) can never hide
+#             inside a good average.
+PSNR_MIN, TILE_MIN = 45.0, 32.0   # measured 17 Nov on runner-vs-local footage frames: 49–52 dB overall, 36–38 dB worst tile
+#   (max 23/255 on 0.1 % of pixels, inside moving film grain — invisible); a missing or wrong element scores far below 25 dB
+
+
+def rgb(p):
+    import numpy as np
     r = subprocess.run(['ffmpeg', '-v', 'error', '-i', p, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True)
-    return hashlib.md5(r.stdout).hexdigest() if r.returncode == 0 and r.stdout else None
+    if r.returncode or not r.stdout: return None
+    return np.frombuffer(r.stdout, np.uint8).reshape(1080, 1920, 3).astype(np.float32)
+
+
+def quality(a, b):
+    """(ok, overall dB, worst-tile dB) between two decoded frames."""
+    import numpy as np
+    if a is None or b is None: return False, 0.0, 0.0
+    db = lambda m: 99.0 if m <= 1e-10 else 10 * np.log10(255 ** 2 / m)
+    d = (a - b) ** 2; whole = db(d.mean())
+    t = d[:1024, :1920].reshape(16, 64, 30, 64, 3).mean(axis=(1, 3, 4)); worst = db(t.max())
+    return whole >= PSNR_MIN and worst >= TILE_MIN, whole, worst
 
 
 def bundle():
@@ -86,18 +107,18 @@ def footage_spans():
 
 
 def still_ok(i, png, k):
-    """Render the same frame the runner rendered, here, and compare every pixel."""
+    """Render the same frame the runner rendered, here, and measure it (quality(): overall + worst detail)."""
     a, b = rng(i); f = a + (k * 7919 + i * 104729) % (b - a + 1); ref = f'/tmp/farm_ref_{S}_{i}.png'
     for _ in range(2):
         subprocess.run(['npx', 'remotion', 'still', BUNDLE, 'Story', ref, f'--props={json.dumps({"slug": S})}', f'--frame={f}', '--image-format=png',
                         '--timeout=120000', '--log=error'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        mine = pixels(ref)
-        if mine: break
-    theirs = pixels(png)
+        mine = rgb(ref)
+        if mine is not None: break
+    ok, whole, worst = quality(mine, rgb(png))
     for x in (ref, png):
         try: os.remove(x)
         except OSError: pass
-    return mine is not None and mine == theirs, f
+    return ok, f'{f} · {whole:.0f} dB overall, {worst:.0f} dB worst detail'
 
 
 def main():
@@ -105,8 +126,9 @@ def main():
     if A.only: todo = [int(x) for x in A.only.split(',')]
     else:
         todo = [i for i in range(NCH) if not (os.path.exists(name(i)) and frames_in(name(i)) == want(i))]
-        FS = footage_spans(); vid = [i for i in todo if any(rng(i)[0] / 30 < t1 and (rng(i)[1] + 1) / 30 > t0 for t0, t1 in FS)]
-        todo = [i for i in todo if i not in vid]
+        if os.environ.get('FARM_FOOTAGE_LOCAL') == '1':   # footage decodes a hair differently on the runners (50–57 dB) — within the gate, so it farms too
+            FS = footage_spans(); vid = [i for i in todo if any(rng(i)[0] / 30 < t1 and (rng(i)[1] + 1) / 30 > t0 for t0, t1 in FS)]
+            todo = [i for i in todo if i not in vid]
     log(f'{S}: {N} frames · {NCH} chunks of {CH:g} s · {len(todo)} to the farm · {len(vid)} with footage stay here {vid} · sig {sig}')
     if A.dry or (not todo and not vid): return
     bundle()
@@ -156,13 +178,13 @@ def main():
             if frames_in(tmp) != want(i): os.remove(tmp); to_local([i], 'wrong frame count'); continue
             ok, fr = still_ok(i, tpng, k)
             if not ok:   # quality is untouchable: one differing pixel and the farm's work is thrown away
-                os.remove(tmp); log(f'PIXEL CHECK FAILED on chunk {i} (frame {fr}) — every farm chunk dropped, the whole film renders here')
+                os.remove(tmp); log(f'QUALITY CHECK FAILED on chunk {i} (frame {fr}) — every farm chunk dropped, the whole film renders here')
                 for j in back:
                     try: os.remove(name(j))
                     except OSError: pass
                 back.clear(); left.clear(); break
             os.replace(tmp, name(i)); left.discard(i); back.append(i); durs.append(now - t0)
-            log(f'chunk {i} back · frame {fr} identical · {len(back)}/{len(todo)}')
+            log(f'chunk {i} back · frame {fr} · {len(back)}/{len(todo)}')
         if not left: break
         if not started and now - t0 > 600: to_local(list(left), 'no runner started within 10 min'); break
         late = [i for i in left if i in started and now - started[i] > max(1500, 3 * (max(durs) if durs else 0))]
