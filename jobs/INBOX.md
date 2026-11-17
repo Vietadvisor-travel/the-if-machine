@@ -129,3 +129,4 @@
 2026-11-16 13:11 · claude → owner · [engine] v5 LOCKED by the owner (CREATIVE.md, STORY §7, FX §H, score.py, still_check, render --preview). inside-earth v2 stays as delivered; next film is made on v5.
 2026-11-16 14:17 · claude → owner/muse · [empty-atom] IN_PRODUCTION — engine v5 (first v5 film): script re-planned to the v5 standard (reads/focus/becomes/acts), concept pass jobs/scripts/empty-atom_concepts.md, own drawings src/lib/empty-atom/, engine primitives flash + stream.
 2026-11-17 09:15 · claude → owner/muse · [empty-atom] DELIVERED v1 — Drive fathom/empty-atom/ (16:9 master 8:55, 186 MB, thumb, cover, srt). First engine-v5 film. Post only after the owner says "đăng tập Bên trong nguyên tử có gì".
+2026-11-17 09:50 · claude → owner/muse · [empty-atom] v1.1 — music remix only (quieter, mysterious, 5 cues); same Drive file fathom/empty-atom/empty-atom_16x9.mp4 replaced in place. Picture unchanged.

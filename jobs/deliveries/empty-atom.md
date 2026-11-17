@@ -1,4 +1,7 @@
-# Delivery — Bên trong nguyên tử có gì (empty-atom) · FATHOM film · v1 · 17 Nov 2026
+# Delivery — Bên trong nguyên tử có gì (empty-atom) · FATHOM film · v1.1 (music remix) · 17 Nov 2026
+
+> v1.1 (17 Nov, owner): picture unchanged; the score re-planned to the new rule — ≈30 % quieter, leaning mysterious, one cue per part
+> (5 cues instead of 14, 6 s crossfades, explaining parts lowest). Same Drive file, replaced in place. Thumb/cover dropped (owner: no thumbnails).
 
 ## Files (Drive fathom/empty-atom/ · https://drive.google.com/drive/folders/1K4IszrmION-xAAr2qFhjFRJV2J6V_EtP)
 - empty-atom_16x9.mp4 · 186 MB (CRF-17 master) · 8:55 · 1920×1080
