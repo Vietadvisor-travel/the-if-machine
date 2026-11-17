@@ -70,6 +70,10 @@ reference for the mechanics, this file is the live checklist.
 - Post as a reel via the API helper. Verify via API read (post id, public URL).
 - Cover: the OWNER sets the cover himself after posting (decision 17/11). The
   API route has no cover parameter.
+- FB and IG stay SEPARATE posts (owner decision 17/11): no IG→FB auto-share. The
+  Content Publishing API has no crosspost parameter, and native crossposting only
+  works from the phone app (same caption both sides, FB gets the compressed file,
+  no separate FB cover).
 
 ## 4. Instagram @fathomlinefilms (API, ifm-graph.py ig-reel — never the browser)
 
