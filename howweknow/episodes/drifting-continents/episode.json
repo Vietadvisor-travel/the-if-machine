@@ -4919,20 +4919,20 @@
     },
     {
      "t": "L37",
-     "dur": 0.9,
-     "push": 1.296,
+     "dur": 0.8,
+     "push": 1.62,
      "pan_x": 0.0,
-     "pan_y": -285.1,
+     "pan_y": 32.4,
      "roll": 0,
      "ease": "soft"
     },
     {
-     "t": "L37+0.82",
+     "t": "L37+0.73",
      "dur": 7.952,
-     "push": 1.08,
+     "push": 1.026,
      "pan_x": 0.0,
-     "pan_y": 0.0,
-     "ease": "inOut"
+     "pan_y": 20.5,
+     "ease": "out"
     },
     {
      "t": "L37",
@@ -11579,7 +11579,7 @@
   "track",
   "snap-zoom",
   "tilt-down",
-  "crane-up",
+  "pull",
   "orbit",
   "lock",
   "dolly",

@@ -316,7 +316,7 @@ MOVE = {0: ('push', (900, 560), 'insert'), 1: ('pan-r', (960, 520), 'medium'), 2
         24: ('rack', (960, 520), 'insert'), 25: ('whip', (960, 700), 'medium'), 26: ('pull', (960, 620), 'medium'), 27: ('tilt-down', (960, 560), 'close'),
         28: ('pan-r', (960, 540), 'wide'), 29: ('handheld', (760, 800), 'wide'), 30: ('push', (960, 560), 'close'), 31: ('lock', (960, 560), 'wide'),
         32: ('crane-down', (960, 600), 'insert'), 33: ('pull', (960, 540), 'wide'), 34: ('track', (960, 540), 'wide'), 35: ('snap-zoom', (960, 700), 'insert'),
-        36: ('tilt-down', (960, 540), 'detail'), 37: ('crane-up', (960, 540), 'wide'), 38: ('orbit', (960, 540), 'wide'), 39: ('lock', (960, 540), 'medium'),
+        36: ('tilt-down', (960, 540), 'detail'), 37: ('pull', (960, 520), 'wide'), 38: ('orbit', (960, 540), 'wide'), 39: ('lock', (960, 540), 'medium'),
         40: ('dolly', (960, 540), 'close'), 41: ('arc', (960, 540), 'medium'), 42: ('push', (960, 560), 'close'), 43: ('snap-zoom', (960, 540), 'insert'),
         44: ('crane-up', (960, 600), 'close'), 45: ('pan-r', (960, 540), 'wide'), 46: ('pull', (960, 540), 'close'), 47: ('lock', (960, 540), 'wide'),
         48: ('arc', (960, 540), 'wide'), 49: ('tilt-down', (960, 560), 'close'), 50: ('crane-up', (960, 500), 'wide'), 51: ('dive', (960, 540), 'wide'),

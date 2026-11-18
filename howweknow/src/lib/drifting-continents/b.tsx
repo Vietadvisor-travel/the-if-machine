@@ -159,7 +159,7 @@ const Rose: React.FC<{ cx: N; cy: N; r: N; a?: N; north?: boolean }> = ({ cx, cy
 
 // a raking key light over a whole scene: warm where the light comes from, falling off to a cool dark corner (house: no flat fills)
 const KeyLight: React.FC<{ id: string; from?: 'tl' | 'tr'; a?: N }> = ({ id, from = 'tl', a = 1 }) => <g opacity={a} style={{ pointerEvents: 'none' }}>
-  <defs><linearGradient id={id + 'kl'} x1={from === 'tl' ? 0 : 1} y1="0" x2={from === 'tl' ? 1 : 0} y2="1"><stop offset="0" stopColor="#FFF0D0" stopOpacity={.26} /><stop offset=".45" stopColor="#FFF0D0" stopOpacity={0} /><stop offset="1" stopColor="#1A1210" stopOpacity={.34} /></linearGradient>
+  <defs><linearGradient id={id + 'kl'} x1={from === 'tl' ? 0 : 1} y1="0" x2={from === 'tl' ? 1 : 0} y2="1"><stop offset="0" stopColor="#FFF0D0" stopOpacity={.34} /><stop offset=".45" stopColor="#FFF0D0" stopOpacity={0} /><stop offset="1" stopColor="#1A1210" stopOpacity={.48} /></linearGradient>
     <radialGradient id={id + 'vg'} cx=".5" cy=".5" r=".75"><stop offset=".6" stopColor="#1A1210" stopOpacity={0} /><stop offset="1" stopColor="#1A1210" stopOpacity={.3} /></radialGradient></defs>
   <rect x={-100} y={-100} width={2120} height={1280} fill={`url(#${id}kl)`} /><rect x={-100} y={-100} width={2120} height={1280} fill={`url(#${id}vg)`} /></g>;
 
@@ -590,9 +590,12 @@ const StripeFloor: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; piano?: N; p
     {/* the sea surface and the ship towing its magnetometer (on top of the mask, so they read crisply) */}
     <g opacity={ph(draw, .2, .8)}>
       <path d={`M120 ${SL} ${Array.from({ length: 32 }, (_, i) => `Q${120 + i * 53 + 13} ${SL - 5} ${120 + i * 53 + 26} ${SL} T${120 + i * 53 + 53} ${SL}`).join(' ')}`} stroke={SEP} strokeWidth={1.6} fill="none" opacity={.75} transform={`translate(${f1(-(tm * 18) % 53)} 0)`} />
-      <path d={`M1200 ${SL + 4} C1150 ${SL + 60} ${f1(fish[0] + 160)} ${f1(fish[1] - 80)} ${f1(fish[0] + 40)} ${f1(fish[1])}`} stroke="#2B1D12" strokeWidth={2} fill="none" />
-      <g transform={`translate(${f1(fish[0])} ${f1(fish[1])})`}><path d="M-40 0 Q-36 -10 0 -10 L30 -8 Q44 0 30 8 L0 10 Q-36 10 -40 0Z" fill="#E8B84A" stroke={SEP} strokeWidth={1.4} />
-        <path d="M-40 0 l-14 -12 l4 12 l-4 12Z" fill="#C9902E" stroke={SEP} strokeWidth={1.2} /></g>
+      <path d={`M1200 ${SL + 4} C1150 ${SL + 60} ${f1(fish[0] + 160)} ${f1(fish[1] - 80)} ${f1(fish[0] + 38)} ${f1(fish[1] - 17)}`} stroke="#2B1D12" strokeWidth={2} fill="none" />
+      <g transform={`translate(${f1(fish[0])} ${f1(fish[1])})`}><ellipse cx={6} cy={34} rx={46} ry={6} fill="#22303A" opacity={.25} filter="url(#b2s)" />
+        <path d="M-44 -4 l-16 -14 h8 l14 10Z M-44 4 l-16 14 h8 l14 -10Z" fill="#8E949A" stroke={SEP} strokeWidth={1.1} />
+        <path d="M-46 0 Q-44 -11 -10 -11 L28 -10 Q50 -8 52 0 Q50 8 28 10 L-10 11 Q-44 11 -46 0Z" fill="#D8DCDE" stroke={SEP} strokeWidth={1.5} />
+        <path d="M-40 -5 Q-10 -9 40 -6" stroke="#FFFFFF" strokeWidth={2.4} fill="none" opacity={.8} /><path d="M-12 -11 V11 M18 -10 V10" stroke="#6A7078" strokeWidth={1.2} />
+        <path d="M30 -10 l4 -8 h8 l2 8" fill="#6A7078" stroke={SEP} strokeWidth={1} /><circle cx={38} cy={-17} r={2.2} fill="#2B1D12" /></g>
       <TinyShip x={1290} y={SL} s={.62} tm={tm} />
       <path d={`M1216 ${SL + 2} q-50 6 -110 1`} stroke="#FFFFFF" strokeWidth={2.4} fill="none" opacity={.8} />
     </g>
@@ -790,7 +793,7 @@ const LandSlab: React.FC<{ k: string; cx: N; base: N; sc: N; a?: N; seed?: N }> 
   </g>;
 };
 const RidgeTape: React.FC<{ x?: N; y?: N; s?: N; draw?: N; well?: N; cool?: N; run?: N; arrows?: N; gold?: N; belt?: N; cross?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, well = 0, cool = 0, run = 0, arrows = 0, gold = 0, belt = 0, cross = 0, tm = 0 }) => {
-  const id = 'rtp' + Math.round(x), V = 300, DM = 640, HW = 26, YB = 650, SL = 70, RC = 175, RY = 630, PR = 88, FR = 128;
+  const id = 'rtp' + Math.round(x), V = 300, DM = 500, HW = 26, YB = 650, SL = 70, RC = 316, RY = 628, PR = 72, FR = 104;
   const yT = (xx: N) => 528 - 86 * Math.exp(-(((xx - 960) / 230) ** 2)) + 4 * Math.sin(xx / 19) * (1 - belt * .8);
   const bnd = [0, ...FLIPS.filter(f => f <= run).map(f => (run - f) * V).filter(d => d > 0 && d < DM).sort((a, b) => a - b), DM];
   const segs = bnd.slice(1).map((d1, i) => ({ d0: bnd[i], d1, nrm: isNormal(run - (bnd[i] + d1) / 2 / V) }));
@@ -800,7 +803,7 @@ const RidgeTape: React.FC<{ x?: N; y?: N; s?: N; draw?: N; well?: N; cool?: N; r
   const needle = (cx: N, up: boolean, a: N, key: string) => { const cy = (yT(cx) + YB) / 2 + 8;
     return <g key={key} opacity={a} transform={`translate(${f1(cx)} ${f1(cy)})`}><circle r={15} fill="#F4EAD2" stroke={SEP} strokeWidth={1.4} /><circle r={12.5} fill="none" stroke="#B8862B" strokeWidth={1.6} />
       <g transform={`rotate(${up ? 0 : 180})`}><path d="M0 -12 L4.2 0 L-4.2 0Z" fill={VER} stroke={SEP} strokeWidth={.6} /><path d="M0 12 L4.2 0 L-4.2 0Z" fill="#2E5C86" stroke={SEP} strokeWidth={.6} /></g><circle r={2} fill={GOLD} /></g>; };
-  const cyc = (o: N) => { const d = 150 + fr(run * V / 520 + o) * 520; return { d, a: ph(d, 150, 200) * (1 - ph(d, 600, 660)) }; };
+  const cyc = (o: N) => { const d = 140 + fr(run * V / 400 + o) * 400; return { d, a: ph(d, 140, 190) * (1 - ph(d, 470, 530)) }; };
   const pR = cyc(0), pL = cyc(.4), pC = cyc(.7), nrmNow = isNormal(run), rot = run * V / PR * 57.3;
   const fishes: [N, N, N, N][] = [[420, 300, 1, .9], [560, 380, -1, .7], [1380, 260, -1, 1], [1500, 410, 1, .75], [760, 200, 1, .6], [1180, 330, -1, .55]];
   const window3 = (r0: N, r1: N) => [0, 120, 240].map(a => { const a0 = (a + 18) * D2R, a1 = (a + 102) * D2R;
@@ -854,16 +857,19 @@ const RidgeTape: React.FC<{ x?: N; y?: N; s?: N; draw?: N; well?: N; cool?: N; r
         return <g key={i} transform={`rotate(${f1(an)} ${f1(rxp)} ${YB + 44})`}><circle cx={rxp} cy={YB + 44} r={30} fill="#8E8A80" stroke={SEP} strokeWidth={1.6} /><path d={`M${f1(rxp - 26)} ${YB + 44} H${f1(rxp + 26)} M${f1(rxp)} ${YB + 18} V${YB + 70}`} stroke={SEP} strokeWidth={1.6} /><circle cx={rxp} cy={YB + 44} r={6} fill={GOLD} stroke={SEP} strokeWidth={1} /></g>; })}
     </g>}
     {/* the continents riding on the floor: South America west, Africa east */}
-    {belt > 0 && [[pL, -1, 'SA', 4.8, 2], [pR, 1, 'AF', 4.2, 5]].map(([p, sd, key, sc, sdd], i) => { const P2 = p as { d: N; a: N }, cx2 = 960 + (sd as N) * P2.d;
+    {belt > 0 && [[pL, -1, 'SA', 4.2, 2], [pR, 1, 'AF', 3.6, 5]].map(([p, sd, key, sc, sdd], i) => { const P2 = p as { d: N; a: N }, cx2 = 960 + (sd as N) * P2.d;
       return <LandSlab key={i} k={key as string} cx={cx2} base={yT(cx2) + 2} sc={sc as N} a={P2.a * sst(belt)} seed={sdd as N} />; })}
     {/* Wegener's grave riding along: a snow mound with a wooden cross */}
     {cross > 0 && <g opacity={cross * pC.a}>{(() => { const cx2 = 960 + pC.d, base = yT(cx2) + 2;
-      return <g><ellipse cx={cx2} cy={base + 2} rx={90} ry={8} fill="#1A1424" opacity={.3} filter="url(#b2s)" />
-        <path d={`M${cx2 - 86} ${f1(base)} Q${cx2 - 50} ${f1(base - 56)} ${cx2 + 4} ${f1(base - 60)} Q${cx2 + 60} ${f1(base - 52)} ${cx2 + 86} ${f1(base)}Z`} fill="#F4F7F8" stroke={SEP} strokeWidth={1.8} />
-        <path d={`M${cx2 + 10} ${f1(base - 54)} Q${cx2 + 50} ${f1(base - 40)} ${cx2 + 78} ${f1(base - 4)}`} stroke="#B9C8D6" strokeWidth={8} fill="none" opacity={.8} />
-        <path d={`M${cx2} ${f1(base - 52)} V${f1(base - 168)} M${cx2 - 32} ${f1(base - 132)} H${cx2 + 32}`} stroke="#6A4430" strokeWidth={10} strokeLinecap="round" />
-        <path d={`M${cx2} ${f1(base - 52)} V${f1(base - 168)} M${cx2 - 32} ${f1(base - 132)} H${cx2 + 32}`} stroke={SEP} strokeWidth={1.4} fill="none" />
-        <path d={`M${cx2 - 36} ${f1(base - 137)} q36 -8 72 0 M${cx2 - 6} ${f1(base - 172)} q6 -4 12 0`} stroke="#FFFFFF" strokeWidth={4} fill="none" strokeLinecap="round" /></g>; })()}</g>}
+      return <g><ellipse cx={cx2 + 10} cy={base + 2} rx={70} ry={7} fill="#1A1424" opacity={.35} filter="url(#b2s)" />
+        {/* a pair of skis stuck upright beside it */}
+        {[-7, 7].map((r2, k) => <g key={k} transform={`rotate(${r2} ${cx2 + 50} ${f1(base - 20)})`}><path d={`M${cx2 + 44 + k * 10} ${f1(base - 6)} V${f1(base - 112)} q4 -12 8 0 V${f1(base - 6)}Z`} fill={k ? '#8C5A36' : '#A06A40'} stroke={SEP} strokeWidth={1.4} /></g>)}
+        <path d={`M${cx2 - 56} ${f1(base)} Q${cx2 - 30} ${f1(base - 38)} ${cx2} ${f1(base - 40)} Q${cx2 + 34} ${f1(base - 36)} ${cx2 + 56} ${f1(base)}Z`} fill="#F4F7F8" stroke={SEP} strokeWidth={1.8} />
+        <path d={`M${cx2 + 6} ${f1(base - 36)} Q${cx2 + 34} ${f1(base - 26)} ${cx2 + 50} ${f1(base - 4)}`} stroke="#B9C8D6" strokeWidth={7} fill="none" opacity={.8} />
+        {/* the cross: two short rough planks, nailed */}
+        <path d={`M${cx2 - 5} ${f1(base - 34)} L${cx2 - 4} ${f1(base - 96)} L${cx2 + 5} ${f1(base - 96)} L${cx2 + 6} ${f1(base - 34)}Z`} fill="#7A5232" stroke={SEP} strokeWidth={1.4} />
+        <path d={`M${cx2 - 24} ${f1(base - 80)} L${cx2 + 24} ${f1(base - 82)} L${cx2 + 24} ${f1(base - 73)} L${cx2 - 24} ${f1(base - 71)}Z`} fill="#8C5E3A" stroke={SEP} strokeWidth={1.4} />
+        <circle cx={cx2} cy={base - 77} r={1.8} fill={SEP} /><path d={`M${cx2 - 26} ${f1(base - 83)} q26 -5 52 -2`} stroke="#FFFFFF" strokeWidth={3} fill="none" strokeLinecap="round" /></g>; })()}</g>}
     {/* the two tape reels at the outer edges; the floor runs onto them as tape */}
     {[-1, 1].map(sd => { const cx = sd < 0 ? RC : 1920 - RC, x0 = 960 + sd * DM, tape = pathOf([[x0, yT(x0)], [cx, RY - PR], [cx, RY - PR + 34], [x0, YB]], true);
       return <g key={sd} opacity={ph(draw, .3, .9)}>
@@ -1008,12 +1014,12 @@ const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N
   const fc = (u: N, j: N) => RUGF[j][0] + .022 * Math.sin(u * 4.2 + j * 1.7) * (1 - pk);
   const Hm = 400 * (1 + pk * 1.1);
   const H = (u: N, v: N) => v < RUG_VF - .02 ? 0 : RUGF.reduce((a, [, hf, w], j) => { const c = fc(u, j), ww = w * (1 + pk * 1.2), g1 = Math.exp(-(((v - c) / ww) ** 2)), g2 = Math.max(0, 1 - Math.abs(v - c) / (ww * 2.2)) ** 1.5;
-    return Math.max(a, hf * lerp(g1, g2, pk) * lerp((.45 + .55 * Math.sin(Math.PI * u) ** .6) * (.66 + .34 * Math.sin(u * 9 + j * 2.3)), mtn(u, j), pk)); }, 0) * comp * Hm;
+    return Math.max(a, hf * lerp(g1, g2, pk) * lerp((.45 + .55 * Math.sin(Math.PI * u) ** .6) * (.6 + .4 * Math.sin(u * 15 + j * 2.3)), mtn(u, j), pk)); }, 0) * comp * Hm;
   // light: low from the left and a little from the front; shadows by marching the height field toward the light
-  const L0 = [-.72, .42, -.55], Ln = Math.hypot(...L0), Lx = L0[0] / Ln, Ly = L0[1] / Ln, Lz = L0[2] / Ln;
+  const L0 = [-.82, .42, -.38], Ln = Math.hypot(...L0), Lx = L0[0] / Ln, Ly = L0[1] / Ln, Lz = L0[2] / Ln;
   const shadowAt = (X: N, Yh: N, Z: N) => { if (comp < .05) return 0; for (let t = 30; t < 900; t += 30) { const xx = X + Lx * t, zz = Z + Lz * t, yy = Yh + Ly * t; if (yy > Hm) return 0;
       const u = (xx / (1 + pk * .5) + 1300) / 2600, v = vZ(zz); if (u < 0 || u > 1 || v < RUG_VF || v > 1) continue; if (H(u, v) > yy + 4) return 1; } return 0; };
-  const NU = 120, NV = 90, vS = (j: N) => j < 18 ? j / 18 * RUG_VF : RUG_VF + (j - 18) / (NV - 18) * (1 - RUG_VF);
+  const NU = 112, NV = 140, vS = (j: N) => j < 18 ? j / 18 * RUG_VF : RUG_VF + (j - 18) / (NV - 18) * (1 - RUG_VF);
   const far: { d: N; el: React.ReactNode }[] = [], near: { d: N; el: React.ReactNode }[] = [];
   for (let j = 0; j < NV; j++) { const v0 = vS(j), v1 = vS(j + 1), Z0 = Zv(v0), Z1 = Zv(v1), keepRug = 1 - cl((v0 - .1) * 8);
     for (let i = 0; i < NU; i++) { const u0 = i / NU, u1 = (i + 1) / NU, h00 = H(u0, v0), h10 = H(u1, v0), h01 = H(u0, v1), h11 = H(u1, v1);
@@ -1022,7 +1028,7 @@ const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N
       const um = (u0 + u1) / 2, vm = (v0 + v1) / 2, rel = hm / Hm, dv = v1 - v0;
       const base = mix(mix(rugPat(u0 + .25 / NU, v0 + .25 * dv), rugPat(u0 + .75 / NU, v0 + .75 * dv), .5), mix(rugPat(u0 + .75 / NU, v0 + .25 * dv), rugPat(u0 + .25 / NU, v0 + .75 * dv), .5), .5);
       const ao = v0 >= RUG_VF && comp > 0 ? cl(1 - rel * 1.6) * .5 * comp : 0;   // the troughs between folds go dark
-      const rugC = mix(lit < Ly ? mix(base, '#1A100C', cl((Ly - lit) / Ly) * .8) : mix(base, '#FFF0D2', cl((lit - Ly) / (1 - Ly)) * .5), '#1A100C', ao);
+      const rugC = mix(lit < Ly ? mix(base, "#1A100C", cl((Ly - lit) / Ly) * .62) : mix(base, '#FFF0D2', cl((lit - Ly) / (1 - Ly)) * .5), '#1A100C', ao);
       const snowK = cl((rel - (.55 + .06 * Math.sin(um * 23 + vm * 9)) + lit * .12) / .1), rockC = mix(mix('#2E3038', '#B0ACA4', lit), mix('#4E5A3E', '#A4A070', lit), cl((.22 - rel) / .12));
       const rock = mix(rockC, mix('#C8D6E6', '#FFFFFF', lit), snowK), c = mix(rugC, mix(rock, '#BFD0DC', .45 * cl((vm - .6) / .4)), pk * (1 - keepRug));
       const el = <path key={j + '_' + i} d={pathOf([P(X0, h00, Z0), P(X1, h10, Z0), P(X1, h11, Z1), P(X0, h01, Z1)], true)} fill={c} stroke={c} strokeWidth={1.3} />;
@@ -1199,7 +1205,7 @@ const FlatHand: React.FC<{ x: N; y: N; s: N; id: string; sil?: boolean; skin?: s
     {F.map(f => <g key={f.i}>
       <path d={pth(f.outline)} fill={sk} /><path d={pth(f.low, false)} stroke={mix(skin, '#6A3A22', .5)} strokeWidth={3.2 * s / 4} fill="none" opacity={.35} /><path d={pth(f.side, false)} fill="none" stroke={SEP} strokeWidth={1.7} strokeLinejoin="round" />
       {/* knuckle bump, joint creases */}
-      <path d={sm([f.at(-.04, -f.w(0) * .55), f.at(.03, 0), f.at(-.04, f.w(0) * .55)].map(T))} stroke="#FFF2E2" strokeWidth={3} fill="none" opacity={.35} />
+      <path d={sm([f.at(-.04, -f.w(0) * .55), f.at(.03, 0), f.at(-.04, f.w(0) * .55)].map(T))} stroke="#FFF2E2" strokeWidth={3} fill="none" opacity={.12} />
       {[-.03, 0, .03].map((o, j) => <path key={j} d={sm([f.at(.45 + o, -f.w(.45) * .55), f.at(.45 + o + .012, 0), f.at(.45 + o, f.w(.45) * .55)].map(T))} stroke={SEP} strokeWidth={.9} fill="none" opacity={.45 - Math.abs(o) * 5} />)}
       <path d={sm([f.at(.72, -f.w(.72) * .45), f.at(.73, 0), f.at(.72, f.w(.72) * .45)].map(T))} stroke={SEP} strokeWidth={.9} fill="none" opacity={.4} />
       {nail(f)}

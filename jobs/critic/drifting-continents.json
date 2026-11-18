@@ -81,5 +81,30 @@
    "Line 17 (157.0 s) Mesosaurus: now at sensible scale, but at full size it is a brown stick in an eye-shaped lens - no legs, tail, snout or water ripples readable. Draw a clear little reptile (long toothy snout, four paddling legs, long tail) with ripple lines and a fish; give the second Mesosaurus print on the African side so 'the print runs across the seams' is literally visible; the white 'Antarctica' patch and pale blue India read as empty holes - give them hatched pigment.",
    "Line 14 (132.8 s) / 26 (232 s) lecture hall: audience still tiny identical busts and the speaker a blue doll with a straight arm; the 'impossible!' bubbles at 232 s are cropped at both edges. Bigger foreground professors that act (one laughing head back, one whispering behind a hand), Wegener holding the map up with an eager face; 2-3 large uncropped bubbles."
   ]
+ },
+ "keyframes4": {
+  "by": "fresh agent (fathom-critic)",
+  "date": "2026-11-18",
+  "sheet": "howweknow/out/drifting-continents_sheet_0.jpg",
+  "scores": {
+   "clarity": 7,
+   "popular": 7,
+   "invention": 7,
+   "drawing": 6,
+   "light": 6,
+   "composition": 7,
+   "style": 7
+  },
+  "verdict": "NOT READY, but close. Bookends (jigsaw, torn atlas, future jigsaw), balloon man, lecture hall, 'impossible!' room, stitched-quilt Pangaea with Mesosaurus, Antarctic fossil cliff and fingernail ruler all pass name-it. The sea-floor middle (37, 40, 44) and the rug->Himalaya (50) still read as diagrams/props, and drawing is mostly flat fills with little modelling or cast shadow.",
+  "top_fixes": [
+   "Line 50 (443.5 s) rug->Himalaya: the folds are now smooth red/navy mounds with a few sawteeth; nobody says 'mountains'. Add the wall/skirting board the rug is shoved against (right edge, with a cast shadow), and let the top 2-3 folds turn into craggy grey rock ridges with white snow caps and a tiny prayer-flag or climber for scale; rake side light so each fold has a lit face and a dark face.",
+   "Line 37 (329.5 s) magnetic stripes: still a full-frame navy/ochre barcode with a grey fin in the middle on a beige void. Put the survey ship on a visible sea surface at the top (the towed magnetometer's cable already leads up out of frame), make the ridge a rocky crest with rubble, and mute the stripes to house umber/verdigris; let the stripes end at the near edge in a piano-keyboard lip so 'like piano keys' is SEEN.",
+   "Line 44 (386.9 s) tape: compasses and reels help, but the floor is a row of grey planks over a flat orange field with dashed arrows. Make the lower half a dark-red mantle with darker convection swirls, the ridge crack glowing lava that turns grey as it moves outward (colour gradient across the planks), and the compass needles flipping N/S stripe by stripe; let the tape ribbon visibly run from the reel into the floor.",
+   "Line 22 (200.5 s) Glossopteris: the 'living plant' ghost above the fossil reads as a lotus/cannabis fan. Draw it as a few long tongue-shaped Glossopteris leaves on a woody stem (same shape as the fossil leaf), and add a sledge or penguin on the ice top for 'Antarctica' scale; the white strip at the bottom edge and the cut-off right side are unexplained.",
+   "Line 40 (352.6 s) fold: the hand peels a sheet but the turned half shows no stripes landing on their twins at this instant; at 60 % the fold should be mid-air with stripes visibly matching colour-for-colour across the ridge (a brief gold glint where they meet).",
+   "Line 47 (416.8 s) conveyor: continents still float as flat green cut-outs above the tank track. Seat them ON the moving belt as land slabs with a cliff edge, a tree and a shadow; keep both reels fully in frame.",
+   "Line 30 (266.6 s) tent: clean and moving, but generic. Half-bury the tent in drift, add a sledge, ski poles and a flag pole leaning in the snow so 'Wegener's last camp' is readable; drop the large soft orange halo to a small lamp glow inside the tent with light spilling from the door.",
+   "Light & drawing, all frames (both 6): flat fills dominate. Give every scene one named source and the cast shadows it makes (desk lamp on the jigsaw at 5.7/484.5/503.2 s, hall windows at 132.8/232.0 s, sun on the ice at 200.5 s); add one shading tone to the faces and figures (Wegener at 89.7 s, hall professors) so they are modelled, not paper-dolls."
+  ]
  }
 }
