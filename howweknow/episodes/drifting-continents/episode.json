@@ -1,0 +1,10371 @@
+{
+ "slug": "drifting-continents",
+ "title": "How do we know the continents move?",
+ "standard": 6,
+ "voice": "af_heart",
+ "speed": 0.86,
+ "pitch": 1.0,
+ "lead": 1.0,
+ "tail": 3.6,
+ "music": {
+  "cues": [
+   {
+    "file": "../studio/music/wonder_lightless_dawn.wav",
+    "at": 0,
+    "start": 0,
+    "db": -21
+   },
+   {
+    "file": "../studio/music/wonder_long_note_one.wav",
+    "at": "L9-1.6",
+    "start": 0,
+    "db": -21
+   },
+   {
+    "file": "../studio/music/tension_darkness_is_coming.wav",
+    "at": "L25-1.6",
+    "start": 0,
+    "db": -22
+   },
+   {
+    "file": "../studio/music/curious_aftermath.wav",
+    "at": "L33-1.6",
+    "start": 0,
+    "db": -20
+   },
+   {
+    "file": "../studio/music/wonder_silver_blue_light.wav",
+    "at": "L47-1.0",
+    "start": 0,
+    "db": -22
+   }
+  ],
+  "xfade": 6,
+  "norm": -18,
+  "swells": [
+   [
+    "L3+1",
+    "L3$",
+    -10
+   ],
+   [
+    "L30+3",
+    "L31$",
+    -12
+   ],
+   [
+    "L40",
+    "L40$",
+    -8
+   ],
+   [
+    "L57$",
+    "end",
+    3
+   ]
+  ]
+ },
+ "new_ideas": [
+  "device TornNews — a newspaper torn in two whose line of print runs on across the tear",
+  "device QuiltPangaea — the supercontinent as a stitched quilt whose seams open into oceans",
+  "device RidgeTape — the sea floor as a tape running out both ways from the ridge, arrows frozen in each band",
+  "device NailAtlantic — a fingernail beside a ruler that becomes the Atlantic"
+ ],
+ "thumb": {
+  "t": 1,
+  "title": "How do we know the continents move?",
+  "v": "S",
+  "kicker": "Wegener · 1912",
+  "lines": [
+   "HOW DO WE",
+   "KNOW THE",
+   "CONTINENTS MOVE?"
+  ],
+  "accent": 2,
+  "note": "A few centimetres a year."
+ },
+ "lines": [
+  {
+   "text": "Take two pieces of a jigsaw puzzle. If their edges fit perfectly, you know at once that they were cut from the same *picture*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "ink-on",
+    "trans": "ink-on",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Jigsaw"
+    ],
+    "stock": [],
+    "see": "A child’s jigsaw on a wooden table; two pieces slide together with a click.",
+    "beats": "+0.0 the table inks on | +1.4 a hand pushes one piece | +2.8 it slides toward the other | +4.2 click — they lock | +5.4 the seam glows vermilion | +7.6 the camera travels on toward the two pieces meeting | +9.8 the light shifts across the two pieces meeting",
+    "set": "jigsaw"
+   },
+   "reads": "Two puzzle pieces fit.",
+   "focus": "the two pieces meeting",
+   "becomes": {
+    "from": "the cream page",
+    "to": "a child’s jigsaw on a wooden table; two pieces slide together with a click",
+    "how": "ink-on"
+   },
+   "acts": [
+    [
+     0,
+     "the table inks on"
+    ],
+    [
+     1.4,
+     "a hand pushes one piece"
+    ],
+    [
+     2.8,
+     "it slides toward the other"
+    ],
+    [
+     4.2,
+     "click — they lock"
+    ],
+    [
+     5.4,
+     "the seam glows vermilion"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the two pieces meeting"
+    ],
+    [
+     9.8,
+     "the light shifts across the two pieces meeting"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "insert",
+   "light": "warm lamp from the left",
+   "setpiece": 1,
+   "motif": "the seam — the jigsaw edge",
+   "sfx": [
+    {
+     "at": 5.62,
+     "file": "public/sfx/blip_click_3.wav",
+     "db": 0
+    },
+    {
+     "at": 2.04,
+     "file": "public/sfx/world_footstep_wood_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Now open an old atlas. Look at the coast of South America, and then at the coast of Africa, across the *ocean*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "rise",
+    "trans": "outline-morph",
+    "cam": "pan-r",
+    "comp": "left-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "AtlasPage"
+    ],
+    "stock": [],
+    "see": "The pieces’ outlines become South America and Africa on an old atlas page.",
+    "beats": "+0.0 the pieces’ edges redraw as coasts | +1.6 the atlas page unfolds around them | +3.0 a finger traces Brazil | +4.4 it crosses to Africa | +6.6 the light shifts across the two coasts | +8.8 the camera travels on toward the two coasts",
+    "set": "atlas"
+   },
+   "src": "S1 S2",
+   "facts": "F1",
+   "reads": "The puzzle pieces become two continents.",
+   "focus": "the two coasts",
+   "becomes": {
+    "from": "the two pieces",
+    "to": "the pieces’ outlines become South America and Africa on an old atlas page",
+    "how": "outline-morph"
+   },
+   "acts": [
+    [
+     0,
+     "the pieces’ edges redraw as coasts"
+    ],
+    [
+     1.6,
+     "the atlas page unfolds around them"
+    ],
+    [
+     3.0,
+     "a finger traces Brazil"
+    ],
+    [
+     4.4,
+     "it crosses to Africa"
+    ],
+    [
+     6.6,
+     "the light shifts across the two coasts"
+    ],
+    [
+     8.8,
+     "the camera travels on toward the two coasts"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "medium",
+   "light": "the same lamp, on old paper",
+   "setpiece": 1,
+   "sfx": [
+    {
+     "at": 2.81,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": 0
+    }
+   ]
+  },
+  {
+   "text": "The bulge of Brazil tucks neatly into the hollow of West Africa, like two puzzle pieces that someone has pulled *apart*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "flip",
+    "trans": "slide-in",
+    "cam": "arc",
+    "comp": "two-figures",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "AtlasPage"
+    ],
+    "stock": [],
+    "see": "Africa’s outline slides across the ocean and nests against Brazil, then slides back.",
+    "beats": "+0.0 a ghost of Africa lifts off the page | +1.6 it slides west across the ocean | +3.0 it nests into Brazil | +4.4 it slides back home | +6.6 the light shifts across the bulge in the hollow"
+   },
+   "src": "S1 S2",
+   "facts": "F1",
+   "reads": "The coasts fit together.",
+   "focus": "the bulge in the hollow",
+   "becomes": {
+    "from": "the two coasts",
+    "to": "Africa’s outline slides across the ocean and nests against Brazil, then slides back",
+    "how": "slide-in"
+   },
+   "acts": [
+    [
+     0,
+     "a ghost of Africa lifts off the page"
+    ],
+    [
+     1.6,
+     "it slides west across the ocean"
+    ],
+    [
+     3.0,
+     "it nests into Brazil"
+    ],
+    [
+     4.4,
+     "it slides back home"
+    ],
+    [
+     6.6,
+     "the light shifts across the bulge in the hollow"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "close",
+   "light": "lamp, raking",
+   "sfx": [
+    {
+     "at": 3.13,
+     "file": "public/sfx/swoosh_thin_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "But a puzzle can be torn apart. Can a planet? Could whole continents once have been joined, and then drifted across the *world*?",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "grow",
+    "trans": "tear",
+    "cam": "dolly",
+    "comp": "wide-sky",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "AtlasPage"
+    ],
+    "stock": [],
+    "see": "The atlas page TEARS down the middle of the Atlantic; the two halves drift a hair apart.",
+    "beats": "+0.0 a nick appears in the Atlantic | +1.2 the page tears downward | +2.6 the halves drift apart | +4.0 paper fibres in the gap | +5.2 a question mark in the gap | +7.4 the camera travels on toward the tear",
+    "set": "atlas-tears"
+   },
+   "reads": "Could the world itself be torn?",
+   "focus": "the tear",
+   "becomes": {
+    "from": "the ghost Africa",
+    "to": "the atlas page TEARS down the middle of the Atlantic; the two halves drift a hair apart",
+    "how": "tear"
+   },
+   "acts": [
+    [
+     0,
+     "a nick appears in the Atlantic"
+    ],
+    [
+     1.2,
+     "the page tears downward"
+    ],
+    [
+     2.6,
+     "the halves drift apart"
+    ],
+    [
+     4.0,
+     "paper fibres in the gap"
+    ],
+    [
+     5.2,
+     "a question mark in the gap"
+    ],
+    [
+     7.4,
+     "the camera travels on toward the tear"
+    ]
+   ],
+   "mood": "mystery",
+   "shot": "medium",
+   "light": "lamp; the gap is dark",
+   "setpiece": 1,
+   "motif": "the seam — the atlas tears",
+   "sfx": [
+    {
+     "at": 1.96,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": 2
+    },
+    {
+     "at": 6.85,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "The ground under our feet is the one thing we trust never to move. And if it does move, it moves far too slowly to *see*.",
+   "gap": 0.9,
+   "section": "COLD",
+   "plan": {
+    "in": "blinds",
+    "trans": "dive",
+    "cam": "crane-down",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "MeadowRock"
+    ],
+    "stock": [],
+    "see": "We drop through the dark gap down to a green meadow; boots stand on a big grey rock.",
+    "beats": "+0.0 we fall through the gap | +1.4 a meadow rushes up | +2.8 boots land on a rock | +4.2 the boots stamp — nothing moves | +5.6 a snail crawls past, faster than the rock | +7.8 the camera travels on toward the boots on the rock | +10.0 the light shifts across the boots on the rock",
+    "set": "meadow"
+   },
+   "reads": "The ground seems never to move.",
+   "focus": "the boots on the rock",
+   "becomes": {
+    "from": "the tear",
+    "to": "we drop through the dark gap down to a green meadow; boots stand on a big grey rock",
+    "how": "dive"
+   },
+   "acts": [
+    [
+     0,
+     "we fall through the gap"
+    ],
+    [
+     1.4,
+     "a meadow rushes up"
+    ],
+    [
+     2.8,
+     "boots land on a rock"
+    ],
+    [
+     4.2,
+     "the boots stamp — nothing moves"
+    ],
+    [
+     5.6,
+     "a snail crawls past, faster than the rock"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the boots on the rock"
+    ],
+    [
+     10.0,
+     "the light shifts across the boots on the rock"
+    ]
+   ],
+   "mood": "calm",
+   "shot": "close",
+   "light": "flat daylight, high",
+   "sfx": [
+    {
+     "at": 2.43,
+     "file": "public/sfx/world_footstep_gravel_4.wav",
+     "db": 0
+    },
+    {
+     "at": 5.53,
+     "file": "public/sfx/thud_soft_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "So how did we find out? From a torn map, a little reptile, a man who died on the ice… and stripes hidden at the bottom of the *sea*.",
+   "gap": 6.2,
+   "section": "COLD",
+   "plan": {
+    "in": "focus",
+    "trans": "split",
+    "cam": "pan-l",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "FourClues"
+    ],
+    "stock": [],
+    "see": "The rock splits into four tags pinned on the meadow: a torn map, a small reptile, a tent in snow, a striped card.",
+    "beats": "+0.0 the rock cracks into four | +1.6 a torn map | +3.2 a small reptile | +4.8 a tent in snow | +6.4 a striped card | +8.6 the camera travels on toward each clue as it appears | +10.8 the light shifts across each clue as it appears",
+    "set": "four-clues"
+   },
+   "src": "S1 S3 S2 S4 S3 S5 S6 S7",
+   "facts": "F2 F3 F5 F6",
+   "reads": "Four clues.",
+   "focus": "each clue as it appears",
+   "becomes": {
+    "from": "the rock",
+    "to": "the rock splits into four tags pinned on the meadow: a torn map, a small reptile, a tent in snow, a striped card",
+    "how": "split"
+   },
+   "acts": [
+    [
+     0,
+     "the rock cracks into four"
+    ],
+    [
+     1.6,
+     "a torn map"
+    ],
+    [
+     3.2,
+     "a small reptile"
+    ],
+    [
+     4.8,
+     "a tent in snow"
+    ],
+    [
+     6.4,
+     "a striped card"
+    ],
+    [
+     8.6,
+     "the camera travels on toward each clue as it appears"
+    ],
+    [
+     10.8,
+     "the light shifts across each clue as it appears"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "wide",
+   "light": "daylight",
+   "sfx": [
+    {
+     "at": 2.47,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -2
+    },
+    {
+     "at": 7.4,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "Imagine a rock sitting in a meadow. Grass grows round it, trees rise, a whole town is built… and the rock has barely crept a *step*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "iris",
+    "trans": "time-lapse",
+    "cam": "lock",
+    "comp": "diagonal",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "MeadowRock"
+    ],
+    "stock": [],
+    "see": "Time-lapse: grass grows, trees rise, houses and a church are built round the rock, which shifts a hair.",
+    "beats": "+0.0 grass grows | +1.4 trees rise | +2.8 houses climb up | +4.2 a church tower | +5.6 a tick mark: the rock moved a hair | +7.8 the camera travels on toward the rock’s tiny shift | +10.0 the light shifts across the rock’s tiny shift",
+    "set": "town-grows"
+   },
+   "src": "S9 S10",
+   "facts": "F8",
+   "reads": "The rock moves almost nothing while a town is built.",
+   "focus": "the rock’s tiny shift",
+   "becomes": {
+    "from": "the four clues",
+    "to": "time-lapse: grass grows, trees rise, houses and a church are built round the rock, which shifts a hair",
+    "how": "time-lapse"
+   },
+   "acts": [
+    [
+     0,
+     "grass grows"
+    ],
+    [
+     1.4,
+     "trees rise"
+    ],
+    [
+     2.8,
+     "houses climb up"
+    ],
+    [
+     4.2,
+     "a church tower"
+    ],
+    [
+     5.6,
+     "a tick mark: the rock moved a hair"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the rock’s tiny shift"
+    ],
+    [
+     10.0,
+     "the light shifts across the rock’s tiny shift"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "wide",
+   "light": "days and nights flicker",
+   "sfx": [
+    {
+     "at": 4.43,
+     "file": "public/sfx/world_birds_1.wav",
+     "db": -4
+    },
+    {
+     "at": 9.07,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": 0
+    }
+   ]
+  },
+  {
+   "text": "Nobody could ever watch that happen. A human life is far too short, and the motion is far too *slow*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "burn",
+    "trans": "dim",
+    "cam": "tilt-down",
+    "comp": "right-third-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "MeadowRock"
+    ],
+    "stock": [],
+    "see": "A lifetime passes as an hourglass beside the rock; the sand runs out, the rock has not visibly moved.",
+    "beats": "+0.0 an hourglass turns over | +1.6 the sand runs | +3.0 the town’s lights flicker on and off | +4.2 the last grain falls | +6.4 the light shifts across the hourglass"
+   },
+   "reads": "A life is too short to see it.",
+   "focus": "the hourglass",
+   "becomes": {
+    "from": "the town",
+    "to": "a lifetime passes as an hourglass beside the rock; the sand runs out, the rock has not visibly moved",
+    "how": "dim"
+   },
+   "acts": [
+    [
+     0,
+     "an hourglass turns over"
+    ],
+    [
+     1.6,
+     "the sand runs"
+    ],
+    [
+     3.0,
+     "the town’s lights flicker on and off"
+    ],
+    [
+     4.2,
+     "the last grain falls"
+    ],
+    [
+     6.4,
+     "the light shifts across the hourglass"
+    ]
+   ],
+   "mood": "calm",
+   "shot": "medium",
+   "light": "evening, then night",
+   "sfx": [
+    {
+     "at": 0.85,
+     "file": "public/sfx/pour_sand_1.wav",
+     "db": -2
+    },
+    {
+     "at": 5.11,
+     "file": "public/sfx/world_clock_tick_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "For centuries, people noticed that the coasts matched. Most called it a coincidence. Then one man refused to let it *go*.",
+   "gap": 0.7,
+   "section": "STAKES",
+   "plan": {
+    "in": "drop",
+    "trans": "rise-from",
+    "cam": "tilt-up",
+    "comp": "tiny-in-vast",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "MapLeaves"
+    ],
+    "stock": [],
+    "see": "Old maps flutter up from the town like leaves, each with matching coasts; one hand catches one.",
+    "beats": "+0.0 old maps rise | +1.4 they flutter past | +2.8 a shrug: \"coincidence\" stamped on one | +4.4 a hand snatches the last one | +6.6 the light shifts across the hand that catches the map"
+   },
+   "src": "S1 S2",
+   "facts": "F1",
+   "reads": "People noticed, but did not follow it.",
+   "focus": "the hand that catches the map",
+   "becomes": {
+    "from": "the night town",
+    "to": "old maps flutter up from the town like leaves, each with matching coasts; one hand catches one",
+    "how": "rise-from"
+   },
+   "acts": [
+    [
+     0,
+     "old maps rise"
+    ],
+    [
+     1.4,
+     "they flutter past"
+    ],
+    [
+     2.8,
+     "a shrug: \"coincidence\" stamped on one"
+    ],
+    [
+     4.4,
+     "a hand snatches the last one"
+    ],
+    [
+     6.6,
+     "the light shifts across the hand that catches the map"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "medium",
+   "light": "moonlight",
+   "sfx": [
+    {
+     "at": 0.89,
+     "file": "public/sfx/transition_whoosh_airy_1.wav",
+     "db": -2
+    },
+    {
+     "at": 3.75,
+     "file": "public/sfx/impact_wood_3.wav",
+     "db": -3
+    },
+    {
+     "at": 7.15,
+     "file": "public/sfx/swoosh_thin_2.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "His name was Alfred Wegener. He was not a geologist at all. He studied the weather, sending balloons high into the *sky*.",
+   "gap": 1.5,
+   "section": "CLUE1",
+   "plan": {
+    "in": "stamp",
+    "trans": "hand-over",
+    "cam": "crane-up",
+    "comp": "right-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GreenlandIce",
+     "Balloon"
+    ],
+    "stock": [
+     "P-01"
+    ],
+    "see": "The hand becomes Wegener’s: on white Greenland ice he lets a weather balloon go.",
+    "beats": "+0.0 the hand opens: a balloon string | +1.4 Wegener stands on the ice | +2.8 he lets go | +4.2 the balloon rises | +5.4 he shades his eyes | +7.6 the camera travels on toward Wegener and the balloon",
+    "set": "wegener-balloon"
+   },
+   "src": "S1 S3",
+   "facts": "F2",
+   "reads": "Alfred Wegener, weather scientist.",
+   "focus": "Wegener and the balloon",
+   "becomes": {
+    "from": "the caught map",
+    "to": "the hand becomes Wegener’s: on white Greenland ice he lets a weather balloon go",
+    "how": "hand-over"
+   },
+   "acts": [
+    [
+     0,
+     "the hand opens: a balloon string"
+    ],
+    [
+     1.4,
+     "Wegener stands on the ice"
+    ],
+    [
+     2.8,
+     "he lets go"
+    ],
+    [
+     4.2,
+     "the balloon rises"
+    ],
+    [
+     5.4,
+     "he shades his eyes"
+    ],
+    [
+     7.6,
+     "the camera travels on toward Wegener and the balloon"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "medium",
+   "light": "white Arctic light",
+   "sfx": [
+    {
+     "at": 4.21,
+     "file": "public/sfx/swoosh_thin_1.wav",
+     "db": -2
+    },
+    {
+     "at": 7.02,
+     "file": "public/sfx/real_wind_3.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "From high above, the land below looks like a map spread out on a table. And Wegener could not stop looking at *maps*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "slide",
+    "trans": "rise",
+    "cam": "dive",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Balloon",
+     "StudyDesk"
+    ],
+    "stock": [],
+    "see": "We ride with the balloon: the ice below flattens into a map, which becomes the atlas on his desk.",
+    "beats": "+0.0 the ground falls away | +1.6 coasts outline themselves | +3.0 the map gets a paper edge | +4.4 it lands on a desk | +6.6 the light shifts across the map below | +8.8 the camera travels on toward the map below"
+   },
+   "src": "S1 S3",
+   "facts": "F2",
+   "reads": "He loved maps.",
+   "focus": "the map below",
+   "becomes": {
+    "from": "the balloon",
+    "to": "we ride with the balloon: the ice below flattens into a map, which becomes the atlas on his desk",
+    "how": "rise"
+   },
+   "acts": [
+    [
+     0,
+     "the ground falls away"
+    ],
+    [
+     1.6,
+     "coasts outline themselves"
+    ],
+    [
+     3.0,
+     "the map gets a paper edge"
+    ],
+    [
+     4.4,
+     "it lands on a desk"
+    ],
+    [
+     6.6,
+     "the light shifts across the map below"
+    ],
+    [
+     8.8,
+     "the camera travels on toward the map below"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "wide",
+   "light": "high sun",
+   "sfx": [
+    {
+     "at": 2.94,
+     "file": "public/sfx/transition_whoosh_airy_1.wav",
+     "db": -2
+    },
+    {
+     "at": 6.85,
+     "file": "public/sfx/thud_soft_2.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "He saw the matching coasts. Later he wrote that it was like tearing a newspaper, and then fitting the torn pieces back *together*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "unroll",
+    "trans": "snap",
+    "cam": "push",
+    "comp": "left-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "TornNews",
+     "StudyDesk"
+    ],
+    "stock": [],
+    "see": "The atlas page becomes a newspaper; it tears in two; his hands slide the halves back together.",
+    "beats": "+0.0 the atlas turns to newsprint | +1.4 it rips in two | +2.8 the halves drift | +4.2 his hands push them back | +5.4 the edges meet | +7.6 the camera travels on toward the torn newspaper",
+    "set": "torn-newspaper"
+   },
+   "src": "S3 S11",
+   "facts": "F9",
+   "reads": "Like a torn newspaper.",
+   "focus": "the torn newspaper",
+   "becomes": {
+    "from": "the atlas on the desk",
+    "to": "the atlas page becomes a newspaper; it tears in two; his hands slide the halves back together",
+    "how": "snap"
+   },
+   "acts": [
+    [
+     0,
+     "the atlas turns to newsprint"
+    ],
+    [
+     1.4,
+     "it rips in two"
+    ],
+    [
+     2.8,
+     "the halves drift"
+    ],
+    [
+     4.2,
+     "his hands push them back"
+    ],
+    [
+     5.4,
+     "the edges meet"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the torn newspaper"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "close",
+   "light": "oil lamp on the desk",
+   "motif": "the seam — the torn newspaper",
+   "sfx": [
+    {
+     "at": 1.76,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": 1
+    },
+    {
+     "at": 7.83,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "If the edges fit, and the lines of print run straight on across the tear, you could be sure the pieces were one page. But where was the *print*?",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "tear-in",
+    "trans": "travel-line",
+    "cam": "track",
+    "comp": "two-figures",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "TornNews"
+    ],
+    "stock": [],
+    "see": "A line of print runs from one half across the tear to the other, letter by letter.",
+    "beats": "+0.0 a word begins on the left half | +1.4 it runs to the tear | +2.6 it jumps the tear | +3.8 it ends on the right half | +5.0 a tick | +7.2 the camera travels on toward the line of print crossing | +9.4 the light shifts across the line of print crossing | +11.6 the camera travels on toward the line of print crossing"
+   },
+   "src": "S3 S11",
+   "facts": "F9",
+   "reads": "Print running across the tear proves it.",
+   "focus": "the line of print crossing",
+   "becomes": {
+    "from": "the joined halves",
+    "to": "a line of print runs from one half across the tear to the other, letter by letter",
+    "how": "travel-line"
+   },
+   "acts": [
+    [
+     0,
+     "a word begins on the left half"
+    ],
+    [
+     1.4,
+     "it runs to the tear"
+    ],
+    [
+     2.6,
+     "it jumps the tear"
+    ],
+    [
+     3.8,
+     "it ends on the right half"
+    ],
+    [
+     5.0,
+     "a tick"
+    ],
+    [
+     7.2,
+     "the camera travels on toward the line of print crossing"
+    ],
+    [
+     9.4,
+     "the light shifts across the line of print crossing"
+    ],
+    [
+     11.6,
+     "the camera travels on toward the line of print crossing"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "insert",
+   "light": "oil lamp",
+   "sfx": [
+    {
+     "at": 3.7,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -5
+    },
+    {
+     "at": 11.11,
+     "file": "public/sfx/blip_click_4.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "So he went looking for the lines of print. Not on paper, but in the rocks and fossils on both sides of the *ocean*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "wipe",
+    "trans": "shrink-into",
+    "cam": "pan-l",
+    "comp": "wide-sky",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "StudyDesk"
+    ],
+    "stock": [],
+    "see": "The letters shrink into fossil shells and rock layers either side of a blue ocean on the map.",
+    "beats": "+0.0 the letters turn to shells | +1.4 rock layers on the left | +2.8 the same layers on the right | +4.0 a magnifier sweeps across | +6.2 the light shifts across the fossils either side | +8.4 the camera travels on toward the fossils either side"
+   },
+   "reads": "He looked for the same rocks and fossils on both sides.",
+   "focus": "the fossils either side",
+   "becomes": {
+    "from": "the print",
+    "to": "the letters shrink into fossil shells and rock layers either side of a blue ocean on the map",
+    "how": "shrink-into"
+   },
+   "acts": [
+    [
+     0,
+     "the letters turn to shells"
+    ],
+    [
+     1.4,
+     "rock layers on the left"
+    ],
+    [
+     2.8,
+     "the same layers on the right"
+    ],
+    [
+     4.0,
+     "a magnifier sweeps across"
+    ],
+    [
+     6.2,
+     "the light shifts across the fossils either side"
+    ],
+    [
+     8.4,
+     "the camera travels on toward the fossils either side"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "medium",
+   "light": "lamp",
+   "sfx": [
+    {
+     "at": 4.6,
+     "file": "public/sfx/swoosh_thin_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "In 1912 he said it out loud. The continents had once been joined in one giant land, and had slowly drifted *apart*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "quill",
+    "trans": "turn",
+    "cam": "orbit",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LectureHall"
+    ],
+    "stock": [],
+    "see": "A lecture hall in 1912: Wegener at a lectern, a map behind him; the continents on the map slide together.",
+    "beats": "+0.0 the hall inks on | +1.4 Wegener lifts his pointer | +2.8 the continents on the wall slide | +4.2 they join | +5.4 the audience leans in | +7.6 the camera travels on toward Wegener at the lectern",
+    "set": "lecture-1912"
+   },
+   "src": "S1 S3",
+   "facts": "F2",
+   "reads": "He announced it in 1912.",
+   "focus": "Wegener at the lectern",
+   "becomes": {
+    "from": "the magnifier",
+    "to": "a lecture hall in 1912: Wegener at a lectern, a map behind him; the continents on the map slide together",
+    "how": "turn"
+   },
+   "acts": [
+    [
+     0,
+     "the hall inks on"
+    ],
+    [
+     1.4,
+     "Wegener lifts his pointer"
+    ],
+    [
+     2.8,
+     "the continents on the wall slide"
+    ],
+    [
+     4.2,
+     "they join"
+    ],
+    [
+     5.4,
+     "the audience leans in"
+    ],
+    [
+     7.6,
+     "the camera travels on toward Wegener at the lectern"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "medium",
+   "light": "gaslight",
+   "sfx": [
+    {
+     "at": 2.81,
+     "file": "public/sfx/world_door_creak_1.wav",
+     "db": -3
+    },
+    {
+     "at": 6.18,
+     "file": "public/sfx/thud_soft_2.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "Later that giant land got a name: Pangaea, from the Greek for ‘all the *earth*’.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "ink-bleed",
+    "trans": "crane-in",
+    "cam": "snap-zoom",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "QuiltPangaea"
+    ],
+    "stock": [],
+    "see": "The joined land fills the frame; the word PANGAEA is stamped across it.",
+    "beats": "+0.0 the map fills the frame | +1.4 PANGAEA stamps on | +2.6 the letters settle | +3.4 the coast glows | +5.6 the light shifts across the name",
+    "set": "pangaea"
+   },
+   "src": "S2 S11",
+   "facts": "F10",
+   "reads": "Pangaea: all the earth.",
+   "focus": "the name",
+   "becomes": {
+    "from": "the wall map",
+    "to": "the joined land fills the frame; the word PANGAEA is stamped across it",
+    "how": "crane-in"
+   },
+   "acts": [
+    [
+     0,
+     "the map fills the frame"
+    ],
+    [
+     1.4,
+     "PANGAEA stamps on"
+    ],
+    [
+     2.6,
+     "the letters settle"
+    ],
+    [
+     3.4,
+     "the coast glows"
+    ],
+    [
+     5.6,
+     "the light shifts across the name"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "gaslight, warm",
+   "sfx": [
+    {
+     "at": 1.6,
+     "file": "public/sfx/impact_wood_3.wav",
+     "db": 0
+    }
+   ]
+  },
+  {
+   "text": "Picture all the continents stitched together like a patchwork quilt, with seams where the oceans would one day *open*.",
+   "gap": 0.7,
+   "section": "CLUE1",
+   "plan": {
+    "in": "assemble",
+    "trans": "form",
+    "cam": "crane-up",
+    "comp": "diagonal",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "QuiltPangaea"
+    ],
+    "stock": [],
+    "see": "Pangaea becomes a quilt: each continent a patch, the seams sewn in vermilion thread.",
+    "beats": "+0.0 patches take on cloth texture | +1.4 a needle sews the first seam | +2.8 the second | +4.2 the whole quilt | +5.2 a seam puckers | +7.4 the camera travels on toward the stitched seams"
+   },
+   "reads": "One supercontinent, like a quilt.",
+   "focus": "the stitched seams",
+   "becomes": {
+    "from": "the name",
+    "to": "Pangaea becomes a quilt: each continent a patch, the seams sewn in vermilion thread",
+    "how": "form"
+   },
+   "acts": [
+    [
+     0,
+     "patches take on cloth texture"
+    ],
+    [
+     1.4,
+     "a needle sews the first seam"
+    ],
+    [
+     2.8,
+     "the second"
+    ],
+    [
+     4.2,
+     "the whole quilt"
+    ],
+    [
+     5.2,
+     "a seam puckers"
+    ],
+    [
+     7.4,
+     "the camera travels on toward the stitched seams"
+    ]
+   ],
+   "mood": "warm",
+   "shot": "wide",
+   "light": "soft lamp",
+   "motif": "the seam — Pangaea’s stitches",
+   "sfx": [
+    {
+     "at": 2.02,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -5
+    },
+    {
+     "at": 4.85,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -6
+    }
+   ]
+  },
+  {
+   "text": "And on that quilt, the print runs on across the seams. Take Mesosaurus: a small, slim reptile with a long snout that swam in fresh *water*.",
+   "gap": 1.5,
+   "section": "CLUE2",
+   "plan": {
+    "in": "ink-on",
+    "trans": "walk-in",
+    "cam": "track",
+    "comp": "right-third-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Mesosaurus",
+     "QuiltPangaea"
+    ],
+    "stock": [
+     "P-02"
+    ],
+    "see": "A little reptile pops up on the quilt and walks along a patch; a puddle of lake under it.",
+    "beats": "+0.0 a head peeks over a seam | +1.4 Mesosaurus climbs out | +2.8 it walks | +4.2 its tail swishes | +5.6 it slips into a lake | +7.8 the camera travels on toward the reptile | +10.0 the light shifts across the reptile",
+    "set": "mesosaurus"
+   },
+   "src": "S2 S4",
+   "facts": "F3",
+   "reads": "Mesosaurus, a small freshwater reptile.",
+   "focus": "the reptile",
+   "becomes": {
+    "from": "the quilt",
+    "to": "a little reptile pops up on the quilt and walks along a patch; a puddle of lake under it",
+    "how": "walk-in"
+   },
+   "acts": [
+    [
+     0,
+     "a head peeks over a seam"
+    ],
+    [
+     1.4,
+     "Mesosaurus climbs out"
+    ],
+    [
+     2.8,
+     "it walks"
+    ],
+    [
+     4.2,
+     "its tail swishes"
+    ],
+    [
+     5.6,
+     "it slips into a lake"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the reptile"
+    ],
+    [
+     10.0,
+     "the light shifts across the reptile"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "close",
+   "light": "lamp",
+   "sfx": [
+    {
+     "at": 3.32,
+     "file": "public/sfx/world_footstep_gravel_4.wav",
+     "db": -6
+    },
+    {
+     "at": 9.07,
+     "file": "public/sfx/pond_water_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "Its bones are found in southern Africa and in South America, and nowhere else on Earth. How could that *be*?",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "rise",
+    "trans": "land-on",
+    "cam": "pull",
+    "comp": "tiny-in-vast",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "FossilMap"
+    ],
+    "stock": [],
+    "see": "The reptile becomes a fossil skeleton; two copies land as pins, one on each continent of today’s map.",
+    "beats": "+0.0 it freezes into bones | +1.4 one pin lands in Brazil | +2.6 one in South Africa | +3.6 the rest of the map greys out | +5.8 the light shifts across the two pins | +8.0 the camera travels on toward the two pins"
+   },
+   "src": "S2 S4",
+   "facts": "F3",
+   "reads": "Fossils only in Africa and South America.",
+   "focus": "the two pins",
+   "becomes": {
+    "from": "the swimming reptile",
+    "to": "the reptile becomes a fossil skeleton; two copies land as pins, one on each continent of today’s map",
+    "how": "land-on"
+   },
+   "acts": [
+    [
+     0,
+     "it freezes into bones"
+    ],
+    [
+     1.4,
+     "one pin lands in Brazil"
+    ],
+    [
+     2.6,
+     "one in South Africa"
+    ],
+    [
+     3.6,
+     "the rest of the map greys out"
+    ],
+    [
+     5.8,
+     "the light shifts across the two pins"
+    ],
+    [
+     8.0,
+     "the camera travels on toward the two pins"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "medium",
+   "light": "lamp",
+   "sfx": [
+    {
+     "at": 2.55,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -2
+    },
+    {
+     "at": 4.26,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "A freshwater swimmer could never cross a salty ocean thousands of kilometres wide. So how did it live on both *sides*?",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "flip",
+    "trans": "ripple-through",
+    "cam": "handheld",
+    "comp": "right-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "FossilMap",
+     "Mesosaurus"
+    ],
+    "stock": [],
+    "see": "The reptile tries to swim the Atlantic; waves rise; it turns back, splutters.",
+    "beats": "+0.0 it wades in | +1.4 a wave rolls | +2.8 it splutters | +4.2 it turns back | +5.2 a question mark | +7.4 the camera travels on toward the reptile in the waves"
+   },
+   "src": "S2 S4",
+   "facts": "F3",
+   "reads": "It could not swim the ocean.",
+   "focus": "the reptile in the waves",
+   "becomes": {
+    "from": "the pins",
+    "to": "the reptile tries to swim the Atlantic; waves rise; it turns back, splutters",
+    "how": "ripple-through"
+   },
+   "acts": [
+    [
+     0,
+     "it wades in"
+    ],
+    [
+     1.4,
+     "a wave rolls"
+    ],
+    [
+     2.8,
+     "it splutters"
+    ],
+    [
+     4.2,
+     "it turns back"
+    ],
+    [
+     5.2,
+     "a question mark"
+    ],
+    [
+     7.4,
+     "the camera travels on toward the reptile in the waves"
+    ]
+   ],
+   "mood": "playful",
+   "shot": "close",
+   "light": "grey sea light",
+   "sfx": [
+    {
+     "at": 0.89,
+     "file": "public/sfx/pond_water_1.wav",
+     "db": -3
+    },
+    {
+     "at": 3.57,
+     "file": "public/sfx/dropper_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "Unless, when it was alive, there was no ocean between them at all: just one lake, one shore, one *land*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "grow",
+    "trans": "merge",
+    "cam": "pan-r",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "FossilMap",
+     "Mesosaurus"
+    ],
+    "stock": [],
+    "see": "The two continents slide together; the two pins meet in one lake; the reptile swims across happily.",
+    "beats": "+0.0 the ocean narrows | +1.4 the coasts meet | +2.6 the two pins become one lake | +3.8 the reptile swims across | +6.0 the light shifts across the joined lake | +8.2 the camera travels on toward the joined lake"
+   },
+   "src": "S2 S4",
+   "facts": "F3",
+   "reads": "Back then, they were one land.",
+   "focus": "the joined lake",
+   "becomes": {
+    "from": "the waves",
+    "to": "the two continents slide together; the two pins meet in one lake; the reptile swims across happily",
+    "how": "merge"
+   },
+   "acts": [
+    [
+     0,
+     "the ocean narrows"
+    ],
+    [
+     1.4,
+     "the coasts meet"
+    ],
+    [
+     2.6,
+     "the two pins become one lake"
+    ],
+    [
+     3.8,
+     "the reptile swims across"
+    ],
+    [
+     6.0,
+     "the light shifts across the joined lake"
+    ],
+    [
+     8.2,
+     "the camera travels on toward the joined lake"
+    ]
+   ],
+   "mood": "warm",
+   "shot": "medium",
+   "light": "warm sun",
+   "sfx": [
+    {
+     "at": 2.55,
+     "file": "public/sfx/swoosh_deep_1.wav",
+     "db": -3
+    },
+    {
+     "at": 5.96,
+     "file": "public/sfx/pond_water_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Then there is a plant called Glossopteris, a seed fern with leaves shaped like tongues. Its fossils turn up in South America, Africa, India, *Australia*…",
+   "gap": 0.75,
+   "section": "CLUE2",
+   "plan": {
+    "in": "blinds",
+    "trans": "fly-out",
+    "cam": "pan-l",
+    "comp": "left-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Fern",
+     "FossilMap"
+    ],
+    "stock": [
+     "P-02"
+    ],
+    "see": "Tongue-shaped leaves blow off a fern and land on four continents of today’s map, one after another.",
+    "beats": "+0.0 a fern unfurls | +1.4 leaves blow off | +2.6 one lands on South America | +3.8 on Africa | +5.0 on India | +6.2 on Australia | +8.4 the light shifts across each leaf landing",
+    "set": "glossopteris"
+   },
+   "src": "S2 S4",
+   "facts": "F3",
+   "reads": "The same fern on many continents.",
+   "focus": "each leaf landing",
+   "becomes": {
+    "from": "the lake",
+    "to": "tongue-shaped leaves blow off a fern and land on four continents of today’s map, one after another",
+    "how": "fly-out"
+   },
+   "acts": [
+    [
+     0,
+     "a fern unfurls"
+    ],
+    [
+     1.4,
+     "leaves blow off"
+    ],
+    [
+     2.6,
+     "one lands on South America"
+    ],
+    [
+     3.8,
+     "on Africa"
+    ],
+    [
+     5.0,
+     "on India"
+    ],
+    [
+     6.2,
+     "on Australia"
+    ],
+    [
+     8.4,
+     "the light shifts across each leaf landing"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "wide",
+   "light": "warm breeze light",
+   "sfx": [
+    {
+     "at": 2.66,
+     "file": "public/sfx/transition_whoosh_airy_1.wav",
+     "db": -3
+    },
+    {
+     "at": 6.6,
+     "file": "public/sfx/impact_soft_3.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "…and Antarctica. A plant of mild, green forests, buried under the ice at the bottom of the *world*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "focus",
+    "trans": "settle",
+    "cam": "crane-down",
+    "comp": "two-figures",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "FernIce"
+    ],
+    "stock": [],
+    "see": "The last leaf drifts down to Antarctica and is buried by snow, frozen in a block of ice.",
+    "beats": "+0.0 the leaf drifts south | +1.4 it lands on white Antarctica | +2.6 snow falls over it | +3.8 it freezes in a block | +6.0 the light shifts across the leaf in the ice"
+   },
+   "src": "S2 S4",
+   "facts": "F3",
+   "reads": "Even in Antarctica.",
+   "focus": "the leaf in the ice",
+   "becomes": {
+    "from": "the last leaf",
+    "to": "the last leaf drifts down to Antarctica and is buried by snow, frozen in a block of ice",
+    "how": "settle"
+   },
+   "acts": [
+    [
+     0,
+     "the leaf drifts south"
+    ],
+    [
+     1.4,
+     "it lands on white Antarctica"
+    ],
+    [
+     2.6,
+     "snow falls over it"
+    ],
+    [
+     3.8,
+     "it freezes in a block"
+    ],
+    [
+     6.0,
+     "the light shifts across the leaf in the ice"
+    ]
+   ],
+   "mood": "mystery",
+   "shot": "close",
+   "light": "cold blue light",
+   "sfx": [
+    {
+     "at": 0.77,
+     "file": "public/sfx/real_wind_4.wav",
+     "db": -3
+    },
+    {
+     "at": 5.97,
+     "file": "public/sfx/crack_wood_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Like a fern in a freezer. Either the climate had flipped completely, or Antarctica had once sat somewhere much *warmer*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "iris",
+    "trans": "open",
+    "cam": "dutch",
+    "comp": "wide-sky",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "FernIce"
+    ],
+    "stock": [],
+    "see": "A freezer door opens: a fern inside, frosted; the freezer slides north toward a warm sun and thaws.",
+    "beats": "+0.0 a freezer door swings open | +1.4 frost puffs out | +2.8 the freezer slides north | +4.2 the sun warms it | +5.4 the fern unfolds | +7.6 the camera travels on toward the freezer drifting north"
+   },
+   "reads": "Antarctica was once somewhere warmer.",
+   "focus": "the freezer drifting north",
+   "becomes": {
+    "from": "the ice block",
+    "to": "a freezer door opens: a fern inside, frosted; the freezer slides north toward a warm sun and thaws",
+    "how": "open"
+   },
+   "acts": [
+    [
+     0,
+     "a freezer door swings open"
+    ],
+    [
+     1.4,
+     "frost puffs out"
+    ],
+    [
+     2.8,
+     "the freezer slides north"
+    ],
+    [
+     4.2,
+     "the sun warms it"
+    ],
+    [
+     5.4,
+     "the fern unfolds"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the freezer drifting north"
+    ]
+   ],
+   "mood": "playful",
+   "shot": "medium",
+   "light": "cold, then warm",
+   "sfx": [
+    {
+     "at": 0.43,
+     "file": "public/sfx/world_door_creak_1.wav",
+     "db": -2
+    },
+    {
+     "at": 4.68,
+     "file": "public/sfx/dropper_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "Matching coasts, matching fossils. To Wegener, the torn newspaper read straight across the *tear*.",
+   "gap": 0.7,
+   "section": "CLUE2",
+   "plan": {
+    "in": "burn",
+    "trans": "echo",
+    "cam": "rack",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "TornNews",
+     "StudyDesk"
+    ],
+    "stock": [],
+    "see": "Back on the desk: the torn newspaper again, the print now made of reptiles and leaves, running across the tear.",
+    "beats": "+0.0 the newspaper returns | +1.4 the print is little reptiles | +2.8 and leaves | +4.0 it runs across the tear"
+   },
+   "src": "S3 S11",
+   "facts": "F9",
+   "reads": "The evidence lined up.",
+   "focus": "the print across the tear",
+   "becomes": {
+    "from": "the fern",
+    "to": "back on the desk: the torn newspaper again, the print now made of reptiles and leaves, running across the tear",
+    "how": "echo"
+   },
+   "acts": [
+    [
+     0,
+     "the newspaper returns"
+    ],
+    [
+     1.4,
+     "the print is little reptiles"
+    ],
+    [
+     2.8,
+     "and leaves"
+    ],
+    [
+     4.0,
+     "it runs across the tear"
+    ]
+   ],
+   "mood": "warm",
+   "shot": "insert",
+   "light": "oil lamp",
+   "motif": "the seam — the print crosses the tear",
+   "sfx": [
+    {
+     "at": 0.71,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -2
+    },
+    {
+     "at": 3.28,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "text": "But the experts were not convinced. Most geologists rejected the idea, and many of them mocked *it*.",
+   "gap": 1.5,
+   "section": "CLUE3",
+   "plan": {
+    "in": "drop",
+    "trans": "swell",
+    "cam": "whip",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LectureHall"
+    ],
+    "stock": [],
+    "see": "The lecture hall again: professors in rows laugh; the laughter rises like steam.",
+    "beats": "+0.0 the hall fills | +1.4 the first laugh | +2.6 the row laughs | +3.8 steam rises from the laughter | +6.0 the light shifts across the laughing professors",
+    "set": "mockery"
+   },
+   "src": "S2 S3",
+   "facts": "F4",
+   "reads": "Experts mocked him.",
+   "focus": "the laughing professors",
+   "becomes": {
+    "from": "the newspaper",
+    "to": "the lecture hall again: professors in rows laugh; the laughter rises like steam",
+    "how": "swell"
+   },
+   "acts": [
+    [
+     0,
+     "the hall fills"
+    ],
+    [
+     1.4,
+     "the first laugh"
+    ],
+    [
+     2.6,
+     "the row laughs"
+    ],
+    [
+     3.8,
+     "steam rises from the laughter"
+    ],
+    [
+     6.0,
+     "the light shifts across the laughing professors"
+    ]
+   ],
+   "mood": "tense",
+   "shot": "wide",
+   "light": "gaslight",
+   "sfx": [
+    {
+     "at": 2.75,
+     "file": "public/sfx/critter_cat_purr_1.wav",
+     "db": -10
+    },
+    {
+     "at": 5.06,
+     "file": "public/sfx/swoosh_thin_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Their question was simple, and it was a good one. What force could push a whole continent through the solid floor of the *ocean*?",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "stamp",
+    "trans": "form",
+    "cam": "push",
+    "comp": "diagonal",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "LectureHall"
+    ],
+    "stock": [],
+    "see": "The steam hardens into a stone wall of speech bubbles, each saying “impossible!”.",
+    "beats": "+0.0 the steam forms bubbles | +1.4 “impossible!” | +2.8 another | +4.0 they turn to stone | +5.2 they stack into a wall | +7.4 the camera travels on toward the stone bubbles | +9.6 the light shifts across the stone bubbles",
+    "set": "stone-wall"
+   },
+   "src": "S2 S3",
+   "facts": "F4",
+   "reads": "No force could do it.",
+   "focus": "the stone bubbles",
+   "becomes": {
+    "from": "the steam",
+    "to": "the steam hardens into a stone wall of speech bubbles, each saying “impossible!”",
+    "how": "form"
+   },
+   "acts": [
+    [
+     0,
+     "the steam forms bubbles"
+    ],
+    [
+     1.4,
+     "“impossible!”"
+    ],
+    [
+     2.8,
+     "another"
+    ],
+    [
+     4.0,
+     "they turn to stone"
+    ],
+    [
+     5.2,
+     "they stack into a wall"
+    ],
+    [
+     7.4,
+     "the camera travels on toward the stone bubbles"
+    ],
+    [
+     9.6,
+     "the light shifts across the stone bubbles"
+    ]
+   ],
+   "mood": "tense",
+   "shot": "close",
+   "light": "cold gaslight",
+   "setpiece": 2,
+   "sfx": [
+    {
+     "at": 3.06,
+     "file": "public/sfx/blip_click_3.wav",
+     "db": -4
+    },
+    {
+     "at": 7.15,
+     "file": "public/sfx/impact_soft_3.wav",
+     "db": 0
+    },
+    {
+     "at": 8.99,
+     "file": "public/sfx/thud_soft_1.wav",
+     "db": 1
+    }
+   ]
+  },
+  {
+   "text": "Wegener had no good answer. It sounded like claiming a ship could sail straight through rock. His idea began to *sink*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "slide",
+    "trans": "empty-out",
+    "cam": "tilt-down",
+    "comp": "right-third-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "RockShip"
+    ],
+    "stock": [],
+    "see": "A toy ship tries to sail into a block of rock and crumples; the map behind it sinks out of sight.",
+    "beats": "+0.0 a ship sails at the rock | +1.4 it bumps | +2.6 its bow crumples | +3.8 it sinks | +5.0 bubbles rise | +7.2 the camera travels on toward the ship against the rock"
+   },
+   "src": "S2 S3",
+   "facts": "F4",
+   "reads": "He had no answer.",
+   "focus": "the ship against the rock",
+   "becomes": {
+    "from": "the stone wall",
+    "to": "a toy ship tries to sail into a block of rock and crumples; the map behind it sinks out of sight",
+    "how": "empty-out"
+   },
+   "acts": [
+    [
+     0,
+     "a ship sails at the rock"
+    ],
+    [
+     1.4,
+     "it bumps"
+    ],
+    [
+     2.6,
+     "its bow crumples"
+    ],
+    [
+     3.8,
+     "it sinks"
+    ],
+    [
+     5.0,
+     "bubbles rise"
+    ],
+    [
+     7.2,
+     "the camera travels on toward the ship against the rock"
+    ]
+   ],
+   "mood": "sad",
+   "shot": "close",
+   "light": "grey",
+   "sfx": [
+    {
+     "at": 2.68,
+     "file": "public/sfx/crack_wood_1.wav",
+     "db": 0
+    },
+    {
+     "at": 5.54,
+     "file": "public/sfx/pond_water_1.wav",
+     "db": -2
+    },
+    {
+     "at": 7.6,
+     "file": "public/sfx/dropper_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "He didn’t give up. He kept improving his book, and he kept going back to the place he loved most: the Greenland *ice*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "unroll",
+    "trans": "page-turn",
+    "cam": "pan-r",
+    "comp": "tiny-in-vast",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GreenlandIce"
+    ],
+    "stock": [
+     "D-01"
+    ],
+    "see": "The bubbles become book pages turning through editions; the last page turns to white ice and a dog sledge.",
+    "beats": "+0.0 pages turn | +1.4 a new edition | +2.8 the last page goes white | +4.0 a sledge crosses it | +6.2 the light shifts across the sledge on the ice | +8.4 the camera travels on toward the sledge on the ice"
+   },
+   "src": "S1 S3 S3 S5",
+   "facts": "F2 F5",
+   "reads": "He kept going.",
+   "focus": "the sledge on the ice",
+   "becomes": {
+    "from": "the bubbles",
+    "to": "the bubbles become book pages turning through editions; the last page turns to white ice and a dog sledge",
+    "how": "page-turn"
+   },
+   "acts": [
+    [
+     0,
+     "pages turn"
+    ],
+    [
+     1.4,
+     "a new edition"
+    ],
+    [
+     2.8,
+     "the last page goes white"
+    ],
+    [
+     4.0,
+     "a sledge crosses it"
+    ],
+    [
+     6.2,
+     "the light shifts across the sledge on the ice"
+    ],
+    [
+     8.4,
+     "the camera travels on toward the sledge on the ice"
+    ]
+   ],
+   "mood": "calm",
+   "shot": "wide",
+   "light": "white Arctic light",
+   "sfx": [
+    {
+     "at": 2.94,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -2
+    },
+    {
+     "at": 6.36,
+     "file": "public/sfx/world_footstep_gravel_4.wav",
+     "db": -6
+    }
+   ]
+  },
+  {
+   "text": "In 1930 he led an expedition onto the ice cap, hauling supplies to a camp in the middle of Greenland through storms of terrible *cold*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "tear-in",
+    "trans": "blow",
+    "cam": "handheld",
+    "comp": "right-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GreenlandIce"
+    ],
+    "stock": [
+     "P-01",
+     "R-01"
+    ],
+    "see": "A blizzard rolls across: Wegener and a companion push on beside the sledge, heads down.",
+    "beats": "+0.0 wind picks up | +1.4 snow streaks | +2.8 the two men lean into it | +4.2 the dogs pull | +5.6 the camp flag far ahead | +7.8 the camera travels on toward the two men in the storm | +10.0 the light shifts across the two men in the storm",
+    "set": "blizzard"
+   },
+   "src": "S3 S5",
+   "facts": "F5",
+   "reads": "The 1930 expedition.",
+   "focus": "the two men in the storm",
+   "becomes": {
+    "from": "the sledge",
+    "to": "a blizzard rolls across: Wegener and a companion push on beside the sledge, heads down",
+    "how": "blow"
+   },
+   "acts": [
+    [
+     0,
+     "wind picks up"
+    ],
+    [
+     1.4,
+     "snow streaks"
+    ],
+    [
+     2.8,
+     "the two men lean into it"
+    ],
+    [
+     4.2,
+     "the dogs pull"
+    ],
+    [
+     5.6,
+     "the camp flag far ahead"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the two men in the storm"
+    ],
+    [
+     10.0,
+     "the light shifts across the two men in the storm"
+    ]
+   ],
+   "mood": "tense",
+   "shot": "wide",
+   "light": "white blizzard",
+   "setpiece": 2,
+   "sfx": [
+    {
+     "at": 1.06,
+     "file": "public/sfx/real_wind_4.wav",
+     "db": 2
+    },
+    {
+     "at": 5.85,
+     "file": "public/sfx/world_footstep_gravel_4.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "In November, on the way back from that camp, he never arrived. His body was found the next year, under the *snow*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "wipe",
+    "trans": "dim",
+    "cam": "push",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GreenlandTent"
+    ],
+    "stock": [],
+    "see": "A small tent in the blizzard; inside, a lamp; snow piles up; the lamp gutters and goes out.",
+    "beats": "+0.0 the tent in the snow | +1.6 the lamp glows | +3.0 snow drifts up | +4.4 the lamp flickers | +5.6 it goes out | +7.8 the camera travels on toward the tent lamp",
+    "set": "lamp-out"
+   },
+   "src": "S3 S5",
+   "facts": "F5",
+   "reads": "He died on the ice.",
+   "focus": "the tent lamp",
+   "becomes": {
+    "from": "the storm",
+    "to": "a small tent in the blizzard; inside, a lamp; snow piles up; the lamp gutters and goes out",
+    "how": "dim"
+   },
+   "acts": [
+    [
+     0,
+     "the tent in the snow"
+    ],
+    [
+     1.6,
+     "the lamp glows"
+    ],
+    [
+     3.0,
+     "snow drifts up"
+    ],
+    [
+     4.4,
+     "the lamp flickers"
+    ],
+    [
+     5.6,
+     "it goes out"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the tent lamp"
+    ]
+   ],
+   "mood": "sad",
+   "shot": "close",
+   "light": "a lamp, then darkness",
+   "setpiece": 2,
+   "sfx": [
+    {
+     "at": 1.87,
+     "file": "public/sfx/real_wind_3.wav",
+     "db": 0
+    },
+    {
+     "at": 8.05,
+     "file": "public/sfx/swoosh_thin_2.wav",
+     "db": -6
+    }
+   ]
+  },
+  {
+   "text": "He had just turned fifty. Nobody knew it yet, but he died decades before anyone could prove that he had been *right*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "quill",
+    "trans": "blur",
+    "cam": "lock",
+    "comp": "left-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GreenlandTent"
+    ],
+    "stock": [],
+    "see": "Silence: only snow falling on a cross of skis over a mound.",
+    "beats": "+0.0 snow falls | +1.6 a pair of skis stand crossed | +3.0 snow settles on them | +5.2 the camera travels on toward the skis in the snow | +7.4 the light shifts across the skis in the snow"
+   },
+   "src": "S3 S5",
+   "facts": "F5",
+   "reads": "He never saw the proof.",
+   "focus": "the skis in the snow",
+   "becomes": {
+    "from": "the dark tent",
+    "to": "silence: only snow falling on a cross of skis over a mound",
+    "how": "blur"
+   },
+   "acts": [
+    [
+     0,
+     "snow falls"
+    ],
+    [
+     1.6,
+     "a pair of skis stand crossed"
+    ],
+    [
+     3.0,
+     "snow settles on them"
+    ],
+    [
+     5.2,
+     "the camera travels on toward the skis in the snow"
+    ],
+    [
+     7.4,
+     "the light shifts across the skis in the snow"
+    ]
+   ],
+   "mood": "sad",
+   "shot": "wide",
+   "light": "pale blue dusk",
+   "sfx": [
+    {
+     "at": 1.87,
+     "file": "public/sfx/thud_soft_2.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "For thirty years his idea lay buried too, like a seed under the snow, waiting for proof from the last place anyone *looked*.",
+   "gap": 0.7,
+   "section": "CLUE3",
+   "plan": {
+    "in": "ink-bleed",
+    "trans": "crane-down",
+    "cam": "crane-down",
+    "comp": "two-figures",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GreenlandTent",
+     "SeaChart"
+    ],
+    "stock": [],
+    "see": "We sink through the snow: a seed lies under it; the snowfield flattens into a blank white sea chart.",
+    "beats": "+0.0 we sink into the snow | +1.4 a seed lies there | +2.8 it sends a tiny root | +4.2 the snow flattens | +5.6 it becomes a white chart | +7.8 the camera travels on toward the seed under the snow"
+   },
+   "src": "S3 S5 S6 S7 S8",
+   "facts": "F5 F7",
+   "reads": "The idea waited for proof.",
+   "focus": "the seed under the snow",
+   "becomes": {
+    "from": "the skis",
+    "to": "we sink through the snow: a seed lies under it; the snowfield flattens into a blank white sea chart",
+    "how": "crane-down"
+   },
+   "acts": [
+    [
+     0,
+     "we sink into the snow"
+    ],
+    [
+     1.4,
+     "a seed lies there"
+    ],
+    [
+     2.8,
+     "it sends a tiny root"
+    ],
+    [
+     4.2,
+     "the snow flattens"
+    ],
+    [
+     5.6,
+     "it becomes a white chart"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the seed under the snow"
+    ]
+   ],
+   "mood": "mystery",
+   "shot": "insert",
+   "light": "blue, under snow",
+   "motif": "the seam — a root crack in the snow",
+   "sfx": [
+    {
+     "at": 2.94,
+     "file": "public/sfx/crack_wood_1.wav",
+     "db": -8
+    },
+    {
+     "at": 7.83,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "That place was the bottom of the sea. In the 1950s, the deep ocean floor was almost as unknown as the far side of the *Moon*.",
+   "gap": 1.5,
+   "section": "CLUE4",
+   "plan": {
+    "in": "assemble",
+    "trans": "empty",
+    "cam": "pull",
+    "comp": "wide-sky",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "SeaChart"
+    ],
+    "stock": [],
+    "see": "The white chart: an empty ocean with a sea monster in the corner, beside a Moon with its far side blank.",
+    "beats": "+0.0 the chart is white | +1.4 a sea monster doodle | +2.8 a Moon beside it | +4.2 its far side blank | +6.4 the light shifts across the blank floor | +8.6 the camera travels on toward the blank floor | +10.8 the light shifts across the blank floor",
+    "set": "blank-chart"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "The sea floor was unknown.",
+   "focus": "the blank floor",
+   "becomes": {
+    "from": "the white chart",
+    "to": "the white chart: an empty ocean with a sea monster in the corner, beside a Moon with its far side blank",
+    "how": "empty"
+   },
+   "acts": [
+    [
+     0,
+     "the chart is white"
+    ],
+    [
+     1.4,
+     "a sea monster doodle"
+    ],
+    [
+     2.8,
+     "a Moon beside it"
+    ],
+    [
+     4.2,
+     "its far side blank"
+    ],
+    [
+     6.4,
+     "the light shifts across the blank floor"
+    ],
+    [
+     8.6,
+     "the camera travels on toward the blank floor"
+    ],
+    [
+     10.8,
+     "the light shifts across the blank floor"
+    ]
+   ],
+   "mood": "mystery",
+   "shot": "wide",
+   "light": "grey sea light",
+   "sfx": [
+    {
+     "at": 1.11,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -5
+    },
+    {
+     "at": 4.98,
+     "file": "public/sfx/blip_click_4.wav",
+     "db": -6
+    }
+   ]
+  },
+  {
+   "text": "Ships began to explore it. They sent pings of sound into the deep, and towed instruments behind them on long *cables*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "ink-on",
+    "trans": "glide",
+    "cam": "track",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "SurveyShip"
+    ],
+    "stock": [],
+    "see": "A survey ship crosses the chart; sound rings pulse down; a cable trails behind with an instrument.",
+    "beats": "+0.0 a ship sails on | +1.4 a ping rings down | +2.8 another | +4.0 a cable pays out behind | +5.4 the instrument sinks | +7.6 the camera travels on toward the ship and its cable",
+    "set": "survey-ship"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "Ships surveyed the deep.",
+   "focus": "the ship and its cable",
+   "becomes": {
+    "from": "the chart",
+    "to": "a survey ship crosses the chart; sound rings pulse down; a cable trails behind with an instrument",
+    "how": "glide"
+   },
+   "acts": [
+    [
+     0,
+     "a ship sails on"
+    ],
+    [
+     1.4,
+     "a ping rings down"
+    ],
+    [
+     2.8,
+     "another"
+    ],
+    [
+     4.0,
+     "a cable pays out behind"
+    ],
+    [
+     5.4,
+     "the instrument sinks"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the ship and its cable"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "wide",
+   "light": "grey sea light",
+   "sfx": [
+    {
+     "at": 1.34,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -2
+    },
+    {
+     "at": 3.13,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -4
+    },
+    {
+     "at": 5.36,
+     "file": "public/sfx/real_ship_creak_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "One of those instruments was a magnetometer: a kind of super-sensitive compass that feels how strongly the rocks below are *magnetic*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "rise",
+    "trans": "x-ray",
+    "cam": "push",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "SurveyShip"
+    ],
+    "stock": [],
+    "see": "The towed instrument opens like a cutaway: inside, a compass needle quivers over the rocks.",
+    "beats": "+0.0 the casing opens | +1.4 a compass inside | +2.8 the needle quivers | +4.2 it swings stronger | +5.4 weaker | +7.6 the camera travels on toward the needle"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "A magnetometer: a sensitive compass.",
+   "focus": "the needle",
+   "becomes": {
+    "from": "the instrument",
+    "to": "the towed instrument opens like a cutaway: inside, a compass needle quivers over the rocks",
+    "how": "x-ray"
+   },
+   "acts": [
+    [
+     0,
+     "the casing opens"
+    ],
+    [
+     1.4,
+     "a compass inside"
+    ],
+    [
+     2.8,
+     "the needle quivers"
+    ],
+    [
+     4.2,
+     "it swings stronger"
+    ],
+    [
+     5.4,
+     "weaker"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the needle"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "insert",
+   "light": "blue underwater light",
+   "sfx": [
+    {
+     "at": 1.34,
+     "file": "public/sfx/impact_metal_3.wav",
+     "db": -4
+    },
+    {
+     "at": 4.91,
+     "file": "public/sfx/swoosh_metallic_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "As the ship sailed, a pen on board drew a wiggly line. And when the wiggles were put on a map, they made something nobody *expected*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "flip",
+    "trans": "trace-to",
+    "cam": "tilt-down",
+    "comp": "diagonal",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "PenRecorder"
+    ],
+    "stock": [],
+    "see": "On deck, a pen scribbles a wiggly line on a paper roll; the roll unrolls onto the chart.",
+    "beats": "+0.0 the pen scratches | +1.4 the roll advances | +2.8 the wiggles grow | +4.2 the roll spills onto the chart | +6.4 the light shifts across the pen | +8.6 the camera travels on toward the pen | +10.8 the light shifts across the pen",
+    "set": "pen"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "A pen drew the readings.",
+   "focus": "the pen",
+   "becomes": {
+    "from": "the needle",
+    "to": "on deck, a pen scribbles a wiggly line on a paper roll; the roll unrolls onto the chart",
+    "how": "trace-to"
+   },
+   "acts": [
+    [
+     0,
+     "the pen scratches"
+    ],
+    [
+     1.4,
+     "the roll advances"
+    ],
+    [
+     2.8,
+     "the wiggles grow"
+    ],
+    [
+     4.2,
+     "the roll spills onto the chart"
+    ],
+    [
+     6.4,
+     "the light shifts across the pen"
+    ],
+    [
+     8.6,
+     "the camera travels on toward the pen"
+    ],
+    [
+     10.8,
+     "the light shifts across the pen"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "detail",
+   "light": "ship lamp",
+   "setpiece": 3,
+   "sfx": [
+    {
+     "at": 1.11,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -1
+    },
+    {
+     "at": 9.07,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "Stripes. Long bands of stronger and weaker magnetism lying across the sea floor, like the black and white keys of a *piano*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "grow",
+    "trans": "band",
+    "cam": "crane-up",
+    "comp": "right-third-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "StripeFloor"
+    ],
+    "stock": [],
+    "see": "The wiggles fill in as stripes, dark and light, across the ocean floor; a piano keyboard echoes them.",
+    "beats": "+0.0 the first stripe fills | +1.4 another | +2.6 another | +3.8 they look like piano keys | +5.0 a note sounds | +7.2 the camera travels on toward the stripes",
+    "set": "stripes"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "Magnetic stripes.",
+   "focus": "the stripes",
+   "becomes": {
+    "from": "the wiggly line",
+    "to": "the wiggles fill in as stripes, dark and light, across the ocean floor; a piano keyboard echoes them",
+    "how": "band"
+   },
+   "acts": [
+    [
+     0,
+     "the first stripe fills"
+    ],
+    [
+     1.4,
+     "another"
+    ],
+    [
+     2.6,
+     "another"
+    ],
+    [
+     3.8,
+     "they look like piano keys"
+    ],
+    [
+     5.0,
+     "a note sounds"
+    ],
+    [
+     7.2,
+     "the camera travels on toward the stripes"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "deep indigo, gold stripes",
+   "setpiece": 3,
+   "sfx": [
+    {
+     "at": 0.47,
+     "file": "public/sfx/swoosh_deep_2.wav",
+     "db": -2
+    },
+    {
+     "at": 6.09,
+     "file": "public/sfx/blip_click_3.wav",
+     "db": -6
+    }
+   ]
+  },
+  {
+   "text": "And they ran alongside a great underwater mountain chain, the mid-ocean ridge, which winds round the planet like the seam on a *ball*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "blinds",
+    "trans": "travel-line",
+    "cam": "orbit",
+    "comp": "tiny-in-vast",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "StripeFloor",
+     "RidgeGlobe"
+    ],
+    "stock": [],
+    "see": "The ridge rises out of the middle of the stripes and runs on round a globe like a baseball’s seam.",
+    "beats": "+0.0 a ridge rises | +1.4 it runs north | +2.8 we pull out to a globe | +4.2 it winds like a ball’s seam | +6.4 the light shifts across the ridge seam | +8.6 the camera travels on toward the ridge seam"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "They follow the mid-ocean ridge.",
+   "focus": "the ridge seam",
+   "becomes": {
+    "from": "the stripes",
+    "to": "the ridge rises out of the middle of the stripes and runs on round a globe like a baseball’s seam",
+    "how": "travel-line"
+   },
+   "acts": [
+    [
+     0,
+     "a ridge rises"
+    ],
+    [
+     1.4,
+     "it runs north"
+    ],
+    [
+     2.8,
+     "we pull out to a globe"
+    ],
+    [
+     4.2,
+     "it winds like a ball’s seam"
+    ],
+    [
+     6.4,
+     "the light shifts across the ridge seam"
+    ],
+    [
+     8.6,
+     "the camera travels on toward the ridge seam"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "indigo",
+   "motif": "the seam — the ridge",
+   "sfx": [
+    {
+     "at": 1.96,
+     "file": "public/sfx/swoosh_deep_3.wav",
+     "db": -3
+    },
+    {
+     "at": 5.87,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "text": "Stranger still, the stripes on one side of the ridge were a mirror image of the stripes on the *other*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "focus",
+    "trans": "blink",
+    "cam": "lock",
+    "comp": "right-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "StripeFloor"
+    ],
+    "stock": [],
+    "see": "Back to the stripes: each stripe on the left lights up with its twin on the right.",
+    "beats": "+0.0 a left stripe lights | +1.2 its twin on the right | +2.4 the next pair | +3.6 the next | +5.8 the light shifts across the twin stripes | +8.0 the camera travels on toward the twin stripes"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "The stripes mirror each other.",
+   "focus": "the twin stripes",
+   "becomes": {
+    "from": "the globe",
+    "to": "back to the stripes: each stripe on the left lights up with its twin on the right",
+    "how": "blink"
+   },
+   "acts": [
+    [
+     0,
+     "a left stripe lights"
+    ],
+    [
+     1.2,
+     "its twin on the right"
+    ],
+    [
+     2.4,
+     "the next pair"
+    ],
+    [
+     3.6,
+     "the next"
+    ],
+    [
+     5.8,
+     "the light shifts across the twin stripes"
+    ],
+    [
+     8.0,
+     "the camera travels on toward the twin stripes"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "medium",
+   "light": "indigo, gold",
+   "sfx": [
+    {
+     "at": 0.43,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -4
+    },
+    {
+     "at": 3.83,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -4
+    },
+    {
+     "at": 7.23,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Fold the map along the ridge, and the pattern lands on itself, stripe for *stripe*.",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "iris",
+    "trans": "fold",
+    "cam": "dolly",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "StripeFloor"
+    ],
+    "stock": [],
+    "see": "The map folds along the ridge like a page; the stripes meet exactly; a vermilion line flashes.",
+    "beats": "+0.0 the map lifts | +1.2 it folds over | +2.4 stripes meet | +3.2 a flash | +5.4 the light shifts across the fold",
+    "set": "fold"
+   },
+   "src": "S6 S7",
+   "facts": "F6",
+   "reads": "They match when folded.",
+   "focus": "the fold",
+   "becomes": {
+    "from": "the twin stripes",
+    "to": "the map folds along the ridge like a page; the stripes meet exactly; a vermilion line flashes",
+    "how": "fold"
+   },
+   "acts": [
+    [
+     0,
+     "the map lifts"
+    ],
+    [
+     1.2,
+     "it folds over"
+    ],
+    [
+     2.4,
+     "stripes meet"
+    ],
+    [
+     3.2,
+     "a flash"
+    ],
+    [
+     5.4,
+     "the light shifts across the fold"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "close",
+   "light": "gold flash",
+   "setpiece": 3,
+   "motif": "the seam — the fold along the ridge",
+   "sfx": [
+    {
+     "at": 0.64,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": 0
+    },
+    {
+     "at": 2.87,
+     "file": "public/sfx/impact_soft_3.wav",
+     "db": 2
+    }
+   ]
+  },
+  {
+   "text": "Why would the sea floor be striped? And why the same on both sides, like the wings of a *butterfly*?",
+   "gap": 0.7,
+   "section": "CLUE4",
+   "plan": {
+    "in": "burn",
+    "trans": "wing",
+    "cam": "arc",
+    "comp": "left-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "StripeFloor"
+    ],
+    "stock": [],
+    "see": "The folded stripes open again like butterfly wings and beat once.",
+    "beats": "+0.0 the fold opens | +1.2 into wings | +2.4 they beat | +3.6 a question mark | +5.8 the light shifts across the butterfly | +8.0 the camera travels on toward the butterfly"
+   },
+   "reads": "Why symmetrical?",
+   "focus": "the butterfly",
+   "becomes": {
+    "from": "the fold",
+    "to": "the folded stripes open again like butterfly wings and beat once",
+    "how": "wing"
+   },
+   "acts": [
+    [
+     0,
+     "the fold opens"
+    ],
+    [
+     1.2,
+     "into wings"
+    ],
+    [
+     2.4,
+     "they beat"
+    ],
+    [
+     3.6,
+     "a question mark"
+    ],
+    [
+     5.8,
+     "the light shifts across the butterfly"
+    ],
+    [
+     8.0,
+     "the camera travels on toward the butterfly"
+    ]
+   ],
+   "mood": "mystery",
+   "shot": "medium",
+   "light": "indigo",
+   "sfx": [
+    {
+     "at": 2.13,
+     "file": "public/sfx/swoosh_thin_2.wav",
+     "db": -3
+    },
+    {
+     "at": 4.94,
+     "file": "public/sfx/swoosh_thin_1.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "text": "In 1963, two scientists in Cambridge, Fred Vine and Drummond Matthews, saw what the stripes meant. And it changed *everything*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "drop",
+    "trans": "turn-head",
+    "cam": "push",
+    "comp": "two-figures",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Cambridge"
+    ],
+    "stock": [],
+    "see": "Two young men lean over a desk with the striped chart; one looks up, eyes wide.",
+    "beats": "+0.0 a desk with the chart | +1.4 Vine points | +2.8 Matthews leans in | +4.2 they look at each other | +6.4 the light shifts across the two men",
+    "set": "vine-matthews"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F7",
+   "reads": "Vine and Matthews, 1963.",
+   "focus": "the two men",
+   "becomes": {
+    "from": "the wings",
+    "to": "two young men lean over a desk with the striped chart; one looks up, eyes wide",
+    "how": "turn-head"
+   },
+   "acts": [
+    [
+     0,
+     "a desk with the chart"
+    ],
+    [
+     1.4,
+     "Vine points"
+    ],
+    [
+     2.8,
+     "Matthews leans in"
+    ],
+    [
+     4.2,
+     "they look at each other"
+    ],
+    [
+     6.4,
+     "the light shifts across the two men"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "close",
+   "light": "desk lamp",
+   "sfx": [
+    {
+     "at": 0.85,
+     "file": "public/sfx/world_door_creak_1.wav",
+     "db": -6
+    },
+    {
+     "at": 5.11,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Every so often, Earth’s magnetic field flips. North becomes south. A compass would swing round and point the other *way*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "stamp",
+    "trans": "turn",
+    "cam": "snap-zoom",
+    "comp": "wide-sky",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Compass"
+    ],
+    "stock": [],
+    "see": "A big compass on the desk: its needle swings round and points south, then back, again and again.",
+    "beats": "+0.0 the needle points north | +1.4 it swings | +2.6 south | +3.8 it swings back | +5.0 again | +7.2 the camera travels on toward the needle"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F7",
+   "reads": "Earth’s magnetism flips.",
+   "focus": "the needle",
+   "becomes": {
+    "from": "the two men",
+    "to": "a big compass on the desk: its needle swings round and points south, then back, again and again",
+    "how": "turn"
+   },
+   "acts": [
+    [
+     0,
+     "the needle points north"
+    ],
+    [
+     1.4,
+     "it swings"
+    ],
+    [
+     2.6,
+     "south"
+    ],
+    [
+     3.8,
+     "it swings back"
+    ],
+    [
+     5.0,
+     "again"
+    ],
+    [
+     7.2,
+     "the camera travels on toward the needle"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "insert",
+   "light": "desk lamp",
+   "sfx": [
+    {
+     "at": 1.7,
+     "file": "public/sfx/swoosh_metallic_1.wav",
+     "db": -2
+    },
+    {
+     "at": 4.68,
+     "file": "public/sfx/swoosh_metallic_1.wav",
+     "db": -4
+    },
+    {
+     "at": 7.49,
+     "file": "public/sfx/blip_click_4.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "At the ridge, hot melted rock wells up from below, cools, and locks in the direction of the field, like music recorded onto a *tape*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "slide",
+    "trans": "rise-from",
+    "cam": "crane-up",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "RidgeTape"
+    ],
+    "stock": [],
+    "see": "Cross-section of the ridge: glowing rock wells up, cools from orange to dark; tiny arrows inside freeze pointing north.",
+    "beats": "+0.0 a crack in the floor | +1.4 glowing rock wells up | +2.8 it cools | +4.2 arrows freeze inside | +5.4 a tape head icon | +7.6 the camera travels on toward the welling rock | +9.8 the light shifts across the welling rock",
+    "set": "ridge-tape"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F7",
+   "reads": "New rock records the field.",
+   "focus": "the welling rock",
+   "becomes": {
+    "from": "the compass",
+    "to": "cross-section of the ridge: glowing rock wells up, cools from orange to dark; tiny arrows inside freeze pointing north",
+    "how": "rise-from"
+   },
+   "acts": [
+    [
+     0,
+     "a crack in the floor"
+    ],
+    [
+     1.4,
+     "glowing rock wells up"
+    ],
+    [
+     2.8,
+     "it cools"
+    ],
+    [
+     4.2,
+     "arrows freeze inside"
+    ],
+    [
+     5.4,
+     "a tape head icon"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the welling rock"
+    ],
+    [
+     9.8,
+     "the light shifts across the welling rock"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "close",
+   "light": "magma glow from below",
+   "setpiece": 3,
+   "sfx": [
+    {
+     "at": 1.06,
+     "file": "public/sfx/swoosh_deep_1.wav",
+     "db": -2
+    },
+    {
+     "at": 4.26,
+     "file": "public/sfx/pond_water_1.wav",
+     "db": -6
+    },
+    {
+     "at": 7.98,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -6
+    }
+   ]
+  },
+  {
+   "text": "Then it’s pushed aside by newer rock, and newer, out to both sides. The sea floor is a tape recorder, playing out in two *directions*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "unroll",
+    "trans": "stream",
+    "cam": "pan-r",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "RidgeTape"
+    ],
+    "stock": [],
+    "see": "The floor moves out both ways like two tapes from a reel; each band carries its arrows away.",
+    "beats": "+0.0 the floor shoves outward | +1.4 a new band forms | +2.8 another | +4.2 the bands march away | +5.6 reels turn at the edges | +7.8 the camera travels on toward the two tapes moving | +10.0 the light shifts across the two tapes moving"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F7",
+   "reads": "The floor spreads both ways.",
+   "focus": "the two tapes moving",
+   "becomes": {
+    "from": "the cooled rock",
+    "to": "the floor moves out both ways like two tapes from a reel; each band carries its arrows away",
+    "how": "stream"
+   },
+   "acts": [
+    [
+     0,
+     "the floor shoves outward"
+    ],
+    [
+     1.4,
+     "a new band forms"
+    ],
+    [
+     2.8,
+     "another"
+    ],
+    [
+     4.2,
+     "the bands march away"
+    ],
+    [
+     5.6,
+     "reels turn at the edges"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the two tapes moving"
+    ],
+    [
+     10.0,
+     "the light shifts across the two tapes moving"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "magma glow",
+   "motif": "the seam — the ridge as a tape head",
+   "sfx": [
+    {
+     "at": 2.13,
+     "file": "public/sfx/world_clock_tick_2.wav",
+     "db": -4
+    },
+    {
+     "at": 6.38,
+     "file": "public/sfx/swoosh_deep_2.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "So that is why the sea floor is striped: the stripes are the flips, written into stone. The ocean floor is being made right now, and it is *moving*.",
+   "gap": 0.9,
+   "section": "TWIST",
+   "plan": {
+    "in": "tear-in",
+    "trans": "light-change",
+    "cam": "pull",
+    "comp": "diagonal",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "RidgeTape"
+    ],
+    "stock": [],
+    "see": "The arrows in each band flip N/S; the bands light gold and dark in alternation — the stripes.",
+    "beats": "+0.0 arrows north | +1.2 next band south | +2.4 north | +3.4 the bands become the stripes | +5.6 the light shifts across the alternating arrows | +7.8 the camera travels on toward the alternating arrows | +10.0 the light shifts across the alternating arrows"
+   },
+   "src": "S6 S7 S8",
+   "facts": "F7",
+   "reads": "Stripes are the flips. The floor moves.",
+   "focus": "the alternating arrows",
+   "becomes": {
+    "from": "the tapes",
+    "to": "the arrows in each band flip N/S; the bands light gold and dark in alternation — the stripes",
+    "how": "light-change"
+   },
+   "acts": [
+    [
+     0,
+     "arrows north"
+    ],
+    [
+     1.2,
+     "next band south"
+    ],
+    [
+     2.4,
+     "north"
+    ],
+    [
+     3.4,
+     "the bands become the stripes"
+    ],
+    [
+     5.6,
+     "the light shifts across the alternating arrows"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the alternating arrows"
+    ],
+    [
+     10.0,
+     "the light shifts across the alternating arrows"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "close",
+   "light": "indigo, gold",
+   "sfx": [
+    {
+     "at": 3.7,
+     "file": "public/sfx/blip_click_3.wav",
+     "db": -4
+    },
+    {
+     "at": 8.64,
+     "file": "public/sfx/impact_soft_3.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "If the sea floor moves, the continents ride along with it. They don’t plough through the ocean; they travel with it, like boxes on a conveyor *belt*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "wipe",
+    "trans": "stream-through",
+    "cam": "track",
+    "comp": "right-third-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "RidgeTape"
+    ],
+    "stock": [],
+    "see": "The floor becomes a conveyor belt; continents sit on it like parcels and ride away; it passes a snowy grave.",
+    "beats": "+0.0 the belt runs | +1.4 Africa rides on it | +2.8 South America the other way | +4.2 a snowy cross rides past | +5.6 the cross is gently carried | +7.8 the camera travels on toward the parcels riding | +10.0 the light shifts across the parcels riding",
+    "set": "conveyor"
+   },
+   "src": "S6 S7 S8 S10 S12",
+   "facts": "F7 F11",
+   "reads": "The continents ride the moving floor.",
+   "focus": "the parcels riding",
+   "becomes": {
+    "from": "the stripes",
+    "to": "the floor becomes a conveyor belt; continents sit on it like parcels and ride away; it passes a snowy grave",
+    "how": "stream-through"
+   },
+   "acts": [
+    [
+     0,
+     "the belt runs"
+    ],
+    [
+     1.4,
+     "Africa rides on it"
+    ],
+    [
+     2.8,
+     "South America the other way"
+    ],
+    [
+     4.2,
+     "a snowy cross rides past"
+    ],
+    [
+     5.6,
+     "the cross is gently carried"
+    ],
+    [
+     7.8,
+     "the camera travels on toward the parcels riding"
+    ],
+    [
+     10.0,
+     "the light shifts across the parcels riding"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "warm",
+   "sfx": [
+    {
+     "at": 0.57,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -2
+    },
+    {
+     "at": 5.74,
+     "file": "public/sfx/world_clock_tick_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Wegener was right that the continents move. He was wrong only about how. The Earth’s outer shell is cracked into giant moving *plates*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "quill",
+    "trans": "cut-open",
+    "cam": "arc",
+    "comp": "tiny-in-vast",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "PlateGlobe"
+    ],
+    "stock": [],
+    "see": "A globe: its shell cracks like an eggshell into plates, outlined in vermilion.",
+    "beats": "+0.0 a globe | +1.4 the first crack | +2.6 cracks spread | +3.8 plates outlined | +5.0 they shift a little | +7.2 the camera travels on toward the cracking shell | +9.4 the light shifts across the cracking shell",
+    "set": "plates"
+   },
+   "src": "S10 S12",
+   "facts": "F11",
+   "reads": "Plates.",
+   "focus": "the cracking shell",
+   "becomes": {
+    "from": "the conveyor",
+    "to": "a globe: its shell cracks like an eggshell into plates, outlined in vermilion",
+    "how": "cut-open"
+   },
+   "acts": [
+    [
+     0,
+     "a globe"
+    ],
+    [
+     1.4,
+     "the first crack"
+    ],
+    [
+     2.6,
+     "cracks spread"
+    ],
+    [
+     3.8,
+     "plates outlined"
+    ],
+    [
+     5.0,
+     "they shift a little"
+    ],
+    [
+     7.2,
+     "the camera travels on toward the cracking shell"
+    ],
+    [
+     9.4,
+     "the light shifts across the cracking shell"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "space dark, warm rim",
+   "sfx": [
+    {
+     "at": 3.72,
+     "file": "public/sfx/crack_wood_1.wav",
+     "db": 0
+    },
+    {
+     "at": 7.34,
+     "file": "public/sfx/swoosh_deep_3.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "Where plates pull apart, new sea floor is born. Where they push together, one dives deep under the other, and the ground *shakes*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "ink-bleed",
+    "trans": "dive",
+    "cam": "tilt-down",
+    "comp": "right-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Trench"
+    ],
+    "stock": [],
+    "see": "Cross-section: one plate slides down under another into the hot mantle; earthquake stars flash along the edge.",
+    "beats": "+0.0 two plates meet | +1.4 one bends down | +2.8 it slides under | +4.2 quakes flash | +5.4 a volcano puffs | +7.6 the camera travels on toward the diving plate",
+    "set": "trench"
+   },
+   "src": "S10 S12",
+   "facts": "F11",
+   "reads": "New floor at ridges; old floor dives at trenches.",
+   "focus": "the diving plate",
+   "becomes": {
+    "from": "the globe",
+    "to": "cross-section: one plate slides down under another into the hot mantle; earthquake stars flash along the edge",
+    "how": "dive"
+   },
+   "acts": [
+    [
+     0,
+     "two plates meet"
+    ],
+    [
+     1.4,
+     "one bends down"
+    ],
+    [
+     2.8,
+     "it slides under"
+    ],
+    [
+     4.2,
+     "quakes flash"
+    ],
+    [
+     5.4,
+     "a volcano puffs"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the diving plate"
+    ]
+   ],
+   "mood": "tense",
+   "shot": "close",
+   "light": "red glow below",
+   "sfx": [
+    {
+     "at": 1.96,
+     "file": "public/sfx/swoosh_deep_1.wav",
+     "db": -2
+    },
+    {
+     "at": 5.38,
+     "file": "public/sfx/thud_soft_1.wav",
+     "db": 2
+    },
+    {
+     "at": 8.32,
+     "file": "public/sfx/transition_whoosh_airy_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "Where two continents crash, the land crumples like a rug shoved against a wall. That is how the Himalaya were *born*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "assemble",
+    "trans": "wobble",
+    "cam": "crane-up",
+    "comp": "centre-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "RugHimalaya"
+    ],
+    "stock": [],
+    "see": "A rug slides along a floor into a wall and wrinkles; the wrinkles become snowy Himalayan peaks.",
+    "beats": "+0.0 a rug slides | +1.4 it hits a wall | +2.6 it wrinkles | +3.8 the wrinkles turn to peaks | +5.0 snow on the peaks | +7.2 the camera travels on toward the rug wrinkling",
+    "set": "rug-mountains"
+   },
+   "src": "S10 S12",
+   "facts": "F11",
+   "reads": "Mountains are wrinkles.",
+   "focus": "the rug wrinkling",
+   "becomes": {
+    "from": "the quake",
+    "to": "a rug slides along a floor into a wall and wrinkles; the wrinkles become snowy Himalayan peaks",
+    "how": "wobble"
+   },
+   "acts": [
+    [
+     0,
+     "a rug slides"
+    ],
+    [
+     1.4,
+     "it hits a wall"
+    ],
+    [
+     2.6,
+     "it wrinkles"
+    ],
+    [
+     3.8,
+     "the wrinkles turn to peaks"
+    ],
+    [
+     5.0,
+     "snow on the peaks"
+    ],
+    [
+     7.2,
+     "the camera travels on toward the rug wrinkling"
+    ]
+   ],
+   "mood": "playful",
+   "shot": "wide",
+   "light": "high sun",
+   "sfx": [
+    {
+     "at": 2.23,
+     "file": "public/sfx/swoosh_thin_1.wav",
+     "db": -3
+    },
+    {
+     "at": 3.75,
+     "file": "public/sfx/thud_soft_2.wav",
+     "db": 0
+    },
+    {
+     "at": 7.15,
+     "file": "public/sfx/real_wind_3.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "And the Atlantic, where Wegener first saw the tear, is still opening today, along the seam where South America and Africa came *apart*.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "ink-on",
+    "trans": "scale-out",
+    "cam": "crane-up",
+    "comp": "left-third-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "AtlanticOpen"
+    ],
+    "stock": [],
+    "see": "From above: the Atlantic with the ridge running down its middle; the two sides creep apart.",
+    "beats": "+0.0 we rise above the ocean | +1.4 the ridge seam glows | +2.8 the coasts creep apart | +4.2 the seam widens a hair | +6.4 the light shifts across the ridge seam | +8.6 the camera travels on toward the ridge seam"
+   },
+   "src": "S9 S10",
+   "facts": "F8",
+   "reads": "The Atlantic is still opening.",
+   "focus": "the ridge seam",
+   "becomes": {
+    "from": "the peaks",
+    "to": "from above: the Atlantic with the ridge running down its middle; the two sides creep apart",
+    "how": "scale-out"
+   },
+   "acts": [
+    [
+     0,
+     "we rise above the ocean"
+    ],
+    [
+     1.4,
+     "the ridge seam glows"
+    ],
+    [
+     2.8,
+     "the coasts creep apart"
+    ],
+    [
+     4.2,
+     "the seam widens a hair"
+    ],
+    [
+     6.4,
+     "the light shifts across the ridge seam"
+    ],
+    [
+     8.6,
+     "the camera travels on toward the ridge seam"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "satellite daylight",
+   "motif": "the seam — the Atlantic tear today",
+   "sfx": [
+    {
+     "at": 1.47,
+     "file": "public/sfx/swoosh_deep_2.wav",
+     "db": -4
+    },
+    {
+     "at": 5.87,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "text": "We can measure it now from space. Satellites send signals to markers bolted into rock on each *continent*, and time them precisely.",
+   "gap": 0.7,
+   "section": "ANSWER",
+   "plan": {
+    "in": "rise",
+    "trans": "search",
+    "cam": "rack",
+    "comp": "two-figures",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "GPSMarker"
+    ],
+    "stock": [],
+    "see": "A satellite above; beams drop to a brass marker bolted into rock; a tiny distance ticks up.",
+    "beats": "+0.0 a satellite glides | +1.4 a beam drops | +2.8 it hits a marker | +4.0 another beam | +5.2 numbers tick | +7.4 the camera travels on toward the beam on the marker",
+    "set": "gps"
+   },
+   "src": "S9 S10",
+   "facts": "F8",
+   "reads": "Satellites measure it.",
+   "focus": "the beam on the marker",
+   "becomes": {
+    "from": "the ocean",
+    "to": "a satellite above; beams drop to a brass marker bolted into rock; a tiny distance ticks up",
+    "how": "search"
+   },
+   "acts": [
+    [
+     0,
+     "a satellite glides"
+    ],
+    [
+     1.4,
+     "a beam drops"
+    ],
+    [
+     2.8,
+     "it hits a marker"
+    ],
+    [
+     4.0,
+     "another beam"
+    ],
+    [
+     5.2,
+     "numbers tick"
+    ],
+    [
+     7.4,
+     "the camera travels on toward the beam on the marker"
+    ]
+   ],
+   "mood": "curious",
+   "shot": "medium",
+   "light": "clear sky",
+   "sfx": [
+    {
+     "at": 1.87,
+     "file": "public/sfx/blip_click_3.wav",
+     "db": -3
+    },
+    {
+     "at": 4.21,
+     "file": "public/sfx/blip_click_3.wav",
+     "db": -5
+    },
+    {
+     "at": 7.3,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "The answer: a few centimetres every year. About as fast as your fingernails *grow*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "flip",
+    "trans": "count-up",
+    "cam": "push",
+    "comp": "wide-sky",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "NailAtlantic"
+    ],
+    "stock": [],
+    "see": "A ruler beside the marker, then a hand beside the ruler: the fingernail and the gap grow together.",
+    "beats": "+0.0 a ruler lays down | +1.4 a hand rests beside it | +2.6 the nail grows | +3.6 the gap grows the same",
+    "set": "fingernail"
+   },
+   "src": "S9 S10",
+   "facts": "F8",
+   "reads": "As fast as fingernails.",
+   "focus": "the fingernail",
+   "becomes": {
+    "from": "the marker",
+    "to": "a ruler beside the marker, then a hand beside the ruler: the fingernail and the gap grow together",
+    "how": "count-up"
+   },
+   "acts": [
+    [
+     0,
+     "a ruler lays down"
+    ],
+    [
+     1.4,
+     "a hand rests beside it"
+    ],
+    [
+     2.6,
+     "the nail grows"
+    ],
+    [
+     3.6,
+     "the gap grows the same"
+    ]
+   ],
+   "mood": "warm",
+   "shot": "insert",
+   "light": "warm daylight",
+   "sfx": [
+    {
+     "at": 1.19,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -5
+    },
+    {
+     "at": 3.28,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "text": "Too slow to see. But give it two hundred million years, and that fingernail’s width became a whole *ocean*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "grow",
+    "trans": "spread",
+    "cam": "pull",
+    "comp": "centre-medium",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "NailAtlantic",
+     "QuiltPangaea"
+    ],
+    "stock": [],
+    "see": "The nail line becomes the Atlantic: Pangaea’s quilt seam opens out stitch by stitch into an ocean.",
+    "beats": "+0.0 the nail line glows | +1.4 it becomes the quilt seam | +2.8 the stitches pop | +4.2 the ocean opens | +5.4 a counter: 200 million years | +7.6 the camera travels on toward the opening seam"
+   },
+   "src": "S9 S10 S2 S11",
+   "facts": "F8 F10",
+   "reads": "Tiny steps make an ocean.",
+   "focus": "the opening seam",
+   "becomes": {
+    "from": "the fingernail",
+    "to": "the nail line becomes the Atlantic: Pangaea’s quilt seam opens out stitch by stitch into an ocean",
+    "how": "spread"
+   },
+   "acts": [
+    [
+     0,
+     "the nail line glows"
+    ],
+    [
+     1.4,
+     "it becomes the quilt seam"
+    ],
+    [
+     2.8,
+     "the stitches pop"
+    ],
+    [
+     4.2,
+     "the ocean opens"
+    ],
+    [
+     5.4,
+     "a counter: 200 million years"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the opening seam"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "warm",
+   "motif": "the seam — the quilt opens into the Atlantic",
+   "sfx": [
+    {
+     "at": 0.81,
+     "file": "public/sfx/pond_water_1.wav",
+     "db": -4
+    },
+    {
+     "at": 4.04,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -4
+    },
+    {
+     "at": 6.47,
+     "file": "public/sfx/swoosh_deep_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "text": "And it hasn’t stopped. Far in the future the continents will fit together again in a new way, a puzzle no one has ever *seen*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "blinds",
+    "trans": "time-lapse",
+    "cam": "orbit",
+    "comp": "wide-landscape",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Jigsaw"
+    ],
+    "stock": [],
+    "see": "Time runs forward: continents drift into a new arrangement and become pieces of a jigsaw on the child’s table.",
+    "beats": "+0.0 continents drift | +1.4 they cross | +2.8 a new shape forms | +4.2 it becomes jigsaw pieces | +5.4 on the table again | +7.6 the camera travels on toward the new puzzle | +9.8 the light shifts across the new puzzle",
+    "set": "future-jigsaw"
+   },
+   "src": "S10 S12",
+   "facts": "F11",
+   "reads": "A future world.",
+   "focus": "the new puzzle",
+   "becomes": {
+    "from": "the ocean",
+    "to": "time runs forward: continents drift into a new arrangement and become pieces of a jigsaw on the child’s table",
+    "how": "time-lapse"
+   },
+   "acts": [
+    [
+     0,
+     "continents drift"
+    ],
+    [
+     1.4,
+     "they cross"
+    ],
+    [
+     2.8,
+     "a new shape forms"
+    ],
+    [
+     4.2,
+     "it becomes jigsaw pieces"
+    ],
+    [
+     5.4,
+     "on the table again"
+    ],
+    [
+     7.6,
+     "the camera travels on toward the new puzzle"
+    ],
+    [
+     9.8,
+     "the light shifts across the new puzzle"
+    ]
+   ],
+   "mood": "awe",
+   "shot": "wide",
+   "light": "warm lamp",
+   "motif": "the seam — the future jigsaw",
+   "sfx": [
+    {
+     "at": 3.19,
+     "file": "public/sfx/swoosh_deep_3.wav",
+     "db": -4
+    },
+    {
+     "at": 7.45,
+     "file": "public/sfx/blip_click_4.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "text": "Alfred Wegener never saw the proof. But the torn edges he noticed in an old atlas were real. The world really had been pulled *apart*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "focus",
+    "trans": "echo",
+    "cam": "pan-l",
+    "comp": "diagonal",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "AtlasPage",
+     "Jigsaw"
+    ],
+    "stock": [
+     "P-01"
+    ],
+    "see": "Beside the jigsaw, the old torn atlas from the start; his photograph slides into the tear.",
+    "beats": "+0.0 the torn atlas lies there | +1.4 a photo slides in | +2.8 the lamp warms | +4.2 the halves inch apart | +6.4 the light shifts across the torn atlas | +8.6 the camera travels on toward the torn atlas",
+    "set": "bookend"
+   },
+   "src": "S3 S5",
+   "facts": "F5",
+   "reads": "He was right.",
+   "focus": "the torn atlas",
+   "becomes": {
+    "from": "the jigsaw",
+    "to": "beside the jigsaw, the old torn atlas from the start; his photograph slides into the tear",
+    "how": "echo"
+   },
+   "acts": [
+    [
+     0,
+     "the torn atlas lies there"
+    ],
+    [
+     1.4,
+     "a photo slides in"
+    ],
+    [
+     2.8,
+     "the lamp warms"
+    ],
+    [
+     4.2,
+     "the halves inch apart"
+    ],
+    [
+     6.4,
+     "the light shifts across the torn atlas"
+    ],
+    [
+     8.6,
+     "the camera travels on toward the torn atlas"
+    ]
+   ],
+   "mood": "warm",
+   "shot": "medium",
+   "light": "warm lamp",
+   "motif": "the seam — the torn atlas again",
+   "sfx": [
+    {
+     "at": 2.13,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -2
+    },
+    {
+     "at": 5.85,
+     "file": "public/sfx/thud_soft_2.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "text": "The ground under your feet is moving right now. Slowly, quietly, about as fast as your fingernails grow… and it always *has*.",
+   "gap": 0.9,
+   "section": "MEANING",
+   "plan": {
+    "in": "iris",
+    "trans": "dissolve",
+    "cam": "crane-up",
+    "comp": "right-third-large",
+    "life": [
+     "dust"
+    ],
+    "new": [
+     "Jigsaw"
+    ],
+    "stock": [],
+    "see": "A child’s hand slides two jigsaw pieces a hair apart; the camera rises; the page fades to paper.",
+    "beats": "+0.0 a hand on the pieces | +1.4 it slides one a hair | +2.8 we rise | +4.2 paper | +6.4 the light shifts across the hand on the pieces | +8.6 the camera travels on toward the hand on the pieces"
+   },
+   "src": "S9 S10",
+   "facts": "F8",
+   "reads": "The ground is moving now.",
+   "focus": "the hand on the pieces",
+   "becomes": {
+    "from": "the atlas",
+    "to": "a child’s hand slides two jigsaw pieces a hair apart; the camera rises; the page fades to paper",
+    "how": "dissolve"
+   },
+   "acts": [
+    [
+     0,
+     "a hand on the pieces"
+    ],
+    [
+     1.4,
+     "it slides one a hair"
+    ],
+    [
+     2.8,
+     "we rise"
+    ],
+    [
+     4.2,
+     "paper"
+    ],
+    [
+     6.4,
+     "the light shifts across the hand on the pieces"
+    ],
+    [
+     8.6,
+     "the camera travels on toward the hand on the pieces"
+    ]
+   ],
+   "mood": "calm",
+   "shot": "close",
+   "light": "lamp fading",
+   "sfx": [
+    {
+     "at": 2.81,
+     "file": "public/sfx/world_footstep_wood_1.wav",
+     "db": -6
+    },
+    {
+     "at": 5.62,
+     "file": "public/sfx/blip_click_3.wav",
+     "db": -4
+    }
+   ]
+  }
+ ],
+ "world": [
+  {
+   "id": "camera",
+   "type": "camera",
+   "props": {
+    "x": 960,
+    "y": 540,
+    "zoom": 1,
+    "drift": 0.35,
+    "light": 0.4,
+    "warm": 0.05,
+    "sat": 1,
+    "expo": 1,
+    "engrave": 0.75,
+    "push": 1,
+    "pan_x": 0,
+    "pan_y": 0,
+    "dof": 0,
+    "focus": 0,
+    "shake": 0,
+    "roll": 0,
+    "dolly": 0
+   },
+   "keys": [
+    {
+     "t": 0,
+     "dur": 0.01,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L0",
+     "dur": 1.0,
+     "push": 1.288,
+     "pan_x": 77.3,
+     "pan_y": -25.8,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L0+1",
+     "dur": 9.412765957446807,
+     "push": 1.75,
+     "pan_x": 105.0,
+     "pan_y": -35.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L1",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 102.6,
+     "pan_y": 22.8,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+1",
+     "dur": 8.561702127659574,
+     "push": 1.14,
+     "pan_x": -102.6,
+     "pan_y": 22.8,
+     "ease": "inOut"
+    },
+    {
+     "t": "L2",
+     "dur": 1.0,
+     "push": 1.3312000000000002,
+     "pan_x": 186.4,
+     "pan_y": -26.6,
+     "roll": -3,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+1",
+     "dur": 8.136170212765956,
+     "push": 1.4336000000000002,
+     "pan_x": -28.7,
+     "pan_y": 71.7,
+     "roll": 3,
+     "ease": "inOut"
+    },
+    {
+     "t": "L3",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "dolly": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+1",
+     "dur": 8.98723404255319,
+     "push": 1.2768,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "dolly": 0.35,
+     "ease": "inOut"
+    },
+    {
+     "t": "L3+9.79",
+     "dur": 0.8,
+     "dolly": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L3",
+     "dur": 3.0,
+     "warm": -0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.95,
+     "ease": "soft"
+    },
+    {
+     "t": "L4",
+     "dur": 0.9,
+     "push": 1.536,
+     "pan_x": 0.0,
+     "pan_y": 245.8,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+0.9",
+     "dur": 10.463829787234042,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": -76.8,
+     "ease": "inOut"
+    },
+    {
+     "t": "L4",
+     "dur": 3.0,
+     "warm": 0.08,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L5",
+     "dur": 1.0,
+     "push": 1.08,
+     "pan_x": -97.2,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L5+1",
+     "dur": 11.540425531914892,
+     "push": 1.08,
+     "pan_x": 97.2,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L5",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L6",
+     "dur": 1.0,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": -21.6,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L7",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 0.0,
+     "pan_y": 102.6,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+1",
+     "dur": 7.7106382978723405,
+     "push": 1.14,
+     "pan_x": 0.0,
+     "pan_y": -148.2,
+     "ease": "inOut"
+    },
+    {
+     "t": "L7",
+     "dur": 3.0,
+     "warm": 0.08,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L8",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": -273.6,
+     "pan_y": 34.2,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+1",
+     "dur": 8.136170212765956,
+     "push": 1.14,
+     "pan_x": -273.6,
+     "pan_y": 285.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L8",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L9",
+     "dur": 0.9,
+     "push": 1.3679999999999999,
+     "pan_x": 82.1,
+     "pan_y": -328.3,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+0.9",
+     "dur": 8.761702127659575,
+     "push": 1.14,
+     "pan_x": 68.4,
+     "pan_y": -22.8,
+     "ease": "inOut"
+    },
+    {
+     "t": "L10",
+     "dur": 0.8,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": -21.6,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+0.8",
+     "dur": 1.6,
+     "push": 2.3760000000000003,
+     "pan_x": 0.0,
+     "pan_y": -47.5,
+     "ease": "in"
+    },
+    {
+     "t": "L10+2.4",
+     "dur": 0.9,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": -21.6,
+     "ease": "out"
+    },
+    {
+     "t": "L10+3.3",
+     "dur": 6.787234042553191,
+     "push": 1.1880000000000002,
+     "pan_x": 0.0,
+     "pan_y": -23.8,
+     "ease": "linear"
+    },
+    {
+     "t": "L11",
+     "dur": 1.0,
+     "push": 1.1776,
+     "pan_x": 0.0,
+     "pan_y": 23.6,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L11+1",
+     "dur": 8.98723404255319,
+     "push": 1.6,
+     "pan_x": 0.0,
+     "pan_y": 32.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L12",
+     "dur": 0.8,
+     "push": 1.4,
+     "pan_x": 420.0,
+     "pan_y": 28.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+0.8",
+     "dur": 11.740425531914893,
+     "push": 1.4,
+     "pan_x": -420.0,
+     "pan_y": 28.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L13",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": -102.6,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+1",
+     "dur": 9.412765957446807,
+     "push": 1.14,
+     "pan_x": 102.6,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L14",
+     "dur": 1.0,
+     "push": 1.254,
+     "pan_x": 200.6,
+     "pan_y": 25.1,
+     "roll": -5,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+1",
+     "dur": 8.561702127659574,
+     "push": 1.3451999999999997,
+     "pan_x": 215.2,
+     "pan_y": 26.9,
+     "roll": 5,
+     "ease": "linear"
+    },
+    {
+     "t": "L14",
+     "dur": 3.0,
+     "warm": 0.1,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L15",
+     "dur": 0.6,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+1",
+     "dur": 0.5,
+     "push": 1.566,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "out"
+    },
+    {
+     "t": "L15+1.5",
+     "dur": 5.382978723404255,
+     "push": 1.62,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "linear"
+    },
+    {
+     "t": "L16",
+     "dur": 0.9,
+     "push": 1.296,
+     "pan_x": 0.0,
+     "pan_y": -285.1,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L16+0.9",
+     "dur": 7.485106382978724,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L16",
+     "dur": 3.0,
+     "warm": 0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L17",
+     "dur": 0.8,
+     "push": 1.28,
+     "pan_x": 332.8,
+     "pan_y": -76.8,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+0.8",
+     "dur": 10.463829787234042,
+     "push": 1.28,
+     "pan_x": -435.2,
+     "pan_y": -76.8,
+     "ease": "inOut"
+    },
+    {
+     "t": "L17",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L18",
+     "dur": 0.8,
+     "push": 1.71,
+     "pan_x": 0.0,
+     "pan_y": -34.2,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+0.8",
+     "dur": 7.910638297872341,
+     "push": 1.083,
+     "pan_x": 0.0,
+     "pan_y": -21.7,
+     "ease": "out"
+    },
+    {
+     "t": "L19",
+     "dur": 1.0,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+0.4",
+     "dur": 0.8,
+     "shake": 0.22,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+1",
+     "dur": 8.136170212765956,
+     "push": 1.3824,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "linear"
+    },
+    {
+     "t": "L19+8.54",
+     "dur": 0.6,
+     "shake": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L19",
+     "dur": 3.0,
+     "warm": 0.2,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L20",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 102.6,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+1",
+     "dur": 7.7106382978723405,
+     "push": 1.14,
+     "pan_x": -102.6,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L20",
+     "dur": 3.0,
+     "warm": 0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L21",
+     "dur": 1.0,
+     "push": 1.08,
+     "pan_x": -97.2,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+1",
+     "dur": 9.838297872340425,
+     "push": 1.08,
+     "pan_x": 97.2,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L21",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L22",
+     "dur": 0.9,
+     "push": 1.536,
+     "pan_x": 0.0,
+     "pan_y": 307.2,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L22+0.9",
+     "dur": 7.059574468085106,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": -25.6,
+     "ease": "inOut"
+    },
+    {
+     "t": "L22",
+     "dur": 3.0,
+     "warm": -0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.95,
+     "ease": "soft"
+    },
+    {
+     "t": "L23",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L23+1.4",
+     "dur": 1.0,
+     "push": 1.254,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 7,
+     "ease": "out"
+    },
+    {
+     "t": "L23+7.11",
+     "dur": 1.2,
+     "push": 1.3109999999999997,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L23",
+     "dur": 3.0,
+     "warm": 0.2,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L24",
+     "dur": 1.0,
+     "push": 1.4,
+     "pan_x": 0.0,
+     "pan_y": 28.0,
+     "roll": 0,
+     "focus": 0.0,
+     "dof": 5,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+1.6",
+     "dur": 1.4,
+     "focus": 0.4,
+     "dof": 5,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+1.6",
+     "dur": 4.757446808510638,
+     "push": 1.54,
+     "pan_x": 0.0,
+     "pan_y": 30.8,
+     "ease": "linear"
+    },
+    {
+     "t": "L24+5.56",
+     "dur": 0.8,
+     "dof": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L24",
+     "dur": 3.0,
+     "warm": 0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L25",
+     "dur": 0.01,
+     "push": 1.08,
+     "pan_x": -561.6,
+     "pan_y": 21.6,
+     "roll": 0
+    },
+    {
+     "t": "L25+0.05",
+     "dur": 0.75,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": 21.6,
+     "ease": "out"
+    },
+    {
+     "t": "L25+0.8",
+     "dur": 6.634042553191489,
+     "push": 1.1664,
+     "pan_x": 0.0,
+     "pan_y": 23.3,
+     "ease": "linear"
+    },
+    {
+     "t": "L25",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L26",
+     "dur": 1.0,
+     "push": 1.1776,
+     "pan_x": 0.0,
+     "pan_y": 70.7,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L26+1",
+     "dur": 9.412765957446807,
+     "push": 1.6,
+     "pan_x": 0.0,
+     "pan_y": 96.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L27",
+     "dur": 1.0,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": 115.2,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L27+1",
+     "dur": 8.136170212765956,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": -166.4,
+     "ease": "inOut"
+    },
+    {
+     "t": "L27",
+     "dur": 3.0,
+     "warm": -0.25,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.9,
+     "ease": "soft"
+    },
+    {
+     "t": "L28",
+     "dur": 1.0,
+     "push": 1.08,
+     "pan_x": 97.2,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L28+1",
+     "dur": 8.98723404255319,
+     "push": 1.08,
+     "pan_x": -97.2,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L28",
+     "dur": 3.0,
+     "warm": 0.08,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L29",
+     "dur": 1.0,
+     "push": 1.08,
+     "pan_x": 216.0,
+     "pan_y": -280.8,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+0.4",
+     "dur": 0.8,
+     "shake": 0.22,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+1",
+     "dur": 9.838297872340425,
+     "push": 1.1664,
+     "pan_x": 233.3,
+     "pan_y": -303.3,
+     "ease": "linear"
+    },
+    {
+     "t": "L29+10.24",
+     "dur": 0.6,
+     "shake": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L29",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L30",
+     "dur": 1.0,
+     "push": 1.1776,
+     "pan_x": 0.0,
+     "pan_y": -23.6,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+1",
+     "dur": 8.561702127659574,
+     "push": 1.6,
+     "pan_x": 0.0,
+     "pan_y": -32.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L30",
+     "dur": 3.0,
+     "warm": -0.25,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.9,
+     "ease": "soft"
+    },
+    {
+     "t": "L31",
+     "dur": 1.0,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": -21.6,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L32",
+     "dur": 0.9,
+     "push": 1.68,
+     "pan_x": 0.0,
+     "pan_y": 268.8,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+0.9",
+     "dur": 9.187234042553191,
+     "push": 1.4,
+     "pan_x": 0.0,
+     "pan_y": -84.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L32",
+     "dur": 3.0,
+     "warm": -0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.95,
+     "ease": "soft"
+    },
+    {
+     "t": "L33",
+     "dur": 0.8,
+     "push": 1.62,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+0.8",
+     "dur": 10.463829787234042,
+     "push": 1.026,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "out"
+    },
+    {
+     "t": "L34",
+     "dur": 0.8,
+     "push": 1.08,
+     "pan_x": 324.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+0.8",
+     "dur": 8.336170212765957,
+     "push": 1.08,
+     "pan_x": -324.0,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L34",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L35",
+     "dur": 0.6,
+     "push": 1.4,
+     "pan_x": 0.0,
+     "pan_y": -224.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L35+1",
+     "dur": 0.5,
+     "push": 2.03,
+     "pan_x": 0.0,
+     "pan_y": -324.8,
+     "ease": "out"
+    },
+    {
+     "t": "L35+1.5",
+     "dur": 7.936170212765957,
+     "push": 2.0999999999999996,
+     "pan_x": 0.0,
+     "pan_y": -336.0,
+     "ease": "linear"
+    },
+    {
+     "t": "L36",
+     "dur": 1.0,
+     "push": 1.55,
+     "pan_x": 0.0,
+     "pan_y": 170.5,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+1",
+     "dur": 10.263829787234041,
+     "push": 1.55,
+     "pan_x": 0.0,
+     "pan_y": -170.5,
+     "ease": "inOut"
+    },
+    {
+     "t": "L37",
+     "dur": 0.9,
+     "push": 1.296,
+     "pan_x": 0.0,
+     "pan_y": -285.1,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+0.9",
+     "dur": 8.761702127659575,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L37",
+     "dur": 3.0,
+     "warm": 0.1,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L38",
+     "dur": 1.0,
+     "push": 1.1880000000000002,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": -5,
+     "ease": "soft"
+    },
+    {
+     "t": "L38+1",
+     "dur": 8.98723404255319,
+     "push": 1.2744,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 5,
+     "ease": "linear"
+    },
+    {
+     "t": "L39",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L40",
+     "dur": 1.0,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "dolly": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+1",
+     "dur": 5.582978723404255,
+     "push": 1.4336000000000002,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "dolly": 0.35,
+     "ease": "inOut"
+    },
+    {
+     "t": "L40+6.38",
+     "dur": 0.8,
+     "dolly": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L41",
+     "dur": 1.0,
+     "push": 1.1856,
+     "pan_x": 94.8,
+     "pan_y": -47.4,
+     "roll": -3,
+     "ease": "soft"
+    },
+    {
+     "t": "L41+1",
+     "dur": 7.7106382978723405,
+     "push": 1.2768,
+     "pan_x": -102.1,
+     "pan_y": 38.3,
+     "roll": 3,
+     "ease": "inOut"
+    },
+    {
+     "t": "L41",
+     "dur": 3.0,
+     "warm": -0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.95,
+     "ease": "soft"
+    },
+    {
+     "t": "L42",
+     "dur": 1.0,
+     "push": 1.1776,
+     "pan_x": 0.0,
+     "pan_y": -23.6,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+1",
+     "dur": 7.7106382978723405,
+     "push": 1.6,
+     "pan_x": 0.0,
+     "pan_y": -32.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L42",
+     "dur": 3.0,
+     "warm": 0.1,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L43",
+     "dur": 0.6,
+     "push": 1.4,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L43+1",
+     "dur": 0.5,
+     "push": 2.03,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "out"
+    },
+    {
+     "t": "L43+1.5",
+     "dur": 7.51063829787234,
+     "push": 2.0999999999999996,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "linear"
+    },
+    {
+     "t": "L44",
+     "dur": 0.9,
+     "push": 1.536,
+     "pan_x": 0.0,
+     "pan_y": -430.1,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+0.9",
+     "dur": 10.038297872340426,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": -76.8,
+     "ease": "inOut"
+    },
+    {
+     "t": "L45",
+     "dur": 1.0,
+     "push": 1.08,
+     "pan_x": 97.2,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+1",
+     "dur": 9.838297872340425,
+     "push": 1.08,
+     "pan_x": -97.2,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L46",
+     "dur": 0.8,
+     "push": 1.92,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+0.8",
+     "dur": 11.740425531914893,
+     "push": 1.216,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "out"
+    },
+    {
+     "t": "L47",
+     "dur": 0.8,
+     "push": 1.08,
+     "pan_x": 324.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+0.8",
+     "dur": 10.88936170212766,
+     "push": 1.08,
+     "pan_x": -324.0,
+     "pan_y": 0.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L48",
+     "dur": 1.0,
+     "push": 1.1232000000000002,
+     "pan_x": 89.9,
+     "pan_y": -44.9,
+     "roll": -3,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+1",
+     "dur": 8.98723404255319,
+     "push": 1.2096000000000002,
+     "pan_x": -96.8,
+     "pan_y": 36.3,
+     "roll": 3,
+     "ease": "inOut"
+    },
+    {
+     "t": "L49",
+     "dur": 1.0,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": 115.2,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+1",
+     "dur": 8.98723404255319,
+     "push": 1.28,
+     "pan_x": 0.0,
+     "pan_y": -166.4,
+     "ease": "inOut"
+    },
+    {
+     "t": "L49",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L50",
+     "dur": 0.9,
+     "push": 1.296,
+     "pan_x": 0.0,
+     "pan_y": -233.3,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L50+0.9",
+     "dur": 8.336170212765957,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": 43.2,
+     "ease": "inOut"
+    },
+    {
+     "t": "L50",
+     "dur": 3.0,
+     "warm": 0.2,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L51",
+     "dur": 0.8,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+0.8",
+     "dur": 1.6,
+     "push": 2.3760000000000003,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "in"
+    },
+    {
+     "t": "L51+2.4",
+     "dur": 0.9,
+     "push": 1.08,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "out"
+    },
+    {
+     "t": "L51+3.3",
+     "dur": 6.787234042553191,
+     "push": 1.1880000000000002,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "linear"
+    },
+    {
+     "t": "L51",
+     "dur": 3.0,
+     "warm": 0.1,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L52",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 0.0,
+     "pan_y": -22.8,
+     "roll": 0,
+     "focus": 0.0,
+     "dof": 5,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+1.6",
+     "dur": 1.4,
+     "focus": 0.4,
+     "dof": 5,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+1.6",
+     "dur": 8.161702127659575,
+     "push": 1.254,
+     "pan_x": 0.0,
+     "pan_y": -25.1,
+     "ease": "linear"
+    },
+    {
+     "t": "L52+8.96",
+     "dur": 0.8,
+     "dof": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L52",
+     "dur": 3.0,
+     "warm": 0.05,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L53",
+     "dur": 1.0,
+     "push": 1.288,
+     "pan_x": 77.3,
+     "pan_y": -25.8,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+1",
+     "dur": 5.157446808510638,
+     "push": 1.75,
+     "pan_x": 105.0,
+     "pan_y": -35.0,
+     "ease": "inOut"
+    },
+    {
+     "t": "L53",
+     "dur": 3.0,
+     "warm": 0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L54",
+     "dur": 0.8,
+     "push": 1.62,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+0.8",
+     "dur": 7.485106382978724,
+     "push": 1.026,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "ease": "out"
+    },
+    {
+     "t": "L54",
+     "dur": 3.0,
+     "warm": 0.1,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L55",
+     "dur": 1.0,
+     "push": 1.1880000000000002,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": -5,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+1",
+     "dur": 9.838297872340425,
+     "push": 1.2744,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 5,
+     "ease": "linear"
+    },
+    {
+     "t": "L56",
+     "dur": 1.0,
+     "push": 1.14,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "roll": 0,
+     "dolly": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+1",
+     "dur": 9.838297872340425,
+     "push": 1.2768,
+     "pan_x": 0.0,
+     "pan_y": 0.0,
+     "dolly": 0.35,
+     "ease": "inOut"
+    },
+    {
+     "t": "L56+10.64",
+     "dur": 0.8,
+     "dolly": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L56",
+     "dur": 3.0,
+     "warm": 0.3,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L57",
+     "dur": 0.9,
+     "push": 1.296,
+     "pan_x": 207.4,
+     "pan_y": -311.0,
+     "roll": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+0.9",
+     "dur": 8.761702127659575,
+     "push": 1.08,
+     "pan_x": 172.8,
+     "pan_y": -21.6,
+     "ease": "inOut"
+    },
+    {
+     "t": "L57",
+     "dur": 3.0,
+     "warm": 0.08,
+     "sat": 1,
+     "expo": 1,
+     "engrave": 0.7,
+     "ease": "soft"
+    }
+   ]
+  },
+  {
+   "id": "clue",
+   "type": "clue",
+   "props": {
+    "n": 1,
+    "of": 4,
+    "label": "The Torn Page",
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L17+0.5",
+     "dur": 0.01,
+     "n": 2,
+     "label": "The Same Fossils"
+    },
+    {
+     "t": "L25+0.5",
+     "dur": 0.01,
+     "n": 3,
+     "label": "The Man on the Ice"
+    },
+    {
+     "t": "L33+0.5",
+     "dur": 0.01,
+     "n": 4,
+     "label": "Stripes Under the Sea"
+    }
+   ]
+  },
+  {
+   "id": "jig0",
+   "type": "art",
+   "props": {
+    "name": "Jigsaw",
+    "a": 0,
+    "slide": 0,
+    "glow": 0,
+    "future": 0,
+    "hand": 0,
+    "apart": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L0",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L0+1.84",
+     "dur": 1.4,
+     "hand": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L0+3.27",
+     "dur": 1.6,
+     "slide": 0.85,
+     "ease": "soft"
+    },
+    {
+     "t": "L0+5.62",
+     "dur": 0.4,
+     "slide": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L0+7.15",
+     "dur": 0.9,
+     "glow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L0+8.99",
+     "dur": 0.9,
+     "glow": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+0.1",
+     "dur": 1.2,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+0.2",
+     "dur": 0.9,
+     "a": 1,
+     "dissolve": 1,
+     "slide": 1,
+     "glow": 0,
+     "hand": 0,
+     "apart": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+1.06",
+     "dur": 1.4,
+     "future": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+3.19",
+     "dur": 1.4,
+     "future": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+5.32",
+     "dur": 1.4,
+     "future": 0.85,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+7.45",
+     "dur": 1.2,
+     "future": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+9.04",
+     "dur": 0.6,
+     "glow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+0.53",
+     "dur": 1.0,
+     "glow": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+2.13",
+     "dur": 1.2,
+     "x": 640,
+     "s": 0.62,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+0.47",
+     "dur": 1.2,
+     "hand": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+2.81",
+     "dur": 1.4,
+     "apart": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+5.62",
+     "dur": 1.0,
+     "glow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+6.4",
+     "dur": 2.4,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 10
+  },
+  {
+   "id": "lp0",
+   "type": "lamp",
+   "props": {
+    "at": {
+     "screen": [
+      420,
+      200
+     ]
+    },
+    "r": 1200,
+    "k": 0,
+    "dark": 0.4,
+    "warm": 0.85
+   },
+   "keys": [
+    {
+     "t": "L0",
+     "dur": 1.4,
+     "k": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+0.2",
+     "dur": 1.0,
+     "k": 0
+    }
+   ],
+   "z": 58
+  },
+  {
+   "id": "atl1",
+   "type": "art",
+   "props": {
+    "name": "AtlasPage",
+    "a": 0,
+    "burn": 1,
+    "trace": 0,
+    "ghost": 0,
+    "tear": 0,
+    "gap": 0,
+    "q": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "blur": 12
+   },
+   "keys": [
+    {
+     "t": "L1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L1",
+     "dur": 1.0,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+2.34",
+     "dur": 1.4,
+     "trace": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+5.15",
+     "dur": 1.4,
+     "trace": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+7.96",
+     "dur": 0.9,
+     "trace": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+0.71",
+     "dur": 1.6,
+     "ghost": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+3.13",
+     "dur": 1.4,
+     "ghost": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+5.54",
+     "dur": 0.9,
+     "ghost": 0.95,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+7.15",
+     "dur": 1.4,
+     "ghost": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+0.78",
+     "dur": 0.6,
+     "tear": 0.15,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+2.15",
+     "dur": 1.6,
+     "tear": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+4.4",
+     "dur": 1.6,
+     "gap": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+6.46",
+     "dur": 1.2,
+     "gap": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+7.83",
+     "dur": 0.9,
+     "q": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+0.2",
+     "dur": 1.6,
+     "burn": 0,
+     "burnAt": [
+      960,
+      540
+     ],
+     "ease": "linear"
+    },
+    {
+     "t": "L4+1.82",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "mk2",
+   "type": "art",
+   "props": {
+    "name": "Mark",
+    "kind": "circle",
+    "box": [
+     700,
+     380,
+     520,
+     360
+    ],
+    "k": 0,
+    "w": 4,
+    "seed": 1,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L2+6.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L2+6.2",
+     "dur": 0.9,
+     "k": 1,
+     "ease": "hand"
+    },
+    {
+     "t": "L3+0.2",
+     "dur": 0.8,
+     "a": 0
+    }
+   ],
+   "z": 61
+  },
+  {
+   "id": "mr4",
+   "type": "art",
+   "props": {
+    "name": "MeadowRock",
+    "a": 0,
+    "flipY": 0,
+    "boots": 0,
+    "stamp": 0,
+    "snail": 0,
+    "grow": 0,
+    "town": 0,
+    "night": 0,
+    "shift": 0,
+    "hour": 0,
+    "sand": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "pour": 0,
+    "pourDir": "down"
+   },
+   "keys": [
+    {
+     "t": "L4+0.1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L4+0.1",
+     "dur": 1.8,
+     "pour": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+2.77",
+     "dur": 0.9,
+     "boots": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+4.98",
+     "dur": 0.5,
+     "stamp": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+6.09",
+     "dur": 0.5,
+     "stamp": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+6.86",
+     "dur": 0.5,
+     "stamp": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+7.74",
+     "dur": 0.5,
+     "stamp": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L4+8.63",
+     "dur": 2.4,
+     "snail": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L5+0.62",
+     "dur": 0.9,
+     "boots": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L5+0.3",
+     "dur": 0.8,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L6",
+     "dur": 0.9,
+     "a": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+0.55",
+     "dur": 1.6,
+     "grow": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+2.21",
+     "dur": 1.6,
+     "grow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+3.87",
+     "dur": 1.6,
+     "town": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+5.53",
+     "dur": 1.6,
+     "town": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+7.3",
+     "dur": 1.4,
+     "town": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+9.07",
+     "dur": 0.8,
+     "shift": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+0.43",
+     "dur": 1.0,
+     "hour": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+1.53",
+     "dur": 1.4,
+     "night": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+2.55",
+     "dur": 1.2,
+     "night": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+3.57",
+     "dur": 1.0,
+     "night": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+4.68",
+     "dur": 1.0,
+     "night": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+6.38",
+     "dur": 1.0,
+     "night": 0.2,
+     "ease": "soft"
+    },
+    {
+     "t": "L7+0.1",
+     "dur": 8.11063829787234,
+     "sand": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L8+0.2",
+     "dur": 1.1,
+     "flipY": -100,
+     "ease": "in"
+    },
+    {
+     "t": "L8+1.32",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 6
+  },
+  {
+   "id": "fc5",
+   "type": "art",
+   "props": {
+    "name": "FourClues",
+    "a": 0,
+    "lift": 0,
+    "n": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "fx_s": 0.08,
+    "fx_ox": 960,
+    "fx_oy": 600
+   },
+   "keys": [
+    {
+     "t": "L5+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L5+0.2",
+     "dur": 1.6,
+     "fx_s": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L5+2.47",
+     "dur": 0.6,
+     "n": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L5+4.94",
+     "dur": 0.6,
+     "n": 2,
+     "ease": "soft"
+    },
+    {
+     "t": "L5+7.4",
+     "dur": 0.6,
+     "n": 3,
+     "ease": "soft"
+    },
+    {
+     "t": "L5+9.87",
+     "dur": 0.6,
+     "n": 4,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+0.1",
+     "dur": 1.0,
+     "lift": 40,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 12
+  },
+  {
+   "id": "c6",
+   "type": "text",
+   "props": {
+    "text": "",
+    "style": "figure",
+    "x": 1500,
+    "y": 900,
+    "size": 48,
+    "num": 0,
+    "fmt": "moved: {n} hair",
+    "k": 1,
+    "a": 0,
+    "blur": 8,
+    "col": "#B8432A"
+   },
+   "keys": [
+    {
+     "t": "L6+6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L6+6",
+     "dur": 0.8,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+6",
+     "dur": 1.0,
+     "num": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L7+0.6",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "title",
+   "type": "art",
+   "props": {
+    "name": "TitleCard",
+    "k": 0,
+    "title": "How do we know\nthe continents move?",
+    "sub": "a story in four clues",
+    "a": 0,
+    "lock": 1
+   },
+   "keys": [
+    {
+     "t": "L5-5.6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L5-5.6",
+     "dur": 2.0,
+     "k": 0.5,
+     "ease": "linear"
+    },
+    {
+     "t": "L5-3.6",
+     "dur": 2.0,
+     "k": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L5-1.2",
+     "dur": 1.3,
+     "dissolve": 0,
+     "dissolveAt": [
+      960,
+      540
+     ],
+     "dissolveR": 520,
+     "ease": "linear"
+    },
+    {
+     "t": "L5+0.2",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 90
+  },
+  {
+   "id": "ml8",
+   "type": "art",
+   "props": {
+    "name": "MapLeaves",
+    "a": 0,
+    "k": 0,
+    "stamp": 0,
+    "catch": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "blinds": 0
+   },
+   "keys": [
+    {
+     "t": "L8",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L8",
+     "dur": 1.3,
+     "blinds": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+0.45",
+     "dur": 1.6,
+     "k": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+2.23",
+     "dur": 1.6,
+     "k": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+3.75",
+     "dur": 0.5,
+     "stamp": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+5.36",
+     "dur": 1.4,
+     "k": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+7.15",
+     "dur": 0.7,
+     "catch": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+0.3",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 18,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L9+1.32",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 12
+  },
+  {
+   "id": "gi9",
+   "type": "art",
+   "props": {
+    "name": "GreenlandIce",
+    "a": 0,
+    "snow": 0,
+    "sledge": 0,
+    "flag": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "wipe": 0,
+    "wipeDir": "up"
+   },
+   "keys": [
+    {
+     "t": "L9",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L9",
+     "dur": 1.4,
+     "wipe": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+0.5",
+     "dur": 1.2,
+     "dissolve": 0,
+     "dissolveSeed": 32,
+     "dissolveDir": "down",
+     "ease": "linear"
+    },
+    {
+     "t": "L10+1.72",
+     "dur": 0.01,
+     "a": 0
+    },
+    {
+     "t": "L28+3.6",
+     "dur": 1.2,
+     "a": 1,
+     "dissolve": 1,
+     "snow": 0,
+     "sledge": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L28+5.87",
+     "dur": 2.0,
+     "sledge": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L28+8.03",
+     "dur": 1.6,
+     "sledge": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+0.53",
+     "dur": 1.4,
+     "snow": 0.5,
+     "flag": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+2.66",
+     "dur": 1.4,
+     "snow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+6.38",
+     "dur": 1.4,
+     "sledge": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+0.3",
+     "dur": 1.2,
+     "dissolve": 0,
+     "dissolveSeed": 81,
+     "dissolveDir": "up",
+     "ease": "linear"
+    },
+    {
+     "t": "L30+1.52",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 4
+  },
+  {
+   "id": "weg9",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "a": 0,
+    "who": "Alfred Wegener, meteorologist, Greenland (1910s)",
+    "x": 820,
+    "y": 960,
+    "h": 520,
+    "facing": 1,
+    "pose": "stand",
+    "pose2": "raise",
+    "pk": 0,
+    "expr": "focus",
+    "ek": 0,
+    "look": [
+     0.4,
+     -0.6
+    ],
+    "costume": "wegenerArctic",
+    "beard": "short",
+    "face": {
+     "nose": 0.55,
+     "brow": 0.5,
+     "chin": 0.5,
+     "age": 0.4,
+     "build": 0.95
+    },
+    "hairCol": "#4A3A2A",
+    "skin": 0.26,
+    "alive": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L9+0.6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L9+0.6",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L9+1.4",
+     "dur": 0.9,
+     "pk": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+3.93",
+     "dur": 0.5,
+     "pose2": "reach",
+     "pk": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+5.15",
+     "dur": 0.9,
+     "pk": 1,
+     "expr": "smile",
+     "ek": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+7.3",
+     "dur": 0.9,
+     "pose2": "look",
+     "pk": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+0.2",
+     "dur": 0.9,
+     "dissolve": 0,
+     "dissolveSeed": 25,
+     "dissolveDir": "down",
+     "ease": "linear"
+    },
+    {
+     "t": "L10+1.12",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 14
+  },
+  {
+   "id": "bal9",
+   "type": "art",
+   "props": {
+    "name": "Balloon",
+    "a": 0,
+    "rise": 0,
+    "x": 980,
+    "y": 560,
+    "s": 1,
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L9+0.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L9+0.4",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 18,
+     "ease": "linear"
+    },
+    {
+     "t": "L9+4.21",
+     "dur": 1.8,
+     "rise": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+6.55",
+     "dur": 1.8,
+     "rise": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+0.49",
+     "dur": 1.6,
+     "rise": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+3",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 39,
+     "dissolveDir": "up",
+     "ease": "linear"
+    },
+    {
+     "t": "L10+4.02",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 16
+  },
+  {
+   "id": "pin9",
+   "type": "art",
+   "props": {
+    "name": "CabinetCard",
+    "a": 0,
+    "burn": 1,
+    "src": "stock/_hwk/drifting-continents/P-01_wegener-villumsen-greenland-1930.jpg",
+    "x": 1540,
+    "y": 300,
+    "w": 420,
+    "h": 300,
+    "rot": -3,
+    "caption": "Wegener (left) and Villumsen, Greenland 1930",
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L9+5.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L9+5.2",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 39,
+     "ease": "linear"
+    },
+    {
+     "t": "L10+0.2",
+     "dur": 1.3,
+     "burn": 0,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L10+1.52",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 30
+  },
+  {
+   "id": "pl9",
+   "type": "text",
+   "props": {
+    "text": "Alfred Wegener · weather scientist",
+    "style": "plate",
+    "x": 760,
+    "y": 160,
+    "k": 0,
+    "a": 0,
+    "blur": 8,
+    "size": 40,
+    "col": "#2B1D12"
+   },
+   "keys": [
+    {
+     "t": "L9+1.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L9+1.4",
+     "dur": 0.9,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+1.4",
+     "dur": 1.2,
+     "k": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L10+0.2",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "sd10",
+   "type": "art",
+   "props": {
+    "name": "StudyDesk",
+    "a": 0,
+    "lamp": 0,
+    "mag": 0,
+    "shells": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "fx_s": 0.08,
+    "fx_ox": 960,
+    "fx_oy": 300
+   },
+   "keys": [
+    {
+     "t": "L10+1.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L10+1.2",
+     "dur": 1.6,
+     "fx_s": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L10+3.43",
+     "dur": 1.2,
+     "lamp": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+5.87",
+     "dur": 1.4,
+     "mag": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+8.03",
+     "dur": 1.0,
+     "mag": 0.2,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+0.51",
+     "dur": 0.9,
+     "shells": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+2.55",
+     "dur": 1.2,
+     "shells": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+4.6",
+     "dur": 1.4,
+     "mag": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+7.15",
+     "dur": 1.4,
+     "mag": 0.1,
+     "ease": "soft"
+    },
+    {
+     "t": "L10+2.8",
+     "dur": 0.8,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L13",
+     "dur": 0.8,
+     "a": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+0.2",
+     "dur": 1.0,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "tn11",
+   "type": "art",
+   "props": {
+    "name": "TornNews",
+    "a": 0,
+    "tear": 0,
+    "gap": 0,
+    "print": 0,
+    "fossils": 0,
+    "x": 960,
+    "y": 520,
+    "s": 1,
+    "draw": 1,
+    "unroll": 0
+   },
+   "keys": [
+    {
+     "t": "L11",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L11",
+     "dur": 1.6,
+     "unroll": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L11+1.76",
+     "dur": 1.0,
+     "tear": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L11+3.43",
+     "dur": 1.2,
+     "gap": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L11+5.87",
+     "dur": 1.4,
+     "gap": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L11+7.83",
+     "dur": 0.8,
+     "gap": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+0.99",
+     "dur": 1.0,
+     "print": 0.25,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+3.7",
+     "dur": 1.0,
+     "print": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+6.17",
+     "dur": 0.8,
+     "print": 0.62,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+8.64",
+     "dur": 1.0,
+     "print": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+0.2",
+     "dur": 1.0,
+     "tear": 0,
+     "ease": "in"
+    },
+    {
+     "t": "L13+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 20
+  },
+  {
+   "id": "wegd11",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "a": 0,
+    "who": "Alfred Wegener at his desk (1911)",
+    "x": 380,
+    "y": 1040,
+    "h": 640,
+    "facing": 1,
+    "pose": "reach",
+    "pose2": "hold",
+    "pk": 0,
+    "expr": "focus",
+    "ek": 1,
+    "look": [
+     1,
+     0.3
+    ],
+    "costume": "wegener1912",
+    "beard": "moustache",
+    "face": {
+     "nose": 0.55,
+     "brow": 0.5,
+     "chin": 0.5,
+     "age": 0.4,
+     "build": 0.95
+    },
+    "hairCol": "#4A3A2A",
+    "skin": 0.26,
+    "alive": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L11+0.6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L11+0.6",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L12+0.2",
+     "dur": 1.3,
+     "dissolve": 0,
+     "dissolveSeed": 46,
+     "dissolveDir": "left",
+     "ease": "linear"
+    },
+    {
+     "t": "L12+1.52",
+     "dur": 0.01,
+     "a": 0
+    },
+    {
+     "t": "L11+4.89",
+     "dur": 0.9,
+     "pk": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L11+7.34",
+     "dur": 0.9,
+     "pk": 0.2,
+     "expr": "smile",
+     "ease": "soft"
+    }
+   ],
+   "z": 24
+  },
+  {
+   "id": "mk12",
+   "type": "art",
+   "props": {
+    "name": "Mark",
+    "kind": "tick",
+    "box": [
+     1360,
+     560,
+     80,
+     80
+    ],
+    "k": 0,
+    "w": 5,
+    "seed": 1,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L12+7.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L12+7.4",
+     "dur": 0.9,
+     "k": 1,
+     "ease": "hand"
+    },
+    {
+     "t": "L13+0.2",
+     "dur": 0.8,
+     "a": 0
+    }
+   ],
+   "z": 61
+  },
+  {
+   "id": "lh14",
+   "type": "art",
+   "props": {
+    "name": "LectureHall",
+    "a": 0,
+    "shatter": 0,
+    "map": 0,
+    "laugh": 0,
+    "steam": 0,
+    "bubbles": 0,
+    "stone": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "iris": 0,
+    "irisAt": [
+     960,
+     420
+    ]
+   },
+   "keys": [
+    {
+     "t": "L14",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L14",
+     "dur": 1.4,
+     "iris": 1,
+     "ease": "in"
+    },
+    {
+     "t": "L14+2.81",
+     "dur": 1.4,
+     "map": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+4.68",
+     "dur": 1.4,
+     "map": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+6.18",
+     "dur": 0.8,
+     "map": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L15",
+     "dur": 0.8,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L25",
+     "dur": 0.8,
+     "a": 1,
+     "map": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+1.45",
+     "dur": 0.5,
+     "laugh": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+2.75",
+     "dur": 0.5,
+     "laugh": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+3.98",
+     "dur": 0.5,
+     "laugh": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+4.92",
+     "dur": 1.4,
+     "steam": 1,
+     "laugh": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L26+1.02",
+     "dur": 0.8,
+     "bubbles": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L26+3.06",
+     "dur": 0.8,
+     "bubbles": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L26+5.11",
+     "dur": 0.8,
+     "bubbles": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L26+6.94",
+     "dur": 1.2,
+     "stone": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L26+8.68",
+     "dur": 1.0,
+     "stone": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L27+0.2",
+     "dur": 1.1,
+     "shatter": 1,
+     "shatterAt": [
+      960,
+      540
+     ],
+     "ease": "in"
+    },
+    {
+     "t": "L27+1.32",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 6
+  },
+  {
+   "id": "wegl14",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "a": 0,
+    "who": "Alfred Wegener lecturing (1912)",
+    "x": 520,
+    "y": 960,
+    "h": 470,
+    "facing": 1,
+    "pose": "explain",
+    "pose2": "point",
+    "pk": 0,
+    "expr": "focus",
+    "ek": 1,
+    "look": [
+     1,
+     -0.2
+    ],
+    "costume": "wegener1912",
+    "beard": "moustache",
+    "face": {
+     "nose": 0.55,
+     "brow": 0.5,
+     "chin": 0.5,
+     "age": 0.4,
+     "build": 0.95
+    },
+    "hairCol": "#4A3A2A",
+    "skin": 0.26,
+    "alive": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L14+0.5",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L14+0.5",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L15+0.2",
+     "dur": 1.3,
+     "dissolve": 0,
+     "dissolveSeed": 53,
+     "ease": "linear"
+    },
+    {
+     "t": "L15+1.52",
+     "dur": 0.01,
+     "a": 0
+    },
+    {
+     "t": "L14+1.87",
+     "dur": 0.9,
+     "pk": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+5.15",
+     "dur": 0.9,
+     "pk": 0.2,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+7.02",
+     "dur": 0.9,
+     "pk": 1,
+     "expr": "awe",
+     "ease": "soft"
+    }
+   ],
+   "z": 14
+  },
+  {
+   "id": "pl14",
+   "type": "text",
+   "props": {
+    "text": "Frankfurt · January 1912",
+    "style": "plate",
+    "x": 1400,
+    "y": 160,
+    "k": 0,
+    "a": 0,
+    "blur": 8,
+    "size": 38,
+    "col": "#F4EAD5",
+    "light": true
+   },
+   "keys": [
+    {
+     "t": "L14+1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L14+1",
+     "dur": 0.9,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+1",
+     "dur": 1.2,
+     "k": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L15+0.2",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "lp14",
+   "type": "lamp",
+   "props": {
+    "at": {
+     "screen": [
+      960,
+      120
+     ]
+    },
+    "r": 1100,
+    "k": 0,
+    "dark": 0.45,
+    "warm": 0.8
+   },
+   "keys": [
+    {
+     "t": "L14",
+     "dur": 1.4,
+     "k": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+0.4",
+     "dur": 1.0,
+     "k": 0
+    }
+   ],
+   "z": 58
+  },
+  {
+   "id": "qp15",
+   "type": "art",
+   "props": {
+    "name": "QuiltPangaea",
+    "a": 0,
+    "stamp": 0,
+    "cloth": 0,
+    "stitch": 0,
+    "open": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "brush": 0
+   },
+   "keys": [
+    {
+     "t": "L15",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L15",
+     "dur": 1.8,
+     "brush": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L15+1.6",
+     "dur": 0.5,
+     "stamp": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+3.83",
+     "dur": 1.2,
+     "stamp": 0.85,
+     "ease": "soft"
+    },
+    {
+     "t": "L16+0.4",
+     "dur": 1.4,
+     "cloth": 1,
+     "stamp": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L16+1.78",
+     "dur": 1.4,
+     "stitch": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L16+3.4",
+     "dur": 1.4,
+     "stitch": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L16+5.01",
+     "dur": 1.4,
+     "stitch": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L16+6.63",
+     "dur": 0.8,
+     "open": 0.06,
+     "ease": "soft"
+    },
+    {
+     "t": "L16+7.44",
+     "dur": 0.5,
+     "open": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+0.1",
+     "dur": 0.9,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+1.8",
+     "dur": 1.0,
+     "a": 1,
+     "dissolve": 1,
+     "stamp": 0,
+     "cloth": 1,
+     "stitch": 1,
+     "open": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+2.83",
+     "dur": 1.0,
+     "open": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+4.04",
+     "dur": 1.0,
+     "open": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+5.5",
+     "dur": 1.2,
+     "open": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L55+0.3",
+     "dur": 1.0,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "ms17",
+   "type": "art",
+   "props": {
+    "name": "Mesosaurus",
+    "a": 0,
+    "walk": 0,
+    "swim": 0,
+    "bones": 0,
+    "splutter": 0,
+    "x": 900,
+    "y": 620,
+    "s": 1,
+    "draw": 1,
+    "fx_x": -500
+   },
+   "keys": [
+    {
+     "t": "L17+0.3",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L17+0.3",
+     "dur": 1.5,
+     "fx_x": 0,
+     "ease": "weight"
+    },
+    {
+     "t": "L17+0.3",
+     "dur": 10.063829787234042,
+     "walk": 4,
+     "x": 1100,
+     "ease": "linear"
+    },
+    {
+     "t": "L17+3.32",
+     "dur": 0.6,
+     "tail": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+5.53",
+     "dur": 0.6,
+     "tail": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+8.85",
+     "dur": 1.0,
+     "swim": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+0.17",
+     "dur": 1.0,
+     "bones": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+1.2",
+     "dur": 0.7,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 20
+  },
+  {
+   "id": "pin17",
+   "type": "art",
+   "props": {
+    "name": "Pinned",
+    "a": 0,
+    "burn": 1,
+    "src": "stock/_hwk/drifting-continents/P-02_mesosaurus-tenuidens-senckenberg.jpg",
+    "x": 1560,
+    "y": 280,
+    "w": 400,
+    "h": 280,
+    "rot": 3,
+    "caption": "Mesosaurus fossil · Senckenberg",
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L17+6.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L17+6.4",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 53,
+     "ease": "linear"
+    },
+    {
+     "t": "L18+0.4",
+     "dur": 1.3,
+     "burn": 0,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L18+1.72",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 30
+  },
+  {
+   "id": "fm18",
+   "type": "art",
+   "props": {
+    "name": "FossilMap",
+    "a": 0,
+    "pins": 0,
+    "grey": 0,
+    "waves": 0,
+    "close": 0,
+    "leaves": 0,
+    "ant": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "unroll": 0
+   },
+   "keys": [
+    {
+     "t": "L18+0.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L18+0.4",
+     "dur": 1.6,
+     "unroll": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+2.13",
+     "dur": 0.6,
+     "pins": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+3.83",
+     "dur": 0.6,
+     "pins": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+5.96",
+     "dur": 1.2,
+     "grey": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+0.45",
+     "dur": 1.4,
+     "waves": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+7.6",
+     "dur": 1.0,
+     "waves": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+0.43",
+     "dur": 1.4,
+     "close": 0.5,
+     "grey": 0.3,
+     "waves": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+2.55",
+     "dur": 1.2,
+     "close": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+4.68",
+     "dur": 0.9,
+     "grey": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+3.19",
+     "dur": 0.6,
+     "leaves": 1,
+     "close": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+4.79",
+     "dur": 0.6,
+     "leaves": 2,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+6.6",
+     "dur": 0.6,
+     "leaves": 3,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+8.51",
+     "dur": 0.6,
+     "leaves": 4,
+     "ease": "soft"
+    },
+    {
+     "t": "L22+0.38",
+     "dur": 1.0,
+     "ant": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L22+2",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 67,
+     "dissolveAt": [
+      960,
+      900
+     ],
+     "dissolveR": 1100,
+     "ease": "linear"
+    },
+    {
+     "t": "L22+3.02",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "ms19",
+   "type": "art",
+   "props": {
+    "name": "Mesosaurus",
+    "a": 0,
+    "draw": 1,
+    "walk": 0,
+    "swim": 1,
+    "bones": 0,
+    "splutter": 0,
+    "x": 860,
+    "y": 560,
+    "s": 0.55
+   },
+   "keys": [
+    {
+     "t": "L19+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L20-0.1",
+     "dur": 1.3,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+0.2",
+     "dur": 2.4,
+     "x": 960,
+     "walk": 2,
+     "ease": "linear"
+    },
+    {
+     "t": "L19+3.13",
+     "dur": 0.5,
+     "splutter": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+4.29",
+     "dur": 0.5,
+     "splutter": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+5.18",
+     "dur": 0.5,
+     "splutter": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+6.26",
+     "dur": 1.0,
+     "flip": 1,
+     "splutter": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 22
+  },
+  {
+   "id": "q19",
+   "type": "text",
+   "props": {
+    "text": "?",
+    "style": "title",
+    "x": 1060,
+    "y": 380,
+    "k": 0,
+    "a": 0,
+    "blur": 8,
+    "size": 120,
+    "col": "#B8432A"
+   },
+   "keys": [
+    {
+     "t": "L19+7.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L19+7.4",
+     "dur": 0.9,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+7.4",
+     "dur": 1.2,
+     "k": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L20+0.3",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "ms20",
+   "type": "art",
+   "props": {
+    "name": "Mesosaurus",
+    "a": 0,
+    "walk": 0,
+    "swim": 1,
+    "x": 820,
+    "y": 560,
+    "s": 0.45,
+    "draw": 1,
+    "blur": 12
+   },
+   "keys": [
+    {
+     "t": "L20+3",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L20+3",
+     "dur": 1.0,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+0.1",
+     "dur": 1.3,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+3",
+     "dur": 3.0,
+     "x": 1080,
+     "walk": 3,
+     "ease": "linear"
+    }
+   ],
+   "z": 22
+  },
+  {
+   "id": "fern21",
+   "type": "art",
+   "props": {
+    "name": "Fern",
+    "a": 0,
+    "unfurl": 0,
+    "blow": 0,
+    "x": 300,
+    "y": 640,
+    "s": 0.8,
+    "draw": 1,
+    "pour": 0,
+    "pourDir": "up"
+   },
+   "keys": [
+    {
+     "t": "L21",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L21",
+     "dur": 1.8,
+     "pour": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+4",
+     "dur": 1.3,
+     "dissolve": 0,
+     "dissolveSeed": 60,
+     "dissolveDir": "left",
+     "ease": "linear"
+    },
+    {
+     "t": "L21+5.32",
+     "dur": 0.01,
+     "a": 0
+    },
+    {
+     "t": "L21+0.53",
+     "dur": 1.2,
+     "unfurl": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+2.13",
+     "dur": 1.4,
+     "blow": 1,
+     "ease": "soft"
+    }
+   ],
+   "z": 24
+  },
+  {
+   "id": "fi22",
+   "type": "art",
+   "props": {
+    "name": "FernIce",
+    "a": 0,
+    "burn": 1,
+    "snow": 0,
+    "freeze": 0,
+    "freezer": 0,
+    "thaw": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "blur": 12
+   },
+   "keys": [
+    {
+     "t": "L22+1.6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L22+1.6",
+     "dur": 1.0,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L22+2.68",
+     "dur": 1.4,
+     "snow": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L22+4.21",
+     "dur": 1.2,
+     "snow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L22+5.97",
+     "dur": 1.0,
+     "freeze": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L23+0.43",
+     "dur": 1.0,
+     "freezer": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L23+2.55",
+     "dur": 1.4,
+     "thaw": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L23+4.68",
+     "dur": 1.4,
+     "thaw": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L23+6.64",
+     "dur": 1.0,
+     "thaw": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+0.1",
+     "dur": 1.2,
+     "burn": 0,
+     "burnAt": [
+      960,
+      540
+     ],
+     "ease": "linear"
+    },
+    {
+     "t": "L24+1.32",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 10
+  },
+  {
+   "id": "pin22",
+   "type": "art",
+   "props": {
+    "name": "Pinned",
+    "a": 0,
+    "burn": 1,
+    "src": "stock/_hwk/drifting-continents/P-02_glossopteris-leaf-antarctica.jpg",
+    "x": 1540,
+    "y": 300,
+    "w": 380,
+    "h": 280,
+    "rot": -2,
+    "caption": "Glossopteris leaf · Antarctica",
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L22+3.8",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L22+3.8",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 67,
+     "ease": "linear"
+    },
+    {
+     "t": "L23+0.3",
+     "dur": 1.3,
+     "burn": 0,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L23+1.62",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 30
+  },
+  {
+   "id": "tn24",
+   "type": "art",
+   "props": {
+    "name": "TornNews",
+    "a": 0,
+    "shatter": 0,
+    "tear": 0,
+    "gap": 0.5,
+    "print": 0,
+    "fossils": 1,
+    "x": 960,
+    "y": 520,
+    "s": 1,
+    "draw": 1
+   },
+   "keys": [
+    {
+     "t": "L24+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L24+0.2",
+     "dur": 1.3,
+     "tear": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L24+0.71",
+     "dur": 1.0,
+     "gap": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+1.79",
+     "dur": 1.2,
+     "print": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+3.28",
+     "dur": 1.2,
+     "print": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+4.65",
+     "dur": 0.8,
+     "gap": 0.05,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+0.2",
+     "dur": 1.0,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 20
+  },
+  {
+   "id": "rs27",
+   "type": "art",
+   "props": {
+    "name": "RockShip",
+    "a": 0,
+    "sail": 0,
+    "crumple": 0,
+    "sink": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "wipe": 0,
+    "wipeDir": "right"
+   },
+   "keys": [
+    {
+     "t": "L27+0.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L27+0.4",
+     "dur": 1.4,
+     "wipe": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L27+0.45",
+     "dur": 1.6,
+     "sail": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L27+2.68",
+     "dur": 0.5,
+     "crumple": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L27+3.75",
+     "dur": 0.6,
+     "crumple": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L27+5.36",
+     "dur": 1.6,
+     "sink": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L27+7.33",
+     "dur": 1.2,
+     "sink": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L28+0.2",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 74,
+     "dissolveDir": "down",
+     "ease": "linear"
+    },
+    {
+     "t": "L28+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 10
+  },
+  {
+   "id": "d28",
+   "type": "art",
+   "props": {
+    "name": "DocumentPage",
+    "a": 0,
+    "flipY": 0,
+    "src": "stock/_hwk/drifting-continents/D-01_wegener-1915-carbon-reconstruction.jpg",
+    "x": 960,
+    "y": 480,
+    "w": 760,
+    "h": 520,
+    "rot": -1,
+    "caption": "Wegener’s own maps, 1922 edition",
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L28+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L28+0.2",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 74,
+     "ease": "linear"
+    },
+    {
+     "t": "L28+4.4",
+     "dur": 1.3,
+     "flipY": -100,
+     "ease": "in"
+    },
+    {
+     "t": "L28+5.72",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 30
+  },
+  {
+   "id": "weg29",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "a": 0,
+    "who": "Alfred Wegener on the ice cap (1930)",
+    "x": 640,
+    "y": 980,
+    "h": 440,
+    "facing": 1,
+    "pose": "stand",
+    "walk": 0,
+    "expr": "worry",
+    "ek": 1,
+    "look": [
+     1,
+     0.2
+    ],
+    "costume": "wegenerArctic",
+    "beard": "short",
+    "face": {
+     "nose": 0.55,
+     "brow": 0.5,
+     "chin": 0.5,
+     "age": 0.4,
+     "build": 0.95
+    },
+    "hairCol": "#4A3A2A",
+    "skin": 0.26,
+    "alive": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L29+0.6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L29+0.6",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L29+0.6",
+     "dur": 9.838297872340425,
+     "walk": 5,
+     "x": 980,
+     "ease": "linear"
+    },
+    {
+     "t": "L29+4.26",
+     "dur": 0.9,
+     "lean": 14,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+7.98",
+     "dur": 0.9,
+     "nod": 10,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+0.3",
+     "dur": 1.2,
+     "lift": 40,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 16
+  },
+  {
+   "id": "vil29",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "a": 0,
+    "who": "Rasmus Villumsen, Greenlandic guide (1930)",
+    "x": 420,
+    "y": 990,
+    "h": 430,
+    "facing": 1,
+    "pose": "stand",
+    "walk": 0,
+    "expr": "worry",
+    "ek": 1,
+    "look": [
+     1,
+     0.2
+    ],
+    "costume": "villumsen1930",
+    "face": {
+     "nose": 0.45,
+     "brow": 0.45,
+     "chin": 0.45,
+     "age": 0.25,
+     "build": 1.0
+    },
+    "hairCol": "#231A16",
+    "skin": 0.42,
+    "alive": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L29+0.9",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L29+0.9",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L29+0.9",
+     "dur": 9.638297872340425,
+     "walk": 5,
+     "x": 760,
+     "ease": "linear"
+    },
+    {
+     "t": "L30+0.3",
+     "dur": 1.2,
+     "lift": 40,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 15
+  },
+  {
+   "id": "pin29",
+   "type": "art",
+   "props": {
+    "name": "Pinned",
+    "a": 0,
+    "burn": 1,
+    "src": "stock/_hwk/drifting-continents/R-01_eismitte-station-1930.jpg",
+    "x": 1560,
+    "y": 260,
+    "w": 380,
+    "h": 260,
+    "rot": 2,
+    "caption": "Eismitte camp, 1930",
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L29+2.6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L29+2.6",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 74,
+     "ease": "linear"
+    },
+    {
+     "t": "L30+0.2",
+     "dur": 1.3,
+     "burn": 0,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L30+1.52",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 30
+  },
+  {
+   "id": "snow29",
+   "type": "particles",
+   "props": {
+    "kind": "snow",
+    "n": 90,
+    "k": 0,
+    "a": 0.9,
+    "speed": 1.4,
+    "para": 0.5
+   },
+   "keys": [
+    {
+     "t": "L29+0.2",
+     "dur": 1.4,
+     "k": 1
+    },
+    {
+     "t": "L32+2",
+     "dur": 1.6,
+     "k": 0
+    }
+   ],
+   "z": 70
+  },
+  {
+   "id": "gt30",
+   "type": "art",
+   "props": {
+    "name": "GreenlandTent",
+    "a": 0,
+    "snow": 0,
+    "lamp": 1,
+    "skis": 0,
+    "under": 0,
+    "root": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "blur": 12
+   },
+   "keys": [
+    {
+     "t": "L30+0.1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L30+0.1",
+     "dur": 1.0,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+1.87",
+     "dur": 1.4,
+     "snow": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+3.93",
+     "dur": 0.4,
+     "lamp": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+4.68",
+     "dur": 0.4,
+     "lamp": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+5.8",
+     "dur": 1.4,
+     "snow": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+7.02",
+     "dur": 0.4,
+     "lamp": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L30+8.05",
+     "dur": 0.9,
+     "lamp": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+1.4",
+     "dur": 1.6,
+     "skis": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+5.15",
+     "dur": 1.6,
+     "snow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+0.49",
+     "dur": 1.6,
+     "under": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+2.94",
+     "dur": 1.4,
+     "root": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+4.89",
+     "dur": 1.4,
+     "root": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+5.4",
+     "dur": 1.2,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "c31",
+   "type": "text",
+   "props": {
+    "text": "",
+    "style": "figure",
+    "x": 960,
+    "y": 940,
+    "size": 46,
+    "num": 0,
+    "fmt": "Alfred Wegener · 1880–{n}",
+    "k": 1,
+    "a": 0,
+    "blur": 8,
+    "col": "#F4EAD5",
+    "light": true
+   },
+   "keys": [
+    {
+     "t": "L31+0.8",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L31+0.8",
+     "dur": 0.8,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+0.8",
+     "dur": 1.4,
+     "num": 1930,
+     "ease": "out"
+    },
+    {
+     "t": "L32+0.2",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "sc32",
+   "type": "art",
+   "props": {
+    "name": "SeaChart",
+    "a": 0,
+    "monster": 0,
+    "moon": 0,
+    "sound": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L32+5",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L32+5",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 81,
+     "ease": "linear"
+    },
+    {
+     "t": "L33+1.11",
+     "dur": 0.9,
+     "monster": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+4.43",
+     "dur": 1.2,
+     "moon": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+7.74",
+     "dur": 1.0,
+     "sound": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+1.79",
+     "dur": 1.4,
+     "sound": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+0.2",
+     "dur": 0.9,
+     "a": 0.25,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+0.2",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 95,
+     "dissolveDir": "left",
+     "ease": "linear"
+    },
+    {
+     "t": "L36+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 6
+  },
+  {
+   "id": "ss34",
+   "type": "art",
+   "props": {
+    "name": "SurveyShip",
+    "a": 0,
+    "sail": 0,
+    "ping": 0,
+    "cable": 0,
+    "xray": 0,
+    "needle": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "fx_y": -300
+   },
+   "keys": [
+    {
+     "t": "L34",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L34",
+     "dur": 1.5,
+     "fx_y": 0,
+     "ease": "weight"
+    },
+    {
+     "t": "L34",
+     "dur": 17.872340425531913,
+     "sail": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L34+1.34",
+     "dur": 0.8,
+     "ping": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+2.86",
+     "dur": 0.01,
+     "ping": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+3.13",
+     "dur": 0.8,
+     "ping": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+4.91",
+     "dur": 1.4,
+     "cable": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+6.97",
+     "dur": 1.2,
+     "cable": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L35+1.34",
+     "dur": 1.2,
+     "xray": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L35+3.57",
+     "dur": 0.6,
+     "needle": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L35+4.91",
+     "dur": 0.6,
+     "needle": -0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L35+6.26",
+     "dur": 0.6,
+     "needle": 0.9,
+     "ease": "soft"
+    },
+    {
+     "t": "L35+7.6",
+     "dur": 0.6,
+     "needle": -0.2,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+0.2",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 88,
+     "dissolveDir": "down",
+     "ease": "linear"
+    },
+    {
+     "t": "L36+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 12
+  },
+  {
+   "id": "pr36",
+   "type": "art",
+   "props": {
+    "name": "PenRecorder",
+    "a": 0,
+    "k": 0,
+    "spill": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "iris": 0,
+    "irisAt": [
+     960,
+     540
+    ]
+   },
+   "keys": [
+    {
+     "t": "L36+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L36+0.2",
+     "dur": 1.4,
+     "iris": 1,
+     "ease": "in"
+    },
+    {
+     "t": "L36+0.3",
+     "dur": 7.744680851063829,
+     "k": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L36+8.85",
+     "dur": 1.2,
+     "spill": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+0.3",
+     "dur": 1.0,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 14
+  },
+  {
+   "id": "sf37",
+   "type": "art",
+   "props": {
+    "name": "StripeFloor",
+    "a": 0,
+    "burn": 1,
+    "k": 0,
+    "piano": 0,
+    "pair": 0,
+    "fold": 0,
+    "wing": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "pour": 0,
+    "pourDir": "up"
+   },
+   "keys": [
+    {
+     "t": "L37+0.1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L37+0.1",
+     "dur": 1.8,
+     "pour": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+0.47",
+     "dur": 1.0,
+     "k": 0.25,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+1.87",
+     "dur": 1.0,
+     "k": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+3.28",
+     "dur": 1.0,
+     "k": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+4.68",
+     "dur": 1.0,
+     "k": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+6.09",
+     "dur": 1.0,
+     "piano": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L37+7.96",
+     "dur": 1.0,
+     "piano": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L38",
+     "dur": 0.8,
+     "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L39",
+     "dur": 0.8,
+     "a": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L39+0.43",
+     "dur": 0.6,
+     "pair": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L39+2.13",
+     "dur": 0.6,
+     "pair": 2,
+     "ease": "soft"
+    },
+    {
+     "t": "L39+3.83",
+     "dur": 0.6,
+     "pair": 3,
+     "ease": "soft"
+    },
+    {
+     "t": "L39+5.53",
+     "dur": 0.6,
+     "pair": 4,
+     "ease": "soft"
+    },
+    {
+     "t": "L39+7.23",
+     "dur": 0.6,
+     "pair": 5,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+0.64",
+     "dur": 1.0,
+     "fold": 0.5,
+     "pair": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+2.23",
+     "dur": 1.0,
+     "fold": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+4.47",
+     "dur": 0.6,
+     "fold": 0.9,
+     "ease": "soft"
+    },
+    {
+     "t": "L41+0.68",
+     "dur": 1.0,
+     "fold": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L41+2.13",
+     "dur": 0.9,
+     "wing": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L41+3.83",
+     "dur": 0.5,
+     "wing": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L41+4.94",
+     "dur": 0.5,
+     "wing": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L41+6.38",
+     "dur": 0.5,
+     "wing": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+0.2",
+     "dur": 1.2,
+     "burn": 0,
+     "burnAt": [
+      960,
+      540
+     ],
+     "ease": "linear"
+    },
+    {
+     "t": "L42+1.42",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "rg38",
+   "type": "art",
+   "props": {
+    "name": "RidgeGlobe",
+    "a": 0,
+    "k": 0,
+    "spin": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "fx_s": 0.08,
+    "fx_ox": 960,
+    "fx_oy": 540
+   },
+   "keys": [
+    {
+     "t": "L38+0.3",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L38+0.3",
+     "dur": 1.6,
+     "fx_s": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L39+0.2",
+     "dur": 1.3,
+     "fx_s": 0.05,
+     "ease": "in"
+    },
+    {
+     "t": "L39+1.52",
+     "dur": 0.01,
+     "a": 0
+    },
+    {
+     "t": "L38+0.3",
+     "dur": 9.787234042553191,
+     "spin": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L38+1.47",
+     "dur": 1.4,
+     "k": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L38+3.43",
+     "dur": 1.4,
+     "k": 0.75,
+     "ease": "soft"
+    },
+    {
+     "t": "L38+5.87",
+     "dur": 1.4,
+     "k": 1,
+     "ease": "soft"
+    }
+   ],
+   "z": 10
+  },
+  {
+   "id": "fl40",
+   "type": "flash",
+   "props": {
+    "at": [
+     [
+      "L40+2.6",
+      960,
+      540,
+      90
+     ]
+    ],
+    "col": "#FFFDF4",
+    "glow": "#F7E3A0",
+    "life": 1.2
+   },
+   "keys": [],
+   "z": 70
+  },
+  {
+   "id": "q41",
+   "type": "text",
+   "props": {
+    "text": "?",
+    "style": "title",
+    "x": 1500,
+    "y": 300,
+    "k": 0,
+    "a": 0,
+    "blur": 8,
+    "size": 130,
+    "col": "#B8432A"
+   },
+   "keys": [
+    {
+     "t": "L41+3.6",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L41+3.6",
+     "dur": 0.9,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L41+3.6",
+     "dur": 1.2,
+     "k": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L42+0.2",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "cb42",
+   "type": "art",
+   "props": {
+    "name": "Cambridge",
+    "a": 0,
+    "flipY": 0,
+    "lamp": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "blinds": 0
+   },
+   "keys": [
+    {
+     "t": "L42",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L42",
+     "dur": 1.3,
+     "blinds": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+0.85",
+     "dur": 1.0,
+     "lamp": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L43+0.2",
+     "dur": 1.0,
+     "flipY": -100,
+     "ease": "in"
+    },
+    {
+     "t": "L43+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 6
+  },
+  {
+   "id": "vine42",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "a": 0,
+    "who": "Fred Vine, Cambridge (1963)",
+    "x": 520,
+    "y": 980,
+    "h": 480,
+    "facing": 1,
+    "pose": "stand",
+    "pose2": "point",
+    "pk": 0,
+    "expr": "focus",
+    "ek": 1,
+    "look": [
+     1,
+     0.5
+    ],
+    "costume": "vine1963",
+    "face": {
+     "nose": 0.5,
+     "brow": 0.45,
+     "chin": 0.45,
+     "age": 0.2,
+     "build": 0.95
+    },
+    "hairCol": "#5A3A22",
+    "skin": 0.26,
+    "alive": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L42+0.5",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L42+0.5",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L43+0.2",
+     "dur": 1.3,
+     "dissolve": 0,
+     "dissolveSeed": 13,
+     "dissolveDir": "left",
+     "ease": "linear"
+    },
+    {
+     "t": "L43+1.52",
+     "dur": 0.01,
+     "a": 0
+    },
+    {
+     "t": "L42+2.13",
+     "dur": 0.9,
+     "pk": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+5.11",
+     "dur": 0.9,
+     "expr": "surprise",
+     "look": [
+      1,
+      -0.2
+     ],
+     "ease": "soft"
+    },
+    {
+     "t": "L42+6.98",
+     "dur": 0.9,
+     "expr": "smile",
+     "ease": "soft"
+    }
+   ],
+   "z": 14
+  },
+  {
+   "id": "mat42",
+   "type": "art",
+   "props": {
+    "name": "Person",
+    "a": 0,
+    "who": "Drummond Matthews, Cambridge (1963)",
+    "x": 1420,
+    "y": 980,
+    "h": 500,
+    "facing": -1,
+    "pose": "stand",
+    "pose2": "reach",
+    "pk": 0,
+    "expr": "focus",
+    "ek": 1,
+    "look": [
+     -1,
+     0.5
+    ],
+    "costume": "matthews1963",
+    "face": {
+     "nose": 0.55,
+     "brow": 0.55,
+     "chin": 0.5,
+     "age": 0.35,
+     "build": 1.05
+    },
+    "hairCol": "#231A16",
+    "skin": 0.27,
+    "alive": 1,
+    "draw": 0
+   },
+   "keys": [
+    {
+     "t": "L42+0.8",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L42+0.8",
+     "dur": 1.8,
+     "draw": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L43+0.2",
+     "dur": 1.3,
+     "dissolve": 0,
+     "dissolveSeed": 20,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L43+1.52",
+     "dur": 0.01,
+     "a": 0
+    },
+    {
+     "t": "L42+3.4",
+     "dur": 0.9,
+     "pk": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+5.28",
+     "dur": 0.9,
+     "look": [
+      -1,
+      -0.2
+     ],
+     "expr": "awe",
+     "ease": "soft"
+    }
+   ],
+   "z": 14
+  },
+  {
+   "id": "pl42",
+   "type": "text",
+   "props": {
+    "text": "Cambridge · 1963",
+    "style": "plate",
+    "x": 960,
+    "y": 160,
+    "k": 0,
+    "a": 0,
+    "blur": 8,
+    "size": 40,
+    "col": "#F4EAD5",
+    "light": true
+   },
+   "keys": [
+    {
+     "t": "L42+1.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L42+1.2",
+     "dur": 0.9,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+1.2",
+     "dur": 1.2,
+     "k": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L43+0.2",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "cp43",
+   "type": "art",
+   "props": {
+    "name": "Compass",
+    "a": 0,
+    "flip": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "fx_s": 0.08,
+    "fx_ox": 960,
+    "fx_oy": 540
+   },
+   "keys": [
+    {
+     "t": "L43+0.3",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L43+0.3",
+     "dur": 1.6,
+     "fx_s": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L43+1.7",
+     "dur": 0.8,
+     "flip": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L43+3.23",
+     "dur": 0.8,
+     "flip": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L43+4.68",
+     "dur": 0.8,
+     "flip": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L43+6.13",
+     "dur": 0.8,
+     "flip": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L43+7.49",
+     "dur": 0.6,
+     "flip": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+0.2",
+     "dur": 0.9,
+     "fx_s": 0.05,
+     "fx_ox": 960,
+     "fx_oy": 540,
+     "ease": "in"
+    },
+    {
+     "t": "L44+1.12",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 12
+  },
+  {
+   "id": "n43",
+   "type": "text",
+   "props": {
+    "text": "N",
+    "style": "stamp",
+    "x": 960,
+    "y": 180,
+    "k": 0,
+    "a": 0,
+    "blur": 8,
+    "size": 70,
+    "col": "#B8432A"
+   },
+   "keys": [
+    {
+     "t": "L43+1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L43+1",
+     "dur": 0.9,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L43+1",
+     "dur": 1.2,
+     "k": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L43+2.6",
+     "dur": 0.6,
+     "text": "S"
+    },
+    {
+     "t": "L43+3.6",
+     "dur": 0.6,
+     "text": "N"
+    },
+    {
+     "t": "L43+5",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "rt44",
+   "type": "art",
+   "props": {
+    "name": "RidgeTape",
+    "a": 0,
+    "well": 0,
+    "cool": 0,
+    "run": 0,
+    "arrows": 0,
+    "gold": 0,
+    "belt": 0,
+    "cross": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "pour": 0,
+    "pourDir": "up"
+   },
+   "keys": [
+    {
+     "t": "L44+0.3",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L44+0.3",
+     "dur": 1.8,
+     "pour": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+1.06",
+     "dur": 1.4,
+     "well": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+3.72",
+     "dur": 1.4,
+     "cool": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+5.85",
+     "dur": 1.0,
+     "arrows": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+7.98",
+     "dur": 1.2,
+     "run": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L45",
+     "dur": 34.46808510638298,
+     "run": 6,
+     "ease": "linear"
+    },
+    {
+     "t": "L45+1.06",
+     "dur": 0.6,
+     "well": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+2.34",
+     "dur": 0.6,
+     "well": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+4.79",
+     "dur": 0.6,
+     "well": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+6.38",
+     "dur": 0.6,
+     "well": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+8.51",
+     "dur": 0.6,
+     "well": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+1.23",
+     "dur": 1.0,
+     "gold": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+3.7",
+     "dur": 1.0,
+     "gold": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+6.79",
+     "dur": 0.6,
+     "arrows": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+8.64",
+     "dur": 0.6,
+     "arrows": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+0.57",
+     "dur": 1.2,
+     "belt": 1,
+     "gold": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+4.02",
+     "dur": 1.0,
+     "cross": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+6.89",
+     "dur": 0.8,
+     "cross": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+9.19",
+     "dur": 0.8,
+     "cross": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+0.2",
+     "dur": 1.0,
+     "fx_s": 0.05,
+     "fx_ox": 960,
+     "fx_oy": 540,
+     "ease": "in"
+    },
+    {
+     "t": "L48+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "pg48",
+   "type": "art",
+   "props": {
+    "name": "PlateGlobe",
+    "a": 0,
+    "crack": 0,
+    "shift": 0,
+    "quakes": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "blur": 12
+   },
+   "keys": [
+    {
+     "t": "L48+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L48+0.2",
+     "dur": 1.0,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+1.96",
+     "dur": 0.8,
+     "crack": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+3.72",
+     "dur": 1.0,
+     "crack": 0.7,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+5.38",
+     "dur": 1.0,
+     "crack": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+7.34",
+     "dur": 1.2,
+     "shift": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+0.2",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 27,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L49+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "tr49",
+   "type": "art",
+   "props": {
+    "name": "Trench",
+    "a": 0,
+    "dive": 0,
+    "quakes": 0,
+    "puff": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "wipe": 0,
+    "wipeDir": "left"
+   },
+   "keys": [
+    {
+     "t": "L49+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L49+0.2",
+     "dur": 1.4,
+     "wipe": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+0.98",
+     "dur": 1.4,
+     "dive": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+3.13",
+     "dur": 1.4,
+     "dive": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+5.09",
+     "dur": 0.5,
+     "quakes": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+6.07",
+     "dur": 0.5,
+     "quakes": 0.3,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+7.05",
+     "dur": 0.5,
+     "quakes": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L49+8.32",
+     "dur": 1.0,
+     "puff": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L50+0.2",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 34,
+     "dissolveDir": "up",
+     "ease": "linear"
+    },
+    {
+     "t": "L50+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "rh50",
+   "type": "art",
+   "props": {
+    "name": "RugHimalaya",
+    "a": 0,
+    "push": 0,
+    "peaks": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "unroll": 0
+   },
+   "keys": [
+    {
+     "t": "L50+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L50+0.2",
+     "dur": 1.6,
+     "unroll": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L50+0.71",
+     "dur": 1.2,
+     "push": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L50+2.23",
+     "dur": 1.0,
+     "push": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L50+3.57",
+     "dur": 0.6,
+     "push": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L50+5.36",
+     "dur": 1.4,
+     "peaks": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L50+7.15",
+     "dur": 1.2,
+     "peaks": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+0.2",
+     "dur": 1.2,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "ao51",
+   "type": "art",
+   "props": {
+    "name": "AtlanticOpen",
+    "a": 0,
+    "open": 0,
+    "glow": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "fx_s": 0.08,
+    "fx_ox": 960,
+    "fx_oy": 540
+   },
+   "keys": [
+    {
+     "t": "L51+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L51+0.2",
+     "dur": 1.6,
+     "fx_s": 1,
+     "ease": "out"
+    },
+    {
+     "t": "L51+1.47",
+     "dur": 1.0,
+     "glow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+3.43",
+     "dur": 1.4,
+     "open": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+5.87",
+     "dur": 1.4,
+     "open": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+7.83",
+     "dur": 0.8,
+     "glow": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+0.2",
+     "dur": 1.0,
+     "dissolve": 0,
+     "dissolveSeed": 41,
+     "dissolveAt": [
+      960,
+      540
+     ],
+     "dissolveR": 1100,
+     "ease": "linear"
+    },
+    {
+     "t": "L52+1.22",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "mk51",
+   "type": "art",
+   "props": {
+    "name": "Mark",
+    "kind": "circle",
+    "box": [
+     860,
+     200,
+     200,
+     680
+    ],
+    "k": 0,
+    "w": 4,
+    "seed": 1,
+    "a": 0
+   },
+   "keys": [
+    {
+     "t": "L51+3",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L51+3",
+     "dur": 0.9,
+     "k": 1,
+     "ease": "hand"
+    },
+    {
+     "t": "L52+0.2",
+     "dur": 0.8,
+     "a": 0
+    }
+   ],
+   "z": 61
+  },
+  {
+   "id": "gp52",
+   "type": "art",
+   "props": {
+    "name": "GPSMarker",
+    "a": 0,
+    "sat": 0,
+    "beam": 0,
+    "tick": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "wipe": 0,
+    "wipeDir": "down"
+   },
+   "keys": [
+    {
+     "t": "L52+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L52+0.2",
+     "dur": 1.4,
+     "wipe": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+0.2",
+     "dur": 9.361702127659575,
+     "sat": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L52+1.87",
+     "dur": 0.6,
+     "beam": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+3",
+     "dur": 0.4,
+     "beam": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+4.21",
+     "dur": 0.6,
+     "beam": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+5.62",
+     "dur": 0.4,
+     "beam": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+7.02",
+     "dur": 1.2,
+     "tick": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+0.2",
+     "dur": 1.0,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 8
+  },
+  {
+   "id": "na53",
+   "type": "art",
+   "props": {
+    "name": "NailAtlantic",
+    "a": 0,
+    "grow": 0,
+    "line": 0,
+    "ocean": 0,
+    "x": 960,
+    "y": 540,
+    "s": 1,
+    "draw": 1,
+    "brush": 0
+   },
+   "keys": [
+    {
+     "t": "L53+0.2",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L53+0.2",
+     "dur": 1.8,
+     "brush": 1,
+     "ease": "linear"
+    },
+    {
+     "t": "L53+1.19",
+     "dur": 1.2,
+     "line": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+2.38",
+     "dur": 1.4,
+     "grow": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+3.87",
+     "dur": 1.4,
+     "grow": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+0.4",
+     "dur": 1.4,
+     "ocean": 0.5,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+1.62",
+     "dur": 1.0,
+     "ocean": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+2.4",
+     "dur": 1.0,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 10
+  },
+  {
+   "id": "c54",
+   "type": "text",
+   "props": {
+    "text": "",
+    "style": "figure",
+    "x": 960,
+    "y": 960,
+    "size": 54,
+    "num": 0,
+    "fmt": "{n} million years",
+    "k": 1,
+    "a": 0,
+    "blur": 8,
+    "col": "#F4EAD5",
+    "light": true
+   },
+   "keys": [
+    {
+     "t": "L54+5",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L54+5",
+     "dur": 0.8,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+5",
+     "dur": 1.4,
+     "num": 200,
+     "ease": "out"
+    },
+    {
+     "t": "L55+0.4",
+     "dur": 1.0,
+     "blur": 10,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 60
+  },
+  {
+   "id": "atl56",
+   "type": "art",
+   "props": {
+    "name": "AtlasPage",
+    "a": 0,
+    "trace": 0,
+    "ghost": 0,
+    "tear": 1,
+    "gap": 1,
+    "q": 0,
+    "x": 1300,
+    "y": 600,
+    "s": 0.62,
+    "draw": 1,
+    "blur": 12
+   },
+   "keys": [
+    {
+     "t": "L56+0.1",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L56+0.1",
+     "dur": 1.0,
+     "blur": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+4.79",
+     "dur": 1.4,
+     "gap": 1.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+7.98",
+     "dur": 1.4,
+     "gap": 1.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+3",
+     "dur": 1.6,
+     "a": 0,
+     "ease": "soft"
+    }
+   ],
+   "z": 12
+  },
+  {
+   "id": "pin56",
+   "type": "art",
+   "props": {
+    "name": "CabinetCard",
+    "a": 0,
+    "burn": 1,
+    "src": "stock/_hwk/drifting-continents/P-01_wegener-villumsen-greenland-1930.jpg",
+    "x": 1300,
+    "y": 360,
+    "w": 360,
+    "h": 250,
+    "rot": -4,
+    "caption": "Alfred Wegener, 1930",
+    "draw": 1,
+    "dissolve": 0
+   },
+   "keys": [
+    {
+     "t": "L56+2.4",
+     "dur": 0.01,
+     "a": 1
+    },
+    {
+     "t": "L56+2.4",
+     "dur": 1.4,
+     "dissolve": 1,
+     "dissolveSeed": 41,
+     "ease": "linear"
+    },
+    {
+     "t": "L57+0.4",
+     "dur": 1.3,
+     "burn": 0,
+     "dissolveDir": "right",
+     "ease": "linear"
+    },
+    {
+     "t": "L57+1.72",
+     "dur": 0.01,
+     "a": 0
+    }
+   ],
+   "z": 30
+  }
+ ],
+ "engine": 10,
+ "camera_moves": [
+  "push",
+  "pan-r",
+  "arc",
+  "dolly",
+  "crane-down",
+  "pan-l",
+  "lock",
+  "tilt-down",
+  "tilt-up",
+  "crane-up",
+  "dive",
+  "push",
+  "track",
+  "pan-l",
+  "orbit",
+  "snap-zoom",
+  "crane-up",
+  "track",
+  "pull",
+  "handheld",
+  "pan-r",
+  "pan-l",
+  "crane-down",
+  "dutch",
+  "rack",
+  "whip",
+  "push",
+  "tilt-down",
+  "pan-r",
+  "handheld",
+  "push",
+  "lock",
+  "crane-down",
+  "pull",
+  "track",
+  "snap-zoom",
+  "tilt-down",
+  "crane-up",
+  "orbit",
+  "lock",
+  "dolly",
+  "arc",
+  "push",
+  "snap-zoom",
+  "crane-up",
+  "pan-r",
+  "pull",
+  "track",
+  "arc",
+  "tilt-down",
+  "crane-up",
+  "dive",
+  "rack",
+  "push",
+  "pull",
+  "orbit",
+  "dolly",
+  "crane-up"
+ ],
+ "new_devices": [
+  "TornNews",
+  "QuiltPangaea",
+  "RidgeTape",
+  "NailAtlantic"
+ ],
+ "motif_art": [
+  "AtlasPage",
+  "TornNews",
+  "QuiltPangaea",
+  "StripeFloor",
+  "Jigsaw"
+ ]
+}
