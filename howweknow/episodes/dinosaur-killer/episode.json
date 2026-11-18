@@ -10,53 +10,39 @@
  "music": {
   "cues": [
    {
-    "file": "../studio/music/wonder_dreamer.wav",
+    "file": "../studio/music/wonder_lightless_dawn.wav",
     "at": 0,
-    "start": 32.0,
-    "db": -17
+    "start": 0,
+    "db": -21
    },
    {
-    "file": "../studio/music/wonder_floating_cities.wav",
-    "at": "L18-1.6",
-    "start": 16.0,
-    "db": -17
+    "file": "../studio/music/curious_hidden_agenda.wav",
+    "at": "L9-1.6",
+    "start": 0,
+    "db": -23
    },
    {
-    "file": "../studio/music/curious_anamalie.wav",
-    "at": "L36-1.6",
-    "start": 64.0,
-    "db": -17
+    "file": "../studio/music/curious_aftermath.wav",
+    "at": "L29-1.6",
+    "start": 0,
+    "db": -20
    },
    {
-    "file": "../studio/music/burt_s_requiem.wav",
+    "file": "../studio/music/tension_darkness_is_coming.wav",
     "at": "L50-1.6",
-    "start": 48.0,
-    "db": -15
+    "start": 0,
+    "db": -22
+   },
+   {
+    "file": "../studio/music/wonder_silver_blue_light.wav",
+    "at": "L58-1.0",
+    "start": 0,
+    "db": -23
    }
   ],
   "xfade": 6,
   "norm": -18,
   "swells": [
-   [
-    "L17$",
-    "L18",
-    1.5
-   ],
-   [
-    "L35$",
-    "L36",
-    1.5
-   ],
-   [
-    "L49$",
-    "L50",
-    1.5
-   ],
-   [
-    "L63$",
-    "end",
-    3
-   ],
    [
     "L14+2",
     "L14$",
@@ -65,12 +51,17 @@
    [
     "L24",
     "L24$",
-    -10
+    -8
    ],
    [
     "L53+2.4",
     "L53$",
     -14
+   ],
+   [
+    "L63$",
+    "end",
+    3
    ]
   ]
  },
@@ -156,8 +147,8 @@
    "setpiece": 1,
    "sfx": [
     {
-     "at": 0.4,
-     "file": "public/sfx/animal_dino_roar_3.wav",
+     "at": 0.36,
+     "file": "public/sfx/world_footstep_gravel_4.wav",
      "db": -32
     }
    ]
@@ -282,11 +273,6 @@
      "at": 1.9,
      "file": "public/sfx/impact_bass_drop_1.wav",
      "db": -22
-    },
-    {
-     "at": 2.2,
-     "file": "public/sfx/motion_whoosh_deep_1.wav",
-     "db": -24
     }
    ]
   },
@@ -342,7 +328,18 @@
    "mood": "mystery",
    "shot": "medium",
    "light": "moonlight through a tall window, left",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.65,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -33
+    },
+    {
+     "at": 1.94,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "Its bones lie in museums today, still and silent. They can tell us what it looked like. They cannot tell us how its world *ended*.",
@@ -399,7 +396,13 @@
    "mood": "mystery",
    "shot": "close",
    "light": "a narrow moonbeam",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.83,
+     "file": "public/sfx/world_door_creak_1.wav",
+     "db": -36
+    }
+   ]
   },
   {
    "text": "This is the story of how we found out: from a line in the rock, a pinch of clay, a scratched grain of sand… and a report that nobody *read*.",
@@ -619,7 +622,7 @@
      "db": -26
     },
     {
-     "at": 3.8,
+     "at": 4.0,
      "file": "public/sfx/machine_paper_1.wav",
      "db": -28
     }
@@ -686,14 +689,9 @@
    "light": "the lamp on the table",
    "sfx": [
     {
-     "at": 1.2,
-     "file": "public/sfx/amb_ocean_wave_1.wav",
-     "db": -32
-    },
-    {
-     "at": 4.4,
-     "file": "public/sfx/clack_key_1.wav",
-     "db": -26
+     "at": 4.69,
+     "file": "public/sfx/world_clock_tick_1.wav",
+     "db": -30
     }
    ]
   },
@@ -740,7 +738,7 @@
     {
      "at": 1.2,
      "file": "public/sfx/impact_stone_1.wav",
-     "db": -20
+     "db": -24
     }
    ]
   },
@@ -874,7 +872,13 @@
    "mood": "wonder",
    "shot": "insert",
    "light": "sun raking across the pages",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.72,
+     "file": "public/sfx/foley_book_close_1.wav",
+     "db": -30
+    }
+   ]
   },
   {
    "text": "Read from the bottom up, the stone book tells a story millions of years long. But which of its pages holds the *ending*?",
@@ -933,7 +937,13 @@
    "mood": "curious",
    "shot": "medium",
    "light": "sun raking across the pages",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.75,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "In the older layers below, the stone is crowded with tiny fossils: the shells of plankton that once drifted in that sea in countless *numbers*.",
@@ -994,7 +1004,13 @@
    "mood": "curious",
    "shot": "detail",
    "light": "light through thin stone",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.47,
+     "file": "public/sfx/dropper_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "Then comes a thin band of reddish clay, about a centimetre thick, no wider than a *fingertip*.",
@@ -1057,7 +1073,7 @@
     {
      "at": 0.2,
      "file": "public/sfx/transition_page_turn_2.wav",
-     "db": -22
+     "db": -24
     },
     {
      "at": 2.6,
@@ -1190,7 +1206,13 @@
    "shot": "close",
    "light": "noon sun on the hand",
    "motif": "the line — under his finger",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.77,
+     "file": "public/sfx/thud_soft_1.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "text": "Walter wanted to know one simple thing. How long had that centimetre taken to form? A year? A thousand *years*?",
@@ -1248,9 +1270,14 @@
    "light": "a warm lamp behind the glass",
    "sfx": [
     {
-     "at": 2.2,
-     "file": "public/sfx/foley_book_close_1.wav",
-     "db": -30
+     "at": 0.15,
+     "file": "public/sfx/real_snow_wind_2.wav",
+     "db": -34
+    },
+    {
+     "at": 2.28,
+     "file": "public/sfx/impact_wood_3.wav",
+     "db": -31
     }
    ]
   },
@@ -1359,7 +1386,13 @@
    "mood": "warm",
    "shot": "medium",
    "light": "a desk lamp between them",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.52,
+     "file": "public/sfx/world_footstep_wood_1.wav",
+     "db": -33
+    }
+   ]
   },
   {
    "text": "Space dust falls on the Earth all the time, everywhere, in a slow and steady *trickle*.",
@@ -1411,7 +1444,13 @@
    "mood": "wonder",
    "shot": "wide",
    "light": "starlight; the dust glinting",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.05,
+     "file": "public/sfx/swoosh_thin_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "That dust carries a rare metal called iridium. Measure how much of it is in the clay, and you can tell how long the clay took to settle. A little means quickly; a lot means a long *time*.",
@@ -1484,7 +1523,13 @@
    "mood": "curious",
    "shot": "insert",
    "light": "the lamp through the glass",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 2.5,
+     "file": "public/sfx/world_clock_tick_2.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "So they measured the clay, sample by sample, in a laboratory at *Berkeley*.",
@@ -1610,11 +1655,6 @@
     {
      "at": 1.6,
      "file": "public/sfx/impact_metal_2.wav",
-     "db": -22
-    },
-    {
-     "at": 2.6,
-     "file": "public/sfx/impact_metal_1.wav",
      "db": -24
     }
    ]
@@ -1679,6 +1719,11 @@
      "at": 0.2,
      "file": "public/sfx/transition_riser_2s_1.wav",
      "db": -26
+    },
+    {
+     "at": 2.82,
+     "file": "public/sfx/crack_wood_1.wav",
+     "db": -28
     }
    ]
   },
@@ -1736,9 +1781,9 @@
    "light": "window light on the shelf",
    "sfx": [
     {
-     "at": 0.3,
-     "file": "public/sfx/rewind_1.wav",
-     "db": -28
+     "at": 1.44,
+     "file": "public/sfx/world_clock_tick_1.wav",
+     "db": -32
     }
    ]
   },
@@ -1861,7 +1906,13 @@
    "mood": "awe",
    "shot": "wide",
    "light": "the Sun from the left, hard",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.05,
+     "file": "public/sfx/swoosh_deep_2.wav",
+     "db": -30
+    }
+   ]
   },
   {
    "text": "Ten kilometres across: a mountain of rock, taller than Mount Everest, falling out of the *sky*.",
@@ -1914,7 +1965,13 @@
    "mood": "awe",
    "shot": "wide",
    "light": "morning sun on the snow",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.6,
+     "file": "public/sfx/real_wind_3.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "Clue three: scars in the *sand*.",
@@ -2020,7 +2077,13 @@
    "mood": "tension",
    "shot": "wide",
    "light": "daylight round the globe",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.51,
+     "file": "public/sfx/swoosh_metallic_1.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "text": "And it was. The same iridium-rich layer turned up in rocks around the *world*.",
@@ -2137,7 +2200,13 @@
    "mood": "curious",
    "shot": "detail",
    "light": "polarised light through the grain",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.73,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "Quartz is one of the toughest minerals on Earth. Ordinary forces barely mark it. Only a tremendous *shock* can.",
@@ -2353,7 +2422,13 @@
    "mood": "mystery",
    "shot": "medium",
    "light": "tropical noon",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.22,
+     "file": "public/sfx/world_birds_1.wav",
+     "db": -36
+    }
+   ]
   },
   {
    "text": "A crater that size should be enormous. Scientists searched the oceans and deserts of the world, looking for a scar. Something that big should have been easy to spot. Yet nobody could find *it*.",
@@ -2419,7 +2494,13 @@
    "mood": "tension",
    "shot": "wide",
    "light": "a lamp over the globe",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.23,
+     "file": "public/sfx/swoosh_thin_2.wav",
+     "db": -35
+    }
+   ]
   },
   {
    "text": "But it had already been found, years earlier, by people who were not looking for dinosaurs at *all*.",
@@ -2476,7 +2557,13 @@
    "shot": "close",
    "light": "a bare bulb over the shelf",
    "setpiece": 3,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.56,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "text": "In 1978, Glen Penfield and Antonio Camargo were geophysicists for Mexico's national oil company. They were surveying the Yucatán coast for oil, with instruments that sense the hidden rocks *below*.",
@@ -2611,6 +2698,11 @@
      "at": 1.4,
      "file": "public/sfx/cue_reveal_1.wav",
      "db": -28
+    },
+    {
+     "at": 2.91,
+     "file": "public/sfx/dropper_2.wav",
+     "db": -34
     }
    ]
   },
@@ -2670,7 +2762,13 @@
    "light": "sun on the survey sheet",
    "setpiece": 3,
    "motif": "the line — the half-ring",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.57,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -33
+    }
+   ]
   },
   {
    "text": "The other half lay under the sea. Together they made a circle far too big to notice from the *surface*.",
@@ -2782,7 +2880,18 @@
    "mood": "sad",
    "shot": "medium",
    "light": "flat hall light",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.29,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -36
+    },
+    {
+     "at": 2.91,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -37
+    }
+   ]
   },
   {
    "text": "The report went back on the shelf. Dust settled on it, while the rest of the world kept *searching*.",
@@ -2843,7 +2952,13 @@
    "shot": "close",
    "light": "window light sweeping",
    "setpiece": 3,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.6,
+     "file": "public/sfx/world_clock_tick_2.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "Then, in 1990, a young scientist named Alan Hildebrand followed the trail of clues all the way to the *Yucatán*.",
@@ -2905,6 +3020,11 @@
      "at": 3.4,
      "file": "public/sfx/real_wind_4.wav",
      "db": -28
+    },
+    {
+     "at": 0.44,
+     "file": "public/sfx/world_footstep_concrete_2.wav",
+     "db": -33
     }
    ]
   },
@@ -3029,7 +3149,13 @@
    "shot": "detail",
    "light": "polarised light",
    "motif": "the line — the scars match",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.77,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -35
+    }
+   ]
   },
   {
    "text": "In 1991 the crater got its name, from a small village near its centre: *Chicxulub*.",
@@ -3086,7 +3212,7 @@
     {
      "at": 1.6,
      "file": "public/sfx/impact_wood_2.wav",
-     "db": -22
+     "db": -24
     }
    ]
   },
@@ -3148,7 +3274,13 @@
    "mood": "awe",
    "shot": "wide",
    "light": "high sun",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.77,
+     "file": "public/sfx/swoosh_deep_3.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "text": "So here is the twist. The crater had been found more than a decade before it got its name, and filed away in a company *report*.",
@@ -3216,6 +3348,11 @@
      "at": 0.2,
      "file": "public/sfx/cue_twist_1.wav",
      "db": -26
+    },
+    {
+     "at": 2.54,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -30
     }
    ]
   },
@@ -3311,7 +3448,13 @@
    "mood": "awe",
    "shot": "medium",
    "light": "moonlight",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.97,
+     "file": "public/sfx/real_ship_creak_1.wav",
+     "db": -36
+    }
+   ]
   },
   {
    "text": "An asteroid about ten kilometres across struck the coast of what is now Mexico, sixty-six million years *ago*.",
@@ -3379,7 +3522,7 @@
     {
      "at": 2.6,
      "file": "public/sfx/impact_bass_drop_2.wav",
-     "db": -18
+     "db": -20
     }
    ]
   },
@@ -3503,7 +3646,13 @@
    "shot": "wide",
    "light": "a dimming sun",
    "motif": "the line — laid down",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.91,
+     "file": "public/sfx/real_wind_4.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "text": "Darkness and cold followed. With little sunlight, plants withered, and the food chains that the giants depended on *collapsed*.",
@@ -3668,7 +3817,13 @@
    "mood": "awe",
    "shot": "close",
    "light": "dawn light from the burrow mouth",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.74,
+     "file": "public/sfx/critter_cat_purr_1.wav",
+     "db": -40
+    }
+   ]
   },
   {
    "text": "And some dinosaurs survived too. We call them *birds*.",
@@ -3717,7 +3872,13 @@
    "mood": "awe",
    "shot": "medium",
    "light": "first light through the museum window",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.68,
+     "file": "public/sfx/transition_whoosh_airy_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "Every sparrow and every eagle is a living dinosaur, a survivor of that *day*.",
@@ -3838,7 +3999,18 @@
    "mood": "awe",
    "shot": "insert",
    "light": "dawn on the plinth",
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.97,
+     "file": "public/sfx/impact_soft_3.wav",
+     "db": -34
+    },
+    {
+     "at": 4.37,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "text": "And it began with a simple question from a father and son: how long does a centimetre of clay take to *form*?",
@@ -3963,9 +4135,9 @@
    "motif": "the line — the horizon at dawn",
    "sfx": [
     {
-     "at": 0.6,
-     "file": "public/sfx/amb_forest_dawn_2.wav",
-     "db": -28
+     "at": 2.37,
+     "file": "public/sfx/world_birds_2.wav",
+     "db": -34
     }
    ]
   }

@@ -89,6 +89,11 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   line BEFORE drawing; draw each hero object true to its reference and check it on the LibSheet BEFORE world.py; 6 keyframes → fresh critic
   BEFORE the full world; only then build everything. No first draft that has to be thrown away.
 
+## SOUND (owner 18 Nov 2026: "nhạc vẫn to quá… nhạc vui tươi, không phải bí ẩn… thêm hiệu ứng âm thanh ở điểm nhấn và các thành phần, đừng spam và quá to")
+- Music: mysterious parts draw ONLY from score.py `MYSTERY_OK` (hand-curated dark/ambient tracks); levels −20…−23 dB (score.py LEVEL); one cue
+  per part (≥ 60 s). Sound effects hand-placed on ACTIONS in world.py (`SF(i, fraction, file, db)`), 3–10 per minute, ≥ 1.2 s apart, ≤ −24 dB
+  (impacts ≤ −20). Gate: `tools/sound_check.py` (make.sh, before the mix). A sound-only fix never re-renders the picture: remix + remux + fit.
+
 ## Engine v10 — owner 18 Nov 2026 ("kiểu tranh khắc cổ… vẽ như bản trước là ok rồi… từ sau không cần khắc cổ nữa cho nặng và lâu… tối ưu cả token usage, chất lượng giữ nguyên")
 - From the next film: `E['engine'] = 10` — NO engraving pass (Look `engrave` forced 0), no antique-engraving requirement: the clean drawn house
   style (cream paper, sepia ink outlines, house pigments, house type) is the standard. PD engravings are optional, never required; skip

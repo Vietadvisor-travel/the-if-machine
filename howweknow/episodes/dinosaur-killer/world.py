@@ -174,7 +174,7 @@ art('th6', 'TheoryCards', L(6, .6), None, [K(L(6, 1.0), 1.2, 'soft', turn=1), K(
     enter='wipe', eo='left', x=1180, y=520, s=1.0, turn=0, q=0, blank=0, frost=0, keel=0, erupt=0, rip=0, tm=0, z=14, xs='at')
 lamp('lp6', [900, 260], L(6), L(8, .4), r=1000, dark=.35, warm=.65)
 sfx(6, 1.0, FX + 'foley_page_turn_1.wav', -26); sfx(6, 4.4, FX + 'impact_soft_2.wav', -28); sfx(6, 5.8, FX + 'amb_thunder_roll_1.wav', -32)
-sfx(7, 2.6, FX + 'machine_paper_1.wav', -26); sfx(7, 3.8, FX + 'machine_paper_1.wav', -28)
+sfx(7, 2.6, FX + 'machine_paper_1.wav', -26); sfx(7, 4.0, FX + 'machine_paper_1.wav', -28)
 art('dur8', 'Etch', L(8), None, gone2(L(9, .1), 'tearout', .9), ink=False, src=PD + 'duria_ink.png', x=260, y=80, w=1400, h=966, draw=1, enter='focus', tint='#7FA8C4', washA=.4, z=10, xs='tearout')
 text('n8', 'Duria Antiquior, 1830', 'label', 960, 1050, L(8, .6), L(9), size=26)
 art('pw8', 'PocketWatch', L(8, 1.2), None, [K(L(8, 1.2), 1.6, 'out', rise=1), K(L(8, 2.6), 1.2, 'soft', swing=12), K(L(8, 3.8), 1.2, 'soft', swing=-10), K(L(8, 4.4), .6, hands=1),
@@ -595,12 +595,70 @@ HOW = {0: 'crane-in', 1: 'rack-focus', 2: 'burn', 3: 'assemble', 4: 'spot', 5: '
  62: 'hand-over', 63: 'fly-out'}
 for i, l in enumerate(E['lines']): l.setdefault('becomes', {})['how'] = HOW[i]
 
+# ======================================================================== SOUND (owner 18 Nov 2026: "nhạc vẫn to quá… nhạc vui tươi, không phải bí ẩn… cần thêm hiệu ứng âm
+# thanh ở điểm nhấn và các thành phần, đừng spam và quá to"). Sound on the actions of the picture, quiet, one at a time; the score chosen by
+# ear-names for MYSTERY (not by the analyser's "curious", which picked cheerful tracks), and 4 dB lower again.
+def SF(i, f, name, db=-30): sfx(i, round(f * dur(i), 2), FX + name, db)
+SF(0, .05, 'world_footstep_gravel_4.wav', -32); SF(0, .25, 'world_footstep_gravel_4.wav', -33); SF(0, .55, 'pond_water_1.wav' if os.path.exists(FX + 'pond_water_1.wav') else 'dropper_1.wav', -34)
+SF(3, .1, 'impact_woodlight_1.wav', -33); SF(3, .3, 'impact_woodlight_1.wav', -34)           # bones settle into place
+SF(4, .1, 'world_door_creak_1.wav', -36)                                                     # the dark hall
+SF(8, .2, 'dropper_2.wav', -32); SF(8, .55, 'world_clock_tick_1.wav', -30)                   # the watch rises from the sea; its hands spin
+SF(11, .1, 'foley_book_close_1.wav', -30)                                                    # the stone book opens
+SF(12, .1, 'scratch_1.wav', -34)                                                             # the finger reads the pages
+SF(13, .05, 'dropper_1.wav', -34); SF(13, .5, 'dropper_2.wav', -35)                          # the living sea, then stone
+SF(14, .45, 'impact_metal_3.wav', -34)                                                       # the brass ruler lands
+SF(15, .3, 'blip_click_3.wav', -36); SF(15, .55, 'blip_click_4.wav', -37)                    # the shells go out
+SF(16, .2, 'thud_soft_1.wav', -32)                                                           # the fingertip lands on the clay
+SF(17, .02, 'pour_sand_1.wav' if os.path.exists(FX + 'pour_sand_1.wav') else 'real_snow_wind_2.wav', -34); SF(17, .3, 'impact_wood_3.wav', -31)
+SF(19, .05, 'world_footstep_wood_1.wav', -33); SF(19, .2, 'world_footstep_wood_1.wav', -34)  # Walter crosses the study
+SF(20, .2, 'swoosh_thin_1.wav', -34)                                                         # out of the window into the night
+SF(21, .2, 'world_clock_tick_2.wav', -34)                                                    # the snow-clock
+SF(24, .5, 'crack_wood_1.wav', -28)                                                          # the roof parts
+SF(25, .3, 'world_clock_tick_1.wav', -32); SF(25, .4, 'swoosh_deep_1.wav', -32)             # the clock races; the dust falls
+SF(27, .1, 'swoosh_deep_2.wav', -30)                                                         # the slice swells into the asteroid
+SF(28, .1, 'real_wind_3.wav', -34)                                                           # Everest
+SF(30, .05, 'swoosh_metallic_1.wav', -32); SF(30, .27, 'thud_soft_2.wav', -34); SF(30, .57, 'thud_soft_2.wav', -35)   # whip; cliffs pop up
+SF(32, .1, 'sci_ui_tick_1.wav', -34)                                                         # the microscope
+SF(36, .1, 'world_birds_1.wav', -36)                                                         # the jungle
+SF(37, .1, 'swoosh_thin_2.wav', -35)                                                         # the lens sweeps the globe
+SF(38, .1, 'machine_paper_1.wav', -32)                                                       # the report slides out
+SF(40, .4, 'dropper_2.wav', -34)                                                             # sinkholes show
+SF(41, .1, 'scratch_2.wav', -33)                                                             # the survey inks the ring
+SF(43, .2, 'impact_woodlight_1.wav', -36); SF(43, .45, 'impact_woodlight_1.wav', -37); SF(43, .7, 'impact_woodlight_1.wav', -38)   # seats empty
+SF(44, .1, 'world_clock_tick_2.wav', -34)                                                    # the years
+SF(45, .05, 'world_footstep_concrete_2.wav', -33)                                            # Hildebrand walks in
+SF(47, .1, 'sci_ui_tick_1.wav', -35)
+SF(49, .1, 'swoosh_deep_3.wav', -32)                                                         # up to orbit height
+SF(50, .3, 'foley_page_turn_1.wav', -30)                                                     # the report opens
+SF(52, .3, 'real_ship_creak_1.wav', -36)                                                     # the skull turns
+SF(55, .2, 'real_wind_4.wav', -32)                                                           # the dust goes round the world
+SF(58, .3, 'critter_cat_purr_1.wav', -40)                                                    # the small mammal breathes
+SF(59, .2, 'transition_whoosh_airy_1.wav', -34)                                              # the sparrow flies in
+SF(61, .1, 'impact_soft_3.wav', -34); SF(61, .45, 'scratch_1.wav', -34)                      # relics regather; one line
+SF(63, .3, 'world_birds_2.wav', -34)                                                         # dawn
+DROP = {0: ['dropper_1', 'world_footstep_gravel_4.wav#2', 'animal_dino_roar_3'], 2: ['motion_whoosh_deep_1'], 8: ['amb_ocean_wave_1', 'dropper_2', 'clack_key_1'], 14: ['impact_metal_3'], 23: ['impact_metal_1'], 13: ['dropper_2'], 15: ['blip_click_3', 'blip_click_4'], 17: ['foley_book_close_1'],
+        19: ['world_footstep_wood_1.wav#2'], 25: ['rewind_1', 'swoosh_deep_1'], 30: ['thud_soft_2'], 43: ['impact_woodlight_1.wav#3'], 63: ['amb_forest_dawn_2']}   # no spam: one sound per action
+for i, names in DROP.items():
+    keep, seen = [], {}
+    for x in SFX.get(i, []):
+        b = x['file'].split('/')[-1]; seen[b] = seen.get(b, 0) + 1
+        if any(n.split('#')[0] in b and (('#' not in n) or seen[b] >= int(n.split('#')[1])) for n in names): continue
+        keep.append(x)
+    SFX[i] = keep
+for i in SFX:   # nothing loud: −24 dB at most, the impact alone may reach −20
+    for x in SFX[i]: x['db'] = min(x['db'], -20 if 'bass_drop' in x['file'] or 'glass_break' in x['file'] else -24)
+# the score: mysterious, quiet, one cue per part (owner: "nhạc nền phù hợp từng đoạn")
+E['music'] = {'cues': [
+    {'file': '../studio/music/wonder_lightless_dawn.wav', 'at': 0, 'start': 0, 'db': -21},           # the last evening, the museum, the old theories — dark, slow
+    {'file': '../studio/music/curious_hidden_agenda.wav', 'at': 'L9-1.6', 'start': 0, 'db': -23},     # clues I–II: the detective work, a quiet pulse
+    {'file': '../studio/music/curious_aftermath.wav', 'at': 'L29-1.6', 'start': 0, 'db': -20},      # clues III–IV: deeper, darker, very quiet
+    {'file': '../studio/music/tension_darkness_is_coming.wav', 'at': 'L50-1.6', 'start': 0, 'db': -22},  # the twist and the impact
+    {'file': '../studio/music/wonder_silver_blue_light.wav', 'at': 'L58-1.0', 'start': 0, 'db': -23}],  # what survived — soft, open
+  'xfade': 6, 'norm': -18,
+  'swells': [['L14+2', 'L14$', -10], ['L24', 'L24$', -8], ['L53+2.4', 'L53$', -14], ['L63$', 'end', 3]]}
 E['world'] = W
 E['new_devices'] = ['RockBook', 'IridiumMeter', 'ShockedGrain', 'SurveyRing']
 E['motif_art'] = ['ShockedGrain', 'ReportShelf']
-mu = E.get('music') or {}
-if isinstance(mu.get('swells'), list):
-    mu['swells'] = [w for w in mu['swells'] if w[2] > 0] + [['L14+2', 'L14$', -10], ['L24', 'L24$', -10], ['L53+2.4', 'L53$', -14]]
 for i, l in enumerate(E['lines']): l['sfx'] = SFX.get(i, [])
 E['thumb'] = {'t': 1, 'title': 'What killed the dinosaurs?', 'v': 'S', 'kicker': 'Gubbio · Yucatán', 'lines': ['WHAT', 'KILLED THE', 'DINOSAURS?'], 'accent': 2, 'note': 'One centimetre of clay.'}
 json.dump(E, open(EP, 'w'), indent=1, ensure_ascii=False)

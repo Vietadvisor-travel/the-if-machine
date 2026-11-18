@@ -21,9 +21,11 @@ WIN = 8.0
 MAXPART = 120     # s: chapters with the same mood share a cue only up to this long
 MINPART = 60      # s: no music part shorter than this (owner: "nhạc chèn lung tung quá")
 BLOCK = {'tension_sneaky_snitch', 'study_and_relax'}   # + FreePD 'Study and Relax': a YouTube Content ID claim on empty-atom (Muse, 17 Nov 2026)   # comic pizzicato despite its tag — wrong for FATHOM's mysterious score
-LEAN = .45        # every mood target leans this far toward 'mystery' (owner: "ưu tiên nhạc kiểu bí ẩn")
-LEVEL = {'mystery': -15, 'awe': -15, 'tension': -15, 'wonder': -15.5, 'triumph': -14.5, 'sad': -16,   # dB per part — owner 17 Nov: "nhỏ hơn ~30 %",
-         'warm': -16.5, 'curious': -17, 'calm': -17, 'playful': -17}                                   # then "vẫn to quá, nhỏ đi 30 % nữa" (−3 dB twice vs -9)
+MYSTERY_OK = {'wonder_lightless_dawn', 'curious_hidden_agenda', 'curious_aftermath', 'tension_darkness_is_coming', 'wonder_long_note_one',
+              'wonder_silver_blue_light', 'gregorian_chant', 'space_ambience', 'curious_mystery_bazaar', 'tension_achaidh_cheide'}
+LEAN = .6        # every mood target leans this far toward 'mystery' (owner: "ưu tiên nhạc kiểu bí ẩn")
+LEVEL = {'mystery': -21, 'awe': -21, 'tension': -21, 'wonder': -21.5, 'triumph': -20.5, 'sad': -22,   # owner 18 Nov 2026: "nhạc vẫn bị to quá" → −6 dB more   # dB per part — owner 17 Nov: "nhỏ hơn ~30 %",
+         'warm': -22.5, 'curious': -23, 'calm': -23, 'playful': -23}                                   # then "vẫn to quá, nhỏ đi 30 % nữa" (−3 dB twice vs -9)
 
 def analyze():
     import soundfile as sf
@@ -83,6 +85,9 @@ def plan(ep, write=False):
         t0 = T[a]['start'] - (1.6 if n else 0); t1 = (T[parts[n + 1][0]]['start'] if n + 1 < len(parts) else TL['duration']); need = t1 - t0; tgt = (1 - LEAN) * np.array(MOODS[m]) + LEAN * np.array(MOODS['mystery']); best = None
         for k, v in M.items():
             if k in BLOCK or (set(v['tags']) & {'comedy', 'tech', 'momentum'} and m != 'playful') or v['dur'] < min(need, 150): continue
+            # owner 18 Nov 2026: "bản nhạc này là nhạc vui tươi, không phải nhạc bí ẩn" — the analyser cannot hear cheerfulness, so the
+            # mysterious parts of a film draw ONLY from a hand-curated list of dark/ambient tracks; the cheerful ones are for playful/triumph/warm
+            if m not in ('playful', 'triumph', 'warm') and k not in MYSTERY_OK: continue
             F = np.array(v['f'])[:, :4]; nw = max(1, int(round(min(need, v['dur'] - 4) / WIN)))
             for s in range(0, max(1, len(F) - nw), 2):
                 seg = F[s:s + nw]; fit = np.abs(seg - tgt).mean(); steady = seg[:, 0].std()   # fits the mood, and stays in it

@@ -12,6 +12,7 @@ python3 tools/variety.py $EP ${SHORT:+--short}
 python3 tools/plan_check.py $EP
 if python3 -c "import json,sys;sys.exit(0 if json.load(open('$EP/episode.json')).get('standard',4)>=5 else 1)"; then python3 tools/still_check.py $EP; python3 tools/score.py $EP; fi   # v5 films: no dead stretches; the score follows the moods (world.py reads it or --write)
 if python3 -c "import json,sys;sys.exit(0 if json.load(open('$EP/episode.json')).get('engine',0)>=8 else 1)"; then python3 tools/novelty.py $EP; python3 tools/event_check.py $EP; fi   # v8: nothing leaned on, new devices invented; v9: something HAPPENS ≤ every 2.5 s, camera grammar varied
+python3 tools/sound_check.py $EP   # owner 18 Nov 2026: mysterious score, quiet, sound on the actions — no spam
 python3 tools/mix.py $EP
 if [[ "${2:-}" == "--preview" ]]; then   # the animatic: half size, 15 fps, with voice + score (CREATIVE.md §3)
   python3 tools/render.py $S --preview --chunk 120

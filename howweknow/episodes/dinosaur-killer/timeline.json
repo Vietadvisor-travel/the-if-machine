@@ -9,8 +9,8 @@
    "dur": 7.224,
    "sfx": [
     {
-     "at": 0.4,
-     "file": "public/sfx/animal_dino_roar_3.wav",
+     "at": 0.36,
+     "file": "public/sfx/world_footstep_gravel_4.wav",
      "db": -32
     }
    ]
@@ -32,11 +32,6 @@
      "at": 1.9,
      "file": "public/sfx/impact_bass_drop_1.wav",
      "db": -22
-    },
-    {
-     "at": 2.2,
-     "file": "public/sfx/motion_whoosh_deep_1.wav",
-     "db": -24
     }
    ]
   },
@@ -45,14 +40,31 @@
    "text": "Nobody was there to see it. Nobody wrote it down. And yet today we can say what happened, and where.",
    "start": 27.176,
    "dur": 6.452,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.65,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -33
+    },
+    {
+     "at": 1.94,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 4,
    "text": "Its bones lie in museums today, still and silent. They can tell us what it looked like. They cannot tell us how its world ended.",
    "start": 34.527,
    "dur": 8.266,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.83,
+     "file": "public/sfx/world_door_creak_1.wav",
+     "db": -36
+    }
+   ]
   },
   {
    "i": 5,
@@ -117,7 +129,7 @@
      "db": -26
     },
     {
-     "at": 3.8,
+     "at": 4.0,
      "file": "public/sfx/machine_paper_1.wav",
      "db": -28
     }
@@ -130,14 +142,9 @@
    "dur": 8.533,
    "sfx": [
     {
-     "at": 1.2,
-     "file": "public/sfx/amb_ocean_wave_1.wav",
-     "db": -32
-    },
-    {
-     "at": 4.4,
-     "file": "public/sfx/clack_key_1.wav",
-     "db": -26
+     "at": 4.69,
+     "file": "public/sfx/world_clock_tick_1.wav",
+     "db": -30
     }
    ]
   },
@@ -150,7 +157,7 @@
     {
      "at": 1.2,
      "file": "public/sfx/impact_stone_1.wav",
-     "db": -20
+     "db": -24
     }
    ]
   },
@@ -177,21 +184,39 @@
    "text": "The rock there is like a book lying on its side. Each layer is a page, and every page is a slice of time.",
    "start": 99.058,
    "dur": 7.22,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.72,
+     "file": "public/sfx/foley_book_close_1.wav",
+     "db": -30
+    }
+   ]
   },
   {
    "i": 12,
    "text": "Read from the bottom up, the stone book tells a story millions of years long. But which of its pages holds the ending?",
    "start": 106.978,
    "dur": 7.489,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.75,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 13,
    "text": "In the older layers below, the stone is crowded with tiny fossils: the shells of plankton that once drifted in that sea in countless numbers.",
    "start": 115.167,
    "dur": 9.446,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.47,
+     "file": "public/sfx/dropper_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 14,
@@ -202,7 +227,7 @@
     {
      "at": 0.2,
      "file": "public/sfx/transition_page_turn_2.wav",
-     "db": -22
+     "db": -24
     },
     {
      "at": 2.6,
@@ -223,7 +248,13 @@
    "text": "Walter realised what he was looking at. Whatever ended the age of the dinosaurs, it was written here, in a single centimetre of clay.",
    "start": 141.345,
    "dur": 8.831,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.77,
+     "file": "public/sfx/thud_soft_1.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "i": 17,
@@ -232,9 +263,14 @@
    "dur": 7.613,
    "sfx": [
     {
-     "at": 2.2,
-     "file": "public/sfx/foley_book_close_1.wav",
-     "db": -30
+     "at": 0.15,
+     "file": "public/sfx/real_snow_wind_2.wav",
+     "db": -34
+    },
+    {
+     "at": 2.28,
+     "file": "public/sfx/impact_wood_3.wav",
+     "db": -31
     }
    ]
   },
@@ -250,21 +286,39 @@
    "text": "Walter took the question to his father, Luis Alvarez, a physicist who had won the Nobel Prize. Luis listened, and then he had an unusual idea.",
    "start": 162.838,
    "dur": 10.324,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.52,
+     "file": "public/sfx/world_footstep_wood_1.wav",
+     "db": -33
+    }
+   ]
   },
   {
    "i": 20,
    "text": "Space dust falls on the Earth all the time, everywhere, in a slow and steady trickle.",
    "start": 173.862,
    "dur": 5.232,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.05,
+     "file": "public/sfx/swoosh_thin_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 21,
    "text": "That dust carries a rare metal called iridium. Measure how much of it is in the clay, and you can tell how long the clay took to settle. A little means quickly; a lot means a long time.",
    "start": 179.794,
    "dur": 12.475,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 2.5,
+     "file": "public/sfx/world_clock_tick_2.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 22,
@@ -288,11 +342,6 @@
     {
      "at": 1.6,
      "file": "public/sfx/impact_metal_2.wav",
-     "db": -22
-    },
-    {
-     "at": 2.6,
-     "file": "public/sfx/impact_metal_1.wav",
      "db": -24
     }
    ]
@@ -307,6 +356,11 @@
      "at": 0.2,
      "file": "public/sfx/transition_riser_2s_1.wav",
      "db": -26
+    },
+    {
+     "at": 2.82,
+     "file": "public/sfx/crack_wood_1.wav",
+     "db": -28
     }
    ]
   },
@@ -317,9 +371,9 @@
    "dur": 4.8,
    "sfx": [
     {
-     "at": 0.3,
-     "file": "public/sfx/rewind_1.wav",
-     "db": -28
+     "at": 1.44,
+     "file": "public/sfx/world_clock_tick_1.wav",
+     "db": -32
     }
    ]
   },
@@ -341,14 +395,26 @@
    "text": "In 1980, after checking and checking again, the Alvarez team published their answer: an asteroid about ten kilometres across had struck the Earth.",
    "start": 223.487,
    "dur": 10.527,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.05,
+     "file": "public/sfx/swoosh_deep_2.wav",
+     "db": -30
+    }
+   ]
   },
   {
    "i": 28,
    "text": "Ten kilometres across: a mountain of rock, taller than Mount Everest, falling out of the sky.",
    "start": 234.714,
    "dur": 6.021,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.6,
+     "file": "public/sfx/real_wind_3.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 29,
@@ -368,7 +434,13 @@
    "text": "Many scientists did not believe it. A rock from space, wiping out the dinosaurs? If an asteroid had really hit, the evidence should be everywhere.",
    "start": 244.947,
    "dur": 10.127,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.51,
+     "file": "public/sfx/swoosh_metallic_1.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "i": 31,
@@ -388,7 +460,13 @@
    "text": "Under the microscope, that layer held grains of quartz crossed by fine straight lines, like scratches on glass.",
    "start": 261.265,
    "dur": 7.265,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.73,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 33,
@@ -428,21 +506,39 @@
    "text": "Clue four: a ring under the jungle.",
    "start": 289.56,
    "dur": 2.235,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.22,
+     "file": "public/sfx/world_birds_1.wav",
+     "db": -36
+    }
+   ]
   },
   {
    "i": 37,
    "text": "A crater that size should be enormous. Scientists searched the oceans and deserts of the world, looking for a scar. Something that big should have been easy to spot. Yet nobody could find it.",
    "start": 292.495,
    "dur": 12.257,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.23,
+     "file": "public/sfx/swoosh_thin_2.wav",
+     "db": -35
+    }
+   ]
   },
   {
    "i": 38,
    "text": "But it had already been found, years earlier, by people who were not looking for dinosaurs at all.",
    "start": 305.453,
    "dur": 5.612,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.56,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "i": 39,
@@ -467,6 +563,11 @@
      "at": 1.4,
      "file": "public/sfx/cue_reveal_1.wav",
      "db": -28
+    },
+    {
+     "at": 2.91,
+     "file": "public/sfx/dropper_2.wav",
+     "db": -34
     }
    ]
   },
@@ -475,7 +576,13 @@
    "text": "Their instruments drew a strange shape: half of a giant ring, buried deep beneath the ground.",
    "start": 335.263,
    "dur": 5.673,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.57,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -33
+    }
+   ]
   },
   {
    "i": 42,
@@ -489,14 +596,31 @@
    "text": "In 1981 they presented it at a scientific meeting. Almost nobody noticed.",
    "start": 348.776,
    "dur": 6.456,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.29,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -36
+    },
+    {
+     "at": 2.91,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -37
+    }
+   ]
   },
   {
    "i": 44,
    "text": "The report went back on the shelf. Dust settled on it, while the rest of the world kept searching.",
    "start": 355.933,
    "dur": 5.993,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.6,
+     "file": "public/sfx/world_clock_tick_2.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 45,
@@ -508,6 +632,11 @@
      "at": 3.4,
      "file": "public/sfx/real_wind_4.wav",
      "db": -28
+    },
+    {
+     "at": 0.44,
+     "file": "public/sfx/world_footstep_concrete_2.wav",
+     "db": -33
     }
    ]
   },
@@ -529,7 +658,13 @@
    "text": "And inside that rock? Shocked minerals, carrying exactly the same scars as the grains found all around the world.",
    "start": 380.659,
    "dur": 7.729,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.77,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -35
+    }
+   ]
   },
   {
    "i": 48,
@@ -540,7 +675,7 @@
     {
      "at": 1.6,
      "file": "public/sfx/impact_wood_2.wav",
-     "db": -22
+     "db": -24
     }
    ]
   },
@@ -549,7 +684,13 @@
    "text": "The ring is about one hundred and eighty kilometres wide: big enough to swallow a whole city and the countryside around it.",
    "start": 396.244,
    "dur": 7.702,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.77,
+     "file": "public/sfx/swoosh_deep_3.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "i": 50,
@@ -561,6 +702,11 @@
      "at": 0.2,
      "file": "public/sfx/cue_twist_1.wav",
      "db": -26
+    },
+    {
+     "at": 2.54,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -30
     }
    ]
   },
@@ -576,7 +722,13 @@
    "text": "So, after all those clues, what killed the dinosaurs?",
    "start": 419.235,
    "dur": 3.242,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.97,
+     "file": "public/sfx/real_ship_creak_1.wav",
+     "db": -36
+    }
+   ]
   },
   {
    "i": 53,
@@ -592,7 +744,7 @@
     {
      "at": 2.6,
      "file": "public/sfx/impact_bass_drop_2.wav",
-     "db": -18
+     "db": -20
     }
    ]
   },
@@ -608,7 +760,13 @@
    "text": "The impact threw dust and molten rock high into the sky, laid the iridium layer around the planet, and scarred grains of sand on the way down.",
    "start": 438.921,
    "dur": 9.569,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.91,
+     "file": "public/sfx/real_wind_4.wav",
+     "db": -32
+    }
+   ]
   },
   {
    "i": 56,
@@ -640,14 +798,26 @@
    "text": "Small mammals, hiding in burrows, survived. Their descendants would one day become us.",
    "start": 460.732,
    "dur": 5.803,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.74,
+     "file": "public/sfx/critter_cat_purr_1.wav",
+     "db": -40
+    }
+   ]
   },
   {
    "i": 59,
    "text": "And some dinosaurs survived too. We call them birds.",
    "start": 467.435,
    "dur": 3.391,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.68,
+     "file": "public/sfx/transition_whoosh_airy_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 60,
@@ -667,7 +837,18 @@
    "text": "Think about it. Everything we know about that day came from a centimetre of clay, a metal from space, a scratched grain of sand\u2026 and a forgotten report.",
    "start": 477.588,
    "dur": 9.709,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.97,
+     "file": "public/sfx/impact_soft_3.wav",
+     "db": -34
+    },
+    {
+     "at": 4.37,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -34
+    }
+   ]
   },
   {
    "i": 62,
@@ -683,9 +864,9 @@
    "dur": 7.896,
    "sfx": [
     {
-     "at": 0.6,
-     "file": "public/sfx/amb_forest_dawn_2.wav",
-     "db": -28
+     "at": 2.37,
+     "file": "public/sfx/world_birds_2.wav",
+     "db": -34
     }
    ]
   }
