@@ -149,14 +149,9 @@
    "motif": "the seam — the jigsaw edge",
    "sfx": [
     {
-     "at": 5.62,
+     "at": 4.3,
      "file": "public/sfx/blip_click_3.wav",
      "db": 0
-    },
-    {
-     "at": 2.04,
-     "file": "public/sfx/world_footstep_wood_1.wav",
-     "db": -4
     }
    ]
   },
@@ -221,7 +216,7 @@
    "setpiece": 1,
    "sfx": [
     {
-     "at": 2.81,
+     "at": 2.34,
      "file": "public/sfx/foley_page_turn_1.wav",
      "db": 0
     }
@@ -282,7 +277,7 @@
    "light": "lamp, raking",
    "sfx": [
     {
-     "at": 3.13,
+     "at": 2.79,
      "file": "public/sfx/swoosh_thin_1.wav",
      "db": -3
     }
@@ -348,14 +343,9 @@
    "motif": "the seam — the atlas tears",
    "sfx": [
     {
-     "at": 1.96,
+     "at": 1.55,
      "file": "public/sfx/machine_paper_1.wav",
      "db": 2
-    },
-    {
-     "at": 6.85,
-     "file": "public/sfx/scratch_1.wav",
-     "db": -4
     }
    ]
   },
@@ -421,14 +411,9 @@
    "light": "flat daylight, high",
    "sfx": [
     {
-     "at": 2.43,
+     "at": 1.72,
      "file": "public/sfx/world_footstep_gravel_4.wav",
      "db": 0
-    },
-    {
-     "at": 5.53,
-     "file": "public/sfx/thud_soft_1.wav",
-     "db": -2
     }
    ]
   },
@@ -496,14 +481,9 @@
    "light": "daylight",
    "sfx": [
     {
-     "at": 2.47,
+     "at": 1.67,
      "file": "public/sfx/impact_woodlight_1.wav",
      "db": -2
-    },
-    {
-     "at": 7.4,
-     "file": "public/sfx/impact_woodlight_1.wav",
-     "db": -3
     }
    ]
   },
@@ -571,12 +551,7 @@
    "light": "days and nights flicker",
    "sfx": [
     {
-     "at": 4.43,
-     "file": "public/sfx/world_birds_1.wav",
-     "db": -4
-    },
-    {
-     "at": 9.07,
+     "at": 7.2,
      "file": "public/sfx/sci_ui_tick_1.wav",
      "db": 0
     }
@@ -635,14 +610,9 @@
    "light": "evening, then night",
    "sfx": [
     {
-     "at": 0.85,
+     "at": 0.66,
      "file": "public/sfx/pour_sand_1.wav",
      "db": -2
-    },
-    {
-     "at": 5.11,
-     "file": "public/sfx/world_clock_tick_1.wav",
-     "db": -4
     }
    ]
   },
@@ -701,18 +671,8 @@
    "light": "moonlight",
    "sfx": [
     {
-     "at": 0.89,
+     "at": 0.76,
      "file": "public/sfx/transition_whoosh_airy_1.wav",
-     "db": -2
-    },
-    {
-     "at": 3.75,
-     "file": "public/sfx/impact_wood_3.wav",
-     "db": -3
-    },
-    {
-     "at": 7.15,
-     "file": "public/sfx/swoosh_thin_2.wav",
      "db": -2
     }
    ]
@@ -780,14 +740,9 @@
    "light": "white Arctic light",
    "sfx": [
     {
-     "at": 4.21,
+     "at": 3.65,
      "file": "public/sfx/swoosh_thin_1.wav",
      "db": -2
-    },
-    {
-     "at": 7.02,
-     "file": "public/sfx/real_wind_3.wav",
-     "db": -4
     }
    ]
   },
@@ -851,13 +806,8 @@
    "light": "high sun",
    "sfx": [
     {
-     "at": 2.94,
+     "at": 2.18,
      "file": "public/sfx/transition_whoosh_airy_1.wav",
-     "db": -2
-    },
-    {
-     "at": 6.85,
-     "file": "public/sfx/thud_soft_2.wav",
      "db": -2
     }
    ]
@@ -924,14 +874,9 @@
    "motif": "the seam — the torn newspaper",
    "sfx": [
     {
-     "at": 1.76,
+     "at": 1.41,
      "file": "public/sfx/machine_paper_1.wav",
      "db": 1
-    },
-    {
-     "at": 7.83,
-     "file": "public/sfx/scratch_2.wav",
-     "db": -4
     }
    ]
   },
@@ -1002,12 +947,7 @@
    "light": "oil lamp",
    "sfx": [
     {
-     "at": 3.7,
-     "file": "public/sfx/scratch_1.wav",
-     "db": -5
-    },
-    {
-     "at": 11.11,
+     "at": 7.73,
      "file": "public/sfx/blip_click_4.wav",
      "db": -2
     }
@@ -1070,7 +1010,7 @@
    "light": "lamp",
    "sfx": [
     {
-     "at": 4.6,
+     "at": 3.17,
      "file": "public/sfx/swoosh_thin_2.wav",
      "db": -3
     }
@@ -1136,12 +1076,12 @@
    "light": "gaslight",
    "sfx": [
     {
-     "at": 2.81,
+     "at": 2.8,
      "file": "public/sfx/world_door_creak_1.wav",
      "db": -3
     },
     {
-     "at": 6.18,
+     "at": 6.16,
      "file": "public/sfx/thud_soft_2.wav",
      "db": -2
     }
@@ -1203,7 +1143,7 @@
    "light": "gaslight, warm",
    "sfx": [
     {
-     "at": 1.6,
+     "at": 1.22,
      "file": "public/sfx/impact_wood_3.wav",
      "db": 0
     }
@@ -1267,14 +1207,9 @@
    "motif": "the seam — Pangaea’s stitches",
    "sfx": [
     {
-     "at": 2.02,
+     "at": 1.7,
      "file": "public/sfx/scratch_2.wav",
      "db": -5
-    },
-    {
-     "at": 4.85,
-     "file": "public/sfx/scratch_2.wav",
-     "db": -6
     }
    ]
   },
@@ -1345,12 +1280,12 @@
    "light": "lamp",
    "sfx": [
     {
-     "at": 3.32,
+     "at": 2.93,
      "file": "public/sfx/world_footstep_gravel_4.wav",
      "db": -6
     },
     {
-     "at": 9.07,
+     "at": 8.02,
      "file": "public/sfx/pond_water_1.wav",
      "db": -2
     }
@@ -1415,14 +1350,9 @@
    "light": "lamp",
    "sfx": [
     {
-     "at": 2.55,
+     "at": 2.03,
      "file": "public/sfx/impact_woodlight_1.wav",
      "db": -2
-    },
-    {
-     "at": 4.26,
-     "file": "public/sfx/impact_woodlight_1.wav",
-     "db": -4
     }
    ]
   },
@@ -1486,12 +1416,7 @@
    "light": "grey sea light",
    "sfx": [
     {
-     "at": 0.89,
-     "file": "public/sfx/pond_water_1.wav",
-     "db": -3
-    },
-    {
-     "at": 3.57,
+     "at": 3.15,
      "file": "public/sfx/dropper_1.wav",
      "db": -2
     }
@@ -1557,14 +1482,9 @@
    "light": "warm sun",
    "sfx": [
     {
-     "at": 2.55,
+     "at": 1.95,
      "file": "public/sfx/swoosh_deep_1.wav",
      "db": -3
-    },
-    {
-     "at": 5.96,
-     "file": "public/sfx/pond_water_1.wav",
-     "db": -4
     }
    ]
   },
@@ -1635,12 +1555,12 @@
    "light": "warm breeze light",
    "sfx": [
     {
-     "at": 2.66,
+     "at": 2.76,
      "file": "public/sfx/transition_whoosh_airy_1.wav",
      "db": -3
     },
     {
-     "at": 6.6,
+     "at": 6.84,
      "file": "public/sfx/impact_soft_3.wav",
      "db": -3
     }
@@ -1701,14 +1621,9 @@
    "light": "cold blue light",
    "sfx": [
     {
-     "at": 0.77,
+     "at": 0.65,
      "file": "public/sfx/real_wind_4.wav",
      "db": -3
-    },
-    {
-     "at": 5.97,
-     "file": "public/sfx/crack_wood_1.wav",
-     "db": -4
     }
    ]
   },
@@ -1769,14 +1684,9 @@
    "light": "cold, then warm",
    "sfx": [
     {
-     "at": 0.43,
+     "at": 0.38,
      "file": "public/sfx/world_door_creak_1.wav",
      "db": -2
-    },
-    {
-     "at": 4.68,
-     "file": "public/sfx/dropper_2.wav",
-     "db": -3
     }
    ]
   },
@@ -1833,14 +1743,9 @@
    "motif": "the seam — the print crosses the tear",
    "sfx": [
     {
-     "at": 0.71,
+     "at": 0.77,
      "file": "public/sfx/machine_paper_1.wav",
      "db": -2
-    },
-    {
-     "at": 3.28,
-     "file": "public/sfx/scratch_1.wav",
-     "db": -5
     }
    ]
   },
@@ -1900,12 +1805,7 @@
    "light": "gaslight",
    "sfx": [
     {
-     "at": 2.75,
-     "file": "public/sfx/critter_cat_purr_1.wav",
-     "db": -10
-    },
-    {
-     "at": 5.06,
+     "at": 4.69,
      "file": "public/sfx/swoosh_thin_1.wav",
      "db": -4
     }
@@ -1976,17 +1876,7 @@
    "setpiece": 2,
    "sfx": [
     {
-     "at": 3.06,
-     "file": "public/sfx/blip_click_3.wav",
-     "db": -4
-    },
-    {
-     "at": 7.15,
-     "file": "public/sfx/impact_soft_3.wav",
-     "db": 0
-    },
-    {
-     "at": 8.99,
+     "at": 6.62,
      "file": "public/sfx/thud_soft_1.wav",
      "db": 1
     }
@@ -2051,19 +1941,9 @@
    "light": "grey",
    "sfx": [
     {
-     "at": 2.68,
+     "at": 2.31,
      "file": "public/sfx/crack_wood_1.wav",
      "db": 0
-    },
-    {
-     "at": 5.54,
-     "file": "public/sfx/pond_water_1.wav",
-     "db": -2
-    },
-    {
-     "at": 7.6,
-     "file": "public/sfx/dropper_1.wav",
-     "db": -4
     }
    ]
   },
@@ -2128,14 +2008,9 @@
    "light": "white Arctic light",
    "sfx": [
     {
-     "at": 2.94,
+     "at": 2.12,
      "file": "public/sfx/foley_page_turn_1.wav",
      "db": -2
-    },
-    {
-     "at": 6.36,
-     "file": "public/sfx/world_footstep_gravel_4.wav",
-     "db": -6
     }
    ]
   },
@@ -2207,12 +2082,12 @@
    "setpiece": 2,
    "sfx": [
     {
-     "at": 1.06,
+     "at": 0.98,
      "file": "public/sfx/real_wind_4.wav",
      "db": 2
     },
     {
-     "at": 5.85,
+     "at": 5.37,
      "file": "public/sfx/world_footstep_gravel_4.wav",
      "db": -4
     }
@@ -2279,14 +2154,9 @@
    "setpiece": 2,
    "sfx": [
     {
-     "at": 1.87,
+     "at": 1.42,
      "file": "public/sfx/real_wind_3.wav",
      "db": 0
-    },
-    {
-     "at": 8.05,
-     "file": "public/sfx/swoosh_thin_2.wav",
-     "db": -6
     }
    ]
   },
@@ -2345,7 +2215,7 @@
    "light": "pale blue dusk",
    "sfx": [
     {
-     "at": 1.87,
+     "at": 1.43,
      "file": "public/sfx/thud_soft_2.wav",
      "db": -4
     }
@@ -2412,12 +2282,7 @@
    "motif": "the seam — a root crack in the snow",
    "sfx": [
     {
-     "at": 2.94,
-     "file": "public/sfx/crack_wood_1.wav",
-     "db": -8
-    },
-    {
-     "at": 7.83,
+     "at": 6.43,
      "file": "public/sfx/foley_page_turn_1.wav",
      "db": -3
     }
@@ -2487,12 +2352,12 @@
    "light": "grey sea light",
    "sfx": [
     {
-     "at": 1.11,
+     "at": 0.92,
      "file": "public/sfx/scratch_2.wav",
      "db": -5
     },
     {
-     "at": 4.98,
+     "at": 4.12,
      "file": "public/sfx/blip_click_4.wav",
      "db": -6
     }
@@ -2558,18 +2423,8 @@
    "light": "grey sea light",
    "sfx": [
     {
-     "at": 1.34,
+     "at": 1.12,
      "file": "public/sfx/sci_ui_tick_1.wav",
-     "db": -2
-    },
-    {
-     "at": 3.13,
-     "file": "public/sfx/sci_ui_tick_1.wav",
-     "db": -4
-    },
-    {
-     "at": 5.36,
-     "file": "public/sfx/real_ship_creak_1.wav",
      "db": -2
     }
    ]
@@ -2633,13 +2488,8 @@
    "light": "blue underwater light",
    "sfx": [
     {
-     "at": 1.34,
+     "at": 1.32,
      "file": "public/sfx/impact_metal_3.wav",
-     "db": -4
-    },
-    {
-     "at": 4.91,
-     "file": "public/sfx/swoosh_metallic_1.wav",
      "db": -4
     }
    ]
@@ -2709,14 +2559,9 @@
    "setpiece": 3,
    "sfx": [
     {
-     "at": 1.11,
+     "at": 0.85,
      "file": "public/sfx/scratch_1.wav",
      "db": -1
-    },
-    {
-     "at": 9.07,
-     "file": "public/sfx/machine_paper_1.wav",
-     "db": -2
     }
    ]
   },
@@ -2781,14 +2626,9 @@
    "setpiece": 3,
    "sfx": [
     {
-     "at": 0.47,
+     "at": 0.43,
      "file": "public/sfx/swoosh_deep_2.wav",
      "db": -2
-    },
-    {
-     "at": 6.09,
-     "file": "public/sfx/blip_click_3.wav",
-     "db": -6
     }
    ]
   },
@@ -2853,14 +2693,9 @@
    "motif": "the seam — the ridge",
    "sfx": [
     {
-     "at": 1.96,
+     "at": 1.7,
      "file": "public/sfx/swoosh_deep_3.wav",
      "db": -3
-    },
-    {
-     "at": 5.87,
-     "file": "public/sfx/sci_ui_tick_1.wav",
-     "db": -5
     }
    ]
   },
@@ -2923,17 +2758,7 @@
    "light": "indigo, gold",
    "sfx": [
     {
-     "at": 0.43,
-     "file": "public/sfx/sci_ui_tick_1.wav",
-     "db": -4
-    },
-    {
-     "at": 3.83,
-     "file": "public/sfx/sci_ui_tick_1.wav",
-     "db": -4
-    },
-    {
-     "at": 7.23,
+     "at": 0.3,
      "file": "public/sfx/sci_ui_tick_1.wav",
      "db": -4
     }
@@ -2997,12 +2822,7 @@
    "motif": "the seam — the fold along the ridge",
    "sfx": [
     {
-     "at": 0.64,
-     "file": "public/sfx/foley_page_turn_1.wav",
-     "db": 0
-    },
-    {
-     "at": 2.87,
+     "at": 2.15,
      "file": "public/sfx/impact_soft_3.wav",
      "db": 2
     }
@@ -3065,14 +2885,9 @@
    "light": "indigo",
    "sfx": [
     {
-     "at": 2.13,
+     "at": 1.54,
      "file": "public/sfx/swoosh_thin_2.wav",
      "db": -3
-    },
-    {
-     "at": 4.94,
-     "file": "public/sfx/swoosh_thin_1.wav",
-     "db": -5
     }
    ]
   },
@@ -3132,12 +2947,12 @@
    "light": "desk lamp",
    "sfx": [
     {
-     "at": 0.85,
+     "at": 0.97,
      "file": "public/sfx/world_door_creak_1.wav",
      "db": -6
     },
     {
-     "at": 5.11,
+     "at": 5.8,
      "file": "public/sfx/foley_page_turn_1.wav",
      "db": -4
     }
@@ -3202,18 +3017,8 @@
    "light": "desk lamp",
    "sfx": [
     {
-     "at": 1.7,
+     "at": 1.6,
      "file": "public/sfx/swoosh_metallic_1.wav",
-     "db": -2
-    },
-    {
-     "at": 4.68,
-     "file": "public/sfx/swoosh_metallic_1.wav",
-     "db": -4
-    },
-    {
-     "at": 7.49,
-     "file": "public/sfx/blip_click_4.wav",
      "db": -2
     }
    ]
@@ -3283,19 +3088,9 @@
    "setpiece": 3,
    "sfx": [
     {
-     "at": 1.06,
+     "at": 0.88,
      "file": "public/sfx/swoosh_deep_1.wav",
      "db": -2
-    },
-    {
-     "at": 4.26,
-     "file": "public/sfx/pond_water_1.wav",
-     "db": -6
-    },
-    {
-     "at": 7.98,
-     "file": "public/sfx/machine_paper_1.wav",
-     "db": -6
     }
    ]
   },
@@ -3363,13 +3158,8 @@
    "motif": "the seam — the ridge as a tape head",
    "sfx": [
     {
-     "at": 2.13,
+     "at": 1.76,
      "file": "public/sfx/world_clock_tick_2.wav",
-     "db": -4
-    },
-    {
-     "at": 6.38,
-     "file": "public/sfx/swoosh_deep_2.wav",
      "db": -4
     }
    ]
@@ -3437,12 +3227,12 @@
    "light": "indigo, gold",
    "sfx": [
     {
-     "at": 3.7,
+     "at": 2.86,
      "file": "public/sfx/blip_click_3.wav",
      "db": -4
     },
     {
-     "at": 8.64,
+     "at": 6.67,
      "file": "public/sfx/impact_soft_3.wav",
      "db": -2
     }
@@ -3512,12 +3302,12 @@
    "light": "warm",
    "sfx": [
     {
-     "at": 0.57,
+     "at": 0.46,
      "file": "public/sfx/machine_paper_1.wav",
      "db": -2
     },
     {
-     "at": 5.74,
+     "at": 4.59,
      "file": "public/sfx/world_clock_tick_1.wav",
      "db": -4
     }
@@ -3587,14 +3377,9 @@
    "light": "space dark, warm rim",
    "sfx": [
     {
-     "at": 3.72,
+     "at": 3.32,
      "file": "public/sfx/crack_wood_1.wav",
      "db": 0
-    },
-    {
-     "at": 7.34,
-     "file": "public/sfx/swoosh_deep_3.wav",
-     "db": -3
     }
    ]
   },
@@ -3658,19 +3443,9 @@
    "light": "red glow below",
    "sfx": [
     {
-     "at": 1.96,
-     "file": "public/sfx/swoosh_deep_1.wav",
-     "db": -2
-    },
-    {
-     "at": 5.38,
+     "at": 4.32,
      "file": "public/sfx/thud_soft_1.wav",
      "db": 2
-    },
-    {
-     "at": 8.32,
-     "file": "public/sfx/transition_whoosh_airy_1.wav",
-     "db": -3
     }
    ]
   },
@@ -3734,19 +3509,9 @@
    "light": "high sun",
    "sfx": [
     {
-     "at": 2.23,
-     "file": "public/sfx/swoosh_thin_1.wav",
-     "db": -3
-    },
-    {
-     "at": 3.75,
+     "at": 3.04,
      "file": "public/sfx/thud_soft_2.wav",
      "db": 0
-    },
-    {
-     "at": 7.15,
-     "file": "public/sfx/real_wind_3.wav",
-     "db": -4
     }
    ]
   },
@@ -3810,14 +3575,9 @@
    "motif": "the seam — the Atlantic tear today",
    "sfx": [
     {
-     "at": 1.47,
+     "at": 1.29,
      "file": "public/sfx/swoosh_deep_2.wav",
      "db": -4
-    },
-    {
-     "at": 5.87,
-     "file": "public/sfx/sci_ui_tick_1.wav",
-     "db": -5
     }
    ]
   },
@@ -3881,17 +3641,12 @@
    "light": "clear sky",
    "sfx": [
     {
-     "at": 1.87,
+     "at": 1.82,
      "file": "public/sfx/blip_click_3.wav",
      "db": -3
     },
     {
-     "at": 4.21,
-     "file": "public/sfx/blip_click_3.wav",
-     "db": -5
-    },
-    {
-     "at": 7.3,
+     "at": 7.09,
      "file": "public/sfx/sci_ui_tick_1.wav",
      "db": -2
     }
@@ -3949,12 +3704,7 @@
    "light": "warm daylight",
    "sfx": [
     {
-     "at": 1.19,
-     "file": "public/sfx/scratch_2.wav",
-     "db": -5
-    },
-    {
-     "at": 3.28,
+     "at": 2.86,
      "file": "public/sfx/sci_ui_tick_1.wav",
      "db": -4
     }
@@ -4021,17 +3771,7 @@
    "motif": "the seam — the quilt opens into the Atlantic",
    "sfx": [
     {
-     "at": 0.81,
-     "file": "public/sfx/pond_water_1.wav",
-     "db": -4
-    },
-    {
-     "at": 4.04,
-     "file": "public/sfx/machine_paper_1.wav",
-     "db": -4
-    },
-    {
-     "at": 6.47,
+     "at": 5.28,
      "file": "public/sfx/swoosh_deep_1.wav",
      "db": -3
     }
@@ -4102,12 +3842,7 @@
    "motif": "the seam — the future jigsaw",
    "sfx": [
     {
-     "at": 3.19,
-     "file": "public/sfx/swoosh_deep_3.wav",
-     "db": -4
-    },
-    {
-     "at": 7.45,
+     "at": 5.29,
      "file": "public/sfx/blip_click_4.wav",
      "db": -2
     }
@@ -4177,14 +3912,9 @@
    "motif": "the seam — the torn atlas again",
    "sfx": [
     {
-     "at": 2.13,
+     "at": 1.79,
      "file": "public/sfx/foley_page_turn_1.wav",
      "db": -2
-    },
-    {
-     "at": 5.85,
-     "file": "public/sfx/thud_soft_2.wav",
-     "db": -5
     }
    ]
   },
@@ -4247,12 +3977,7 @@
    "light": "lamp fading",
    "sfx": [
     {
-     "at": 2.81,
-     "file": "public/sfx/world_footstep_wood_1.wav",
-     "db": -6
-    },
-    {
-     "at": 5.62,
+     "at": 4.94,
      "file": "public/sfx/blip_click_3.wav",
      "db": -4
     }
@@ -4302,8 +4027,8 @@
      "ease": "soft"
     },
     {
-     "t": "L0+1",
-     "dur": 9.412765957446807,
+     "t": "L0+0.77",
+     "dur": 7.019,
      "push": 1.75,
      "pan_x": 105.0,
      "pan_y": -35.0,
@@ -4319,8 +4044,8 @@
      "ease": "soft"
     },
     {
-     "t": "L1+1",
-     "dur": 8.561702127659574,
+     "t": "L1+0.83",
+     "dur": 7.005,
      "push": 1.14,
      "pan_x": -102.6,
      "pan_y": 22.8,
@@ -4336,8 +4061,8 @@
      "ease": "soft"
     },
     {
-     "t": "L2+1",
-     "dur": 8.136170212765956,
+     "t": "L2+0.89",
+     "dur": 7.179,
      "push": 1.4336000000000002,
      "pan_x": -28.7,
      "pan_y": 71.7,
@@ -4355,8 +4080,8 @@
      "ease": "soft"
     },
     {
-     "t": "L3+1",
-     "dur": 8.98723404255319,
+     "t": "L3+0.79",
+     "dur": 6.941,
      "push": 1.2768,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -4364,7 +4089,7 @@
      "ease": "inOut"
     },
     {
-     "t": "L3+9.79",
+     "t": "L3+6.12",
      "dur": 0.8,
      "dolly": 0,
      "ease": "soft"
@@ -4388,8 +4113,8 @@
      "ease": "soft"
     },
     {
-     "t": "L4+0.9",
-     "dur": 10.463829787234042,
+     "t": "L4+0.64",
+     "dur": 7.235,
      "push": 1.28,
      "pan_x": 0.0,
      "pan_y": -76.8,
@@ -4414,8 +4139,8 @@
      "ease": "soft"
     },
     {
-     "t": "L5+1",
-     "dur": 11.540425531914892,
+     "t": "L5+0.7",
+     "dur": 7.537,
      "push": 1.08,
      "pan_x": 97.2,
      "pan_y": 0.0,
@@ -4449,8 +4174,8 @@
      "ease": "soft"
     },
     {
-     "t": "L7+1",
-     "dur": 7.7106382978723405,
+     "t": "L7+0.77",
+     "dur": 5.767,
      "push": 1.14,
      "pan_x": 0.0,
      "pan_y": -148.2,
@@ -4475,8 +4200,8 @@
      "ease": "soft"
     },
     {
-     "t": "L8+1",
-     "dur": 8.136170212765956,
+     "t": "L8+0.85",
+     "dur": 6.803,
      "push": 1.14,
      "pan_x": -273.6,
      "pan_y": 285.0,
@@ -4501,8 +4226,8 @@
      "ease": "soft"
     },
     {
-     "t": "L9+0.9",
-     "dur": 8.761702127659575,
+     "t": "L9+0.78",
+     "dur": 7.501000000000001,
      "push": 1.14,
      "pan_x": 68.4,
      "pan_y": -22.8,
@@ -4518,7 +4243,7 @@
      "ease": "soft"
     },
     {
-     "t": "L10+0.8",
+     "t": "L10+0.59",
      "dur": 1.6,
      "push": 2.3760000000000003,
      "pan_x": 0.0,
@@ -4526,7 +4251,7 @@
      "ease": "in"
     },
     {
-     "t": "L10+2.4",
+     "t": "L10+1.78",
      "dur": 0.9,
      "push": 1.08,
      "pan_x": 0.0,
@@ -4534,8 +4259,8 @@
      "ease": "out"
     },
     {
-     "t": "L10+3.3",
-     "dur": 6.787234042553191,
+     "t": "L10+2.45",
+     "dur": 4.274,
      "push": 1.1880000000000002,
      "pan_x": 0.0,
      "pan_y": -23.8,
@@ -4551,8 +4276,8 @@
      "ease": "soft"
     },
     {
-     "t": "L11+1",
-     "dur": 8.98723404255319,
+     "t": "L11+0.8",
+     "dur": 7.054,
      "push": 1.6,
      "pan_x": 0.0,
      "pan_y": 32.0,
@@ -4568,8 +4293,8 @@
      "ease": "soft"
     },
     {
-     "t": "L12+0.8",
-     "dur": 11.740425531914893,
+     "t": "L12+0.56",
+     "dur": 7.984,
      "push": 1.4,
      "pan_x": -420.0,
      "pan_y": 28.0,
@@ -4585,8 +4310,8 @@
      "ease": "soft"
     },
     {
-     "t": "L13+1",
-     "dur": 9.412765957446807,
+     "t": "L13+0.7",
+     "dur": 6.25,
      "push": 1.14,
      "pan_x": 102.6,
      "pan_y": 0.0,
@@ -4603,7 +4328,7 @@
     },
     {
      "t": "L14+1",
-     "dur": 8.561702127659574,
+     "dur": 8.530999999999999,
      "push": 1.3451999999999997,
      "pan_x": 215.2,
      "pan_y": 26.9,
@@ -4629,7 +4354,7 @@
      "ease": "soft"
     },
     {
-     "t": "L15+1",
+     "t": "L15+0.77",
      "dur": 0.5,
      "push": 1.566,
      "pan_x": 0.0,
@@ -4637,8 +4362,8 @@
      "ease": "out"
     },
     {
-     "t": "L15+1.5",
-     "dur": 5.382978723404255,
+     "t": "L15+1.15",
+     "dur": 3.886,
      "push": 1.62,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -4654,8 +4379,8 @@
      "ease": "soft"
     },
     {
-     "t": "L16+0.9",
-     "dur": 7.485106382978724,
+     "t": "L16+0.76",
+     "dur": 6.2170000000000005,
      "push": 1.08,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -4680,8 +4405,8 @@
      "ease": "soft"
     },
     {
-     "t": "L17+0.8",
-     "dur": 10.463829787234042,
+     "t": "L17+0.71",
+     "dur": 9.183,
      "push": 1.28,
      "pan_x": -435.2,
      "pan_y": -76.8,
@@ -4706,8 +4431,8 @@
      "ease": "soft"
     },
     {
-     "t": "L18+0.8",
-     "dur": 7.910638297872341,
+     "t": "L18+0.64",
+     "dur": 6.156000000000001,
      "push": 1.083,
      "pan_x": 0.0,
      "pan_y": -21.7,
@@ -4723,21 +4448,21 @@
      "ease": "soft"
     },
     {
-     "t": "L19+0.4",
+     "t": "L19+0.35",
      "dur": 0.8,
      "shake": 0.22,
      "ease": "soft"
     },
     {
-     "t": "L19+1",
-     "dur": 8.136170212765956,
+     "t": "L19+0.88",
+     "dur": 7.065,
      "push": 1.3824,
      "pan_x": 0.0,
      "pan_y": 0.0,
      "ease": "linear"
     },
     {
-     "t": "L19+8.54",
+     "t": "L19+6.57",
      "dur": 0.6,
      "shake": 0,
      "ease": "soft"
@@ -4761,8 +4486,8 @@
      "ease": "soft"
     },
     {
-     "t": "L20+1",
-     "dur": 7.7106382978723405,
+     "t": "L20+0.76",
+     "dur": 5.697,
      "push": 1.14,
      "pan_x": -102.6,
      "pan_y": 0.0,
@@ -4787,8 +4512,8 @@
      "ease": "soft"
     },
     {
-     "t": "L21+1",
-     "dur": 9.838297872340425,
+     "t": "L21+1.04",
+     "dur": 10.231,
      "push": 1.08,
      "pan_x": 97.2,
      "pan_y": 0.0,
@@ -4813,8 +4538,8 @@
      "ease": "soft"
     },
     {
-     "t": "L22+0.9",
-     "dur": 7.059574468085106,
+     "t": "L22+0.76",
+     "dur": 5.892,
      "push": 1.28,
      "pan_x": 0.0,
      "pan_y": -25.6,
@@ -4839,7 +4564,7 @@
      "ease": "soft"
     },
     {
-     "t": "L23+1.4",
+     "t": "L23+1.26",
      "dur": 1.0,
      "push": 1.254,
      "pan_x": 0.0,
@@ -4848,7 +4573,7 @@
      "ease": "out"
     },
     {
-     "t": "L23+7.11",
+     "t": "L23+5.62",
      "dur": 1.2,
      "push": 1.3109999999999997,
      "pan_x": 0.0,
@@ -4877,22 +4602,22 @@
      "ease": "soft"
     },
     {
-     "t": "L24+1.6",
+     "t": "L24+1.72",
      "dur": 1.4,
      "focus": 0.4,
      "dof": 5,
      "ease": "soft"
     },
     {
-     "t": "L24+1.6",
-     "dur": 4.757446808510638,
+     "t": "L24+1.72",
+     "dur": 5.217,
      "push": 1.54,
      "pan_x": 0.0,
      "pan_y": 30.8,
      "ease": "linear"
     },
     {
-     "t": "L24+5.56",
+     "t": "L24+6.48",
      "dur": 0.8,
      "dof": 0,
      "ease": "soft"
@@ -4923,8 +4648,8 @@
      "ease": "out"
     },
     {
-     "t": "L25+0.8",
-     "dur": 6.634042553191489,
+     "t": "L25+0.74",
+     "dur": 6.093,
      "push": 1.1664,
      "pan_x": 0.0,
      "pan_y": 23.3,
@@ -4949,8 +4674,8 @@
      "ease": "soft"
     },
     {
-     "t": "L26+1",
-     "dur": 9.412765957446807,
+     "t": "L26+0.74",
+     "dur": 6.727,
      "push": 1.6,
      "pan_x": 0.0,
      "pan_y": 96.0,
@@ -4966,8 +4691,8 @@
      "ease": "soft"
     },
     {
-     "t": "L27+1",
-     "dur": 8.136170212765956,
+     "t": "L27+0.86",
+     "dur": 6.909,
      "push": 1.28,
      "pan_x": 0.0,
      "pan_y": -166.4,
@@ -4992,8 +4717,8 @@
      "ease": "soft"
     },
     {
-     "t": "L28+1",
-     "dur": 8.98723404255319,
+     "t": "L28+0.72",
+     "dur": 6.276,
      "push": 1.08,
      "pan_x": -97.2,
      "pan_y": 0.0,
@@ -5018,21 +4743,21 @@
      "ease": "soft"
     },
     {
-     "t": "L29+0.4",
+     "t": "L29+0.37",
      "dur": 0.8,
      "shake": 0.22,
      "ease": "soft"
     },
     {
-     "t": "L29+1",
-     "dur": 9.838297872340425,
+     "t": "L29+0.92",
+     "dur": 8.963,
      "push": 1.1664,
      "pan_x": 233.3,
      "pan_y": -303.3,
      "ease": "linear"
     },
     {
-     "t": "L29+10.24",
+     "t": "L29+8.59",
      "dur": 0.6,
      "shake": 0,
      "ease": "soft"
@@ -5056,8 +4781,8 @@
      "ease": "soft"
     },
     {
-     "t": "L30+1",
-     "dur": 8.561702127659574,
+     "t": "L30+0.76",
+     "dur": 6.315,
      "push": 1.6,
      "pan_x": 0.0,
      "pan_y": -32.0,
@@ -5091,8 +4816,8 @@
      "ease": "soft"
     },
     {
-     "t": "L32+0.9",
-     "dur": 9.187234042553191,
+     "t": "L32+0.74",
+     "dur": 7.443,
      "push": 1.4,
      "pan_x": 0.0,
      "pan_y": -84.0,
@@ -5117,8 +4842,8 @@
      "ease": "soft"
     },
     {
-     "t": "L33+0.8",
-     "dur": 10.463829787234042,
+     "t": "L33+0.66",
+     "dur": 8.563,
      "push": 1.026,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5134,8 +4859,8 @@
      "ease": "soft"
     },
     {
-     "t": "L34+0.8",
-     "dur": 8.336170212765957,
+     "t": "L34+0.67",
+     "dur": 6.865,
      "push": 1.08,
      "pan_x": -324.0,
      "pan_y": 0.0,
@@ -5160,7 +4885,7 @@
      "ease": "soft"
     },
     {
-     "t": "L35+1",
+     "t": "L35+0.99",
      "dur": 0.5,
      "push": 2.03,
      "pan_x": 0.0,
@@ -5168,8 +4893,8 @@
      "ease": "out"
     },
     {
-     "t": "L35+1.5",
-     "dur": 7.936170212765957,
+     "t": "L35+1.48",
+     "dur": 7.8260000000000005,
      "push": 2.0999999999999996,
      "pan_x": 0.0,
      "pan_y": -336.0,
@@ -5185,8 +4910,8 @@
      "ease": "soft"
     },
     {
-     "t": "L36+1",
-     "dur": 10.263829787234041,
+     "t": "L36+0.77",
+     "dur": 7.701,
      "push": 1.55,
      "pan_x": 0.0,
      "pan_y": -170.5,
@@ -5202,8 +4927,8 @@
      "ease": "soft"
     },
     {
-     "t": "L37+0.9",
-     "dur": 8.761702127659575,
+     "t": "L37+0.82",
+     "dur": 7.952,
      "push": 1.08,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5228,8 +4953,8 @@
      "ease": "soft"
     },
     {
-     "t": "L38+1",
-     "dur": 8.98723404255319,
+     "t": "L38+0.87",
+     "dur": 7.721000000000001,
      "push": 1.2744,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5256,8 +4981,8 @@
      "ease": "soft"
     },
     {
-     "t": "L40+1",
-     "dur": 5.582978723404255,
+     "t": "L40+0.75",
+     "dur": 3.9850000000000003,
      "push": 1.4336000000000002,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5265,7 +4990,7 @@
      "ease": "inOut"
     },
     {
-     "t": "L40+6.38",
+     "t": "L40+3.59",
      "dur": 0.8,
      "dolly": 0,
      "ease": "soft"
@@ -5280,8 +5005,8 @@
      "ease": "soft"
     },
     {
-     "t": "L41+1",
-     "dur": 7.7106382978723405,
+     "t": "L41+0.72",
+     "dur": 5.37,
      "push": 1.2768,
      "pan_x": -102.1,
      "pan_y": 38.3,
@@ -5307,8 +5032,8 @@
      "ease": "soft"
     },
     {
-     "t": "L42+1",
-     "dur": 7.7106382978723405,
+     "t": "L42+1.14",
+     "dur": 8.863999999999999,
      "push": 1.6,
      "pan_x": 0.0,
      "pan_y": -32.0,
@@ -5333,7 +5058,7 @@
      "ease": "soft"
     },
     {
-     "t": "L43+1",
+     "t": "L43+0.94",
      "dur": 0.5,
      "push": 2.03,
      "pan_x": 0.0,
@@ -5341,8 +5066,8 @@
      "ease": "out"
     },
     {
-     "t": "L43+1.5",
-     "dur": 7.51063829787234,
+     "t": "L43+1.41",
+     "dur": 6.987,
      "push": 2.0999999999999996,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5358,8 +5083,8 @@
      "ease": "soft"
     },
     {
-     "t": "L44+0.9",
-     "dur": 10.038297872340426,
+     "t": "L44+0.75",
+     "dur": 8.23,
      "push": 1.28,
      "pan_x": 0.0,
      "pan_y": -76.8,
@@ -5375,8 +5100,8 @@
      "ease": "soft"
     },
     {
-     "t": "L45+1",
-     "dur": 9.838297872340425,
+     "t": "L45+0.83",
+     "dur": 8.011999999999999,
      "push": 1.08,
      "pan_x": -97.2,
      "pan_y": 0.0,
@@ -5392,8 +5117,8 @@
      "ease": "soft"
     },
     {
-     "t": "L46+0.8",
-     "dur": 11.740425531914893,
+     "t": "L46+0.62",
+     "dur": 8.931000000000001,
      "push": 1.216,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5409,8 +5134,8 @@
      "ease": "soft"
     },
     {
-     "t": "L47+0.8",
-     "dur": 10.88936170212766,
+     "t": "L47+0.64",
+     "dur": 8.574,
      "push": 1.08,
      "pan_x": -324.0,
      "pan_y": 0.0,
@@ -5426,8 +5151,8 @@
      "ease": "soft"
     },
     {
-     "t": "L48+1",
-     "dur": 8.98723404255319,
+     "t": "L48+0.89",
+     "dur": 7.942000000000001,
      "push": 1.2096000000000002,
      "pan_x": -96.8,
      "pan_y": 36.3,
@@ -5444,8 +5169,8 @@
      "ease": "soft"
     },
     {
-     "t": "L49+1",
-     "dur": 8.98723404255319,
+     "t": "L49+0.8",
+     "dur": 7.059,
      "push": 1.28,
      "pan_x": 0.0,
      "pan_y": -166.4,
@@ -5470,8 +5195,8 @@
      "ease": "soft"
     },
     {
-     "t": "L50+0.9",
-     "dur": 8.336170212765957,
+     "t": "L50+0.73",
+     "dur": 6.6450000000000005,
      "push": 1.08,
      "pan_x": 0.0,
      "pan_y": 43.2,
@@ -5496,7 +5221,7 @@
      "ease": "soft"
     },
     {
-     "t": "L51+0.8",
+     "t": "L51+0.7",
      "dur": 1.6,
      "push": 2.3760000000000003,
      "pan_x": 0.0,
@@ -5504,7 +5229,7 @@
      "ease": "in"
     },
     {
-     "t": "L51+2.4",
+     "t": "L51+2.11",
      "dur": 0.9,
      "push": 1.08,
      "pan_x": 0.0,
@@ -5512,8 +5237,8 @@
      "ease": "out"
     },
     {
-     "t": "L51+3.3",
-     "dur": 6.787234042553191,
+     "t": "L51+2.9",
+     "dur": 5.59,
      "push": 1.1880000000000002,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5540,22 +5265,22 @@
      "ease": "soft"
     },
     {
-     "t": "L52+1.6",
+     "t": "L52+1.55",
      "dur": 1.4,
      "focus": 0.4,
      "dof": 5,
      "ease": "soft"
     },
     {
-     "t": "L52+1.6",
-     "dur": 8.161702127659575,
+     "t": "L52+1.55",
+     "dur": 7.887999999999999,
      "push": 1.254,
      "pan_x": 0.0,
      "pan_y": -25.1,
      "ease": "linear"
     },
     {
-     "t": "L52+8.96",
+     "t": "L52+8.43",
      "dur": 0.8,
      "dof": 0,
      "ease": "soft"
@@ -5579,8 +5304,8 @@
      "ease": "soft"
     },
     {
-     "t": "L53+1",
-     "dur": 5.157446808510638,
+     "t": "L53+0.87",
+     "dur": 4.398000000000001,
      "push": 1.75,
      "pan_x": 105.0,
      "pan_y": -35.0,
@@ -5605,8 +5330,8 @@
      "ease": "soft"
     },
     {
-     "t": "L54+0.8",
-     "dur": 7.485106382978724,
+     "t": "L54+0.65",
+     "dur": 6.003,
      "push": 1.026,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5631,8 +5356,8 @@
      "ease": "soft"
     },
     {
-     "t": "L55+1",
-     "dur": 9.838297872340425,
+     "t": "L55+0.71",
+     "dur": 6.751,
      "push": 1.2744,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5650,8 +5375,8 @@
      "ease": "soft"
     },
     {
-     "t": "L56+1",
-     "dur": 9.838297872340425,
+     "t": "L56+0.84",
+     "dur": 8.126999999999999,
      "push": 1.2768,
      "pan_x": 0.0,
      "pan_y": 0.0,
@@ -5659,7 +5384,7 @@
      "ease": "inOut"
     },
     {
-     "t": "L56+10.64",
+     "t": "L56+7.49",
      "dur": 0.8,
      "dolly": 0,
      "ease": "soft"
@@ -5683,8 +5408,8 @@
      "ease": "soft"
     },
     {
-     "t": "L57+0.9",
-     "dur": 8.761702127659575,
+     "t": "L57+0.79",
+     "dur": 7.639000000000001,
      "push": 1.08,
      "pan_x": 172.8,
      "pan_y": -21.6,
@@ -5712,19 +5437,19 @@
    },
    "keys": [
     {
-     "t": "L17+0.5",
+     "t": "L17+0.44",
      "dur": 0.01,
      "n": 2,
      "label": "The Same Fossils"
     },
     {
-     "t": "L25+0.5",
+     "t": "L25+0.46",
      "dur": 0.01,
      "n": 3,
      "label": "The Man on the Ice"
     },
     {
-     "t": "L33+0.5",
+     "t": "L33+0.41",
      "dur": 0.01,
      "n": 4,
      "label": "Stripes Under the Sea"
@@ -5760,43 +5485,43 @@
      "ease": "out"
     },
     {
-     "t": "L0+1.84",
+     "t": "L0+1.41",
      "dur": 1.4,
      "hand": 1,
      "ease": "soft"
     },
     {
-     "t": "L0+3.27",
+     "t": "L0+2.5",
      "dur": 1.6,
      "slide": 0.85,
      "ease": "soft"
     },
     {
-     "t": "L0+5.62",
+     "t": "L0+4.3",
      "dur": 0.4,
      "slide": 1,
      "ease": "soft"
     },
     {
-     "t": "L0+7.15",
+     "t": "L0+5.47",
      "dur": 0.9,
      "glow": 1,
      "ease": "soft"
     },
     {
-     "t": "L0+8.99",
+     "t": "L0+6.88",
      "dur": 0.9,
      "glow": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L1+0.1",
+     "t": "L1+0.08",
      "dur": 1.2,
      "a": 0,
      "ease": "soft"
     },
     {
-     "t": "L55+0.2",
+     "t": "L55+0.14",
      "dur": 0.9,
      "a": 1,
      "dissolve": 1,
@@ -5807,70 +5532,94 @@
      "ease": "soft"
     },
     {
-     "t": "L55+1.06",
+     "t": "L55+0.75",
      "dur": 1.4,
      "future": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L55+3.19",
+     "t": "L55+2.26",
      "dur": 1.4,
      "future": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L55+5.32",
+     "t": "L55+3.78",
      "dur": 1.4,
      "future": 0.85,
      "ease": "soft"
     },
     {
-     "t": "L55+7.45",
+     "t": "L55+5.29",
      "dur": 1.2,
      "future": 1,
      "ease": "soft"
     },
     {
-     "t": "L55+9.04",
+     "t": "L55+6.42",
      "dur": 0.6,
      "glow": 1,
      "ease": "soft"
     },
     {
-     "t": "L56+0.53",
+     "t": "L56+0.44",
      "dur": 1.0,
      "glow": 0,
      "ease": "soft"
     },
     {
-     "t": "L56+2.13",
+     "t": "L56+1.79",
      "dur": 1.2,
      "x": 640,
      "s": 0.62,
      "ease": "soft"
     },
     {
-     "t": "L57+0.47",
+     "t": "L57+0.41",
      "dur": 1.2,
      "hand": 1,
      "ease": "soft"
     },
     {
-     "t": "L57+2.81",
+     "t": "L57+2.47",
      "dur": 1.4,
      "apart": 1,
      "ease": "soft"
     },
     {
-     "t": "L57+5.62",
+     "t": "L57+4.95",
      "dur": 1.0,
      "glow": 1,
      "ease": "soft"
     },
     {
-     "t": "L57+6.4",
+     "t": "L57+5.63",
      "dur": 2.4,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+5.83",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+6.83",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+7.83",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L57+8.83",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -5899,7 +5648,7 @@
      "ease": "soft"
     },
     {
-     "t": "L4+0.2",
+     "t": "L4+0.14",
      "dur": 1.0,
      "k": 0
     }
@@ -5937,79 +5686,79 @@
      "ease": "soft"
     },
     {
-     "t": "L1+2.34",
+     "t": "L1+1.95",
      "dur": 1.4,
      "trace": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L1+5.15",
+     "t": "L1+4.29",
      "dur": 1.4,
      "trace": 1,
      "ease": "soft"
     },
     {
-     "t": "L1+7.96",
+     "t": "L1+6.64",
      "dur": 0.9,
      "trace": 0,
      "ease": "soft"
     },
     {
-     "t": "L2+0.71",
+     "t": "L2+0.63",
      "dur": 1.6,
      "ghost": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L2+3.13",
+     "t": "L2+2.79",
      "dur": 1.4,
      "ghost": 1,
      "ease": "soft"
     },
     {
-     "t": "L2+5.54",
+     "t": "L2+4.95",
      "dur": 0.9,
      "ghost": 0.95,
      "ease": "soft"
     },
     {
-     "t": "L2+7.15",
+     "t": "L2+6.38",
      "dur": 1.4,
      "ghost": 0,
      "ease": "soft"
     },
     {
-     "t": "L3+0.78",
+     "t": "L3+0.62",
      "dur": 0.6,
      "tear": 0.15,
      "ease": "soft"
     },
     {
-     "t": "L3+2.15",
+     "t": "L3+1.7",
      "dur": 1.6,
      "tear": 1,
      "ease": "soft"
     },
     {
-     "t": "L3+4.4",
+     "t": "L3+3.48",
      "dur": 1.6,
      "gap": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L3+6.46",
+     "t": "L3+5.11",
      "dur": 1.2,
      "gap": 1,
      "ease": "soft"
     },
     {
-     "t": "L3+7.83",
+     "t": "L3+6.19",
      "dur": 0.9,
      "q": 1,
      "ease": "soft"
     },
     {
-     "t": "L4+0.2",
+     "t": "L4+0.14",
      "dur": 1.6,
      "burn": 0,
      "burnAt": [
@@ -6019,9 +5768,69 @@
      "ease": "linear"
     },
     {
-     "t": "L4+1.82",
+     "t": "L4+1.76",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L1+6.88",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+7.88",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+8.88",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L1+9.88",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+6.58",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+7.58",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+8.58",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L2+9.58",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+6.40",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L3+7.40",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 8
@@ -6045,18 +5854,18 @@
    },
    "keys": [
     {
-     "t": "L2+6.2",
+     "t": "L2+5.54",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L2+6.2",
+     "t": "L2+5.54",
      "dur": 0.9,
      "k": 1,
      "ease": "hand"
     },
     {
-     "t": "L3+0.2",
+     "t": "L3+0.16",
      "dur": 0.8,
      "a": 0
     }
@@ -6088,60 +5897,60 @@
    },
    "keys": [
     {
-     "t": "L4+0.1",
+     "t": "L4+0.07",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L4+0.1",
+     "t": "L4+0.07",
      "dur": 1.8,
      "pour": 1,
      "ease": "soft"
     },
     {
-     "t": "L4+2.77",
+     "t": "L4+1.96",
      "dur": 0.9,
      "boots": 1,
      "ease": "soft"
     },
     {
-     "t": "L4+4.98",
+     "t": "L4+3.53",
      "dur": 0.5,
      "stamp": 1,
      "ease": "soft"
     },
     {
-     "t": "L4+6.09",
+     "t": "L4+4.31",
      "dur": 0.5,
      "stamp": 0,
      "ease": "soft"
     },
     {
-     "t": "L4+6.86",
+     "t": "L4+4.86",
      "dur": 0.5,
      "stamp": 1,
      "ease": "soft"
     },
     {
-     "t": "L4+7.74",
+     "t": "L4+5.48",
      "dur": 0.5,
      "stamp": 0,
      "ease": "soft"
     },
     {
-     "t": "L4+8.63",
+     "t": "L4+6.11",
      "dur": 2.4,
      "snail": 1,
      "ease": "soft"
     },
     {
-     "t": "L5+0.62",
+     "t": "L5+0.42",
      "dur": 0.9,
      "boots": 0,
      "ease": "soft"
     },
     {
-     "t": "L5+0.3",
+     "t": "L5+0.21",
      "dur": 0.8,
      "a": 0,
      "ease": "soft"
@@ -6153,93 +5962,117 @@
      "ease": "soft"
     },
     {
-     "t": "L6+0.55",
+     "t": "L6+0.44",
      "dur": 1.6,
      "grow": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L6+2.21",
+     "t": "L6+1.76",
      "dur": 1.6,
      "grow": 1,
      "ease": "soft"
     },
     {
-     "t": "L6+3.87",
+     "t": "L6+3.07",
      "dur": 1.6,
      "town": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L6+5.53",
+     "t": "L6+4.39",
      "dur": 1.6,
      "town": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L6+7.3",
+     "t": "L6+5.8",
      "dur": 1.4,
      "town": 1,
      "ease": "soft"
     },
     {
-     "t": "L6+9.07",
+     "t": "L6+7.2",
      "dur": 0.8,
      "shift": 1,
      "ease": "soft"
     },
     {
-     "t": "L7+0.43",
+     "t": "L7+0.33",
      "dur": 1.0,
      "hour": 1,
      "ease": "soft"
     },
     {
-     "t": "L7+1.53",
+     "t": "L7+1.18",
      "dur": 1.4,
      "night": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L7+2.55",
+     "t": "L7+1.97",
      "dur": 1.2,
      "night": 1,
      "ease": "soft"
     },
     {
-     "t": "L7+3.57",
+     "t": "L7+2.75",
      "dur": 1.0,
      "night": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L7+4.68",
+     "t": "L7+3.61",
      "dur": 1.0,
      "night": 1,
      "ease": "soft"
     },
     {
-     "t": "L7+6.38",
+     "t": "L7+4.92",
      "dur": 1.0,
      "night": 0.2,
      "ease": "soft"
     },
     {
-     "t": "L7+0.1",
-     "dur": 8.11063829787234,
+     "t": "L7+0.08",
+     "dur": 6.167,
      "sand": 1,
      "ease": "linear"
     },
     {
-     "t": "L8+0.2",
+     "t": "L8+0.17",
      "dur": 1.1,
      "flipY": -100,
      "ease": "in"
     },
     {
-     "t": "L8+1.32",
+     "t": "L8+1.29",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L6+7.38",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+8.38",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+9.38",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L6+10.38",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 6
@@ -6262,42 +6095,42 @@
    },
    "keys": [
     {
-     "t": "L5+0.2",
+     "t": "L5+0.14",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L5+0.2",
+     "t": "L5+0.14",
      "dur": 1.6,
      "fx_s": 1,
      "ease": "out"
     },
     {
-     "t": "L5+2.47",
+     "t": "L5+1.67",
      "dur": 0.6,
      "n": 1,
      "ease": "soft"
     },
     {
-     "t": "L5+4.94",
+     "t": "L5+3.33",
      "dur": 0.6,
      "n": 2,
      "ease": "soft"
     },
     {
-     "t": "L5+7.4",
+     "t": "L5+5",
      "dur": 0.6,
      "n": 3,
      "ease": "soft"
     },
     {
-     "t": "L5+9.87",
+     "t": "L5+6.67",
      "dur": 0.6,
      "n": 4,
      "ease": "soft"
     },
     {
-     "t": "L6+0.1",
+     "t": "L6+0.08",
      "dur": 1.0,
      "lift": 40,
      "a": 0,
@@ -6324,24 +6157,24 @@
    },
    "keys": [
     {
-     "t": "L6+6",
+     "t": "L6+4.76",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L6+6",
+     "t": "L6+4.76",
      "dur": 0.8,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L6+6",
+     "t": "L6+4.76",
      "dur": 1.0,
      "num": 1,
      "ease": "out"
     },
     {
-     "t": "L7+0.6",
+     "t": "L7+0.46",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -6391,7 +6224,7 @@
      "ease": "linear"
     },
     {
-     "t": "L5+0.2",
+     "t": "L5+0.14",
      "dur": 0.01,
      "a": 0
     }
@@ -6426,37 +6259,37 @@
      "ease": "soft"
     },
     {
-     "t": "L8+0.45",
+     "t": "L8+0.38",
      "dur": 1.6,
      "k": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L8+2.23",
+     "t": "L8+1.9",
      "dur": 1.6,
      "k": 0.7,
      "ease": "soft"
     },
     {
-     "t": "L8+3.75",
+     "t": "L8+3.19",
      "dur": 0.5,
      "stamp": 1,
      "ease": "soft"
     },
     {
-     "t": "L8+5.36",
+     "t": "L8+4.56",
      "dur": 1.4,
      "k": 1,
      "ease": "soft"
     },
     {
-     "t": "L8+7.15",
+     "t": "L8+6.08",
      "dur": 0.7,
      "catch": 1,
      "ease": "soft"
     },
     {
-     "t": "L9+0.3",
+     "t": "L9+0.26",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 18,
@@ -6464,9 +6297,33 @@
      "ease": "linear"
     },
     {
-     "t": "L9+1.32",
+     "t": "L9+1.28",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L8+6.23",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+7.23",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+8.23",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L8+9.23",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 12
@@ -6500,7 +6357,7 @@
      "ease": "soft"
     },
     {
-     "t": "L10+0.5",
+     "t": "L10+0.37",
      "dur": 1.2,
      "dissolve": 0,
      "dissolveSeed": 32,
@@ -6508,12 +6365,12 @@
      "ease": "linear"
     },
     {
-     "t": "L10+1.72",
+     "t": "L10+1.59",
      "dur": 0.01,
      "a": 0
     },
     {
-     "t": "L28+3.6",
+     "t": "L28+2.6",
      "dur": 1.2,
      "a": 1,
      "dissolve": 1,
@@ -6522,38 +6379,38 @@
      "ease": "soft"
     },
     {
-     "t": "L28+5.87",
+     "t": "L28+4.24",
      "dur": 2.0,
      "sledge": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L28+8.03",
+     "t": "L28+5.81",
      "dur": 1.6,
      "sledge": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L29+0.53",
+     "t": "L29+0.49",
      "dur": 1.4,
      "snow": 0.5,
      "flag": 1,
      "ease": "soft"
     },
     {
-     "t": "L29+2.66",
+     "t": "L29+2.44",
      "dur": 1.4,
      "snow": 1,
      "ease": "soft"
     },
     {
-     "t": "L29+6.38",
+     "t": "L29+5.86",
      "dur": 1.4,
      "sledge": 1,
      "ease": "soft"
     },
     {
-     "t": "L30+0.3",
+     "t": "L30+0.23",
      "dur": 1.2,
      "dissolve": 0,
      "dissolveSeed": 81,
@@ -6561,9 +6418,33 @@
      "ease": "linear"
     },
     {
-     "t": "L30+1.52",
+     "t": "L30+1.45",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L29+7.48",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+8.48",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+9.48",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L29+10.48",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 4
@@ -6604,31 +6485,31 @@
    },
    "keys": [
     {
-     "t": "L9+0.6",
+     "t": "L9+0.52",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L9+0.6",
+     "t": "L9+0.52",
      "dur": 1.8,
      "draw": 1,
      "ease": "out"
     },
     {
-     "t": "L9+1.4",
+     "t": "L9+1.21",
      "dur": 0.9,
      "pk": 1,
      "ease": "soft"
     },
     {
-     "t": "L9+3.93",
+     "t": "L9+3.4",
      "dur": 0.5,
      "pose2": "reach",
      "pk": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L9+5.15",
+     "t": "L9+4.46",
      "dur": 0.9,
      "pk": 1,
      "expr": "smile",
@@ -6636,14 +6517,14 @@
      "ease": "soft"
     },
     {
-     "t": "L9+7.3",
+     "t": "L9+6.32",
      "dur": 0.9,
      "pose2": "look",
      "pk": 1,
      "ease": "soft"
     },
     {
-     "t": "L10+0.2",
+     "t": "L10+0.15",
      "dur": 0.9,
      "dissolve": 0,
      "dissolveSeed": 25,
@@ -6651,7 +6532,7 @@
      "ease": "linear"
     },
     {
-     "t": "L10+1.12",
+     "t": "L10+1.07",
      "dur": 0.01,
      "a": 0
     }
@@ -6673,37 +6554,37 @@
    },
    "keys": [
     {
-     "t": "L9+0.4",
+     "t": "L9+0.35",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L9+0.4",
+     "t": "L9+0.35",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 18,
      "ease": "linear"
     },
     {
-     "t": "L9+4.21",
+     "t": "L9+3.64",
      "dur": 1.8,
      "rise": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L9+6.55",
+     "t": "L9+5.67",
      "dur": 1.8,
      "rise": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L10+0.49",
+     "t": "L10+0.36",
      "dur": 1.6,
      "rise": 1,
      "ease": "soft"
     },
     {
-     "t": "L10+3",
+     "t": "L10+2.23",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 39,
@@ -6711,9 +6592,33 @@
      "ease": "linear"
     },
     {
-     "t": "L10+4.02",
+     "t": "L10+3.25",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L9+6.53",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+7.53",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+8.53",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+9.53",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 16
@@ -6737,26 +6642,26 @@
    },
    "keys": [
     {
-     "t": "L9+5.2",
+     "t": "L9+4.5",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L9+5.2",
+     "t": "L9+4.5",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 39,
      "ease": "linear"
     },
     {
-     "t": "L10+0.2",
+     "t": "L10+0.15",
      "dur": 1.3,
      "burn": 0,
      "dissolveDir": "right",
      "ease": "linear"
     },
     {
-     "t": "L10+1.52",
+     "t": "L10+1.47",
      "dur": 0.01,
      "a": 0
     }
@@ -6779,24 +6684,24 @@
    },
    "keys": [
     {
-     "t": "L9+1.4",
+     "t": "L9+1.21",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L9+1.4",
+     "t": "L9+1.21",
      "dur": 0.9,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L9+1.4",
+     "t": "L9+1.21",
      "dur": 1.2,
      "k": 1,
      "ease": "out"
     },
     {
-     "t": "L10+0.2",
+     "t": "L10+0.15",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -6824,60 +6729,60 @@
    },
    "keys": [
     {
-     "t": "L10+1.2",
+     "t": "L10+0.89",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L10+1.2",
+     "t": "L10+0.89",
      "dur": 1.6,
      "fx_s": 1,
      "ease": "out"
     },
     {
-     "t": "L10+3.43",
+     "t": "L10+2.55",
      "dur": 1.2,
      "lamp": 1,
      "ease": "soft"
     },
     {
-     "t": "L10+5.87",
+     "t": "L10+4.36",
      "dur": 1.4,
      "mag": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L10+8.03",
+     "t": "L10+5.97",
      "dur": 1.0,
      "mag": 0.2,
      "ease": "soft"
     },
     {
-     "t": "L13+0.51",
+     "t": "L13+0.35",
      "dur": 0.9,
      "shells": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L13+2.55",
+     "t": "L13+1.76",
      "dur": 1.2,
      "shells": 1,
      "ease": "soft"
     },
     {
-     "t": "L13+4.6",
+     "t": "L13+3.17",
      "dur": 1.4,
      "mag": 1,
      "ease": "soft"
     },
     {
-     "t": "L13+7.15",
+     "t": "L13+4.93",
      "dur": 1.4,
      "mag": 0.1,
      "ease": "soft"
     },
     {
-     "t": "L10+2.8",
+     "t": "L10+2.08",
      "dur": 0.8,
      "a": 0,
      "ease": "soft"
@@ -6892,6 +6797,30 @@
      "t": "L14+0.2",
      "dur": 1.0,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+5.12",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+6.12",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+7.12",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L13+8.12",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -6926,63 +6855,87 @@
      "ease": "soft"
     },
     {
-     "t": "L11+1.76",
+     "t": "L11+1.41",
      "dur": 1.0,
      "tear": 1,
      "ease": "soft"
     },
     {
-     "t": "L11+3.43",
+     "t": "L11+2.75",
      "dur": 1.2,
      "gap": 1,
      "ease": "soft"
     },
     {
-     "t": "L11+5.87",
+     "t": "L11+4.71",
      "dur": 1.4,
      "gap": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L11+7.83",
+     "t": "L11+6.28",
      "dur": 0.8,
      "gap": 0,
      "ease": "soft"
     },
     {
-     "t": "L12+0.99",
+     "t": "L12+0.69",
      "dur": 1.0,
      "print": 0.25,
      "ease": "soft"
     },
     {
-     "t": "L12+3.7",
+     "t": "L12+2.58",
      "dur": 1.0,
      "print": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L12+6.17",
+     "t": "L12+4.29",
      "dur": 0.8,
      "print": 0.62,
      "ease": "soft"
     },
     {
-     "t": "L12+8.64",
+     "t": "L12+6.01",
      "dur": 1.0,
      "print": 1,
      "ease": "soft"
     },
     {
-     "t": "L13+0.2",
+     "t": "L13+0.14",
      "dur": 1.0,
      "tear": 0,
      "ease": "in"
     },
     {
-     "t": "L13+1.22",
+     "t": "L13+1.16",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L12+6.20",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+7.20",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+8.20",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L12+9.20",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 20
@@ -7023,18 +6976,18 @@
    },
    "keys": [
     {
-     "t": "L11+0.6",
+     "t": "L11+0.48",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L11+0.6",
+     "t": "L11+0.48",
      "dur": 1.8,
      "draw": 1,
      "ease": "out"
     },
     {
-     "t": "L12+0.2",
+     "t": "L12+0.14",
      "dur": 1.3,
      "dissolve": 0,
      "dissolveSeed": 46,
@@ -7042,18 +6995,18 @@
      "ease": "linear"
     },
     {
-     "t": "L12+1.52",
+     "t": "L12+1.46",
      "dur": 0.01,
      "a": 0
     },
     {
-     "t": "L11+4.89",
+     "t": "L11+3.92",
      "dur": 0.9,
      "pk": 1,
      "ease": "soft"
     },
     {
-     "t": "L11+7.34",
+     "t": "L11+5.89",
      "dur": 0.9,
      "pk": 0.2,
      "expr": "smile",
@@ -7081,18 +7034,18 @@
    },
    "keys": [
     {
-     "t": "L12+7.4",
+     "t": "L12+5.18",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L12+7.4",
+     "t": "L12+5.18",
      "dur": 0.9,
      "k": 1,
      "ease": "hand"
     },
     {
-     "t": "L13+0.2",
+     "t": "L13+0.14",
      "dur": 0.8,
      "a": 0
     }
@@ -7134,19 +7087,19 @@
      "ease": "in"
     },
     {
-     "t": "L14+2.81",
+     "t": "L14+2.8",
      "dur": 1.4,
      "map": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L14+4.68",
+     "t": "L14+4.66",
      "dur": 1.4,
      "map": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L14+6.18",
+     "t": "L14+6.16",
      "dur": 0.8,
      "map": 1,
      "ease": "soft"
@@ -7165,62 +7118,62 @@
      "ease": "soft"
     },
     {
-     "t": "L25+1.45",
+     "t": "L25+1.34",
      "dur": 0.5,
      "laugh": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L25+2.75",
+     "t": "L25+2.54",
      "dur": 0.5,
      "laugh": 1,
      "ease": "soft"
     },
     {
-     "t": "L25+3.98",
+     "t": "L25+3.68",
      "dur": 0.5,
      "laugh": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L25+4.92",
+     "t": "L25+4.55",
      "dur": 1.4,
      "steam": 1,
      "laugh": 1,
      "ease": "soft"
     },
     {
-     "t": "L26+1.02",
+     "t": "L26+0.75",
      "dur": 0.8,
      "bubbles": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L26+3.06",
+     "t": "L26+2.26",
      "dur": 0.8,
      "bubbles": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L26+5.11",
+     "t": "L26+3.77",
      "dur": 0.8,
      "bubbles": 1,
      "ease": "soft"
     },
     {
-     "t": "L26+6.94",
+     "t": "L26+5.11",
      "dur": 1.2,
      "stone": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L26+8.68",
+     "t": "L26+6.4",
      "dur": 1.0,
      "stone": 1,
      "ease": "soft"
     },
     {
-     "t": "L27+0.2",
+     "t": "L27+0.17",
      "dur": 1.1,
      "shatter": 1,
      "shatterAt": [
@@ -7230,9 +7183,57 @@
      "ease": "in"
     },
     {
-     "t": "L27+1.32",
+     "t": "L27+1.29",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L14+7.17",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+8.17",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+9.17",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L14+10.17",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+4.79",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+5.79",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+6.79",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L25+7.79",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 6
@@ -7284,31 +7285,31 @@
      "ease": "out"
     },
     {
-     "t": "L15+0.2",
+     "t": "L15+0.15",
      "dur": 1.3,
      "dissolve": 0,
      "dissolveSeed": 53,
      "ease": "linear"
     },
     {
-     "t": "L15+1.52",
+     "t": "L15+1.47",
      "dur": 0.01,
      "a": 0
     },
     {
-     "t": "L14+1.87",
+     "t": "L14+1.86",
      "dur": 0.9,
      "pk": 1,
      "ease": "soft"
     },
     {
-     "t": "L14+5.15",
+     "t": "L14+5.13",
      "dur": 0.9,
      "pk": 0.2,
      "ease": "soft"
     },
     {
-     "t": "L14+7.02",
+     "t": "L14+7",
      "dur": 0.9,
      "pk": 1,
      "expr": "awe",
@@ -7351,7 +7352,7 @@
      "ease": "out"
     },
     {
-     "t": "L15+0.2",
+     "t": "L15+0.15",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -7383,7 +7384,7 @@
      "ease": "soft"
     },
     {
-     "t": "L15+0.4",
+     "t": "L15+0.31",
      "dur": 1.0,
      "k": 0
     }
@@ -7419,62 +7420,62 @@
      "ease": "linear"
     },
     {
-     "t": "L15+1.6",
+     "t": "L15+1.22",
      "dur": 0.5,
      "stamp": 1,
      "ease": "soft"
     },
     {
-     "t": "L15+3.83",
+     "t": "L15+2.93",
      "dur": 1.2,
      "stamp": 0.85,
      "ease": "soft"
     },
     {
-     "t": "L16+0.4",
+     "t": "L16+0.34",
      "dur": 1.4,
      "cloth": 1,
      "stamp": 0,
      "ease": "soft"
     },
     {
-     "t": "L16+1.78",
+     "t": "L16+1.5",
      "dur": 1.4,
      "stitch": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L16+3.4",
+     "t": "L16+2.87",
      "dur": 1.4,
      "stitch": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L16+5.01",
+     "t": "L16+4.22",
      "dur": 1.4,
      "stitch": 1,
      "ease": "soft"
     },
     {
-     "t": "L16+6.63",
+     "t": "L16+5.59",
      "dur": 0.8,
      "open": 0.06,
      "ease": "soft"
     },
     {
-     "t": "L16+7.44",
+     "t": "L16+6.27",
      "dur": 0.5,
      "open": 0,
      "ease": "soft"
     },
     {
-     "t": "L18+0.1",
+     "t": "L18+0.08",
      "dur": 0.9,
      "a": 0,
      "ease": "soft"
     },
     {
-     "t": "L54+1.8",
+     "t": "L54+1.47",
      "dur": 1.0,
      "a": 1,
      "dissolve": 1,
@@ -7485,27 +7486,75 @@
      "ease": "soft"
     },
     {
-     "t": "L54+2.83",
+     "t": "L54+2.31",
      "dur": 1.0,
      "open": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L54+4.04",
+     "t": "L54+3.3",
      "dur": 1.0,
      "open": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L54+5.5",
+     "t": "L54+4.49",
      "dur": 1.2,
      "open": 1,
      "ease": "soft"
     },
     {
-     "t": "L55+0.3",
+     "t": "L55+0.21",
      "dur": 1.0,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+3.13",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+4.13",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+5.13",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+6.13",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+4.71",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+5.71",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+6.71",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L54+7.71",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -7529,51 +7578,99 @@
    },
    "keys": [
     {
-     "t": "L17+0.3",
+     "t": "L17+0.27",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L17+0.3",
+     "t": "L17+0.27",
      "dur": 1.5,
      "fx_x": 0,
      "ease": "weight"
     },
     {
-     "t": "L17+0.3",
-     "dur": 10.063829787234042,
+     "t": "L17+0.27",
+     "dur": 8.783,
      "walk": 4,
      "x": 1100,
      "ease": "linear"
     },
     {
-     "t": "L17+3.32",
+     "t": "L17+2.94",
      "dur": 0.6,
      "tail": 1,
      "ease": "soft"
     },
     {
-     "t": "L17+5.53",
+     "t": "L17+4.89",
      "dur": 0.6,
      "tail": 0,
      "ease": "soft"
     },
     {
-     "t": "L17+8.85",
+     "t": "L17+7.83",
      "dur": 1.0,
      "swim": 1,
      "ease": "soft"
     },
     {
-     "t": "L18+0.17",
+     "t": "L18+0.13",
      "dur": 1.0,
      "bones": 1,
      "ease": "soft"
     },
     {
-     "t": "L18+1.2",
+     "t": "L18+0.95",
      "dur": 0.7,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+0.43",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+1.43",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+2.43",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+3.43",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+8.03",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+9.03",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+10.03",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L17+11.03",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -7598,26 +7695,26 @@
    },
    "keys": [
     {
-     "t": "L17+6.4",
+     "t": "L17+5.66",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L17+6.4",
+     "t": "L17+5.66",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 53,
      "ease": "linear"
     },
     {
-     "t": "L18+0.4",
+     "t": "L18+0.32",
      "dur": 1.3,
      "burn": 0,
      "dissolveDir": "right",
      "ease": "linear"
     },
     {
-     "t": "L18+1.72",
+     "t": "L18+1.64",
      "dur": 0.01,
      "a": 0
     }
@@ -7644,48 +7741,48 @@
    },
    "keys": [
     {
-     "t": "L18+0.4",
+     "t": "L18+0.32",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L18+0.4",
+     "t": "L18+0.32",
      "dur": 1.6,
      "unroll": 1,
      "ease": "soft"
     },
     {
-     "t": "L18+2.13",
+     "t": "L18+1.69",
      "dur": 0.6,
      "pins": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L18+3.83",
+     "t": "L18+3.04",
      "dur": 0.6,
      "pins": 1,
      "ease": "soft"
     },
     {
-     "t": "L18+5.96",
+     "t": "L18+4.73",
      "dur": 1.2,
      "grey": 1,
      "ease": "soft"
     },
     {
-     "t": "L19+0.45",
+     "t": "L19+0.4",
      "dur": 1.4,
      "waves": 1,
      "ease": "soft"
     },
     {
-     "t": "L19+7.6",
+     "t": "L19+6.69",
      "dur": 1.0,
      "waves": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L20+0.43",
+     "t": "L20+0.33",
      "dur": 1.4,
      "close": 0.5,
      "grey": 0.3,
@@ -7693,50 +7790,50 @@
      "ease": "soft"
     },
     {
-     "t": "L20+2.55",
+     "t": "L20+1.95",
      "dur": 1.2,
      "close": 1,
      "ease": "soft"
     },
     {
-     "t": "L20+4.68",
+     "t": "L20+3.57",
      "dur": 0.9,
      "grey": 0,
      "ease": "soft"
     },
     {
-     "t": "L21+3.19",
+     "t": "L21+3.31",
      "dur": 0.6,
      "leaves": 1,
      "close": 0,
      "ease": "soft"
     },
     {
-     "t": "L21+4.79",
+     "t": "L21+4.97",
      "dur": 0.6,
      "leaves": 2,
      "ease": "soft"
     },
     {
-     "t": "L21+6.6",
+     "t": "L21+6.84",
      "dur": 0.6,
      "leaves": 3,
      "ease": "soft"
     },
     {
-     "t": "L21+8.51",
+     "t": "L21+8.82",
      "dur": 0.6,
      "leaves": 4,
      "ease": "soft"
     },
     {
-     "t": "L22+0.38",
+     "t": "L22+0.32",
      "dur": 1.0,
      "ant": 1,
      "ease": "soft"
     },
     {
-     "t": "L22+2",
+     "t": "L22+1.7",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 67,
@@ -7748,9 +7845,81 @@
      "ease": "linear"
     },
     {
-     "t": "L22+3.02",
+     "t": "L22+2.72",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L18+4.95",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+5.95",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+6.95",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L18+7.95",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+3.73",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+4.73",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+5.73",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L20+6.73",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+8.98",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+9.98",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+10.98",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L21+11.98",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 8
@@ -7772,7 +7941,7 @@
    },
    "keys": [
     {
-     "t": "L19+0.2",
+     "t": "L19+0.18",
      "dur": 0.01,
      "a": 1
     },
@@ -7783,32 +7952,32 @@
      "ease": "soft"
     },
     {
-     "t": "L19+0.2",
+     "t": "L19+0.18",
      "dur": 2.4,
      "x": 960,
      "walk": 2,
      "ease": "linear"
     },
     {
-     "t": "L19+3.13",
+     "t": "L19+2.75",
      "dur": 0.5,
      "splutter": 1,
      "ease": "soft"
     },
     {
-     "t": "L19+4.29",
+     "t": "L19+3.78",
      "dur": 0.5,
      "splutter": 0,
      "ease": "soft"
     },
     {
-     "t": "L19+5.18",
+     "t": "L19+4.56",
      "dur": 0.5,
      "splutter": 1,
      "ease": "soft"
     },
     {
-     "t": "L19+6.26",
+     "t": "L19+5.51",
      "dur": 1.0,
      "flip": 1,
      "splutter": 0,
@@ -7833,24 +8002,24 @@
    },
    "keys": [
     {
-     "t": "L19+7.4",
+     "t": "L19+6.51",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L19+7.4",
+     "t": "L19+6.51",
      "dur": 0.9,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L19+7.4",
+     "t": "L19+6.51",
      "dur": 1.2,
      "k": 1,
      "ease": "out"
     },
     {
-     "t": "L20+0.3",
+     "t": "L20+0.23",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -7875,12 +8044,12 @@
    },
    "keys": [
     {
-     "t": "L20+3",
+     "t": "L20+2.29",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L20+3",
+     "t": "L20+2.29",
      "dur": 1.0,
      "blur": 0,
      "ease": "soft"
@@ -7892,7 +8061,7 @@
      "ease": "soft"
     },
     {
-     "t": "L20+3",
+     "t": "L20+2.29",
      "dur": 3.0,
      "x": 1080,
      "walk": 3,
@@ -7929,7 +8098,7 @@
      "ease": "soft"
     },
     {
-     "t": "L21+4",
+     "t": "L21+4.15",
      "dur": 1.3,
      "dissolve": 0,
      "dissolveSeed": 60,
@@ -7937,18 +8106,18 @@
      "ease": "linear"
     },
     {
-     "t": "L21+5.32",
+     "t": "L21+5.47",
      "dur": 0.01,
      "a": 0
     },
     {
-     "t": "L21+0.53",
+     "t": "L21+0.55",
      "dur": 1.2,
      "unfurl": 1,
      "ease": "soft"
     },
     {
-     "t": "L21+2.13",
+     "t": "L21+2.21",
      "dur": 1.4,
      "blow": 1,
      "ease": "soft"
@@ -7975,60 +8144,60 @@
    },
    "keys": [
     {
-     "t": "L22+1.6",
+     "t": "L22+1.36",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L22+1.6",
+     "t": "L22+1.36",
      "dur": 1.0,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L22+2.68",
+     "t": "L22+2.27",
      "dur": 1.4,
      "snow": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L22+4.21",
+     "t": "L22+3.57",
      "dur": 1.2,
      "snow": 1,
      "ease": "soft"
     },
     {
-     "t": "L22+5.97",
+     "t": "L22+5.06",
      "dur": 1.0,
      "freeze": 1,
      "ease": "soft"
     },
     {
-     "t": "L23+0.43",
+     "t": "L23+0.39",
      "dur": 1.0,
      "freezer": 1,
      "ease": "soft"
     },
     {
-     "t": "L23+2.55",
+     "t": "L23+2.29",
      "dur": 1.4,
      "thaw": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L23+4.68",
+     "t": "L23+4.21",
      "dur": 1.4,
      "thaw": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L23+6.64",
+     "t": "L23+5.97",
      "dur": 1.0,
      "thaw": 1,
      "ease": "soft"
     },
     {
-     "t": "L24+0.1",
+     "t": "L24+0.11",
      "dur": 1.2,
      "burn": 0,
      "burnAt": [
@@ -8038,7 +8207,7 @@
      "ease": "linear"
     },
     {
-     "t": "L24+1.32",
+     "t": "L24+1.33",
      "dur": 0.01,
      "a": 0
     }
@@ -8064,26 +8233,26 @@
    },
    "keys": [
     {
-     "t": "L22+3.8",
+     "t": "L22+3.22",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L22+3.8",
+     "t": "L22+3.22",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 67,
      "ease": "linear"
     },
     {
-     "t": "L23+0.3",
+     "t": "L23+0.27",
      "dur": 1.3,
      "burn": 0,
      "dissolveDir": "right",
      "ease": "linear"
     },
     {
-     "t": "L23+1.62",
+     "t": "L23+1.59",
      "dur": 0.01,
      "a": 0
     }
@@ -8108,44 +8277,68 @@
    },
    "keys": [
     {
-     "t": "L24+0.2",
+     "t": "L24+0.22",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L24+0.2",
+     "t": "L24+0.22",
      "dur": 1.3,
      "tear": 1,
      "ease": "out"
     },
     {
-     "t": "L24+0.71",
+     "t": "L24+0.76",
      "dur": 1.0,
      "gap": 0,
      "ease": "soft"
     },
     {
-     "t": "L24+1.79",
+     "t": "L24+1.93",
      "dur": 1.2,
      "print": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L24+3.28",
+     "t": "L24+3.53",
      "dur": 1.2,
      "print": 1,
      "ease": "soft"
     },
     {
-     "t": "L24+4.65",
+     "t": "L24+5.01",
      "dur": 0.8,
      "gap": 0.05,
      "ease": "soft"
     },
     {
-     "t": "L25+0.2",
+     "t": "L25+0.19",
      "dur": 1.0,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+5.20",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+6.20",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+7.20",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L24+8.20",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -8169,48 +8362,48 @@
    },
    "keys": [
     {
-     "t": "L27+0.4",
+     "t": "L27+0.35",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L27+0.4",
+     "t": "L27+0.35",
      "dur": 1.4,
      "wipe": 1,
      "ease": "soft"
     },
     {
-     "t": "L27+0.45",
+     "t": "L27+0.39",
      "dur": 1.6,
      "sail": 1,
      "ease": "soft"
     },
     {
-     "t": "L27+2.68",
+     "t": "L27+2.31",
      "dur": 0.5,
      "crumple": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L27+3.75",
+     "t": "L27+3.24",
      "dur": 0.6,
      "crumple": 1,
      "ease": "soft"
     },
     {
-     "t": "L27+5.36",
+     "t": "L27+4.62",
      "dur": 1.6,
      "sink": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L27+7.33",
+     "t": "L27+6.32",
      "dur": 1.2,
      "sink": 1,
      "ease": "soft"
     },
     {
-     "t": "L28+0.2",
+     "t": "L28+0.14",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 74,
@@ -8218,7 +8411,7 @@
      "ease": "linear"
     },
     {
-     "t": "L28+1.22",
+     "t": "L28+1.16",
      "dur": 0.01,
      "a": 0
     }
@@ -8244,25 +8437,25 @@
    },
    "keys": [
     {
-     "t": "L28+0.2",
+     "t": "L28+0.14",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L28+0.2",
+     "t": "L28+0.14",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 74,
      "ease": "linear"
     },
     {
-     "t": "L28+4.4",
+     "t": "L28+3.18",
      "dur": 1.3,
      "flipY": -100,
      "ease": "in"
     },
     {
-     "t": "L28+5.72",
+     "t": "L28+4.5",
      "dur": 0.01,
      "a": 0
     }
@@ -8304,37 +8497,37 @@
    },
    "keys": [
     {
-     "t": "L29+0.6",
+     "t": "L29+0.55",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L29+0.6",
+     "t": "L29+0.55",
      "dur": 1.8,
      "draw": 1,
      "ease": "out"
     },
     {
-     "t": "L29+0.6",
-     "dur": 9.838297872340425,
+     "t": "L29+0.55",
+     "dur": 8.963,
      "walk": 5,
      "x": 980,
      "ease": "linear"
     },
     {
-     "t": "L29+4.26",
+     "t": "L29+3.91",
      "dur": 0.9,
      "lean": 14,
      "ease": "soft"
     },
     {
-     "t": "L29+7.98",
+     "t": "L29+7.32",
      "dur": 0.9,
      "nod": 10,
      "ease": "soft"
     },
     {
-     "t": "L30+0.3",
+     "t": "L30+0.23",
      "dur": 1.2,
      "lift": 40,
      "a": 0,
@@ -8377,25 +8570,25 @@
    },
    "keys": [
     {
-     "t": "L29+0.9",
+     "t": "L29+0.83",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L29+0.9",
+     "t": "L29+0.83",
      "dur": 1.8,
      "draw": 1,
      "ease": "out"
     },
     {
-     "t": "L29+0.9",
-     "dur": 9.638297872340425,
+     "t": "L29+0.83",
+     "dur": 8.763,
      "walk": 5,
      "x": 760,
      "ease": "linear"
     },
     {
-     "t": "L30+0.3",
+     "t": "L30+0.23",
      "dur": 1.2,
      "lift": 40,
      "a": 0,
@@ -8423,26 +8616,26 @@
    },
    "keys": [
     {
-     "t": "L29+2.6",
+     "t": "L29+2.39",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L29+2.6",
+     "t": "L29+2.39",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 74,
      "ease": "linear"
     },
     {
-     "t": "L30+0.2",
+     "t": "L30+0.15",
      "dur": 1.3,
      "burn": 0,
      "dissolveDir": "right",
      "ease": "linear"
     },
     {
-     "t": "L30+1.52",
+     "t": "L30+1.47",
      "dur": 0.01,
      "a": 0
     }
@@ -8462,12 +8655,12 @@
    },
    "keys": [
     {
-     "t": "L29+0.2",
+     "t": "L29+0.18",
      "dur": 1.4,
      "k": 1
     },
     {
-     "t": "L32+2",
+     "t": "L32+1.64",
      "dur": 1.6,
      "k": 0
     }
@@ -8493,86 +8686,170 @@
    },
    "keys": [
     {
-     "t": "L30+0.1",
+     "t": "L30+0.08",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L30+0.1",
+     "t": "L30+0.08",
      "dur": 1.0,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L30+1.87",
+     "t": "L30+1.42",
      "dur": 1.4,
      "snow": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L30+3.93",
+     "t": "L30+2.99",
      "dur": 0.4,
      "lamp": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L30+4.68",
+     "t": "L30+3.56",
      "dur": 0.4,
      "lamp": 1,
      "ease": "soft"
     },
     {
-     "t": "L30+5.8",
+     "t": "L30+4.41",
      "dur": 1.4,
      "snow": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L30+7.02",
+     "t": "L30+5.34",
      "dur": 0.4,
      "lamp": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L30+8.05",
+     "t": "L30+6.12",
      "dur": 0.9,
      "lamp": 0,
      "ease": "soft"
     },
     {
-     "t": "L31+1.4",
+     "t": "L31+1.07",
      "dur": 1.6,
      "skis": 1,
      "ease": "soft"
     },
     {
-     "t": "L31+5.15",
+     "t": "L31+3.94",
      "dur": 1.6,
      "snow": 1,
      "ease": "soft"
     },
     {
-     "t": "L32+0.49",
+     "t": "L32+0.4",
      "dur": 1.6,
      "under": 1,
      "ease": "soft"
     },
     {
-     "t": "L32+2.94",
+     "t": "L32+2.42",
      "dur": 1.4,
      "root": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L32+4.89",
+     "t": "L32+4.02",
      "dur": 1.4,
      "root": 1,
      "ease": "soft"
     },
     {
-     "t": "L32+5.4",
+     "t": "L32+4.44",
      "dur": 1.2,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+1.30",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+2.30",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+3.30",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+4.30",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+4.10",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+5.10",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+6.10",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L31+7.10",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+4.64",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+5.64",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+6.64",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+7.64",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+8.64",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L32+9.64",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -8597,24 +8874,24 @@
    },
    "keys": [
     {
-     "t": "L31+0.8",
+     "t": "L31+0.61",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L31+0.8",
+     "t": "L31+0.61",
      "dur": 0.8,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L31+0.8",
+     "t": "L31+0.61",
      "dur": 1.4,
      "num": 1930,
      "ease": "out"
     },
     {
-     "t": "L32+0.2",
+     "t": "L32+0.16",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -8640,49 +8917,49 @@
    },
    "keys": [
     {
-     "t": "L32+5",
+     "t": "L32+4.11",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L32+5",
+     "t": "L32+4.11",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 81,
      "ease": "linear"
     },
     {
-     "t": "L33+1.11",
+     "t": "L33+0.92",
      "dur": 0.9,
      "monster": 1,
      "ease": "soft"
     },
     {
-     "t": "L33+4.43",
+     "t": "L33+3.67",
      "dur": 1.2,
      "moon": 1,
      "ease": "soft"
     },
     {
-     "t": "L33+7.74",
+     "t": "L33+6.41",
      "dur": 1.0,
      "sound": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L34+1.79",
+     "t": "L34+1.5",
      "dur": 1.4,
      "sound": 1,
      "ease": "soft"
     },
     {
-     "t": "L34+0.2",
+     "t": "L34+0.17",
      "dur": 0.9,
      "a": 0.25,
      "ease": "soft"
     },
     {
-     "t": "L36+0.2",
+     "t": "L36+0.15",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 95,
@@ -8690,9 +8967,81 @@
      "ease": "linear"
     },
     {
-     "t": "L36+1.22",
+     "t": "L36+1.17",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L33+1.10",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+2.10",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+3.10",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+4.10",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+3.90",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+4.90",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+5.90",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+6.90",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+6.60",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+7.60",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+8.60",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L33+9.60",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 6
@@ -8728,72 +9077,72 @@
     },
     {
      "t": "L34",
-     "dur": 17.872340425531913,
+     "dur": 16.291,
      "sail": 1,
      "ease": "linear"
     },
     {
-     "t": "L34+1.34",
+     "t": "L34+1.12",
      "dur": 0.8,
      "ping": 1,
      "ease": "soft"
     },
     {
-     "t": "L34+2.86",
+     "t": "L34+2.39",
      "dur": 0.01,
      "ping": 0,
      "ease": "soft"
     },
     {
-     "t": "L34+3.13",
+     "t": "L34+2.61",
      "dur": 0.8,
      "ping": 1,
      "ease": "soft"
     },
     {
-     "t": "L34+4.91",
+     "t": "L34+4.1",
      "dur": 1.4,
      "cable": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L34+6.97",
+     "t": "L34+5.82",
      "dur": 1.2,
      "cable": 1,
      "ease": "soft"
     },
     {
-     "t": "L35+1.34",
+     "t": "L35+1.32",
      "dur": 1.2,
      "xray": 1,
      "ease": "soft"
     },
     {
-     "t": "L35+3.57",
+     "t": "L35+3.53",
      "dur": 0.6,
      "needle": 0.7,
      "ease": "soft"
     },
     {
-     "t": "L35+4.91",
+     "t": "L35+4.85",
      "dur": 0.6,
      "needle": -0.4,
      "ease": "soft"
     },
     {
-     "t": "L35+6.26",
+     "t": "L35+6.18",
      "dur": 0.6,
      "needle": 0.9,
      "ease": "soft"
     },
     {
-     "t": "L35+7.6",
+     "t": "L35+7.51",
      "dur": 0.6,
      "needle": -0.2,
      "ease": "soft"
     },
     {
-     "t": "L36+0.2",
+     "t": "L36+0.15",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 88,
@@ -8801,9 +9150,33 @@
      "ease": "linear"
     },
     {
-     "t": "L36+1.22",
+     "t": "L36+1.17",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L34+6.04",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+7.04",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+8.04",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L34+9.04",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 12
@@ -8828,32 +9201,68 @@
    },
    "keys": [
     {
-     "t": "L36+0.2",
+     "t": "L36+0.15",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L36+0.2",
+     "t": "L36+0.15",
      "dur": 1.4,
      "iris": 1,
      "ease": "in"
     },
     {
-     "t": "L36+0.3",
-     "dur": 7.744680851063829,
+     "t": "L36+0.23",
+     "dur": 5.950699999999999,
      "k": 1,
      "ease": "linear"
     },
     {
-     "t": "L36+8.85",
+     "t": "L36+6.8",
      "dur": 1.2,
      "spill": 1,
      "ease": "soft"
     },
     {
-     "t": "L37+0.3",
+     "t": "L37+0.27",
      "dur": 1.0,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+1.35",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+2.35",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+3.35",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+4.35",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+5.35",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L36+6.35",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -8880,48 +9289,48 @@
    },
    "keys": [
     {
-     "t": "L37+0.1",
+     "t": "L37+0.09",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L37+0.1",
+     "t": "L37+0.09",
      "dur": 1.8,
      "pour": 1,
      "ease": "soft"
     },
     {
-     "t": "L37+0.47",
+     "t": "L37+0.43",
      "dur": 1.0,
      "k": 0.25,
      "ease": "soft"
     },
     {
-     "t": "L37+1.87",
+     "t": "L37+1.71",
      "dur": 1.0,
      "k": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L37+3.28",
+     "t": "L37+3",
      "dur": 1.0,
      "k": 0.75,
      "ease": "soft"
     },
     {
-     "t": "L37+4.68",
+     "t": "L37+4.28",
      "dur": 1.0,
      "k": 1,
      "ease": "soft"
     },
     {
-     "t": "L37+6.09",
+     "t": "L37+5.56",
      "dur": 1.0,
      "piano": 1,
      "ease": "soft"
     },
     {
-     "t": "L37+7.96",
+     "t": "L37+7.27",
      "dur": 1.0,
      "piano": 0,
      "ease": "soft"
@@ -8939,86 +9348,86 @@
      "ease": "soft"
     },
     {
-     "t": "L39+0.43",
+     "t": "L39+0.31",
      "dur": 0.6,
      "pair": 1,
      "ease": "soft"
     },
     {
-     "t": "L39+2.13",
+     "t": "L39+1.52",
      "dur": 0.6,
      "pair": 2,
      "ease": "soft"
     },
     {
-     "t": "L39+3.83",
+     "t": "L39+2.74",
      "dur": 0.6,
      "pair": 3,
      "ease": "soft"
     },
     {
-     "t": "L39+5.53",
+     "t": "L39+3.96",
      "dur": 0.6,
      "pair": 4,
      "ease": "soft"
     },
     {
-     "t": "L39+7.23",
+     "t": "L39+5.17",
      "dur": 0.6,
      "pair": 5,
      "ease": "soft"
     },
     {
-     "t": "L40+0.64",
+     "t": "L40+0.48",
      "dur": 1.0,
      "fold": 0.5,
      "pair": 0,
      "ease": "soft"
     },
     {
-     "t": "L40+2.23",
+     "t": "L40+1.67",
      "dur": 1.0,
      "fold": 1,
      "ease": "soft"
     },
     {
-     "t": "L40+4.47",
+     "t": "L40+3.35",
      "dur": 0.6,
      "fold": 0.9,
      "ease": "soft"
     },
     {
-     "t": "L41+0.68",
+     "t": "L41+0.49",
      "dur": 1.0,
      "fold": 0,
      "ease": "soft"
     },
     {
-     "t": "L41+2.13",
+     "t": "L41+1.54",
      "dur": 0.9,
      "wing": 1,
      "ease": "soft"
     },
     {
-     "t": "L41+3.83",
+     "t": "L41+2.78",
      "dur": 0.5,
      "wing": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L41+4.94",
+     "t": "L41+3.58",
      "dur": 0.5,
      "wing": 1,
      "ease": "soft"
     },
     {
-     "t": "L41+6.38",
+     "t": "L41+4.63",
      "dur": 0.5,
      "wing": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L42+0.2",
+     "t": "L42+0.23",
      "dur": 1.2,
      "burn": 0,
      "burnAt": [
@@ -9028,9 +9437,33 @@
      "ease": "linear"
     },
     {
-     "t": "L42+1.42",
+     "t": "L42+1.45",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L40+3.59",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+4.59",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+5.59",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+6.59",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 8
@@ -9053,49 +9486,73 @@
    },
    "keys": [
     {
-     "t": "L38+0.3",
+     "t": "L38+0.26",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L38+0.3",
+     "t": "L38+0.26",
      "dur": 1.6,
      "fx_s": 1,
      "ease": "out"
     },
     {
-     "t": "L39+0.2",
+     "t": "L39+0.14",
      "dur": 1.3,
      "fx_s": 0.05,
      "ease": "in"
     },
     {
-     "t": "L39+1.52",
+     "t": "L39+1.46",
      "dur": 0.01,
      "a": 0
     },
     {
-     "t": "L38+0.3",
-     "dur": 9.787234042553191,
+     "t": "L38+0.26",
+     "dur": 8.521,
      "spin": 1,
      "ease": "linear"
     },
     {
-     "t": "L38+1.47",
+     "t": "L38+1.28",
      "dur": 1.4,
      "k": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L38+3.43",
+     "t": "L38+2.99",
      "dur": 1.4,
      "k": 0.75,
      "ease": "soft"
     },
     {
-     "t": "L38+5.87",
+     "t": "L38+5.11",
      "dur": 1.4,
      "k": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L38+5.29",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L38+6.29",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L38+7.29",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L38+8.29",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -9107,7 +9564,7 @@
    "props": {
     "at": [
      [
-      "L40+2.6",
+      "L40+1.95",
       960,
       540,
       90
@@ -9136,24 +9593,24 @@
    },
    "keys": [
     {
-     "t": "L41+3.6",
+     "t": "L41+2.61",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L41+3.6",
+     "t": "L41+2.61",
      "dur": 0.9,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L41+3.6",
+     "t": "L41+2.61",
      "dur": 1.2,
      "k": 1,
      "ease": "out"
     },
     {
-     "t": "L42+0.2",
+     "t": "L42+0.23",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -9189,21 +9646,45 @@
      "ease": "soft"
     },
     {
-     "t": "L42+0.85",
+     "t": "L42+0.97",
      "dur": 1.0,
      "lamp": 1,
      "ease": "soft"
     },
     {
-     "t": "L43+0.2",
+     "t": "L43+0.19",
      "dur": 1.0,
      "flipY": -100,
      "ease": "in"
     },
     {
-     "t": "L43+1.22",
+     "t": "L43+1.21",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L42+8.13",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+9.13",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+10.13",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+11.13",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 6
@@ -9243,18 +9724,18 @@
    },
    "keys": [
     {
-     "t": "L42+0.5",
+     "t": "L42+0.57",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L42+0.5",
+     "t": "L42+0.57",
      "dur": 1.8,
      "draw": 1,
      "ease": "out"
     },
     {
-     "t": "L43+0.2",
+     "t": "L43+0.19",
      "dur": 1.3,
      "dissolve": 0,
      "dissolveSeed": 13,
@@ -9262,18 +9743,18 @@
      "ease": "linear"
     },
     {
-     "t": "L43+1.52",
+     "t": "L43+1.51",
      "dur": 0.01,
      "a": 0
     },
     {
-     "t": "L42+2.13",
+     "t": "L42+2.42",
      "dur": 0.9,
      "pk": 1,
      "ease": "soft"
     },
     {
-     "t": "L42+5.11",
+     "t": "L42+5.8",
      "dur": 0.9,
      "expr": "surprise",
      "look": [
@@ -9283,7 +9764,7 @@
      "ease": "soft"
     },
     {
-     "t": "L42+6.98",
+     "t": "L42+7.93",
      "dur": 0.9,
      "expr": "smile",
      "ease": "soft"
@@ -9326,18 +9807,18 @@
    },
    "keys": [
     {
-     "t": "L42+0.8",
+     "t": "L42+0.91",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L42+0.8",
+     "t": "L42+0.91",
      "dur": 1.8,
      "draw": 1,
      "ease": "out"
     },
     {
-     "t": "L43+0.2",
+     "t": "L43+0.19",
      "dur": 1.3,
      "dissolve": 0,
      "dissolveSeed": 20,
@@ -9345,18 +9826,18 @@
      "ease": "linear"
     },
     {
-     "t": "L43+1.52",
+     "t": "L43+1.51",
      "dur": 0.01,
      "a": 0
     },
     {
-     "t": "L42+3.4",
+     "t": "L42+3.86",
      "dur": 0.9,
      "pk": 1,
      "ease": "soft"
     },
     {
-     "t": "L42+5.28",
+     "t": "L42+6",
      "dur": 0.9,
      "look": [
       -1,
@@ -9385,24 +9866,24 @@
    },
    "keys": [
     {
-     "t": "L42+1.2",
+     "t": "L42+1.36",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L42+1.2",
+     "t": "L42+1.36",
      "dur": 0.9,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L42+1.2",
+     "t": "L42+1.36",
      "dur": 1.2,
      "k": 1,
      "ease": "out"
     },
     {
-     "t": "L43+0.2",
+     "t": "L43+0.19",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -9428,48 +9909,48 @@
    },
    "keys": [
     {
-     "t": "L43+0.3",
+     "t": "L43+0.28",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L43+0.3",
+     "t": "L43+0.28",
      "dur": 1.6,
      "fx_s": 1,
      "ease": "out"
     },
     {
-     "t": "L43+1.7",
+     "t": "L43+1.6",
      "dur": 0.8,
      "flip": 1,
      "ease": "soft"
     },
     {
-     "t": "L43+3.23",
+     "t": "L43+3.03",
      "dur": 0.8,
      "flip": 0,
      "ease": "soft"
     },
     {
-     "t": "L43+4.68",
+     "t": "L43+4.39",
      "dur": 0.8,
      "flip": 1,
      "ease": "soft"
     },
     {
-     "t": "L43+6.13",
+     "t": "L43+5.75",
      "dur": 0.8,
      "flip": 0,
      "ease": "soft"
     },
     {
-     "t": "L43+7.49",
+     "t": "L43+7.03",
      "dur": 0.6,
      "flip": 1,
      "ease": "soft"
     },
     {
-     "t": "L44+0.2",
+     "t": "L44+0.17",
      "dur": 0.9,
      "fx_s": 0.05,
      "fx_ox": 960,
@@ -9477,7 +9958,7 @@
      "ease": "in"
     },
     {
-     "t": "L44+1.12",
+     "t": "L44+1.09",
      "dur": 0.01,
      "a": 0
     }
@@ -9500,34 +9981,34 @@
    },
    "keys": [
     {
-     "t": "L43+1",
+     "t": "L43+0.94",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L43+1",
+     "t": "L43+0.94",
      "dur": 0.9,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L43+1",
+     "t": "L43+0.94",
      "dur": 1.2,
      "k": 1,
      "ease": "out"
     },
     {
-     "t": "L43+2.6",
+     "t": "L43+2.44",
      "dur": 0.6,
      "text": "S"
     },
     {
-     "t": "L43+3.6",
+     "t": "L43+3.38",
      "dur": 0.6,
      "text": "N"
     },
     {
-     "t": "L43+5",
+     "t": "L43+4.69",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -9558,127 +10039,127 @@
    },
    "keys": [
     {
-     "t": "L44+0.3",
+     "t": "L44+0.25",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L44+0.3",
+     "t": "L44+0.25",
      "dur": 1.8,
      "pour": 1,
      "ease": "soft"
     },
     {
-     "t": "L44+1.06",
+     "t": "L44+0.88",
      "dur": 1.4,
      "well": 1,
      "ease": "soft"
     },
     {
-     "t": "L44+3.72",
+     "t": "L44+3.09",
      "dur": 1.4,
      "cool": 1,
      "ease": "soft"
     },
     {
-     "t": "L44+5.85",
+     "t": "L44+4.86",
      "dur": 1.0,
      "arrows": 1,
      "ease": "soft"
     },
     {
-     "t": "L44+7.98",
+     "t": "L44+6.62",
      "dur": 1.2,
      "run": 0.5,
      "ease": "soft"
     },
     {
      "t": "L45",
-     "dur": 34.46808510638298,
+     "dur": 27.517,
      "run": 6,
      "ease": "linear"
     },
     {
-     "t": "L45+1.06",
+     "t": "L45+0.88",
      "dur": 0.6,
      "well": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L45+2.34",
+     "t": "L45+1.94",
      "dur": 0.6,
      "well": 1,
      "ease": "soft"
     },
     {
-     "t": "L45+4.79",
+     "t": "L45+3.97",
      "dur": 0.6,
      "well": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L45+6.38",
+     "t": "L45+5.28",
      "dur": 0.6,
      "well": 1,
      "ease": "soft"
     },
     {
-     "t": "L45+8.51",
+     "t": "L45+7.05",
      "dur": 0.6,
      "well": 0.7,
      "ease": "soft"
     },
     {
-     "t": "L46+1.23",
+     "t": "L46+0.95",
      "dur": 1.0,
      "gold": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L46+3.7",
+     "t": "L46+2.86",
      "dur": 1.0,
      "gold": 1,
      "ease": "soft"
     },
     {
-     "t": "L46+6.79",
+     "t": "L46+5.24",
      "dur": 0.6,
      "arrows": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L46+8.64",
+     "t": "L46+6.67",
      "dur": 0.6,
      "arrows": 1,
      "ease": "soft"
     },
     {
-     "t": "L47+0.57",
+     "t": "L47+0.46",
      "dur": 1.2,
      "belt": 1,
      "gold": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L47+4.02",
+     "t": "L47+3.21",
      "dur": 1.0,
      "cross": 1,
      "ease": "soft"
     },
     {
-     "t": "L47+6.89",
+     "t": "L47+5.5",
      "dur": 0.8,
      "cross": 0.7,
      "ease": "soft"
     },
     {
-     "t": "L47+9.19",
+     "t": "L47+7.34",
      "dur": 0.8,
      "cross": 1,
      "ease": "soft"
     },
     {
-     "t": "L48+0.2",
+     "t": "L48+0.18",
      "dur": 1.0,
      "fx_s": 0.05,
      "fx_ox": 960,
@@ -9686,9 +10167,129 @@
      "ease": "in"
     },
     {
-     "t": "L48+1.22",
+     "t": "L48+1.2",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L44+6.78",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+7.78",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+8.78",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L44+9.78",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+7.25",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+8.25",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+9.25",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L45+10.25",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+6.84",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+7.84",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+8.84",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L46+9.84",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+0.71",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+1.71",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+2.71",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+3.71",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+7.51",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+8.51",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+9.51",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L47+10.51",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 8
@@ -9710,42 +10311,42 @@
    },
    "keys": [
     {
-     "t": "L48+0.2",
+     "t": "L48+0.18",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L48+0.2",
+     "t": "L48+0.18",
      "dur": 1.0,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L48+1.96",
+     "t": "L48+1.75",
      "dur": 0.8,
      "crack": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L48+3.72",
+     "t": "L48+3.32",
      "dur": 1.0,
      "crack": 0.7,
      "ease": "soft"
     },
     {
-     "t": "L48+5.38",
+     "t": "L48+4.81",
      "dur": 1.0,
      "crack": 1,
      "ease": "soft"
     },
     {
-     "t": "L48+7.34",
+     "t": "L48+6.56",
      "dur": 1.2,
      "shift": 1,
      "ease": "soft"
     },
     {
-     "t": "L49+0.2",
+     "t": "L49+0.16",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 27,
@@ -9753,9 +10354,33 @@
      "ease": "linear"
     },
     {
-     "t": "L49+1.22",
+     "t": "L49+1.18",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L48+6.73",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+7.73",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+8.73",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L48+9.73",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 8
@@ -9778,54 +10403,54 @@
    },
    "keys": [
     {
-     "t": "L49+0.2",
+     "t": "L49+0.16",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L49+0.2",
+     "t": "L49+0.16",
      "dur": 1.4,
      "wipe": 1,
      "ease": "soft"
     },
     {
-     "t": "L49+0.98",
+     "t": "L49+0.79",
      "dur": 1.4,
      "dive": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L49+3.13",
+     "t": "L49+2.51",
      "dur": 1.4,
      "dive": 1,
      "ease": "soft"
     },
     {
-     "t": "L49+5.09",
+     "t": "L49+4.09",
      "dur": 0.5,
      "quakes": 1,
      "ease": "soft"
     },
     {
-     "t": "L49+6.07",
+     "t": "L49+4.87",
      "dur": 0.5,
      "quakes": 0.3,
      "ease": "soft"
     },
     {
-     "t": "L49+7.05",
+     "t": "L49+5.66",
      "dur": 0.5,
      "quakes": 1,
      "ease": "soft"
     },
     {
-     "t": "L49+8.32",
+     "t": "L49+6.68",
      "dur": 1.0,
      "puff": 1,
      "ease": "soft"
     },
     {
-     "t": "L50+0.2",
+     "t": "L50+0.16",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 34,
@@ -9833,7 +10458,7 @@
      "ease": "linear"
     },
     {
-     "t": "L50+1.22",
+     "t": "L50+1.18",
      "dur": 0.01,
      "a": 0
     }
@@ -9856,48 +10481,48 @@
    },
    "keys": [
     {
-     "t": "L50+0.2",
+     "t": "L50+0.16",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L50+0.2",
+     "t": "L50+0.16",
      "dur": 1.6,
      "unroll": 1,
      "ease": "soft"
     },
     {
-     "t": "L50+0.71",
+     "t": "L50+0.58",
      "dur": 1.2,
      "push": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L50+2.23",
+     "t": "L50+1.81",
      "dur": 1.0,
      "push": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L50+3.57",
+     "t": "L50+2.89",
      "dur": 0.6,
      "push": 1,
      "ease": "soft"
     },
     {
-     "t": "L50+5.36",
+     "t": "L50+4.35",
      "dur": 1.4,
      "peaks": 0.6,
      "ease": "soft"
     },
     {
-     "t": "L50+7.15",
+     "t": "L50+5.8",
      "dur": 1.2,
      "peaks": 1,
      "ease": "soft"
     },
     {
-     "t": "L51+0.2",
+     "t": "L51+0.18",
      "dur": 1.2,
      "a": 0,
      "ease": "soft"
@@ -9923,42 +10548,42 @@
    },
    "keys": [
     {
-     "t": "L51+0.2",
+     "t": "L51+0.18",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L51+0.2",
+     "t": "L51+0.18",
      "dur": 1.6,
      "fx_s": 1,
      "ease": "out"
     },
     {
-     "t": "L51+1.47",
+     "t": "L51+1.29",
      "dur": 1.0,
      "glow": 1,
      "ease": "soft"
     },
     {
-     "t": "L51+3.43",
+     "t": "L51+3.01",
      "dur": 1.4,
      "open": 0.4,
      "ease": "soft"
     },
     {
-     "t": "L51+5.87",
+     "t": "L51+5.15",
      "dur": 1.4,
      "open": 0.8,
      "ease": "soft"
     },
     {
-     "t": "L51+7.83",
+     "t": "L51+6.87",
      "dur": 0.8,
      "glow": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L52+0.2",
+     "t": "L52+0.19",
      "dur": 1.0,
      "dissolve": 0,
      "dissolveSeed": 41,
@@ -9970,9 +10595,33 @@
      "ease": "linear"
     },
     {
-     "t": "L52+1.22",
+     "t": "L52+1.21",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L51+7.09",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+8.09",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+9.09",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L51+10.09",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 8
@@ -9996,18 +10645,18 @@
    },
    "keys": [
     {
-     "t": "L51+3",
+     "t": "L51+2.63",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L51+3",
+     "t": "L51+2.63",
      "dur": 0.9,
      "k": 1,
      "ease": "hand"
     },
     {
-     "t": "L52+0.2",
+     "t": "L52+0.19",
      "dur": 0.8,
      "a": 0
     }
@@ -10032,56 +10681,80 @@
    },
    "keys": [
     {
-     "t": "L52+0.2",
+     "t": "L52+0.19",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L52+0.2",
+     "t": "L52+0.19",
      "dur": 1.4,
      "wipe": 1,
      "ease": "soft"
     },
     {
-     "t": "L52+0.2",
-     "dur": 9.361702127659575,
+     "t": "L52+0.19",
+     "dur": 9.088,
      "sat": 1,
      "ease": "linear"
     },
     {
-     "t": "L52+1.87",
+     "t": "L52+1.82",
      "dur": 0.6,
      "beam": 1,
      "ease": "soft"
     },
     {
-     "t": "L52+3",
+     "t": "L52+2.91",
      "dur": 0.4,
      "beam": 0,
      "ease": "soft"
     },
     {
-     "t": "L52+4.21",
+     "t": "L52+4.09",
      "dur": 0.6,
      "beam": 1,
      "ease": "soft"
     },
     {
-     "t": "L52+5.62",
+     "t": "L52+5.46",
      "dur": 0.4,
      "beam": 0,
      "ease": "soft"
     },
     {
-     "t": "L52+7.02",
+     "t": "L52+6.81",
      "dur": 1.2,
      "tick": 1,
      "ease": "soft"
     },
     {
-     "t": "L53+0.2",
+     "t": "L53+0.17",
      "dur": 1.0,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+7.00",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+8.00",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+9.00",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+10.00",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -10104,50 +10777,74 @@
    },
    "keys": [
     {
-     "t": "L53+0.2",
+     "t": "L53+0.17",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L53+0.2",
+     "t": "L53+0.17",
      "dur": 1.8,
      "brush": 1,
      "ease": "linear"
     },
     {
-     "t": "L53+1.19",
+     "t": "L53+1.04",
      "dur": 1.2,
      "line": 1,
      "ease": "soft"
     },
     {
-     "t": "L53+2.38",
+     "t": "L53+2.08",
      "dur": 1.4,
      "grow": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L53+3.87",
+     "t": "L53+3.38",
      "dur": 1.4,
      "grow": 1,
      "ease": "soft"
     },
     {
-     "t": "L54+0.4",
+     "t": "L54+0.33",
      "dur": 1.4,
      "ocean": 0.5,
      "ease": "soft"
     },
     {
-     "t": "L54+1.62",
+     "t": "L54+1.32",
      "dur": 1.0,
      "ocean": 1,
      "ease": "soft"
     },
     {
-     "t": "L54+2.4",
+     "t": "L54+1.96",
      "dur": 1.0,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+3.61",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+4.61",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+5.61",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L53+6.61",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -10172,24 +10869,24 @@
    },
    "keys": [
     {
-     "t": "L54+5",
+     "t": "L54+4.08",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L54+5",
+     "t": "L54+4.08",
      "dur": 0.8,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L54+5",
+     "t": "L54+4.08",
      "dur": 1.4,
      "num": 200,
      "ease": "out"
     },
     {
-     "t": "L55+0.4",
+     "t": "L55+0.28",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -10217,32 +10914,80 @@
    },
    "keys": [
     {
-     "t": "L56+0.1",
+     "t": "L56+0.08",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L56+0.1",
+     "t": "L56+0.08",
      "dur": 1.0,
      "blur": 0,
      "ease": "soft"
     },
     {
-     "t": "L56+4.79",
+     "t": "L56+4.02",
      "dur": 1.4,
      "gap": 1.4,
      "ease": "soft"
     },
     {
-     "t": "L56+7.98",
+     "t": "L56+6.7",
      "dur": 1.4,
      "gap": 1.6,
      "ease": "soft"
     },
     {
-     "t": "L57+3",
+     "t": "L57+2.64",
      "dur": 1.6,
      "a": 0,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+4.26",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+5.26",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+6.26",
+     "dur": 0.9,
+     "fx_s": 1.045,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+7.26",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+6.86",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+7.86",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+8.86",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L56+9.86",
+     "dur": 1.0,
+     "fx_s": 1,
      "ease": "soft"
     }
    ],
@@ -10267,26 +11012,26 @@
    },
    "keys": [
     {
-     "t": "L56+2.4",
+     "t": "L56+2.01",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L56+2.4",
+     "t": "L56+2.01",
      "dur": 1.4,
      "dissolve": 1,
      "dissolveSeed": 41,
      "ease": "linear"
     },
     {
-     "t": "L57+0.4",
+     "t": "L57+0.35",
      "dur": 1.3,
      "burn": 0,
      "dissolveDir": "right",
      "ease": "linear"
     },
     {
-     "t": "L57+1.72",
+     "t": "L57+1.67",
      "dur": 0.01,
      "a": 0
     }

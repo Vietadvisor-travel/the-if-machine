@@ -1,0 +1,945 @@
+// drifting-continents — set B drawings (CLUE 3 → MEANING): the ship against the rock, Wegener's tent on the Greenland ice, the blank sea
+// chart, the 1950s survey ship and its magnetometer fish, the pen recorder, the striped sea floor (StripeFloor: piano / twins / fold / wings),
+// the ridge round the globe, the Cambridge study (Vine & Matthews, 1963), the flipping compass, the ridge as a tape recorder (RidgeTape →
+// conveyor belt), the cracked plate globe, the trench, the rug that becomes the Himalaya, the Atlantic from space, the GPS survey marker and
+// the fingernail that becomes the Atlantic (NailAtlantic).
+// Engine 10, CLEAN DRAWN house style: washes under sepia ink, no engraving hatch (Region hatch 0). Every component is a FULL-FRAME scene
+// (1920×1080) drawn about (960, 540): x, y move that centre, s scales it. Geography: real outlines (lon/lat, simplified) projected
+// orthographically for the globes; the mid-ocean ridge system and the plate boundaries from the standard maps (USGS "This Dynamic Planet").
+import React, { useMemo } from 'react';
+import { Region, Ink, Line, SEP, mix } from '../../paint/paint';
+import { Fell, Star, starField, N, Pt, f1, cl, ph, lerp, rr, pathOf, rnd } from '../star-distance/kit';
+import { HumanHand } from '../../paint/anatomy';
+
+const VER = '#B8432A', IND = '#22305E', IND2 = '#141C38', GOLD = '#D9AE4C', GOLDL = '#F3D88E', ICEW = '#F4F7F8', ARC = '#7FA8C4';
+const BASALT = '#4E4842', LAND = '#D9AE6C', FIG = "'Special Elite', monospace";
+const RG: React.FC<any> = (p) => <Region hatch={0} {...p} />;
+const TR = (x: N, y: N, s: N) => `translate(${f1(x)} ${f1(y)}) scale(${s}) translate(-960 -540)`;
+const fr = (v: N) => v - Math.floor(v);
+const sst = (t: N) => { const u = cl(t); return u * u * (3 - 2 * u); };
+const sm = (pts: Pt[], closed = false) => {
+  if (pts.length < 2) return ''; const n = pts.length, g = (i: N) => pts[closed ? (i + n) % n : Math.max(0, Math.min(n - 1, i))];
+  let d = `M${f1(pts[0][0])} ${f1(pts[0][1])}`;
+  for (let i = 0; i < (closed ? n : n - 1); i++) { const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
+    d += ` C${f1(p1[0] + (p2[0] - p0[0]) / 6)} ${f1(p1[1] + (p2[1] - p0[1]) / 6)} ${f1(p2[0] - (p3[0] - p1[0]) / 6)} ${f1(p2[1] - (p3[1] - p1[1]) / 6)} ${f1(p2[0])} ${f1(p2[1])}`; }
+  return d + (closed ? 'Z' : '');
+};
+const grad = (id: string, stops: [N, string, N?][], vert = true) => <linearGradient id={id} x1="0" y1="0" x2={vert ? 0 : 1} y2={vert ? 1 : 0}>
+  {stops.map(([o, c, a], i) => <stop key={i} offset={o} stopColor={c} stopOpacity={a ?? 1} />)}</linearGradient>;
+
+// ================================================================ GEOGRAPHY (lon, lat), simplified from Natural Earth 1:110m
+type LL = [N, N];
+const pr = (a: N[]): LL[] => { const o: LL[] = []; for (let i = 0; i < a.length; i += 2) o.push([a[i], a[i + 1]]); return o; };
+const GEO: Record<string, LL[]> = {
+  SA: pr([-77.5, 8.5, -75, 10.8, -71.5, 12.3, -68, 10.5, -63, 10.6, -60, 8.5, -57, 6, -53, 5.5, -51, 4, -50, 1.5, -48.5, -1, -44.5, -2.5, -41, -3, -38.5, -3.7, -35.2, -5.5, -34.8, -7.5, -35.3, -9.5,
+    -37.5, -12, -39, -14, -39, -17.5, -40.5, -20.5, -42, -23, -44.5, -23.3, -47.5, -25, -48.6, -28, -50.5, -30.5, -53, -33.5, -56.5, -35, -57.5, -38, -62, -39, -62.3, -41, -64.5, -42.5, -65.5, -45,
+    -67.5, -46.5, -66, -48, -68.3, -50.5, -69, -52.5, -68.5, -54.5, -71.5, -54, -74, -52, -75.5, -48, -74, -44, -73.6, -40, -73.5, -37, -71.6, -33, -71.4, -28, -70.5, -23.5, -70.3, -18.5, -72, -17,
+    -75.5, -15, -77.5, -12, -79.5, -8, -81.2, -5.5, -80.3, -3, -80.5, -.5, -80, 1, -78.8, 1.8, -77.3, 4, -77.4, 7]),
+  NA: pr([-77.5, 8.5, -79.5, 9.5, -81.5, 8.2, -83.5, 8.5, -85.7, 10, -86, 11.5, -87.6, 13, -91, 14, -94, 16, -96.5, 15.7, -100, 17, -103.5, 18.3, -105.5, 20.5, -105.3, 22.6, -108, 25.5, -110.5, 27.5,
+    -112.8, 31.5, -114.5, 30, -112, 27, -110, 23, -112, 24.8, -114, 27.5, -115.5, 29.6, -117, 32.5, -118.5, 34, -120.6, 34.6, -122.5, 37.5, -124, 40.5, -124.2, 43, -124, 46.5, -124.7, 48.4, -127, 50,
+    -130.5, 54.5, -134, 57.5, -137.5, 59, -141, 60, -146, 60.8, -150, 59.5, -152, 60.5, -154, 58, -158, 56.5, -162.5, 55, -160, 58.5, -162, 60, -165, 61.5, -164.7, 63.2, -161, 64.4, -166, 65.3, -164, 67,
+    -166.5, 68.4, -162, 70, -156.5, 71.3, -152, 70.8, -145, 70, -140, 69.6, -135, 69.3, -130, 70, -124, 69.5, -120, 68.8, -115, 67.8, -108, 68, -98, 67.8, -95, 68.5, -90, 68.6, -85, 69.5, -82, 67.5,
+    -86, 65, -88, 63.5, -93.5, 61, -94.5, 58.5, -92.5, 57, -88, 55.5, -82.3, 55, -82, 52.5, -79, 51.5, -78.5, 55, -77, 58.5, -78, 62.3, -73, 62, -70, 60.5, -65, 60, -61.5, 56.5, -57.5, 54, -55.8, 52.2,
+    -59, 48, -64.5, 48.8, -61, 46.7, -63.5, 45, -66, 44, -70, 43.5, -70.5, 41.8, -74, 40.7, -75.5, 38.5, -76, 36.8, -75.5, 35.3, -77.8, 34, -81, 32, -81.4, 30, -80.1, 26.5, -80.5, 25.2, -81.8, 26.5,
+    -82.7, 28, -83.8, 29.8, -85.5, 29.7, -88, 30.4, -89.5, 30.1, -90.5, 29.1, -94, 29.6, -97.2, 27.8, -97.5, 25, -97.7, 22, -96.5, 19.2, -94.5, 18.2, -91.5, 18.5, -90.5, 21, -87, 21.5, -87.5, 19,
+    -88.3, 16, -86, 15.9, -84, 15, -83.3, 12, -83.8, 10.8, -81.8, 9, -79.5, 9.6]),
+  GL: pr([-73, 78, -66, 80.5, -60, 82, -45, 82.7, -32, 83.6, -22, 82.5, -20, 80.5, -18, 77.5, -19.5, 74.5, -22, 72.5, -22, 70.3, -25, 69.5, -31, 68, -35, 66, -40, 65, -42, 62.5, -43.5, 60, -45, 60.3,
+    -48, 61.5, -50, 63.5, -51.5, 66, -51, 68.5, -53.5, 70.5, -55, 72.5, -58, 75.5, -62, 76.2, -68, 76.3, -72, 77.2]),
+  AF: pr([-5.9, 35.8, -2, 35.1, 1, 36.5, 5, 36.8, 10, 37.2, 11, 36.9, 10.3, 34, 11.5, 33.1, 15.2, 32.3, 19, 30.3, 20.1, 31.2, 20, 32.5, 23, 32.6, 25, 31.7, 29, 30.9, 32.3, 31.3, 34.2, 31.2, 33.3, 28.5,
+    34.8, 26, 37.2, 21, 38.6, 18, 39.7, 15.5, 41.2, 14.3, 43.2, 12.7, 44.5, 10.4, 48, 11.2, 51.2, 11.8, 51, 10.4, 50.8, 8, 48.5, 4.5, 46, 2, 43, -.5, 41.5, -1.8, 40, -3.5, 39.2, -6.5, 39.5, -9.5,
+    40.5, -10.8, 40.8, -14.5, 39.5, -17, 36.8, -18.8, 35, -21.5, 35.5, -24, 32.8, -26, 32.4, -28.6, 30.5, -31, 28, -33, 25.6, -34, 22.5, -34, 20, -34.8, 18.4, -34, 17.9, -32, 16.5, -28.6, 15.2, -26.7,
+    14.5, -22.5, 13.4, -21, 11.8, -17.2, 11.8, -15.8, 12.4, -13.5, 13.6, -11, 13.2, -8.8, 12.2, -6, 11.9, -4.7, 10.2, -2.8, 9.3, -.6, 9.6, 1.5, 9.8, 3.2, 8.6, 4.5, 6, 4.3, 4.5, 6.3, 2, 6.3, -1, 5, -4, 5.2,
+    -7.5, 4.4, -9.5, 5.6, -11.5, 7, -13.2, 8.8, -15, 10.9, -16.7, 12.4, -17.2, 14.7, -16.5, 16.5, -16.2, 19, -17, 21, -15, 24.5, -13.7, 26.5, -11.5, 28.2, -9.8, 29.8, -9.6, 32, -8, 33.6, -6.5, 34.5]),
+  EU: pr([-5.6, 36, -9, 36.9, -8.9, 38.8, -9.4, 40, -8.8, 42.2, -9.3, 43, -7.7, 43.7, -4, 43.4, -1.5, 43.4, -1.2, 46, -2.6, 47.3, -4.7, 48, -1.5, 48.7, .2, 49.5, 1.6, 50.9, 3, 51.2, 4.5, 52.5, 5, 53.4,
+    8.5, 53.6, 8.6, 55.5, 8.2, 57, 10.5, 57.7, 10.5, 56, 10, 54.5, 12, 54.2, 14.2, 53.9, 18.5, 54.6, 21, 55, 21.2, 56.8, 24, 57.3, 23.5, 59.2, 28, 59.6, 29.8, 60, 24, 60.3, 21.4, 60.8, 21.2, 63, 25.3, 65,
+    22, 65.8, 21, 64.5, 17.5, 62, 18.8, 60, 16.5, 57.5, 14, 55.4, 12.8, 56.3, 11, 58.9, 8, 58.1, 5.6, 59, 5, 61.5, 7, 63.2, 10.5, 64.5, 14, 67.5, 16, 69, 20, 70, 25, 71, 28, 71, 31, 70, 33, 69.3, 41, 67.5,
+    44, 68.4, 46, 66.9, 53.5, 68.5, 58, 68.9, 66, 69.5, 69, 72.8, 72.5, 72, 75, 72.8, 80, 72.5, 87, 74.5, 96, 76, 104, 77.7, 113, 75.9, 120, 73, 129, 71.5, 140, 72.5, 150, 71.5, 160, 69.8, 170, 70,
+    180, 68.9, 180, 65, 177, 62.5, 173, 61, 166, 60, 163, 59.8, 162, 57.8, 156.5, 51, 155.5, 55.5, 156.5, 57.8, 160, 61.5, 154, 59.4, 143, 59.3, 138, 56, 141, 52.5, 140.5, 48.5, 135, 43.4, 131, 42.8,
+    129.5, 40.8, 129.4, 37, 126.5, 34.5, 126.2, 37.7, 124.7, 39.8, 121.5, 40, 121.6, 38.9, 118, 39.2, 119.2, 37.2, 122.5, 36.9, 120.5, 35, 121.9, 31, 121.5, 28.5, 119.6, 25.6, 116.7, 23, 113, 22.2,
+    110.5, 20.5, 109.8, 21.5, 107.5, 21.5, 106, 19.8, 108.9, 15.3, 109.2, 11.6, 105.2, 8.6, 104.8, 10.3, 102.5, 12.3, 100.9, 13.3, 99.3, 10.3, 100.2, 8.4, 101.3, 6.8, 103.4, 3.8, 104.2, 1.4, 101.5, 2.6,
+    100.3, 4.9, 98.5, 8, 98.7, 11.5, 97.7, 16, 94.5, 16, 94.4, 18.3, 92.3, 20.7, 91.8, 22.5, 90.4, 22, 86.9, 21.5, 84.5, 19.2, 80.3, 15.8, 80.1, 13, 79.8, 10.3, 77.5, 8, 76.1, 10, 74.7, 13, 73.4, 16,
+    72.8, 19.3, 72.6, 21.2, 70.5, 20.9, 68.8, 22.4, 67.4, 23.9, 66.4, 25.4, 61.5, 25.1, 57.4, 25.7, 56.8, 27.1, 54.8, 26.5, 51.5, 27.9, 50.1, 30.1, 48.6, 30, 47.9, 29.1, 48.8, 27.6, 50.1, 26.7, 50.2, 25.6,
+    51.6, 24.3, 53.9, 24.1, 56.4, 26.4, 56.3, 24.9, 57.4, 23.9, 59.8, 22.5, 57.8, 18.9, 55.3, 17.2, 52.4, 16.4, 48.7, 14, 45, 12.7, 43.3, 12.7, 42.6, 15.7, 41.2, 18.4, 39, 21.5, 37.5, 24.3, 35.1, 28.1,
+    34.6, 28, 34.2, 31.2, 35.5, 33.9, 35.9, 35.4, 36.1, 36.7, 32.5, 36.1, 30.4, 36.3, 28, 36.7, 26.3, 38.2, 26.6, 40.1, 29, 41, 31.1, 41.1, 34.5, 42, 38.2, 40.9, 41.6, 41.5, 41.5, 42.6, 37.5, 44.7,
+    39.3, 47, 35, 45.5, 33, 45.4, 32.5, 46.5, 30.7, 46.6, 29.6, 45, 28.6, 44, 27.7, 42.6, 28, 41.6, 26.1, 40.6, 24, 40.5, 22.6, 40.3, 24, 38, 22.8, 36.5, 21.1, 37.9, 19.4, 40.3, 19.4, 41.8, 16, 43.5,
+    13.7, 45.1, 12.3, 44.6, 13.9, 42.6, 16, 41.5, 18.4, 40.2, 16.5, 38.4, 15.7, 40, 12.2, 41.6, 10.2, 43.9, 8.9, 44.4, 6.5, 43.1, 3.1, 43.1, 3.2, 41.9, .8, 41, 0, 39.9, -.6, 37.6, -2.1, 36.7]),
+  AU: pr([113.3, -22, 114.2, -26.3, 115, -30, 115.7, -33.6, 117.9, -35.1, 121, -33.9, 124, -33, 126, -32.3, 129, -31.6, 131.5, -31.5, 134.2, -32.7, 135.6, -34.8, 137.8, -32.9, 137.5, -35.6, 139.6, -36,
+    140.6, -38, 143.5, -38.8, 146.3, -39.1, 148, -37.8, 150, -37.4, 150.8, -34.4, 152.5, -32, 153.5, -28.7, 153.2, -25.8, 150.9, -22.8, 149.2, -21, 146.4, -19, 145.4, -16, 145.3, -14.9, 143.6, -14,
+    142.5, -10.7, 141.5, -13.6, 141.6, -17, 140, -17.7, 136.3, -15.5, 135.4, -14.7, 136.8, -12.2, 133, -11.4, 131.3, -12.2, 129.4, -14.9, 126.1, -14.1, 124.4, -16.3, 122.2, -18.2, 121, -19.6, 116.7, -20.6]),
+  AN: pr([-180, -78, -150, -77, -120, -73.5, -90, -72.5, -75, -73, -65, -68, -60, -63.5, -57, -64, -60, -70, -45, -78, -30, -76, -15, -72, 0, -70, 30, -69, 60, -67, 90, -66.5, 120, -66.5, 150, -68,
+    165, -71, 170, -75, 180, -78, 180, -90, -180, -90]),
+  MG: pr([44, -25, 47, -25, 50.5, -15.5, 49.3, -12, 48, -13.5, 44, -17, 43.3, -22]),
+  GB: pr([-5.7, 50, 1.4, 51.2, 1.7, 52.7, 0, 53.5, -1.6, 55.6, -2, 57.6, -3, 58.6, -5, 58.6, -6.2, 56.5, -4.8, 54.8, -3, 53.4, -4.6, 52.8, -5.2, 51.7]),
+  IE: pr([-6, 52.2, -6.2, 54, -7.5, 55.2, -10, 54.2, -10.3, 51.8, -8, 51.5]),
+  IS: pr([-22.5, 64, -24, 65.5, -22, 66.4, -16, 66.5, -13.6, 65.2, -15, 64.2, -18.7, 63.4]),
+  JP: pr([130, 31.2, 131.7, 31.5, 135, 33.7, 136.8, 34.5, 139.8, 35, 140.9, 38, 141.5, 40.5, 140.8, 41.5, 141.8, 43, 145.5, 43.3, 144, 44.2, 141.8, 45.4, 141.3, 43, 140, 42.4, 139.8, 40.4, 138.5, 37.8,
+    136.7, 37, 133, 35.5, 131, 34.4, 130, 33.5]),
+  BO: pr([109, 1.5, 111, -3, 116, -4, 118.5, 1, 119, 5, 116.8, 7, 115, 4.8]),
+  SU: pr([95.3, 5.5, 98, 3.8, 104, -2.5, 106, -5.9, 104.5, -5.8, 100.5, -.6]),
+  NG: pr([131, -1, 135, -3.3, 138, -1.6, 141, -2.6, 145.8, -5, 147.5, -6.2, 150, -10.5, 146, -8.5, 143, -9, 141, -9.1, 138, -8.3, 137.8, -5.2, 133, -4, 132, -2.8]),
+  NZ: pr([172.7, -34.4, 178.5, -37.7, 177, -39.5, 175, -41.5, 171, -44.5, 166.5, -46, 168, -46.6, 171.5, -44, 174.5, -41, 173.8, -39.2, 174.5, -36.5]),
+};
+// which side of the Atlantic a land mass is on (for the opening), and which way its plate drifts (screen direction, for PlateGlobe)
+const WEST = new Set(['SA', 'NA', 'GL']);
+const DRIFT: Record<string, Pt> = { SA: [-1, .15], NA: [-1, -.2], GL: [-.6, -.6], AF: [1, .1], EU: [.8, -.4], AU: [.5, .9], AN: [0, 1], MG: [1, .3], GB: [.7, -.5], IE: [.7, -.5], IS: [0, -.8], JP: [.8, -.3], BO: [.6, .3], SU: [.6, .3], NG: [.5, .9], NZ: [.4, .9] };
+// the mid-ocean ridge system (in drawing order: Atlantic first), and the convergent / collision boundaries
+const RIDGES: LL[][] = [
+  pr([120, 80, 60, 86, -5, 82, -5, 73, -12, 70.5, -18, 66.5, -22, 64, -29, 59, -33, 54, -30, 50, -28, 45, -30, 40, -35, 35, -40, 30, -45, 24, -46, 18, -45.5, 13, -42, 9, -36, 6, -30, 3, -26, 1, -20, 0,
+    -14, -2, -13, -6, -14, -10, -14, -15, -13, -20, -12.5, -25, -14, -30, -14, -35, -16, -40, -17, -45, -14, -50, -5, -53, 5, -54]),
+  pr([5, -54, 15, -53, 25, -48, 32, -44, 45, -38, 57, -32, 65, -27, 70, -25, 67, -18, 66, -10, 68, -3, 60, 5, 57, 12, 50, 13, 43, 12.5]),
+  pr([70, -25, 78, -32, 88, -40, 100, -48, 115, -50, 130, -50, 145, -56, 160, -61, 175, -63, 190, -65, 210, -60, 230, -55, 245, -45, 248, -36, 250, -25, 249, -15, 256, -5, 258, 0, 256, 10, 252, 20, 245, 28]),
+];
+const TRENCHES: LL[][] = [
+  pr([-77, 7, -80, 0, -81, -6, -78, -12, -73, -18, -71.5, -25, -73, -33, -75, -42, -76, -50, -72, -55]),
+  pr([-77, 7, -84, 8, -92, 13, -100, 16.5, -106, 20, -108, 22]),
+  pr([-115, 31, -123, 40, -125, 44, -130, 50, -138, 58, -148, 59, -160, 54, -175, 51, -187, 52, -196, 55]),
+  pr([164, 55, 155, 47, 146, 42, 143, 36, 142, 30, 143, 20, 146, 12, 140, 6, 130, 2, 125, -6]),
+  pr([95, 6, 100, -2, 105, -7.5, 115, -10.5, 125, -10, 130, -7, 140, -3, 150, -6, 158, -9, 166, -14, 172, -18, 186, -15, 185, -22, 182, -32, 178, -40, 174, -45, 166, -48]),
+  pr([-10, 36, 0, 37, 10, 38, 20, 37, 28, 35, 35, 36, 45, 37, 55, 28, 62, 26, 67, 25, 72, 33, 80, 31, 88, 28, 95, 27, 97, 20, 95, 6]),
+  pr([38, 15, 40, 9, 36, 0, 34, -10, 34, -20]),
+];
+const D2R = Math.PI / 180;
+const ortho = (lo: N, la: N, lo0: N, la0: N): [N, N, N] => { const l = (lo - lo0) * D2R, p = la * D2R, p0 = la0 * D2R;
+  return [Math.cos(p) * Math.sin(l), -(Math.cos(p0) * Math.sin(p) - Math.sin(p0) * Math.cos(p) * Math.cos(l)), Math.sin(p0) * Math.sin(p) + Math.cos(p0) * Math.cos(p) * Math.cos(l)]; };
+const dens = (L: LL[], step = 2, closed = false): LL[] => {
+  const o: LL[] = [], n = L.length;
+  for (let i = 0; i < (closed ? n : n - 1); i++) { const a = L[i], b = L[(i + 1) % n], k = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / step));
+    for (let j = 0; j < k; j++) o.push([a[0] + (b[0] - a[0]) * j / k, a[1] + (b[1] - a[1]) * j / k]); }
+  if (!closed) o.push(L[n - 1]); return o;
+};
+type GV = { cx: N; cy: N; r: N; lo0: N; la0: N };
+const gPoly = (L: LL[], g: GV, off: Pt = [0, 0]) => {
+  const P = dens(L, 2.5, true).map(q => ortho(q[0], q[1], g.lo0, g.la0)); if (!P.some(p => p[2] > .02)) return '';
+  return 'M' + P.map(([X, Y, Z]) => { if (Z < 0) { const h = Math.hypot(X, Y) || 1; X /= h; Y /= h; } return `${f1(g.cx + X * g.r + off[0])} ${f1(g.cy + Y * g.r + off[1])}`; }).join(' L') + 'Z';
+};
+const gRuns = (L: LL[], g: GV, off: Pt = [0, 0], step = 1.5): Pt[][] => {
+  const out: Pt[][] = []; let cur: Pt[] = [];
+  for (const q of dens(L, step)) { const [X, Y, Z] = ortho(q[0], q[1], g.lo0, g.la0);
+    if (Z > 0) cur.push([g.cx + X * g.r + off[0], g.cy + Y * g.r + off[1]]); else if (cur.length) { if (cur.length > 1) out.push(cur); cur = []; } }
+  if (cur.length > 1) out.push(cur); return out;
+};
+// the first k (0..1) of a set of polylines, by length, in order
+const cutK = (lines: LL[][], k: N): LL[][] => {
+  const lens = lines.map(L => L.slice(1).reduce((a, p, i) => a + Math.hypot(p[0] - L[i][0], p[1] - L[i][1]), 0)); let rem = lens.reduce((a, b) => a + b, 0) * cl(k); const out: LL[][] = [];
+  for (let j = 0; j < lines.length && rem > 0; j++) { const L = lines[j]; if (rem >= lens[j]) { out.push(L); rem -= lens[j]; continue; }
+    const o: LL[] = [L[0]]; for (let i = 1; i < L.length; i++) { const sg = Math.hypot(L[i][0] - L[i - 1][0], L[i][1] - L[i - 1][1]);
+      if (rem >= sg) { o.push(L[i]); rem -= sg; } else { const t = rem / sg; o.push([lerp(L[i - 1][0], L[i][0], t), lerp(L[i - 1][1], L[i][1], t)]); rem = 0; break; } }
+    out.push(o); rem = 0; }
+  return out;
+};
+const runsPath = (R: Pt[][]) => R.map(r => pathOf(r)).join(' ');
+
+// a globe body: ocean disc, land, graticule, shade; land offsets per mass (for drift)
+const GlobeBody: React.FC<{ g: GV; id: string; draw: N; sea: [string, string]; land: string; off?: (k: string) => Pt; grat?: N; shade?: N; landSw?: N }> = ({ g, id, draw, sea, land, off, grat = .25, shade = .6, landSw = 1.1 }) => {
+  const meridians = Array.from({ length: 12 }, (_, i) => pr([i * 30 - 180, -88, i * 30 - 180, 88])), parallels = [-60, -30, 0, 30, 60].map(la => pr([-180, la, -90, la, 0, la, 90, la, 180, la]));
+  return <g>
+    <defs><radialGradient id={id + 'o'} cx=".42" cy=".38" r=".7"><stop offset="0" stopColor={sea[0]} /><stop offset="1" stopColor={sea[1]} /></radialGradient>
+      <radialGradient id={id + 's'} cx=".36" cy=".32" r=".78"><stop offset=".45" stopColor="#0B1030" stopOpacity={0} /><stop offset="1" stopColor="#0B1030" stopOpacity={shade} /></radialGradient>
+      <clipPath id={id + 'c'}><circle cx={g.cx} cy={g.cy} r={g.r} /></clipPath></defs>
+    <circle cx={g.cx} cy={g.cy} r={g.r} fill={`url(#${id}o)`} opacity={ph(draw, .1, .6)} />
+    <g clipPath={`url(#${id}c)`}>
+      {grat > 0 && <path d={[...meridians, ...parallels].map(L => runsPath(gRuns(L, g, [0, 0], 3))).join(' ')} stroke="#C9DDE6" strokeWidth={.8} fill="none" opacity={grat * ph(draw, .4, 1)} />}
+      {Object.keys(GEO).map(k => { const d = gPoly(GEO[k], g, off ? off(k) : [0, 0]); return d ? <RG key={k} d={d} color={land} draw={draw} sw={landSw} k={.6} /> : null; })}
+      <circle cx={g.cx} cy={g.cy} r={g.r} fill={`url(#${id}s)`} />
+    </g>
+    <Ink d={`M${g.cx - g.r} ${g.cy} A${g.r} ${g.r} 0 1 0 ${g.cx + g.r} ${g.cy} A${g.r} ${g.r} 0 1 0 ${g.cx - g.r} ${g.cy}Z`} w={2} draw={draw} />
+  </g>;
+};
+// a 16-point compass rose (dark/light halves), north point vermilion
+const Rose: React.FC<{ cx: N; cy: N; r: N; a?: N; north?: boolean }> = ({ cx, cy, r, a = 1, north = true }) => {
+  const pts = Array.from({ length: 16 }, (_, i) => i).sort((p, q) => (p % 4 === 0 ? 2 : p % 2 === 0 ? 1 : 0) - (q % 4 === 0 ? 2 : q % 2 === 0 ? 1 : 0));
+  return <g opacity={a}>
+    <circle cx={cx} cy={cy} r={r * .5} fill="none" stroke={SEP} strokeWidth={1.2} /><circle cx={cx} cy={cy} r={r * .54} fill="none" stroke={SEP} strokeWidth={.7} />
+    {pts.map(i => { const an = (i * 22.5 - 90) * D2R, len = i % 4 === 0 ? r : i % 2 === 0 ? r * .66 : r * .44, w = len * .14, tip: Pt = [cx + Math.cos(an) * len, cy + Math.sin(an) * len];
+      const s1: Pt = [cx + Math.cos(an - Math.PI / 2) * w, cy + Math.sin(an - Math.PI / 2) * w], s2: Pt = [cx + Math.cos(an + Math.PI / 2) * w, cy + Math.sin(an + Math.PI / 2) * w];
+      const dark = i === 0 && north ? VER : i % 4 === 0 ? SEP : i % 2 === 0 ? '#4F6E5A' : '#8C6E4A';
+      return <g key={i}><path d={pathOf([[cx, cy], tip, s1], true)} fill={dark} stroke={SEP} strokeWidth={.8} /><path d={pathOf([[cx, cy], tip, s2], true)} fill="#FBF4E2" stroke={SEP} strokeWidth={.8} /></g>; })}
+    <circle cx={cx} cy={cy} r={r * .05} fill={GOLD} stroke={SEP} strokeWidth={1} />
+  </g>;
+};
+
+// ================================================================ 1. ROCK SHIP — a little wooden sailing ship sails at a huge block of grey rock; its bow crumples, it sinks
+// sail 0..1 carries it to the rock; crumple 0..1 crushes the bow (splinters fly); sink 0..1 takes it under the waterline, bubbles rising.
+const RockShip: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sail?: N; crumple?: N; sink?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, sail = 0, crumple = 0, sink = 0, tm = 0 }) => {
+  const id = 'rks' + Math.round(x), WL = 650, sx = lerp(300, 960, sst(sail)), bob = Math.sin(tm * 1.7) * 2 * (1 - sink), bx = sx + 190 - crumple * 60;
+  const hull = `M${sx - 185} ${WL - 62} L${sx - 120} ${WL - 58} L${bx - 50} ${WL - 52} Q${bx - 14} ${WL - 56} ${bx} ${WL - 74} L${bx - 26 + crumple * 8} ${WL + 4} Q${sx + 60} ${WL + 32} ${sx - 150} ${WL + 24} Q${sx - 190} ${WL + 6} ${sx - 185} ${WL - 62}Z`;
+  const sag = 1 - crumple * .7, mast = (mx: N, h: N, w: N) => { const top = WL - 58 - h;
+    return <g>
+      <Line d={`M${mx} ${WL - 56} V${top}`} w={5} col="#4F3020" a={1} />
+      {[0, 1].map(j => { const y0 = top + 20 + j * h * .42, y1 = y0 + h * .36, ww = w * (1 - j * .1) * (j ? 1 : .8), bil = 26 * sag;
+        return <g key={j}><Line d={`M${mx - ww / 2 - 6} ${y0} H${mx + ww / 2 + 6}`} w={3.4} col="#4F3020" a={1} />
+          <RG d={`M${mx - ww / 2} ${y0} H${mx + ww / 2} Q${mx + ww / 2 + bil * .8} ${(y0 + y1) / 2} ${mx + ww / 2 + 4} ${y1 + crumple * 14} H${mx - ww / 2 + 4} Q${mx - ww / 2 + bil * .8} ${(y0 + y1) / 2} ${mx - ww / 2} ${y0}Z`} mat="cloth" t={.12 + j * .06} draw={draw} sw={1.3} /></g>; })}
+    </g>; };
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sk', [[0, '#9AA6B0'], [1, '#D7DCDC']])}{grad(id + 'sea', [[0, '#5A6E7E'], [1, '#26344A']])}<clipPath id={id + 'up'}><rect x={-100} y={-200} width={2200} height={WL + 200} /></clipPath></defs>
+    <rect x={-100} y={-100} width={2120} height={WL + 100} fill={`url(#${id}sk)`} opacity={ph(draw, 0, .5)} />
+    {[[260, 200, 160], [760, 140, 220], [1500, 110, 180]].map(([cx, cy, w], i) => <path key={i} d={`M${cx - w} ${cy} q${w * .3} -40 ${w * .6} -10 q${w * .4} -50 ${w * .8} 0 q${w * .4} -10 ${w * .6} 10Z`} fill="#EEF0EE" opacity={.55 * ph(draw, .2, .8)} />)}
+    <rect x={-100} y={WL} width={2120} height={600} fill={`url(#${id}sea)`} opacity={ph(draw, 0, .5)} />
+    {/* the rock: a sheer grey block rising out of the sea */}
+    <RG d={`M1150 1180 L1146 ${WL - 40} L1170 330 L1205 250 L1290 190 L1400 170 L1470 205 L1560 160 L1700 150 L1820 190 L1920 175 L2000 180 L2000 1180Z`} color="#9A978F" draw={draw} sw={2.2} />
+    <RG d={`M1146 ${WL - 40} L1170 330 L1205 250 L1240 260 L1215 340 L1200 ${WL - 30}Z`} color="#C4C0B4" draw={draw} sw={1.2} />
+    {[[1250, 300, 1600, 260], [1220, 420, 1700, 380], [1200, 520, 1800, 470], [1300, 230, 1500, 215]].map(([a, b, c, d2], i) => <Line key={i} d={`M${a} ${b} Q${(a + c) / 2} ${b + 20} ${c} ${d2}`} w={1.2} a={.45} draw={ph(draw, .3, 1)} />)}
+    {[[1420, 280, 30, 90], [1640, 350, 40, 110], [1330, 470, -20, 80]].map(([a, b, c, d2], i) => <Line key={'c' + i} d={`M${a} ${b} l${c * .4} ${d2 * .4} l${-c * .3} ${d2 * .3} l${c} ${d2 * .5}`} w={1.6} a={.7} />)}
+    {/* the ship, bobbing; sinking bow-first */}
+    <g transform={`translate(0 ${f1(sink * 340)}) rotate(${f1(bob + sink * 16)} ${f1(sx)} ${WL})`}>
+      <g>{mast(sx + 70, 210, 120)}{mast(sx - 50, 240, 140)}
+        <RG d={`M${sx + 70} ${WL - 250} L${bx - 6} ${WL - 72} L${sx + 96} ${WL - 70}Z`} mat="cloth" t={.1} draw={draw} sw={1.2} />
+        <path d={`M${sx - 50} ${WL - 298} l${f1(30 + Math.sin(tm * 6) * 4)} ${f1(6 + Math.sin(tm * 5) * 3)} l-30 10Z`} fill={VER} stroke={SEP} strokeWidth={1} />
+        <RG d={hull} mat="wood" t={.5} draw={draw} sw={2} />
+        <RG d={`M${sx - 190} ${WL - 62} L${sx - 186} ${WL - 92} L${sx - 112} ${WL - 92} L${sx - 112} ${WL - 60}Z`} mat="wood" t={.62} draw={draw} sw={1.6} />
+        {[-36, -18, 0].map((o, i) => <Line key={i} d={`M${sx - 170} ${WL + o} Q${sx} ${WL + o + 12 - i * 3} ${bx - 30 - i * 6} ${WL + o - 8}`} w={1} a={.5} />)}
+        {[-140, -90, -40, 10, 60].map((o, i) => <circle key={i} cx={sx + o} cy={WL - 38} r={5} fill="#3A2418" />)}
+        {crumple > 0 && <g opacity={cl(crumple * 3)}>
+          <path d={`M${bx} ${WL - 74} l-16 14 l12 10 l-18 12 l14 10 l-16 14 l10 12`} stroke={SEP} strokeWidth={2.4} fill="none" />
+          <path d={`M${bx - 8} ${WL - 60} l-26 6 M${bx - 10} ${WL - 30} l-30 -4 M${bx - 6} ${WL - 4} l-24 8`} stroke="#4F3020" strokeWidth={2} />
+        </g>}
+      </g>
+    </g>
+    {crumple > 0 && Array.from({ length: 12 }, (_, i) => { const c = crumple, dx = -c * (30 + rnd(i) * 150) * (rnd(i + 9) < .3 ? -.4 : 1), dy = -c * (40 + rnd(i + 2) * 120) + c * c * 140, rot = c * (rnd(i + 4) - .5) * 500;
+      return <rect key={i} x={1140 + dx} y={WL - 50 + dy + sink * 200} width={8 + rnd(i + 5) * 16} height={4} fill="#8C5A36" stroke={SEP} strokeWidth={.8} transform={`rotate(${f1(rot)} ${f1(1140 + dx)} ${f1(WL - 50 + dy)})`} opacity={1 - ph(c, .8, 1) * .5} />; })}
+    {/* the sea in front: what is under the line is under water */}
+    <rect x={-100} y={WL} width={2120} height={600} fill="#2E3E54" opacity={.74 * ph(draw, 0, .5)} />
+    <path d={`M-100 ${WL} ${Array.from({ length: 41 }, (_, i) => `Q${-100 + i * 54 + 13} ${WL - 6} ${-100 + i * 54 + 27} ${WL} T${-100 + i * 54 + 54} ${WL}`).join(' ')}`} stroke="#E8EEF0" strokeWidth={2.4} fill="none" opacity={.8 * ph(draw, .3, 1)} transform={`translate(${f1(-(tm * 20) % 54)} 0)`} />
+    {Array.from({ length: 16 }, (_, i) => { const xw = 60 + rnd(i * 3) * 1080, yw = WL + 30 + rnd(i * 5) * 360; return <path key={i} d={`M${xw} ${yw} q14 -7 28 0 t28 0`} stroke="#9AA6B0" strokeWidth={1.2} fill="none" opacity={.5} />; })}
+    {sink > 0 && Array.from({ length: 18 }, (_, i) => { const p = fr(tm * .45 + rnd(i)), bx2 = sx + (rnd(i + 3) - .3) * 260 + Math.sin(tm * 3 + i) * 6, by = WL + 40 + sink * 320 - p * (sink * 320 + 30);
+      return by > WL + 4 ? <circle key={i} cx={bx2} cy={by} r={3 + rnd(i + 7) * 9} fill="#C9DDE6" fillOpacity={.25} stroke="#E8EEF0" strokeWidth={1.4} opacity={cl(sink * 4) * (1 - p * .4)} /> : null; })}
+  </g>;
+};
+
+// ================================================================ 2. GREENLAND TENT — a canvas pyramid tent on the ice in a blizzard at dusk
+// snow 0..1 drifts against it; lamp 0..1 lights it from inside (flickers with tm); skis 0..1 a pair of crossed skis stands in a mound;
+// under 0..1 sinks the view below the snow surface (a seed lies there); root 0..1 the seed sends a tiny vermilion root.
+const GreenlandTent: React.FC<{ x?: N; y?: N; s?: N; draw?: N; snow?: N; lamp?: N; skis?: N; under?: N; root?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, snow = 0, lamp = 0, skis = 0, under = 0, root = 0, tm = 0 }) => {
+  const id = 'gtn' + Math.round(x), G = 735, lf = lamp * (.84 + .1 * Math.sin(tm * 13) * Math.sin(tm * 7.3) + .06 * Math.sin(tm * 23));
+  const A: Pt = [930, 400], L: Pt = [735, G], Rr: Pt = [1065, G], S: Pt = [1195, G - 30], sn = snow;
+  const drift = `M540 ${G + 14} C640 ${G + 10 - sn * 40} 690 ${G - sn * 165} 790 ${G - sn * 150} C880 ${G - sn * 110} 980 ${G - sn * 128} 1070 ${G - sn * 172} C1150 ${G - 20 - sn * 160} 1220 ${G - 30 - sn * 90} 1320 ${G + 10} L1320 ${G + 30} L540 ${G + 30}Z`;
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sk', [[0, '#2B3B66'], [.55, '#7F8FB4'], [1, '#E3C7BE']])}{grad(id + 'un', [[0, ICEW], [.3, '#C9DDE6'], [.75, '#7FA8C4'], [1, '#2E5C86']])}
+      <radialGradient id={id + 'gl'}><stop offset="0" stopColor="#FFD58A" stopOpacity={.9} /><stop offset="1" stopColor="#FFB860" stopOpacity={0} /></radialGradient>
+      <clipPath id={id + 'f'}><path d={pathOf([A, L, Rr], true)} /></clipPath></defs>
+    <g transform={`translate(0 ${f1(-sst(under) * 640)})`}>
+      <rect x={-100} y={-100} width={2120} height={G + 110} fill={`url(#${id}sk)`} opacity={ph(draw, 0, .5)} />
+      <path d={`M-100 ${G - 40} L200 ${G - 70} L420 ${G - 52} L700 ${G - 80} L1000 ${G - 58} L1300 ${G - 86} L1650 ${G - 60} L2020 ${G - 74} V${G + 10} H-100Z`} fill="#C9D6E2" opacity={ph(draw, .1, .6)} />
+      {/* below the surface: layered snow, bluer with depth */}
+      <rect x={-100} y={G} width={2120} height={1200} fill={`url(#${id}un)`} opacity={ph(draw, 0, .5)} />
+      {Array.from({ length: 14 }, (_, i) => { const yy = G + 40 + i * 70 + rnd(i) * 20; return <path key={i} d={`M-100 ${yy} ${Array.from({ length: 9 }, (_, j) => `Q${-100 + j * 260 + 130} ${yy + (rnd(i * 9 + j) - .5) * 26} ${-100 + j * 260 + 260} ${yy}`).join(' ')}`} stroke="#FFFFFF" strokeWidth={2} fill="none" opacity={.5} />; })}
+      {Array.from({ length: 40 }, (_, i) => <circle key={i} cx={rnd(i * 2) * 1920} cy={G + 60 + rnd(i * 3) * 1000} r={1.5 + rnd(i) * 2} fill="#FFFFFF" opacity={.6} />)}
+      <path d={`M-100 ${G} H2020`} stroke={SEP} strokeWidth={2} opacity={.7 * ph(draw, .2, 1)} />
+      {/* the seed and its root, deep in the snow */}
+      <g opacity={ph(under, .3, .8)} transform="translate(960 1338) scale(2.2) translate(-960 -1338)">
+        <ellipse cx={960} cy={1338} rx={52} ry={34} fill="#FFFFFF" opacity={.35} />
+        <path d="M938 1338 Q952 1318 978 1326 Q990 1336 978 1348 Q954 1358 938 1338Z" fill="#8C5A36" stroke={SEP} strokeWidth={1.6} />
+        <path d="M946 1336 Q960 1326 974 1332" stroke="#C99A6A" strokeWidth={2} fill="none" />
+        {root > 0 && <g><path d="M968 1350 C964 1380 976 1404 966 1432 L956 1470 L962 1500" stroke={VER} strokeWidth={3.4} fill="none" strokeLinecap="round" pathLength={1} strokeDasharray={`${root} 1`} />
+          <path d="M967 1418 L990 1446 L996 1470" stroke={VER} strokeWidth={2.4} fill="none" strokeLinecap="round" pathLength={1} strokeDasharray={`${ph(root, .5, 1)} 1`} />
+          <path d="M960 1458 L938 1480" stroke={VER} strokeWidth={2} fill="none" strokeLinecap="round" pathLength={1} strokeDasharray={`${ph(root, .7, 1)} 1`} /></g>}
+      </g>
+      {/* the ice surface */}
+      <rect x={-100} y={G - 6} width={2120} height={14} fill={ICEW} opacity={ph(draw, 0, .5)} />
+      {lf > 0 && <circle cx={920} cy={620} r={330} fill="url(#glowW)" opacity={.5 * lf} />}
+      {/* guy ropes and stakes */}
+      <Line d={`M${A[0]} ${A[1] + 6} L590 ${G + 18} M${A[0]} ${A[1] + 6} L1330 ${G + 4}`} w={1.4} a={.75 * ph(draw, .3, 1)} />
+      {[[590, G + 18], [1330, G + 4]].map(([a, b], i) => <path key={i} d={`M${a} ${b} l0 -16`} stroke="#4F3020" strokeWidth={4} />)}
+      {/* the tent: a canvas pyramid, front face and side face */}
+      <RG d={pathOf([A, Rr, S], true)} color="#BBA67E" draw={draw} sw={1.8} />
+      <RG d={pathOf([A, L, Rr], true)} color="#E6D8B6" draw={draw} sw={2} />
+      <g clipPath={`url(#${id}f)`}><rect x={700} y={380} width={400} height={400} fill="#FFB860" opacity={.62 * lf} /><circle cx={915} cy={680} r={200} fill={`url(#${id}gl)`} opacity={lf} /></g>
+      {[[930, 400, 800, G], [930, 400, 1000, G], [930, 400, 1130, G - 15]].map(([a, b, c, d2], i) => <Line key={i} d={`M${a} ${b} L${c} ${d2}`} w={.9} a={.35} />)}
+      <path d={`M884 ${G} L914 560 L946 ${G}Z`} fill={mix('#3A2A20', '#FFC870', lf)} stroke={SEP} strokeWidth={1.6} />
+      <path d={`M914 560 L930 ${G} L906 ${G}Z`} fill="#CDBB94" stroke={SEP} strokeWidth={1} opacity={.9} />
+      <circle cx={A[0]} cy={A[1] - 6} r={6} fill="#4F3020" />
+      {lf > 0 && <ellipse cx={915} cy={G + 26} rx={170} ry={30} fill="#FFB860" opacity={.35 * lf} filter="url(#b8)" />}
+      {/* the drift piles up against it */}
+      <g opacity={ph(sn, 0, .15)}><path d={drift} fill="#FFFFFF" /><Ink d={drift.split(' L1320')[0]} w={1.4} draw={draw} /></g>
+      <path d={`M700 ${G - sn * 120} Q790 ${G - sn * 140} 880 ${G - sn * 100}`} stroke="#B9C8D0" strokeWidth={4} fill="none" opacity={sn * .8} />
+      {/* skis, crossed, upright in a mound */}
+      <g opacity={ph(skis, 0, .5)} transform={`translate(0 ${f1((1 - sst(skis)) * 60)})`}>
+        {[-13, 13].map((r, i) => <g key={i} transform={`rotate(${r} 1440 640)`}>
+          <path d={`M1432 ${G + 10} L1432 470 Q1432 446 1440 440 Q1448 446 1448 470 L1448 ${G + 10}Z`} fill={i ? '#8C5A36' : '#A06A40'} stroke={SEP} strokeWidth={1.6} />
+          <Line d={`M1440 480 V${G}`} w={1} a={.4} /></g>)}
+      </g>
+      <g opacity={ph(skis, 0, .3)}><path d={`M1330 ${G + 8} Q1440 ${G - 46 - sn * 20} 1550 ${G + 8}Z`} fill="#FFFFFF" /><path d={`M1330 ${G + 4} Q1440 ${G - 50 - sn * 20} 1550 ${G + 4}`} stroke={SEP} strokeWidth={1.6} fill="none" /></g>
+      {/* the blizzard */}
+      <g opacity={ph(draw, .4, 1) * (1 - under * .7)}>{Array.from({ length: 150 }, (_, i) => { const sp = .6 + rnd(i * 3) * .8, X = fr(rnd(i) + tm * .16 * sp) * 2300 - 200, Y = fr(rnd(i + 7) + tm * .1 * sp) * 900 - 100;
+        return <path key={i} d={`M${f1(X)} ${f1(Y)} l${f1(16 * sp)} ${f1(5 * sp)}`} stroke="#FFFFFF" strokeWidth={1.4 + rnd(i + 2) * 1.6} strokeLinecap="round" opacity={.55 + rnd(i + 5) * .4} />; })}</g>
+    </g>
+  </g>;
+};
+
+// ================================================================ 3. SEA CHART — an old nautical chart: a big empty ocean, compass rose, rhumb lines, a coast at the left
+// monster 0..1 a sea-serpent doodle in the lower right; moon 0..1 an inset Moon (near side drawn, far side blank); sound 0..1 soundings along a track.
+const SeaChart: React.FC<{ x?: N; y?: N; s?: N; draw?: N; monster?: N; moon?: N; sound?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, monster = 0, moon = 0, sound = 0, tm = 0 }) => {
+  const id = 'sch' + Math.round(x), RC: Pt = [1080, 520];
+  const coast = sm([[0, 60], [210, 90], [250, 170], [200, 250], [260, 330], [310, 380], [270, 460], [220, 540], [250, 640], [330, 700], [300, 790], [240, 860], [270, 940], [230, 1020]]);
+  const track: Pt[] = [[340, 770], [600, 720], [880, 690], [1160, 700], [1420, 660], [1700, 600]];
+  const SND = [1840, 2130, 2410, 2650, 2290, 1460, 980, 1720, 2480, 2760, 2590, 2210, 1930, 2040];
+  return <g transform={TR(x, y, s)}>
+    <rect x={-100} y={-100} width={2120} height={1280} fill="#E6D6B0" opacity={ph(draw, 0, .4)} />
+    <rect x={40} y={30} width={1840} height={1020} fill="#F6EED8" opacity={ph(draw, 0, .4)} />
+    {/* the graduated border */}
+    <rect x={40} y={30} width={1840} height={1020} fill="none" stroke={SEP} strokeWidth={3} opacity={ph(draw, 0, .5)} /><rect x={58} y={48} width={1804} height={984} fill="none" stroke={SEP} strokeWidth={1.2} opacity={ph(draw, 0, .5)} />
+    {Array.from({ length: 45 }, (_, i) => i % 2 ? <rect key={i} x={58 + i * 40.1} y={30} width={40} height={18} fill={SEP} opacity={.8 * ph(draw, .2, .7)} /> : null)}
+    {Array.from({ length: 45 }, (_, i) => i % 2 ? <rect key={'b' + i} x={58 + i * 40.1} y={1032} width={40} height={18} fill={SEP} opacity={.8 * ph(draw, .2, .7)} /> : null)}
+    {Array.from({ length: 25 }, (_, i) => i % 2 ? <rect key={'r' + i} x={1862} y={48 + i * 39.4} width={18} height={39} fill={SEP} opacity={.8 * ph(draw, .2, .7)} /> : null)}
+    {/* rhumb lines from the rose */}
+    <g opacity={.5 * ph(draw, .3, .9)}>{Array.from({ length: 32 }, (_, i) => { const an = i * 11.25 * D2R; return <path key={i} d={`M${RC[0]} ${RC[1]} L${f1(RC[0] + Math.cos(an) * 2200)} ${f1(RC[1] + Math.sin(an) * 2200)}`} stroke={i % 4 === 0 ? SEP : i % 2 === 0 ? '#4F7A4A' : VER} strokeWidth={i % 4 === 0 ? 1.1 : .7} />; })}</g>
+    {/* the coast at the left edge: land, shore lines, little hills */}
+    <RG d={`M-100 -100 L0 -100 L0 60 ${coast.replace(/^M[^C]+/, 'L0 60 ')} L230 1100 L-100 1100Z`} mat="sand" t={.32} draw={draw} sw={1.8} />
+    {[10, 22, 36].map((o, i) => <path key={i} d={coast} stroke="#3E7FA3" strokeWidth={1} fill="none" opacity={.5 - i * .12} transform={`translate(${o} 0)`} />)}
+    {[[90, 300], [130, 520], [70, 720], [120, 900], [80, 160]].map(([a, b], i) => <path key={'h' + i} d={`M${a - 22} ${b} q22 -30 44 0 M${a - 6} ${b - 8} q16 -22 32 0`} stroke={SEP} strokeWidth={1.2} fill="none" opacity={.7 * ph(draw, .4, 1)} />)}
+    <rect x={480} y={110} width={460} height={110} rx={10} fill="#F6EED8" stroke={SEP} strokeWidth={2} opacity={ph(draw, .3, .8)} />
+    <rect x={492} y={122} width={436} height={86} rx={6} fill="none" stroke={SEP} strokeWidth={.8} opacity={ph(draw, .3, .8)} />
+    <Fell x={710} y={178} s={40} t="OCEANUS ATLANTICUS" sc a={ph(draw, .5, 1)} />
+    <Rose cx={RC[0]} cy={RC[1]} r={170} a={ph(draw, .3, .9)} />
+    {/* soundings along a ship's track */}
+    {sound > 0 && <g>
+      <path d={sm(track)} stroke={SEP} strokeWidth={1.4} fill="none" strokeDasharray="10 8" opacity={.8} />
+      {SND.map((v, i) => { const u = (i + .5) / SND.length, a = cl(sound * SND.length - i); if (a <= 0) return null; const j = Math.min(track.length - 2, Math.floor(u * (track.length - 1))), t = u * (track.length - 1) - j;
+        const px = lerp(track[j][0], track[j + 1][0], t), py = lerp(track[j][1], track[j + 1][1], t) + Math.sin(t * Math.PI) * 10;
+        return <g key={i} opacity={a}><circle cx={px} cy={py} r={4} fill={SEP} /><text x={px} y={py - 14} fontSize={22} fontFamily={FIG} textAnchor="middle" fill={SEP}>{v}</text></g>; })}
+    </g>}
+    {/* the Moon inset: near side drawn, far side blank paper */}
+    {moon > 0 && <g opacity={ph(moon, 0, .4)} transform={`translate(1600 250) scale(${f1(.7 + .3 * sst(moon))}) translate(-1600 -250)`}>
+      <circle cx={1600} cy={250} r={150} fill="#F6EED8" stroke={SEP} strokeWidth={3} /><circle cx={1600} cy={250} r={138} fill="none" stroke={SEP} strokeWidth={1} />
+      <path d="M1600 140 A110 110 0 0 0 1600 360Z" fill="#E4E1D8" stroke={SEP} strokeWidth={1.6} />
+      {[[1545, 200, 26, 18], [1560, 262, 30, 22], [1528, 300, 16, 12], [1575, 180, 12, 10], [1580, 322, 14, 9]].map(([a, b, c, d2], i) => <ellipse key={i} cx={a} cy={b} rx={c} ry={d2} fill="#B3AFA4" opacity={.85} />)}
+      {[[1540, 236, 5], [1586, 220, 4], [1566, 300, 6]].map(([a, b, c], i) => <circle key={'k' + i} cx={a} cy={b} r={c} fill="none" stroke={SEP} strokeWidth={.8} />)}
+      <path d="M1600 140 A110 110 0 0 1 1600 360" stroke={SEP} strokeWidth={1.6} fill="none" strokeDasharray="8 7" />
+      <Line d="M1600 140 V360" w={1} a={.6} />
+      <text x={1655} y={268} fontSize={56} fontFamily="'La Belle Aurore', cursive" textAnchor="middle" fill={SEP} opacity={.7}>?</text>
+    </g>}
+    {/* the sea monster, in the corner */}
+    {monster > 0 && <g transform={`translate(0 ${f1(Math.sin(tm * 1.4) * 3)})`}>
+      {[[1440, 900, 46], [1540, 880, 52], [1640, 900, 40]].map(([a, b, r], i) => <path key={i} d={`M${a - r} ${b} Q${a} ${b - r * 1.6} ${a + r} ${b}Z`} fill="#7E9A7A" opacity={ph(monster, .3, .9)} stroke="none" />)}
+      <Ink d="M1394 900 Q1440 826 1486 900 M1488 880 Q1540 798 1592 880 M1600 900 Q1640 836 1680 900" w={2} draw={monster} />
+      <path d="M1700 900 Q1720 820 1770 800 Q1810 790 1830 812 L1806 822 L1826 834 Q1800 836 1782 828 Q1748 840 1736 900Z" fill="#7E9A7A" stroke={SEP} strokeWidth={2} opacity={ph(monster, .4, 1)} />
+      <path d="M1744 812 l-10 -26 l18 14 l4 -24 l12 22 l10 -18 l4 22" stroke={SEP} strokeWidth={1.6} fill={VER} fillOpacity={.6} opacity={ph(monster, .5, 1)} />
+      <circle cx={1792} cy={808} r={4} fill={SEP} opacity={ph(monster, .6, 1)} />
+      <path d="M1390 905 q-30 -40 -10 -70 q10 -10 18 2" stroke={SEP} strokeWidth={2} fill="none" pathLength={1} strokeDasharray={`${ph(monster, .3, 1)} 1`} />
+      <Ink d={`M1360 912 ${Array.from({ length: 10 }, (_, i) => `q20 -10 40 0`).join(' ')}`} w={1.4} draw={monster} />
+    </g>}
+  </g>;
+};
+
+// ================================================================ 4. SURVEY SHIP — a 1950s oceanographic research ship, side view, the sea cut away below
+// sail 0..1 carries it 900 px left→right; ping 0..1 sends three sonar pulses down to the floor; cable 0..1 pays out the tow cable with the
+// magnetometer "fish"; xray 0..1 opens the fish (and enlarges it) to show the compass needle inside; needle −1..1 swings it.
+const SurveyShip: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sail?: N; ping?: N; cable?: N; xray?: N; needle?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, sail = 0, ping = 0, cable = 0, xray = 0, needle = 0, tm = 0 }) => {
+  const id = 'svs' + Math.round(x), SL = 420, sx = 330 + sail * 900, bob = Math.sin(tm * 1.5) * 1.6;
+  const floor = Array.from({ length: 25 }, (_, i) => [-100 + i * 90, 960 + Math.sin(i * 1.3) * 30 + rnd(i) * 40 - (i > 10 && i < 15 ? 60 : 0)] as Pt);
+  const C0: Pt = [sx - 252, SL - 150], cb = sst(cable), F: Pt = [sx - 200 - cb * 260, SL + 60 + cb * 330], hullB: Pt = [sx + 40, SL + 36];
+  const xr = sst(xray), fs = 1 + xr * 1.8, nAng = needle * 70 + Math.sin(tm * 21) * 3 * xr;
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sk', [[0, '#B9C8D0'], [1, '#E6EAE8']])}{grad(id + 'sea', [[0, '#4A88AE'], [.5, '#22507A'], [1, '#0E2A48']])}</defs>
+    <rect x={-100} y={-100} width={2120} height={SL + 100} fill={`url(#${id}sk)`} opacity={ph(draw, 0, .5)} />
+    <rect x={-100} y={SL} width={2120} height={800} fill={`url(#${id}sea)`} opacity={ph(draw, 0, .5)} />
+    {Array.from({ length: 50 }, (_, i) => <circle key={i} cx={rnd(i * 4) * 1920} cy={SL + 40 + rnd(i * 7) * 520} r={1 + rnd(i) * 1.5} fill="#C9DDE6" opacity={.35} />)}
+    <RG d={`M-100 1200 L${floor.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L')} L2020 1200Z`} color="#7E6E58" draw={draw} sw={1.8} />
+    {/* sonar pulses */}
+    {[0, 1, 2].map(j => { const p = ping * 3 - j; if (p <= 0 || p >= 1) return null; const rr2 = p * 560;
+      return <g key={j}><path d={`M${f1(hullB[0] - rr2 * .9)} ${hullB[1]} A${f1(rr2 * .9)} ${f1(rr2)} 0 0 0 ${f1(hullB[0] + rr2 * .9)} ${hullB[1]}`} stroke="#CDEBF5" strokeWidth={3} fill="none" opacity={(1 - p) * .9} />
+        {p > .85 && <ellipse cx={hullB[0]} cy={hullB[1] + 540} rx={160} ry={16} fill="#CDEBF5" opacity={(p - .85) * 4} filter="url(#b8)" />}</g>; })}
+    {/* the tow cable and the magnetometer fish */}
+    {cable > 0 && <g>
+      <path d={`M${f1(C0[0])} ${f1(C0[1])} C${f1(C0[0] - 60)} ${SL + 10} ${f1(F[0] + 160)} ${f1(F[1] - 40)} ${f1(F[0] + 60)} ${f1(F[1])}`} stroke="#2B1D12" strokeWidth={2.4} fill="none" pathLength={1} strokeDasharray={`${cl(cable * 2.5)} 1`} />
+      <g opacity={ph(cable, .2, .5)} transform={`translate(${f1(F[0])} ${f1(F[1])}) scale(${f1(fs)}) translate(${f1(-F[0])} ${f1(-F[1])})`}>
+        <path d={`M${F[0] - 70} ${F[1] - 6} l-22 -18 l6 24 l-6 24 l22 -18Z`} fill="#C9902E" stroke={SEP} strokeWidth={1.4} />
+        {/* lower half of the casing (fixed) + cavity */}
+        <path d={`M${F[0] - 72} ${F[1]} L${F[0] + 40} ${F[1]} Q${F[0] + 66} ${F[1]} ${F[0] + 66} ${F[1]} Q${F[0] + 62} ${F[1] + 18} ${F[0] + 36} ${F[1] + 18} L${F[0] - 66} ${F[1] + 18} Q${F[0] - 74} ${F[1] + 10} ${F[0] - 72} ${F[1]}Z`} fill="#E8B84A" stroke={SEP} strokeWidth={1.6} />
+        {xr > 0 && <g opacity={ph(xray, 0, .3)}>
+          <path d={`M${F[0] - 64} ${F[1]} L${F[0] + 50} ${F[1]} L${F[0] + 44} ${F[1] + 12} L${F[0] - 60} ${F[1] + 12}Z`} fill="#3A2418" />
+          <ellipse cx={F[0]} cy={F[1] + 2} rx={22} ry={10} fill="#FBF4E2" stroke={GOLD} strokeWidth={2} />
+          <g transform={`translate(${F[0]} ${F[1] + 2}) scale(1 .45) rotate(${f1(nAng)})`}><path d="M0 -19 L4 0 L-4 0Z" fill={VER} /><path d="M0 19 L4 0 L-4 0Z" fill="#2E5C86" /></g>
+          <circle cx={F[0]} cy={F[1] + 2} r={2} fill={GOLD} />
+          {[-40, -26, 26, 40].map((o, i) => <path key={i} d={`M${F[0] + o} ${F[1] + 4} h4 v6 h-4Z`} fill="#8C6420" />)}
+        </g>}
+        {/* the upper half of the casing, hinged at the tail */}
+        <g transform={`rotate(${f1(-xr * 38)} ${F[0] - 72} ${F[1]})`}>
+          <path d={`M${F[0] - 72} ${F[1]} Q${F[0] - 72} ${F[1] - 18} ${F[0] - 60} ${F[1] - 18} L${F[0] + 36} ${F[1] - 18} Q${F[0] + 62} ${F[1] - 18} ${F[0] + 66} ${F[1]}Z`} fill="#F0C860" stroke={SEP} strokeWidth={1.6} />
+          <path d={`M${F[0] - 50} ${F[1] - 12} H${F[0] + 30}`} stroke="#FFF4D2" strokeWidth={3} opacity={.7} />
+        </g>
+      </g>
+    </g>}
+    {/* the ship */}
+    <g transform={`rotate(${f1(bob)} ${f1(sx)} ${SL})`}>
+      <path d={`M${sx - 252} ${SL - 150} L${sx - 220} ${SL - 40} M${sx - 252} ${SL - 150} L${sx - 175} ${SL - 40}`} stroke="#5A5650" strokeWidth={6} />
+      <Line d={`M${sx - 262} ${SL - 156} L${sx - 200} ${SL - 140}`} w={5} col="#5A5650" a={1} />
+      <RG d={rr(sx - 70, SL - 104, 170, 66, 4)} color="#F4F2EA" draw={draw} sw={1.6} />
+      <RG d={rr(sx - 30, SL - 148, 112, 46, 4)} color="#F4F2EA" draw={draw} sw={1.6} />
+      {[0, 1, 2, 3].map(i => <rect key={i} x={sx - 20 + i * 26} y={SL - 138} width={18} height={14} fill="#3A4A6A" stroke={SEP} strokeWidth={.8} />)}
+      <RG d={`M${sx - 52} ${SL - 104} L${sx - 44} ${SL - 182} L${sx - 4} ${SL - 182} L${sx - 2} ${SL - 104}Z`} color="#D9B57A" draw={draw} sw={1.6} />
+      <path d={`M${sx - 44} ${SL - 182} L${sx - 4} ${SL - 182} L${sx - 5} ${SL - 166} L${sx - 46} ${SL - 166}Z`} fill="#2B1D12" />
+      <Line d={`M${sx + 120} ${SL - 40} V${SL - 220} M${sx + 98} ${SL - 196} H${sx + 142}`} w={3.4} col="#4A4440" a={1} />
+      <path d={`M${sx + 108} ${SL - 222} h24 v-8 h-24Z`} fill="#4A4440" />
+      <Line d={`M${sx + 120} ${SL - 220} L${sx + 228} ${SL - 62} M${sx + 120} ${SL - 220} L${sx - 4} ${SL - 182}`} w={1} a={.6} />
+      <RG d={`M${sx - 225} ${SL - 40} L${sx + 175} ${SL - 40} Q${sx + 218} ${SL - 44} ${sx + 238} ${SL - 66} L${sx + 204} ${SL + 30} Q${sx} ${SL + 42} ${sx - 200} ${SL + 32} L${sx - 225} ${SL - 40}Z`} color="#F4F2EA" draw={draw} sw={2} />
+      <path d={`M${sx - 212} ${SL - 4} L${sx + 219} ${SL - 4} L${sx + 212} ${SL + 14} Q${sx} ${SL + 26} ${sx - 205} ${SL + 18}Z`} fill="#8C3424" opacity={.9} />
+      <Line d={`M${sx - 222} ${SL - 30} L${sx + 190} ${SL - 30}`} w={1} a={.5} />
+      {[-180, -140, -100, -60, 120, 150].map((o, i) => <circle key={i} cx={sx + o} cy={SL - 22} r={4.5} fill="#3A4A6A" stroke={SEP} strokeWidth={.8} />)}
+    </g>
+    <rect x={-100} y={SL} width={2120} height={60} fill="#22507A" opacity={.35} />
+    <path d={`M-100 ${SL} ${Array.from({ length: 41 }, (_, i) => `Q${-100 + i * 54 + 13} ${SL - 5} ${-100 + i * 54 + 27} ${SL} T${-100 + i * 54 + 54} ${SL}`).join(' ')}`} stroke="#E8EEF0" strokeWidth={2} fill="none" opacity={.85 * ph(draw, .3, 1)} transform={`translate(${f1(-(tm * 24) % 54)} 0)`} />
+    <path d={`M${sx - 230} ${SL + 2} q-60 6 -140 2 M${sx + 236} ${SL - 2} q30 6 60 2`} stroke="#FFFFFF" strokeWidth={3} fill="none" opacity={.7 * cl(sail * 20)} />
+  </g>;
+};
+
+// ================================================================ 5. PEN RECORDER — a paper chart recorder on a ship's bench: a pen on a swinging arm, paper scrolling, a wiggly ink line
+// k 0..1 how much line has been drawn (the paper scrolls left, the trace runs on); spill 0..1 the paper spills off the bench onto a chart below.
+const PenRecorder: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; spill?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, k = 0, spill = 0, tm = 0 }) => {
+  const id = 'pen' + Math.round(x), Lp = k * 1400, PX = 1090, PY = 460, WX0 = 640, WX1 = 1250, WY0 = 330, WY1 = 590;
+  const sig = (u: N) => { const env = .45 + .55 * cl(u / 700); return env * (58 * Math.sin(u / 41) + 30 * Math.sin(u / 13.7 + 1) + 26 * Math.tanh(4 * Math.sin(u / 97))); };
+  const tip: Pt = [PX, PY + sig(Lp)], piv: Pt = [1330, 460];
+  const trace: Pt[] = []; for (let u = Math.max(0, Lp - (PX - WX0)); u <= Lp; u += 3) trace.push([PX - (Lp - u), PY + sig(u)]);
+  const ribbon = `M${WX0 - 20} 470 C560 476 520 530 520 600 C520 660 490 694 430 696 L260 696 C226 696 214 704 214 736 L214 900 C214 980 260 1000 360 992 C470 984 520 1010 640 1004 C760 998 820 1012 900 1000`;
+  return <g transform={TR(x, y, s)}>
+    <defs><clipPath id={id + 'w'}><rect x={WX0} y={WY0} width={WX1 - WX0} height={WY1 - WY0} /></clipPath></defs>
+    {/* the cabin wall: painted steel, rivets, a porthole */}
+    <rect x={-100} y={-100} width={2120} height={900} fill="#B8C2B0" opacity={ph(draw, 0, .5)} />
+    {Array.from({ length: 30 }, (_, i) => <circle key={i} cx={20 + i * 66} cy={90} r={4} fill="#8A9484" opacity={ph(draw, .3, .8)} />)}
+    <Line d="M-100 100 H2020" w={2} a={.4} />
+    <circle cx={1640} cy={260} r={124} fill="url(#gold)" stroke={SEP} strokeWidth={2.4} opacity={ph(draw, .1, .6)} />
+    <circle cx={1640} cy={260} r={98} fill="#7FA8C4" stroke={SEP} strokeWidth={2} opacity={ph(draw, .1, .6)} />
+    <path d={`M1544 ${270 + Math.sin(tm * .9) * 18} Q1640 ${262 + Math.sin(tm * .9) * 18} 1736 ${254 + Math.sin(tm * .9) * 18} L1736 360 L1544 360Z`} fill="#22507A" opacity={.85 * ph(draw, .2, .7)} />
+    <path d="M1590 200 q30 -24 70 -18" stroke="#FFFFFF" strokeWidth={6} fill="none" opacity={.5} />
+    {/* the chart on the floor, under the bench */}
+    <rect x={-100} y={800} width={2120} height={400} fill="#6A5444" opacity={ph(draw, 0, .5)} />
+    <g opacity={ph(draw, .2, .7)}><path d="M120 880 L1500 860 L1560 1100 L60 1100Z" fill="#F1E6CA" stroke={SEP} strokeWidth={1.6} />
+      {Array.from({ length: 9 }, (_, i) => <Line key={i} d={`M${130 + i * 170} 878 L${70 + i * 186} 1100`} w={.6} col="#3E7FA3" a={.5} />)}
+      {Array.from({ length: 4 }, (_, i) => <Line key={'h' + i} d={`M${110 - i * 14} ${900 + i * 55} L${1505 + i * 14} ${878 + i * 58}`} w={.6} col="#3E7FA3" a={.5} />)}
+      <path d="M1300 862 Q1340 940 1300 1000 Q1290 1050 1340 1100 L1560 1100 L1500 860Z" fill="#E2CF94" stroke={SEP} strokeWidth={1.2} /></g>
+    {/* the bench */}
+    <RG d="M180 686 H1760 V722 H180Z" mat="wood" t={.45} draw={draw} sw={1.8} />
+    <RG d="M200 722 H236 V880 H200Z M1700 722 H1736 V880 H1700Z" mat="wood" t={.7} draw={draw} sw={1.4} />
+    {/* the paper ribbon: out of the machine, across the bench, over the edge and onto the chart */}
+    <g opacity={ph(draw, .4, 1)}>
+      <path d={ribbon} stroke={SEP} strokeWidth={66} fill="none" pathLength={1} strokeDasharray={`${.27 + .73 * spill} 1`} strokeLinecap="butt" />
+      <path d={ribbon} stroke="#FBF4E2" strokeWidth={62} fill="none" pathLength={1} strokeDasharray={`${.27 + .73 * spill} 1`} strokeLinecap="butt" />
+      <path d={ribbon} stroke={IND} strokeWidth={1.8} fill="none" pathLength={1} strokeDasharray={`${(.27 + .73 * spill) * .98} 1`} opacity={.7} transform="translate(0 6)" />
+    </g>
+    {/* the recorder housing */}
+    <RG d={rr(560, 250, 840, 430, 18)} color="#7E8C7A" draw={draw} sw={2.2} />
+    <RG d={rr(600, 300, 690, 320, 8)} color="#4A5448" draw={draw} sw={1.6} />
+    {[[580, 270], [1380, 270], [580, 660], [1380, 660]].map(([a, b], i) => <circle key={i} cx={a} cy={b} r={6} fill="#5A6658" stroke={SEP} strokeWidth={1} />)}
+    <circle cx={1350} cy={620} r={16} fill="#2B2620" stroke={SEP} strokeWidth={1.4} /><Line d="M1350 620 l8 -10" w={2.4} col="#E8EEF0" a={1} />
+    <circle cx={1310} cy={620} r={8} fill={VER} opacity={.6 + .4 * Math.abs(Math.sin(tm * 3))} />
+    {/* the paper in the window: graph paper scrolling left */}
+    <g clipPath={`url(#${id}w)`}>
+      <rect x={WX0} y={WY0} width={WX1 - WX0} height={WY1 - WY0} fill="#FBF4E2" />
+      {Array.from({ length: 22 }, (_, i) => { const gx = WX1 - fr((i * 30 + Lp) / 660) * 660; return <Line key={i} d={`M${f1(gx)} ${WY0} V${WY1}`} w={i % 5 === 0 ? 1.1 : .5} col="#5F8A5A" a={.5} />; })}
+      {Array.from({ length: 9 }, (_, i) => <Line key={'h' + i} d={`M${WX0} ${WY0 + 10 + i * 30} H${WX1}`} w={i === 4 ? 1.1 : .5} col="#5F8A5A" a={.5} />)}
+      {trace.length > 1 && <path d={pathOf(trace)} stroke={IND} strokeWidth={2.6} fill="none" strokeLinejoin="round" />}
+    </g>
+    <Ink d={rr(WX0, WY0, WX1 - WX0, WY1 - WY0, 2)} w={1.6} draw={draw} />
+    {/* the supply roll at the right of the window */}
+    <RG d={rr(1252, 318, 46, 284, 20)} color="#EFE6CC" draw={draw} sw={1.6} />
+    <Line d="M1262 330 V590 M1276 330 V590" w={.7} a={.5} />
+    {/* the pen on its swinging arm */}
+    <path d={`M${f1(piv[0])} ${piv[1]} L${f1(tip[0] + 22)} ${f1(tip[1])}`} stroke="#3A3A3A" strokeWidth={5} strokeLinecap="round" />
+    <path d={`M${f1(piv[0])} ${piv[1]} L${f1(tip[0] + 22)} ${f1(tip[1])}`} stroke="#C9C6BE" strokeWidth={2} strokeLinecap="round" />
+    <circle cx={piv[0]} cy={piv[1]} r={18} fill="#5A5650" stroke={SEP} strokeWidth={1.6} /><circle cx={piv[0]} cy={piv[1]} r={6} fill={GOLD} />
+    <path d={`M${f1(tip[0] + 30)} ${f1(tip[1] - 10)} L${f1(tip[0] + 6)} ${f1(tip[1] - 6)} L${f1(tip[0])} ${f1(tip[1])} L${f1(tip[0] + 6)} ${f1(tip[1] + 6)} L${f1(tip[0] + 30)} ${f1(tip[1] + 10)}Z`} fill="#2E3E66" stroke={SEP} strokeWidth={1.2} />
+    <circle cx={tip[0]} cy={tip[1]} r={2.6} fill={IND} />
+    {/* paper exit slot */}
+    <rect x={548} y={440} width={24} height={60} fill="#2B2620" />
+  </g>;
+};
+
+// ================================================================ 6. STRIPE FLOOR — the ocean floor from above: the ridge down the middle, symmetric magnetic stripes
+// k 0..1 fills the bands outward; piano 0..1 a keyboard echo below (same rhythm); pair 0..5 lights twin pairs in gold; fold 0..1 folds the
+// right half over onto the left along the ridge (stripes land on their twins, vermilion flash at 1); wing 0..1 the halves become butterfly
+// wings that beat (tm).
+const SW = [32, 34, 20, 50, 16, 38, 26, 62, 18, 44, 30, 70, 22, 52, 36, 80, 24, 58, 30, 66];   // half-width of the centre band, then each band outward (px)
+const SB = (() => { const o: [N, N][] = [[0, SW[0]]]; let a = SW[0]; for (let i = 1; i < SW.length; i++) { o.push([a, a + SW[i]]); a += SW[i]; } return o; })();
+const StripeFloor: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; piano?: N; pair?: N; fold?: N; wing?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, k = 0, piano = 0, pair = 0, fold = 0, wing = 0, tm = 0 }) => {
+  const id = 'stf' + Math.round(x);
+  const rx = (yy: N) => 960 + 40 * sst((yy - 297) / 6) - 74 * sst((yy - 697) / 6) + 2 * Math.sin(yy / 61);
+  const beat = 1 - wing * .42 * (.5 + .5 * Math.sin(tm * Math.PI * 2 * .7));
+  const fR = (1 - 2 * sst(fold)) * beat, fL = beat, Ys = [...Array.from({ length: 41 }, (_, i) => -40 + i * 29), 296, 304, 696, 704].sort((p, q) => p - q);
+  const band = (d0: N, d1: N, f: N, sd: N) => 'M' + Ys.map(yy => `${f1(rx(yy) + sd * d0 * f)} ${f1(yy)}`).join(' L') + ' L' + [...Ys].reverse().map(yy => `${f1(rx(yy) + sd * d1 * f)} ${f1(yy)}`).join(' L') + 'Z';
+  // the wing outline (in ridge coordinates, polar about the ridge centre) morphing from the full half-rectangle
+  const wingClip = (sd: N, f: N) => { const pts: Pt[] = []; for (let a = -90; a <= 90; a += 3) { const t = a * D2R, rRect = Math.min(1100 / Math.max(.001, Math.cos(t)), 640 / Math.max(.001, Math.abs(Math.sin(t))));
+      const rW = Math.max(36, 720 * Math.exp(-(((a + 38) / 30) ** 2)) + 520 * Math.exp(-(((a - 44) / 26) ** 2))), r = lerp(rRect, rW, sst(wing)), yy = 540 + Math.sin(t) * r;
+      pts.push([rx(yy) + sd * Math.cos(t) * r * f, yy]); } return 'M' + pts.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + 'Z'; };
+  const n = SB.length, nb = (i: N) => i % 2 === 0;   // band 0 (straddling the ridge) is normal: gold
+  const half = (sd: N, f: N) => <g clipPath={wing > 0 ? `url(#${id}${sd > 0 ? 'R' : 'L'})` : undefined}>
+    <path d={band(0, 1150, f, sd)} fill="#1C2650" />
+    {SB.map(([d0, d1], i) => { const a = cl(k * n * 1.05 - i); if (a <= 0) return null; const p = cl(pair - (i - 1)), lit = i >= 1 && i <= 5 ? p : 0;
+      return <g key={i} opacity={a}><path d={band(d0, d1, f, sd)} fill={nb(i) ? mix(GOLD, GOLDL, lit * .6) : mix('#2B3B66', '#5A6E9A', lit * .5)} stroke={SEP} strokeWidth={.8} />
+        {lit > 0 && <path d={band(d0, d1, f, sd)} fill="none" stroke="#FFF4D2" strokeWidth={5} opacity={lit} filter="url(#b2s)" />}</g>; })}
+  </g>;
+  return <g transform={TR(x, y, s)}>
+    <defs><clipPath id={id + 'R'}><path d={wingClip(1, fR)} /></clipPath><clipPath id={id + 'L'}><path d={wingClip(-1, fL)} /></clipPath></defs>
+    <rect x={-100} y={-100} width={2120} height={1280} fill={IND2} opacity={ph(draw, 0, .5)} />
+    <g opacity={ph(draw, .1, .7)}>
+      {half(-1, fL)}
+      {half(1, fR)}
+      {fold > 0 && fold < 1 && <path d={band(0, 1150, fR, 1)} fill="#000" opacity={.35 * Math.sin(sst(fold) * Math.PI)} />}
+      {/* fracture zones across the floor */}
+      {wing < .5 && [300, 700].map(yy => <Line key={yy} d={`M-100 ${yy + 25} H2020`} w={1.2} col="#9CA8C8" a={.35 * (1 - wing * 2)} />)}
+      {/* the ridge: a raised rugged seam */}
+      <g opacity={1 - wing}>
+        <path d={'M' + Ys.map((yy, i) => `${f1(rx(yy) + (i % 2 ? 5 : -5))} ${f1(yy)}`).join(' L')} stroke={VER} strokeWidth={9} fill="none" strokeLinejoin="round" />
+        <path d={'M' + Ys.map((yy, i) => `${f1(rx(yy) + (i % 2 ? 5 : -5))} ${f1(yy)}`).join(' L')} stroke={SEP} strokeWidth={2} fill="none" strokeLinejoin="round" />
+        {Ys.map((yy, i) => <path key={i} d={`M${f1(rx(yy) - 8)} ${yy} l-12 6 M${f1(rx(yy) + 8)} ${yy} l12 6`} stroke={SEP} strokeWidth={1.2} />)}
+      </g>
+      {fold > .85 && <g opacity={ph(fold, .85, 1)}><path d={'M' + Ys.map(yy => `${f1(rx(yy))} ${f1(yy)}`).join(' L')} stroke={VER} strokeWidth={8} fill="none" />
+        <path d={'M' + Ys.map(yy => `${f1(rx(yy))} ${f1(yy)}`).join(' L')} stroke="#FFD9B0" strokeWidth={26} fill="none" opacity={.5} filter="url(#b8)" /></g>}
+      {/* the butterfly's body and antennae */}
+      {wing > 0 && <g opacity={sst(wing)}>
+        <ellipse cx={rx(540)} cy={560} rx={22} ry={250} fill="#2B1D12" stroke={SEP} strokeWidth={2} />
+        {Array.from({ length: 9 }, (_, i) => <Line key={i} d={`M${f1(rx(540) - 20)} ${420 + i * 34} q20 8 40 0`} w={1.4} col="#8C6E4A" a={.8} />)}
+        <circle cx={rx(300)} cy={292} r={26} fill="#2B1D12" />
+        <path d={`M${f1(rx(300) - 8)} 270 Q${f1(rx(300) - 60)} 160 ${f1(rx(300) - 110)} 130 M${f1(rx(300) + 8)} 270 Q${f1(rx(300) + 60)} 160 ${f1(rx(300) + 110)} 130`} stroke="#2B1D12" strokeWidth={4} fill="none" />
+        <circle cx={rx(300) - 112} cy={128} r={8} fill="#2B1D12" /><circle cx={rx(300) + 112} cy={128} r={8} fill="#2B1D12" />
+      </g>}
+    </g>
+    {/* the piano keyboard echo, same rhythm: gold = white key, indigo = black key */}
+    {piano > 0 && <g opacity={sst(piano)} transform={`translate(0 ${f1((1 - sst(piano)) * 60)})`}>
+      <rect x={-100} y={850} width={2120} height={34} fill="#4F3020" stroke={SEP} strokeWidth={2} />
+      <rect x={-100} y={884} width={2120} height={200} fill="#FBF4E2" stroke={SEP} strokeWidth={2} />
+      {[-1, 1].map(sd => SB.map(([d0, d1], i) => { const xa = 960 + sd * d0, xb = 960 + sd * d1, lo = Math.min(xa, xb), w = Math.abs(xb - xa);
+        return nb(i) ? <Line key={sd + '_' + i} d={`M${f1(lo)} 884 V1084`} w={1.6} a={.8} /> : <rect key={sd + '_' + i} x={lo + 2} y={884} width={Math.max(4, w - 4)} height={120} rx={3} fill="#1A1410" stroke={SEP} strokeWidth={1} />; }))}
+    </g>}
+  </g>;
+};
+
+// ================================================================ 7. RIDGE GLOBE — the globe with the mid-ocean ridge as a vermilion seam (stitched like a ball's seam)
+// k 0..1 draws the ridge on (Atlantic first); spin: rotation in turns (continuous).
+const seamStitches = (R: Pt[][], every = 3, len = 9) => R.map((run, j) => run.map((p, i) => { if (i % every || i === 0 || i >= run.length - 1) return null; const a = run[i - 1], b = run[i + 1], dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1, nx = -dy / l, ny = dx / l, tx = dx / l * 4, ty = dy / l * 4;
+  return <path key={j + '_' + i} d={`M${f1(p[0] + nx * len - tx)} ${f1(p[1] + ny * len - ty)} L${f1(p[0] + tx)} ${f1(p[1] + ty)} L${f1(p[0] - nx * len - tx)} ${f1(p[1] - ny * len - ty)}`} stroke="#FFF4D2" strokeWidth={2} fill="none" strokeLinecap="round" />; }));
+const RidgeGlobe: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; spin?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, k = 0, spin = 0 }) => {
+  const id = 'rgl' + Math.round(x), g: GV = { cx: 960, cy: 540, r: 420, lo0: -28 + spin * 360, la0: 14 };
+  const R = cutK(RIDGES, k).flatMap(L => gRuns(L, g));
+  const stars = useMemo(() => starField(41, 120, -100, -100, 2120, 1280, 2.2), []);
+  return <g transform={TR(x, y, s)}>
+    <rect x={-100} y={-100} width={2120} height={1280} fill={IND2} opacity={ph(draw, 0, .4)} />
+    {stars.map(([a, b, r], i) => <circle key={i} cx={a} cy={b} r={r * .7} fill="#FFF4D2" opacity={.5 * ph(draw, .3, .8)} />)}
+    <circle cx={960} cy={540} r={440} fill="#7FA8C4" opacity={.18} filter="url(#b8)" />
+    <GlobeBody g={g} id={id} draw={draw} sea={['#2E4A86', '#141C38']} land={LAND} />
+    <defs><clipPath id={id + 'k'}><circle cx={960} cy={540} r={420} /></clipPath></defs>
+    <g clipPath={`url(#${id}k)`}>
+      <path d={runsPath(R)} stroke="#FFB08A" strokeWidth={16} fill="none" opacity={.35} filter="url(#b8)" />
+      <path d={runsPath(R)} stroke={VER} strokeWidth={6} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      {seamStitches(R)}
+    </g>
+  </g>;
+};
+
+// ================================================================ 8. CAMBRIDGE — a 1963 Cambridge study: desk, anglepoise lamp, the striped magnetic chart, a tea mug,
+// a Gothic window with the college chapel's pinnacles at dusk. lamp 0..1. Room left and right of the desk for two standing figures.
+const Cambridge: React.FC<{ x?: N; y?: N; s?: N; draw?: N; lamp?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, lamp = 0, tm = 0 }) => {
+  const id = 'cam' + Math.round(x);
+  const Q = (u: N, v: N): Pt => { const xb = lerp(722, 1198, u), xf = lerp(640, 1280, u); return [lerp(xb, xf, v), lerp(662, 754, v)]; };
+  const bands = SB.slice(0, 9);
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sk', [[0, '#3A4A7A'], [.6, '#9A8AA8'], [1, '#E8B898']])}
+      <radialGradient id={id + 'lg'}><stop offset="0" stopColor="#FFE6A8" stopOpacity={.85} /><stop offset="1" stopColor="#FFE6A8" stopOpacity={0} /></radialGradient>
+      <clipPath id={id + 'win'}><path d="M760 560 V250 Q760 120 960 96 Q1160 120 1160 250 V560Z" /></clipPath></defs>
+    {/* walls: plaster above, oak panelling below */}
+    <rect x={-100} y={-100} width={2120} height={720} fill="#D8C8A2" opacity={ph(draw, 0, .5)} />
+    <RG d="M-100 600 H2020 V1180 H-100Z" mat="wood" t={.62} draw={draw} sw={1.4} />
+    {Array.from({ length: 9 }, (_, i) => <rect key={i} x={-60 + i * 240} y={640} width={200} height={360} rx={4} fill="none" stroke={SEP} strokeWidth={1.4} opacity={.5 * ph(draw, .3, 1)} />)}
+    <Line d="M-100 600 H2020" w={3} a={.8} />
+    {/* the window: Gothic arch, leaded panes, the chapel at dusk */}
+    <g clipPath={`url(#${id}win)`}>
+      <rect x={740} y={80} width={440} height={500} fill={`url(#${id}sk)`} />
+      <path d="M760 420 H850 V300 L858 250 L866 300 V420 H1060 V300 L1068 250 L1076 300 V420 H1160 V560 H760Z" fill="#2B2E48" />
+      {[880, 920, 960, 1000, 1040].map((a, i) => <path key={i} d={`M${a} 420 V380 L${a + 5} 362 L${a + 10} 380 V420`} fill="#2B2E48" />)}
+      <path d="M850 420 L1068 420 L1060 380 L858 380Z" fill="#2B2E48" />
+      {[[880, 395], [940, 395], [1000, 395]].map(([a, b], i) => <rect key={'w' + i} x={a} y={b} width={10} height={18} fill="#F3D88E" opacity={.7} />)}
+      {Array.from({ length: 12 }, (_, i) => <Line key={'l' + i} d={`M${700 + i * 50} 80 l200 500 M${700 + i * 50} 80 l-200 500`} w={.6} col="#3A2418" a={.35} />)}
+    </g>
+    <Ink d="M760 560 V250 Q760 120 960 96 Q1160 120 1160 250 V560Z" w={3} draw={draw} />
+    <path d="M960 100 V560 M760 330 H1160" stroke="#6A4430" strokeWidth={9} fill="none" opacity={ph(draw, .2, .8)} />
+    <RG d="M730 560 H1190 V586 H730Z" color="#B8A27A" draw={draw} sw={1.6} />
+    {/* the desk */}
+    <RG d="M700 650 H1220 L1320 770 H600Z" mat="wood" t={.48} draw={draw} sw={2} />
+    <RG d="M600 770 H1320 V816 H600Z" mat="wood" t={.66} draw={draw} sw={1.8} />
+    <RG d="M620 816 H670 V1060 H620Z M1250 816 H1300 V1060 H1250Z" mat="wood" t={.72} draw={draw} sw={1.6} />
+    <rect x={880} y={782} width={160} height={22} rx={4} fill="none" stroke={SEP} strokeWidth={1.2} /><circle cx={960} cy={793} r={4} fill={GOLD} />
+    {/* the striped magnetic chart spread on the desk (stripes parallel to the ridge, symmetric) */}
+    <g opacity={ph(draw, .3, .9)}>
+      <path d={pathOf([Q(0, 0), Q(1, 0), Q(1, 1), Q(0, 1)], true)} fill="#F1E6CA" stroke={SEP} strokeWidth={1.4} />
+      {[-1, 1].map(sd => bands.map(([d0, d1], i) => { const u0 = .5 + sd * d0 / 680, u1 = .5 + sd * d1 / 680; if (u1 < .04 || u1 > .96) return null;
+        return <path key={sd + '_' + i} d={pathOf([Q(u0, .06), Q(u1, .06), Q(u1, .94), Q(u0, .94)], true)} fill={i % 2 ? '#2B3B66' : GOLD} opacity={.9} />; }))}
+      <path d={pathOf([Q(.5, .04), Q(.5, .96)])} stroke={VER} strokeWidth={2.6} />
+    </g>
+    {/* papers and books at the right of the desk */}
+    <RG d="M1120 628 H1210 V650 H1120Z" color="#5A6E9A" draw={draw} sw={1.2} /><RG d="M1126 610 H1200 V628 H1126Z" color={VER} draw={draw} sw={1.2} />
+    {/* the tea mug and its steam */}
+    <g opacity={ph(draw, .4, 1)} transform="translate(-86 50)">
+      <path d="M716 668 v-3 h-8 v40 q0 10 10 10 h38 q10 0 10 -10 v-40 h-8 v3Z" fill="none" />
+      <path d="M706 662 h62 v44 q0 12 -12 12 h-38 q-12 0 -12 -12Z" fill="#F4F2EA" stroke={SEP} strokeWidth={1.8} />
+      <ellipse cx={737} cy={662} rx={31} ry={7} fill="#7A4A2A" stroke={SEP} strokeWidth={1.4} />
+      <path d="M768 672 q22 2 20 18 q-2 14 -20 14" stroke={SEP} strokeWidth={5} fill="none" /><path d="M768 672 q22 2 20 18 q-2 14 -20 14" stroke="#F4F2EA" strokeWidth={2.4} fill="none" />
+      {[0, 1, 2].map(i => { const p = fr(tm * .3 + i / 3); return <path key={i} d={`M${728 + i * 8} ${650 - p * 70} q${8 * Math.sin(tm + i)} -12 0 -24 q-8 -12 0 -24`} stroke="#FFFFFF" strokeWidth={2.4} fill="none" opacity={(1 - p) * .7} />; })}
+    </g>
+    {/* the anglepoise lamp */}
+    {lamp > 0 && <g opacity={lamp} transform="translate(56 16)">
+      <path d="M1088 548 L1000 718 L1210 724 L1132 548Z" fill="#FFE6A8" opacity={.22} />
+      <ellipse cx={1050} cy={722} rx={190} ry={30} fill="#FFE6A8" opacity={.35} filter="url(#b8)" />
+      <circle cx={1110} cy={540} r={260} fill={`url(#${id}lg)`} />
+    </g>}
+    <g opacity={ph(draw, .3, .9)} transform="translate(56 16)">
+      <ellipse cx={1206} cy={706} rx={42} ry={10} fill="#2F5440" stroke={SEP} strokeWidth={1.6} />
+      <path d="M1206 700 L1250 600 L1140 520" stroke="#2F5440" strokeWidth={7} fill="none" strokeLinejoin="round" />
+      <path d="M1206 700 L1250 600 L1140 520" stroke={SEP} strokeWidth={1.2} fill="none" strokeLinejoin="round" />
+      <circle cx={1250} cy={600} r={8} fill="#5A5650" stroke={SEP} strokeWidth={1.2} />
+      <path d="M1158 506 L1104 526 L1070 572 L1150 586 L1170 534Z" fill="#2F5440" stroke={SEP} strokeWidth={1.8} />
+      <ellipse cx={1110} cy={580} rx={42} ry={9} fill={lamp > 0 ? mix('#5A5650', '#FFF4D2', lamp) : '#5A5650'} stroke={SEP} strokeWidth={1.2} transform="rotate(8 1110 580)" />
+    </g>
+    {/* dusk dims the room; the lamp warms it */}
+    <rect x={-100} y={-100} width={2120} height={1280} fill="#141C38" opacity={.22 * (1 - lamp * .6)} />
+  </g>;
+};
+
+// ================================================================ 9. COMPASS — a big brass compass from above; flip 0..1 swings the needle from north to south (wobble, tm)
+const Compass: React.FC<{ x?: N; y?: N; s?: N; draw?: N; flip?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, flip = 0, tm = 0 }) => {
+  const C: Pt = [960, 540], R = 400, ang = sst(flip) * 180 + Math.sin(tm * 5.4) * (1 + 7 * Math.sin(cl(flip) * Math.PI)) + Math.sin(tm * 13) * .6;
+  return <g transform={TR(x, y, s)}>
+    <RG d="M-100 -100 H2020 V1180 H-100Z" mat="wood" t={.5} draw={draw} sw={0} rim={false} />
+    {Array.from({ length: 22 }, (_, i) => <path key={i} d={`M-100 ${-60 + i * 56 + rnd(i) * 20} Q900 ${-40 + i * 56 + rnd(i + 3) * 40} 2020 ${-60 + i * 56 + rnd(i + 5) * 30}`} stroke="#4F3020" strokeWidth={1} fill="none" opacity={.3 * ph(draw, .3, 1)} />)}
+    <circle cx={C[0] + 18} cy={C[1] + 26} r={R + 10} fill={SEP} opacity={.35} filter="url(#b8)" />
+    <circle cx={C[0]} cy={C[1]} r={R} fill="url(#gold)" stroke={SEP} strokeWidth={2.6} opacity={ph(draw, 0, .5)} />
+    <circle cx={C[0]} cy={C[1]} r={R - 34} fill="#B8862B" stroke={SEP} strokeWidth={1.6} opacity={ph(draw, .1, .6)} />
+    <circle cx={C[0]} cy={C[1]} r={R - 46} fill="#FBF4E2" stroke={SEP} strokeWidth={1.6} opacity={ph(draw, .1, .6)} />
+    <g opacity={ph(draw, .3, .9)}>{Array.from({ length: 72 }, (_, i) => { const a = i * 5 * D2R, l = i % 6 === 0 ? 30 : 14;
+      return <path key={i} d={`M${f1(C[0] + Math.cos(a) * (R - 48))} ${f1(C[1] + Math.sin(a) * (R - 48))} L${f1(C[0] + Math.cos(a) * (R - 48 - l))} ${f1(C[1] + Math.sin(a) * (R - 48 - l))}`} stroke={SEP} strokeWidth={i % 6 === 0 ? 2 : 1} />; })}</g>
+    <Rose cx={C[0]} cy={C[1]} r={230} a={ph(draw, .3, .9) * .55} />
+    {[['N', 0], ['E', 90], ['S', 180], ['W', 270]].map(([t, a]) => { const an = ((a as N) - 90) * D2R;
+      return <Fell key={t as string} x={f1(C[0] + Math.cos(an) * 262)} y={f1(C[1] + Math.sin(an) * 262 + 26)} s={78} t={t as string} sc col={t === 'N' ? VER : SEP} a={ph(draw, .5, 1)} />; })}
+    {/* the needle: red north, blue south */}
+    <g transform={`rotate(${f1(ang)} ${C[0]} ${C[1]})`} opacity={ph(draw, .4, .9)}>
+      <path d={`M${C[0] + 8} ${C[1] + 14} L${C[0]} ${C[1] - 300} L${C[0] - 8} ${C[1] + 14}Z`} fill={SEP} opacity={.25} transform="translate(10 14)" />
+      <path d={`M${C[0]} ${C[1] - 300} L${C[0] + 30} ${C[1]} L${C[0] - 30} ${C[1]}Z`} fill={VER} stroke={SEP} strokeWidth={2} />
+      <path d={`M${C[0]} ${C[1] - 300} L${C[0] + 30} ${C[1]} L${C[0]} ${C[1]}Z`} fill="#8C3424" opacity={.6} />
+      <path d={`M${C[0]} ${C[1] + 300} L${C[0] + 30} ${C[1]} L${C[0] - 30} ${C[1]}Z`} fill="#2E5C86" stroke={SEP} strokeWidth={2} />
+      <path d={`M${C[0]} ${C[1] + 300} L${C[0] - 30} ${C[1]} L${C[0]} ${C[1]}Z`} fill="#1D4566" opacity={.6} />
+    </g>
+    <circle cx={C[0]} cy={C[1]} r={26} fill="url(#gold)" stroke={SEP} strokeWidth={2} /><circle cx={C[0] - 6} cy={C[1] - 6} r={7} fill="#FFF4D2" opacity={.8} />
+    {/* the glass */}
+    <path d={`M${C[0] - 250} ${C[1] - 170} A300 300 0 0 1 ${C[0] + 140} ${C[1] - 300}`} stroke="#FFFFFF" strokeWidth={22} fill="none" opacity={.25} strokeLinecap="round" />
+    <path d={`M${C[0] - 268} ${C[1] - 110} A310 310 0 0 1 ${C[0] - 210} ${C[1] - 210}`} stroke="#FFFFFF" strokeWidth={8} fill="none" opacity={.4} strokeLinecap="round" />
+  </g>;
+};
+
+// ================================================================ 10. RIDGE TAPE — a mid-ocean ridge in cross-section, the sea floor as a tape running out both ways
+// well 0..1 magma rises up the crack; cool 0..1 the new rock cools orange → dark; run (continuous time) the bands march outward, new ones born
+// at the centre, reels turn; arrows 0..1 the frozen north/south arrows; gold 0..1 the bands take the stripe colours; belt 0..1 the crust
+// becomes a conveyor belt with continent parcels riding outward; cross 0..1 a snow mound with a wooden cross rides on the belt.
+const FLIPI = [.16, .09, .22, .07, .14, .27, .1, .19, .12, .24, .08, .17, .21, .11, .15, .26, .09, .18, .13, .2];
+const FLIPS = (() => { const o: N[] = []; let t = -3, i = 0; while (t < 8) { o.push(t); t += FLIPI[i++ % FLIPI.length]; } return o; })();
+const polAt = (T: N) => { let c = 0; for (const f of FLIPS) if (f <= T) c++; return c; };
+const POL0 = polAt(0) % 2;
+const isNormal = (T: N) => (polAt(T) % 2) === POL0;
+const pathLL = (L: LL[], ox: N, oy: N, sc: N, flip = 1) => 'M' + L.map(([lo, la]) => `${f1(ox + lo * sc * flip)} ${f1(oy - la * sc)}`).join(' L') + 'Z';
+const RidgeTape: React.FC<{ x?: N; y?: N; s?: N; draw?: N; well?: N; cool?: N; run?: N; arrows?: N; gold?: N; belt?: N; cross?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, well = 0, cool = 0, run = 0, arrows = 0, gold = 0, belt = 0, cross = 0, tm = 0 }) => {
+  const id = 'rtp' + Math.round(x), V = 380, DM = 820, HW = 40, YB = 500;
+  const yT = (xx: N) => 330 - 80 * Math.exp(-(((xx - 960) / 240) ** 2)) + 6 * Math.sin(xx / 23) * (1 - belt);
+  const bnd = [0, ...FLIPS.filter(f => f <= run).map(f => (run - f) * V).filter(d => d > 0 && d < DM).sort((a, b) => a - b), DM];
+  const segs = bnd.slice(1).map((d1, i) => ({ d0: bnd[i], d1, nrm: isNormal(run - (bnd[i] + d1) / 2 / V) }));
+  const colOf = (nrm: boolean) => mix(BASALT, nrm ? GOLD : '#2B3B66', gold);
+  const strip = (xa: N, xb: N) => { const xs = Array.from({ length: 7 }, (_, i) => lerp(xa, xb, i / 6)); return 'M' + xs.map(xx => `${f1(xx)} ${f1(yT(xx))}`).join(' L') + ` L${f1(xb)} ${YB} L${f1(xa)} ${YB}Z`; };
+  const arrow = (ax: N, up: boolean, a: N, key: string, col = '#FBF4E2') => { const ay = (yT(ax) + YB) / 2 + 6, h = 30, dir = up ? -1 : 1;
+    return <g key={key} opacity={a}><path d={`M${f1(ax)} ${f1(ay - dir * h / 2)} V${f1(ay + dir * h / 2)}`} stroke={col} strokeWidth={3.4} /><path d={`M${f1(ax - 9)} ${f1(ay + dir * (h / 2 - 10))} L${f1(ax)} ${f1(ay + dir * h / 2 + 2)} L${f1(ax + 9)} ${f1(ay + dir * (h / 2 - 10))}`} stroke={col} strokeWidth={3.4} fill="none" strokeLinejoin="round" /></g>; };
+  const hotTop = YB - sst(well) * (YB - yT(960)), hotCol = mix('#F6A848', BASALT, sst(cool)), nrmNow = isNormal(run);
+  const cyc = (o: N) => { const d = 210 + fr(run * V / 560 + o) * 560; return { d, a: ph(d, 210, 270) * (1 - ph(d, 700, 770)) }; };
+  const pR = cyc(0), pL = cyc(.35), pC = cyc(.62);
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sea', [[0, '#2E4A86'], [1, '#141C38']])}{grad(id + 'man', [[0, '#C9704A'], [1, '#7A2E20']])}
+      <radialGradient id={id + 'mg'}><stop offset="0" stopColor="#FFF4D2" /><stop offset=".45" stopColor="#F6CF7A" /><stop offset="1" stopColor="#E8642E" stopOpacity={0} /></radialGradient></defs>
+    <rect x={-100} y={-100} width={2120} height={700} fill={`url(#${id}sea)`} opacity={ph(draw, 0, .5)} />
+    <g transform="translate(0 100)">
+    <rect x={-100} y={YB - 4} width={2120} height={700} fill={`url(#${id}man)`} opacity={ph(draw, 0, .5)} />
+    {/* the magma chamber below the ridge */}
+    <ellipse cx={960} cy={600} rx={250} ry={110} fill={`url(#${id}mg)`} opacity={.85 + .15 * Math.sin(tm * 2.2)} />
+    <RG d="M760 600 Q800 530 960 520 Q1120 530 1160 600 Q1110 670 960 676 Q810 670 760 600Z" color="#F2A672" draw={draw} sw={1.6} a={.55} />
+    {/* crust bands, both sides */}
+    {segs.map((g2, i) => [-1, 1].map(sd => { const a0 = 960 + sd * Math.max(g2.d0, HW), a1 = 960 + sd * g2.d1; if (Math.abs(a1 - 960) <= HW) return null;
+      return <path key={i + '_' + sd} d={strip(Math.min(a0, a1), Math.max(a0, a1))} fill={colOf(g2.nrm)} stroke={SEP} strokeWidth={1.2} opacity={ph(draw, .2, .7)} />; }))}
+    {/* the crack and the welling magma */}
+    <path d={`M${960 - HW} ${f1(yT(960 - HW))} L${960 + HW} ${f1(yT(960 + HW))} L${960 + HW} ${YB} L${960 - HW} ${YB}Z`} fill="#1A1424" opacity={ph(draw, .2, .7)} />
+    {well > 0 && <g>
+      <path d={`M${960 - HW} ${f1(Math.max(hotTop, yT(960 - HW)))} Q960 ${f1(hotTop - 16 * (1 - sst(cool)))} ${960 + HW} ${f1(Math.max(hotTop, yT(960 + HW)))} L${960 + HW} ${YB + 30} L${960 - HW} ${YB + 30}Z`} fill={mix(hotCol, nrmNow ? GOLD : '#2B3B66', gold * sst(cool))} stroke={SEP} strokeWidth={1.2} />
+      <ellipse cx={960} cy={hotTop} rx={70} ry={40} fill="#FFD58A" opacity={.55 * (1 - sst(cool)) * sst(well)} filter="url(#b8)" />
+    </g>}
+    <path d={`M960 ${YB + 30} L956 ${YB + 4} L962 ${YB - 30}`} stroke="#F6CF7A" strokeWidth={6} fill="none" opacity={(1 - well) * .8} />
+    {/* the frozen arrows */}
+    {arrows > 0 && segs.map((g2, i) => [-1, 1].map(sd => { const w = g2.d1 - Math.max(g2.d0, HW); if (w < 22) return null; const n = w > 110 ? 2 : 1;
+      return Array.from({ length: n }, (_, j) => arrow(960 + sd * (Math.max(g2.d0, HW) + w * (j + 1) / (n + 1)), g2.nrm, arrows, `${i}_${sd}_${j}`)); }))}
+    {arrows > 0 && arrow(960, nrmNow, arrows * sst(cool), 'hot')}
+    {/* the conveyor belt: rollers under the crust, ribs on the belt, the belt loop */}
+    {belt > 0 && <g opacity={sst(belt)}>
+      <path d={`M140 ${YB + 4} H1780 A36 36 0 0 1 1780 ${YB + 76} H140 A36 36 0 0 1 140 ${YB + 4}`} stroke="#2A2420" strokeWidth={10} fill="none" />
+      {Array.from({ length: 14 }, (_, i) => { const rxp = 200 + i * 117, sd = rxp < 960 ? -1 : 1, an = sd * run * V / 26 * 57.3;
+        return <g key={i} transform={`rotate(${f1(an)} ${rxp} ${YB + 40})`}><circle cx={rxp} cy={YB + 40} r={26} fill="#8E8A80" stroke={SEP} strokeWidth={1.6} /><path d={`M${rxp - 22} ${YB + 40} H${rxp + 22} M${rxp} ${YB + 18} V${YB + 62}`} stroke={SEP} strokeWidth={1.6} /><circle cx={rxp} cy={YB + 40} r={5} fill={GOLD} /></g>; })}
+      {Array.from({ length: 40 }, (_, i) => { const d = HW + fr(i / 40 + run * V / 1600) * (DM - HW); return [-1, 1].map(sd => { const xx = 960 + sd * d; return <path key={i + '_' + sd} d={`M${f1(xx)} ${f1(yT(xx) + 2)} l${sd * 6} 10`} stroke="#2A2420" strokeWidth={2} opacity={.6} />; }); })}
+      {/* continent parcels: Africa rides east, South America west */}
+      {[[pR, 1, 'AF', 17, 0, -35], [pL, -1, 'SA', -58, -21, -55]].map(([p, sd, key, lo0, la0, laMin], i) => { const P = p as { d: N; a: N }, cx2 = 960 + (sd as N) * P.d, base = yT(cx2) - 18, sc = 3;
+        return <g key={i} opacity={P.a}>
+          <path d={pathLL(GEO[key as string], cx2 - (lo0 as N) * sc, base + (laMin as N) * sc, sc)} fill={LAND} stroke={SEP} strokeWidth={2} />
+          <RG d={rr(cx2 - 80, base, 160, 16, 3)} mat="wood" t={.45} draw={1} sw={1.4} /></g>; })}
+    </g>}
+    {/* Wegener's grave on the belt: a snow mound with a wooden cross */}
+    {cross > 0 && <g opacity={cross * pC.a}>{(() => { const cx2 = 960 + pC.d, base = yT(cx2) - 2;
+      return <g><path d={`M${cx2 - 64} ${f1(base)} Q${cx2} ${f1(base - 52)} ${cx2 + 64} ${f1(base)}Z`} fill="#FFFFFF" stroke={SEP} strokeWidth={1.8} />
+        <path d={`M${cx2 - 5} ${f1(base - 30)} V${f1(base - 110)} M${cx2 - 26} ${f1(base - 86)} H${cx2 + 26}`} stroke="#6A4430" strokeWidth={8} strokeLinecap="round" />
+        <path d={`M${cx2 - 5} ${f1(base - 30)} V${f1(base - 110)} M${cx2 - 26} ${f1(base - 86)} H${cx2 + 26}`} stroke={SEP} strokeWidth={1.2} fill="none" />
+        <path d={`M${cx2 - 30} ${f1(base - 90)} q26 -6 52 0`} stroke="#FFFFFF" strokeWidth={4} fill="none" strokeLinecap="round" /></g>; })()}</g>}
+    {/* tape reels at both edges, the crust running onto them as tape */}
+    {[[60, -1], [1860, 1]].map(([rx2, sd]) => <g key={rx2} opacity={ph(draw, .3, .9)}>
+      <path d={`M${960 + sd * DM} ${f1(yT(960 + sd * DM) + 20)} L${rx2 - sd * 10} ${f1(YB - 160)}`} stroke="#3A2E26" strokeWidth={6} />
+      <g transform={`rotate(${f1(sd * run * 720 + tm * 0)} ${rx2} 340)`}>
+        <circle cx={rx2} cy={340} r={92} fill="#C9C6BE" stroke={SEP} strokeWidth={2.4} /><circle cx={rx2} cy={340} r={64} fill="#3A2E26" />
+        {[0, 120, 240].map(a => <circle key={a} cx={f1(rx2 + Math.cos(a * D2R) * 54)} cy={f1(340 + Math.sin(a * D2R) * 54)} r={18} fill="#C9C6BE" stroke={SEP} strokeWidth={1.4} />)}
+        <circle cx={rx2} cy={340} r={14} fill="#8E8A80" stroke={SEP} strokeWidth={1.4} /><path d={`M${rx2} 326 v-6`} stroke={SEP} strokeWidth={3} /></g>
+    </g>)}
+    {/* the sea-floor surface line */}
+    <path d={'M' + Array.from({ length: 41 }, (_, i) => { const xx = 960 - DM + i * DM / 20; return `${f1(xx)} ${f1(yT(xx))}`; }).join(' L')} stroke={SEP} strokeWidth={2} fill="none" opacity={ph(draw, .2, .8)} />
+  </g></g>;
+};
+
+// ================================================================ 11. PLATE GLOBE — the globe in space, its shell cracking like an eggshell into the real plates
+// crack 0..1 draws the plate boundaries (vermilion, jagged); shift 0..1 the plates drift apart a little; quakes 0..1 star-flashes along them; spin (turns).
+const PlateGlobe: React.FC<{ x?: N; y?: N; s?: N; draw?: N; crack?: N; shift?: N; quakes?: N; spin?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, crack = 0, shift = 0, quakes = 0, spin = 0, tm = 0 }) => {
+  const id = 'pgl' + Math.round(x), g: GV = { cx: 960, cy: 540, r: 420, lo0: -5 + spin * 360, la0: 16 };
+  const B = useMemo(() => [...RIDGES, ...TRENCHES].map(L => dens(L, 1.2).map(([lo, la], i) => [lo + (rnd(i * 1.7 + lo) - .5) * 1.4, la + (rnd(i * 2.3 + la) - .5) * 1.4] as LL)), []);
+  const R = cutK(B, crack).flatMap(L => gRuns(L, g, [0, 0], 1.2)), sh = sst(shift);
+  const QP = useMemo(() => TRENCHES.flatMap(L => dens(L, 6)).concat(RIDGES[0].filter((_, i) => i % 3 === 0)), []);
+  const stars = useMemo(() => starField(77, 160, -100, -100, 2120, 1280, 2.4), []);
+  return <g transform={TR(x, y, s)}>
+    <rect x={-100} y={-100} width={2120} height={1280} fill="#0B1030" opacity={ph(draw, 0, .4)} />
+    {stars.map(([a, b, r], i) => <circle key={i} cx={a} cy={b} r={r * .7} fill="#FFF4D2" opacity={.6 * ph(draw, .3, .8)} />)}
+    <circle cx={1010} cy={520} r={450} fill="#F2A672" opacity={.45} filter="url(#b30)" />
+    <GlobeBody g={g} id={id} draw={draw} sea={['#2E4A86', '#141C38']} land={LAND} off={k => [DRIFT[k][0] * sh * 14, DRIFT[k][1] * sh * 14]} />
+    <defs><clipPath id={id + 'k'}><circle cx={960} cy={540} r={420} /></clipPath></defs>
+    <g clipPath={`url(#${id}k)`}>
+      <path d={runsPath(R)} stroke="#0B1030" strokeWidth={7 + sh * 9} fill="none" strokeLinejoin="round" opacity={.85} />
+      <path d={runsPath(R)} stroke={VER} strokeWidth={4.4} fill="none" strokeLinejoin="round" strokeLinecap="round" />
+      {quakes > 0 && QP.map(([lo, la], i) => { const [X, Y, Z] = ortho(lo, la, g.lo0, g.la0); if (Z <= .05) return null; const f = Math.pow(Math.max(0, Math.sin(tm * 2.4 + rnd(i) * 40)), 10) * quakes;
+        return f > .02 ? <Star key={i} x={960 + X * 420} y={540 + Y * 420} r={3 + f * 5} glow={f} rays={f} col="#FFF4D2" /> : null; })}
+    </g>
+    {/* warm rim light */}
+    <path d="M1260 240 A420 420 0 0 1 1210 880" stroke="#FFD9B0" strokeWidth={8} fill="none" opacity={.6} filter="url(#b2s)" transform="translate(-10 0)" />
+  </g>;
+};
+
+// ================================================================ 12. TRENCH — a subduction zone in cross-section: the ocean plate dives under the continent (volcano)
+// dive 0..1 slides the ocean plate down (its stripes and sediment travel); quakes 0..1 star flashes along the contact; puff 0..1 the volcano puffs ash.
+const Trench: React.FC<{ x?: N; y?: N; s?: N; draw?: N; dive?: N; quakes?: N; puff?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, dive = 0, quakes = 0, puff = 0, tm = 0 }) => {
+  const id = 'trn' + Math.round(x), TH = 56;
+  const yc = (xx: N) => 470 + Math.max(0, xx - 820) ** 2 * .0011, sl = (xx: N) => 2 * .0011 * Math.max(0, xx - 820);
+  const C = useMemo(() => { const o: { p: Pt; n: Pt; S: N }[] = []; let S = 0, prev: Pt | null = null;
+    for (let xx = -300; xx <= 1700; xx += 8) { const p: Pt = [xx, yc(xx)], l = Math.hypot(1, sl(xx)); if (prev) S += Math.hypot(p[0] - prev[0], p[1] - prev[1]); o.push({ p, n: [-sl(xx) / l, 1 / l], S }); prev = p; if (p[1] > 1400) break; }
+    return o; }, []);
+  const at = (S: N) => { let i = 0; while (i < C.length - 2 && C[i + 1].S < S) i++; const a = C[i], b = C[i + 1], t = cl((S - a.S) / (b.S - a.S || 1)); return { p: [lerp(a.p[0], b.p[0], t), lerp(a.p[1], b.p[1], t)] as Pt, n: [lerp(a.n[0], b.n[0], t), lerp(a.n[1], b.n[1], t)] as Pt }; };
+  const edge = (o: N) => C.map(c => [c.p[0] + c.n[0] * o, c.p[1] + c.n[1] * o] as Pt);
+  const top = edge(-TH), bot = edge(TH), Ltot = C[C.length - 1].S, mv = sst(dive) * 380;
+  const slab = 'M' + top.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + ' L' + [...bot].reverse().map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + 'Z';
+  const piece = (S0: N, S1: N, o0: N, o1: N) => { const ss = [0, .25, .5, .75, 1].map(t => at(lerp(S0, S1, t))); return 'M' + ss.map(q => `${f1(q.p[0] + q.n[0] * o0)} ${f1(q.p[1] + q.n[1] * o0)}`).join(' L') + ' L' + [...ss].reverse().map(q => `${f1(q.p[0] + q.n[0] * o1)} ${f1(q.p[1] + q.n[1] * o1)}`).join(' L') + 'Z'; };
+  const slabTopY = (xx: N) => yc(xx) - TH * Math.hypot(1, sl(xx));
+  const landTop: Pt[] = [[856, 418], [930, 372], [1010, 330], [1080, 302], [1140, 290], [1250, 282], [1330, 196], [1345, 176], [1372, 176], [1388, 196], [1470, 284], [1600, 272], [1720, 284], [1820, 262], [1960, 272]];
+  const landBot: Pt[] = []; for (let xx = 1960; xx >= 856; xx -= 16) landBot.push([xx, Math.min(640, slabTopY(xx) - 1)]);
+  const QX = [880, 940, 1000, 1060, 1120, 1180, 1240, 1300, 1360];
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sk', [[0, '#9CC4E0'], [1, '#E6EEF0']])}{grad(id + 'man', [[0, '#D2643E'], [.5, '#B04A2A'], [1, '#7A2E20']])}{grad(id + 'sea', [[0, '#4A88AE'], [1, '#1D4566']])}</defs>
+    <rect x={-100} y={-100} width={2120} height={400} fill={`url(#${id}sk)`} opacity={ph(draw, 0, .5)} />
+    <rect x={-100} y={300} width={1200} height={500} fill={`url(#${id}sea)`} opacity={ph(draw, 0, .5)} />
+    <rect x={-100} y={510} width={2120} height={700} fill={`url(#${id}man)`} opacity={ph(draw, 0, .5)} />
+    {Array.from({ length: 14 }, (_, i) => <path key={i} d={`M${rnd(i) * 1900} ${640 + rnd(i + 3) * 400} q40 -30 80 0`} stroke="#F6CF7A" strokeWidth={2} fill="none" opacity={.3} />)}
+    {/* the ocean plate: dark basalt, its magnetic stripes and sediment travelling with it */}
+    <RG d={slab} color="#3E3C46" draw={draw} sw={2} />
+    {Array.from({ length: 36 }, (_, j) => { const S0 = fr((j * 70 + mv) / (36 * 70)) * 36 * 70 - 200; if (S0 < 0 || S0 + 34 > Ltot) return null;
+      return <path key={j} d={piece(S0, S0 + 34, -TH + 12, TH - 4)} fill={j % 2 ? GOLD : '#2B3B66'} opacity={.38} />; })}
+    {Array.from({ length: 28 }, (_, j) => { const S0 = fr((j * 52 + mv) / (28 * 52)) * 28 * 52 - 200, q = at(Math.max(0, S0)); if (S0 < 0 || q.p[0] > 900) return null;
+      return <path key={'s' + j} d={piece(S0, S0 + 40, -TH - 14, -TH)} fill="#D9AE6C" stroke={SEP} strokeWidth={.8} opacity={1 - ph(q.p[0], 820, 900)} />; })}
+    <RG d="M800 418 L860 419 L900 400 L878 432 L820 430Z" color="#C9A870" draw={draw} sw={1.2} />
+    {/* the continent with its volcano */}
+    <RG d={sm(landTop) + ' L' + landBot.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + 'Z'} color="#C9AE84" draw={draw} sw={2} />
+    <path d={sm(landTop.slice(0, 6))} stroke="#6E8F5A" strokeWidth={8} fill="none" opacity={.6} />
+    {Array.from({ length: 30 }, (_, i) => <circle key={i} cx={1000 + rnd(i) * 900} cy={360 + rnd(i + 2) * 200} r={2 + rnd(i + 4) * 3} fill="#8C6E4A" opacity={.5} />)}
+    <path d="M1300 260 L1358 186 L1416 260 Z" fill="#8C6E4A" opacity={.35} />
+    {/* the magma rising from the diving plate to the volcano */}
+    <path d={`M1340 ${f1(slabTopY(1340))} C1330 600 1380 480 1358 420 C1350 330 1362 260 1358 180`} stroke="#E8642E" strokeWidth={10} fill="none" opacity={.85} />
+    <path d={`M1340 ${f1(slabTopY(1340))} C1330 600 1380 480 1358 420 C1350 330 1362 260 1358 180`} stroke="#F6CF7A" strokeWidth={3} fill="none" opacity={.9} />
+    <ellipse cx={1356} cy={430} rx={46} ry={22} fill="#E8642E" stroke={SEP} strokeWidth={1.4} />
+    <ellipse cx={1358} cy={176} rx={16} ry={5} fill="#F6A848" opacity={.6 + .4 * puff} />
+    {/* the ash */}
+    {puff > 0 && Array.from({ length: 10 }, (_, i) => { const p = fr(tm * .22 + i / 10), r = (18 + p * 80) * (.4 + .6 * sst(puff));
+      return <circle key={i} cx={1358 + Math.sin(i * 2.1) * 30 * p + p * 120} cy={170 - p * 260 * (.4 + .6 * puff)} r={r} fill={i % 2 ? '#8E8A80' : '#76726A'} stroke={SEP} strokeWidth={1} opacity={sst(puff) * (1 - p) * .9} />; })}
+    {/* quakes along the contact */}
+    {quakes > 0 && QX.map((xx, i) => { const f = Math.pow(Math.max(0, Math.sin(tm * 3 + rnd(i) * 30)), 8) * quakes;
+      return f > .02 ? <g key={i}><Star x={xx} y={slabTopY(xx) - 2} r={4 + f * 7} glow={f} rays={f} col="#FFF4D2" />
+        <circle cx={xx} cy={slabTopY(xx)} r={20 + (1 - f) * 40} fill="none" stroke="#FFF4D2" strokeWidth={2} opacity={f * .6} /></g> : null; })}
+    {/* the sea surface */}
+    <path d={`M-100 300 H1080`} stroke="#E8EEF0" strokeWidth={2.4} opacity={.8 * ph(draw, .3, 1)} />
+  </g>;
+};
+
+// ================================================================ 13. RUG → HIMALAYA — a patterned oriental rug on a wooden floor, pushed into a wall; its folds become snowy peaks
+// push 0..1 slides it into the wall and wrinkles it; peaks 0..1 turns the folds into the Himalaya (same silhouette).
+const FOLDS: [N, N, N][] = [[.5, 70, .035], [.58, 120, .03], [.65, 95, .028], [.71, 175, .03], [.77, 140, .026], [.83, 230, .03], [.89, 175, .025], [.94, 110, .022]];   // u, height, width
+const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, push = 0, peaks = 0 }) => {
+  const id = 'rug' + Math.round(x), pk = sst(peaks), xR = Math.min(1560, 1420 + push * 470), xL = 220 + push * 620, comp = cl((1200 - (xR - xL)) / 480);
+  const h = (u: N) => FOLDS.reduce((a, [uc, H, w]) => { const sm2 = Math.exp(-(((u - uc) / w) ** 2)), sh = Math.max(0, 1 - Math.abs(u - uc) / (w * 2.2)) ** 1.15; return a + H * lerp(sm2, sh, pk); }, 0) * comp * (1 + pk * 1.5);
+  const hmax = 230 * (1 + pk * 1.5) * comp || 1;
+  const col = (u: N, v: N) => { const e = Math.min(u, 1 - u) * 6.5, bord = Math.min(v, 1 - v);
+    if (bord < .1 || e < .08) return '#22305E'; if (bord < .15 || e < .14) return GOLD; const md = Math.abs(u - .5) / .16 + Math.abs(v - .5) / .3; return md < .55 ? '#E2C98A' : md < 1 ? '#22305E' : '#A8432A'; };
+  const NU = 110, VS = [0, .1, .15, .32, .5, .68, .85, .9, 1];
+  const P = (u: N, v: N): Pt => { const xx = lerp(xL, xR, u) + v * 70, yy = lerp(880, 712, v) - h(u); return [xx, yy]; };
+  const quads: React.ReactNode[] = [];
+  for (let i = 0; i < NU; i++) { const u0 = i / NU, u1 = (i + 1) / NU, dh = (h(u1) - h(u0)) * NU / 400, lit = cl(.5 + dh * .6);
+    for (let j = 0; j < VS.length - 1; j++) { const v0 = VS[j], v1 = VS[j + 1], um = (u0 + u1) / 2, vm = (v0 + v1) / 2, hh = h(um) / hmax;
+      const rugC = col(um, vm), mount = hh > .4 - .08 * Math.sin(um * 47 + vm * 9) ? '#F4F7F8' : hh > .16 ? mix('#7E8590', '#5A6070', vm) : mix('#A99A6E', '#8A7A5A', hh / .16), base = mix(rugC, mount, pk);
+      quads.push(<path key={i + '_' + j} d={pathOf([P(u0, v0), P(u1, v0), P(u1, v1), P(u0, v1)], true)} fill={mix(mix(base, '#2B1D12', (1 - lit) * .55), '#FFF8E6', lit * .25)} stroke={mix(base, '#2B1D12', .2)} strokeWidth={.6} />); } }
+  const front = 'M' + Array.from({ length: NU + 1 }, (_, i) => { const p = P(i / NU, 0); return `${f1(p[0])} ${f1(p[1])}`; }).join(' L');
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sky', [[0, '#7FA8C4'], [1, '#E6EEF0']])}</defs>
+    {/* the room: wallpaper and skirting; it fades into a sky as the rug becomes mountains */}
+    <rect x={-100} y={-100} width={2120} height={700} fill="#E6D3A6" opacity={ph(draw, 0, .5)} />
+    {Array.from({ length: 22 }, (_, i) => <path key={i} d={`M${-80 + i * 96} -100 V600`} stroke="#C7A57A" strokeWidth={14} opacity={.35 * ph(draw, .2, .8)} />)}
+    <rect x={-100} y={-100} width={2120} height={700} fill={`url(#${id}sky)`} opacity={pk} />
+    <RG d="M-100 600 H2020 V1180 H-100Z" mat="wood" t={.4} draw={draw} sw={0} rim={false} a={1 - pk * .7} />
+    {Array.from({ length: 9 }, (_, i) => <path key={'p' + i} d={`M-100 ${600 + i * i * 7 + i * 14} H2020`} stroke="#4F3020" strokeWidth={1.4} opacity={.5 * (1 - pk)} />)}
+    {Array.from({ length: 16 }, (_, i) => <path key={'q' + i} d={`M${960 + (i - 8) * 60} 600 L${960 + (i - 8) * 260} 1100`} stroke="#4F3020" strokeWidth={1} opacity={.3 * (1 - pk)} />)}
+    <rect x={-100} y={600} width={2120} height={580} fill="#B7A57E" opacity={pk * .85} />
+    <rect x={-100} y={586} width={2120} height={16} fill="#8C5A36" opacity={1 - pk} />
+    {/* the wall the rug is pushed into */}
+    <g opacity={1 - pk}><RG d="M1435 1180 L1677 600 L1677 -100 L2020 -100 L2020 1180Z" color="#C9B48A" draw={draw} sw={2} />
+      <path d="M1435 1180 L1677 600" stroke="#6A4430" strokeWidth={14} fill="none" /><path d="M1677 600 V-100" stroke={SEP} strokeWidth={2} /></g>
+    {/* the rug (or the range) */}
+    <g opacity={ph(draw, .2, .8)}>
+      <path d={front + ` L${f1(P(1, 0)[0])} ${f1(P(1, 0)[1] + 12)} L${f1(P(0, 0)[0])} ${f1(P(0, 0)[1] + 12)}Z`} fill={mix('#6A2A1C', '#4A4E58', pk)} />
+      {quads}
+      <path d={front} stroke={SEP} strokeWidth={2} fill="none" />
+      {pk < .9 && Array.from({ length: 16 }, (_, i) => { const v = (i + .5) / 16, p = P(0, v); return <path key={'f' + i} d={`M${f1(p[0])} ${f1(p[1])} l-22 ${f1(4 + Math.sin(i) * 3)}`} stroke="#EFE2C6" strokeWidth={2.4} opacity={1 - pk} />; })}
+    </g>
+  </g>;
+};
+
+// ================================================================ 14. ATLANTIC OPEN — the Atlantic from space: the Americas left, Europe and Africa right, the ridge glowing down the middle
+// open 0..1 the two sides creep apart (up to 40 px), the seam widening; glow 0..1 the ridge glow.
+const AtlanticOpen: React.FC<{ x?: N; y?: N; s?: N; draw?: N; open?: N; glow?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, open = 0, glow = 0, tm = 0 }) => {
+  const id = 'atl' + Math.round(x), g: GV = { cx: 960, cy: 560, r: 640, lo0: -28, la0: 8 }, o = sst(open) * 20;
+  const R = gRuns(RIDGES[0], g).concat(gRuns(RIDGES[1].slice(0, 4), g)), pulse = .8 + .2 * Math.sin(tm * 2.2);
+  const stars = useMemo(() => starField(19, 110, -100, -100, 2120, 1280, 2), []);
+  return <g transform={TR(x, y, s)}>
+    <rect x={-100} y={-100} width={2120} height={1280} fill="#0B1030" opacity={ph(draw, 0, .4)} />
+    {stars.map(([a, b, r], i) => <circle key={i} cx={a} cy={b} r={r * .6} fill="#FFF4D2" opacity={.5} />)}
+    <circle cx={960} cy={560} r={660} fill="#7FA8C4" opacity={.35} filter="url(#b8)" />
+    <GlobeBody g={g} id={id} draw={draw} sea={['#2E6A9A', '#0E2A48']} land="#B8B27A" off={k => [WEST.has(k) ? -o : o, 0]} grat={0} shade={.5} landSw={1.4} />
+    <defs><clipPath id={id + 'k'}><circle cx={960} cy={560} r={640} /></clipPath></defs>
+    <g clipPath={`url(#${id}k)`}>
+      {/* the opening seam: new sea floor along the ridge */}
+      <path d={runsPath(R)} stroke="#1D4566" strokeWidth={2 + o * 1.2} fill="none" opacity={.9} strokeLinejoin="round" />
+      <path d={runsPath(R)} stroke="#FFB08A" strokeWidth={14 + o * .8} fill="none" opacity={.45 * glow * pulse} filter="url(#b8)" strokeLinejoin="round" />
+      <path d={runsPath(R)} stroke={VER} strokeWidth={3.4 + o * .15} fill="none" strokeLinejoin="round" strokeLinecap="round" opacity={.6 + .4 * glow} />
+      {/* clouds drifting */}
+      {Array.from({ length: 9 }, (_, i) => { const cx2 = 360 + fr(rnd(i) + tm * .006) * 1200, cy2 = 140 + rnd(i + 4) * 820;
+        return <path key={i} d={`M${f1(cx2)} ${f1(cy2)} q40 -18 90 -4 q30 -16 70 2 q-40 18 -100 12 q-40 6 -60 -10Z`} fill="#FFFFFF" opacity={.35} filter="url(#b2s)" />; })}
+    </g>
+    <circle cx={960} cy={560} r={642} fill="none" stroke="#C9DDE6" strokeWidth={6} opacity={.5} filter="url(#b2s)" />
+  </g>;
+};
+
+// ================================================================ 15. GPS MARKER — a satellite crosses a clear sky; a beam drops to a brass survey marker bolted into rock; a readout ticks
+// sat 0..1 glides the satellite left→right; beam 0..1 the beam (pulsing with tm); tick 0..1 the readout counts up to "+2.5 cm".
+const GPSMarker: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sat?: N; beam?: N; tick?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, sat = 0, beam = 0, tick = 0, tm = 0 }) => {
+  const id = 'gps' + Math.round(x), sx = 220 + sat * 1480, sy = 180, M: Pt = [960, 812];
+  const rock = sm([[-100, 900], [200, 840], [420, 790], [640, 770], [860, 760], [1080, 768], [1300, 780], [1520, 800], [1760, 850], [2020, 900]]);
+  return <g transform={TR(x, y, s)}>
+    <defs>{grad(id + 'sk', [[0, '#7FA8C4'], [1, '#E6F0F2']])}</defs>
+    <rect x={-100} y={-100} width={2120} height={1280} fill={`url(#${id}sk)`} opacity={ph(draw, 0, .5)} />
+    {[[300, 420, 120], [1500, 360, 160], [900, 480, 90]].map(([a, b, w], i) => <path key={i} d={`M${a - w} ${b} q${w * .3} -36 ${w * .6} -8 q${w * .4} -44 ${w * .8} 0 q${w * .4} -6 ${w * .6} 8Z`} fill="#FFFFFF" opacity={.7 * ph(draw, .2, .8)} />)}
+    <path d="M-100 760 L180 700 L360 730 L560 690 L760 720 L1000 680 L1240 716 L1460 686 L1700 712 L2020 690 V900 H-100Z" fill="#A9B8C4" opacity={.5 * ph(draw, .2, .7)} />
+    {/* the rocky outcrop */}
+    <RG d={`${rock} L2020 1180 L-100 1180Z`} color="#A39E92" draw={draw} sw={2.2} />
+    {[[300, 860, 80, 50], [620, 830, 60, 90], [1250, 840, -50, 80], [1600, 880, 70, 60], [900, 900, 40, 120]].map(([a, b, c, d2], i) => <Line key={i} d={`M${a} ${b} l${c * .5} ${d2 * .4} l${-c * .2} ${d2 * .3} l${c * .6} ${d2 * .5}`} w={1.6} a={.6} />)}
+    {[[180, 850], [520, 790], [1420, 796], [1740, 852]].map(([a, b], i) => <path key={'g' + i} d={`M${a} ${b} l-8 -24 M${a + 6} ${b} l2 -30 M${a + 12} ${b} l10 -22`} stroke="#5F8A5A" strokeWidth={2.4} strokeLinecap="round" />)}
+    {/* the survey marker: a brass disc set in a cement collar */}
+    <ellipse cx={M[0]} cy={M[1] + 4} rx={140} ry={52} fill="#C9C2B4" stroke={SEP} strokeWidth={1.6} />
+    <ellipse cx={M[0]} cy={M[1]} rx={100} ry={38} fill="url(#gold)" stroke={SEP} strokeWidth={2} />
+    <ellipse cx={M[0]} cy={M[1]} rx={78} ry={29} fill="none" stroke="#8A6420" strokeWidth={1.6} />
+    <path d={`M${M[0] - 14} ${M[1] + 6} L${M[0]} ${M[1] - 12} L${M[0] + 14} ${M[1] + 6}Z`} fill="none" stroke="#8A6420" strokeWidth={1.6} />
+    <circle cx={M[0]} cy={M[1]} r={3} fill={SEP} />
+    {beam > 0 && <ellipse cx={M[0]} cy={M[1]} rx={122} ry={46} fill="none" stroke="#FFF4D2" strokeWidth={3} opacity={beam * (.5 + .5 * Math.sin(tm * 6))} />}
+    {/* the beam */}
+    {beam > 0 && <g opacity={sst(beam)}>
+      <path d={`M${f1(sx)} ${sy + 50} L${M[0]} ${M[1]}`} stroke="#FFF4D2" strokeWidth={12} opacity={.35} filter="url(#b2s)" />
+      <path d={`M${f1(sx)} ${sy + 50} L${M[0]} ${M[1]}`} stroke={GOLD} strokeWidth={2.4} strokeDasharray="14 10" strokeDashoffset={f1(-tm * 90)} />
+      {[0, 1, 2].map(j => { const p = fr(tm * .7 + j / 3); return <circle key={j} cx={f1(lerp(sx, M[0], p))} cy={f1(lerp(sy + 50, M[1], p))} r={6} fill="#FFF4D2" stroke={GOLD} strokeWidth={1.4} />; })}
+    </g>}
+    {/* the readout */}
+    <g opacity={ph(tick, 0, .1)}>
+      <Line d={`M${M[0] + 70} ${M[1] - 14} L1170 700`} w={1.4} a={.8} />
+      <rect x={1170} y={650} width={260} height={92} rx={10} fill="#2B2620" stroke={SEP} strokeWidth={2} />
+      <rect x={1182} y={662} width={236} height={68} rx={4} fill="#3A3428" />
+      <text x={1300} y={712} fontSize={44} fontFamily={FIG} textAnchor="middle" fill={GOLDL}>{`+${(sst(tick) * 2.5).toFixed(1)} cm`}</text>
+    </g>
+    {/* the satellite */}
+    <g transform={`rotate(${f1(Math.sin(tm * .8) * 2)} ${f1(sx)} ${sy})`}>
+      {[-1, 1].map(sd => <g key={sd}><Line d={`M${f1(sx + sd * 36)} ${sy} H${f1(sx + sd * 70)}`} w={3} col="#5A5650" a={1} />
+        <rect x={sd < 0 ? sx - 250 : sx + 70} y={sy - 30} width={180} height={60} fill="#2E5C86" stroke={SEP} strokeWidth={1.8} />
+        {Array.from({ length: 6 }, (_, i) => <Line key={i} d={`M${f1((sd < 0 ? sx - 250 : sx + 70) + (i + 1) * 30)} ${sy - 30} V${sy + 30}`} w={1} col="#9CCAD6" a={.7} />)}
+        <Line d={`M${f1(sd < 0 ? sx - 250 : sx + 70)} ${sy} h180`} w={1} col="#9CCAD6" a={.7} /></g>)}
+      <rect x={sx - 36} y={sy - 36} width={72} height={72} fill="url(#gold)" stroke={SEP} strokeWidth={2} />
+      <path d={`M${sx - 36} ${sy - 10} H${sx + 36} M${sx - 10} ${sy - 36} V${sy + 36}`} stroke="#8A6420" strokeWidth={1.2} />
+      <path d={`M${sx - 22} ${sy + 36} Q${sx} ${sy + 62} ${sx + 22} ${sy + 36}Z`} fill="#E8EEF0" stroke={SEP} strokeWidth={1.4} />
+      <Line d={`M${sx} ${sy + 46} V${sy + 58}`} w={2} a={1} />
+    </g>
+  </g>;
+};
+
+// ================================================================ 16. NAIL → ATLANTIC — a hand resting flat on a rock beside a wooden ruler; the fingernail grows; its tip line becomes the Atlantic
+// grow 0..1 the nail tip grows and a vermilion bracket on the ruler with it; line 0..1 a vermilion line along the nail tip; ocean 0..1 the
+// line widens into a strip of ocean whose coasts are Brazil's bulge and West Africa's hollow, as the hand fades.
+const NailAtlantic: React.FC<{ x?: N; y?: N; s?: N; draw?: N; grow?: N; line?: N; ocean?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, grow = 0, line = 0, ocean = 0, tm = 0 }) => {
+  const id = 'nat' + Math.round(x), HX = 300, HY = 680, HS = 3.4, dir = -2 * D2R;
+  const T: Pt = [HX + (98 + 100 * Math.cos(dir)) * HS, HY + (-10 + 100 * Math.sin(dir)) * HS], ux = Math.cos(dir), uy = Math.sin(dir), w = 9 * .62 * HS;
+  const e = 5 + sst(grow) * 30, E: Pt = [T[0] + ux * e, T[1] + uy * e], oc = sst(ocean), hand = 1 - oc;
+  const q = (u: N, v: N): string => `${f1(T[0] + ux * u - uy * v)} ${f1(T[1] + uy * u + ux * v)}`;
+  const Wd = oc * 760, xc = E[0];
+  const coastL = Array.from({ length: 23 }, (_, i) => { const yy = -60 + i * 55; return [xc - Wd / 2 + oc * (70 * Math.exp(-(((yy - 640) / 170) ** 2)) - 30 * Math.exp(-(((yy - 250) / 120) ** 2))), yy] as Pt; });
+  const coastR = Array.from({ length: 23 }, (_, i) => { const yy = -60 + i * 55; return [xc + Wd / 2 - oc * (80 * Math.exp(-(((yy - 380) / 150) ** 2)) - 40 * Math.exp(-(((yy - 640) / 140) ** 2))), yy] as Pt; });
+  return <g transform={TR(x, y, s)}>
+    {/* the rock */}
+    <RG d="M-100 -100 H2020 V1180 H-100Z" color="#B8AE98" draw={draw} sw={0} rim={false} />
+    {Array.from({ length: 70 }, (_, i) => <circle key={i} cx={rnd(i * 3) * 1920} cy={rnd(i * 5) * 1080} r={2 + rnd(i) * 5} fill={i % 2 ? '#8C8474' : '#D6CEB8'} opacity={.5 * hand + .1} />)}
+    {[[200, 180, 140, 60], [1500, 860, -120, 90], [1640, 200, 80, 140]].map(([a, b, c, d2], i) => <Line key={i} d={`M${a} ${b} l${c * .5} ${d2 * .5} l${-c * .2} ${d2 * .3} l${c * .7} ${d2 * .4}`} w={1.4} a={.5} />)}
+    {/* the ocean the nail line becomes */}
+    {oc > 0 && <g>
+      <path d={'M-100 -100 L' + coastL.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + ' L-100 1180Z'} fill="#B8B27A" opacity={oc * .8} />
+      <path d={'M2020 -100 L' + coastR.map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + ' L2020 1180Z'} fill="#C9AE74" opacity={oc * .8} />
+      <path d={sm(coastL) + ' L' + [...coastR].reverse().map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + 'Z'} fill="#3E7FA3" stroke={SEP} strokeWidth={2} />
+      {Array.from({ length: 18 }, (_, i) => <path key={i} d={`M${f1(xc - Wd * .35 + rnd(i) * Wd * .7)} ${f1(rnd(i + 3) * 1080)} q12 -6 24 0 t24 0`} stroke="#C9DDE6" strokeWidth={1.4} fill="none" opacity={.6 * oc} />)}
+    </g>}
+    {/* the ruler */}
+    <g opacity={1 - oc * .9}>
+      <RG d="M330 350 H1620 V440 H330Z" color="#E2C48A" draw={draw} sw={1.8} />
+      {Array.from({ length: 251 }, (_, i) => { const xx = 360 + i * 5, L2 = i % 10 === 0 ? 30 : i % 5 === 0 ? 20 : 11; return xx > 1600 ? null : <path key={i} d={`M${xx} 350 v${L2}`} stroke={SEP} strokeWidth={i % 10 === 0 ? 1.6 : .8} opacity={ph(draw, .3, .9)} />; })}
+      {Array.from({ length: 25 }, (_, i) => 360 + i * 50 > 1600 ? null : <text key={'n' + i} x={360 + i * 50} y={410} fontSize={20} fontFamily={FIG} textAnchor="middle" fill={SEP} opacity={ph(draw, .4, 1)}>{i}</text>)}
+      {grow > 0 && <g><path d={`M${f1(T[0] + 5)} 330 v-18 H${f1(E[0])} v18`} stroke={VER} strokeWidth={4} fill="none" strokeLinejoin="round" />
+        <Line d={`M${f1(T[0] + 5)} 444 V${f1(T[1] - w - 4)} M${f1(E[0])} 444 V${f1(E[1] - w - 4)}`} w={1.2} col={VER} a={.7} /></g>}
+    </g>
+    {/* the hand, flat, fingers to the right */}
+    <g opacity={hand}>
+      <ellipse cx={HX + 100} cy={HY + 110} rx={420} ry={60} fill={SEP} opacity={.18} filter="url(#b8)" />
+      <HumanHand x={HX} y={HY} s={HS} ang={0} pose="open" id={id + 'h'} sleeve="#5A6E9A" draw={ph(draw, .2, .8)} />
+      {/* the white free edge of the middle fingernail, growing */}
+      <path d={`M${q(-4, -w * .92)} Q${q(e * .6, -w * .95)} ${q(e, -w * .55)} Q${q(e + 4, 0)} ${q(e, w * .55)} Q${q(e * .6, w * .95)} ${q(-4, w * .92)}Z`} fill="#FBF4E2" stroke={SEP} strokeWidth={1.4} />
+    </g>
+    {/* the line along the nail tip */}
+    {line > 0 && <path d={`M${f1(E[0])} ${f1(E[1] - 40 - oc * 700)} V${f1(E[1] + 40 + oc * 700)}`} stroke={VER} strokeWidth={4 + oc * 4} pathLength={1} strokeDasharray={`${sst(line)} 1`} strokeLinecap="round" />}
+  </g>;
+};
+
+export const ART_B: Record<string, React.FC<any>> = { RockShip, GreenlandTent, SeaChart, SurveyShip, PenRecorder, StripeFloor, RidgeGlobe, Cambridge, Compass, RidgeTape, PlateGlobe, Trench,
+  RugHimalaya, AtlanticOpen, GPSMarker, NailAtlantic };
+// mid-action props for the contact sheet (full-frame: the film's index exports FULL = true)
+export const SAMPLE_B: Record<string, object> = {
+  RockShip: { sail: .9, crumple: .45, sink: .12, tm: 1 }, GreenlandTent: { snow: .6, lamp: .8, skis: 1, tm: 1 }, SeaChart: { monster: 1, moon: 1, sound: .7 },
+  SurveyShip: { sail: .45, ping: .45, cable: .8, xray: .6, needle: .4, tm: 1 }, PenRecorder: { k: .6, spill: .6, tm: 1 }, StripeFloor: { k: 1, pair: 2.5, piano: .7 },
+  RidgeGlobe: { k: .8, spin: .02 }, Cambridge: { lamp: 1, tm: 1 }, Compass: { flip: .35, tm: 1 }, RidgeTape: { well: 1, cool: .6, run: .4, arrows: 1, gold: .6, belt: .5, cross: 1, tm: 1 },
+  PlateGlobe: { crack: 1, shift: .5, quakes: 1, tm: .6 }, Trench: { dive: .5, quakes: 1, puff: .6, tm: 1 }, RugHimalaya: { push: .8, peaks: .35 }, AtlanticOpen: { open: .6, glow: 1, tm: 1 },
+  GPSMarker: { sat: .5, beam: 1, tick: .7, tm: .4 }, NailAtlantic: { grow: .7, line: 1, ocean: .25 },
+};

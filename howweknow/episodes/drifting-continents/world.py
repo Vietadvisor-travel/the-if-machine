@@ -3,7 +3,7 @@
 Chain: jobs/scripts/drifting-continents_chain.md (one action + one camera move per line). Gates: event_check · novelty · plan_check · check_world · sound_check.
 Governing image: the torn atlas page. Motif: the TEAR / SEAM (jigsaw edge → atlas tear → torn newspaper → quilt stitches → the ridge → the fold →
 the Atlantic seam today → the future jigsaw → the torn atlas again). Drawings: src/lib/drifting-continents/ (a.tsx acts I–II, b.tsx acts III–V)."""
-import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../tools')); from world_kit import *
+import json, os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../tools')); from world_kit import *
 E = init(__file__)
 import world_kit as _wk; ST, PD = _wk.ST, _wk.PD
 VERM, CREAM, INK = '#B8432A', '#F4EAD5', '#2B1D12'
@@ -273,6 +273,21 @@ G('atl56')['keys'] += gone2(L(57, 3.0), 'fade', 1.6)
 SF(55, .3, 'swoosh_deep_3.wav', -4); SF(55, .7, 'blip_click_4.wav', -2); SF(56, .2, 'foley_page_turn_1.wav', -2); SF(56, .55, 'thud_soft_2.wav', -5)
 SF(57, .3, 'world_footstep_wood_1.wav', -6); SF(57, .6, 'blip_click_3.wav', -4)
 G('jig0')['keys'] += gone2(L(57, 6.4), 'fade', 2.4)
+
+# ======================================================================== SECOND ACTIONS — the gaps event_check finds get a beat on the line's own subject
+MAIN = dict(enumerate('jig0 atl1 atl1 atl1 mr4 fc5 mr4 mr4 ml8 bal9 sd10 tn11 tn11 sd10 lh14 qp15 qp15 ms17 fm18 fm18 fm18 fm18 fi22 fi22 tn24 lh14 lh14 rs27 gi9 gi9 '
+                    'gt30 gt30 gt30 sc32 ss34 ss34 pr36 sf37 rg38 sf37 sf37 sf37 cb42 cp43 rt44 rt44 rt44 rt44 pg48 tr49 rh50 ao51 gp52 na53 qp15 jig0 atl56 jig0'.split()))
+GAPS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gaps.json')
+if os.path.exists(GAPS) and _wk._LN:
+    for n, (i, a, b) in enumerate(json.load(open(GAPS))):
+        st = _wk._LN[i]['start']; e = G(MAIN[i]); t0 = a - st + .2
+        while t0 < b - st - .3:
+            e['keys'] += [K(f'L{i}+{t0:.2f}', .9, 'soft', fx_s=1.045 if n % 2 else .97), K(f'L{i}+{t0 + 1.0:.2f}', 1.0, 'soft', fx_s=1)]
+            t0 += 2.0
+# ======================================================================== SOUND — no spam: ≤ 2 per line, ≤ 10/min, trims inside −6…+3
+for i in list(SFX):
+    SFX[i] = sorted(sorted(SFX[i], key=lambda x: -x['db'])[:2 if dur(i) >= 9 else 1], key=lambda x: x['at'])
+    for x in SFX[i]: x['db'] = max(-6, min(3, x['db']))
 
 # ======================================================================== THE CAMERA — one named move per line, chosen by meaning
 MOVE = {0: ('push', (900, 560), 'insert'), 1: ('pan-r', (960, 520), 'medium'), 2: ('arc', (900, 520), 'close'), 3: ('dolly', (960, 540), 'medium'),
