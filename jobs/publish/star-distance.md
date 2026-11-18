@@ -1,7 +1,7 @@
-# Publish — Các vì sao xa đến đâu (star-distance) · Fathomline · third film · 2026-11-18
+# Publish - Các vì sao xa đến đâu (star-distance) · Fathomline · third film · 2026-11-18
 
 Owner order: "đăng tập: Các vì sao xa đến đâu" (18/11/2026 08:19 +07). Parallel posting
-(owner order 17/11) — FB fired 08:56, IG 09:32, TikTok retry 09:35, YouTube 09:39
+(owner order 17/11) - FB fired 08:56, IG 09:32, TikTok retry 09:35, YouTube 09:39
 (the two browser tasks were staggered by the file-size problem below, not one-by-one
 by choice).
 Posted film: **v1.1** (Claude DELIVERED v1 17/11 22:15, v1.1 18/11: two-pass re-encode
@@ -32,7 +32,7 @@ before, so CRF 28 came out 176 MB):
 Title (delivery option 1):
 "How Far Away Are the Stars? The Blink That Measured the Universe"
 
-## YouTube — PUBLISHED 18/11/2026 09:45 +07
+## YouTube - PUBLISHED 18/11/2026 09:45 +07
 - URL: https://www.youtube.com/watch?v=X9QkGBAJR0k
 - Video ID: X9QkGBAJR0k, channel Fathomline UChtJIYrqxnBAsVk0hk3ULiw (@fathomline-films)
 - Uploaded file: star-distance_16x9_crf32.mp4 (94 MB CRF 32 re-encode of the 545 MB master).
@@ -46,7 +46,7 @@ Title (delivery option 1):
 - End screen: template "1 video, 1 subscribe", video set to "What Is Inside an Atom?"
   (3bUGG6Ltdk4), 8:24-8:44. Card at 8:30 to the same film.
 - Pinned comment: comment POSTED as @fathomline-films, exact text "Nobody has ever been
-  to a star. So how do we know how far away they are? What should we figure out next?" —
+  to a star. So how do we know how far away they are? What should we figure out next?" -
   AND PINNED. Advanced features are now Enabled (checked in Studio 18/11: Standard
   Enabled, Intermediate Enabled, Advanced Enabled). This closes the open item from
   films 1-2 (comments posted but unpinned). Note: the two earlier films' comments are
@@ -62,7 +62,7 @@ Title (delivery option 1):
   relaunched with the granted CRF 32 file (the TikTok twin proved the Drive-download
   route fails, see TikTok).
 
-## TikTok — PUBLISHED 18/11/2026 09:38-09:39 +07
+## TikTok - PUBLISHED 18/11/2026 09:38-09:39 +07
 - URL: https://www.tiktok.com/@fathomlinefilms/video/7709335292234304776
 - Video ID: 7709335292234304776, account @fathomlinefilms
 - Uploaded file: the same 94 MB CRF 32 re-encode (granted to the cloud browser).
@@ -80,7 +80,7 @@ Title (delivery option 1):
   grant; the Drive-download route does not work for uploads. Downloads belong to
   commands (pp_drive), uploads belong to granted files. Runbook §0 updated.
 
-## Facebook — PUBLISHED 18/11/2026 09:02:10 +07
+## Facebook - PUBLISHED 18/11/2026 09:02:10 +07
 - Post URL: https://facebook.com/reel/2184971502089865/
 - Post ID: 122100200523553368, media ID: 2184971502089865
 - Posted via facebook-cli as the Fathomline Page (1409513838916477), file = 176 MB
@@ -94,7 +94,7 @@ Title (delivery option 1):
   2026-11-18T09:02:10+07.
 - Cover: the OWNER sets the cover himself after posting (decision 17/11).
 
-## Instagram — PUBLISHED 18/11/2026 09:34:52 +07
+## Instagram - PUBLISHED 18/11/2026 09:34:52 +07
 - URL: https://www.instagram.com/reel/Df3cL1hD_of/
 - Media ID: 17959718913264519, account @fathomlinefilms (17841435974347255)
 - Posted via Meta Graph API (ifm-graph.py ig-reel) with --cover-url (vertical cover).
