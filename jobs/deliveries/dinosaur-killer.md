@@ -4,6 +4,11 @@
 - dinosaur-killer_16x9.mp4 · 544 MB (v2.1, replaces v1) · 8:27 · 1920×1080 (fitted to the owner's 5–600 MB by tools/fit.py)
 - dinosaur-killer_thumb.jpg (YouTube 1280×720, standard poster) · dinosaur-killer_cover_9x16.jpg · dinosaur-killer.srt (optional CC, not burned in)
 
+## v2.2 sound (18 Nov 2026, owner: "nhạc vẫn to quá… nhạc vui tươi, không phải bí ẩn… thêm hiệu ứng âm thanh")
+- Picture unchanged; remixed and remuxed. Score now mysterious, one cue per part, about 6 dB quieter: Kevin MacLeod (incompetech.com), CC BY 4.0 —
+  "Lightless Dawn", "Hidden Agenda", "Aftermath", "Darkness is Coming", "Silver Blue Light". 73 quiet sound effects on the actions (≤ −24 dB,
+  ≥ 1.2 s apart, 8.6/min). Gate tools/sound_check.py PASS. The master on Drive was replaced (544 MB).
+
 ## v2 remake (18 Nov 2026)
 - Owner rejected v1: static scenes, repeated transitions/camera, title off-centre. v2 rebuilt every line from chain v2: an action at least every
   2.5 s (tools/event_check.py: 18 events per 10 s), one named camera move per line (19 kinds, none on > 12 % of lines), 49 kinds of
