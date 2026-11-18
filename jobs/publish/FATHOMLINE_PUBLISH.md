@@ -1,6 +1,10 @@
-# Publish runbook — Fathomline (all 4 channels)
+# Publish runbook — Fathomline (YouTube only from 18/11/2026)
 
 Trigger: the owner says "đăng tập <tên VI>". Only then. Nothing posts before APPROVED.
+OWNER ORDER 18/11/2026: from now on, when the owner says "đăng tập", Muse posts ONLY
+to YouTube as usual. The owner posts TikTok, Facebook and Instagram himself. Sections
+1-4 below still describe the old 4-channel flow; only §1 (YouTube) is live work for
+Muse now. The FB/IG/TikTok sections stay as reference in case the owner asks again.
 Applies to FATHOM films (16:9 long-form, ~8 min). Supersedes the old The If Machine
 publish notes (jobs/publish/money-disappears.md, gravity-half.md) — those are the
 reference for the mechanics, this file is the live checklist.
