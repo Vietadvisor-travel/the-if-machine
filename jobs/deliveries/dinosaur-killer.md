@@ -1,7 +1,7 @@
 # Delivery — Thứ gì đã giết khủng long? (dinosaur-killer) · FATHOM film · v1 · 18 Nov 2026
 
-## Files (Drive fathom/dinosaur-killer/)
-- dinosaur-killer_16x9.mp4 · SIZE · DURATION · 1920×1080 (fitted to the owner's 5–600 MB by tools/fit.py)
+## Files (Drive fathom/dinosaur-killer/ · https://drive.google.com/drive/folders/1HMakPe2QNDBQaPLvIC7yztO1VMUNet53)
+- dinosaur-killer_16x9.mp4 · 544 MB · 8:27 · 1920×1080 (fitted to the owner's 5–600 MB by tools/fit.py)
 - dinosaur-killer_thumb.jpg (YouTube 1280×720, standard poster) · dinosaur-killer_cover_9x16.jpg · dinosaur-killer.srt (optional CC, not burned in)
 
 ## Production
@@ -17,7 +17,7 @@
 - New devices (FX.md §K): RockBook (strata open like a book) · IridiumMeter (the needle bends on its stop and grows up through the roof) ·
   ShockedGrain (shock lamellae etch in, then the grain cracks and shatters) · SurveyRing (the survey's passes draw half a ring; the sea half closes it).
 - Gates: script_check · check_world · variety · plan_check · still_check (0 s dead) · treatment_check · novelty (14 ways in, 13 ways out, all
-  under 35 %; nothing the last two films leaned on) — all PASS. Animatic → self-critic pass (framing, legibility, a blank stretch removed).
+  under 35 %; nothing the last two films leaned on) — all PASS. Full render on the farm (20 chunks, 99 dB checks) — 31 min (3.6 s per film second), fitted 1605 → 544 MB. Animatic → self-critic pass (framing, legibility, a blank stretch removed).
 - Voice af_heart (Kokoro, Apache-2.0), plain read — machine-generated narration. Score by measurement, 4 cues: Kevin MacLeod (incompetech.com),
   CC BY 4.0 — "Dreamer", "Floating Cities", "Anamalie", "Burt's Requiem". Held breaths under the blank page, the needle and the impact.
 
