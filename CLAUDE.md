@@ -86,6 +86,15 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   animatic scores ≥ 8 on every axis (jobs/critic/<slug>.json, tied to that exact animatic).
 - A scene is never "a picture appears + a label + the camera drifts". Each line: who/what does what, and what it turns into.
 
+## Engine v10 — owner 18 Nov 2026 ("kiểu tranh khắc cổ… vẽ như bản trước là ok rồi… từ sau không cần khắc cổ nữa cho nặng và lâu… tối ưu cả token usage, chất lượng giữ nguyên")
+- From the next film: `E['engine'] = 10` — NO engraving pass (Look `engrave` forced 0), no antique-engraving requirement: the clean drawn house
+  style (cream paper, sepia ink outlines, house pigments, house type) is the standard. PD engravings are optional, never required; skip
+  `etch.py` unless a plate is the best material. The critic's STYLE axis = "one consistent FATHOM drawing style", not "looks like an old engraving".
+- Token-lean, same quality: write the chain + per-line action plan ONCE and build world.py from it in one pass (helpers `B()`/`Lf()`, the
+  `move()` camera grammar — copy them from episodes/dinosaur-killer/world.py); run the gates (event_check, novelty, plan_check, check_world)
+  BEFORE any render; look at stills as ONE contact sheet (24 frames, 640 px) not one by one; render only the frames you need; the fresh
+  critic reads contact sheets, not single frames; never re-render a whole set to check one fix (render that frame).
+
 ## Roles
 - **Claude:** everything creative — topics, research, scripts planned to the frame, every drawing, the engine, rendering, delivery.
 - **Muse:** sourcing only (lean: ~1 hour per film, ≤ 15 rows), against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,

@@ -51,8 +51,9 @@ const Dissolve: React.FC<{ id: string; s: Props; seed: number; burn?: boolean }>
     <feComposite in="m" in2="m2" operator="out" result="band" />
     <feFlood floodColor={burn ? '#1A0E06' : '#2B1D12'} floodOpacity={burn ? .92 : .7} result="ink" /><feComposite in="ink" in2="band" operator="in" result="inkb" />
     <feComposite in="inkb" in2="SourceGraphic" operator="in" result="rimg" />
-    {burn && <><feComponentTransfer in="v" result="m3"><feFuncA type="linear" slope={-1 / w} intercept={(kk + .007) / w} /></feComponentTransfer>
-      <feComposite in="m3" in2="m" operator="out" result="band2" /><feFlood floodColor="#F2A672" floodOpacity={.9} result="emb" />
+    {/* the ember sits ON the burning edge (the char's outer lip next to the hole), not out in the hole: critic 18 Nov saw it float 20–60 px off */}
+    {burn && <><feComponentTransfer in="v" result="m3"><feFuncA type="linear" slope={-1 / w} intercept={(kk - .006) / w} /></feComponentTransfer>
+      <feComposite in="m" in2="m3" operator="out" result="band2a" /><feComposite in="band2a" in2="SourceGraphic" operator="in" result="band2" /><feFlood floodColor="#F2A672" floodOpacity={.9} result="emb" />
       <feComposite in="emb" in2="band2" operator="in" result="emb2" /><feGaussianBlur in="emb2" stdDeviation={2.2} result="glow" /></>}
     <feMerge><feMergeNode in="vis" /><feMergeNode in="rimg" />{burn && <feMergeNode in="glow" />}{burn && <feMergeNode in="emb2" />}</feMerge>
   </filter></defs></svg>;

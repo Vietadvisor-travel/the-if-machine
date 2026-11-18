@@ -6,7 +6,7 @@
 // half on land under the jungle, half under the Gulf; Chicxulub Puerto on the coast), house sparrow (Passer domesticus) anatomy.
 import React, { useMemo } from 'react';
 import { Line, Ink, Stipple, SEP, ell, SR, Star, NightWash, Floor, Fell, Hand, N, Pt, f1, cl, ph, lerp, rect, rr, pathOf, rnd } from '../star-distance/kit';
-import { ART_A } from './a';
+import { ART_A, EngSky } from './a';
 import { Skin, skinOutline, deg, P as PP, Joint, SmallMammal } from '../../paint/anatomy';
 
 // ================================================================ THE SHOCKED GRAIN (v8 device) — a quartz grain in the microscope's round field, cross-polarised colours;
@@ -22,14 +22,18 @@ const ShockedGrain: React.FC<{ x?: N; y?: N; r?: N; draw?: N; etch?: N; crack?: 
       <rect x={x - r} y={y - r} width={2 * r} height={2 * r} fill={field ? '#1A1424' : '#EFE0C2'} />
       {/* neighbour grains, dull */}
       {[[-.8, -.7], [.85, -.6], [-.9, .6], [.8, .75], [0, -.95], [0, .98]].map(([u, v], i) => <SR key={i} d={ell(x + u * r, y + v * r, r * .32, r * .24)} mat="tundra" t={.75} draw={draw} sw={1} hatch={0} />)}
-      <path d={grain} fill="#C9DDE6" stroke={SEP} strokeWidth={2} filter={sharp < .95 ? 'url(#b8)' : undefined} />
-      <g clipPath={`url(#${id}g)`}>
+      {crack <= .5 && <path d={grain} fill="#C9DDE6" stroke={SEP} strokeWidth={2} filter={sharp < .95 ? 'url(#b8)' : undefined} />}
+      {crack <= .5 && <g clipPath={`url(#${id}g)`}>
         <rect x={x - r} y={y - r} width={r} height={2 * r} fill="#E9B456" opacity={.35} /><rect x={x} y={y - r} width={r} height={2 * r} fill="#7FA8C4" opacity={.4} />
         {sets.map(([ang, t0], si) => { const e = cl((etch - (1 - t0) * .6) / .4); if (e <= 0) return null; const n = 24;
           return <g key={si} transform={`rotate(${ang} ${x} ${y})`}>{Array.from({ length: n }, (_, i) => { const yy = y - r + (i + .5) * 2 * r / n, len = 2 * r * e;
             return <line key={i} x1={x - r} y1={yy} x2={x - r + len} y2={yy} stroke={si === 0 ? '#3A2418' : si === 1 ? '#8C3424' : '#22507A'} strokeWidth={si === 0 ? 2.2 : 1.6} opacity={.8} />; })}</g>; })}
-      </g>
-      {crack > 0 && <g>
+      </g>}
+      {crack > .5 && Array.from({ length: 9 }, (_, i) => { const a0 = i / 9 * Math.PI * 2, a1 = (i + 1) / 9 * Math.PI * 2, f = (crack - .5) * 2, mx = Math.cos((a0 + a1) / 2), my = Math.sin((a0 + a1) / 2);
+        return <g key={'sh' + i} transform={`translate(${mx * f * r * .7} ${my * f * r * .7 + f * f * r * .4}) rotate(${(i % 2 ? 1 : -1) * f * 40} ${x} ${y})`} opacity={1 - f * .3}>
+          <path d={`M${x} ${y} L${x + Math.cos(a0) * r * .7} ${y + Math.sin(a0) * r * .6} L${x + Math.cos(a1) * r * .7} ${y + Math.sin(a1) * r * .6}Z`} fill="#C9DDE6" stroke={SEP} strokeWidth={1.6} />
+          {Array.from({ length: 5 }, (_, k) => <line key={k} x1={x + Math.cos(a0) * r * (.15 + k * .1)} y1={y + Math.sin(a0) * r * (.15 + k * .1)} x2={x + Math.cos(a1) * r * (.15 + k * .1)} y2={y + Math.sin(a1) * r * (.15 + k * .1)} stroke="#3A2418" strokeWidth={1.4} opacity={.7} />)}</g>; })}
+      {crack > 0 && crack <= .5 && <g>
         <path d={`M${x - r * .6} ${y + r * .1} L${x - r * .1} ${y - r * .05} L${x + r * .2} ${y + r * .08} L${x + r * .62} ${y - r * .12}`} stroke="#FFFDF4" strokeWidth={3 + crack * 5} fill="none" pathLength={1} strokeDasharray={`${crack} 1`} />
         <path d={`M${x - r * .1} ${y - r * .05} L${x - r * .2} ${y - r * .45}`} stroke="#FFFDF4" strokeWidth={2 + crack * 3} fill="none" pathLength={1} strokeDasharray={`${cl(crack * 2 - 1)} 1`} />
         <circle cx={x - r * .1} cy={y - r * .05} r={r * .35 * crack} fill="url(#glowW)" opacity={.6 * (1 - crack * .5)} /></g>}
@@ -64,18 +68,21 @@ const WorldOutcrops: React.FC<{ x?: N; y?: N; draw?: N; line?: N; pins?: N; dust
 // the turquoise Gulf, the curve of the coast, the little port at the centre; ring 0..1 lets the buried crater's rim show through as a faint
 // arc of cenotes (the real ring of sinkholes); night 0..1.
 const YucatanCoast: React.FC<{ x?: N; y?: N; s?: N; draw?: N; ring?: N; night?: N; port?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, ring = 0, night = 0, port = 1 }) => {
+  // v2 (critic: "flat colour fields… a 3×3 grid for the village"): the coast as an engraved map-view — the Gulf hatched with wave lines, the
+  // jungle as massed stippled tree-crowns, a sand beach, the port as a cluster of little roofed houses with a jetty
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s, R = 360 * s;
-  const coast = `M${X(-1200)} ${Y(-120)} C${X(-700)} ${Y(-60)} ${X(-300)} ${Y(-10)} ${X(0)} ${Y(-20)} C${X(320)} ${Y(-30)} ${X(700)} ${Y(-110)} ${X(1200)} ${Y(-200)}`;
+  const coast = `M${X(-1600)} ${Y(-120)} C${X(-700)} ${Y(-60)} ${X(-300)} ${Y(-10)} ${X(0)} ${Y(-20)} C${X(320)} ${Y(-30)} ${X(700)} ${Y(-110)} ${X(1600)} ${Y(-200)}`;
+  const crowns = useMemo(() => Array.from({ length: 260 }, (_, i) => [rnd(i) * 3200 - 1600, 30 + rnd(i + 3) * 900, 16 + rnd(i + 5) * 16] as [N, N, N]), []);
   return <g opacity={draw}>
-    <rect x={-200} y={-200} width={2320} height={1480} fill="#4A88AE" />
-    {Array.from({ length: 30 }, (_, i) => <Line key={i} d={`M${-200 + rnd(i) * 2300} ${Y(-260 - rnd(i + 2) * 400)} h${40 + rnd(i + 5) * 160}`} w={1.2} col="#C9DDE6" a={.5} />)}
-    <path d={`${coast} L${X(1200)} ${Y(900)} L${X(-1200)} ${Y(900)}Z`} fill="#5F8A5A" stroke={SEP} strokeWidth={2} />
-    <path d={`${coast}`} stroke="#F0D9A8" strokeWidth={12 * s} fill="none" />
-    <Stipple x={X(-1200)} y={Y(-100)} w={2400 * s} h={1000 * s} n={2200} seed="yuc" col="#2A4A32" a={.55} />
-    {Array.from({ length: 60 }, (_, i) => { const px = X(-1100 + rnd(i) * 2200), py = Y(60 + rnd(i + 3) * 500); return <path key={i} d={`M${px - 10} ${py} q10 -14 20 0`} stroke="#2A4A32" strokeWidth={2} fill="none" opacity={.6} />; })}
-    {ring > 0 && <g opacity={ring}>{Array.from({ length: 34 }, (_, i) => { const a = Math.PI * (.04 + i / 33 * .92), cx = X(0) + Math.cos(a) * R, cy = Y(-20) + Math.sin(a) * R * .8; return <g key={i}><circle cx={cx} cy={cy} r={(6 + rnd(i) * 6) * s} fill="#22507A" stroke={SEP} strokeWidth={1} /><circle cx={cx - 1} cy={cy - 2} r={2 * s} fill="#9CCAD6" /></g>; })}</g>}
-    {port > 0 && <g opacity={port}>{Array.from({ length: 9 }, (_, i) => <rect key={i} x={X(-40 + (i % 3) * 26)} y={Y(-6 + Math.floor(i / 3) * 18)} width={18 * s} height={12 * s} fill="#FBF4E2" stroke={SEP} strokeWidth={.8} />)}</g>}
-    {night > 0 && <rect x={-200} y={-200} width={2320} height={1480} fill="#141C38" opacity={night * .6} />}
+    <SR d={rect(-400, -400, 2720, 2000)} mat="sea" t={.5} ang={0} draw={draw} sw={0} rim={false} />
+    {Array.from({ length: 70 }, (_, i) => <path key={i} d={`M${-300 + rnd(i) * 2500} ${Y(-180 - rnd(i + 2) * 700)} q${12 * s} ${-6 * s} ${24 * s} 0 t${24 * s} 0`} stroke={SEP} strokeWidth={1} fill="none" opacity={.45} />)}
+    <SR d={`${coast} L${X(1600)} ${Y(1400)} L${X(-1600)} ${Y(1400)}Z`} mat="forest" t={.5} ang={30} draw={draw} sw={2} />
+    <path d={coast} stroke="#F0D9A8" strokeWidth={12 * s} fill="none" /><path d={coast} stroke={SEP} strokeWidth={1.6} fill="none" transform={`translate(0 ${6 * s})`} />
+    {crowns.map(([u, v, r], i) => { const cx = X(u), cy = Y(v); return <g key={i}><circle cx={cx} cy={cy} r={r * s} fill={i % 3 ? '#4F7A4A' : '#5F8A5A'} stroke={SEP} strokeWidth={.8} /><path d={`M${cx - r * s * .5} ${cy + r * s * .2} q${r * s * .5} ${r * s * .4} ${r * s} 0`} stroke={SEP} strokeWidth={.8} fill="none" opacity={.6} /></g>; })}
+    {ring > 0 && <g opacity={ring}>{Array.from({ length: 34 }, (_, i) => { const a = Math.PI * (.04 + i / 33 * .92), cx = X(0) + Math.cos(a) * R, cy = Y(-20) + Math.sin(a) * R * .8; return <g key={i}><circle cx={cx} cy={cy} r={(8 + rnd(i) * 6) * s} fill="#22507A" stroke={SEP} strokeWidth={1.4} /><path d={`M${cx - 5 * s} ${cy - 3 * s} q${5 * s} ${-4 * s} ${10 * s} 0`} stroke="#9CCAD6" strokeWidth={1.4} fill="none" /></g>; })}</g>}
+    {port > 0 && <g opacity={port}><Line d={`M${X(0)} ${Y(-20)} v${-60 * s}`} w={4 * s} col="#8C5A36" />
+      {Array.from({ length: 11 }, (_, i) => { const hx = X(-80 + (i % 4) * 44 + (i > 7 ? 20 : 0)), hy = Y(10 + Math.floor(i / 4) * 30); return <g key={i}><rect x={hx - 12 * s} y={hy - 8 * s} width={24 * s} height={16 * s} fill="#FBF4E2" stroke={SEP} strokeWidth={1} /><path d={`M${hx - 15 * s} ${hy - 8 * s} L${hx} ${hy - 20 * s} L${hx + 15 * s} ${hy - 8 * s}Z`} fill="#A8432A" stroke={SEP} strokeWidth={1} /></g>; })}</g>}
+    {night > 0 && <rect x={-400} y={-400} width={2720} height={2000} fill="#141C38" opacity={night * .6} />}
   </g>;
 };
 
@@ -167,7 +174,7 @@ const SurveyRing: React.FC<{ x?: N; y?: N; R?: N; draw?: N; pas?: N; sea?: N; wh
     {sea > 0 && rings.map((k, i) => <path key={'s' + i} d={arc(k, Math.PI + .08, 2 * Math.PI - .08, .02)} stroke={i === 2 ? '#B8432A' : '#22507A'} strokeWidth={i === 2 ? 4 : 1.6} fill="none" pathLength={1} strokeDasharray={`${cl(sea * 1.4 - i * .08)} 1`} opacity={.9} />)}
     {whole > 0 && <ellipse cx={x} cy={y} rx={R} ry={R * .86} stroke="#B8432A" strokeWidth={9} fill="none" pathLength={1} strokeDasharray={`${whole} 1`} filter="url(#boil)" />}
     {scale > 0 && <g opacity={scale}><Line d={`M${x - R} ${y + R * 1.05} H${x + R}`} w={3} col={SEP} /><Line d={`M${x - R} ${y + R * 1.0} v${R * .1} M${x + R} ${y + R * 1.0} v${R * .1}`} w={3} />
-      <text x={x} y={y + R * 1.18} fontSize={44} fontFamily="'Special Elite', monospace" fill={SEP} textAnchor="middle">≈ 180 km</text></g>}
+      <text x={x} y={y + R * 1.05 + 56} fontSize={44} fontFamily="'Special Elite', monospace" fill={SEP} textAnchor="middle">≈ 180 km</text></g>}
   </g>;
 };
 
@@ -178,8 +185,9 @@ const ConferenceHall: React.FC<{ x?: N; y?: N; s?: N; draw?: N; empty?: N; beam?
   return <g opacity={draw}>
     <SR d={rect(X(-1100), Y(-700), 2200 * s, 1400 * s)} mat="wall" t={.55} draw={draw} sw={0} hatch={0} rim={false} />
     <SR d={rect(X(-420), Y(-460), 840 * s, 480 * s)} mat="paper" t={.05} draw={draw} sw={1.6} hatch={0} />
-    <path d={`M${X(-200)} ${Y(-140)} A${200 * s} ${170 * s} 0 0 0 ${X(200)} ${Y(-140)}`} stroke="#B8432A" strokeWidth={5} fill="none" />
-    {[150, 120, 90].map((r, i) => <path key={i} d={`M${X(-r)} ${Y(-140)} A${r * s} ${r * .85 * s} 0 0 0 ${X(r)} ${Y(-140)}`} stroke={SEP} strokeWidth={1.4} fill="none" />)}
+    <defs><clipPath id="chscr"><rect x={X(-420)} y={Y(-460)} width={840 * s} height={480 * s} /></clipPath></defs>
+    <g clipPath="url(#chscr)"><path d={`M${X(-200)} ${Y(-140)} A${200 * s} ${170 * s} 0 0 0 ${X(200)} ${Y(-140)}`} stroke="#B8432A" strokeWidth={5} fill="none" />
+    {[150, 120, 90].map((r, i) => <path key={i} d={`M${X(-r)} ${Y(-140)} A${r * s} ${r * .85 * s} 0 0 0 ${X(r)} ${Y(-140)}`} stroke={SEP} strokeWidth={1.4} fill="none" />)}</g>
     <Line d={`M${X(-400)} ${Y(-150)} Q${x} ${Y(-130)} ${X(400)} ${Y(-180)}`} w={2} />
     {beam > 0 && <path d={`M${X(-420)} ${Y(-460)} L${X(420)} ${Y(-460)} L${X(60)} ${Y(500)} L${X(20)} ${Y(500)}Z`} fill="#FFFDF4" opacity={.07 * beam} />}
     {Array.from({ length: 4 }, (_, row) => Array.from({ length: 10 }, (_, c) => { const idx = row * 10 + c, gone = rnd(idx * 1.7) < empty, cx = X(-720 + c * 160 + (row % 2) * 30), cy = Y(160 + row * 120), sc = 1 + row * .25;
@@ -214,8 +222,8 @@ const DrillCore: React.FC<{ x?: N; y?: N; s?: N; draw?: N; lid?: N; roll?: N; la
 const VillageSign: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sun?: N }> = ({ x = 960, y = 560, s = 1, draw = 1, sun = 1 }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s;
   return <g opacity={draw}>
-    <rect x={-200} y={-200} width={2320} height={Y(80) + 200} fill="#9CCAD6" /><circle cx={X(600)} cy={Y(-380)} r={70} fill="#F7E3A0" opacity={sun} />
-    <rect x={-200} y={Y(80)} width={2320} height={80} fill="#4A88AE" />
+    <EngSky x={-200} y={-200} w={2320} h={Y(80) + 200} col="#C9DDE6" /><circle cx={X(600)} cy={Y(-380)} r={70} fill="#F7E3A0" opacity={sun} />
+    <EngSky x={-200} y={Y(80)} w={2320} h={80} col="#4A88AE" water />
     <SR d={rect(-200, Y(150), 2320, 900)} mat="sand" t={.3} ang={0} draw={draw} sw={1} hatch={0} />
     <SR d={rect(X(-900), Y(20), 520 * s, 230 * s)} mat="ice" t={.3} ang={0} draw={draw} sw={1.4} />
     <SR d={rect(X(-860), Y(80), 70 * s, 110 * s)} mat="sea" t={.5} draw={draw} sw={1} />
@@ -228,19 +236,35 @@ const VillageSign: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sun?: N }> = ({ x =
   </g>;
 };
 
-// ================================================================ THE IMPACT — the Earth's limb from high above the Gulf: the asteroid's flash at the coast and shock rings
-// spreading over the sea and land (ring 0..1), a curtain of dust and molten rock thrown up (plume 0..1), the sky darkening (dark 0..1).
-const ImpactRings: React.FC<{ x?: N; y?: N; draw?: N; flash?: N; ring?: N; plume?: N; dark?: N }> = ({ x = 960, y = 620, draw = 1, flash = 0, ring = 0, plume = 0, dark = 0 }) => <g opacity={draw}>
-  <rect x={-200} y={-200} width={2320} height={1480} fill="#0B1030" />
-  <path d={`M-200 1300 V${y - 120} Q${x} ${y - 340} 2120 ${y - 120} V1300Z`} fill="#22507A" stroke="#9CCAD6" strokeWidth={3} />
-  <path d={`M-200 1300 V${y + 40} C200 ${y - 10} 600 ${y + 30} ${x} ${y} C1300 ${y - 20} 1700 ${y + 40} 2120 ${y + 10} V1300Z`} fill="#5F8A5A" opacity={.9} />
-  <Stipple x={-200} y={y} w={2320} h={700} n={900} seed="imp" col="#2A4A32" a={.5} />
-  {ring > 0 && [0, .18, .36, .54].map((d, i) => { const k = cl((ring - d) / .5); return k > 0 ? <ellipse key={i} cx={x} cy={y} rx={k * 1100} ry={k * 300} fill="none" stroke={i === 0 ? '#F7E3A0' : '#F2A672'} strokeWidth={14 * (1 - k) + 2} opacity={1 - k * .7} /> : null; })}
-  {plume > 0 && <g>{Array.from({ length: 26 }, (_, i) => { const a = -Math.PI / 2 + (rnd(i) - .5) * 2.2, L = plume * (300 + rnd(i + 3) * 500); return <path key={i} d={`M${x} ${y} Q${x + Math.cos(a) * L * .5} ${y + Math.sin(a) * L * .7} ${x + Math.cos(a) * L} ${y + Math.sin(a) * L}`} stroke={i % 3 ? '#6A4430' : '#D2643E'} strokeWidth={30 + rnd(i) * 50} fill="none" strokeLinecap="round" opacity={.7} filter="url(#b8)" />; })}
-    <ellipse cx={x} cy={y - plume * 420} rx={plume * 700} ry={plume * 260} fill="#3A2418" opacity={.55 * plume} filter="url(#b30)" /></g>}
-  {flash > 0 && <g><circle cx={x} cy={y} r={60 + flash * 500} fill="#FFFDF4" opacity={flash} filter="url(#b30)" /><circle cx={x} cy={y} r={40} fill="#FFFFFF" opacity={flash} /></g>}
-  {dark > 0 && <rect x={-200} y={-200} width={2320} height={1480} fill="#1A120B" opacity={dark * .7} />}
-</g>;
+// ================================================================ THE IMPACT (v2, engraved — critic: "pixelated orange blocks… no ink line") — the Gulf from high above at
+// night as an engraved plate: the curve of the sea and the coast hatched, the strike as radiating ink rays round a cream disc (flash), the
+// shock rings as inked waves (ring), the plume as an engraved cumulus of hatched billows climbing out of the bowl (plume), the sky darkening.
+const ImpactRings: React.FC<{ x?: N; y?: N; draw?: N; flash?: N; ring?: N; plume?: N; dark?: N }> = ({ x = 960, y = 620, draw = 1, flash = 0, ring = 0, plume = 0, dark = 0 }) => {
+  const st = useMemo(() => Array.from({ length: 90 }, (_, i) => [rnd(i) * 2300 - 190, rnd(i + 9) * (y - 160) - 180, .6 + rnd(i + 4) * 1.6] as [N, N, N]), [y]);
+  return <g opacity={draw}>
+    <NightWash x={-200} y={-200} w={2320} h={1480} seed="impn" top="#0B1030" bot="#2B3B66" />
+    {st.map(([sx, sy, r], i) => <Star key={i} x={sx} y={sy} r={r} a={.75 * (1 - dark)} />)}
+    <SR d={`M-200 1300 V${y - 120} Q${x} ${y - 340} 2120 ${y - 120} V1300Z`} mat="sea" t={.62} ang={0} draw={draw} sw={2} />
+    <path d={`M-200 ${y - 120} Q${x} ${y - 340} 2120 ${y - 120}`} stroke="#C9DDE6" strokeWidth={4} fill="none" opacity={.7} />
+    <SR d={`M-200 1300 V${y + 40} C200 ${y - 10} 600 ${y + 30} ${x} ${y} C1300 ${y - 20} 1700 ${y + 40} 2120 ${y + 10} V1300Z`} mat="forest" t={.6} ang={20} draw={draw} sw={2} />
+    {Array.from({ length: 40 }, (_, i) => <path key={i} d={`M${-150 + rnd(i) * 2200} ${y + 60 + rnd(i + 2) * 400} q8 -10 16 0`} stroke={SEP} strokeWidth={1} fill="none" opacity={.5} />)}
+    {/* the shock rings: inked waves with a pale crest, spreading over sea and land */}
+    {ring > 0 && [0, .18, .36, .54].map((d0, i) => { const k = cl((ring - d0) / .5); if (k <= 0) return null; const rx = k * 1100, ry = k * 300;
+      return <g key={i} opacity={1 - k * .6}><ellipse cx={x} cy={y} rx={rx} ry={ry} fill="none" stroke={SEP} strokeWidth={3 + (1 - k) * 6} />
+        <ellipse cx={x} cy={y - 4} rx={rx * .985} ry={ry * .97} fill="none" stroke="#F3E7CC" strokeWidth={2} opacity={.8} />
+        {Array.from({ length: 36 }, (_, j) => { const an = j / 36 * Math.PI * 2; return <line key={j} x1={x + Math.cos(an) * rx * .96} y1={y + Math.sin(an) * ry * .96} x2={x + Math.cos(an) * rx * 1.03} y2={y + Math.sin(an) * ry * 1.03} stroke={SEP} strokeWidth={1} />; })}</g>; })}
+    {/* the bowl */}
+    {(ring > 0 || flash > 0) && <g><SR d={ell(x, y + 6, 90, 26)} mat="night" t={.85} draw={draw} sw={2} /><ellipse cx={x} cy={y + 2} rx={70} ry={18} fill="#D2643E" opacity={.6 * Math.max(flash, cl(1 - ring))} /></g>}
+    {/* the plume: engraved billows climbing */}
+    {plume > 0 && Array.from({ length: 16 }, (_, i) => { const u = i / 15, h = plume * (120 + u * 520), wob = Math.sin(i * 2.3) * 120 * u, r = (50 + u * 110) * (.4 + plume * .6);
+      return <SR key={i} d={ell(x + wob, y - h, r, r * .72)} mat={u < .3 ? 'red' : 'stone'} t={u < .3 ? .55 : .62 - u * .2} ang={30 + i * 15} draw={draw} sw={1.6} />; })}
+    {plume > 0 && Array.from({ length: 22 }, (_, i) => { const an = -Math.PI / 2 + (rnd(i) - .5) * 2.4, L2 = plume * (180 + rnd(i + 3) * 420); return <path key={'e' + i} d={`M${x} ${y} Q${x + Math.cos(an) * L2 * .5} ${y + Math.sin(an) * L2 * .8} ${x + Math.cos(an) * L2} ${y + Math.sin(an) * L2 * .6 + 80}`} stroke={i % 3 ? SEP : '#8C3424'} strokeWidth={1.4} fill="none" opacity={.75} />; })}
+    {/* the flash: a cream disc ringed by engraved rays */}
+    {flash > 0 && <g opacity={flash}><circle cx={x} cy={y} r={60 + flash * 160} fill="#FBF4E2" stroke={SEP} strokeWidth={1.4} />
+      {Array.from({ length: 64 }, (_, i) => { const an = i / 64 * Math.PI * 2, r0 = 70 + flash * 170, r1 = r0 + 80 + (i % 3) * 90 * flash; return <line key={i} x1={x + Math.cos(an) * r0} y1={y + Math.sin(an) * r0 * .7} x2={x + Math.cos(an) * r1} y2={y + Math.sin(an) * r1 * .7} stroke={SEP} strokeWidth={i % 2 ? 1 : 2} />; })}</g>}
+    {dark > 0 && <rect x={-200} y={-200} width={2320} height={1480} fill="#1A120B" opacity={dark * .6} />}
+  </g>;
+};
 
 // ================================================================ THE FOOD CHAIN — an iron chain hung across the page whose links are engraved medallions: the sun, a fern,
 // a plant-eater (a horned dinosaur's head), the meat-eater (the theropod's head); dim 0..1 darkens the sun; snap 0..1 breaks the chain at the
@@ -270,7 +294,7 @@ const FoodChain: React.FC<{ x?: N; y?: N; draw?: N; dim?: N; snap?: N; keep?: N 
 const Burrow: React.FC<{ x?: N; y?: N; s?: N; draw?: N; ash?: N; peek?: N; eye?: N; tm?: N }> = ({ x = 960, y = 560, s = 1, draw = 1, ash = 0, peek = 0, eye = 1, tm: t = 0 }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s;
   return <g opacity={draw}>
-    <rect x={-200} y={-200} width={2320} height={Y(-300) + 200} fill={ash > .5 ? '#5A4632' : '#9CCAD6'} />
+    <EngSky x={-200} y={-200} w={2320} h={Y(-300) + 200} col={ash > .5 ? '#8C7A62' : '#C9DDE6'} />
     <SR d={rect(-200, Y(-300), 2320, 1500)} mat="wall" t={.45} ang={0} draw={draw} sw={1.6} />
     <Stipple x={-200} y={Y(-300)} w={2320} h={1000} n={1800} seed="bur" a={.4} />
     {Array.from({ length: 40 }, (_, i) => <Line key={i} d={`M${-150 + i * 60} ${Y(-300)} l${(i % 2 ? 6 : -6)} ${-26 - rnd(i) * 30}`} w={3} col={ash > .4 ? '#76725E' : '#4F7A4A'} />)}

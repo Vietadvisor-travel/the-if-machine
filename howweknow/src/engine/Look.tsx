@@ -15,9 +15,12 @@ export const LOOK_DEF = { engrave: .8, warm: 0, sat: 1, con: 1, expo: 1, grain: 
 // second, still alive to the eye), so the encoder can reuse what did not change. Films before v8 keep the v6 values exactly.
 export const LOOK_V8 = { grain: .2, weave: .3, flick: .18, hold: 3 };
 export type LookS = typeof LOOK_DEF;
-export const lookOf = (cam: Record<string, any> | undefined, v6: boolean, v8 = false): LookS | null => {
+// v10 (owner 18 Nov 2026: "kiểu tranh khắc cổ… từ sau không cần khắc cổ nữa cho nặng và lâu"): engine ≥ 10 films have NO engraving pass —
+// the clean drawn house style; lighter files, faster renders. Films before keep theirs.
+export const lookOf = (cam: Record<string, any> | undefined, v6: boolean, v8 = false, v10 = false): LookS | null => {
   if (!v6) return null; const o: any = { ...LOOK_DEF, ...(v8 ? LOOK_V8 : {}) };
   for (const k of Object.keys(LOOK_DEF)) if (cam && typeof cam[k] === 'number') o[k] = cam[k];
+  if (v10) o.engrave = 0;
   return o;
 };
 const hash = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };

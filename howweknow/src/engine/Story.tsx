@@ -48,7 +48,7 @@ export const Story: React.FC<StoryProps> = ({ ep, tl, at, nocap, look, lookcfg }
   const cam: Cam = { x: 0, y: 0, zoom: 1, rot: 0, ...(S.camera || {}) }, ctx = { t, tl, cam, S };
   const L = camLife(t, S.camera?.drift ?? 1, S.camera);
   const clue = ep.world.find(e => e.type === 'clue'), layers = ep.world.filter(e => e.type !== 'camera' && e.type !== 'clue').map((e, i) => ({ e, z: e.z ?? i })).sort((a, b) => a.z - b.z);
-  const Lk0 = lookOf(S.camera, (ep.engine ?? 0) >= 6 || look === 6, (ep.engine ?? 0) >= 8), Lk = Lk0 && lookcfg ? { ...Lk0, ...lookcfg } : Lk0;
+  const Lk0 = lookOf(S.camera, (ep.engine ?? 0) >= 6 || look === 6, (ep.engine ?? 0) >= 8, (ep.engine ?? 0) >= 10), Lk = Lk0 && lookcfg ? { ...Lk0, ...lookcfg } : Lk0;
   if (Lk) {   // ENGINE v6 (Look.tsx): engraving pass + grade + projector + depth of field + shake; v5 films never reach this branch
     const [sx, sy, sr] = shakeOf(Lk, t); L.dx += sx; L.dy += sy; L.r += sr;
     const moving = true, wrap = (e: Entity, st: Record<string, any>, body: React.ReactNode) => { const d = st.para ?? depthOf(e, st), b = st.defocus ?? blurOf(Lk, d);

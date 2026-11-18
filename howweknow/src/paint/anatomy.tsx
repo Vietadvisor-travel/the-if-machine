@@ -65,7 +65,7 @@ export const skinOutline = (J: Joint[], per = 10) => {
 // light: direction the light comes FROM in screen space (default upper left); hatch: density 0..1; mat/t: the house pigment and its tone
 export type SkinP = { openStart?: boolean; openEnd?: boolean; J: Joint[]; mat?: string; t?: N; draw?: N; light?: P; hatch?: N; id: string; sw?: N; per?: N; rim?: N; col?: string; fur?: N; scales?: N };
 export const Skin: React.FC<SkinP> = ({ J, mat = 'land', t = .5, draw = 1, light = [-.5, -.85], hatch = 1, id, sw = 1.8, per = 10, rim = 1, col, fur = 0, scales = 0, openStart = false, openEnd = false }) => {
-  const { S, U, D: D0, d } = skinOutline(J, per); const D = [...D0].reverse(); const base = col || tone(mat, t), deep = mix(base, '#2B1D12', .45), hi = mix(base, '#FFF8E6', .45);
+  const { S, U, D: D0, d } = skinOutline(J, per); const D = [...D0].reverse(); const base = mix(col || tone(mat, t), '#EFE2C6', .22), deep = mix(base, '#2B1D12', .4), hi = mix(base, '#FFF8E6', .5);
   const lt = Math.hypot(light[0], light[1]) || 1, Lx = light[0] / lt, Ly = light[1] / lt;
   // cross-contours: every few samples, a line from the up edge to the down edge, bowed along the spine so it wraps the volume
   const cc: React.ReactNode[] = []; const step = Math.max(2, Math.round(per / 3));
@@ -88,6 +88,14 @@ export const Skin: React.FC<SkinP> = ({ J, mat = 'land', t = .5, draw = 1, light
     <defs><clipPath id={gid}><path d={d} /></clipPath>
       <linearGradient id={gid + 'g'} x1={.5 - Lx * .5} y1={.5 - Ly * .5} x2={.5 + Lx * .5} y2={.5 + Ly * .5}><stop offset="0" stopColor={deep} /><stop offset=".55" stopColor={base} /><stop offset="1" stopColor={hi} /></linearGradient></defs>
     <path d={d} fill={`url(#${gid}g)`} />
+    {/* v9.1 (critic 18 Nov: "flat vector… saturated fills"): the engraver's hatching — a line screen laid over the form, masked to the side away
+        from the light (light hatch over half the body, a cross-hatch in the deepest shadow), so a living body reads as an ENGRAVING, not a fill */}
+    <defs><linearGradient id={gid + 'mg'} x1={.5 + Lx * .55} y1={.5 + Ly * .55} x2={.5 - Lx * .55} y2={.5 - Ly * .55}><stop offset="0" stopColor="#fff" /><stop offset=".55" stopColor="#888" /><stop offset=".85" stopColor="#000" /></linearGradient>
+      <linearGradient id={gid + 'mh'} x1={.5 + Lx * .55} y1={.5 + Ly * .55} x2={.5 - Lx * .55} y2={.5 - Ly * .55}><stop offset="0" stopColor="#fff" /><stop offset=".35" stopColor="#000" /></linearGradient>
+      <mask id={gid + 'm'} maskContentUnits="objectBoundingBox"><rect x={0} y={0} width={1} height={1} fill={`url(#${gid}mg)`} /></mask>
+      <mask id={gid + 'm2'} maskContentUnits="objectBoundingBox"><rect x={0} y={0} width={1} height={1} fill={`url(#${gid}mh)`} /></mask></defs>
+    {hatch > 0 && <path d={d} fill={`url(#h2_${Math.round(((Math.atan2(Ly, Lx) * 180 / Math.PI + 90) % 180 + 180) % 180 / 15) * 15 % 180})`} mask={`url(#${gid}m)`} opacity={.55 * hatch} />}
+    {hatch > 0 && <path d={d} fill={`url(#h3_${Math.round(((Math.atan2(Ly, Lx) * 180 / Math.PI + 30) % 180 + 180) % 180 / 15) * 15 % 180})`} mask={`url(#${gid}m2)`} opacity={.5 * hatch} />}
     <g clipPath={`url(#${gid})`}>
       <path d={smoothPath(shadowEdge, false)} stroke={deep} strokeWidth={22} fill="none" opacity={.35} filter="url(#b8)" />
       {cc}

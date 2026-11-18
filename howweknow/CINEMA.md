@@ -80,7 +80,7 @@ Use them for: period interiors and landscapes (the set), instruments as they wer
 diagrams. Our own drawings remain for the people (faces must act), for anything the engravings do not show, and for the science
 (diagrams, particles, the impossible views). Law: public domain / CC0 only, recorded in `jobs/stock_pd/<slug>.md`, credited.
 
-## 4b. ONE STYLE — everything stays FATHOM (owner 17 Nov 2026: "làm sao vẫn hợp phong cách tổng thể của mình nhé")
+## 4b. ONE STYLE (owner 18 Nov 2026: from engine 10 the antique-ENGRAVING look is no longer required — the clean drawn house style is the bar) — everything stays FATHOM (owner 17 Nov 2026: "làm sao vẫn hợp phong cách tổng thể của mình nhé")
 Cinema lives INSIDE the house style, never beside it. Every frame must still read as one hand-coloured engraving on cream paper:
 - **Ink**: every line — our drawings and every antique engraving — is the channel's sepia ink (#2B1D12); `etch.py cut` converts scans to it.
   No black ink, no photo greys. Antique plates are never shown as their raw scan colour in the film (a real document as an ARTEFACT is
