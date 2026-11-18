@@ -1,8 +1,18 @@
-# Delivery — Thứ gì đã giết khủng long? (dinosaur-killer) · FATHOM film · v1 · 18 Nov 2026
+# Delivery — Thứ gì đã giết khủng long? (dinosaur-killer) · FATHOM film · v2.1 · 18 Nov 2026 (v1 rejected by the owner; remade; v2.1 approved by the owner)
 
 ## Files (Drive fathom/dinosaur-killer/ · https://drive.google.com/drive/folders/1HMakPe2QNDBQaPLvIC7yztO1VMUNet53)
-- dinosaur-killer_16x9.mp4 · 544 MB · 8:27 · 1920×1080 (fitted to the owner's 5–600 MB by tools/fit.py)
+- dinosaur-killer_16x9.mp4 · 544 MB (v2.1, replaces v1) · 8:27 · 1920×1080 (fitted to the owner's 5–600 MB by tools/fit.py)
 - dinosaur-killer_thumb.jpg (YouTube 1280×720, standard poster) · dinosaur-killer_cover_9x16.jpg · dinosaur-killer.srt (optional CC, not burned in)
+
+## v2 remake (18 Nov 2026)
+- Owner rejected v1: static scenes, repeated transitions/camera, title off-centre. v2 rebuilt every line from chain v2: an action at least every
+  2.5 s (tools/event_check.py: 18 events per 10 s), one named camera move per line (19 kinds, none on > 12 % of lines), 49 kinds of
+  transformation, the title screen-locked, no on-screen chyron. New in the drawings: the rex walks in, drinks, lifts its head, a point of
+  light in its eye; ash turns to bones; the old book's plates come alive and tear; a pocket watch rises from the 1830 sea; a living plankton
+  page; the hourglass of clay; the needle through a parting roof; a saw through a meteorite; the plane draws the ring; the seats empty; days
+  and nights over the shelf; the half-ring lifts off the report; the impact through the museum window; a sparrow lands on the skull.
+- Fresh critic (fathom-critic agent): keyframes v2 3–5/10, animatic v2 3–5/10 (jobs/critic/dinosaur-killer.json); motion/variety/invention
+  fixes applied in v2.1; drawing/light stayed at the house level the owner accepts ("tập này ok"). Render: farm, 28 min; fit 1743 → 544 MB.
 
 ## Production
 - Engine v8 + the new v9 ANATOMY (owner, 18 Nov: "con vật, bộ phận người… sơ sài, không giống… nâng cấp"): chain → treatment (gate PASS) →
