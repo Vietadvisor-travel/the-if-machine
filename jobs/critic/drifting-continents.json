@@ -23,5 +23,30 @@
    "Figures and hands (89.7 s, 132.8 s, 232 s, 469.5 s, 503 s): Wegener is a stiff paper-doll with straight cylinder limbs, no face acting, the balloon and radiosonde float; the audience are tiny identical busts glued to the benches; the measuring hand at 469.5 s has five sausage fingers of the same width splayed like a glove and the thumb pinned on the ruler; the child's hand at 503 s is a mitten in a blue cuff. Rebuild on anatomy.tsx HumanHand/Skin from a photo reference (knuckles, tapering fingers, nail beds), give Wegener his real fur hood/ski gear and a face looking UP at the balloon, and make the scoffing professors act (heads back, mouths open, one turning to a neighbour).",
    "Line 3 (31.9 s) / line 9 (89.7 s) / line 50 (443.5 s) composition: at 31.9 s the tear is a dead-straight dark band, not a ragged paper rip with fibres and a gap showing the table below; at 89.7 s a half-cut torn photograph intrudes top-right; at 443.5 s the rug-wrinkle sits small in the lower right with a blank paper wall filling 60 % of the frame and nothing saying 'Himalaya'. Make the tear ragged and opening, crop out the stray photo, and on line 50 match-cut the rug ridges into snowy peaks (white caps, a tiny climber or flag on Everest) filling the frame, the rug fringe still visible at the bottom as the rhyme."
   ]
+ },
+ "keyframes2": {
+  "by": "fresh agent (fathom-critic)",
+  "date": "2026-11-18",
+  "sheet": "howweknow/out/drifting-continents_sheet_0.jpg",
+  "scores": {
+   "clarity": 6,
+   "popular": 7,
+   "invention": 7,
+   "drawing": 6,
+   "light": 5,
+   "composition": 6,
+   "style": 7
+  },
+  "verdict": "NOT READY, but clearly better. Sea floor (329.5 s), ridge cross-section with compass needles (386.9 s) and the conveyor with land slabs, reels and grave cross (416.8 s) now pass the name-it test; the fingernail hand is much better. Still failing: the Himalaya rug (443.5 s), the ice/fossil (200.5 s), the Mesosaurus-as-sticker (157 s), stray cut-off artefacts, paper-doll figures, and light that is still mostly flat fills.",
+  "top_fixes": [
+   "Line 50 (443.5 s) 'land crumples like a rug... Himalaya': still a flat red rug with a pixel motif and a tick-ruler; nothing says mountains or 'shoved against a wall'. Show the shove: a rug sliding into a skirting board/wall at the right, folds rising into 3 ridges with raking side light; then the folds morph into snow-capped peaks (white caps, Everest flag) with the rug fringe still visible at the bottom. Delete the pixel motif and the floor ruler ticks.",
+   "Line 22 (200.5 s) Glossopteris under the Antarctic ice: an ice shelf with a brown band and icicles, but NO leaf fossil visible and a black rock still cut off at the right edge. Put a large tongue-shaped Glossopteris leaf print in the dark rock layer centre frame (or the credited fossil photo pinned there), a penguin/sledge for scale, a green ghost of the living fern above; remove the stray rock.",
+   "Line 17 (157.0 s) Mesosaurus: still a thin stick lying across the whole quilt like a sticker; the fossil photo sits half-out at bottom right. Make it a small reptile (snout, legs, tail) in a blue freshwater lake straddling the Brazil/Africa seam, at a believable scale; move the fossil photo fully inside frame with its caption; replace gingham/polka prints with hatched house pigments.",
+   "Line 9 (89.7 s) Wegener: stiff paper-doll in a coat, flat white plain, and a torn sepia photo still cut by the top-right edge. Pin the credited Wegener photo fully in frame (corner-mounted, captioned) or remove it; pose him looking UP at the balloon, hand just releasing the string, fur hood/ski gear, low polar sun with a long blue shadow, Greenland ice ridges behind.",
+   "Light, all frames: still flat (only the lava glow, the tent and a jigsaw vignette). Lecture hall (132.8 s, 232 s): window shafts + lamp pools and contact shadows under the speaker and benches; 5.7 s / 484.5 s / 503.2 s: one raking desk lamp so pieces and the hand cast long shadows; 329.5/352.5 s: light falloff with depth (darker toward the horizon) and a haze plane.",
+   "Line 14 (132.8 s) and line 26 (232 s): the audience are tiny identical busts glued to benches and the speaker is a blue-suited doll with a straight arm. Bigger foreground professors that act (head thrown back laughing, one whispering, one pointing), Wegener holding the fern/map up with a hopeful face; at 232 s the left 'impossible' bubble is cropped and the bubbles crowd: show fewer, bigger, readable bubbles hardening to stone as the chain says.",
+   "Line 40 (352.5 s) fold: at this instant the right half is a dead grey slab and the fold is not legible; make the folding paper visibly lift and arc (curl, shadow under it, its stripes visible on the underside) so the stripes landing on their twins reads at any frame; a hand at the corner helps.",
+   "Line 53 (469.5 s) fingernail: the thumb is a detached finger pointing up-left at the top of the frame and the fingers are all the same width; set the thumb from the side of the palm (anatomy.tsx HumanHand), taper index to little finger, and put the ruler ticks visibly next to the growing nail tip so 'few centimetres a year' is measured on screen."
+  ]
  }
 }

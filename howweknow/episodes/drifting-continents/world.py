@@ -59,13 +59,13 @@ SF(8, .1, 'transition_whoosh_airy_1.wav', -2); SF(8, .42, 'impact_wood_3.wav', -
 
 # ---------------------------------------------------------------- CLUE 1 — the torn page · Wegener lets a balloon go over Greenland
 art('gi9', 'GreenlandIce', L(9), None, [], enter='wipe', eo='up', snow=0, sledge=0, flag=0, **C, z=4, xs='down')
-person('weg9', 'Alfred Wegener, meteorologist, Greenland (1910s)', L(9, .6), None, [], x=820, y=960, h=520, facing=1, pose='stand', pose2='raise', pk=0, expr='focus', ek=0, look=[.4, -.6], **WEGA, z=14)
+person('weg9', 'Alfred Wegener, meteorologist, Greenland (1910s)', L(9, .6), None, [], x=820, y=960, h=520, facing=1, pose='stand', pose2='raise', pk=0, expr='focus', ek=0, look=[.2, -1], **WEGA, z=14)
 A_('weg9', 9, (.15, {'pk': 1}), (.42, .5, {'pose2': 'reach', 'pk': .3}), (.55, {'pk': 1, 'expr': 'smile', 'ek': 1}), (.78, {'pose2': 'look', 'pk': 1}))
 art('bal9', 'Balloon', L(9, .4), None, [], enter='bleed', rise=0, bg=0, x=980, y=560, s=1, z=16, xs='up')
 A_('bal9', 9, (.45, 1.8, {'rise': .3}), (.7, 1.8, {'rise': .6}))
 A_('bal9', 10, (.05, 1.6, {'rise': 1}))
 G('weg9')['keys'] += gone2(L(10, .2), 'down', .9); G('gi9')['keys'] += gone2(L(10, .5), 'down', 1.2); G('bal9')['keys'] += gone2(L(10, 3.0), 'up', 1.0)
-art('pin9', 'CabinetCard', L(9, 5.2), L(10, .2), [], ink=False, src=ST + 'P-01_wegener-villumsen-greenland-1930.jpg', x=1520, y=380, w=360, h=260, rot=-3,
+art('pin9', 'CabinetCard', L(9, 5.2), L(10, .2), [], ink=False, src=ST + 'P-01_wegener-villumsen-greenland-1930.jpg', x=1380, y=430, w=320, h=230, rot=-3,
     caption='Wegener (left) and Villumsen, Greenland 1930', draw=1, enter='bleed', z=30, xs='burn')
 text('pl9', 'Alfred Wegener · weather scientist', 'plate', 760, 160, L(9, 1.4), L(10, .2), size=40, col=INK)
 art('sd10', 'StudyDesk', L(10, 1.2), None, [], enter='scale', eo=[960, 300], lamp=0, mag=0, shells=0, **C, z=8, xs='fade')
@@ -98,10 +98,10 @@ A_('qp15', 16, (.05, 1.4, {'cloth': 1, 'stamp': 0}), (.22, 1.4, {'stitch': .3}),
 SF(15, .25, 'impact_wood_3.wav', 0); SF(16, .25, 'scratch_2.wav', -5); SF(16, .6, 'scratch_2.wav', -6)
 
 # ---------------------------------------------------------------- CLUE 2 — the same fossils on both sides
-art('ms17', 'Mesosaurus', L(17, .3), None, [], enter='glide', eo=[-500, 0], walk=0, swim=0, bones=0, splutter=0, x=760, y=600, s=.34, z=20, xs='fade')
+art('ms17', 'Mesosaurus', L(17, .3), None, [], enter='glide', eo=[-500, 0], walk=0, swim=0, bones=0, splutter=0, x=760, y=600, s=.22, z=20, xs='fade')
 G('ms17')['keys'] += [K(L(17, .3), dur(17) - 1, 'linear', walk=4, x=980)]
 A_('ms17', 17, (.3, .6, {'tail': 1}), (.5, .6, {'tail': 0}), (.8, 1.0, {'swim': 1}))
-art('pin17', 'Pinned', L(17, 6.4), L(18, .4), [], ink=False, src=ST + 'P-02_mesosaurus-tenuidens-senckenberg.jpg', x=1580, y=830, w=360, h=230, rot=3,
+art('pin17', 'Pinned', L(17, 6.4), L(18, .4), [], ink=False, src=ST + 'P-02_mesosaurus-tenuidens-senckenberg.jpg', x=1420, y=780, w=320, h=210, rot=3,
     caption='Mesosaurus fossil · Senckenberg', draw=1, enter='bleed', z=30, xs='burn')
 G('qp15')['keys'] += gone2(L(18, .1), 'fade', .9)
 A_('ms17', 18, (.02, 1.0, {'bones': 1}))
@@ -124,10 +124,10 @@ art('fern21', 'Fern', L(21), L(21, 4.0), [], enter='pour', eo='up', unfurl=0, bl
 A_('fern21', 21, (.05, 1.2, {'unfurl': 1}), (.2, 1.4, {'blow': 1}))
 A_('fm18', 22, (.05, 1.0, {'ant': 1}))
 G('fm18')['keys'] += gone2(L(22, 2.0), 'at', 1.0, [960, 900])
-art('fi22', 'FernIce', L(22, 1.6), None, [], enter='focus', snow=0, freeze=0, freezer=0, thaw=0, **C, z=10, xs='burn')
-A_('fi22', 22, (.35, 1.4, {'snow': .6}), (.55, 1.2, {'snow': 1}), (.78, 1.0, {'freeze': 1}))
+art('fi22', 'FernIce', L(22, 1.6), None, [], enter='focus', snow=0, freeze=0, freezer=0, thaw=0, ghost=0, **C, z=10, xs='burn')
+A_('fi22', 22, (.3, 1.2, {'ghost': 1}), (.55, 1.2, {'snow': .45}), (.78, 1.0, {'freeze': 1, 'ghost': 0}))
 A_('fi22', 23, (.05, 1.0, {'freezer': 1}), (.3, 1.4, {'thaw': .4}), (.55, 1.4, {'thaw': .8}), (.78, 1.0, {'thaw': 1}))
-art('pin22', 'Pinned', L(22, 3.8), L(23, .3), [], ink=False, src=ST + 'P-02_glossopteris-leaf-antarctica.jpg', x=1540, y=300, w=380, h=280, rot=-2,
+art('pin22', 'Pinned', L(22, 3.8), L(23, .3), [], ink=False, src=ST + 'P-02_glossopteris-leaf-antarctica.jpg', x=1380, y=760, w=320, h=230, rot=-2,
     caption='Glossopteris leaf · Antarctica', draw=1, enter='bleed', z=30, xs='burn')
 G('fi22')['keys'] += gone2(L(24, .1), 'burn', 1.2, [960, 540])
 SF(21, .25, 'transition_whoosh_airy_1.wav', -3); SF(21, .62, 'impact_soft_3.wav', -3); SF(22, .1, 'real_wind_4.wav', -3); SF(22, .78, 'crack_wood_1.wav', -4)
@@ -281,6 +281,9 @@ lamp('lp10', [700, 240], L(10, 1.2), L(13, 7.0), r=900, dark=.45, warm=.9)
 lamp('lp17', [800, 200], L(15), L(24, .3), r=1300, dark=.3, warm=.7)
 lamp('lp25', [960, 120], L(25), L(27, .2), r=1100, dark=.5, warm=.8)
 shaft('sf25', [300, 0], [700, 900], L(25), L(27, .2), w0=120, w1=420, n=2, k=.35)
+shaft('sf14', [200, 0], [760, 900], L(14), L(15, .3), w0=120, w1=420, n=2, k=.35)
+shadow('sh9b', 760, 980, 340, 16, L(9, .6), L(10, .2), k=.55)
+haze('hz37', 200, 700, L(37), L(42, .2), k=.4, col='#8FA9BC')
 haze('hz28', 540, 760, L(28, 3.6), L(30, .4), k=.5, col='#E4ECF2'); lamp('lp28', [1650, 520], L(28, 3.6), L(30, .4), r=1300, dark=.2, warm=.4)
 lamp('lp30', [960, 600], L(30), L(30, 5.6), r=700, dark=.6, warm=1.0)
 haze('hz30', 600, 900, L(30), L(32, 5.2), k=.5, col='#C9D7E6')
@@ -313,7 +316,7 @@ MOVE = {0: ('push', (900, 560), 'insert'), 1: ('pan-r', (960, 520), 'medium'), 2
         12: ('track', (960, 520), 'insert'), 13: ('pan-l', (960, 540), 'medium'), 14: ('orbit', (800, 520), 'medium'), 15: ('snap-zoom', (960, 540), 'wide'),
         16: ('crane-up', (960, 540), 'wide'), 17: ('track', (1000, 600), 'close'), 18: ('pull', (960, 560), 'medium'), 19: ('handheld', (960, 540), 'close'),
         20: ('pan-r', (960, 540), 'medium'), 21: ('pan-l', (960, 540), 'wide'), 22: ('crane-down', (960, 560), 'close'), 23: ('dutch', (960, 540), 'medium'),
-        24: ('rack', (960, 520), 'insert'), 25: ('whip', (960, 520), 'wide'), 26: ('push', (960, 480), 'close'), 27: ('tilt-down', (960, 560), 'close'),
+        24: ('rack', (960, 520), 'insert'), 25: ('whip', (960, 700), 'medium'), 26: ('push', (960, 760), 'close'), 27: ('tilt-down', (960, 560), 'close'),
         28: ('pan-r', (960, 540), 'wide'), 29: ('handheld', (760, 800), 'wide'), 30: ('push', (960, 560), 'close'), 31: ('lock', (960, 560), 'wide'),
         32: ('crane-down', (960, 600), 'insert'), 33: ('pull', (960, 540), 'wide'), 34: ('track', (960, 540), 'wide'), 35: ('snap-zoom', (960, 700), 'insert'),
         36: ('tilt-down', (960, 540), 'detail'), 37: ('crane-up', (960, 540), 'wide'), 38: ('orbit', (960, 540), 'wide'), 39: ('lock', (960, 540), 'medium'),

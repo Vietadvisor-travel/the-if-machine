@@ -4634,25 +4634,25 @@
     {
      "t": "L25",
      "dur": 0.01,
-     "push": 1.08,
-     "pan_x": -561.6,
-     "pan_y": 21.6,
+     "push": 1.14,
+     "pan_x": -592.8,
+     "pan_y": -182.4,
      "roll": 0
     },
     {
      "t": "L25+0.05",
      "dur": 0.75,
-     "push": 1.08,
+     "push": 1.14,
      "pan_x": 0.0,
-     "pan_y": 21.6,
+     "pan_y": -182.4,
      "ease": "out"
     },
     {
      "t": "L25+0.74",
      "dur": 6.093,
-     "push": 1.1664,
+     "push": 1.2312,
      "pan_x": 0.0,
-     "pan_y": 23.3,
+     "pan_y": -197.0,
      "ease": "linear"
     },
     {
@@ -4669,7 +4669,7 @@
      "dur": 1.0,
      "push": 1.1776,
      "pan_x": 0.0,
-     "pan_y": 70.7,
+     "pan_y": -259.1,
      "roll": 0,
      "ease": "soft"
     },
@@ -4678,7 +4678,7 @@
      "dur": 6.727,
      "push": 1.6,
      "pan_x": 0.0,
-     "pan_y": 96.0,
+     "pan_y": -352.0,
      "ease": "inOut"
     },
     {
@@ -6465,8 +6465,8 @@
     "expr": "focus",
     "ek": 0,
     "look": [
-     0.4,
-     -0.6
+     0.2,
+     -1
     ],
     "costume": "wegenerArctic",
     "beard": "short",
@@ -6631,10 +6631,10 @@
     "a": 0,
     "burn": 1,
     "src": "stock/_hwk/drifting-continents/P-01_wegener-villumsen-greenland-1930.jpg",
-    "x": 1520,
-    "y": 380,
-    "w": 360,
-    "h": 260,
+    "x": 1380,
+    "y": 430,
+    "w": 320,
+    "h": 230,
     "rot": -3,
     "caption": "Wegener (left) and Villumsen, Greenland 1930",
     "draw": 1,
@@ -7572,7 +7572,7 @@
     "splutter": 0,
     "x": 760,
     "y": 600,
-    "s": 0.34,
+    "s": 0.22,
     "draw": 1,
     "fx_x": -500
    },
@@ -7684,10 +7684,10 @@
     "a": 0,
     "burn": 1,
     "src": "stock/_hwk/drifting-continents/P-02_mesosaurus-tenuidens-senckenberg.jpg",
-    "x": 1580,
-    "y": 830,
-    "w": 360,
-    "h": 230,
+    "x": 1420,
+    "y": 780,
+    "w": 320,
+    "h": 210,
     "rot": 3,
     "caption": "Mesosaurus fossil · Senckenberg",
     "draw": 1,
@@ -8136,6 +8136,7 @@
     "freeze": 0,
     "freezer": 0,
     "thaw": 0,
+    "ghost": 0,
     "x": 960,
     "y": 540,
     "s": 1,
@@ -8155,21 +8156,22 @@
      "ease": "soft"
     },
     {
-     "t": "L22+2.27",
-     "dur": 1.4,
-     "snow": 0.6,
+     "t": "L22+1.95",
+     "dur": 1.2,
+     "ghost": 1,
      "ease": "soft"
     },
     {
      "t": "L22+3.57",
      "dur": 1.2,
-     "snow": 1,
+     "snow": 0.45,
      "ease": "soft"
     },
     {
      "t": "L22+5.06",
      "dur": 1.0,
      "freeze": 1,
+     "ghost": 0,
      "ease": "soft"
     },
     {
@@ -8222,10 +8224,10 @@
     "a": 0,
     "burn": 1,
     "src": "stock/_hwk/drifting-continents/P-02_glossopteris-leaf-antarctica.jpg",
-    "x": 1540,
-    "y": 300,
-    "w": 380,
-    "h": 280,
+    "x": 1380,
+    "y": 760,
+    "w": 320,
+    "h": 230,
     "rot": -2,
     "caption": "Glossopteris leaf · Antarctica",
     "draw": 1,
@@ -11238,6 +11240,87 @@
     }
    ],
    "z": 57
+  },
+  {
+   "id": "sf14",
+   "type": "shaft",
+   "props": {
+    "from": [
+     200,
+     0
+    ],
+    "to": [
+     760,
+     900
+    ],
+    "w0": 120,
+    "w1": 420,
+    "n": 2,
+    "k": 0,
+    "para": 0
+   },
+   "keys": [
+    {
+     "t": "L14",
+     "dur": 2.0,
+     "k": 0.35,
+     "ease": "soft"
+    },
+    {
+     "t": "L15+0.23",
+     "dur": 1.0,
+     "k": 0
+    }
+   ],
+   "z": 57
+  },
+  {
+   "id": "sh9b",
+   "type": "shadow",
+   "props": {
+    "x": 760,
+    "y": 980,
+    "rx": 340,
+    "ry": 16,
+    "k": 0
+   },
+   "keys": [
+    {
+     "t": "L9+0.52",
+     "dur": 1.2,
+     "k": 0.55
+    },
+    {
+     "t": "L10+0.15",
+     "dur": 0.8,
+     "k": 0
+    }
+   ],
+   "z": 3
+  },
+  {
+   "id": "hz37",
+   "type": "haze",
+   "props": {
+    "y0": 200,
+    "y1": 700,
+    "k": 0,
+    "col": "#8FA9BC"
+   },
+   "keys": [
+    {
+     "t": "L37",
+     "dur": 1.6,
+     "k": 0.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L42+0.23",
+     "dur": 1.0,
+     "k": 0
+    }
+   ],
+   "z": 56
   },
   {
    "id": "hz28",
