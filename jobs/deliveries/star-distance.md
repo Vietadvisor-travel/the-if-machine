@@ -1,7 +1,7 @@
 # Delivery — Các vì sao xa đến đâu (star-distance) · FATHOM film · v1 · 17 Nov 2026
 
 ## Files (Drive fathom/star-distance/ · https://drive.google.com/drive/folders/1_m9Cj5qLSrwt35HKMDhHHny1El7J3e5u)
-- star-distance_16x9.mp4 · 545 MB (v1.1, 18 Nov: two-pass re-encode of the CRF-17 master to the owner's 5–600 MB, PSNR 41.7 dB vs CRF 17, no visible difference) (CRF-17 master) · 8:44 · 1920×1080
+- star-distance_16x9.mp4 · 545 MB (v1.1, 18 Nov: two-pass re-encode of the CRF-17 master to the owner's 5–600 MB, PSNR 41.7 dB vs CRF 17, no visible difference) · 8:44 · 1920×1080
 - star-distance_thumb.jpg (YouTube 1280×720, standard poster) · star-distance_cover_9x16.jpg (Instagram/TikTok cover) · star-distance.srt (optional CC, not burned in)
 
 ## Production
