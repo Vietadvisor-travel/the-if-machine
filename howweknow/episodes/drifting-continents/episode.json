@@ -5462,7 +5462,8 @@
     "x": 960,
     "y": 540,
     "s": 1,
-    "draw": 0
+    "draw": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -5656,14 +5657,15 @@
     "burn": 1,
     "trace": 0,
     "ghost": 0,
-    "tear": 0,
+    "rip": 0,
     "gap": 0,
     "q": 0,
     "x": 960,
     "y": 540,
     "s": 1,
     "draw": 1,
-    "blur": 12
+    "blur": 12,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -5722,13 +5724,13 @@
     {
      "t": "L3+0.62",
      "dur": 0.6,
-     "tear": 0.15,
+     "rip": 0.15,
      "ease": "soft"
     },
     {
      "t": "L3+1.7",
      "dur": 1.6,
-     "tear": 1,
+     "rip": 1,
      "ease": "soft"
     },
     {
@@ -5884,7 +5886,8 @@
     "s": 1,
     "draw": 1,
     "pour": 0,
-    "pourDir": "down"
+    "pourDir": "down",
+    "fx_s": 1
    },
    "keys": [
     {
@@ -6235,7 +6238,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "blinds": 0
+    "blinds": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -6340,7 +6344,8 @@
     "s": 1,
     "draw": 1,
     "wipe": 0,
-    "wipeDir": "up"
+    "wipeDir": "up",
+    "fx_s": 1
    },
    "keys": [
     {
@@ -6550,7 +6555,8 @@
     "y": 560,
     "s": 1,
     "draw": 1,
-    "dissolve": 0
+    "dissolve": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -6737,7 +6743,7 @@
      "ease": "soft"
     },
     {
-     "t": "L10+2.08",
+     "t": "L11+0.08",
      "dur": 0.8,
      "a": 0,
      "ease": "soft"
@@ -6787,7 +6793,8 @@
    "props": {
     "name": "TornNews",
     "a": 0,
-    "tear": 0,
+    "tear": 1,
+    "rip": 0,
     "gap": 0,
     "print": 0,
     "fossils": 0,
@@ -6795,7 +6802,8 @@
     "y": 520,
     "s": 1,
     "draw": 1,
-    "unroll": 0
+    "unroll": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -6812,7 +6820,7 @@
     {
      "t": "L11+1.41",
      "dur": 1.0,
-     "tear": 1,
+     "rip": 1,
      "ease": "soft"
     },
     {
@@ -7027,7 +7035,8 @@
     "irisAt": [
      960,
      420
-    ]
+    ],
+    "fx_s": 1
    },
    "keys": [
     {
@@ -7361,7 +7370,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "brush": 0
+    "brush": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -7536,7 +7546,8 @@
     "y": 672,
     "s": 0.14,
     "draw": 1,
-    "fx_x": -500
+    "fx_x": -500,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -7699,7 +7710,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "unroll": 0
+    "unroll": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -8103,7 +8115,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "blur": 12
+    "blur": 12,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -8197,14 +8210,16 @@
     "name": "TornNews",
     "a": 0,
     "shatter": 0,
-    "tear": 0,
+    "rip": 1,
     "gap": 0.5,
     "print": 0,
     "fossils": 1,
     "x": 960,
     "y": 520,
     "s": 1,
-    "draw": 1
+    "draw": 1,
+    "tear": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -8613,7 +8628,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "blur": 12
+    "blur": 12,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -8844,7 +8860,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "dissolve": 0
+    "dissolve": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -8992,7 +9009,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "fx_y": -300
+    "fx_y": -300,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -9128,7 +9146,8 @@
     "irisAt": [
      960,
      540
-    ]
+    ],
+    "fx_s": 1
    },
    "keys": [
     {
@@ -9216,7 +9235,8 @@
     "s": 1,
     "draw": 1,
     "pour": 0,
-    "pourDir": "up"
+    "pourDir": "up",
+    "fx_s": 1
    },
    "keys": [
     {
@@ -9568,7 +9588,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "blinds": 0
+    "blinds": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -9972,7 +9993,8 @@
     "s": 1,
     "draw": 1,
     "pour": 0,
-    "pourDir": "up"
+    "pourDir": "up",
+    "fx_s": 1
    },
    "keys": [
     {
@@ -10244,7 +10266,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "blur": 12
+    "blur": 12,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -10614,7 +10637,8 @@
     "s": 1,
     "draw": 1,
     "wipe": 0,
-    "wipeDir": "down"
+    "wipeDir": "down",
+    "fx_s": 1
    },
    "keys": [
     {
@@ -10710,7 +10734,8 @@
     "y": 540,
     "s": 1,
     "draw": 1,
-    "brush": 0
+    "brush": 0,
+    "fx_s": 1
    },
    "keys": [
     {
@@ -10840,14 +10865,15 @@
     "a": 0,
     "trace": 0,
     "ghost": 0,
-    "tear": 1,
+    "rip": 1,
     "gap": 1,
     "q": 0,
     "x": 1300,
     "y": 600,
     "s": 0.62,
     "draw": 1,
-    "blur": 12
+    "blur": 12,
+    "fx_s": 1
    },
    "keys": [
     {

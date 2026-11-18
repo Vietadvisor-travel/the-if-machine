@@ -282,7 +282,7 @@ const Jigsaw: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, slide = 1, g
 // trace: a vermilion line traces Brazil's coast, then hops to West Africa's · ghost: a see-through Africa lifts off and slides west to nest in
 // Brazil · tear: a jagged tear runs top → bottom down the Atlantic · gap: the halves drift apart (≤ 70 px, dark gap, paper fibres) · q: a
 // vermilion question mark in the gap.
-const AtlasPage: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, trace = 0, ghost = 0, tear = 0, gap = 0, q = 0 }) => {
+const AtlasPage: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, trace = 0, ghost = 0, rip: tear = 0, gap = 0, q = 0 }) => {
   const id = 'atl' + Math.round(x), kk = 8.2 * s, lon0 = -15, lat0 = -9, W = 1560 * s, H = 900 * s, x0 = x - W / 2, y0 = y - H / 2;
   const P = (k: string) => wpos(k, x, y, kk, lon0, lat0), sa = P('SAM'), af = P('AFR'), na = P('NAM'), eu = P('EUR');
   const gp: [N, N, N] = fitTo('AFR'), gw = ease(ghost), gx = lerp(af[0], sa[0] + gp[0] * kk, gw), gy = lerp(af[1], sa[1] + gp[1] * kk, gw) - Math.sin(gw * Math.PI) * 30 * s, gr = lerp(0, gp[2], gw);
@@ -775,7 +775,7 @@ const StudyDesk: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, lamp = 1,
 // print, one headline) on a dark table. tear: a jagged tear rips down the middle · gap: the halves drift apart (≤ 120 px) · print: one bold
 // line of vermilion print runs letter by letter from the left half across the tear into the right · fossils: that line is made of tiny reptiles
 // and leaves instead of letters.
-const TornNews: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, tear = 0, gap = 0, print = 0, fossils = 0 }) => {
+const TornNews: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, rip: tear = 0, gap = 0, print = 0, fossils = 0 }) => {
   const id = 'tn' + Math.round(x), W = 1000 * s, H = 1180 * s, x0 = x - W / 2, y0 = y - H / 2 + 60 * s, tx = x + 10 * s;
   const tearPts = useMemo(() => jag(0, -1, 0, 1, 30, 1, 21), []).map(([a, b]) => [tx + a * 16 * s, y0 + H / 2 + b * H / 2] as Pt);
   const tp = cl(tear), g = gap * 60 * s, line = 'THE SAME ROCKS ~ THE SAME FOSSILS ~ ON BOTH SHORES', LY = y0 + 520 * s, nG = 40;
@@ -1411,9 +1411,9 @@ const FernIce: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, snow = 0, f
 export const ART_A: Record<string, React.FC<any>> = { Jigsaw, AtlasPage, MeadowRock, FourClues, MapLeaves, GreenlandIce, Balloon, StudyDesk, TornNews, LectureHall, QuiltPangaea, Mesosaurus, FossilMap, Fern, FernIce };
 // contact-sheet props (full frame, 1920×1080), each drawing caught mid-action
 export const SAMPLE_A: Record<string, object> = {
-  Jigsaw: { slide: .85, glow: .6, hand: 1 }, AtlasPage: { trace: .7, ghost: .5, tear: 1, gap: .6, q: 1 }, MeadowRock: { boots: 1, snail: .4, grow: .5, town: .7, night: .3, shift: 1, hour: 1, sand: .4 },
+  Jigsaw: { slide: .85, glow: .6, hand: 1 }, AtlasPage: { trace: .7, ghost: .5, rip: 1, gap: .6, q: 1 }, MeadowRock: { boots: 1, snail: .4, grow: .5, town: .7, night: .3, shift: 1, hour: 1, sand: .4 },
   FourClues: { n: 3.6 }, MapLeaves: { k: .55, stamp: 1, catch: .9, tm: 2 }, GreenlandIce: { snow: .4, sledge: .5, flag: 1, tm: 1 }, Balloon: { rise: .3, tm: 1 },
-  StudyDesk: { lamp: 1, mag: .35, shells: 1, tm: 1 }, TornNews: { tear: 1, gap: .6, print: .8, fossils: .5 }, LectureHall: { map: .6, laugh: .8, steam: .5, bubbles: 1, stone: .3, tm: 1 },
+  StudyDesk: { lamp: 1, mag: .35, shells: 1, tm: 1 }, TornNews: { rip: 1, gap: .6, print: .8, fossils: .5 }, LectureHall: { map: .6, laugh: .8, steam: .5, bubbles: 1, stone: .3, tm: 1 },
   QuiltPangaea: { stamp: 1, cloth: 1, stitch: .8, open: 0, lake: 1 }, Mesosaurus: { walk: .3, swim: 0, tm: 1, s: 1.3, y: 700 }, FossilMap: { pins: 1, grey: .5, waves: .5, close: .3, leaves: 4, ant: 1 },
   Fern: { unfurl: .8, blow: .2, tm: 1 }, FernIce: { snow: .3, freeze: 0, freezer: .7, thaw: .3, tm: 1 },
 };

@@ -25,10 +25,10 @@ A_('jig0', 0, (.18, 1.4, {'hand': 1}), (.32, 1.6, {'slide': .85}), (.55, .4, {'s
 G('jig0')['keys'] += gone2(L(1, .1), 'fade', 1.2)
 lamp('lp0', [380, 160], L(0), L(4, .2), r=1100, dark=.62, warm=.95)
 SF(0, .55, 'blip_click_3.wav', 0); SF(0, .2, 'world_footstep_wood_1.wav', -4)
-art('atl1', 'AtlasPage', L(1), None, [], enter='focus', trace=0, ghost=0, tear=0, gap=0, q=0, **C, z=8, xs='burn')
+art('atl1', 'AtlasPage', L(1), None, [], enter='focus', trace=0, ghost=0, rip=0, gap=0, q=0, **C, z=8, xs='burn')
 A_('atl1', 1, (.25, 1.4, {'trace': .5}), (.55, 1.4, {'trace': 1}), (.85, {'trace': 0}))
 A_('atl1', 2, (.08, 1.6, {'ghost': .5}), (.35, 1.4, {'ghost': 1}), (.62, .9, {'ghost': .95}), (.8, 1.4, {'ghost': 0}))
-A_('atl1', 3, (.08, .6, {'tear': .15}), (.22, 1.6, {'tear': 1}), (.45, 1.6, {'gap': .6}), (.66, 1.2, {'gap': 1}), (.8, {'q': 1}))
+A_('atl1', 3, (.08, .6, {'rip': .15}), (.22, 1.6, {'rip': 1}), (.45, 1.6, {'gap': .6}), (.66, 1.2, {'gap': 1}), (.8, {'q': 1}))
 G('atl1')['keys'] += gone2(L(4, .2), 'burn', 1.6, [960, 540])
 mark('mk2', 'circle', [700, 380, 520, 360], L(2, 6.2), L(3, .2), w=4)
 SF(1, .3, 'foley_page_turn_1.wav', 0); SF(2, .35, 'swoosh_thin_1.wav', -3); SF(3, .2, 'machine_paper_1.wav', 2); SF(3, .7, 'scratch_1.wav', -4)
@@ -70,15 +70,15 @@ art('sd10', 'StudyDesk', L(10, 1.2), None, [], enter='scale', eo=[960, 300], lam
 A_('sd10', 10, (.35, 1.2, {'lamp': 1}), (.6, 1.4, {'mag': .4}), (.82, 1.0, {'mag': .2}))
 SF(9, .45, 'swoosh_thin_1.wav', -2); SF(9, .75, 'real_wind_3.wav', -4); SF(10, .3, 'transition_whoosh_airy_1.wav', -2); SF(10, .7, 'thud_soft_2.wav', -2)
 # L11–L13 · the torn newspaper (device TornNews): the print runs across the tear
-art('tn11', 'TornNews', L(11), None, [], enter='unroll', tear=0, gap=0, print=0, fossils=0, x=960, y=520, s=1, z=20, xs='tearout')
-A_('tn11', 11, (.18, 1.0, {'tear': 1}), (.35, 1.2, {'gap': 1}), (.6, 1.4, {'gap': .3}), (.8, .8, {'gap': 0}))
+art('tn11', 'TornNews', L(11), None, [], enter='unroll', rip=0, gap=0, print=0, fossils=0, x=960, y=520, s=1, z=20, xs='tearout')
+A_('tn11', 11, (.18, 1.0, {'rip': 1}), (.35, 1.2, {'gap': 1}), (.6, 1.4, {'gap': .3}), (.8, .8, {'gap': 0}))
 A_('tn11', 12, (.08, 1.0, {'print': .25}), (.3, 1.0, {'print': .5}), (.5, .8, {'print': .62}), (.7, 1.0, {'print': 1}))
 person('wegd11', 'Alfred Wegener at his desk (1911)', L(11, .6), L(12, .2), [], x=380, y=1040, h=640, facing=1, pose='reach', pose2='hold', pk=0, expr='focus', ek=1, look=[1, .3], **WEG, z=24, xs='left')
 A_('wegd11', 11, (.5, {'pk': 1}), (.75, {'pk': .2, 'expr': 'smile'}))
 mark('mk12', 'tick', [1360, 560, 80, 80], L(12, 7.4), L(13, .2), w=5)
 G('tn11')['keys'] += gone2(L(13, .2), 'tearout', 1.0)
 A_('sd10', 13, (.05, {'shells': .4}), (.25, 1.2, {'shells': 1}), (.45, 1.4, {'mag': 1}), (.7, 1.4, {'mag': .1}))
-G('sd10')['keys'] += [K(L(10, 2.8), .8, 'soft', a=0), K(L(13), .8, 'soft', a=1)] + gone2(L(14, .2), 'fade', 1.0)
+G('sd10')['keys'] += [K(L(11, .1), .8, 'soft', a=0), K(L(13), .8, 'soft', a=1)] + gone2(L(14, .2), 'fade', 1.0)
 SF(11, .18, 'machine_paper_1.wav', 1); SF(11, .8, 'scratch_2.wav', -4); SF(12, .3, 'scratch_1.wav', -5); SF(12, .9, 'blip_click_4.wav', -2); SF(13, .45, 'swoosh_thin_2.wav', -3)
 # L14 · 1912: the lecture; the wall map closes into one land
 art('lh14', 'LectureHall', L(14), None, [], enter='iris', eo=[960, 420], map=0, laugh=0, steam=0, bubbles=0, stone=0, **C, z=6, xs='shatter')
@@ -130,7 +130,7 @@ G('fi22')['keys'] += gone2(L(24, .1), 'burn', 1.2, [960, 540])
 SF(21, .25, 'transition_whoosh_airy_1.wav', -3); SF(21, .62, 'impact_soft_3.wav', -3); SF(22, .1, 'real_wind_4.wav', -3); SF(22, .78, 'crack_wood_1.wav', -4)
 SF(23, .05, 'world_door_creak_1.wav', -2); SF(23, .55, 'dropper_2.wav', -3)
 # L24 · the newspaper again: the print is reptiles and leaves, running across the tear
-art('tn24', 'TornNews', L(24, .2), None, [], enter='tear', tear=1, gap=.5, print=0, fossils=1, x=960, y=520, s=1, z=20, xs='shatter')
+art('tn24', 'TornNews', L(24, .2), None, [], enter='tear', rip=1, gap=.5, print=0, fossils=1, x=960, y=520, s=1, z=20, xs='shatter')
 A_('tn24', 24, (.12, 1.0, {'gap': 0}), (.3, 1.2, {'print': .5}), (.55, 1.2, {'print': 1}), (.78, .8, {'gap': .05}))
 G('tn24')['keys'] += gone2(L(25, .2), 'fade', 1.0)
 SF(24, .12, 'machine_paper_1.wav', -2); SF(24, .55, 'scratch_1.wav', -5)
@@ -260,7 +260,7 @@ G('qp15')['keys'] += gone2(L(55, .3), 'fade', 1.0)
 SF(53, .2, 'scratch_2.wav', -5); SF(53, .55, 'sci_ui_tick_1.wav', -4); SF(54, .1, 'real_splash_1.wav', -4); SF(54, .5, 'machine_paper_1.wav', -4); SF(54, .8, 'swoosh_deep_1.wav', -3)
 G('jig0')['keys'] += [K(L(55, .2), .9, 'soft', a=1, dissolve=1, slide=1, glow=0, hand=0, apart=0)]
 A_('jig0', 55, (.1, 1.4, {'future': .3}), (.3, 1.4, {'future': .6}), (.5, 1.4, {'future': .85}), (.7, 1.2, {'future': 1}), (.85, .6, {'glow': 1}))
-art('atl56', 'AtlasPage', L(56, .1), None, [], enter='focus', trace=0, ghost=0, tear=1, gap=1, q=0, x=1300, y=600, s=.62, z=12, xs='fade')
+art('atl56', 'AtlasPage', L(56, .1), None, [], enter='focus', trace=0, ghost=0, rip=1, gap=1, q=0, x=1300, y=600, s=.62, z=12, xs='fade')
 A_('atl56', 56, (.45, 1.4, {'gap': 1.4}), (.75, 1.4, {'gap': 1.6}))
 A_('jig0', 56, (.05, 1.0, {'glow': 0}), (.2, 1.2, {'x': 640, 's': .62}))
 art('pin56', 'CabinetCard', L(56, 2.4), L(57, .4), [], ink=False, src=ST + 'P-01_wegener-villumsen-greenland-1930.jpg', x=1300, y=360, w=360, h=250, rot=-4,
@@ -298,6 +298,7 @@ GAPS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gaps.json')
 if os.path.exists(GAPS) and _wk._LN:
     for n, (i, a, b) in enumerate(json.load(open(GAPS))):
         st = _wk._LN[i]['start']; e = G(MAIN[i]); t0 = a - st + .2
+        e['props'].setdefault('fx_s', 1)
         while t0 < b - st - .3:
             e['keys'] += [K(f'L{i}+{t0:.2f}', .9, 'soft', fx_s=1.045 if n % 2 else .97), K(f'L{i}+{t0 + 1.0:.2f}', 1.0, 'soft', fx_s=1)]
             t0 += 2.0

@@ -3,6 +3,7 @@
 // in vermilion. Back: the striped sea floor (gold/indigo bands, symmetric about the ridge). Words from the pack (F8: a few centimetres a year).
 import React from 'react';
 import { ThumbPoster, ThumbPosterV } from '../../kit/ThumbPoster';
+import { ART_A } from './a';
 const VERM = '#B8432A';
 const SA = 'M120 40 C170 20 230 30 270 60 C320 90 360 110 350 160 C340 200 300 230 280 280 C260 330 240 380 200 420 C180 440 170 470 160 500 C150 470 150 430 140 390 C130 330 100 280 90 220 C80 160 70 100 120 40Z';
 const AF = 'M60 30 C120 10 200 20 250 40 C300 60 330 90 340 130 C350 170 330 200 320 240 C310 290 280 330 240 380 C210 410 190 420 180 400 C170 360 160 320 150 280 C140 240 100 220 70 200 C40 180 20 150 20 110 C20 70 30 45 60 30Z';
@@ -31,5 +32,8 @@ const Stripes: React.FC<{ W: number; H: number }> = ({ W, H }) => { const ws = [
   return <g opacity=".55">{bands.map(([o, w], i) => <g key={i}><rect x={W / 2 + o} y={0} width={w} height={H} fill={i % 2 ? '#1E2A44' : '#C9A24A'} /><rect x={W / 2 - o - w} y={0} width={w} height={H} fill={i % 2 ? '#1E2A44' : '#C9A24A'} /></g>)}
     <rect x={W / 2 - 3} y={0} width={6} height={H} fill={VERM} /></g>; };
 const words = (p: any) => ({ kicker: p.kicker ?? 'Wegener · 1912', title: p.lines ?? ['HOW DO WE', 'KNOW THE', 'CONTINENTS MOVE?'], accent: p.accent ?? 2, note: p.note ?? 'A few centimetres a year.' });
-export const THUMB: React.FC<any> = (p) => <ThumbPoster {...words(p)} hero={<Torn cx={930} cy={390} s={.72} W={1280} H={720} />} back={<Stripes W={1280} H={720} />} lamp={[930, 260]} />;
-export const THUMB_V: React.FC<any> = (p) => <ThumbPosterV {...words(p)} hero={<Torn cx={540} cy={1080} s={1} W={1080} H={1920} />} back={<Stripes W={1080} H={1920} />} />;
+const Atlas: React.FC<{ W: number; H: number; cx: number; cy: number; w: number }> = ({ W, H, cx, cy, w }) => { const A = ART_A.AtlasPage, h = w * 1080 / 1920;
+  return <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}><svg x={cx - w / 2} y={cy - h / 2} width={w} height={h} viewBox="160 70 1600 940">
+    <A x={960} y={540} s={1} draw={1} rip={1} gap={1} q={0} trace={0} ghost={0} /></svg></svg>; };
+export const THUMB: React.FC<any> = (p) => <ThumbPoster {...words(p)} hero={<Atlas W={1280} H={720} cx={930} cy={400} w={640} />} back={<Stripes W={1280} H={720} />} lamp={[930, 260]} />;
+export const THUMB_V: React.FC<any> = (p) => <ThumbPosterV {...words(p)} hero={<Atlas W={1080} H={1920} cx={540} cy={1100} w={1000} />} back={<Stripes W={1080} H={1920} />} />;
