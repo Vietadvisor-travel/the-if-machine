@@ -165,11 +165,13 @@ export const SmallMammal: React.FC<{ x: N; y: N; s?: N; draw?: N; t?: N; curl?: 
   // spine from tail base to the skull, bending into a ball as it curls
   const cv = curl * 62, la = -look * 30;
   const sp = fk([-60, -26], 0, [[30, -cv * .3], [30, -cv * .4], [26, -cv * .5 + la * .3], [18, -cv * .6 + la * .5], [16, -cv * .3 + la * .4]]);
-  const J: Joint[] = [{ p: sp[0], up: 8, dn: 9 }, { p: sp[1], up: 15, dn: 18 * br }, { p: sp[2], up: 15, dn: 19 * br }, { p: sp[3], up: 12, dn: 13 }, { p: sp[4], up: 10, dn: 9 }, { p: sp[5], up: 3.5, dn: 3 }];
+  const J: Joint[] = [{ p: add(sp[0], [-8, 2]), up: 2, dn: 2 }, { p: sp[0], up: 10, dn: 12 }, { p: lerpP(sp[0], sp[1], .5), up: 14, dn: 16 * br }, { p: sp[1], up: 15, dn: 18 * br }, { p: sp[2], up: 15, dn: 19 * br }, { p: sp[3], up: 12, dn: 13 }, { p: sp[4], up: 10, dn: 9 }, { p: sp[5], up: 3.5, dn: 3 }];
   if (curl >= .9) {   // asleep: a furred ball, the tail wrapped round, the eye a closed line
     const ring: Joint[] = Array.from({ length: 7 }, (_, i) => { const an = deg(200 - i * 50); return { p: [Math.cos(an) * 12, -22 + Math.sin(an) * 10] as P, up: 13 * br, dn: 13 * br }; });
     const Rw = ring.map(j => ({ p: T(j.p), up: j.up * s, dn: j.dn * s })), e = T([10, -26]), n = T([20, -20]);
-    return <g opacity={draw}><ellipse cx={T([0, -22])[0]} cy={T([0, -22])[1]} rx={25 * s * br} ry={22 * s * br} fill={col} stroke={SEP} strokeWidth={1.4} /><Skin id={id} J={Rw} col={col} hatch={.6} sw={1.4} fur={1.2 * s} per={6} />
+    return <g opacity={draw}><ellipse cx={T([0, -22])[0]} cy={T([0, -22])[1]} rx={25 * s * br} ry={22 * s * br} fill={col} stroke={SEP} strokeWidth={1.4} />
+      <path d={`M${f1(T([-18, -10])[0])} ${f1(T([-18, -10])[1])} Q${f1(T([0, -2])[0])} ${f1(T([0, -2])[1])} ${f1(T([20, -12])[0])} ${f1(T([20, -12])[1])}`} stroke={SEP} strokeWidth={6 * s} fill="none" opacity={.18} />
+      {Array.from({ length: 22 }, (_, i) => { const an = i / 22 * Math.PI * 2, q = T([Math.cos(an) * 25, -22 + Math.sin(an) * 22]); return <path key={i} d={`M${f1(q[0])} ${f1(q[1])} l${f1(Math.cos(an + .6) * 4 * s)} ${f1(Math.sin(an + .6) * 4 * s)}`} stroke={SEP} strokeWidth={.8} opacity={.6} />; })}
       <path d={`M${f1(T([-16, -6])[0])} ${f1(T([-16, -6])[1])} Q${f1(T([0, 2])[0])} ${f1(T([0, 2])[1])} ${f1(T([20, -6])[0])} ${f1(T([20, -6])[1])}`} stroke={mix(col, '#2B1D12', .3)} strokeWidth={2.2 * s} fill="none" strokeLinecap="round" />
       <path d={`M${f1(e[0] - 2 * s)} ${f1(e[1])} q${f1(2 * s)} ${f1(1.5 * s)} ${f1(4 * s)} 0`} stroke={SEP} strokeWidth={1} fill="none" /><circle cx={n[0]} cy={n[1]} r={1.6 * s} fill="#4A2A1C" /></g>;
   }

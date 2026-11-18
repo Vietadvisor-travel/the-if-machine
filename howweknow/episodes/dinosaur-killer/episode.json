@@ -5611,7 +5611,9 @@
     "fmt": "about {n} in 4 kinds of life — gone",
     "k": 1,
     "a": 0,
-    "blur": 8
+    "blur": 8,
+    "col": "#F3E7CC",
+    "light": true
    },
    "keys": [
     {
@@ -6180,7 +6182,7 @@
      "ease": "linear"
     },
     {
-     "t": "L7+2.32",
+     "t": "L8+0.14",
      "dur": 1.2,
      "lift": 40,
      "a": 0,
@@ -6221,7 +6223,7 @@
      "ease": "out"
     },
     {
-     "t": "L7+2.32",
+     "t": "L8+0.14",
      "dur": 1.0,
      "blur": 10,
      "a": 0,
@@ -6273,7 +6275,7 @@
     {
      "t": "L7+2.32",
      "dur": 2.2,
-     "blank": 1,
+     "blank": 0.7,
      "ease": "soft"
     },
     {
@@ -7388,8 +7390,8 @@
    "props": {
     "text": "≈ 1 cm",
     "style": "figure",
-    "x": 1530,
-    "y": 660,
+    "x": 1420,
+    "y": 680,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -8613,7 +8615,7 @@
     "text": "a meteorite: rich in iridium",
     "style": "label",
     "x": 960,
-    "y": 900,
+    "y": 820,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -9032,7 +9034,7 @@
     "text": "Clue III · Scars in the Sand",
     "style": "title",
     "x": 960,
-    "y": 160,
+    "y": 200,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -9276,9 +9278,9 @@
     "name": "Eyepiece",
     "a": 0,
     "src": "stock/_hwk/dinosaur-killer/P-03_shocked-quartz-usgs.jpg",
-    "x": 1620,
-    "y": 300,
-    "r": 200,
+    "x": 1500,
+    "y": 340,
+    "r": 190,
     "cross": 0,
     "draw": 1,
     "dissolve": 0
@@ -9318,8 +9320,8 @@
    "props": {
     "text": "shocked quartz (USGS)",
     "style": "label",
-    "x": 1620,
-    "y": 540,
+    "x": 1500,
+    "y": 570,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -9564,7 +9566,7 @@
     "text": "Clue IV · A Ring Under the Jungle",
     "style": "title",
     "x": 960,
-    "y": 160,
+    "y": 240,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -9976,7 +9978,7 @@
     "text": "1978 — Glen Penfield & Antonio Camargo, Pemex",
     "style": "plate",
     "x": 960,
-    "y": 980,
+    "y": 920,
     "k": 0,
     "a": 0,
     "blur": 8,
@@ -10196,7 +10198,7 @@
     "text": "the other half: under the sea",
     "style": "label",
     "x": 960,
-    "y": 140,
+    "y": 210,
     "k": 0,
     "a": 0,
     "blur": 8,

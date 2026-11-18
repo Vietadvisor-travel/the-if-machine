@@ -132,7 +132,7 @@ haze('hz0', 520, 820, L(0, 1.0), L(2, 2.0), k=.35, col='#F2C98A')
 mark('mk1', 'circle', [1340, 170, 80, 80], L(1, 3.6), L(2, 1.6), w=4)
 sfx(0, 4.4, FX + 'animal_dino_roar_3.wav', -30); sfx(2, 1.6, FX + 'motion_whoosh_deep_1.wav', -24)
 ent('emb2', 'particles', {'kind': 'embers', 'n': 40, 'k': 0, 'a': .8, 'speed': .4, 'para': .4}, [K(L(2, 2.0), 2.0, k=1), K(L(3, 1.6), 1.4, k=0)], z=70)
-counter('c2', 'about {n} in 4 kinds of life — gone', 960, 900, L(2, 6.4), L(3, .6), [K(L(2, 6.4), 1.6, 'out', num=3)], size=64)
+counter('c2', 'about {n} in 4 kinds of life — gone', 960, 900, L(2, 6.4), L(3, .6), [K(L(2, 6.4), 1.6, 'out', num=3)], size=64, col=CREAM, light=True)
 # L3 — the embers gather into bones: the same animal, a skeleton in a museum at night
 MUS = dict(x=960, y=540, s=1, sx=1060, sy=800, ss=.92)
 art('mus3', 'MuseumSkeleton', L(3), None, [K(L(3, 3.4), 2.4, 'soft', moon=1)] + gone2(L(5, 7.4), 'left', 1.4), enter='scale', eo=[1100, 560], moon=.3, **MUS, z=8, xs='left')
@@ -152,9 +152,9 @@ for j, (x, lab) in enumerate(((384, 'a line in the rock'), (768, 'a pinch of cla
     text(f'l5{j}', lab, 'label', x, 900, L(5, 1.6 + j * 1.6), L(6, .4), size=36)
 lamp('lp5', [960, 520], L(5, .4), L(6, .4), r=900, dark=.4, warm=.7)
 # ======================================================================== THE STAKES — the old theories, in old books
-art('haw6', 'Etch', L(6), None, gone2(L(7, 3.2), 'lift', 1.2), ink=False, src=PD + 'hawkins_ink.png', x=70, y=170, w=540, h=705, draw=1, enter='brush', tint='#C9AE84', washA=.35, z=12, xs='lift')
-text('n6', 'Sydenham, 1853: how the Victorians imagined them', 'label', 340, 930, L(6, 1.0), L(7, 3.2), size=26)
-art('th6', 'TheoryCards', L(6, .8), None, [K(L(6, 1.4), 6.0, 'linear', turn=3), K(L(7, .6), 1.6, 'soft', q=1), K(L(7, 3.2), 2.2, 'soft', blank=1)] + gone2(L(8, .2), 'fade', .8),
+art('haw6', 'Etch', L(6), None, gone2(L(8, .2), 'lift', 1.2), ink=False, src=PD + 'hawkins_ink.png', x=70, y=170, w=540, h=705, draw=1, enter='brush', tint='#C9AE84', washA=.35, z=12, xs='lift')
+text('n6', 'Sydenham, 1853: how the Victorians imagined them', 'label', 340, 930, L(6, 1.0), L(8, .2), size=26)
+art('th6', 'TheoryCards', L(6, .8), None, [K(L(6, 1.4), 6.0, 'linear', turn=3), K(L(7, .6), 1.6, 'soft', q=1), K(L(7, 3.2), 2.2, 'soft', blank=.7)] + gone2(L(8, .2), 'fade', .8),
     enter='wipe', eo='left', x=1220, y=560, s=.66, turn=0, q=0, blank=0, z=14, xs='fade')
 lamp('lp6', [900, 260], L(6), L(8, .4), r=1000, dark=.35, warm=.65)
 sfx(6, 1.4, FX + 'foley_page_turn_1.wav', -26)
@@ -194,7 +194,7 @@ text('l13', 'foraminifera — plankton shells', 'label', 960, 1010, L(13, 2.0), 
 dark('dk13', L(13), L(14, .2), k=.82, d=.8, z=25, col='#1A120B', style='left')
 # L14 — the blank page: one centimetre of reddish clay (the real band, P-01)
 art('cl14', 'Clipping', L(14, 3.4), None, gone2(L(15, 3.0), 'tearout', 1.0), ink=False, src=ST + 'P-01_gubbio-kpg-boundary-outcrop.jpg', x=1530, y=300, w=300, h=294, rot=4, seed='p01', draw=1, enter='bleed', z=34, xs='tearout')
-text('f14', '≈ 1 cm', 'figure', 1530, 660, L(14, 4.4), L(15, .6), size=110, col=VERM)
+text('f14', '≈ 1 cm', 'figure', 1420, 680, L(14, 4.4), L(15, .6), size=110, col=VERM)
 text('n14', 'the boundary clay, Gubbio', 'label', 1530, 485, L(14, 4.8), L(15, 3.0), size=26)
 # L15 — above it, the shells are almost gone
 art('for15', 'Foraminifera', L(15, .6), None, [K(L(15, .6), 3.0, 'soft', n=.05)] + gone2(L(16, .2), 'fade', .8), enter='pour', x=1440, y=760, r=230, n=1, z=32, xs='fade')
@@ -238,7 +238,7 @@ art('ds25', 'DustShelf', L(25), None, [K(L(25, .8), dur(25) - 1.0, 'in', dust=1)
 # L26 — space rocks are rich in it: a sliced meteorite glints
 art('met26', 'MeteoriteSlice', L(26, .2), None, [K(L(26, 1.6), 2.0, 'soft', cut=1)] + gone2(L(27, .2), 'flip', 1.2), enter='focus', x=960, y=560, s=1.25, cut=0, z=14, xs='flip')
 sheen('she26', [700, 350, 600, 460], L(26, 3.0))
-text('l26', 'a meteorite: rich in iridium', 'label', 960, 900, L(26, 3.4), L(27, .2), size=36)
+text('l26', 'a meteorite: rich in iridium', 'label', 960, 820, L(26, 3.4), L(27, .2), size=36)
 lamp('lp26', [1200, 260], L(26), L(27, .4), r=900, dark=.45, warm=.6)
 # L27 — the 1980 answer: a rock from space; it turns over out of the slice
 art('ast27', 'Asteroid', L(27, .6), None, [K(L(27, .6), dur(27) + 4, 'linear', rot=60), K(L(27, 4.0), 1.6, 'soft', glow=.4)] + gone2(L(28, .2), 'fade', .6), inkdur=1.2, x=960, y=520, r=260, rot=0, glow=0, trail=0, z=14, xs='fade')
@@ -251,7 +251,7 @@ text('f28', '≈ 10 km across', 'figure', 1400, 860, L(28, 3.0), L(29, .2), size
 text('l28', 'Mount Everest', 'label', 620, 220, L(28, 4.4), L(29, .2), size=32)
 # ======================================================================== CLUE 3 — scars in the sand
 art('sg29', 'ShockedGrain', L(29), None, [K(L(29, 1.0), 1.4, 'soft', etch=.35)] + gone2(L(30, .4), 'tearout', 1.0), enter='scale', eo=[1400, 420], x=960, y=560, r=300, etch=0, crack=0, z=20, xs='tearout')
-text('t29', 'Clue III · Scars in the Sand', 'title', 960, 160, L(29, .2), L(30, .2), size=58)
+text('t29', 'Clue III · Scars in the Sand', 'title', 960, 200, L(29, .2), L(30, .2), size=58)
 # L30–31 — if it is true, the layer must be everywhere — and it is
 art('wo30', 'WorldOutcrops', L(30), None, [K(L(31, .4), 3.2, 'soft', line=1), K(L(31, 1.0), 3.0, 'linear', pins=1)] + gone2(L(32, .4), 'at', 1.0, [960, 340]), enter='brush', x=960, y=560, line=0, pins=0, dust=0, z=8, xs='at')
 text('q30', 'everywhere?', 'note', 960, 160, L(30, 3.0), L(31, .2), size=56, col=VERM)
@@ -260,8 +260,8 @@ sfx(31, .4, FX + 'motion_whoosh_long_1.wav', -28)
 # L32 — down the microscope: the lamellae etch in (the real grain, P-03, in the eyepiece)
 art('sg32', 'ShockedGrain', L(32), None, [K(L(32, .8), 3.6, 'soft', etch=1), K(L(33, 2.4), 2.0, 'soft', crack=.25)] + gone2(L(34, 2.2), 'shatter', 1.6, [920, 540]),
     enter='iris', eo=[960, 340], x=960, y=540, r=430, etch=.1, crack=0, z=20, xs='shatter')
-art('eye32', 'Eyepiece', L(32, 4.0), None, gone2(L(33, .6), 'right', .9), ink=False, src=ST + 'P-03_shocked-quartz-usgs.jpg', x=1620, y=300, r=200, cross=0, draw=1, enter='bleed', z=34, xs='right')
-text('l32', 'shocked quartz (USGS)', 'label', 1620, 540, L(32, 4.6), L(33, .6), size=26, col=CREAM, light=True)
+art('eye32', 'Eyepiece', L(32, 4.0), None, gone2(L(33, .6), 'right', .9), ink=False, src=ST + 'P-03_shocked-quartz-usgs.jpg', x=1500, y=340, r=190, cross=0, draw=1, enter='bleed', z=34, xs='right')
+text('l32', 'shocked quartz (USGS)', 'label', 1500, 570, L(32, 4.6), L(33, .6), size=26, col=CREAM, light=True)
 dark('dk32', L(32), L(34, 3.4), k=.9, d=1.0, z=3, col='#1A1424')
 text('l33', 'quartz: one of the toughest minerals on Earth', 'note', 960, 1010, L(33, .8), L(34, .2), size=40, col=CREAM, light=True)
 text('s34', 'only an impact', 'stamp', 960, 180, L(34, 1.0), L(35, .2), size=56, col=VERM)
@@ -270,7 +270,7 @@ sfx(34, 2.2, FX + 'real_glass_break_1.wav', -22)
 art('wo35', 'WorldOutcrops', L(35), None, gone2(L(36, .4), 'fade', .9), enter='bleed', x=960, y=560, line=1, pins=1, dust=0, z=8, xs='fade')
 text('q35', 'where?', 'figure', 960, 260, L(35, 2.4), L(36, .2), size=150, col=VERM)
 # ======================================================================== CLUE 4 — a ring under the jungle
-text('t36', 'Clue IV · A Ring Under the Jungle', 'title', 960, 160, L(36, .2), L(37, .2), size=58)
+text('t36', 'Clue IV · A Ring Under the Jungle', 'title', 960, 240, L(36, .2), L(37, .2), size=58)
 art('ux36', 'Etch', L(36), None, gone2(L(37, .2), 'down', 1.0), ink=False, src=PD + 'uxmal_ink.png', x=60, y=330, w=1800, h=460, draw=1, enter='brush', z=8, xs='down')
 text('l36', 'Yucatán: Catherwood, 1844', 'label', 960, 840, L(36, 1.4), L(37, .2), size=28)
 # L37 — the world searched with a lens; nothing
@@ -282,14 +282,14 @@ text('n38', 'found years earlier', 'note', 1400, 180, L(38, 3.4), L(39, .4), siz
 # L39–40 — 1978: Pemex geophysicists fly the coast; something old and strange below
 art('yc39', 'YucatanCoast', L(39), None, [K(L(40, 1.0), 4.0, 'soft', ring=.35)] + gone2(L(41, .4), 'up', 1.0), enter='iris', eo=[700, 400], x=960, y=420, s=1, ring=0, night=0, z=4, xs='up')
 art('pl39', 'SurveyPlane', L(39, 1.2), None, [K(L(39, 1.2), dur(39) + dur(40), 'linear', fx_x=1500, trail=1), K(L(39), .01, prop=1)] + gone2(L(41, .2), 'fade', .6), ink=False, draw=1, x=200, y=640, s=1.4, rot=0, prop=0, trail=0, fx_x=0, enter='focus', z=20, xs='fade')
-text('pl39t', '1978 — Glen Penfield & Antonio Camargo, Pemex', 'plate', 960, 980, L(39, 2.4), L(40, .4), size=34, col=CREAM, light=True)
+text('pl39t', '1978 — Glen Penfield & Antonio Camargo, Pemex', 'plate', 960, 920, L(39, 2.4), L(40, .4), size=34, col=CREAM, light=True)
 text('n40', 'looking for oil…', 'note', 1440, 200, L(40, .6), L(41, .2), size=48, col=CREAM, light=True)
 sfx(39, 1.2, FX + 'impact_soft_engine_1.wav', -30)
 # L41 — the survey draws HALF a ring on land (set piece: the line becomes a ring)
 art('sr41', 'SurveyRing', L(41, .2), None, [K(L(41, .6), dur(41) - .8, 'linear', pas=1), K(L(42, .4), 3.0, 'soft', sea=1), K(L(42, 3.6), 2.0, 'soft', whole=1)] + gone2(L(43, .2), 'collapse', 1.0, [960, 520]),
     enter='unroll', x=960, y=520, R=340, pas=0, sea=0, whole=0, sheet=1, scale=0, z=14, xs='collapse')
 ent('qh41', 'hand', {'at': {'screen': [620, 560]}, 's': .62, 'a': 0}, [K(L(41, .6), .3, a=1)] + [K(L(41, 1.0 + i * .6), .6, 'soft', at={'screen': q}) for i, q in enumerate([[700, 760], [960, 820], [1220, 760], [1300, 560]])] + [K(L(41, 4.4), .4, a=0)], z=80)
-text('l42', 'the other half: under the sea', 'label', 960, 140, L(42, 1.2), L(43, .2), size=34)
+text('l42', 'the other half: under the sea', 'label', 960, 210, L(42, 1.2), L(43, .2), size=34)
 art('m42', 'Pinned', L(42, 4.2), None, gone2(L(43, .2), 'lift', .8), ink=False, src=ST + 'M-01_chicxulub-ring-srtm.jpg', x=1620, y=560, w=330, h=374, rot=3, caption='The buried ring today (NASA)', draw=1, enter='bleed', z=30, xs='lift')
 # L43 — 1981: a meeting, and nobody listens
 art('ch43', 'ConferenceHall', L(43), None, [K(L(43, 1.4), dur(43), 'linear', empty=.8)] + gone2(L(44, .4), 'left', 1.0), enter='blinds', x=960, y=540, s=1, empty=0, beam=1, z=6, xs='left')
