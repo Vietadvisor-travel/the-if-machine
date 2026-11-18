@@ -6,7 +6,7 @@
 
 ## v2.2 sound (18 Nov 2026, owner: "nhạc vẫn to quá… nhạc vui tươi, không phải bí ẩn… thêm hiệu ứng âm thanh")
 - Picture unchanged; remixed and remuxed. Score now mysterious, one cue per part, about 6 dB quieter: Kevin MacLeod (incompetech.com), CC BY 4.0 —
-  "Lightless Dawn", "Hidden Agenda", "Aftermath", "Darkness is Coming", "Silver Blue Light". 73 quiet sound effects on the actions (≤ −24 dB,
+  "Lightless Dawn", "Long Note One" (replaced "Hidden Agenda", owner: too busy), "Aftermath", "Darkness is Coming", "Silver Blue Light". 73 quiet sound effects on the actions (≤ −24 dB,
   ≥ 1.2 s apart, 8.6/min). Gate tools/sound_check.py PASS. The master on Drive was replaced (544 MB).
 
 ## v2 remake (18 Nov 2026)
