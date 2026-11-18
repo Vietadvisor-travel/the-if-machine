@@ -4666,20 +4666,20 @@
     },
     {
      "t": "L26",
-     "dur": 1.0,
-     "push": 1.1776,
+     "dur": 0.8,
+     "push": 1.71,
      "pan_x": 0.0,
-     "pan_y": -259.1,
+     "pan_y": -136.8,
      "roll": 0,
      "ease": "soft"
     },
     {
-     "t": "L26+0.74",
-     "dur": 6.727,
-     "push": 1.6,
+     "t": "L26+0.59",
+     "dur": 6.9270000000000005,
+     "push": 1.083,
      "pan_x": 0.0,
-     "pan_y": -352.0,
-     "ease": "inOut"
+     "pan_y": -86.6,
+     "ease": "out"
     },
     {
      "t": "L27",
@@ -5126,20 +5126,12 @@
     },
     {
      "t": "L47",
-     "dur": 0.8,
+     "dur": 1.0,
      "push": 1.08,
-     "pan_x": 324.0,
+     "pan_x": 0.0,
      "pan_y": 0.0,
      "roll": 0,
      "ease": "soft"
-    },
-    {
-     "t": "L47+0.64",
-     "dur": 8.574,
-     "push": 1.08,
-     "pan_x": -324.0,
-     "pan_y": 0.0,
-     "ease": "inOut"
     },
     {
      "t": "L48",
@@ -5631,14 +5623,14 @@
    "props": {
     "at": {
      "screen": [
-      420,
-      200
+      380,
+      160
      ]
     },
-    "r": 1200,
+    "r": 1100,
     "k": 0,
-    "dark": 0.4,
-    "warm": 0.85
+    "dark": 0.62,
+    "warm": 0.95
    },
    "keys": [
     {
@@ -6465,9 +6457,10 @@
     "expr": "focus",
     "ek": 0,
     "look": [
-     0.2,
+     0.3,
      -1
     ],
+    "nod": -18,
     "costume": "wegenerArctic",
     "beard": "short",
     "face": {
@@ -6622,51 +6615,6 @@
     }
    ],
    "z": 16
-  },
-  {
-   "id": "pin9",
-   "type": "art",
-   "props": {
-    "name": "CabinetCard",
-    "a": 0,
-    "burn": 1,
-    "src": "stock/_hwk/drifting-continents/P-01_wegener-villumsen-greenland-1930.jpg",
-    "x": 1380,
-    "y": 430,
-    "w": 320,
-    "h": 230,
-    "rot": -3,
-    "caption": "Wegener (left) and Villumsen, Greenland 1930",
-    "draw": 1,
-    "dissolve": 0
-   },
-   "keys": [
-    {
-     "t": "L9+4.5",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L9+4.5",
-     "dur": 1.4,
-     "dissolve": 1,
-     "dissolveSeed": 39,
-     "ease": "linear"
-    },
-    {
-     "t": "L10+0.15",
-     "dur": 1.3,
-     "burn": 0,
-     "dissolveDir": "right",
-     "ease": "linear"
-    },
-    {
-     "t": "L10+1.47",
-     "dur": 0.01,
-     "a": 0
-    }
-   ],
-   "z": 30
   },
   {
    "id": "pl9",
@@ -7367,14 +7315,14 @@
    "props": {
     "at": {
      "screen": [
-      960,
-      120
+      300,
+      200
      ]
     },
-    "r": 1100,
+    "r": 1200,
     "k": 0,
-    "dark": 0.45,
-    "warm": 0.8
+    "dark": 0.6,
+    "warm": 0.9
    },
    "keys": [
     {
@@ -8219,54 +8167,21 @@
      "t": "L24+1.33",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L22+5.25",
+     "dur": 0.9,
+     "fx_s": 0.97,
+     "ease": "soft"
+    },
+    {
+     "t": "L22+6.25",
+     "dur": 1.0,
+     "fx_s": 1,
+     "ease": "soft"
     }
    ],
    "z": 10
-  },
-  {
-   "id": "pin22",
-   "type": "art",
-   "props": {
-    "name": "Pinned",
-    "a": 0,
-    "burn": 1,
-    "src": "stock/_hwk/drifting-continents/P-02_glossopteris-leaf-antarctica.jpg",
-    "x": 1380,
-    "y": 760,
-    "w": 320,
-    "h": 230,
-    "rot": -2,
-    "caption": "Glossopteris leaf · Antarctica",
-    "draw": 1,
-    "dissolve": 0
-   },
-   "keys": [
-    {
-     "t": "L22+3.22",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L22+3.22",
-     "dur": 1.4,
-     "dissolve": 1,
-     "dissolveSeed": 67,
-     "ease": "linear"
-    },
-    {
-     "t": "L23+0.27",
-     "dur": 1.3,
-     "burn": 0,
-     "dissolveDir": "right",
-     "ease": "linear"
-    },
-    {
-     "t": "L23+1.59",
-     "dur": 0.01,
-     "a": 0
-    }
-   ],
-   "z": 30
   },
   {
    "id": "tn24",
@@ -9387,22 +9302,28 @@
      "ease": "soft"
     },
     {
-     "t": "L40+0.48",
-     "dur": 1.0,
-     "fold": 0.5,
+     "t": "L40+0.24",
+     "dur": 1.2,
+     "fold": 0.3,
      "pair": 0,
      "ease": "soft"
     },
     {
-     "t": "L40+1.67",
-     "dur": 1.0,
-     "fold": 1,
+     "t": "L40+1.43",
+     "dur": 1.2,
+     "fold": 0.55,
      "ease": "soft"
     },
     {
-     "t": "L40+3.35",
-     "dur": 0.6,
-     "fold": 0.9,
+     "t": "L40+2.63",
+     "dur": 1.2,
+     "fold": 0.8,
+     "ease": "soft"
+    },
+    {
+     "t": "L40+3.83",
+     "dur": 0.8,
+     "fold": 1,
      "ease": "soft"
     },
     {
@@ -9573,7 +9494,7 @@
    "props": {
     "at": [
      [
-      "L40+1.95",
+      "L40+4.21",
       960,
       540,
       90
@@ -11101,14 +11022,14 @@
    "props": {
     "at": {
      "screen": [
-      1700,
-      300
+      1750,
+      640
      ]
     },
-    "r": 1400,
+    "r": 1300,
     "k": 0,
-    "dark": 0.18,
-    "warm": 0.35
+    "dark": 0.42,
+    "warm": 0.55
    },
    "keys": [
     {
@@ -11191,14 +11112,14 @@
    "props": {
     "at": {
      "screen": [
-      960,
-      120
+      300,
+      200
      ]
     },
-    "r": 1100,
+    "r": 1200,
     "k": 0,
-    "dark": 0.5,
-    "warm": 0.8
+    "dark": 0.6,
+    "warm": 0.9
    },
    "keys": [
     {
@@ -11640,7 +11561,7 @@
   "dutch",
   "rack",
   "whip",
-  "push",
+  "pull",
   "tilt-down",
   "pan-r",
   "handheld",
@@ -11661,7 +11582,7 @@
   "crane-up",
   "pan-r",
   "pull",
-  "track",
+  "lock",
   "arc",
   "tilt-down",
   "crane-up",

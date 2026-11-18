@@ -48,5 +48,38 @@
    "Line 40 (352.5 s) fold: at this instant the right half is a dead grey slab and the fold is not legible; make the folding paper visibly lift and arc (curl, shadow under it, its stripes visible on the underside) so the stripes landing on their twins reads at any frame; a hand at the corner helps.",
    "Line 53 (469.5 s) fingernail: the thumb is a detached finger pointing up-left at the top of the frame and the fingers are all the same width; set the thumb from the side of the palm (anatomy.tsx HumanHand), taper index to little finger, and put the ruler ticks visibly next to the growing nail tip so 'few centimetres a year' is measured on screen."
   ]
+ },
+ "keyframes3": {
+  "by": "fresh agent (fathom-critic)",
+  "date": "2026-11-18",
+  "sheet": "howweknow/out/drifting-continents_sheet_0.jpg",
+  "stills_checked": [
+   157.0,
+   200.5,
+   443.5,
+   89.7,
+   416.8,
+   352.6
+  ],
+  "scores": {
+   "clarity": 7,
+   "popular": 7,
+   "invention": 7,
+   "drawing": 6,
+   "light": 5,
+   "composition": 6,
+   "style": 7
+  },
+  "verdict": "NOT READY, but clearly better. Fixed since round 2: Mesosaurus now small in a lake on the seam (157 s), the fold now lifts with a hand (352.6 s), the conveyor has real land slabs with trees/towns and fish in the sea (416.8 s), a Glossopteris leaf is now visible (200.5 s). Still failing: the Himalaya rug (443.5 s) is unchanged, light is still flat almost everywhere, figures are stiff paper-dolls, and several frames carry odd props or cropped artefacts that break the name-it test.",
+  "top_fixes": [
+   "Line 50 (443.5 s) rug -> Himalaya: still a flat ornamental rug filling the frame with a fringe and floor; no wall, no folds rising, no mountains. Show a skirting board/wall at the right, the rug shoved into it rising in 3 shaded folds with raking side light, then the folds turning into snow-capped peaks (white caps, tiny flag) with the fringe still at the bottom. This is the weakest keyframe in the film.",
+   "Light, all frames (score 5): still only the lava glow and some sea shafts. 5.7/484.5/503.2 s jigsaw: one raking desk lamp from upper left, every piece and the hand casting a long shadow; lecture hall 132.8/232 s: window shafts + lamp pools, contact shadows under speaker and benches; 89.7 s: low polar sun, Wegener's long blue shadow on the snow (he currently has none); 352.6 s: darken toward the horizon + a haze plane.",
+   "Line 22 (200.5 s): the leaf is there now, but a hammer lies across the slab, a sapling grows straight out of the rock, the 'rock layers' read as wooden planks, grey blobs and a half-cut photo sit at lower right. Remove the hammer and blobs; draw the strata as rough stone (hatched, uneven, pebbles) under the ice; make the living fern a pale green ghost floating ABOVE the ice, not rooted in the fossil; mount the credited photo fully inside frame with its caption, or drop it; add a penguin or sledge for scale.",
+   "Line 9 (89.7 s) Wegener: still a stiff side-on doll with a straight arm, looking down, not at the balloon; the credited photo is a torn scrap floating in the sky with its caption cut ('ner (left) and Villumsen, Gree'). Pose him tilting his head UP to the balloon, fingers opening on the string, fur hood/parka; pin the photo as a corner-mounted print with the full caption, wholly in frame.",
+   "Line 40 (352.6 s) fold: the lift now reads, but the unfolded right half is a blank grey slab, so 'the pattern lands on itself, stripe for stripe' is not shown; the towed magnetometer reads as a yellow fish. Draw the matching stripes on the right half (mirror image, same widths) so the viewer sees twins about to meet, and a lit cast shadow under the curling sheet; give the magnetometer fins+cable to a visible ship hull at top.",
+   "Line 47 (416.8 s) conveyor: good step. Left reel is still cut by the frame edge and Wegener's grave reads as a sword stuck in a white dome. Pull back so both reels are whole; draw the grave as a small cross on an ice mound with a wreath/name plate, small and riding on the belt. The orange mantle under the rollers needs a dark-to-red gradient + 2 convection arrows that read as heat, not dashed lines.",
+   "Line 17 (157.0 s) Mesosaurus: now at sensible scale, but at full size it is a brown stick in an eye-shaped lens - no legs, tail, snout or water ripples readable. Draw a clear little reptile (long toothy snout, four paddling legs, long tail) with ripple lines and a fish; give the second Mesosaurus print on the African side so 'the print runs across the seams' is literally visible; the white 'Antarctica' patch and pale blue India read as empty holes - give them hatched pigment.",
+   "Line 14 (132.8 s) / 26 (232 s) lecture hall: audience still tiny identical busts and the speaker a blue doll with a straight arm; the 'impossible!' bubbles at 232 s are cropped at both edges. Bigger foreground professors that act (one laughing head back, one whispering behind a hand), Wegener holding the map up with an eager face; 2-3 large uncropped bubbles."
+  ]
  }
 }

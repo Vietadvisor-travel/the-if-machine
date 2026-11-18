@@ -23,7 +23,7 @@ ent('clue', 'clue', {'n': 1, 'of': 4, 'label': 'The Torn Page', 'a': 0}, [K(L(17
 art('jig0', 'Jigsaw', L(0), None, [], inkdur=1.8, slide=0, glow=0, future=0, hand=0, apart=0, **C, z=10, xs='fade')
 A_('jig0', 0, (.18, 1.4, {'hand': 1}), (.32, 1.6, {'slide': .85}), (.55, .4, {'slide': 1}), (.7, {'glow': 1}), (.88, {'glow': .4}))
 G('jig0')['keys'] += gone2(L(1, .1), 'fade', 1.2)
-lamp('lp0', [420, 200], L(0), L(4, .2), r=1200, dark=.4, warm=.85)
+lamp('lp0', [380, 160], L(0), L(4, .2), r=1100, dark=.62, warm=.95)
 SF(0, .55, 'blip_click_3.wav', 0); SF(0, .2, 'world_footstep_wood_1.wav', -4)
 art('atl1', 'AtlasPage', L(1), None, [], enter='focus', trace=0, ghost=0, tear=0, gap=0, q=0, **C, z=8, xs='burn')
 A_('atl1', 1, (.25, 1.4, {'trace': .5}), (.55, 1.4, {'trace': 1}), (.85, {'trace': 0}))
@@ -59,14 +59,12 @@ SF(8, .1, 'transition_whoosh_airy_1.wav', -2); SF(8, .42, 'impact_wood_3.wav', -
 
 # ---------------------------------------------------------------- CLUE 1 — the torn page · Wegener lets a balloon go over Greenland
 art('gi9', 'GreenlandIce', L(9), None, [], enter='wipe', eo='up', snow=0, sledge=0, flag=0, **C, z=4, xs='down')
-person('weg9', 'Alfred Wegener, meteorologist, Greenland (1910s)', L(9, .6), None, [], x=820, y=960, h=520, facing=1, pose='stand', pose2='raise', pk=0, expr='focus', ek=0, look=[.2, -1], **WEGA, z=14)
+person('weg9', 'Alfred Wegener, meteorologist, Greenland (1910s)', L(9, .6), None, [], x=820, y=960, h=520, facing=1, pose='stand', pose2='raise', pk=0, expr='focus', ek=0, look=[.3, -1], nod=-18, **WEGA, z=14)
 A_('weg9', 9, (.15, {'pk': 1}), (.42, .5, {'pose2': 'reach', 'pk': .3}), (.55, {'pk': 1, 'expr': 'smile', 'ek': 1}), (.78, {'pose2': 'look', 'pk': 1}))
 art('bal9', 'Balloon', L(9, .4), None, [], enter='bleed', rise=0, bg=0, x=980, y=560, s=1, z=16, xs='up')
 A_('bal9', 9, (.45, 1.8, {'rise': .3}), (.7, 1.8, {'rise': .6}))
 A_('bal9', 10, (.05, 1.6, {'rise': 1}))
 G('weg9')['keys'] += gone2(L(10, .2), 'down', .9); G('gi9')['keys'] += gone2(L(10, .5), 'down', 1.2); G('bal9')['keys'] += gone2(L(10, 3.0), 'up', 1.0)
-art('pin9', 'CabinetCard', L(9, 5.2), L(10, .2), [], ink=False, src=ST + 'P-01_wegener-villumsen-greenland-1930.jpg', x=1380, y=430, w=320, h=230, rot=-3,
-    caption='Wegener (left) and Villumsen, Greenland 1930', draw=1, enter='bleed', z=30, xs='burn')
 text('pl9', 'Alfred Wegener · weather scientist', 'plate', 760, 160, L(9, 1.4), L(10, .2), size=40, col=INK)
 art('sd10', 'StudyDesk', L(10, 1.2), None, [], enter='scale', eo=[960, 300], lamp=0, mag=0, shells=0, **C, z=8, xs='fade')
 A_('sd10', 10, (.35, 1.2, {'lamp': 1}), (.6, 1.4, {'mag': .4}), (.82, 1.0, {'mag': .2}))
@@ -88,7 +86,7 @@ person('wegl14', 'Alfred Wegener lecturing (1912)', L(14, .5), L(15, .2), [], x=
 A_('wegl14', 14, (.2, {'pk': 1}), (.55, {'pk': .2}), (.75, {'pk': 1, 'expr': 'awe'}))
 A_('lh14', 14, (.3, 1.4, {'map': .4}), (.5, 1.4, {'map': .8}), (.66, .8, {'map': 1}))
 text('pl14', 'Frankfurt · January 1912', 'plate', 1400, 160, L(14, 1.0), L(15, .2), size=38, col=CREAM, light=True)
-lamp('lp14', [960, 120], L(14), L(15, .4), r=1100, dark=.45, warm=.8)
+lamp('lp14', [300, 200], L(14), L(15, .4), r=1200, dark=.6, warm=.9)
 G('lh14')['keys'] += [K(L(15), .8, 'soft', a=0)]
 SF(14, .3, 'world_door_creak_1.wav', -3); SF(14, .66, 'thud_soft_2.wav', -2)
 # L15–L16 · PANGAEA, then the quilt (device QuiltPangaea)
@@ -128,8 +126,6 @@ G('fm18')['keys'] += gone2(L(22, 2.0), 'at', 1.0, [960, 900])
 art('fi22', 'FernIce', L(22, 1.6), None, [], enter='focus', snow=0, freeze=0, freezer=0, thaw=0, ghost=0, **C, z=10, xs='burn')
 A_('fi22', 22, (.3, 1.2, {'ghost': 1}), (.55, 1.2, {'snow': .45}), (.78, 1.0, {'freeze': 1, 'ghost': 0}))
 A_('fi22', 23, (.05, 1.0, {'freezer': 1}), (.3, 1.4, {'thaw': .4}), (.55, 1.4, {'thaw': .8}), (.78, 1.0, {'thaw': 1}))
-art('pin22', 'Pinned', L(22, 3.8), L(23, .3), [], ink=False, src=ST + 'P-02_glossopteris-leaf-antarctica.jpg', x=1380, y=760, w=320, h=230, rot=-2,
-    caption='Glossopteris leaf · Antarctica', draw=1, enter='bleed', z=30, xs='burn')
 G('fi22')['keys'] += gone2(L(24, .1), 'burn', 1.2, [960, 540])
 SF(21, .25, 'transition_whoosh_airy_1.wav', -3); SF(21, .62, 'impact_soft_3.wav', -3); SF(22, .1, 'real_wind_4.wav', -3); SF(22, .78, 'crack_wood_1.wav', -4)
 SF(23, .05, 'world_door_creak_1.wav', -2); SF(23, .55, 'dropper_2.wav', -3)
@@ -197,8 +193,8 @@ G('rg38')['keys'] += [K(L(38, .3), dur(38), 'linear', spin=1)]
 A_('rg38', 38, (.15, 1.4, {'k': .4}), (.35, 1.4, {'k': .75}), (.6, 1.4, {'k': 1}))
 G('sf37')['keys'] += [K(L(39), .8, 'soft', a=1)]
 A_('sf37', 39, (.05, .6, {'pair': 1}), (.25, .6, {'pair': 2}), (.45, .6, {'pair': 3}), (.65, .6, {'pair': 4}), (.85, .6, {'pair': 5}))
-A_('sf37', 40, (.1, 1.0, {'fold': .5, 'pair': 0}), (.35, 1.0, {'fold': 1}), (.7, .6, {'fold': .9}))
-ent('fl40', 'flash', {'at': [[L(40, 2.6), 960, 540, 90]], 'col': '#FFFDF4', 'glow': '#F7E3A0', 'life': 1.2}, [], z=70)
+A_('sf37', 40, (.05, 1.2, {'fold': .3, 'pair': 0}), (.3, 1.2, {'fold': .55}), (.55, 1.2, {'fold': .8}), (.8, .8, {'fold': 1}))
+ent('fl40', 'flash', {'at': [[Lf(40, .88), 960, 540, 90]], 'col': '#FFFDF4', 'glow': '#F7E3A0', 'life': 1.2}, [], z=70)
 A_('sf37', 41, (.08, 1.0, {'fold': 0}), (.25, .9, {'wing': 1}), (.45, .5, {'wing': .6}), (.58, .5, {'wing': 1}), (.75, .5, {'wing': .6}))
 text('q41', '?', 'title', 1500, 300, L(41, 3.6), L(42, .2), size=130, col=VERM)
 G('sf37')['keys'] += gone2(L(42, .2), 'burn', 1.2, [960, 540])
@@ -277,10 +273,10 @@ G('jig0')['keys'] += gone2(L(57, 6.4), 'fade', 2.4)
 
 # ======================================================================== LIGHT — every place has a named source, shadows and depth (critic, keyframes)
 haze('hz9', 560, 760, L(9), L(10, .6), k=.45, col='#DDE7EE'); shadow('sh9', 900, 975, 260, 18, L(9, .6), L(10, .2), k=.5)
-lamp('lp9', [1700, 300], L(9), L(10, .4), r=1400, dark=.18, warm=.35)
+lamp('lp9', [1750, 640], L(9), L(10, .4), r=1300, dark=.42, warm=.55)
 lamp('lp10', [700, 240], L(10, 1.2), L(13, 7.0), r=900, dark=.45, warm=.9)
 lamp('lp17', [800, 200], L(15), L(24, .3), r=1300, dark=.3, warm=.7)
-lamp('lp25', [960, 120], L(25), L(27, .2), r=1100, dark=.5, warm=.8)
+lamp('lp25', [300, 200], L(25), L(27, .2), r=1200, dark=.6, warm=.9)
 shaft('sf25', [300, 0], [700, 900], L(25), L(27, .2), w0=120, w1=420, n=2, k=.35)
 shaft('sf14', [200, 0], [760, 900], L(14), L(15, .3), w0=120, w1=420, n=2, k=.35)
 shadow('sh9b', 760, 980, 340, 16, L(9, .6), L(10, .2), k=.55)
@@ -317,12 +313,12 @@ MOVE = {0: ('push', (900, 560), 'insert'), 1: ('pan-r', (960, 520), 'medium'), 2
         12: ('track', (960, 520), 'insert'), 13: ('pan-l', (960, 540), 'medium'), 14: ('orbit', (800, 520), 'medium'), 15: ('snap-zoom', (960, 540), 'wide'),
         16: ('crane-up', (960, 540), 'wide'), 17: ('track', (850, 650), 'close'), 18: ('pull', (960, 560), 'medium'), 19: ('handheld', (960, 540), 'close'),
         20: ('pan-r', (960, 540), 'medium'), 21: ('pan-l', (960, 540), 'wide'), 22: ('crane-down', (960, 560), 'close'), 23: ('dutch', (960, 540), 'medium'),
-        24: ('rack', (960, 520), 'insert'), 25: ('whip', (960, 700), 'medium'), 26: ('push', (960, 760), 'close'), 27: ('tilt-down', (960, 560), 'close'),
+        24: ('rack', (960, 520), 'insert'), 25: ('whip', (960, 700), 'medium'), 26: ('pull', (960, 620), 'medium'), 27: ('tilt-down', (960, 560), 'close'),
         28: ('pan-r', (960, 540), 'wide'), 29: ('handheld', (760, 800), 'wide'), 30: ('push', (960, 560), 'close'), 31: ('lock', (960, 560), 'wide'),
         32: ('crane-down', (960, 600), 'insert'), 33: ('pull', (960, 540), 'wide'), 34: ('track', (960, 540), 'wide'), 35: ('snap-zoom', (960, 700), 'insert'),
         36: ('tilt-down', (960, 540), 'detail'), 37: ('crane-up', (960, 540), 'wide'), 38: ('orbit', (960, 540), 'wide'), 39: ('lock', (960, 540), 'medium'),
         40: ('dolly', (960, 540), 'close'), 41: ('arc', (960, 540), 'medium'), 42: ('push', (960, 560), 'close'), 43: ('snap-zoom', (960, 540), 'insert'),
-        44: ('crane-up', (960, 600), 'close'), 45: ('pan-r', (960, 540), 'wide'), 46: ('pull', (960, 540), 'close'), 47: ('track', (960, 540), 'wide'),
+        44: ('crane-up', (960, 600), 'close'), 45: ('pan-r', (960, 540), 'wide'), 46: ('pull', (960, 540), 'close'), 47: ('lock', (960, 540), 'wide'),
         48: ('arc', (960, 540), 'wide'), 49: ('tilt-down', (960, 560), 'close'), 50: ('crane-up', (960, 500), 'wide'), 51: ('dive', (960, 540), 'wide'),
         52: ('rack', (960, 560), 'medium'), 53: ('push', (900, 560), 'insert'), 54: ('pull', (960, 540), 'wide'), 55: ('orbit', (960, 540), 'wide'),
         56: ('dolly', (960, 540), 'medium'), 57: ('crane-up', (800, 560), 'wide')}

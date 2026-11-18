@@ -157,6 +157,12 @@ const Rose: React.FC<{ cx: N; cy: N; r: N; a?: N; north?: boolean }> = ({ cx, cy
   </g>;
 };
 
+// a raking key light over a whole scene: warm where the light comes from, falling off to a cool dark corner (house: no flat fills)
+const KeyLight: React.FC<{ id: string; from?: 'tl' | 'tr'; a?: N }> = ({ id, from = 'tl', a = 1 }) => <g opacity={a} style={{ pointerEvents: 'none' }}>
+  <defs><linearGradient id={id + 'kl'} x1={from === 'tl' ? 0 : 1} y1="0" x2={from === 'tl' ? 1 : 0} y2="1"><stop offset="0" stopColor="#FFF0D0" stopOpacity={.26} /><stop offset=".45" stopColor="#FFF0D0" stopOpacity={0} /><stop offset="1" stopColor="#1A1210" stopOpacity={.34} /></linearGradient>
+    <radialGradient id={id + 'vg'} cx=".5" cy=".5" r=".75"><stop offset=".6" stopColor="#1A1210" stopOpacity={0} /><stop offset="1" stopColor="#1A1210" stopOpacity={.3} /></radialGradient></defs>
+  <rect x={-100} y={-100} width={2120} height={1280} fill={`url(#${id}kl)`} /><rect x={-100} y={-100} width={2120} height={1280} fill={`url(#${id}vg)`} /></g>;
+
 // ================================================================ 1. ROCK SHIP — a little wooden sailing ship sails at a huge block of grey rock; its bow crumples, it sinks
 // sail 0..1 carries it to the rock; crumple 0..1 crushes the bow (splinters fly); sink 0..1 takes it under the waterline, bubbles rising.
 const RockShip: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sail?: N; crumple?: N; sink?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, sail = 0, crumple = 0, sink = 0, tm = 0 }) => {
@@ -202,6 +208,7 @@ const RockShip: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sail?: N; crumple?: N;
     {Array.from({ length: 16 }, (_, i) => { const xw = 60 + rnd(i * 3) * 1080, yw = WL + 30 + rnd(i * 5) * 360; return <path key={i} d={`M${xw} ${yw} q14 -7 28 0 t28 0`} stroke="#9AA6B0" strokeWidth={1.2} fill="none" opacity={.5} />; })}
     {sink > 0 && Array.from({ length: 18 }, (_, i) => { const p = fr(tm * .45 + rnd(i)), bx2 = sx + (rnd(i + 3) - .3) * 260 + Math.sin(tm * 3 + i) * 6, by = WL + 40 + sink * 320 - p * (sink * 320 + 30);
       return by > WL + 4 ? <circle key={i} cx={bx2} cy={by} r={3 + rnd(i + 7) * 9} fill="#C9DDE6" fillOpacity={.25} stroke="#E8EEF0" strokeWidth={1.4} opacity={cl(sink * 4) * (1 - p * .4)} /> : null; })}
+    <KeyLight id={id} from="tr" />
   </g>;
 };
 
@@ -284,6 +291,7 @@ const BlankSeaChart: React.FC<{ x?: N; y?: N; s?: N; draw?: N; monster?: N; moon
   const SND = [1840, 2130, 2410, 2650, 2290, 1460, 980, 1720, 2480, 2760, 2590, 2210, 1930, 2040];
   return <g transform={TR(x, y, s)}>
     <rect x={-100} y={-100} width={2120} height={1280} fill="#E6D6B0" opacity={ph(draw, 0, .4)} />
+    <rect x={58} y={52} width={1840} height={1020} fill="#1A1210" opacity={.3} filter="url(#b8)" />
     <rect x={40} y={30} width={1840} height={1020} fill="#F6EED8" opacity={ph(draw, 0, .4)} />
     {/* the graduated border */}
     <rect x={40} y={30} width={1840} height={1020} fill="none" stroke={SEP} strokeWidth={3} opacity={ph(draw, 0, .5)} /><rect x={58} y={48} width={1804} height={984} fill="none" stroke={SEP} strokeWidth={1.2} opacity={ph(draw, 0, .5)} />
@@ -327,6 +335,7 @@ const BlankSeaChart: React.FC<{ x?: N; y?: N; s?: N; draw?: N; monster?: N; moon
       <path d="M1390 905 q-30 -40 -10 -70 q10 -10 18 2" stroke={SEP} strokeWidth={2} fill="none" pathLength={1} strokeDasharray={`${ph(monster, .3, 1)} 1`} />
       <Ink d={`M1360 912 ${Array.from({ length: 10 }, (_, i) => `q20 -10 40 0`).join(' ')}`} w={1.4} draw={monster} />
     </g>}
+    <KeyLight id={id} />
   </g>;
 };
 
@@ -392,6 +401,7 @@ const SurveyShip: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sail?: N; ping?: N; 
     <rect x={-100} y={SL} width={2120} height={60} fill="#22507A" opacity={.35} />
     <path d={`M-100 ${SL} ${Array.from({ length: 41 }, (_, i) => `Q${-100 + i * 54 + 13} ${SL - 5} ${-100 + i * 54 + 27} ${SL} T${-100 + i * 54 + 54} ${SL}`).join(' ')}`} stroke="#E8EEF0" strokeWidth={2} fill="none" opacity={.85 * ph(draw, .3, 1)} transform={`translate(${f1(-(tm * 24) % 54)} 0)`} />
     <path d={`M${sx - 230} ${SL + 2} q-60 6 -140 2 M${sx + 236} ${SL - 2} q30 6 60 2`} stroke="#FFFFFF" strokeWidth={3} fill="none" opacity={.7 * cl(sail * 20)} />
+    <KeyLight id={id} from="tr" a={.8} />
   </g>;
 };
 
@@ -421,6 +431,7 @@ const PenRecorder: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; spill?: N; t
       <path d="M1300 862 Q1340 940 1300 1000 Q1290 1050 1340 1100 L1560 1100 L1500 860Z" fill="#E2CF94" stroke={SEP} strokeWidth={1.2} /></g>
     {/* the bench */}
     <RG d="M180 686 H1760 V722 H180Z" mat="wood" t={.45} draw={draw} sw={1.8} />
+    <ellipse cx={968} cy={884} rx={860} ry={16} fill="#1A1210" opacity={.35} filter="url(#b8)" />
     <RG d="M200 722 H236 V880 H200Z M1700 722 H1736 V880 H1700Z" mat="wood" t={.7} draw={draw} sw={1.4} />
     {/* the paper ribbon: out of the machine, across the bench, over the edge and onto the chart */}
     <g opacity={ph(draw, .4, 1)}>
@@ -454,6 +465,7 @@ const PenRecorder: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; spill?: N; t
     <circle cx={tip[0]} cy={tip[1]} r={2.6} fill={IND} />
     {/* paper exit slot */}
     <rect x={548} y={440} width={24} height={60} fill="#2B2620" />
+    <KeyLight id={id} from="tr" />
   </g>;
 };
 
@@ -486,7 +498,7 @@ const StripeFloor: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; piano?: N; p
   const qN = F / (ZN + Z0), qF = F / (ZF + Z0), Zq = (u: N) => F / lerp(qN, qF, u) - Z0;   // depth at screen fraction u (0 near … 1 far)
   const pk = sst(piano), ZB = ZN + 330, ZK = ZN + 950;
   const ZS = [...Array.from({ length: 17 }, (_, i) => Zq(i / 16)), ...(pk > 0 ? [ZB, ZK] : [])].sort((a, b) => a - b);
-  const HAZE = '#B7C4BF', fogOf = (Z: N) => .97 * Math.pow(cl((Z - ZN) / (ZF - ZN)), .9);
+  const HAZE = '#7F9396', fogOf = (Z: N) => .97 * Math.pow(cl((Z - ZN) / (ZF - ZN)), .9);
   const wa = wing * (.07 + .07 * Math.sin(tm * Math.PI * 2 * .7)), fb = Math.PI * sst(fold), curlA = .42 * Math.sin(Math.PI * cl(fold));
   const thL = () => wa, thR = (d: N) => Math.min(Math.PI, fb + curlA * Math.pow(d / DM, 1.4)) + wa, flat = () => 0;
   const W = (sd: N, th: (d: N) => N) => (d: N, Z: N, Y0 = 0): Pt => { const t = th(d), r = rz(Z); return P(r + sd * (d * Math.cos(t) - Y0 * Math.sin(t)), d * Math.sin(t) + Y0 * Math.cos(t), Z); };
@@ -535,7 +547,7 @@ const StripeFloor: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; piano?: N; p
       const order = [...Array.from({ length: 8 }, (_, i) => i), ...Array.from({ length: 8 }, (_, i) => 15 - i)];
       for (const i of order) { const x0 = XR[i], x1 = XR[i + 1], h0a = hR(x0, Za), h1a = hR(x1, Za), h0b = hR(x0, Zb), h1b = hR(x1, Zb);
         const ux = x1 - x0, uy = h1a - h0a, vy = h0b - h0a, vz = Zb - Za; let nx = uy * vz, ny = -ux * vz, nz = ux * vy; if (ny < 0) { nx = -nx; ny = -ny; nz = -nz; }
-        const nl = Math.hypot(nx, ny, nz) || 1, sh = .22 + .78 * Math.max(0, (nx * Lx + ny * Ly + nz * Lz) / nl), c = mix(mix('#34302E', '#B4A386', sh), HAZE, fg);
+        const nl = Math.hypot(nx, ny, nz) || 1, sh = .22 + .78 * Math.max(0, (nx * Lx + ny * Ly + nz * Lz) / nl), c = mix(mix('#34302E', '#9C8C74', sh), HAZE, fg);
         quads.push(<path key={j + '_' + i} d={pathOf([P(ra + x0, h0a, Za), P(ra + x1, h1a, Za), P(rb + x1, h1b, Zb), P(rb + x0, h0b, Zb)], true)} fill={c} stroke={c} strokeWidth={.8} opacity={a} />); }
       if (a > .5) { crestL.push(P(rb - 30, hR(-30, Zb), Zb)); crestR.push(P(rb + 30, hR(30, Zb), Zb)); rift.push(P(rb, hR(0, Zb), Zb)); } }
     const nearRow = pk > 0 ? null : XR.map(xo => P(rz(ZN) + xo, hR(xo, ZN), ZN));
@@ -591,7 +603,12 @@ const StripeFloor: React.FC<{ x?: N; y?: N; s?: N; draw?: N; k?: N; piano?: N; p
       {fold > 0 && fold < 1 && (() => { const Wf = W(1, thR), edge: Pt[] = [];
         for (let i = 0; i <= 16; i++) edge.push(Wf(DM * i / 16, ZN)); for (let i = 1; i <= 10; i++) edge.push(Wf(DM, lerp(ZN, ZF, i / 10))); for (let i = 15; i >= 0; i--) edge.push(Wf(DM * i / 16, ZF));
         return <g><path d={pathOf(Array.from({ length: 17 }, (_, i) => Wf(DM * i / 16, ZN)))} stroke={PAPB} strokeWidth={7} fill="none" />
-          <path d={pathOf(edge)} stroke={SEP} strokeWidth={2.2} fill="none" strokeLinejoin="round" /></g>; })()}
+          <path d={pathOf(edge)} stroke={SEP} strokeWidth={2.2} fill="none" strokeLinejoin="round" />
+          {/* a hand holds the near outer corner and turns the page */}
+          {(() => { const C = Wf(DM - 30, ZN + 180), In = Wf(DM - 300, ZN + 260), ang = Math.atan2(In[1] - C[1], In[0] - C[0]) * 180 / Math.PI, hs = 1.7, ha = ph(fold, 0, .08) * (1 - ph(fold, .88, 1));
+            return <g opacity={ha} transform={`translate(${f1(C[0])} ${f1(C[1])}) rotate(${f1(ang)}) translate(${f1(-178 * hs)} ${f1(9 * hs)})`}>
+              <g fill="#1C1A22" opacity={.35} filter="url(#b8)" transform="translate(10 18)"><FlatHand x={0} y={0} s={hs} id={id + 'hs'} sil /></g>
+              <FlatHand x={0} y={0} s={hs} id={id + 'hh'} /></g>; })()}</g>; })()}
       {/* the fallboard the keys run under */}
       {pk > 0 && (() => { const r = rz(ZK), a = P(r - DM - 30, 0, ZK), b = P(r + DM + 30, 0, ZK), c = P(r + DM + 30, 90, ZK), d = P(r - DM - 30, 90, ZK), c2 = P(r + DM + 30, 90, ZK + 150), d2 = P(r - DM - 30, 90, ZK + 150);
         return <g opacity={pk}><path d={pathOf([d, c, c2, d2], true)} fill="#8C5A36" stroke={SEP} strokeWidth={1.4} /><path d={pathOf([a, b, c, d], true)} fill="#5A3622" stroke={SEP} strokeWidth={1.6} />
@@ -670,6 +687,7 @@ const Cambridge: React.FC<{ x?: N; y?: N; s?: N; draw?: N; lamp?: N; tm?: N }> =
     {/* the desk */}
     <RG d="M700 650 H1220 L1320 770 H600Z" mat="wood" t={.48} draw={draw} sw={2} />
     <RG d="M600 770 H1320 V816 H600Z" mat="wood" t={.66} draw={draw} sw={1.8} />
+    <ellipse cx={960} cy={1066} rx={420} ry={22} fill="#1A1210" opacity={.4} filter="url(#b8)" />
     <RG d="M620 816 H670 V1060 H620Z M1250 816 H1300 V1060 H1250Z" mat="wood" t={.72} draw={draw} sw={1.6} />
     <rect x={880} y={782} width={160} height={22} rx={4} fill="none" stroke={SEP} strokeWidth={1.2} /><circle cx={960} cy={793} r={4} fill={GOLD} />
     {/* the striped magnetic chart spread on the desk (stripes parallel to the ridge, symmetric) */}
@@ -705,6 +723,7 @@ const Cambridge: React.FC<{ x?: N; y?: N; s?: N; draw?: N; lamp?: N; tm?: N }> =
     </g>
     {/* dusk dims the room; the lamp warms it */}
     <rect x={-100} y={-100} width={2120} height={1280} fill="#141C38" opacity={.22 * (1 - lamp * .6)} />
+    <KeyLight id={id} from="tr" a={.7} />
   </g>;
 };
 
@@ -735,6 +754,7 @@ const Compass: React.FC<{ x?: N; y?: N; s?: N; draw?: N; flip?: N; tm?: N }> = (
     {/* the glass */}
     <path d={`M${C[0] - 250} ${C[1] - 170} A300 300 0 0 1 ${C[0] + 140} ${C[1] - 300}`} stroke="#FFFFFF" strokeWidth={22} fill="none" opacity={.25} strokeLinecap="round" />
     <path d={`M${C[0] - 268} ${C[1] - 110} A310 310 0 0 1 ${C[0] - 210} ${C[1] - 210}`} stroke="#FFFFFF" strokeWidth={8} fill="none" opacity={.4} strokeLinecap="round" />
+    <KeyLight id={'cmp' + Math.round(x)} />
   </g>;
 };
 
@@ -863,6 +883,7 @@ const RidgeTape: React.FC<{ x?: N; y?: N; s?: N; draw?: N; well?: N; cool?: N; r
           <path d={`M${-FR + 20} -40 A${FR - 18} ${FR - 18} 0 0 1 -40 ${-FR + 20}`} stroke="#FFFFFF" strokeWidth={4} fill="none" opacity={.5} />
         </g>
       </g>; })}
+    <KeyLight id={id} a={.6} />
   </g>;
 };
 
@@ -942,6 +963,7 @@ const Trench: React.FC<{ x?: N; y?: N; s?: N; draw?: N; dive?: N; quakes?: N; pu
         <circle cx={xx} cy={slabTopY(xx)} r={20 + (1 - f) * 40} fill="none" stroke="#FFF4D2" strokeWidth={2} opacity={f * .6} /></g> : null; })}
     {/* the sea surface */}
     <path d={`M-100 300 H1080`} stroke="#E8EEF0" strokeWidth={2.4} opacity={.8 * ph(draw, .3, 1)} />
+    <KeyLight id={id} a={.7} />
   </g>;
 };
 
@@ -1045,6 +1067,7 @@ const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N
       {pk > .5 && <g opacity={ph(pk, .6, 1)}><path d={`M${f1(tp[0])} ${f1(tp[1])} v-60`} stroke={SEP} strokeWidth={3} />
         <path d={`M${f1(tp[0])} ${f1(tp[1] - 60)} q20 ${f1(4 + Math.sin(tm * 6) * 4)} 40 0 l0 22 q-20 ${f1(-4 + Math.sin(tm * 6 + 1) * 4)} -40 0Z`} fill={VER} stroke={SEP} strokeWidth={1.4} /></g>}
     </g>
+    <KeyLight id={id} a={.8} />
   </g>;
 };
 
@@ -1122,6 +1145,7 @@ const GPSMarker: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sat?: N; beam?: N; ti
       <path d={`M${sx - 22} ${sy + 36} Q${sx} ${sy + 62} ${sx + 22} ${sy + 36}Z`} fill="#E8EEF0" stroke={SEP} strokeWidth={1.4} />
       <Line d={`M${sx} ${sy + 46} V${sy + 58}`} w={2} a={1} />
     </g>
+    <KeyLight id={id} a={.7} />
   </g>;
 };
 
@@ -1225,6 +1249,7 @@ const NailAtlantic: React.FC<{ x?: N; y?: N; s?: N; draw?: N; grow?: N; line?: N
     </g>
     {/* the line along the nail tip */}
     {line > 0 && <path d={`M${f1(E[0])} ${f1(E[1] - 40 - oc * 700)} V${f1(E[1] + 40 + oc * 700)}`} stroke={VER} strokeWidth={4 + oc * 4} pathLength={1} strokeDasharray={`${sst(line)} 1`} strokeLinecap="round" />}
+    <KeyLight id={id} a={.8} />
   </g>;
 };
 
