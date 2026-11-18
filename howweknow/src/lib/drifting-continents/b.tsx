@@ -945,60 +945,105 @@ const Trench: React.FC<{ x?: N; y?: N; s?: N; draw?: N; dive?: N; quakes?: N; pu
   </g>;
 };
 
-// ================================================================ 13. RUG → HIMALAYA — a low camera on a wooden floor: a big patterned rug fills the frame, its far edge
-// against the skirting board; sunlight from a window at the left rakes across it. push 0..1 shoves it into the wall: it rucks up into folds
-// parallel to the wall; peaks 0..1 the folds become the Himalaya — sharp snowy ridges, rank behind rank, filling the frame width, the wall a sky.
-const RUGF: [N, N, N][] = [[.94, 1, .03], [.85, .82, .036], [.75, .66, .04], [.64, .5, .044], [.53, .34, .046]];   // v (0 near … 1 at the wall), height, width
-const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, push = 0, peaks = 0 }) => {
-  const id = 'rug' + Math.round(x), pk = sst(peaks), F = 1500, HY = 150, CH = 300, ZW = 1700, LR = 1260, comp = sst(push);
+// ================================================================ 13. RUG → HIMALAYA — a wooden floor seen from a little above: a big oriental medallion rug (guard stripes,
+// a rosette border, corner spandrels, a lobed medallion), its far edge against the skirting board, its fringe toward us. Raking afternoon light
+// from the front left. push 0..1 shoves it into the wall: 4 big rounded folds rise from the floor toward the wall (lit faces, dark troughs,
+// inked crests); peaks 0..1 the folds sharpen into snowy Himalayan ridges under a sky (a flag on the highest), while the rug's near border
+// and fringe stay at the bottom of the frame — the match cut.
+const RUGF: [N, N, N][] = [[.93, 1, .05], [.8, .82, .055], [.66, .62, .06], [.52, .4, .06]];   // v (0 near … 1 at the wall), height, width
+const RUGC = { red: '#9A3E2E', ind: '#2E3A5A', ivo: '#E8D9B4', och: '#C9A266', dk: '#3A2420', grn: '#4F6E5A' };
+const rugPat = (u: N, v: N) => { const X = (u - .5) * 2600, Z = (v - .5) * 1260, d = Math.min(1300 - Math.abs(X), 630 - Math.abs(Z));
+  if (d < 26) return RUGC.dk; if (d < 40) return RUGC.och; if (d < 50) return RUGC.dk;
+  if (d < 150) return RUGC.ind; if (d < 162) return RUGC.och; if (d < 172) return RUGC.dk; return RUGC.red; };
+const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, push = 0, peaks = 0, tm = 0 }) => {
+  const id = 'rug' + Math.round(x), pk = sst(peaks), F = 1500, HY = -150, CH = 600, ZW = 1700, LR = 1260, comp = sst(push);
   const P = (X: N, Y: N, Z: N): Pt => [960 + X * F / Z, HY + (CH - Y) * F / Z];
-  const ZE = ZW - LR * (1 - .22 * comp), Zv = (v: N) => lerp(ZE, ZW, v), Xu = (u: N) => lerp(-1300, 1300, u) * (1 + pk * .75);
+  const ZE = ZW - LR * (1 - .4 * comp), Zv = (v: N) => lerp(ZE, ZW, v), Xu = (u: N) => lerp(-1300, 1300, u) * (1 + pk * .6);
   const mtn = (u: N, j: N) => { let m = 0; for (let q = 0; q < 9; q++) { const c = rnd(j * 17 + q * 3.1), w = .05 + .07 * rnd(j * 5 + q), hh = .55 + .45 * rnd(j * 11 + q * 7);
-      m = Math.max(m, hh * Math.max(0, 1 - Math.abs(u - c) / w) ** 1.15); } return .25 + .75 * m + .05 * Math.sin(u * 90 + j); };
-  const RF = pk > 0 ? [...RUGF, [.4, .2 * pk, .05], [.27, .12 * pk, .06], [.13, .07 * pk, .06]] as [N, N, N][] : RUGF;
-  const H = (u: N, v: N) => RF.reduce((a, [c, hf, w], j) => { const ww = w * (1 + pk * 1.6), sm2 = Math.exp(-(((v - c) / ww) ** 2)), sh = Math.max(0, 1 - Math.abs(v - c) / (ww * 2)) ** 1.2;
-    return a + hf * lerp(sm2, sh, pk) * lerp(.86 + .14 * Math.sin(u * 7 + j * 2), mtn(u, j), pk); }, 0) * comp * 300 * (1 + pk * .5);
-  const rugCol = (u: N, v: N) => { const e = Math.min(u, 1 - u), b2 = Math.min(v, 1 - v) * 2.1;
-    if (e < .035 || b2 < .07) return '#6E2A20'; if (e < .05 || b2 < .1) return '#C9A266'; if (e < .085 || b2 < .17) return (Math.floor(u * 60 + v * 30) % 2) ? '#3E4E6A' : '#6E2A20';
-    const md = Math.abs(u - .5) / .2 + Math.abs(v - .5) / .32; return md < .3 ? '#3E4E6A' : md < .55 ? '#C9A266' : md < .62 ? '#3E4E6A' : (Math.abs(u - .5) > .3 && Math.abs(v - .5) > .26) ? '#C9A266' : '#94503C'; };
-  const NU = 104, NV = 80, Lx = -.62, Ly = .7, Lz = -.36, HAZE = '#C9D8E0';
-  const quads: React.ReactNode[] = [];
-  for (let j = NV - 1; j >= 0; j--) { const v0 = j / NV, v1 = (j + 1) / NV, Z0 = Zv(v0), Z1 = Zv(v1);
-    for (let i = 0; i < NU; i++) { const u0 = i / NU, u1 = (i + 1) / NU, h00 = H(u0, v0), h10 = H(u1, v0), h01 = H(u0, v1), h11 = H(u1, v1);
+      m = Math.max(m, hh * Math.max(0, 1 - Math.abs(u - c) / w) ** 1.15); } return .3 + .7 * m + .04 * Math.sin(u * 90 + j); };
+  const fc = (u: N, j: N) => RUGF[j][0] + .03 * Math.sin(u * 4.2 + j * 1.7) * (1 - pk);   // each fold's crest wanders a little across the rug
+  const H = (u: N, v: N) => RUGF.reduce((a, [, hf, w], j) => { const c = fc(u, j), ww = w * (1 + pk * .8), sm2 = Math.exp(-(((v - c) / ww) ** 2)), sh = Math.max(0, 1 - Math.abs(v - c) / (ww * 1.9)) ** 1.25;
+    return a + hf * lerp(sm2, sh, pk) * lerp((.35 + .65 * Math.sin(Math.PI * u) ** .7) * (.75 + .25 * Math.sin(u * 7 + j * 2.3)), mtn(u, j), pk); }, 0) * comp * 270 * (1 + pk * .65);
+  const Hmax = 270 * (1 + pk * .65);
+  const NU = 150, NV = 96, L0 = [-.3, .62, -.72], Ln = Math.hypot(...L0), Lx = L0[0] / Ln, Ly = L0[1] / Ln, Lz = L0[2] / Ln;
+  const items: React.ReactNode[] = [];
+  const vS = (j: N) => { const t = j / NV, qa = 1 / ZE, qb = 1 / ZW; return (1 / lerp(qa, qb, t) - ZE) / (ZW - ZE); };   // rows evenly spaced on screen
+  const Pm = (X: N, Z: N): Pt => { const u = X / 2600 + .5, v = Z / 1260 + .5; return P(Xu(u), H(u, v), Zv(v)); };
+  // the woven motifs as vector shapes in rug coordinates (X −1300…1300 along the rug, Z −630…630 across it), drawn ON the surface
+  const motifs = useMemo(() => { const o: { pts: [N, N][]; col: string; z0: N; z1: N }[] = [];
+    const add = (pts: [N, N][], col: string) => { const zs = pts.map(p => p[1]); o.push({ pts, col, z0: Math.min(...zs), z1: Math.max(...zs) }); };
+    const circ = (cx: N, cz: N, r: N, col: string, n = 16) => add(Array.from({ length: n }, (_, i) => [cx + Math.cos(i / n * 2 * Math.PI) * r, cz + Math.sin(i / n * 2 * Math.PI) * r]), col);
+    [[1, RUGC.dk], [.9, RUGC.ivo], [.56, RUGC.och], [.5, RUGC.ind], [.2, RUGC.och], [.17, RUGC.red], [.08, RUGC.ivo]].forEach(([k, col]) => add(Array.from({ length: 96 }, (_, i) => { const th = i / 96 * 2 * Math.PI, r = 290 * (k as N) * (1 + .1 * Math.cos(8 * th)); return [Math.cos(th) * r * 1.7, Math.sin(th) * r]; }), col as string));
+    for (let i = 0; i < 16; i++) { const th = (i + .5) / 16 * 2 * Math.PI, c = Math.cos(th), sn = Math.sin(th), a = .6 * 290, b2 = .86 * 290;
+      add([[c * a * 1.7, sn * a], [(c * (a + b2) / 2 - sn * 22) * 1.7, sn * (a + b2) / 2 + c * 22], [c * b2 * 1.7, sn * b2], [(c * (a + b2) / 2 + sn * 22) * 1.7, sn * (a + b2) / 2 - c * 22]], RUGC.grn); }
+    [-1, 1].forEach(sd => { add([[sd * 640 - 104, 0], [sd * 640, -80], [sd * 640 + 104, 0], [sd * 640, 80]], RUGC.och); add([[sd * 640 - 78, 0], [sd * 640, -60], [sd * 640 + 78, 0], [sd * 640, 60]], RUGC.ind); });
+    [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([sx, sz]) => { const cx = sx * (1300 - 172), cz = sz * (630 - 172);
+      [[300, 200, RUGC.och], [280, 186, RUGC.ind], [180, 120, RUGC.och], [156, 104, RUGC.ind]].forEach(([rx, rz, col]) => add([[cx, cz], ...Array.from({ length: 13 }, (_, i) => { const a = i / 12 * Math.PI / 2; return [cx - sx * Math.cos(a) * (rx as N), cz - sz * Math.sin(a) * (rz as N)] as [N, N]; })], col as string)); });
+    const ros = (cx: N, cz: N) => { circ(cx, cz, 40, RUGC.dk); circ(cx, cz, 33, RUGC.och); circ(cx, cz, 16, RUGC.red, 10); };
+    for (let X = -1300 + 170; X <= 1300 - 170; X += 140) { ros(X, -630 + 100); ros(X, 630 - 100); }
+    for (let Z = -630 + 240; Z <= 630 - 240; Z += 140) { ros(-1300 + 100, Z); ros(1300 - 100, Z); }
+    for (let X = -1100; X <= 1100; X += 130) for (let Z = -420; Z <= 420; Z += 130) { const r = Math.hypot(X / 1.7, Z); if (r < 330 || Math.abs(Math.abs(X) - 640) / 1.3 + Math.abs(Z) < 120) continue;
+      add([[X - 14, Z], [X, Z - 12], [X + 14, Z], [X, Z + 12]], RUGC.och); }
+    return o; }, []);
+  const GR = 6;
+  for (let g = NV / GR - 1; g >= 0; g--) { const vA = vS(g * GR), vB = vS((g + 1) * GR), keepG = 1 - cl((vA - .1) * 8), overl: React.ReactNode[] = [];
+  for (let j = (g + 1) * GR - 1; j >= g * GR; j--) { const v0 = vS(j), v1 = vS(j + 1), Z0 = Zv(v0), Z1 = Zv(v1), keepRug = 1 - cl((v0 - .1) * 8);
+    const order = Array.from({ length: NU }, (_, i) => i).sort((a, b) => Math.abs(b + .5 - NU / 2) - Math.abs(a + .5 - NU / 2));
+    for (const i of order) { const u0 = i / NU, u1 = (i + 1) / NU, h00 = H(u0, v0), h10 = H(u1, v0), h01 = H(u0, v1), h11 = H(u1, v1);
       const X0 = Xu(u0), X1 = Xu(u1), ax = X1 - X0, ay = h10 - h00, by = h01 - h00, bz = Z1 - Z0; let nx = ay * bz, ny = -ax * bz, nz = ax * by; if (ny < 0) { nx = -nx; ny = -ny; nz = -nz; }
-      const nl = Math.hypot(nx, ny, nz) || 1, lit = Math.max(0, (nx * Lx + ny * Ly + nz * Lz) / nl), hm = (h00 + h10 + h01 + h11) / 4, um = (u0 + u1) / 2, vm = (v0 + v1) / 2;
-      const rel = hm / (300 * (1 + .5 * pk)), rock = rel > .66 + .07 * Math.sin(um * 31 + vm * 7) - lit * .1 ? mix('#E6EDF2', '#FFFFFF', lit) : rel > .26 ? mix('#3E424C', '#A2A6AC', lit) : rel > .1 ? mix('#4A4A3E', '#9A8E70', lit) : mix('#4E5E3E', '#A4A070', lit);
-      const rugC = mix(mix(rugCol(um, vm), '#1E140E', (1 - lit) * .8), '#FFF2D8', Math.max(0, lit - .6) * .45);
-      const c = mix(rugC, mix(rock, HAZE, .6 * Math.pow(cl((vm - .45) / .55), 1.4)), pk);
-      quads.push(<path key={j + '_' + i} d={pathOf([P(X0, h00, Z0), P(X1, h10, Z0), P(X1, h11, Z1), P(X0, h01, Z1)], true)} fill={c} stroke={c} strokeWidth={.7} />); } }
-  const front = Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), H(i / NU, 0), ZE)), back = Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), H(i / NU, 1), ZW));
-  const ridgeLines = RUGF.map(([c], j) => Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), H(i / NU, c), Zv(c))));
-  const yW = P(0, 0, ZW)[1], ySk = P(0, 80, ZW)[1];
+      const nl = Math.hypot(nx, ny, nz) || 1, lit = Math.max(0, (nx * Lx + ny * Ly + nz * Lz) / nl), um = (u0 + u1) / 2, vm = (v0 + v1) / 2, rel = ((h00 + h10 + h01 + h11) / 4) / Hmax;
+      const dv = v1 - v0, base = mix(mix(rugPat(u0 + .25 / NU, v0 + .25 * dv), rugPat(u0 + .75 / NU, v0 + .75 * dv), .5), mix(rugPat(u0 + .75 / NU, v0 + .25 * dv), rugPat(u0 + .25 / NU, v0 + .75 * dv), .5), .5);
+      const dark = cl((Ly - lit) * 2.2) * .75, hi = cl((lit - Ly) * 1.6) * .22;
+      const rugC = mix(mix(base, '#1E140E', .12 + dark), '#FFF2D8', hi);
+      const rock = rel > .6 + .06 * Math.sin(um * 31 + vm * 7) - lit * .12 ? mix('#B8C6D6', '#FFFFFF', lit) : rel > .25 ? mix('#33363E', '#A8A8A6', lit) : rel > .08 ? mix('#4A4636', '#A09270', lit) : mix('#4E5E3E', '#A4A070', lit);
+      const c = mix(rugC, mix(rock, '#C9D8E0', .5 * cl((vm - .55) / .45) ** 1.4), pk * (1 - keepRug)), q4 = pathOf([P(X0, h00, Z0), P(X1, h10, Z0), P(X1, h11, Z1), P(X0, h01, Z1)], true);
+      items.push(<path key={j + '_' + i} d={q4} fill={c} stroke={c} strokeWidth={.8} />);
+      if ((dark > .03 || hi > .03) && pk < 1) overl.push(<path key={'o' + j + '_' + i} d={q4} fill={dark > hi ? '#1E140E' : '#FFF2D8'} opacity={(dark > hi ? dark : hi) * (1 - pk)} />); } }
+    // this band's motifs, clipped to the band as seen (so a nearer fold hides what lies behind it), then the folds' light and shade over them
+    const mA = (1 - pk * (1 - keepG)) * ph(draw, .3, .9), zA = (vA - .5) * 1260 - 30, zB = (vB - .5) * 1260 + 30, ms = motifs.filter(m => m.z1 > zA && m.z0 < zB);
+    if (ms.length && mA > 0) { const topE: Pt[] = [], botE: Pt[] = [];
+      for (let i = 0; i <= 60; i++) { const u = i / 60; let yMin = 1e9, yMax = -1e9, xx = 0; for (let jj = g * GR; jj <= (g + 1) * GR; jj++) { const v = vS(jj), p = P(Xu(u), H(u, v), Zv(v)); yMin = Math.min(yMin, p[1]); yMax = Math.max(yMax, p[1]); xx = p[0]; }
+        topE.push([xx, yMin - 1]); botE.push([xx, yMax + 1]); }
+      items.push(<g key={'m' + g}><defs><clipPath id={`${id}c${g}`}><path d={pathOf([...topE, ...botE.reverse()], true)} /></clipPath></defs>
+        <g clipPath={`url(#${id}c${g})`} opacity={mA}>{ms.map((m, k) => { const pts: Pt[] = []; m.pts.forEach((p, i2) => { const q = m.pts[(i2 + 1) % m.pts.length]; for (let t = 0; t < 1; t += .34) pts.push(Pm(lerp(p[0], q[0], t), lerp(p[1], q[1], t))); });
+          const cc = mix(m.col, '#1E140E', .12); return <path key={k} d={pathOf(pts, true)} fill={cc} stroke={mix(cc, '#1E140E', .25)} strokeWidth={.8} />; })}</g></g>); }
+    items.push(...overl);
+    // the crest of a fold, inked when its band is drawn (so nearer folds hide it)
+    RUGF.forEach(([cc], k) => { if (comp > .15 && cc >= vA && cc < vB) items.push(<path key={'cr' + k} d={pathOf(Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), H(i / NU, fc(i / NU, k)), Zv(fc(i / NU, k)))))} stroke={SEP} strokeWidth={1.6 + pk} fill="none" opacity={.55 * ph(comp, .15, .5)} strokeLinejoin="round" />); }); }
+  const front = Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), 0, ZE));
+  const yW = P(0, 0, ZW)[1], ySk = P(0, 90, ZW)[1];
+  // the highest summit (for the flag)
+  let top: [N, N] = [.5, .93], best = -1; if (pk > .5) for (let i = 0; i <= 60; i++) { const u = i / 60, h = H(u, .93); if (h > best && u > .2 && u < .8) { best = h; top = [u, .93]; } }
+  const tp = P(Xu(top[0]), best, Zv(top[1]));
   return <g transform={TR(x, y, s)}>
-    <defs>{grad(id + 'sky', [[0, '#6E9CC0'], [.6, '#B9D0DE'], [1, '#EEF2EE']])}{grad(id + 'wall', [[0, '#D9C8A0'], [1, '#EADBB6']], false)}</defs>
-    {/* the room: wallpaper, a patch of window light, the skirting board, the floorboards */}
+    <defs>{grad(id + 'sky', [[0, '#6E9CC0'], [.7, '#B9D0DE'], [1, '#EEF2EE']])}{grad(id + 'wall', [[0, '#CDB98E'], [1, '#E6D6B0']], false)}</defs>
+    {/* the room: wallpaper with a window's light falling on it from the left, the skirting board, the floorboards */}
     <g opacity={ph(draw, 0, .5)}>
       <rect x={-100} y={-100} width={2120} height={yW + 100} fill={`url(#${id}wall)`} />
       {Array.from({ length: 24 }, (_, i) => <path key={i} d={`M${-80 + i * 92} -100 V${f1(yW)}`} stroke="#B89A6E" strokeWidth={10} opacity={.28} />)}
-      {Array.from({ length: 24 }, (_, i) => Array.from({ length: 6 }, (_, j2) => <path key={i + '_' + j2} d={`M${-34 + i * 92} ${30 + j2 * 90 + (i % 2) * 45} l8 -12 l8 12 l-8 12Z`} fill="#A8836A" opacity={.35} />))}
-      <path d={`M120 -100 L620 -100 L860 ${f1(yW)} L300 ${f1(yW)}Z`} fill="#FFF4D8" opacity={.38} />
-      <rect x={-100} y={f1(ySk)} width={2120} height={f1(yW - ySk)} fill="#8C5A36" stroke={SEP} strokeWidth={1.6} /><path d={`M-100 ${f1(ySk + 6)} H2020`} stroke="#C99A6A" strokeWidth={2} />
-      <rect x={-100} y={f1(yW)} width={2120} height={1200} fill="#9A6A42" />
-      {Array.from({ length: 30 }, (_, i) => { const X = (i - 15) * 220; return <path key={i} d={pathOf([P(X, 0, ZW), P(X, 0, 300)])} stroke="#4F3020" strokeWidth={1.4} opacity={.55} />; })}
-      {[0, 1, 2, 3, 4].map(i => <path key={'b' + i} d={pathOf([P(-4000, 0, ZW - i * 260), P(4000, 0, ZW - i * 260)])} stroke="#4F3020" strokeWidth={1} opacity={.35} />)}
+      {Array.from({ length: 24 }, (_, i) => Array.from({ length: 5 }, (_, j2) => <path key={i + '_' + j2} d={`M${-34 + i * 92} ${-20 + j2 * 90 + (i % 2) * 45} l8 -12 l8 12 l-8 12Z`} fill="#A8836A" opacity={.35} />))}
+      <path d={`M60 -100 L560 -100 L760 ${f1(yW)} L240 ${f1(yW)}Z`} fill="#FFF4D8" opacity={.42} />
+      <rect x={-100} y={f1(ySk)} width={2120} height={f1(yW - ySk)} fill="#7A4A2C" stroke={SEP} strokeWidth={1.6} /><path d={`M-100 ${f1(ySk + 8)} H2020`} stroke="#C99A6A" strokeWidth={3} />
+      <rect x={-100} y={f1(yW)} width={2120} height={1300} fill="#9A6A42" />
+      {Array.from({ length: 34 }, (_, i) => { const X = (i - 17) * 200; return <path key={i} d={pathOf([P(X, 0, ZW), P(X, 0, 500)])} stroke="#4F3020" strokeWidth={1.4} opacity={.55} />; })}
+      <path d={`M-100 ${f1(yW)} L2020 ${f1(yW)} L2020 ${f1(yW + 30)} L-100 ${f1(yW + 30)}Z`} fill="#2B1D12" opacity={.25} filter="url(#b8)" />
     </g>
-    {/* the sky and the valley floor arrive as the rug becomes a range */}
+    {/* the sky and the valley arrive as the rug becomes a range */}
     <rect x={-100} y={-100} width={2120} height={f1(yW + 100)} fill={`url(#${id}sky)`} opacity={pk} />
-    <rect x={-100} y={f1(ySk - 10)} width={2120} height={1200} fill="#9A9A7A" opacity={pk * .9} />
-    {/* the rug's shadow on the floor (window light from the left) */}
-    <path d={pathOf([...front, ...[...back].reverse()].map(p => [p[0] + 26, p[1] + 10] as Pt), true)} fill="#1E140E" opacity={.3 * (1 - pk)} filter="url(#b8)" />
+    <rect x={-100} y={f1(ySk - 10)} width={2120} height={1300} fill="#8E9070" opacity={pk * .9} />
+    {/* the rug's contact shadow on the floor */}
+    <path d={pathOf([...front.map(p => [p[0], p[1] + 4] as Pt), [front[NU][0] + 40, front[NU][1] + 30], [front[0][0] - 40, front[0][1] + 30]], true)} fill="#1E140E" opacity={.4} filter="url(#b8)" />
     <g opacity={ph(draw, .2, .8)}>
-      {quads}
-      {/* the folds' crests in ink, and the rug's edges */}
-      {ridgeLines.map((L2, j) => <path key={j} d={pathOf(L2)} stroke={SEP} strokeWidth={1.2 + pk * .6} fill="none" opacity={comp * .35 * (1 - pk)} />)}
-      <path d={pathOf(front)} stroke={SEP} strokeWidth={2} fill="none" opacity={1 - pk} />
-      <path d={pathOf(back)} stroke={SEP} strokeWidth={1.6} fill="none" opacity={1 - pk} />
-      {pk < .9 && front.map((p, i) => i % 2 ? null : <path key={'f' + i} d={`M${f1(p[0])} ${f1(p[1])} l${f1((p[0] - 960) * .02)} 26`} stroke="#EFE2C6" strokeWidth={3} opacity={1 - pk} strokeLinecap="round" />)}
+      {items}
+      <path d={pathOf(front)} stroke={SEP} strokeWidth={2} fill="none" />
+      {/* the fringe: tassels of wool along the near edge */}
+      {Array.from({ length: 64 }, (_, i) => { const X = Xu((i + .5) / 64), a = P(X, 0, ZE), b = P(X + (rnd(i) - .5) * 30, 0, ZE - 70 - rnd(i + 3) * 20);
+        return <g key={'f' + i}><path d={`M${f1(a[0])} ${f1(a[1])} Q${f1((a[0] + b[0]) / 2 + 4)} ${f1((a[1] + b[1]) / 2)} ${f1(b[0])} ${f1(b[1])}`} stroke="#5A4A36" strokeWidth={5} fill="none" strokeLinecap="round" opacity={.5} transform="translate(3 4)" />
+          <path d={`M${f1(a[0])} ${f1(a[1])} Q${f1((a[0] + b[0]) / 2 + 4)} ${f1((a[1] + b[1]) / 2)} ${f1(b[0])} ${f1(b[1])}`} stroke="#EFE2C6" strokeWidth={4} fill="none" strokeLinecap="round" />
+          <circle cx={a[0] + (b[0] - a[0]) * .2} cy={a[1] + (b[1] - a[1]) * .2} r={3.4} fill="#D9C9A4" stroke={SEP} strokeWidth={.6} /></g>; })}
+      {/* a flag on the highest summit */}
+      {pk > .5 && <g opacity={ph(pk, .6, 1)}><path d={`M${f1(tp[0])} ${f1(tp[1])} v-60`} stroke={SEP} strokeWidth={3} />
+        <path d={`M${f1(tp[0])} ${f1(tp[1] - 60)} q20 ${f1(4 + Math.sin(tm * 6) * 4)} 40 0 l0 22 q-20 ${f1(-4 + Math.sin(tm * 6 + 1) * 4)} -40 0Z`} fill={VER} stroke={SEP} strokeWidth={1.4} /></g>}
     </g>
   </g>;
 };
@@ -1087,7 +1132,7 @@ const GPSMarker: React.FC<{ x?: N; y?: N; s?: N; draw?: N; sat?: N; beam?: N; ti
 // from an adult hand (palm 100 mm, fingers index 74 · middle 82 · ring 77 · little 60 mm from the knuckle, tapering 19 → 15 mm, joints a
 // little wider than the shafts), drawn at a large scale where the engine's HumanHand reads as tubes: knuckle bumps, joint creases, tendons,
 // nail beds with lunulae, a soft gradient from the lit (upper) to the shaded side, and a cast shadow on the rock (daylight from the upper left).
-const HFING: [Pt, N, N, N, N][] = [[[97, -27], 74, -4, 20, 15.5], [[101, -8], 82, -.5, 20.5, 16], [[97, 11], 77, 3.5, 19.5, 15], [[87, 28.5], 60, 8, 17.5, 13.5]];   // knuckle, length, angle°, base w, tip w
+const HFING: [Pt, N, N, N, N][] = [[[97, -27.5], 74, -4, 21, 15.5], [[101, -7.5], 82, -.5, 21.5, 16.5], [[97, 11.5], 77, 3.5, 19, 14.5], [[86, 27.5], 60, 9, 15, 11.5]];   // knuckle, length, angle°, base w, tip w
 const fingerGeom = (i: N) => { const [B, L, a, wb, wt] = HFING[i], ux = Math.cos(a * D2R), uy = Math.sin(a * D2R);
   const at = (t: N, v: N): Pt => [B[0] + ux * L * t - uy * v, B[1] + uy * L * t + ux * v];
   const w = (t: N) => (lerp(wb, wt, t) + 1.3 * Math.exp(-(((t - .45) / .06) ** 2)) + .7 * Math.exp(-(((t - .74) / .05) ** 2))) / 2;
@@ -1097,10 +1142,10 @@ const fingerGeom = (i: N) => { const [B, L, a, wb, wt] = HFING[i], ux = Math.cos
 };
 const FlatHand: React.FC<{ x: N; y: N; s: N; id: string; sil?: boolean; skin?: string; sleeve?: string }> = ({ x, y, s, id, sil = false, skin = '#E2B48E', sleeve = '#6A7A8E' }) => {
   const T = (p: Pt): Pt => [x + p[0] * s, y + p[1] * s], pth = (pts: Pt[], c = true) => pathOf(pts.map(T), c);
-  const thumbB: Pt = [30, -27], ta = -40 * D2R, tb = -24 * D2R, tm1: Pt = [thumbB[0] + Math.cos(ta) * 46, thumbB[1] + Math.sin(ta) * 46], ttip: Pt = [tm1[0] + Math.cos(tb) * 34, tm1[1] + Math.sin(tb) * 34];
+  const thumbB: Pt = [14, -18], ta = -48 * D2R, tb = -30 * D2R, tm1: Pt = [thumbB[0] + Math.cos(ta) * 58, thumbB[1] + Math.sin(ta) * 58], ttip: Pt = [tm1[0] + Math.cos(tb) * 34, tm1[1] + Math.sin(tb) * 34];
   const thumbSide = (p: Pt, q: Pt, w0: N, w1: N, sd: N): Pt[] => { const dx = q[0] - p[0], dy = q[1] - p[1], l = Math.hypot(dx, dy), nx = -dy / l * sd, ny = dx / l * sd; return [[p[0] + nx * w0, p[1] + ny * w0], [q[0] + nx * w1, q[1] + ny * w1]]; };
-  const tA = thumbSide(thumbB, tm1, 13, 11, 1), tB = thumbSide(tm1, ttip, 11, 9.5, 1), tC = thumbSide(tm1, ttip, 11, 9.5, -1), tD = thumbSide(thumbB, tm1, 13, 11, -1);
-  const tu = [Math.cos(tb), Math.sin(tb)], thumb: Pt[] = [tA[0], tA[1], tB[1], ...Array.from({ length: 7 }, (_, k) => { const an = (k + 1) / 8 * Math.PI, c = Math.cos(an), sn = Math.sin(an); return [ttip[0] + (-tu[1] * c + tu[0] * sn) * 9.5, ttip[1] + (tu[0] * c + tu[1] * sn) * 9.5] as Pt; }), tC[1], tC[0], tD[0]];
+  const tA = thumbSide(thumbB, tm1, 19, 12, 1), tB = thumbSide(tm1, ttip, 12, 10, 1), tC = thumbSide(tm1, ttip, 12, 10, -1), tD = thumbSide(thumbB, tm1, 19, 12, -1);
+  const tu = [Math.cos(tb), Math.sin(tb)], thumb: Pt[] = [tA[0], tA[1], tB[1], ...Array.from({ length: 7 }, (_, k) => { const an = (k + 1) / 8 * Math.PI, c = Math.cos(an), sn = Math.sin(an); return [ttip[0] + (-tu[1] * c + tu[0] * sn) * 10, ttip[1] + (tu[0] * c + tu[1] * sn) * 10] as Pt; }), tC[1], tC[0], tD[0]];
   const palm: Pt[] = [[-6, -31], [20, -33], [44, -40], [70, -38], [92, -37], [104, -30], [107, -12], [104, 10], [98, 30], [90, 38], [60, 38], [30, 35], [-6, 32]];
   const arm: Pt[] = [[-260, -36], [-6, -31], [-6, 32], [-260, 37]];
   const F = [3, 2, 0, 1].map(i => ({ i, ...fingerGeom(i) }));
@@ -1141,8 +1186,8 @@ const FlatHand: React.FC<{ x: N; y: N; s: N; id: string; sil?: boolean; skin?: s
   </g>;
 };
 const NailAtlantic: React.FC<{ x?: N; y?: N; s?: N; draw?: N; grow?: N; line?: N; ocean?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, grow = 0, line = 0, ocean = 0, tm = 0 }) => {
-  const id = 'nat' + Math.round(x), HX = 250, HY = 640, HS = 4.4, RY = 150, mg = fingerGeom(1), [, , ma] = HFING[1], dir = ma * D2R;
-  const T: Pt = [HX + mg.tip[0] * HS, HY + mg.tip[1] * HS], ux = Math.cos(dir), uy = Math.sin(dir), w = mg.w(.95) * .72 * HS;
+  const id = 'nat' + Math.round(x), HX = 250, HY = 600, HS = 4.4, mg = fingerGeom(1), [, , ma] = HFING[1], dir = ma * D2R;
+  const T: Pt = [HX + mg.tip[0] * HS, HY + mg.tip[1] * HS], RY = T[1] - 14, ux = Math.cos(dir), uy = Math.sin(dir), w = mg.w(.95) * .72 * HS;
   const e = 4 + sst(grow) * 30, E: Pt = [T[0] + ux * e, T[1] + uy * e], oc = sst(ocean), hand = 1 - oc;
   const q = (u: N, v: N): string => `${f1(T[0] - ux * 6 + ux * u - uy * v)} ${f1(T[1] - uy * 6 + uy * u + ux * v)}`;
   const Wd = oc * 760, xc = E[0];
@@ -1162,14 +1207,14 @@ const NailAtlantic: React.FC<{ x?: N; y?: N; s?: N; draw?: N; grow?: N; line?: N
       <path d={sm(coastL) + ' L' + [...coastR].reverse().map(p => `${f1(p[0])} ${f1(p[1])}`).join(' L') + 'Z'} fill="#3E7FA3" stroke={SEP} strokeWidth={2} />
       {Array.from({ length: 18 }, (_, i) => <path key={i} d={`M${f1(xc - Wd * .35 + rnd(i) * Wd * .7)} ${f1(rnd(i + 3) * 1080)} q12 -6 24 0 t24 0`} stroke="#C9DDE6" strokeWidth={1.4} fill="none" opacity={.6 * oc} />)}
     </g>}
-    {/* the ruler, with its cast shadow */}
+    {/* the ruler, lying under the fingers: the nail tip rests on its edge, right beside the millimetre ticks */}
     <g opacity={1 - oc * .9}>
-      <rect x={346} y={RY + 14} width={1290} height={90} fill="#3A2A1E" opacity={.3} filter="url(#b8)" />
-      <RG d={`M330 ${RY} H1620 V${RY + 90} H330Z`} color="#E2C48A" draw={draw} sw={1.8} />
-      {Array.from({ length: 251 }, (_, i) => { const xx = 360 + i * 5, L2 = i % 10 === 0 ? 30 : i % 5 === 0 ? 20 : 11; return xx > 1600 ? null : <path key={i} d={`M${xx} ${RY + 90} v${-L2}`} stroke={SEP} strokeWidth={i % 10 === 0 ? 1.6 : .8} opacity={ph(draw, .3, .9)} />; })}
-      {Array.from({ length: 25 }, (_, i) => 360 + i * 50 > 1600 ? null : <text key={'n' + i} x={360 + i * 50} y={RY + 40} fontSize={20} fontFamily={FIG} textAnchor="middle" fill={SEP} opacity={ph(draw, .4, 1)}>{i}</text>)}
-      {grow > 0 && <g><path d={`M${f1(T[0])} ${RY - 8} v-18 H${f1(E[0])} v18`} stroke={VER} strokeWidth={4} fill="none" strokeLinejoin="round" />
-        <Line d={`M${f1(T[0])} ${RY + 94} V${f1(T[1] - w - 4)} M${f1(E[0])} ${RY + 94} V${f1(E[1] - w - 4)}`} w={1.2} col={VER} a={.7} /></g>}
+      <rect x={576} y={RY + 14} width={1150} height={92} fill="#3A2A1E" opacity={.32} filter="url(#b8)" />
+      <RG d={`M560 ${f1(RY)} H1700 V${f1(RY + 92)} H560Z`} color="#E2C48A" draw={draw} sw={1.8} />
+      <path d={`M560 ${f1(RY + 4)} H1700`} stroke="#FFF4D8" strokeWidth={3} opacity={.6} />
+      {Array.from({ length: 221 }, (_, i) => { const xx = 590 + i * 5, L2 = i % 10 === 0 ? 30 : i % 5 === 0 ? 20 : 11; return xx > 1680 ? null : <path key={i} d={`M${xx} ${f1(RY)} v${L2}`} stroke={SEP} strokeWidth={i % 10 === 0 ? 1.6 : .8} opacity={ph(draw, .3, .9)} />; })}
+      {Array.from({ length: 23 }, (_, i) => 590 + i * 50 > 1680 ? null : <text key={'n' + i} x={590 + i * 50} y={f1(RY + 64)} fontSize={20} fontFamily={FIG} textAnchor="middle" fill={SEP} opacity={ph(draw, .4, 1)}>{i}</text>)}
+      {grow > 0 && <path d={`M${f1(T[0])} ${f1(T[1] - w - 8)} v-18 H${f1(E[0])} v18`} stroke={VER} strokeWidth={4} fill="none" strokeLinejoin="round" />}
     </g>
     {/* the hand, flat, fingers to the right; its shadow falls down and to the right */}
     <g opacity={hand}>

@@ -92,14 +92,15 @@ lamp('lp14', [960, 120], L(14), L(15, .4), r=1100, dark=.45, warm=.8)
 G('lh14')['keys'] += [K(L(15), .8, 'soft', a=0)]
 SF(14, .3, 'world_door_creak_1.wav', -3); SF(14, .66, 'thud_soft_2.wav', -2)
 # L15–L16 · PANGAEA, then the quilt (device QuiltPangaea)
-art('qp15', 'QuiltPangaea', L(15), None, [], enter='brush', stamp=0, cloth=0, stitch=0, open=0, **C, z=8, xs='at')
+art('qp15', 'QuiltPangaea', L(15), None, [], enter='brush', stamp=0, cloth=0, stitch=0, open=0, lake=0, **C, z=8, xs='at')
 A_('qp15', 15, (.25, .5, {'stamp': 1}), (.6, 1.2, {'stamp': .85}))
 A_('qp15', 16, (.05, 1.4, {'cloth': 1, 'stamp': 0}), (.22, 1.4, {'stitch': .3}), (.42, 1.4, {'stitch': .6}), (.62, 1.4, {'stitch': 1}), (.82, .8, {'open': .06}), (.92, .5, {'open': 0}))
 SF(15, .25, 'impact_wood_3.wav', 0); SF(16, .25, 'scratch_2.wav', -5); SF(16, .6, 'scratch_2.wav', -6)
 
 # ---------------------------------------------------------------- CLUE 2 — the same fossils on both sides
-art('ms17', 'Mesosaurus', L(17, .3), None, [], enter='glide', eo=[-500, 0], walk=0, swim=0, bones=0, splutter=0, x=760, y=600, s=.22, z=20, xs='fade')
-G('ms17')['keys'] += [K(L(17, .3), dur(17) - 1, 'linear', walk=4, x=980)]
+art('ms17', 'Mesosaurus', L(17, .3), None, [], enter='glide', eo=[-500, 0], walk=0, swim=0, bones=0, splutter=0, x=800, y=672, s=.14, z=20, xs='fade')
+G('ms17')['keys'] += [K(L(17, .3), dur(17) - 1, 'linear', walk=4, x=890)]
+A_('qp15', 17, (.02, 1.0, {'lake': 1}))
 A_('ms17', 17, (.3, .6, {'tail': 1}), (.5, .6, {'tail': 0}), (.8, 1.0, {'swim': 1}))
 art('pin17', 'Pinned', L(17, 6.4), L(18, .4), [], ink=False, src=ST + 'P-02_mesosaurus-tenuidens-senckenberg.jpg', x=1420, y=780, w=320, h=210, rot=3,
     caption='Mesosaurus fossil · Senckenberg', draw=1, enter='bleed', z=30, xs='burn')
@@ -314,7 +315,7 @@ MOVE = {0: ('push', (900, 560), 'insert'), 1: ('pan-r', (960, 520), 'medium'), 2
         4: ('crane-down', (960, 600), 'close'), 5: ('pan-l', (960, 540), 'wide'), 6: ('lock', (960, 560), 'wide'), 7: ('tilt-down', (960, 560), 'medium'),
         8: ('tilt-up', (1200, 400), 'medium'), 9: ('crane-up', (900, 560), 'medium'), 10: ('dive', (960, 560), 'wide'), 11: ('push', (960, 520), 'close'),
         12: ('track', (960, 520), 'insert'), 13: ('pan-l', (960, 540), 'medium'), 14: ('orbit', (800, 520), 'medium'), 15: ('snap-zoom', (960, 540), 'wide'),
-        16: ('crane-up', (960, 540), 'wide'), 17: ('track', (1000, 600), 'close'), 18: ('pull', (960, 560), 'medium'), 19: ('handheld', (960, 540), 'close'),
+        16: ('crane-up', (960, 540), 'wide'), 17: ('track', (850, 650), 'close'), 18: ('pull', (960, 560), 'medium'), 19: ('handheld', (960, 540), 'close'),
         20: ('pan-r', (960, 540), 'medium'), 21: ('pan-l', (960, 540), 'wide'), 22: ('crane-down', (960, 560), 'close'), 23: ('dutch', (960, 540), 'medium'),
         24: ('rack', (960, 520), 'insert'), 25: ('whip', (960, 700), 'medium'), 26: ('push', (960, 760), 'close'), 27: ('tilt-down', (960, 560), 'close'),
         28: ('pan-r', (960, 540), 'wide'), 29: ('handheld', (760, 800), 'wide'), 30: ('push', (960, 560), 'close'), 31: ('lock', (960, 560), 'wide'),
