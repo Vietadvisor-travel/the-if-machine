@@ -104,3 +104,9 @@ Title (delivery option 1):
   as public domain. Avoid it in future films, or expect a claim. The claim does not
   affect the video and is not a strike.
 - YouTube Advanced features still Pending 17/11; comments still cannot be pinned.
+
+## SEO update 18/11/2026 (owner approved the SEO page, browser task 10:33-10:40)
+- Title changed to "What Is Inside an Atom? The Gold Foil Experiment" (48 chars), verified on the public watch page.
+- Description replaced: new keyword-first opening, 8 chapters (real timestamps from the .srt), Watch more links (The Invisible World + How We Know playlists, subscribe). Sources/music/AI disclosure kept.
+- Tags replaced with 10 new ones (240/500 chars): what is inside an atom, Rutherford gold foil experiment, discovery of the nucleus, atomic nucleus, Geiger Marsden experiment, Ernest Rutherford, structure of the atom, protons neutrons electrons, atom mostly empty space, fathomline. Chapters visible in the player.
+- Pinned comment: the @fathomline-films question comment is now pinned (Advanced Enabled).

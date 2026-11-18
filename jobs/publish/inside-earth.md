@@ -103,3 +103,9 @@ Title (all channels use the delivery option 1 title on YouTube; short captions e
 - Delivery-note trap: the v1 note stayed in the file until v2's delivery overwrote it. Always
   read jobs/deliveries/<slug>.md AFTER pulling, and check the version header (v1/v2) before
   building description credits from it.
+
+## SEO update 18/11/2026 (owner approved the SEO page, browser task 10:33-10:40)
+- Title changed to "What Is Inside the Earth? How Seismic Waves Reveal It" (53 chars), verified on the public watch page.
+- Description replaced: new keyword-first opening, 8 chapters (real timestamps from the .srt), Watch more links (Earth + How We Know playlists, subscribe). Sources/music/AI disclosure kept.
+- Tags replaced with 10 new ones (201/500 chars): what is inside the earth, inside the earth, earth's inner core, seismology, seismic waves, Inge Lehmann, Kola superdeep borehole, earth's core, how do we know what's inside the earth, fathomline. Correction to the SEO research: the old tags were NOT missing, Studio showed the old 10 before the edit (the page fetch had shown YouTube defaults). The re-open check in Studio timed out, but the save confirmation appeared and title/description persisted after reload.
+- Pinned comment: the @fathomline-films question comment is now pinned (Advanced Enabled).

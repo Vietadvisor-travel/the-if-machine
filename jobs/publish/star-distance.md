@@ -120,3 +120,8 @@ Title (delivery option 1):
   file or a re-encode: YouTube + TikTok used the CRF 28 re-encode (55 MB) on both
   earlier films; only Facebook used the original master (186 MB). Correct the record
   whenever asked: the upload file is the re-encode, the master stays on Drive.
+
+## SEO update 18/11/2026 (owner approved the SEO page, browser task 10:33-10:40)
+- Title changed to "How Far Away Are the Stars? How Parallax Measured Them" (54 chars), verified on the public watch page.
+- Description replaced: new keyword-first opening, 8 chapters (real timestamps from the .srt), Watch more links (Space + How We Know playlists, subscribe). Sources/music/AI disclosure kept.
+- Tags replaced with 10 new ones (221/500 chars): how far away are the stars, how do we know how far away stars are, stellar parallax, parallax, cosmic distance ladder, Cepheid variables, Henrietta Leavitt, Friedrich Bessel, how stars distance measured, fathomline. Chapters visible in the player.
