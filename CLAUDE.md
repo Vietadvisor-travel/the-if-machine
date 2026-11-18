@@ -76,6 +76,16 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   (real bone lengths, gait, follow-through; key the creature's `tm`), `HumanHand` (Gray's proportions; every Person uses it), `SmallMammal`.
   Never glue ellipses together for a living thing; proportions from a real skeleton/plate. ENGINE.md "ENGINE v9".
 
+## NEVER AGAIN (owner 18 Nov 2026, dinosaur-killer v1 rejected: "cảnh tĩnh… chuyển cảnh, hiệu ứng lặp lại… engine có cả đạo diễn rồi, lí do gì mày không làm… tao không muốn lặp lại trong tương lai")
+- Quality is never traded for the promised time. Estimate honestly at the start; if it will run late, say so — never cut a step.
+- Every film: load `fathom-director` (chain + treatment with an ACTION for every line), `fathom-cinematographer` (world.py), and a FRESH
+  `fathom-critic` agent for keyframes and animatic. The maker never scores his own film.
+- Hard gates (make.sh): `tools/event_check.py` — an EVENT (something in the scene happens: brought on, leaves, acts, moves in ≤ 3 s) at
+  least every 2.5 s; camera drift, grain, light and slow crawls do not count; one named camera move per line (`camera_moves`), none on
+  > 12 % of lines or 3 lines running; no transition `how` > 3 times. `tools/critic_gate.py` — no full render without the fresh critic's
+  animatic scores ≥ 8 on every axis (jobs/critic/<slug>.json, tied to that exact animatic).
+- A scene is never "a picture appears + a label + the camera drifts". Each line: who/what does what, and what it turns into.
+
 ## Roles
 - **Claude:** everything creative — topics, research, scripts planned to the frame, every drawing, the engine, rendering, delivery.
 - **Muse:** sourcing only (lean: ~1 hour per film, ≤ 15 rows), against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,

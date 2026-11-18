@@ -11,7 +11,7 @@ python3 tools/check_world.py $EP
 python3 tools/variety.py $EP ${SHORT:+--short}
 python3 tools/plan_check.py $EP
 if python3 -c "import json,sys;sys.exit(0 if json.load(open('$EP/episode.json')).get('standard',4)>=5 else 1)"; then python3 tools/still_check.py $EP; python3 tools/score.py $EP; fi   # v5 films: no dead stretches; the score follows the moods (world.py reads it or --write)
-if python3 -c "import json,sys;sys.exit(0 if json.load(open('$EP/episode.json')).get('engine',0)>=8 else 1)"; then python3 tools/novelty.py $EP; fi   # v8: nothing leaned on, new devices invented
+if python3 -c "import json,sys;sys.exit(0 if json.load(open('$EP/episode.json')).get('engine',0)>=8 else 1)"; then python3 tools/novelty.py $EP; python3 tools/event_check.py $EP; fi   # v8: nothing leaned on, new devices invented; v9: something HAPPENS ≤ every 2.5 s, camera grammar varied
 python3 tools/mix.py $EP
 if [[ "${2:-}" == "--preview" ]]; then   # the animatic: half size, 15 fps, with voice + score (CREATIVE.md §3)
   python3 tools/render.py $S --preview --chunk 120
@@ -19,6 +19,7 @@ if [[ "${2:-}" == "--preview" ]]; then   # the animatic: half size, 15 fps, with
   echo "ANIMATIC → out/${S}_animatic.mp4"; exit 0
 fi
 T0=$(date +%s)
+python3 tools/critic_gate.py $S animatic   # owner 18 Nov 2026 ("không muốn lặp lại"): no full render before a FRESH critic scored the animatic ≥ 8 on every axis
 if [ "${FARM:-1}" = 1 ]; then python3 tools/farm.py $S   # free GitHub runners render chunks in parallel (pixel-checked); render.py joins + fills the rest here
 else python3 tools/render.py $S; fi                       # FARM=0: the plain local render, exactly as before the farm
 RT=$(( $(date +%s) - T0 )); echo "render ${RT} s ($(python3 -c "import json;d=json.load(open('$EP/timeline.json'))['duration'];print(f'{$RT/d:.1f} s per film second')"))"
