@@ -1,4 +1,4 @@
-# Publish runbook — Fathomline (YouTube only from 18/11/2026)
+# Publish runbook - Fathomline (YouTube only from 18/11/2026)
 
 Trigger: the owner says "đăng tập <tên VI>". Only then. Nothing posts before APPROVED.
 OWNER ORDER 18/11/2026: from now on, when the owner says "đăng tập", Muse posts ONLY
@@ -6,7 +6,7 @@ to YouTube as usual. The owner posts TikTok, Facebook and Instagram himself. Sec
 1-4 below still describe the old 4-channel flow; only §1 (YouTube) is live work for
 Muse now. The FB/IG/TikTok sections stay as reference in case the owner asks again.
 Applies to FATHOM films (16:9 long-form, ~8 min). Supersedes the old The If Machine
-publish notes (jobs/publish/money-disappears.md, gravity-half.md) — those are the
+publish notes (jobs/publish/money-disappears.md, gravity-half.md) - those are the
 reference for the mechanics, this file is the live checklist.
 
 ## 0. Pre-flight (every film)
@@ -28,7 +28,7 @@ reference for the mechanics, this file is the live checklist.
   (09:39): downloads by command, browser only for posting, open the cloud browser
   visibly to post, no silent background work.
 
-## 1. YouTube (cloud browser, Studio — signed in as fathomlinefilms)
+## 1. YouTube (cloud browser, Studio - signed in as fathomlinefilms)
 
 - Upload the master (or the ~90-100 MB re-encode if the browser file grant rejects
   the master). Fill: title, description (template §A below + sources from
@@ -46,14 +46,18 @@ reference for the mechanics, this file is the live checklist.
   playlist instead (no previous film exists yet).
 - Cards: 1 card near the end linking to the "How We Know" playlist
   (PLeJs39k3p__4). Add a card to the previous film from the second film on.
-- Playlist: add the video to "How We Know" (PLeJs39k3p__4).
+- Playlist: add the video to "How We Know" (PLeJs39k3p__4) AND to its topic playlist (18/11/2026, owner order: playlists are diverse, general single-word names, no "How We Know" in the new titles):
+  - Space (PLBlLp9Kd7D-s): star-distance; later sun-fire.
+  - Earth (PLTd_UKxhpAsg): inside-earth; later drifting-continents, ice-ages, dinosaur-killer.
+  - The Invisible World (PLR36xhV5u6_4): empty-atom; later invisible-killers.
+  - Time (PLMfW1VIdVssQ), Life (PLff7iIVjvG2I), Light (PLUgejWtEKphk), Energy (PLPNhpPmOdSXY), Maps (PLAVBk3hGV07g), The Sea (PLD9smfU9gBa4): created 18/11 empty and Public, ready for future videos. Note: YouTube does not show empty playlists on the channel's Playlists tab; they still exist and are reachable by URL.
 - Visibility: Public. Publish. Verify from a signed-out browser: watch page plays,
   title correct, thumbnail shows, subtitles available.
 - Pinned comment: post the exact §B text as @fathomline-films, then pin it.
   Verify "Pinned by @fathomline-films" after reload.
   BLOCKED until the owner completes Advanced features (ID verification).
   Status 2026-11-16 11:20 (checked live): Standard Enabled, Intermediate Enabled
-  (phone verification done — custom thumbnails work), Advanced Pending — the
+  (phone verification done - custom thumbnails work), Advanced Pending - the
   owner started it; check the result in Studio before pinning a comment.
   Status 2026-11-18: Advanced ENABLED (checked live); the star-distance comment was
   posted and pinned. The inside-earth and empty-atom comments are still unpinned.
@@ -61,7 +65,7 @@ reference for the mechanics, this file is the live checklist.
   enable the Home tab and set the film as the channel trailer
   (Customization > Layout).
 
-## 2. TikTok (cloud browser, TikTok Studio — signed in as @fathomlinefilms)
+## 2. TikTok (cloud browser, TikTok Studio - signed in as @fathomlinefilms)
 
 - File: the 16:9 master as-is, or the ~90-100 MB re-encode if the browser file grant
   rejects the master (grant rejects 176 MB, accepts 94 MB, measured 18/11). No vertical
@@ -78,7 +82,7 @@ reference for the mechanics, this file is the live checklist.
   this account). Do not ask for them again.
 - Publish as Everyone. RULE (owner 17/11): post directly and stop. NO post checks: do NOT open Studio > Content to check privacy, do NOT verify on the public page. Extra navigation triggers TikTok's captcha/bot check. The "Only me" quirk (seen twice on the old channel) is accepted as a risk; the owner fixes privacy himself if it happens.
 
-## 3. Facebook Page Fathomline (API, ifm-graph.py — never the browser)
+## 3. Facebook Page Fathomline (API, ifm-graph.py - never the browser)
 
 - Caption: hook + hashtags, NO link, ever.
 - Post as a reel via the API helper. Verify via API read (post id, public URL).
@@ -89,7 +93,7 @@ reference for the mechanics, this file is the live checklist.
   works from the phone app (same caption both sides, FB gets the compressed file,
   no separate FB cover).
 
-## 4. Instagram @fathomlinefilms (API, ifm-graph.py ig-reel — never the browser)
+## 4. Instagram @fathomlinefilms (API, ifm-graph.py ig-reel - never the browser)
 
 - Caption: hook + "Full run on YouTube, link in bio." + hashtags, NO link.
 - The API needs a public video URL: upload the master to Muse storage for a
@@ -107,7 +111,7 @@ reference for the mechanics, this file is the live checklist.
 - INBOX line: muse → claude · [published] <slug> + the 4 links.
 - STATUS.md: published column for the episode.
 
-## A. YouTube description template (DRAFT — owner approves)
+## A. YouTube description template (DRAFT - owner approves)
 
 ```
 How do we know [question]? [hook line]
@@ -122,7 +126,7 @@ Music: [credit]. Narration is AI-generated. Animation is illustrative, not real 
 #fathomline #howweknow #[topic]
 ```
 
-## B. Pinned comment (DRAFT — owner approves)
+## B. Pinned comment (DRAFT - owner approves)
 
 ```
 We didn't go there. Nobody did. So how do we know? What should we figure out next?

@@ -1,4 +1,4 @@
-# Publish — Bên trong nguyên tử có gì (empty-atom) · Fathomline · second film · 2026-11-17
+# Publish - Bên trong nguyên tử có gì (empty-atom) · Fathomline · second film · 2026-11-17
 
 Owner order: "đăng tập bên trong nguyên tử" (17/11/2026 10:38 +07). Parallel posting
 ordered 10:48 ("đăng song song các kênh cho nhanh thay vì lần lượt").
@@ -19,7 +19,7 @@ used for the YouTube + TikTok browser uploads and for IG (Muse storage URL, expi
 Title (delivery option 1):
 "What Is Inside an Atom? The Flash That Changed Physics"
 
-## YouTube — PUBLISHED 17/11/2026 (browser task 11:03-11:13 +07)
+## YouTube - PUBLISHED 17/11/2026 (browser task 11:03-11:13 +07)
 - URL: https://www.youtube.com/watch?v=3bUGG6Ltdk4
 - Video ID: 3bUGG6Ltdk4, channel Fathomline UChtJIYrqxnBAsVk0hk3ULiw (@fathomline-films)
 - Uploaded file: empty-atom_16x9_crf28.mp4 (55 MB CRF 28 re-encode of the 186 MB master).
@@ -36,7 +36,7 @@ Title (delivery option 1):
   (7fBtJMcFyzY), 8:34:27-8:54:27; verified signed-out at 8:40 (Earth video + Subscribe
   button showing). Card at 8:30:00 to the same film; verified signed-out at 8:30-8:32.
 - Pinned comment: comment POSTED as @fathomline-films, exact text "Nobody has ever seen
-  an atom. So how do we know what's inside one? What should we figure out next?" —
+  an atom. So how do we know what's inside one? What should we figure out next?" -
   visible publicly signed-out, counted as "1 bình luận". NOT pinned: Advanced features
   still Pending (checked in Studio 17/11: Standard Enabled, Intermediate Enabled,
   Advanced Pending). Pin it once Advanced enables; only the owner can finish ID verification.
@@ -48,7 +48,7 @@ Title (delivery option 1):
   only affect revenue if the channel monetizes. No other claims. Video stays Public.
   Note for future films: avoid FreePD "Study and Relax" or expect a claim.
 
-## TikTok — PUBLISHED 17/11/2026 11:08 +07
+## TikTok - PUBLISHED 17/11/2026 11:08 +07
 - URL: https://www.tiktok.com/@fathomlinefilms/video/7708986261771439412
 - Video ID: 7708986261771439412, account @fathomlinefilms
 - Uploaded file: the same 55 MB CRF 28 re-encode (granted to the cloud browser).
@@ -72,7 +72,7 @@ Title (delivery option 1):
   extra navigation triggers the captcha. Runbook §2 updated (commit 0d2b1eb). This
   post was launched before the rule, so its checks still ran.
 
-## Facebook — PUBLISHED 17/11/2026 11:05:46 +07
+## Facebook - PUBLISHED 17/11/2026 11:05:46 +07
 - Post URL: https://facebook.com/reel/2491576768002915/
 - Post ID: 122099473947553368, media ID: 2491576768002915
 - Posted via facebook-cli as the Fathomline Page (1409513838916477), file = 186 MB master.
@@ -83,7 +83,7 @@ Title (delivery option 1):
   2026-11-17T04:05:46Z.
 - Cover: the OWNER sets the cover himself after posting (decision 17/11).
 
-## Instagram — PUBLISHED 17/11/2026 11:06:15 +07
+## Instagram - PUBLISHED 17/11/2026 11:06:15 +07
 - URL: https://www.instagram.com/reel/Df1B3syjRpq/
 - Media ID: 18087324011711745, account @fathomlinefilms (17841435974347255)
 - Posted via Meta Graph API (ifm-graph.py ig-reel) with --cover-url (vertical cover).
@@ -104,3 +104,9 @@ Title (delivery option 1):
   as public domain. Avoid it in future films, or expect a claim. The claim does not
   affect the video and is not a strike.
 - YouTube Advanced features still Pending 17/11; comments still cannot be pinned.
+
+## SEO update 18/11/2026 (owner approved the SEO page, browser task 10:33-10:40)
+- Title changed to "What Is Inside an Atom? The Gold Foil Experiment" (48 chars), verified on the public watch page.
+- Description replaced: new keyword-first opening, 8 chapters (real timestamps from the .srt), Watch more links (The Invisible World + How We Know playlists, subscribe). Sources/music/AI disclosure kept.
+- Tags replaced with 10 new ones (240/500 chars): what is inside an atom, Rutherford gold foil experiment, discovery of the nucleus, atomic nucleus, Geiger Marsden experiment, Ernest Rutherford, structure of the atom, protons neutrons electrons, atom mostly empty space, fathomline. Chapters visible in the player.
+- Pinned comment: the @fathomline-films question comment is now pinned (Advanced Enabled).
