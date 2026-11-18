@@ -20,9 +20,17 @@ if [[ "${2:-}" == "--preview" ]]; then   # the animatic: half size, 15 fps, with
   echo "ANIMATIC → out/${S}_animatic.mp4"; exit 0
 fi
 T0=$(date +%s)
-python3 tools/critic_gate.py $S animatic   # owner 18 Nov 2026 ("không muốn lặp lại"): no full render before a FRESH critic scored the animatic ≥ 8 on every axis
-if [ "${FARM:-1}" = 1 ]; then python3 tools/farm.py $S   # free GitHub runners render chunks in parallel (pixel-checked); render.py joins + fills the rest here
-else python3 tools/render.py $S; fi                       # FARM=0: the plain local render, exactly as before the farm
+# FAST PATH (owner 18 Nov 2026: "nhanh tối đa có thể"): `--review` renders the FULL film on the farm (no animatic step); the fresh critic scores
+# THAT film (stage "review", sha of out/<slug>_silent.mp4 = the picture); `--ship` then uploads it without rendering again. Sound-only fixes
+# keep the picture's sha, so they never need a new review.
+CRF=$(python3 -c "import json;print(20 if json.load(open('$EP/episode.json')).get('engine',0)>=10 else 17)")   # engine 10 (no engraving pass): CRF 20, no visible difference
+REUSE=0
+if [[ "${2:-}" == "--ship" ]] && [ -f out/${S}_silent.mp4 ] && python3 tools/critic_gate.py $S review >/dev/null 2>&1; then REUSE=1; echo "ship: the reviewed picture is unchanged — no new render"; fi
+if [ $REUSE = 0 ]; then
+  [[ "${2:-}" == "--review" ]] || python3 tools/critic_gate.py $S animatic   # owner 18 Nov 2026: no shipped render without a fresh critic ≥ 8 (animatic or review)
+  if [ "${FARM:-1}" = 1 ]; then python3 tools/farm.py $S --crf $CRF   # free GitHub runners render chunks in parallel (pixel-checked); render.py joins + fills the rest here
+  else python3 tools/render.py $S --crf $CRF; fi                       # FARM=0: the plain local render
+fi
 RT=$(( $(date +%s) - T0 )); echo "render ${RT} s ($(python3 -c "import json;d=json.load(open('$EP/timeline.json'))['duration'];print(f'{$RT/d:.1f} s per film second')"))"
 ffmpeg -v error -y -i out/${S}_silent.mp4 -i $B/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart out/${S}_16x9.mp4
 python3 tools/fit.py out/${S}_16x9.mp4 --mb ${FIT_MB:-560}   # owner 17 Nov 2026: a master of ≈ 500–600 MB
@@ -34,6 +42,7 @@ TH=$(python3 -c "import json;t=json.load(open('$EP/episode.json')).get('thumb');
 if [ -n "$TH" ]; then npx remotion still Thumb out/${S}_thumb.jpg --props="$TH" --image-format=jpeg --jpeg-quality=92 >/dev/null 2>&1 && echo "thumb → out/${S}_thumb.jpg"; else echo "WARN no thumb in episode.json"; fi
 if [ -n "$TH" ]; then npx remotion still ThumbV out/${S}_cover_9x16.jpg --props="$TH" --image-format=jpeg --jpeg-quality=92 >/dev/null 2>&1 && echo "vertical cover → out/${S}_cover_9x16.jpg"; fi   # TikTok / IG / FB Reels
 echo "DONE → out/${S}_16x9.mp4 ($(printf %.1f $D) s) · sheet out/${S}_sheet.jpg"
+if [[ "${2:-}" == "--review" ]]; then md5sum out/${S}_silent.mp4 | cut -c1-12 > out/${S}_review.sha; echo "REVIEW → out/${S}_16x9.mp4 (picture sha $(cat out/${S}_review.sha)) — run the fresh critic (stage review), then make.sh $S --ship"; fi
 if [[ "${2:-}" == "--ship" ]]; then
   python3 ../studio/tools/pp_drive.py put out/${S}_16x9.mp4 out/${S}_thumb.jpg out/${S}_cover_9x16.jpg out/${S}.srt --to "fathom/$S" | tail -2
   [ -f ../jobs/deliveries/$S.md ] || sed "s/@@SLUG@@/$S/g" ../jobs/deliveries/_TEMPLATE_P3.md > ../jobs/deliveries/$S.md

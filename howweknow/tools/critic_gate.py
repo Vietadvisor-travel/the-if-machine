@@ -20,6 +20,9 @@ else:
         if v < 8: err.append(f'{stage} {k} = {v} (< 8) — rebuild, then a fresh critic again')
     need = {'clarity', 'invention', 'drawing', 'light', 'composition', 'style'} if stage == 'keyframes' else {'clarity', 'popular', 'invention', 'motion', 'variety', 'acting', 'rhythm', 'drawing', 'light', 'style'}
     if C and not need <= set(C.get('scores') or {}): err.append(f'{stage} scores missing: {sorted(need - set(C.get("scores") or {}))}')
+    if stage == 'review' and C:   # the fast path: the critic scored the full render's PICTURE (silent master)
+        v = f'{R}/out/{slug}_silent.mp4'
+        if not os.path.exists(v) or C.get('sha') != hashlib.md5(open(v, 'rb').read()).hexdigest()[:12]: err.append('the picture changed after the review — review the new render')
     if stage == 'animatic' and C:
         v = f'{R}/out/{slug}_animatic.mp4'
         if os.path.exists(v) and C.get('sha') != hashlib.md5(open(v, 'rb').read()).hexdigest()[:12]: err.append('the animatic changed after it was scored — score the new one')

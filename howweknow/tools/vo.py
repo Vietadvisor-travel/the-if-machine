@@ -8,9 +8,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', 'studio',
 import voice as V   # studio/tools/voice.py: Kokoro + pronunciations + *stress*
 
 ep = sys.argv[1].rstrip('/'); E = json.load(open(f'{ep}/episode.json')); SR = 24000
+# --part k/n: voice only lines i % n == k into the cache and stop (tools/vo_fast.sh runs n parts at once, then this script assembles)
+PART = tuple(map(int, sys.argv[sys.argv.index('--part') + 1].split('/'))) if '--part' in sys.argv else None
 out = f'{ep}/build'; os.makedirs(out, exist_ok=True)
 t, lines, parts = E.get('lead', .8), [], []
 for i, L in enumerate(E['lines']):
+    if PART and i % PART[1] != PART[0]: continue
     if i: t += L.get('gap', .45)
     vv, sp, pt = E.get('voice', 'af_heart'), E.get('speed', .92), E.get('pitch', 1.0); key = hashlib.md5((f"{L['text']}|{vv}|{sp}" + (f"|{pt}" if pt != 1.0 else "") + ("" if E.get("stress") else "|plain")).encode()).hexdigest()[:16]; cf = f'{out}/cache/{key}.wav'   # v4: a line is voiced once
     if os.path.exists(cf): s, sr = sf.read(cf, dtype='float32')
@@ -22,6 +25,7 @@ for i, L in enumerate(E['lines']):
             s, sr = sf.read(cf, dtype='float32')
     if sr != SR: raise SystemExit(f'unexpected sample rate {sr}')
     d = len(s) / SR; lines.append({'i': i, 'text': L['text'].replace('*', ''), 'start': round(t, 3), 'dur': round(d, 3), 'sfx': L.get('sfx', [])}); parts.append((t, s)); t += d
+if PART: sys.exit(0)
 total = t + E.get('tail', 1.6)
 track = np.zeros(int(total * SR) + SR, dtype=np.float32)
 for st, s in parts: a = int(st * SR); track[a:a + len(s)] += s
