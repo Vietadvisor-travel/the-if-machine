@@ -56,8 +56,8 @@ const lerpPt = (a: PP, b: PP, t: N): PP => [a[0] + (b[0] - a[0]) * t, a[1] + (b[
 const SKULL_TOP: PP[] = [[-12, -36], [10, -44], [34, -46], [50, -50], [60, -44], [86, -40], [112, -32], [134, -24], [148, -12], [152, 0]];
 const UPPER_JAW: PP[] = [[150, 8], [128, 12], [96, 14], [66, 16], [40, 18], [16, 24], [-12, 30]];
 const LOWER_JAW: PP[] = [[-6, 32], [16, 34], [30, 46], [62, 44], [100, 36], [130, 26], [146, 18]];
-const Theropod: React.FC<{ x?: N; y?: N; s?: N; draw?: N; head?: N; eye?: N; flip?: N; mat?: string; bones?: N; jaw?: N; walk?: N; breathe?: N; sway?: N; tm?: N; id?: string }> =
-  ({ x = 960, y = 760, s = 1, draw = 1, head = 0, eye = 1, flip = 1, mat = 'land', bones = 0, jaw = 0, walk = -1, breathe = 0, sway = 0, tm: t = 0, id = 'rex' }) => {
+const Theropod: React.FC<{ x?: N; y?: N; s?: N; draw?: N; head?: N; eye?: N; flip?: N; mat?: string; bones?: N; jaw?: N; walk?: N; breathe?: N; sway?: N; tm?: N; id?: string; build?: N }> =
+  ({ x = 960, y = 760, s = 1, draw = 1, head = 0, eye = 1, flip = 1, mat = 'land', bones = 0, jaw = 0, walk = -1, breathe = 0, sway = 0, tm: t = 0, id = 'rex', build = 1 }) => {
   const T = (p: PP): PP => [x + p[0] * s * flip, y + p[1] * s];
   const bob = walk >= 0 ? Math.abs(Math.sin(walk * Math.PI * 2)) * -8 : 0, br = 1 + breathe * .05 * Math.sin(t * Math.PI * 2 / 3.5);
   // the axial chain: tail tip → hip → gut → chest → shoulder → neck → skull base (relative to the hip)
@@ -90,28 +90,29 @@ const Theropod: React.FC<{ x?: N; y?: N; s?: N; draw?: N; head?: N; eye?: N; fli
   const teeth = (low: boolean) => Array.from({ length: low ? 9 : 11 }, (_, i) => { const u = i / (low ? 8 : 10), x0 = 40 + u * 104, yb = low ? 26 + (1 - u) * 6 : 14 - u * 2, L = (low ? -1 : 1) * (9 + 6 * Math.sin(u * Math.PI));
     const a = SK([x0, yb], low), b2 = SK([x0 + 5, yb + L], low), c = SK([x0 + 8, yb], low); return <path key={i} d={`M${f1(a[0])} ${f1(a[1])} Q${f1(b2[0] - 2)} ${f1(b2[1])} ${f1(b2[0])} ${f1(b2[1])} L${f1(c[0])} ${f1(c[1])}Z`} fill="#F6EEDB" stroke={SEP} strokeWidth={.8} />; });
   if (bones) {   // ------------------------------------------------ the mounted skeleton
-    const S = sample(J, 6);
+    const S = sample(J, 6), V = (u: N) => cl((build - u * .85) / .15);   // build: the bones assemble in order, tail tip → skull
     return <g opacity={draw * bones}>
       <Floor x={x} y={y} rx={420 * s} ry={20 * s} a={.3} />
-      {[far, near].map((L, k) => <g key={k} opacity={k ? 1 : .8}>{[0, 1, 2, 3].map(i => <Bone key={i} a={T(L[i])} b={T(L[i + 1])} r={[20, 15, 10, 6][i] * s} />)}</g>)}
+      {[far, near].map((L, k) => <g key={k} opacity={(k ? 1 : .8) * V(.45)}>{[0, 1, 2, 3].map(i => <Bone key={i} a={T(L[i])} b={T(L[i + 1])} r={[20, 15, 10, 6][i] * s} />)}</g>)}
       {/* vertebrae with their spines, along the spine */}
-      {S.map((q, i) => { const w = Math.max(.25, (q.up + q.dn) / 200), c = T(q.c); return i % 2 ? null : <g key={i}><rect x={c[0] - 9 * s * w * 2} y={c[1] - 8 * s * (.5 + w)} width={18 * s * w * 2} height={16 * s * (.5 + w)} rx={4 * s} fill="#F3E7CC" stroke={SEP} strokeWidth={1.1} />
+      {S.map((q, i) => { const w = Math.max(.25, (q.up + q.dn) / 200), c = T(q.c); return i % 2 ? null : <g key={i} opacity={V(q.u * .7)}><rect x={c[0] - 9 * s * w * 2} y={c[1] - 8 * s * (.5 + w)} width={18 * s * w * 2} height={16 * s * (.5 + w)} rx={4 * s} fill="#F3E7CC" stroke={SEP} strokeWidth={1.1} />
         {q.u > .3 && q.u < .85 && <path d={`M${c[0]} ${c[1] - 6 * s} l${-4 * s * flip} ${-q.up * .55 * s}`} stroke={SEP} strokeWidth={4 * s} strokeLinecap="round" />}
         {q.u < .5 && q.u > .05 && <path d={`M${c[0]} ${c[1] + 6 * s} l${-6 * s * flip} ${Math.min(40, 6 + q.dn * .35) * s}`} stroke={SEP} strokeWidth={2.4 * s} strokeLinecap="round" opacity={q.u < .5 ? .8 : .5} />}</g>; })}
       {/* ribs: curved, sweeping back and down from the back vertebrae */}
       {Array.from({ length: 12 }, (_, i) => { const a = T(add(hip, [90 + i * 20, -40])), L = (120 - Math.abs(i - 5) * 9) * s * br;
-        return <path key={'r' + i} d={`M${f1(a[0])} ${f1(a[1])} q${f1(26 * s * flip)} ${f1(L * .5)} ${f1(-8 * s * flip)} ${f1(L)}`} stroke="#F3E7CC" strokeWidth={6 * s} fill="none" />; })}
+        return <path key={'r' + i} opacity={V(.55 + i * .01)} d={`M${f1(a[0])} ${f1(a[1])} q${f1(26 * s * flip)} ${f1(L * .5)} ${f1(-8 * s * flip)} ${f1(L)}`} stroke="#F3E7CC" strokeWidth={6 * s} fill="none" />; })}
       {Array.from({ length: 12 }, (_, i) => { const a = T(add(hip, [90 + i * 20, -40])), L = (120 - Math.abs(i - 5) * 9) * s * br;
-        return <path key={'ro' + i} d={`M${f1(a[0])} ${f1(a[1])} q${f1(26 * s * flip)} ${f1(L * .5)} ${f1(-8 * s * flip)} ${f1(L)}`} stroke={SEP} strokeWidth={1.6} fill="none" />; })}
+        return <path key={'ro' + i} opacity={V(.55 + i * .01)} d={`M${f1(a[0])} ${f1(a[1])} q${f1(26 * s * flip)} ${f1(L * .5)} ${f1(-8 * s * flip)} ${f1(L)}`} stroke={SEP} strokeWidth={1.6} fill="none" />; })}
       {/* pelvis: ilium blade over the hip, the long pubis with its "boot", the ischium */}
+      <g opacity={V(.5)}>
       <path d={`M${T(add(hip, [-130, -20])).join(' ')} Q${T(add(hip, [-120, -52])).join(' ')} ${T(add(hip, [-60, -54])).join(' ')} L${T(add(hip, [80, -56])).join(' ')} Q${T(add(hip, [124, -48])).join(' ')} ${T(add(hip, [118, -18])).join(' ')} Q${T(add(hip, [0, 0])).join(' ')} ${T(add(hip, [-130, -20])).join(' ')}Z`} fill="#F3E7CC" stroke={SEP} strokeWidth={1.6} />
       <path d={path([T(add(hip, [20, 0])), T(add(hip, [70, 150])), T(add(hip, [120, 168])), T(add(hip, [40, 176])), T(add(hip, [0, 10]))]) + 'Z'} fill="#F3E7CC" stroke={SEP} strokeWidth={1.4} />
-      <path d={path([T(add(hip, [-20, 0])), T(add(hip, [-90, 110])), T(add(hip, [-74, 116])), T(add(hip, [-6, 14]))]) + 'Z'} fill="#F3E7CC" stroke={SEP} strokeWidth={1.4} />
+      <path d={path([T(add(hip, [-20, 0])), T(add(hip, [-90, 110])), T(add(hip, [-74, 116])), T(add(hip, [-6, 14]))]) + 'Z'} fill="#F3E7CC" stroke={SEP} strokeWidth={1.4} /></g>
       {/* skull: bone frame with its openings */}
-      <path d={skullD} fill="#F3E7CC" stroke={SEP} strokeWidth={2} /><path d={jawD} fill="#F3E7CC" stroke={SEP} strokeWidth={1.8} />
-      {[[46, -26, 12, 16, 0], [88, -14, 24, 13, 0], [18, -12, 9, 16, 0], [60, 38, 16, 6, 1]].map(([cx, cy, rx, ry, low], i) => { const c = SK([cx, cy], !!low); return <ellipse key={i} cx={c[0]} cy={c[1]} rx={rx * 1.22 * s} ry={ry * 1.22 * s} transform={`rotate(${f1((skullAng + (low ? deg(jaw * 22) : 0)) * 180 / Math.PI * flip)} ${f1(c[0])} ${f1(c[1])})`} fill="#4A2E1C" stroke={SEP} strokeWidth={1.4} />; })}
-      {teeth(false)}{teeth(true)}
-      {[0, 1].map(k => <Bone key={'a' + k} a={T(arm[k])} b={T(arm[k + 1])} r={5 * s} />)}
+      <g opacity={V(.85)}><path d={skullD} fill="#F3E7CC" stroke={SEP} strokeWidth={2} /><path d={jawD} fill="#F3E7CC" stroke={SEP} strokeWidth={1.8} /></g>
+      {[[46, -26, 12, 16, 0], [88, -14, 24, 13, 0], [18, -12, 9, 16, 0], [60, 38, 16, 6, 1]].map(([cx, cy, rx, ry, low], i) => { const c = SK([cx, cy], !!low); return <ellipse key={i} opacity={V(.9)} cx={c[0]} cy={c[1]} rx={rx * 1.22 * s} ry={ry * 1.22 * s} transform={`rotate(${f1((skullAng + (low ? deg(jaw * 22) : 0)) * 180 / Math.PI * flip)} ${f1(c[0])} ${f1(c[1])})`} fill="#4A2E1C" stroke={SEP} strokeWidth={1.4} />; })}
+      <g opacity={V(.9)}>{teeth(false)}{teeth(true)}</g>
+      <g opacity={V(.7)}>{[0, 1].map(k => <Bone key={'a' + k} a={T(arm[k])} b={T(arm[k + 1])} r={5 * s} />)}</g>
       {/* the iron armature */}
       {[60, 300].map(px => <Line key={px} d={`M${T([px, 0])[0]} ${y} V${T(add(hip, [px, px > 100 ? 40 : 0]))[1]}`} w={3 * s} col="#3A2418" a={.7} />)}
     </g>;
@@ -188,27 +189,48 @@ const ClueRelics: React.FC<{ x?: N; y?: N; s?: N; draw?: N; n?: N; glow?: N }> =
 
 // ================================================================ THE OLD THEORIES — an open old book whose plates turn (turn 0..3): a world with frost, a sick beast lying
 // down, a volcano smoking; q 0..1 puts a question mark over each; blank 0..1 washes them away.
-const TheoryCards: React.FC<{ x?: N; y?: N; s?: N; draw?: N; turn?: N; q?: N; blank?: N }> = ({ x = 960, y = 560, s = 1, draw = 1, turn = 3, q = 0, blank = 0 }) => {
+const TheoryCards: React.FC<{ x?: N; y?: N; s?: N; draw?: N; turn?: N; q?: N; blank?: N; tm?: N; frost?: N; keel?: N; erupt?: N; rip?: N }> = ({ x = 960, y = 560, s = 1, draw = 1, turn = 3, q = 0, blank = 0, tm = 0, frost = 0, keel = 0, erupt = 0, rip = 0 }) => {
+  // v2 (owner: no static scenes): each plate is a living tableau — frost creeps and snow falls (frost), the beast sways and keels over
+  // (keel), the volcano erupts, smoke climbing in puffs (erupt; tm drives the motion); rip 0..3 tears the plates in half one by one
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s;
-  const plate = (i: N, px: N) => { const a = cl(turn - i) * (1 - blank); return <g key={i} opacity={a}>
+  const plate = (i: N, px: N) => { const a = cl(turn - i) * (1 - blank), r = cl(rip - i), id = 'thc' + i + Math.round(x);
+    const body = <g>
     <SR d={rect(X(px - 170), Y(-220), 340 * s, 400 * s)} mat="paper" t={.12} draw={draw} sw={1.4} hatch={0} />
+    <defs><clipPath id={id}><path d={rect(X(px - 150), Y(-200), 300 * s, 300 * s)} /></clipPath></defs>
+    <g clipPath={`url(#${id})`}>
+      <rect x={X(px - 150)} y={Y(-200)} width={300 * s} height={300 * s} fill={i === 2 ? '#EFD9B8' : '#E4ECEE'} />
+      {i === 0 && <g><SR d={`M${X(px - 150)} ${Y(60)} Q${X(px)} ${Y(0)} ${X(px + 150)} ${Y(60)} V${Y(100)} H${X(px - 150)}Z`} mat="leaf" t={.5} draw={draw} sw={1} hatch={0} />
+        <path d={`M${X(px - 150)} ${Y(60 - frost * 40)} Q${X(px)} ${Y(0 - frost * 40)} ${X(px + 150)} ${Y(60 - frost * 40)} V${Y(100)} H${X(px - 150)}Z`} fill="#FFFFFF" opacity={frost * .9} stroke={SEP} strokeWidth={frost > .05 ? 1 : 0} />
+        {Array.from({ length: 30 }, (_, k) => { const fx = px - 145 + rnd(k) * 290, fy = -200 + ((rnd(k + 3) * 300 + tm * 60 * (.6 + rnd(k + 5) * .5)) % 300); return <path key={k} d={`M${X(fx) - 3} ${Y(fy)} h6 M${X(fx)} ${Y(fy) - 3} v6`} stroke="#4A88AE" strokeWidth={1.2} opacity={frost} />; })}
+        <SR d={`M${X(px - 60)} ${Y(60)} L${X(px - 40)} ${Y(-60)} L${X(px - 20)} ${Y(60)}Z`} mat="forest" t={.75 - frost * .4} draw={draw} sw={1} /><SR d={`M${X(px + 40)} ${Y(50)} L${X(px + 58)} ${Y(-30)} L${X(px + 76)} ${Y(50)}Z`} mat="forest" t={.75 - frost * .4} draw={draw} sw={1} /></g>}
+      {i === 1 && <g transform={`rotate(${keel * 82 + Math.sin(tm * 3) * 4 * (1 - keel)} ${X(px + 100)} ${Y(70)})`}>
+        <SR d={`M${X(px - 130)} ${Y(-10)} C${X(px - 80)} ${Y(-60)} ${X(px + 40)} ${Y(-60)} ${X(px + 80)} ${Y(-20)} C${X(px + 100)} ${Y(-60)} ${X(px + 120)} ${Y(-110)} ${X(px + 140)} ${Y(-112)} L${X(px + 144)} ${Y(-96)} C${X(px + 126)} ${Y(-80)} ${X(px + 112)} ${Y(-20)} ${X(px + 96)} ${Y(10)} C${X(px + 40)} ${Y(30)} ${X(px - 80)} ${Y(30)} ${X(px - 130)} ${Y(-10)}Z`} mat="land" t={.62} draw={draw} sw={1.2} />
+        {[-80, -40, 30, 66].map(k => <SR key={k} d={rect(X(px + k), Y(10), 16 * s, 60 * s)} mat="land" t={.7} draw={draw} sw={1} />)}</g>}
+      {i === 1 && <Line d={`M${X(px - 150)} ${Y(70)} H${X(px + 150)}`} w={1.4} />}
+      {i === 2 && <g><SR d={`M${X(px - 150)} ${Y(100)} L${X(px - 30)} ${Y(-40)} L${X(px + 30)} ${Y(-40)} L${X(px + 150)} ${Y(100)}Z`} mat="stone" t={.62} draw={draw} sw={1.2} />
+        <path d={`M${X(px - 26)} ${Y(-40)} L${X(px - 60 - erupt * 30)} ${Y(40 + erupt * 50)} L${X(px - 40)} ${Y(40 + erupt * 50)} L${X(px - 8)} ${Y(-40)}Z`} fill="#D2643E" opacity={erupt} />
+        <circle cx={X(px)} cy={Y(-44)} r={40 * s} fill="#F2A672" opacity={erupt * .7} filter="url(#b8)" />
+        {Array.from({ length: 7 }, (_, k) => { const u = ((tm * .35 + k / 7) % 1), r2 = (16 + u * 50) * s; return <SR key={k} d={ell(X(px + Math.sin(k * 2 + tm) * 20 + u * 60), Y(-60 - u * 160), r2, r2 * .7)} mat="night" t={.4 + u * .2} draw={draw * erupt * (1 - u * .6)} sw={.9} hatch={0} />; })}</g>}
+    </g>
     <Ink d={rect(X(px - 150), Y(-200), 300 * s, 300 * s)} w={1.2} draw={draw} />
-    {i === 0 && <g><SR d={`M${X(px - 150)} ${Y(60)} Q${X(px)} ${Y(0)} ${X(px + 150)} ${Y(60)} V${Y(100)} H${X(px - 150)}Z`} mat="ice" t={.3} draw={draw} sw={1} hatch={0} />
-      {Array.from({ length: 14 }, (_, k) => <path key={k} d={`M${X(px - 140 + k * 20)} ${Y(-180 + (k % 3) * 30)} l4 4 m-4 0 l4 -4`} stroke="#4A88AE" strokeWidth={1.4} />)}
-      <SR d={`M${X(px - 60)} ${Y(60)} L${X(px - 40)} ${Y(-60)} L${X(px - 20)} ${Y(60)}Z`} mat="forest" t={.75} draw={draw} sw={1} /><Fell x={X(px)} y={Y(150)} s={24 * s} t="A slow cold?" italic /></g>}
-    {i === 1 && <g><SR d={`M${X(px - 130)} ${Y(60)} C${X(px - 80)} ${Y(-10)} ${X(px + 60)} ${Y(-20)} ${X(px + 110)} ${Y(40)} L${X(px + 140)} ${Y(30)} L${X(px + 130)} ${Y(70)} H${X(px - 130)}Z`} mat="land" t={.6} draw={draw} sw={1.2} />
-      <Line d={`M${X(px - 140)} ${Y(70)} H${X(px + 140)}`} w={1.4} /><Fell x={X(px)} y={Y(150)} s={24 * s} t="A sickness?" italic /></g>}
-    {i === 2 && <g><SR d={`M${X(px - 140)} ${Y(90)} L${X(px - 30)} ${Y(-60)} L${X(px + 30)} ${Y(-60)} L${X(px + 140)} ${Y(90)}Z`} mat="stone" t={.62} draw={draw} sw={1.2} />
-      {[0, 1, 2].map(k => <SR key={k} d={ell(X(px + k * 30 - 20), Y(-100 - k * 40), 40 + k * 14, 26 + k * 8)} mat="night" t={.45} draw={draw} sw={.9} hatch={0} />)}<Fell x={X(px)} y={Y(150)} s={24 * s} t="Volcanoes?" italic /></g>}
-    {q > 0 && <Hand x={X(px + 110)} y={Y(-130)} s={70 * s} t="?" col="#B8432A" a={q} />}
-  </g>; };
+    <Fell x={X(px)} y={Y(150)} s={24 * s} t={['A slow cold?', 'A sickness?', 'Volcanoes?'][i]} italic />
+    {q > 0 && <Hand x={X(px + 110)} y={Y(-130)} s={70 * s} t="?" col="#B8432A" a={cl(q * 3 - i)} />}
+    </g>;
+    if (r <= 0) return <g key={i} opacity={a}>{body}</g>;
+    const cl1 = id + 'l', cl2 = id + 'r', mx = X(px) + Math.sin(i * 3) * 10;
+    return <g key={i} opacity={a * (1 - r * .9)}>
+      <defs><clipPath id={cl1}><path d={`M${X(px - 200)} ${Y(-260)} L${mx + 6} ${Y(-260)} L${mx - 8} ${Y(-40)} L${mx + 10} ${Y(80)} L${mx - 4} ${Y(240)} L${X(px - 200)} ${Y(240)}Z`} /></clipPath>
+        <clipPath id={cl2}><path d={`M${X(px + 200)} ${Y(-260)} L${mx + 6} ${Y(-260)} L${mx - 8} ${Y(-40)} L${mx + 10} ${Y(80)} L${mx - 4} ${Y(240)} L${X(px + 200)} ${Y(240)}Z`} /></clipPath></defs>
+      <g clipPath={`url(#${cl1})`} transform={`translate(${-r * 160 * s} ${r * r * 300 * s}) rotate(${-r * 25} ${mx} ${Y(0)})`}>{body}</g>
+      <g clipPath={`url(#${cl2})`} transform={`translate(${r * 180 * s} ${r * r * 260 * s}) rotate(${r * 30} ${mx} ${Y(0)})`}>{body}</g>
+    </g>; };
   return <g>{[0, 1, 2].map(i => plate(i, -400 + i * 400))}</g>;
 };
 
 // ================================================================ THE STONE BOOK (v8 device) — a block of layered limestone (the strata seen edge-on) that OPENS like a book
 // (open 0..1): the two facing pages are the cliff face, its beds drawn as lines of print — crowded with tiny shells below, the thin red clay
 // across the middle (red 0..1), almost empty stone above. page 0..1 turns one leaf right→left over the spread (the riffle of time).
-const RockBook: React.FC<{ x?: N; y?: N; s?: N; draw?: N; open?: N; page?: N; red?: N; thread?: N; sparse?: N }> = ({ x = 960, y = 600, s = 1, draw = 1, open = 0, page = 0, red = 0, thread = 0, sparse = 1 }) => {
+const RockBook: React.FC<{ x?: N; y?: N; s?: N; draw?: N; open?: N; page?: N; red?: N; thread?: N; sparse?: N; ruler?: N }> = ({ x = 960, y = 600, s = 1, draw = 1, open = 0, page = 0, red = 0, thread = 0, sparse = 1, ruler = 0 }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s, n = 14, o = ph(open, 0, 1);
   const W = 420, H = 520, lift = 40 * o;      // page width / height; the gutter dips, the outer edges lift
   const shells = useMemo(() => Array.from({ length: 160 }, (_, i) => [rnd(i * 1.3), rnd(i * 2.1 + 5), 3 + rnd(i + 8) * 5] as [N, N, N]), []);
@@ -245,18 +267,24 @@ const RockBook: React.FC<{ x?: N; y?: N; s?: N; draw?: N; open?: N; page?: N; re
         {Array.from({ length: 8 }, (_, k) => <Line key={k} d={`M${x} ${Y(-H / 2 + k * H / 8)} L${X(W * tw)} ${Y(-H / 2 + k * H / 8 - 30 * Math.sin(turn * Math.PI))}`} w={.7} a={.4} />)}</g>}
     </g>}
     {thread > 0 && <path d={`M${X(-W + 20)} ${Y(H / 2 - 20)} L${X(-W + 20)} ${Y(-H / 2 + 20)}`} stroke="#D2643E" strokeWidth={4} pathLength={1} strokeDasharray={`${thread} 1`} />}
+    {ruler > 0 && (() => { const by = Y(-H / 2 + 6 / 14 * H - lift * .6), rx = X(W * .62), dy = (1 - ruler) * -700 * s;   // a brass ruler comes down and stands across the red band
+      return <g transform={`translate(0 ${dy})`}><rect x={rx - 22 * s} y={by - 170 * s} width={44 * s} height={340 * s} fill="url(#gold)" stroke={SEP} strokeWidth={1.6} />
+        {Array.from({ length: 34 }, (_, k) => <line key={k} x1={rx - 22 * s} y1={by - 170 * s + k * 10 * s} x2={rx - 22 * s + (k % 5 ? 10 : 20) * s} y2={by - 170 * s + k * 10 * s} stroke={SEP} strokeWidth={k % 5 ? .8 : 1.6} />)}
+        <path d={`M${rx + 30 * s} ${by - 2 * s} h14 v${16 * s} h-14`} stroke="#B8432A" strokeWidth={3} fill="none" opacity={cl(ruler * 3 - 2)} /></g>; })()}
   </g>;
 };
 
 // ================================================================ FORAMINIFERA — the shells of plankton in the stone, seen close: little chambered spirals crowded like
 // letters on a page (n 0..1 = how many survive), each one drawn as a tiny engraved spiral of chambers.
-const Foraminifera: React.FC<{ x?: N; y?: N; r?: N; draw?: N; n?: N; turn?: N }> = ({ x = 960, y = 540, r = 420, draw = 1, n = 1, turn = 0 }) => {
+const Foraminifera: React.FC<{ x?: N; y?: N; r?: N; draw?: N; n?: N; turn?: N; alive?: N; tm?: N; blink?: N }> = ({ x = 960, y = 540, r = 420, draw = 1, n = 1, turn = 0, alive = 0, tm = 0, blink = 0 }) => {
+  // v2: alive 1 = living plankton in sea water (they drift and turn, spines out); 0 = settled in stone; blink 0..1 = they go out one by one
   const sh = useMemo(() => Array.from({ length: 70 }, (_, i) => [(rnd(i) * 2 - 1) * .9, (rnd(i + 9) * 2 - 1) * .9, 14 + rnd(i + 4) * 22, rnd(i + 2) * 360] as [N, N, N, N]).filter(p => Math.hypot(p[0], p[1]) < .92), []);
   const id = 'forc' + Math.round(x);
   return <g opacity={draw}>
     <defs><clipPath id={id}><circle cx={x} cy={y} r={r} /></clipPath></defs>
-    <g clipPath={`url(#${id})`}><rect x={x - r} y={y - r} width={2 * r} height={2 * r} fill="#EFE0C2" /><Stipple x={x - r} y={y - r} w={2 * r} h={2 * r} n={900} seed="forst" a={.3} />
-      {sh.map(([u, v, sz, rot], i) => i / sh.length < n ? <g key={i} transform={`translate(${x + u * r} ${y + v * r}) rotate(${rot + (i === 3 ? turn * 90 : 0)})`}>
+    <g clipPath={`url(#${id})`}><rect x={x - r} y={y - r} width={2 * r} height={2 * r} fill="#EFE0C2" /><rect x={x - r} y={y - r} width={2 * r} height={2 * r} fill="#7FB4C8" opacity={alive * .6} /><Stipple x={x - r} y={y - r} w={2 * r} h={2 * r} n={900} seed="forst" a={.3} />
+      {sh.map(([u, v, sz, rot], i) => i / sh.length < n && rnd(i + 77) >= blink ? <g key={i} transform={`translate(${x + (u + alive * .12 * Math.sin(tm * .7 + i)) * r} ${y + (v + alive * (.1 * Math.cos(tm * .5 + i * 1.3) - .1)) * r}) rotate(${rot + (i === 3 ? turn * 90 : 0) + alive * tm * (20 + (i % 5) * 9)})`}>
+        {alive > 0 && Array.from({ length: 10 }, (_, k) => { const a2 = k / 10 * Math.PI * 2; return <line key={'sp' + k} x1={0} y1={0} x2={Math.cos(a2) * sz * 1.4} y2={Math.sin(a2) * sz * 1.4} stroke="#FBF4E2" strokeWidth={.8} opacity={alive * .8} />; })}
         {Array.from({ length: 6 }, (_, k) => { const a = k * .9, rr2 = sz * (.35 + k * .12); return <circle key={k} cx={Math.cos(a) * rr2 * .6} cy={Math.sin(a) * rr2 * .6} r={rr2 * .45} fill="#FBF4E2" stroke={SEP} strokeWidth={1} />; })}
       </g> : null)}</g>
     <circle cx={x} cy={y} r={r * 1.04} fill="none" stroke="url(#gold)" strokeWidth={r * .07} /><Ink d={ell(x, y, r * 1.08, r * 1.08)} w={1.4} draw={draw} />
@@ -402,11 +430,14 @@ const MeteoriteSlice: React.FC<{ x?: N; y?: N; s?: N; draw?: N; cut?: N }> = ({ 
     <Floor x={x} y={Y(200)} rx={300 * s} ry={20 * s} a={.4} />
     <SR d={face} mat="night" t={.8} draw={draw} sw={2} />
     {Array.from({ length: 14 }, (_, i) => <SR key={i} d={ell(X(-180 + rnd(i) * 360), Y(-130 + rnd(i + 4) * 260), 10 + rnd(i + 2) * 16, 7 + rnd(i + 6) * 10)} mat="night" t={.95} draw={draw} sw={.8} hatch={0} />)}
-    {cut > 0 && <g opacity={cut}><defs><clipPath id={id}><path d={face} /></clipPath></defs><g clipPath={`url(#${id})`}>
+    {cut > 0 && <g><defs><clipPath id={id}><path d={face} /></clipPath><clipPath id={id + 'w'}><rect x={X(-280)} y={Y(-240)} width={(40 + cut * 540) * s} height={480 * s} /></clipPath></defs><g clipPath={`url(#${id + 'w'})`}><g clipPath={`url(#${id})`}>
       <rect x={X(-300)} y={Y(-220)} width={600 * s} height={420 * s} fill="#C9C2A6" />
       {Array.from({ length: 34 }, (_, i) => <line key={i} x1={X(-300 + i * 20)} y1={Y(-220)} x2={X(-300 + i * 20 + 240)} y2={Y(200)} stroke="#76725E" strokeWidth={2} opacity={.7} />)}
       {Array.from({ length: 34 }, (_, i) => <line key={'b' + i} x1={X(-300 + i * 22)} y1={Y(200)} x2={X(-300 + i * 22 + 180)} y2={Y(-220)} stroke="#F3E7CC" strokeWidth={1.4} opacity={.6} />)}
-      <path d={`M${X(80)} ${Y(-170)} L${X(240)} ${Y(-60)} L${X(200)} ${Y(-30)} L${X(40)} ${Y(-140)}Z`} fill="#FFFDF4" opacity={.35} /></g></g>}
+      <path d={`M${X(80)} ${Y(-170)} L${X(240)} ${Y(-60)} L${X(200)} ${Y(-30)} L${X(40)} ${Y(-140)}Z`} fill="#FFFDF4" opacity={.35} /></g></g>
+      {cut < .99 && <g transform={`rotate(${cut * 2400} ${X(-240 + cut * 540)} ${Y(-260)})`}><circle cx={X(-240 + cut * 540)} cy={Y(-260)} r={110 * s} fill="#C9C2B6" stroke={SEP} strokeWidth={1.6} />
+        {Array.from({ length: 36 }, (_, i) => { const a2 = i / 36 * Math.PI * 2, cx2 = X(-240 + cut * 540), cy2 = Y(-260); return <path key={i} d={`M${cx2 + Math.cos(a2) * 110 * s} ${cy2 + Math.sin(a2) * 110 * s} L${cx2 + Math.cos(a2 + .08) * 122 * s} ${cy2 + Math.sin(a2 + .08) * 122 * s} L${cx2 + Math.cos(a2 + .17) * 110 * s} ${cy2 + Math.sin(a2 + .17) * 110 * s}`} fill="#8C8676" stroke={SEP} strokeWidth={.6} />; })}
+        <circle cx={X(-240 + cut * 540)} cy={Y(-260)} r={18 * s} fill="url(#gold)" stroke={SEP} /></g>}</g>}
     <SR d={ell(X(380), Y(150), 60 * s, 40 * s)} mat="stone" t={.45} draw={draw} sw={1.2} />
   </g>;
 };
@@ -431,7 +462,7 @@ const Asteroid: React.FC<{ x?: N; y?: N; r?: N; draw?: N; rot?: N; glow?: N; tra
 
 // ================================================================ EVEREST FOR SCALE — the pyramid of Everest with its snow and black rock, a tiny climber on the summit;
 // the asteroid (separate) hangs beside it.
-const EverestScale: React.FC<{ x?: N; y?: N; s?: N; draw?: N }> = ({ x = 700, y = 900, s = 1, draw = 1 }) => {
+const EverestScale: React.FC<{ x?: N; y?: N; s?: N; draw?: N; shade?: N; flag?: N }> = ({ x = 700, y = 900, s = 1, draw = 1, shade = 0, flag = 0 }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s;
   return <g opacity={draw}>
     <rect x={-200} y={-200} width={2320} height={1480} fill="#9CCAD6" />
@@ -440,8 +471,30 @@ const EverestScale: React.FC<{ x?: N; y?: N; s?: N; draw?: N }> = ({ x = 700, y 
     {Array.from({ length: 16 }, (_, i) => <Line key={i} d={`M${X(-100 + i * 30)} ${Y(-300 + (i % 4) * 30)} l${(i % 2 ? 1 : -1) * 40 * s} ${120 * s}`} w={1} a={.5} />)}
     <Line d={`M${X(0)} ${Y(-620)} v${-12 * s}`} w={2} /><circle cx={X(0)} cy={Y(-636)} r={3 * s} fill={SEP} />
     <SR d={rect(-200, Y(0), 2320, 400)} mat="land" t={.5} ang={0} draw={draw} sw={1} hatch={0} />
+    {flag > 0 && <g><Line d={`M${X(0)} ${Y(-632)} v${-50 * flag * s}`} w={2.4} /><path d={`M${X(0)} ${Y(-632 - 50 * flag)} l${30 * s * flag} ${8 * s} l${-30 * s * flag} ${8 * s}Z`} fill="#B8432A" /></g>}
+    {shade > 0 && <rect x={-200} y={-200} width={(2320) * shade} height={1480} fill="#1A120B" opacity={.45} />}
   </g>;
 };
 
-export const ART_A: Record<string, React.FC<any>> = { CretaceousDusk, Theropod, MuseumHall, ClueRelics, TheoryCards, RockBook, Foraminifera, GubbioGorge, FingerOnClay, ClayHourglass, AlvarezStudy, SpaceDust,
+
+// ================================================================ A POCKET WATCH with NO HANDS (bones keep no clock) — a gold hunter case on its chain; swing (deg),
+// hands 0..1 = the hands appear; spin = how far they have spun (turns); rise 0..1 = it rises out of the water below (y offset).
+const PocketWatch: React.FC<{ x?: N; y?: N; s?: N; draw?: N; swing?: N; hands?: N; spin?: N; rise?: N }> = ({ x = 960, y = 520, s = 1, draw = 1, swing = 0, hands = 0, spin = 0, rise = 1 }) => {
+  const py = y - 360 * s, cy = y + (1 - rise) * 600 * s, R = 150 * s;
+  return <g opacity={draw} transform={`rotate(${swing} ${x} ${py})`}>
+    {Array.from({ length: 22 }, (_, i) => { const yy = py + (cy - R - py) * i / 22; return <ellipse key={i} cx={x} cy={yy} rx={6 * s} ry={9 * s} fill="none" stroke="url(#gold)" strokeWidth={3 * s} transform={i % 2 ? `rotate(90 ${x} ${yy})` : undefined} />; })}
+    <circle cx={x} cy={cy - R - 18 * s} r={18 * s} fill="none" stroke="url(#gold)" strokeWidth={7 * s} /><rect x={x - 16 * s} y={cy - R - 12 * s} width={32 * s} height={18 * s} rx={5 * s} fill="url(#gold)" stroke={SEP} />
+    <circle cx={x + 8 * s} cy={cy + 12 * s} r={R * 1.08} fill={SEP} opacity={.3} filter="url(#b8)" />
+    <circle cx={x} cy={cy} r={R * 1.08} fill="url(#gold)" stroke={SEP} strokeWidth={2} />
+    <circle cx={x} cy={cy} r={R * .94} fill="#FBF4E2" stroke={SEP} strokeWidth={1.4} />
+    {Array.from({ length: 60 }, (_, i) => { const a = i / 60 * Math.PI * 2; return <line key={i} x1={x + Math.cos(a) * R * .86} y1={cy + Math.sin(a) * R * .86} x2={x + Math.cos(a) * R * (i % 5 ? .9 : .8)} y2={cy + Math.sin(a) * R * (i % 5 ? .9 : .8)} stroke={SEP} strokeWidth={i % 5 ? .8 : 2} />; })}
+    {['XII', 'III', 'VI', 'IX'].map((t, i) => { const a = i * Math.PI / 2 - Math.PI / 2; return <text key={t} x={x + Math.cos(a) * R * .66} y={cy + Math.sin(a) * R * .66 + 9 * s} fontSize={26 * s} textAnchor="middle" fontFamily="'IM Fell English', serif" fill={SEP}>{t}</text>; })}
+    {hands > 0 && <g opacity={hands}><path d={`M${x} ${cy} L${x + Math.cos(spin * Math.PI * 2 - Math.PI / 2) * R * .5} ${cy + Math.sin(spin * Math.PI * 2 - Math.PI / 2) * R * .5}`} stroke={SEP} strokeWidth={6 * s} strokeLinecap="round" />
+      <path d={`M${x} ${cy} L${x + Math.cos(spin * 24 * Math.PI - Math.PI / 2) * R * .78} ${cy + Math.sin(spin * 24 * Math.PI - Math.PI / 2) * R * .78}`} stroke={SEP} strokeWidth={3 * s} strokeLinecap="round" /></g>}
+    <circle cx={x} cy={cy} r={8 * s} fill="url(#gold)" stroke={SEP} />
+    <path d={`M${x - R * .6} ${cy - R * .5} Q${x - R * .3} ${cy - R * .8} ${x + R * .1} ${cy - R * .82}`} stroke="#FFFFFF" strokeWidth={6 * s} fill="none" opacity={.5} />
+  </g>;
+};
+
+export const ART_A: Record<string, React.FC<any>> = { PocketWatch, CretaceousDusk, Theropod, MuseumHall, ClueRelics, TheoryCards, RockBook, Foraminifera, GubbioGorge, FingerOnClay, ClayHourglass, AlvarezStudy, SpaceDust,
   IridiumMeter, DustShelf, MeteoriteSlice, Asteroid, EverestScale };

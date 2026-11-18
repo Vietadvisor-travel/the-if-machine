@@ -7,6 +7,7 @@ import { ART_A as A } from './a';
 import { ART_B as B } from './b';
 export { THUMB, THUMB_V } from './thumb';
 export const ART: Record<string, React.FC<any>> = {
+  PocketWatch: A.PocketWatch,
   CretaceousDusk: A.CretaceousDusk,
   Theropod: A.Theropod,
   MuseumHall: A.MuseumHall,
@@ -48,7 +49,7 @@ export const COSTUMES: Record<string, object> = {
   penfield1978: { coat: 0, mat: 'sky', t: .45, flare: .02, leg: 'sand', legT: .6, shoe: 'boot', neck: 'none', hat: 'none', hair: 'short', sleeve: 1.05 },
 };
 export const SAMPLE: Record<string, object> = {
-  CretaceousDusk: { dusk: .4, stars: .5, point: 1 }, Theropod: { x: 1100, y: 860, s: .9, head: .5 }, Tyrannosaur: { x: 1100, y: 860, s: .9 }, MuseumHall: {}, ClueRelics: { s: 1.1, n: 4 },
+  PocketWatch: { hands: 1, spin: .3, swing: 8 }, CretaceousDusk: { dusk: .4, stars: .5, point: 1 }, Theropod: { x: 1100, y: 860, s: .9, head: .5 }, Tyrannosaur: { x: 1100, y: 860, s: .9 }, MuseumHall: {}, ClueRelics: { s: 1.1, n: 4 },
   TheoryCards: { q: 1 }, RockBook: { open: 1, page: .35, red: 1 }, Foraminifera: { r: 400 }, GubbioGorge: { red: 1 }, FingerOnClay: { glow: .6 }, ClayHourglass: { flow: .4, gauge: .5 },
   AlvarezStudy: {}, SpaceDust: { k: .3 }, IridiumMeter: { v: 1.2, roof: .2 }, DustShelf: { dust: .6, tick: 3 }, MeteoriteSlice: {}, Asteroid: { glow: .5, trail: .3 }, EverestScale: {},
   ShockedGrain: { etch: 1, crack: .3 }, WorldOutcrops: { line: 1, pins: 1 }, YucatanCoast: { ring: 1 }, SearchGlobe: { look: .4, q: 1 }, ReportShelf: { pull: .6, dust: 1, open: 0 },

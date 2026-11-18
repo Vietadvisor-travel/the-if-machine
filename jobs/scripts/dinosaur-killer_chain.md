@@ -1,41 +1,69 @@
-# Chain — Thứ gì đã giết khủng long? (dinosaur-killer) · CINEMA §0 · ★ = pure invention
-1. a museum hall at night; a dinosaur skeleton → (moonlight crosses its skull) → the question
-2. the skull → (flesh returns to it, layer by layer like an engraving coloured in) → a living dinosaur
-3. ★ the living dinosaur → (it looks up; a new star brightens in its sky) → the last evening
-4. the new star → (freeze: the picture becomes a sheet of rock, the sky a layer) → stone records
-5. the rock → (a cliff road at Gubbio, Italy; a geologist's hammer) → Walter Alvarez
-6. the cliff → (layers like the pages of a book seen edge-on) → a book of time
-7. ★ the book → (it opens; one page is blank — a thin line of clay where the fossils stop) → the boundary
-8. the clay line → (a fingertip on it, a centimetre thick) → the last day in a centimetre
-9. the finger → (his father, Luis, a physicist, holds a pinch of clay up to a lamp) → the Alvarez pair
-10. ★ the pinch of clay → (it becomes an hourglass: "how fast did this settle?") → their question
-11. the hourglass → (it flows into a laboratory's glowing detector) → measuring iridium
-12. the detector → (its needle swings far past the scale) → far too much iridium
-13. ★ the needle → (it points up out of the lab, through the roof, to the sky) → the metal came from space
-14. the sky → (an asteroid 10 km across, drawn as an engraved mountain flying) → the impactor
-15. the flying mountain → (it is placed over Manhattan for scale — taller than Everest) → the size
-16. the asteroid → (it strikes the sea) → impact
-17. ★ the impact → (one grain of sand in the blast, magnified: lines cut across it like scratches on glass) → shocked quartz
-18. the scarred grain → (scientists around the world hold up the same grain) → evidence worldwide
-19. the grains → (they form an arrow pointing across the globe) → but where is the crater?
-20. ★ the globe → (it spins; a magnifying glass slides over oceans and deserts looking for a scar) → the search
-21. the magnifying glass → (it stops on a company report on a shelf at Pemex) → the forgotten report
-22. the report → (1978: a plane flies a magnetometer over the Yucatán coast) → Penfield and Camargo
-23. the plane's readings → (they draw a perfect half-ring on a map) → the buried ring
-24. ★ the half-ring → (it completes itself under the jungle and the sea, invisible to anyone walking above) → the hidden crater
-25. the crater → (1981: a conference poster no one stops at) → ignored
-26. the poster → (dust settles on it for nine years) → time passes
-27. the dust → (blown away by Alan Hildebrand's breath, 1990) → rediscovery
-28. ★ the breath → (it carries him to a warehouse in New Orleans; an old drill core is unwrapped) → the Pemex cores
-29. the core → (sliced: shocked minerals inside) → proof
-30. the proof → (the name Chicxulub written on a village sign) → Chicxulub
-31. the village → (the camera rises: 180 km ring traced around it) → the scale
-32. ★ the ring → (it becomes a stone dropped in a pond, the ripples become the shockwave across the planet) → the effects
-33. the ripples → (a sky darkened with dust; the Sun becomes a dim coin) → impact winter
-34. the dim coin → (plants wither; food chain links snap) → the extinction
-35. the snapping chain → (one link survives: a small furry mammal in a burrow) → our ancestors
-36. ★ the mammal → (it climbs up, generation by generation, becoming a hand that holds a geologist's hammer) → us
-37. the hammer → (it taps the Gubbio clay again) → the rhyme
-38. the clay line → (the museum skeleton from the start, a fossil bird beside it) → birds are dinosaurs
-39. ★ the bird → (it flies off the skeleton's shoulder out of the museum window, into the dawn) → they didn't all die
-40. the dawn → (the new star of the opening is just Venus now) → the last image
+# Chain v2 — Thứ gì đã giết khủng long? (dinosaur-killer) · CINEMA §0 · ★ = pure invention · 18 Nov 2026 (v1 rejected: static, repetitive)
+Each link = the picture → (what HAPPENS in it, ≤ every 2.5 s → how it turns into the next, and why) → the next picture. Line numbers = lines.py.
+Camera move named per line (event_check grammar).
+
+1. L0 dusk shore — the camera CRANES DOWN through araucaria fronds; the T. rex WALKS in from the left (gait), stops at the water, lowers its head, drinks, lifts it; its eye catches a glint → [crane-down]
+2. ★ L1 its eye — close on the amber eye; a tiny point of light is REFLECTED in the pupil; the reflection grows; RACK from the eye to the sky: the same point, ringed → the point is in the eye before it is in the sky [rack]
+3. L2 the point streaks — a trail draws across the sky, the rex turns its head to follow, a white flash; the whole page BURNS outward from the flash point; ash flakes drift → [whip]
+4. ★ L3 ash → bones — the falling ash flakes land on bare paper and each one becomes a bone; the skeleton ASSEMBLES bone by bone, tail to skull; museum walls rise (wipe up) around it; moonlight pours in → [pull]
+5. ★ L4 the socket — a moth crosses the moonbeam; the beam narrows onto the skull; the camera pushes into the empty eye socket — the socket is where the living eye was in L1 (same place in frame) → [push]
+6. L5 the plinth — out of the dark socket an iris opens on the plinth; a gloved hand sets down four relics one by one (rock slab · phial · grain under a lens · tied report), each lit as it lands; labels write on → the title [lock]
+7. TITLE — screen-locked card, centred, never moved by the camera.
+8. ★ L6 the old book — a 19th-c. book falls open (Hawkins's studio plate on the left page, 1853); its three plates ANIMATE: frost creeps over plate one, a beast keels over in plate two, a volcano erupts in plate three → [tilt-down]
+9. L7 untestable — a vermilion "?" stamps onto each plate; the plates tear in half one after another and the halves blow away like leaves → [pan-r]
+10. ★ L8 no clock in bones — the 1830 sea of Duria Antiquior; a pocket watch rises out of the water on its chain like a fish, swings; its face has NO HANDS; the hands spin in, can't settle → [arc]
+11. L9 Clue I — the watch drops and lands as a block of stone (drop, shake); "Clue I" stamps on its face → [snap-zoom]
+12. L10 Gubbio — a road cut; Walter WALKS in along the road, stops, raises his hammer, taps the rock: chips fly; the photo of the team pins itself on the corner → [track]
+13. ★ L11 the stone book — the cliff's beds PEEL OPEN like pages (RockBook opens); Lyell's 1852 section unrolls above like a running head → [crane-up]
+14. L12 reading upward — Walter's finger (HumanHand) walks up the pages bottom to top; the labels flip "older → younger" as it climbs → [tilt-up]
+15. ★ L13 the living page — dive into a lower page: the tiny shells come ALIVE and swim (plankton in a Cretaceous sea), then sink, settle and turn to stone → [dive]
+16. ★ L14 the blank page — a leaf turns; the next page is EMPTY but for a thin red band; a brass ruler slides in and measures it: ≈ 1 cm; the real clay (P-01) is torn in beside it → [push]
+17. L15 above the clay — the few shells left above the band blink out one by one → [pan-l]
+18. L16 the finger on the line — the hand slides in; the fingertip lands on the band; the band GLOWS like an ember (rhyme: the burn of L2) and pulses → [handheld]
+19. ★ L17 clay into time — the glowing clay is scooped and POURED into an hourglass; it flips; the red sand runs → [lock]
+20. L18 Clue II — the hourglass flips again; "Clue II" stamps; a ripple runs out from it → [snap-zoom]
+21. L19 the study — Walter walks to the desk holding the phial; HANDS IT to Luis; Luis raises it to the lamp, looks, frowns; P-02 pinned on the wall → [dolly]
+22. L20 through the window — the camera goes out of the study window into the night; pull back to the curve of the Earth; dust falls like snow → [pull]
+23. ★ L21 the snow is a clock — the snow falls into the hourglass; a gauge beside it rises with each flake → [tilt-down]
+24. L22 the meter — a drawer slides out, a hand drops the sample in, the drawer shuts; the dial lights; the needle wakes → [push]
+25. L23 far too much — the needle climbs, trembles, SLAMS the stop; "far too much" stamps; the room shakes → [dutch]
+26. ★ L24 through the roof — the needle bends and GROWS up; the camera tilts up with its tip through the ceiling, roof tiles part, into the night sky — it points at a star (rhyme L1) → [tilt-up]
+27. ★ L25 a century in an afternoon — on a clean shelf, the clock's hands spin round and round; dust falls all at once in a heap → [lock]
+28. L26 space rock — a saw slides through a meteorite; the cut face shows metal crystals like frost; a glint runs across → [arc]
+29. L27 the flying mountain — the meteorite SWELLS into the asteroid, tumbling, glowing at its leading edge; "1980" and the four names write on → [pull]
+30. L28 to scale — the asteroid slides in beside Everest; a climber's flag on the summit; its shadow covers the mountain; "≈ 10 km" → [pan-r]
+31. L29 Clue III — the shadow becomes the dark field of a microscope; the focus knob turns, the grain sharpens; "Clue III" → [rack]
+32. L30 everywhere? — WHIP across a globe; cliffs pop up one by one round the curve → [whip]
+33. ★ L31 one thread — a red thread runs cliff to cliff round the globe like string round a parcel; pins drop in → [arc]
+34. L32 the grain — iris into the grain: the shock lamellae etch in, one direction, then another; the real grain (P-03) in the eyepiece → [push]
+35. L33 toughest mineral — pressure: two vermilion arrows squeeze it; the grain glows hot and trembles → [handheld]
+36. ★ L34 only an impact — the grain SHATTERS like glass (shards fly) → [snap-zoom]
+37. L35 every grain a witness — the shards fly up and land on the globe as cliffs; "where?" → [crane-up]
+38. L36 Clue IV — the Yucatán in Catherwood's 1844 engraving brushes in; jungle trees sway; "Clue IV" → [pan-l]
+39. L37 the search — a lens sweeps over a spinning globe; question marks pop where it finds nothing → [orbit]
+40. L38 already found — tear in to a records room; one report slides out of the shelf → [push]
+41. L39 1978 — a survey plane flies along the coast, propellers blurring; its course is a dotted line → [track]
+42. ★ L40 something under the jungle — as the plane passes, the jungle under it turns translucent and a ring of sinkholes shows → [crane-down]
+43. ★ L41 the plane draws the ring — the plane's dotted course becomes the survey's ink: each pass inks a contour; they bunch into HALF a ring → [lock]
+44. L42 the other half — the sea half inks itself; the circle closes in vermilion; the real ring (M-01) pinned beside → [pull]
+45. ★ L43 1981, nobody listens — a hall; the ring on the screen; the seats empty one by one; the projector beam is left alone → [pan-r]
+46. ★ L44 years on a shelf — the beam narrows into a day/night window light sweeping over the shelf, again and again; dust grows; the year counts 1981 → 1990 → [lock]
+47. L45 Hildebrand — he walks in, reaches, BLOWS the dust off, pulls the report out → [track]
+48. L46 the cores — the dust cloud clears onto a core box; the lid lifts; one core rolls forward → [dolly]
+49. L47 the same scars — iris into the core: the shock lamellae again → [push]
+50. L48 a name — a sign drops onto two posts; "CHICXULUB" stamps; 1991 → [tilt-down]
+51. ★ L49 180 km — the camera RISES from the village sign to orbit height; the ring opens round the village → [crane-up]
+52. ★ L50 the twist — the report opens on the shelf; its ink half-ring lifts off the page and completes into the real ring → [push]
+53. L51 hidden on a shelf — spot on the report; the shelf recedes; "hidden on a shelf" stamps → [pull]
+54. L52 back to the question — the museum; the skeleton's skull TURNS toward the window (bones move) → [arc]
+55. L53 the impact — through the window: the asteroid streaks down, flash, shock rings spread over the Gulf, a plume rises; the room shakes → [whip]
+56. L54 the crater — the rings settle into the buried ring of the coast; "about 180 km" → [crane-down]
+57. ★ L55 the dust becomes the clay — the plume spreads round the globe; it settles as a thin dark line along the cliffs — the band of L14 → [orbit]
+58. L56 darkness — the sun medallion dims; the food chain's links SNAP one by one and fall → [tilt-down]
+59. ★ L57 not everything — one link stays; the spot finds it; it becomes the round mouth of a burrow → [push]
+60. L58 the burrow — the mother lifts her head, sniffs; the young sleep, breathing; ash falls outside → [dolly]
+61. ★ L59 a bird on the skull — the museum at dawn; a sparrow flies in and LANDS on the skull — its eye sits where the rex's eye was (rhyme L0/L1) → [lock]
+62. L60 a living dinosaur — close on the sparrow; it tilts its head, sings, bobs → [rack]
+63. L61 four clues — the relics regather on the plinth, joined by one vermilion line → [pan-l]
+64. L62 a father and a son — the study again; Luis hands the phial back to Walter; they smile → [dolly]
+65. L63 dawn — the sparrow flies off the skull, out of the window, into the morning sky where the point fell in L1 (bookend) → [crane-up]

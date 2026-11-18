@@ -32,7 +32,7 @@ const TAU = Math.PI * 2;
 //   a slow push-in while a scene is told, a drift across it, so the picture is always travelling (world.py keys them line by line)
 const camLife = (t: number, A: number, c: Record<string, any> = {}): Life => ({ px: c.pan_x ?? 0, py: c.pan_y ?? 0, push: c.push ?? 1,
   dx: A * (11 * Math.sin(TAU * t / 27) + 5 * Math.sin(TAU * t / 13 + 1)), dy: A * (7 * Math.sin(TAU * t / 31 + 2) + 3 * Math.sin(TAU * t / 17)),
-  sc: A * (.012 * Math.sin(TAU * t / 41 + .5)), r: A * .2 * Math.sin(TAU * t / 47 + 1.3) });
+  sc: A * (.012 * Math.sin(TAU * t / 41 + .5)), r: A * .2 * Math.sin(TAU * t / 47 + 1.3) + (c.roll ?? 0) });   // v9: camera `roll` (deg) — dutch tilt, orbit, arc
 const lifeT = (L: Life, d: number) => { const k = 1 + d; return `translate(${(L.dx + L.px) * k}px, ${(L.dy + L.py) * k}px) rotate(${L.r * Math.max(0, k)}deg) scale(${(1.035 + L.sc * k) * (1 + (L.push - 1) * Math.max(0, k))})`; };
 const depthOf = (e: Entity, s: Record<string, any>) => e.type === 'particles' ? .6 : e.type === 'text' || e.type === 'hand' ? .25 : e.type === 'art' && (s.name === 'Sky' || s.name === 'Stars') ? -.5 : e.type === 'art' && s.name === 'Person' ? .1 : 0;
 // the light of the page: a warm lamp that wanders slowly + a soft vignette (no flat, even light anywhere)
@@ -53,6 +53,7 @@ export const Story: React.FC<StoryProps> = ({ ep, tl, at, nocap, look, lookcfg }
     const [sx, sy, sr] = shakeOf(Lk, t); L.dx += sx; L.dy += sy; L.r += sr;
     const moving = true, wrap = (e: Entity, st: Record<string, any>, body: React.ReactNode) => { const d = st.para ?? depthOf(e, st), b = st.defocus ?? blurOf(Lk, d);
       const [ds, da] = dollyOf(Lk, d); if (da <= 0) return null;
+      if (st.lock) return <AbsoluteFill key={e.id}>{body}</AbsoluteFill>;   // v9: screen-locked (title cards): the camera never moves it
       return <AbsoluteFill key={e.id} style={{ transform: lifeT(L, d) + (ds !== 1 ? ` scale(${ds.toFixed(4)})` : ''), opacity: da < 1 ? da : undefined, filter: b > .3 ? `blur(${b.toFixed(1)}px)` : undefined }}>{body}</AbsoluteFill>; };
     const map6 = (d: number) => { const kk = 1 + d, sc = (1.035 + L.sc * kk) * (1 + (L.push - 1) * Math.max(0, kk)), tx = (L.dx + L.px) * kk, ty = (L.dy + L.py) * kk;
       return { sc, pt: (p: [number, number]): [number, number] => [960 + (p[0] - 960) * sc + tx, 540 + (p[1] - 540) * sc + ty] }; };

@@ -547,6 +547,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "PocketWatch": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "PtSwingLamp": {
   "kind": "episode",
   "origin": "pipeline-test"

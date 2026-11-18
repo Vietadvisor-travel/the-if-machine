@@ -11,7 +11,7 @@ import { Skin, skinOutline, deg, P as PP, Joint, SmallMammal } from '../../paint
 
 // ================================================================ THE SHOCKED GRAIN (v8 device) — a quartz grain in the microscope's round field, cross-polarised colours;
 // etch 0..1 cuts its sets of straight parallel lamellae (two directions, then a third), crack 0..1 splits it along them; r = field radius.
-const ShockedGrain: React.FC<{ x?: N; y?: N; r?: N; draw?: N; etch?: N; crack?: N; field?: N }> = ({ x = 960, y = 540, r = 400, draw = 1, etch = 0, crack = 0, field = 1 }) => {
+const ShockedGrain: React.FC<{ x?: N; y?: N; r?: N; draw?: N; etch?: N; crack?: N; field?: N; heat?: N; sharp?: N }> = ({ x = 960, y = 540, r = 400, draw = 1, etch = 0, crack = 0, field = 1, heat = 0, sharp = 1 }) => {
   const id = 'shg' + Math.round(x) + Math.round(r);
   const G = useMemo(() => Array.from({ length: 13 }, (_, i) => { const a = i / 13 * Math.PI * 2, k = .78 + rnd(i * 2.7) * .2; return [Math.cos(a) * k * .62, Math.sin(a) * k * .5] as Pt; }), []);
   const grain = 'M' + G.map(p => `${f1(x + p[0] * r)} ${f1(y + p[1] * r)}`).join(' L') + 'Z';
@@ -22,7 +22,7 @@ const ShockedGrain: React.FC<{ x?: N; y?: N; r?: N; draw?: N; etch?: N; crack?: 
       <rect x={x - r} y={y - r} width={2 * r} height={2 * r} fill={field ? '#1A1424' : '#EFE0C2'} />
       {/* neighbour grains, dull */}
       {[[-.8, -.7], [.85, -.6], [-.9, .6], [.8, .75], [0, -.95], [0, .98]].map(([u, v], i) => <SR key={i} d={ell(x + u * r, y + v * r, r * .32, r * .24)} mat="tundra" t={.75} draw={draw} sw={1} hatch={0} />)}
-      <path d={grain} fill="#C9DDE6" stroke={SEP} strokeWidth={2} />
+      <path d={grain} fill="#C9DDE6" stroke={SEP} strokeWidth={2} filter={sharp < .95 ? 'url(#b8)' : undefined} />
       <g clipPath={`url(#${id}g)`}>
         <rect x={x - r} y={y - r} width={r} height={2 * r} fill="#E9B456" opacity={.35} /><rect x={x} y={y - r} width={r} height={2 * r} fill="#7FA8C4" opacity={.4} />
         {sets.map(([ang, t0], si) => { const e = cl((etch - (1 - t0) * .6) / .4); if (e <= 0) return null; const n = 24;
@@ -34,6 +34,7 @@ const ShockedGrain: React.FC<{ x?: N; y?: N; r?: N; draw?: N; etch?: N; crack?: 
         <path d={`M${x - r * .1} ${y - r * .05} L${x - r * .2} ${y - r * .45}`} stroke="#FFFDF4" strokeWidth={2 + crack * 3} fill="none" pathLength={1} strokeDasharray={`${cl(crack * 2 - 1)} 1`} />
         <circle cx={x - r * .1} cy={y - r * .05} r={r * .35 * crack} fill="url(#glowW)" opacity={.6 * (1 - crack * .5)} /></g>}
     </g>
+    {heat > 0 && <g><path d={grain} fill="#D2643E" opacity={heat * .55} /><path d={grain} fill="none" stroke="#F7E3A0" strokeWidth={6} opacity={heat} filter="url(#b8)" /></g>}
     <circle cx={x} cy={y} r={r * 1.03} fill="none" stroke="#2B1D12" strokeWidth={r * .07} /><circle cx={x} cy={y} r={r * 1.1} fill="none" stroke="url(#gold)" strokeWidth={r * .06} />
     <Line d={`M${x - r * .08} ${y} H${x + r * .08} M${x} ${y - r * .08} V${y + r * .08}`} w={1} col="#F3E7CC" a={.5} />
   </g>;
@@ -42,15 +43,15 @@ const ShockedGrain: React.FC<{ x?: N; y?: N; r?: N; draw?: N; etch?: N; crack?: 
 // ================================================================ CLIFFS ROUND THE WORLD — a sweep of five small engraved outcrops on a strip of globe (Italy, Denmark,
 // Spain, New Mexico, New Zealand — the places named only as dots), each with the same thin dark band; line 0..1 draws the vermilion line that
 // joins them round the curve; pins 0..1 drops a red dot on each.
-const WorldOutcrops: React.FC<{ x?: N; y?: N; draw?: N; line?: N; pins?: N; dust?: N }> = ({ x = 960, y = 560, draw = 1, line = 0, pins = 0, dust = 0 }) => {
+const WorldOutcrops: React.FC<{ x?: N; y?: N; draw?: N; line?: N; pins?: N; dust?: N; pop?: N; band?: N }> = ({ x = 960, y = 560, draw = 1, line = 0, pins = 0, dust = 0, pop = 5, band = 0 }) => {
   const P: Pt[] = [[260, 640], [620, 470], [960, 420], [1300, 470], [1660, 640]];
   return <g opacity={draw}>
     <NightWash x={-200} y={-200} w={2320} h={1480} seed="wo" top="#C9DDE6" bot="#EFE0C2" />
     <SR d={`M-200 1300 V${y + 200} Q${x} ${y - 360} 2120 ${y + 200} V1300Z`} mat="sea" t={.42} draw={draw} sw={2} hatch={0} />
     {[[200, 700, 260], [520, 520, 300], [880, 470, 220], [1240, 500, 320], [1560, 660, 300]].map(([cx, cy, w], i) => <SR key={i} d={`M${cx} ${cy + 40} Q${cx + w * .2} ${cy - 30} ${cx + w * .5} ${cy - 10} Q${cx + w * .8} ${cy - 40} ${cx + w} ${cy + 30} Q${cx + w * .6} ${cy + 80} ${cx} ${cy + 40}Z`} mat="land" t={.45} draw={draw} sw={1.2} />)}
-    {P.map(([px, py], i) => { const s = .6 + (i === 2 ? .2 : 0); return <g key={i} transform={`translate(${px} ${py - 40}) scale(${s})`}>
+    {P.map(([px, py], i) => { const s = (.6 + (i === 2 ? .2 : 0)) * cl(pop - i); return s <= 0 ? null : <g key={i} transform={`translate(${px} ${py - 40}) scale(${s})`}>
       <Floor x={0} y={6} rx={120} ry={10} a={.3} />
-      {Array.from({ length: 7 }, (_, k) => <SR key={k} d={rect(-100 + k * 4, -150 + k * 22, 200 - k * 8, 22)} mat={k === 3 ? 'red' : k % 2 ? 'stone' : 'sand'} t={k === 3 ? .78 : .3 + (k % 3) * .08} ang={0} draw={draw} sw={.9} hatch={0} />)}
+      {Array.from({ length: 7 }, (_, k) => <SR key={k} d={rect(-100 + k * 4, -150 + k * 22, 200 - k * 8, 22)} mat={k === 3 ? 'red' : k % 2 ? 'stone' : 'sand'} t={k === 3 ? .45 + .4 * band + .3 * (1 - band) * 0 : .3 + (k % 3) * .08} ang={0} draw={draw} sw={.9} hatch={0} />)}
       {Array.from({ length: 6 }, (_, k) => <Line key={'v' + k} d={`M${-90 + k * 36} -150 l6 150`} w={.7} a={.4} />)}
     </g>; })}
     {line > 0 && <path d={`M${P[0][0]} ${P[0][1] - 81} Q${P[1][0]} ${P[1][1] - 120} ${P[2][0]} ${P[2][1] - 104} T${P[4][0]} ${P[4][1] - 81}`} stroke="#B8432A" strokeWidth={5} fill="none" pathLength={1} strokeDasharray={`${line} 1`} strokeLinecap="round" />}
@@ -102,13 +103,16 @@ const SearchGlobe: React.FC<{ x?: N; y?: N; r?: N; draw?: N; look?: N; q?: N; sp
 
 // ================================================================ THE REPORT ON THE SHELF — a grey metal shelf of company binders in a records room; one bound report
 // (with a typed label, no real logo) pulled out a little (pull 0..1); dust 0..1 lies on its top edge; blow 0..1 sends the dust off.
-const ReportShelf: React.FC<{ x?: N; y?: N; s?: N; draw?: N; pull?: N; dust?: N; blow?: N; open?: N; lamp?: N }> = ({ x = 960, y = 560, s = 1, draw = 1, pull = 0, dust = 0, blow = 0, open = 0, lamp = 0 }) => {
+const ReportShelf: React.FC<{ x?: N; y?: N; s?: N; draw?: N; pull?: N; dust?: N; blow?: N; open?: N; lamp?: N; day?: N; lift?: N }> = ({ x = 960, y = 560, s = 1, draw = 1, pull = 0, dust = 0, blow = 0, open = 0, lamp = 0, day = -1, lift: lf = 0 }) => {
   const X = (d: N) => x + d * s, Y = (d: N) => y + d * s;
   const spines = Array.from({ length: 22 }, (_, i) => ({ i, w: 34 + rnd(i) * 22, m: ['night', 'stone', 'wall', 'tundra', 'sky'][i % 5], t: .45 + rnd(i + 3) * .3 }));
   let acc = -560;
   return <g opacity={draw}>
     <SR d={rect(X(-1100), Y(-700), 2200 * s, 1400 * s)} mat="tundra" t={.55} draw={draw} sw={0} hatch={0} rim={false} />
     {lamp > 0 && <circle cx={X(200)} cy={Y(-500)} r={700 * s} fill="url(#glowW)" opacity={.45 * lamp} />}
+    {day >= 0 && (() => { const ph2 = day % 1, lit = Math.max(0, Math.sin(ph2 * Math.PI)), sx2 = -900 + ph2 * 1800;   // days and nights over the shelf: a window's light sweeps across, then dark
+      return <g><path d={`M${X(sx2 - 120)} ${Y(-700)} L${X(sx2 + 120)} ${Y(-700)} L${X(sx2 + 260)} ${Y(700)} L${X(sx2 + 20)} ${Y(700)}Z`} fill="#F7E3A0" opacity={.35 * lit} />
+        <rect x={-200} y={-200} width={2320} height={1480} fill="#141C38" opacity={.45 * (1 - lit)} /></g>; })()}
     {[-250, 80, 410].map(sy => <SR key={sy} d={rect(X(-620), Y(sy), 1240 * s, 22 * s)} mat="tundra" t={.8} ang={0} draw={draw} sw={1.4} />)}
     {[-620, 600].map(px => <SR key={px} d={rect(X(px), Y(-560), 20 * s, 1000 * s)} mat="tundra" t={.85} draw={draw} sw={1.2} />)}
     {[-250, 80, 410].map((sy, row) => { acc = -590; return spines.map(sp => { const bx = acc; acc += sp.w + 2; if (acc > 590) return null; const isR = row === 1 && sp.i === 9;
@@ -123,7 +127,8 @@ const ReportShelf: React.FC<{ x?: N; y?: N; s?: N; draw?: N; pull?: N; dust?: N;
     {open > 0 && <g opacity={open}><SR d={rect(X(-380), Y(-220), 760 * s, 500 * s)} mat="paper" t={.12} draw={draw} sw={2} hatch={0} />
       <Ink d={`M${x} ${Y(-220)} V${Y(280)}`} w={1.4} draw={draw} />
       {Array.from({ length: 12 }, (_, k) => <Line key={k} d={`M${X(-340)} ${Y(-170 + k * 30)} h${(260 - (k % 4) * 30) * s}`} w={1.2} a={.45} />)}
-      <path d={`M${X(60)} ${Y(180)} A${200 * s} ${180 * s} 0 0 1 ${X(340)} ${Y(-80)}`} stroke="#B8432A" strokeWidth={4} fill="none" pathLength={1} strokeDasharray={`${open} 1`} />
+      <path d={`M${X(60)} ${Y(180)} A${200 * s} ${180 * s} 0 0 1 ${X(340)} ${Y(-80)}`} stroke="#B8432A" strokeWidth={4} fill="none" pathLength={1} strokeDasharray={`${open} 1`} transform={lf ? `translate(${-lf * 200 * s} ${-lf * 60 * s}) scale(${1 + lf * .8})` : undefined} style={{ transformOrigin: `${X(200)}px ${Y(50)}px` }} />
+      {lf > 0 && <path d={`M${X(340)} ${Y(-80)} A${200 * s} ${180 * s} 0 0 1 ${X(60)} ${Y(180)}`} stroke="#B8432A" strokeWidth={4} fill="none" pathLength={1} strokeDasharray={`${lf} 1`} transform={`translate(${-lf * 200 * s} ${-lf * 60 * s}) scale(${1 + lf * .8})`} style={{ transformOrigin: `${X(200)}px ${Y(50)}px` }} />}
       <Hand x={X(200)} y={Y(240)} s={30 * s} t="half a ring?" col="#B8432A" a={open} /></g>}
   </g>;
 };
@@ -340,9 +345,9 @@ const Sparrow: React.FC<{ x?: N; y?: N; s?: N; draw?: N; head?: N; sing?: N; win
 };
 
 // ================================================================ THE MUSEUM SKELETON — the hall at night and the same theropod as bones on its mount (bones fixed at 1).
-const MuseumSkeleton: React.FC<{ x?: N; y?: N; s?: N; draw?: N; moon?: N; dawn?: N; sx?: N; sy?: N; ss?: N; head?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, moon = 1, dawn = 0, sx = 1040, sy = 750, ss = .9, head = 0 }) => {
+const MuseumSkeleton: React.FC<{ x?: N; y?: N; s?: N; draw?: N; moon?: N; dawn?: N; sx?: N; sy?: N; ss?: N; head?: N; build?: N; hall?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, moon = 1, dawn = 0, sx = 1040, sy = 750, ss = .9, head = 0, build = 1, hall = 1 }) => {
   const MH = ART_A.MuseumHall, TH = ART_A.Theropod;
-  return <g><MH x={x} y={y} s={s} draw={draw} moon={moon} dawn={dawn} /><TH x={sx} y={sy} s={ss * s} draw={draw} bones={1} head={head} eye={0} /></g>;
+  return <g>{hall > 0 && <g opacity={hall}><MH x={x} y={y} s={s} draw={draw} moon={moon} dawn={dawn} /></g>}<TH x={sx} y={sy} s={ss * s} draw={draw} bones={1} head={head} eye={0} build={build} /></g>;
 };
 
 export const ART_B: Record<string, React.FC<any>> = { ShockedGrain, WorldOutcrops, YucatanCoast, SearchGlobe, ReportShelf, SurveyPlane, SurveyRing, ConferenceHall, DrillCore, VillageSign,
