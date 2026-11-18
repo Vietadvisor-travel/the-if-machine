@@ -85,6 +85,9 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   > 12 % of lines or 3 lines running; no transition `how` > 3 times. `tools/critic_gate.py` — no full render without the fresh critic's
   animatic scores ≥ 8 on every axis (jobs/critic/<slug>.json, tied to that exact animatic).
 - A scene is never "a picture appears + a label + the camera drifts". Each line: who/what does what, and what it turns into.
+- Right first time (owner 18 Nov 2026: "từ tập sau làm chỉn chu, tránh vẽ lại hết mất thời gian"): chain with an action + camera move per
+  line BEFORE drawing; draw each hero object true to its reference and check it on the LibSheet BEFORE world.py; 6 keyframes → fresh critic
+  BEFORE the full world; only then build everything. No first draft that has to be thrown away.
 
 ## Engine v10 — owner 18 Nov 2026 ("kiểu tranh khắc cổ… vẽ như bản trước là ok rồi… từ sau không cần khắc cổ nữa cho nặng và lâu… tối ưu cả token usage, chất lượng giữ nguyên")
 - From the next film: `E['engine'] = 10` — NO engraving pass (Look `engrave` forced 0), no antique-engraving requirement: the clean drawn house
