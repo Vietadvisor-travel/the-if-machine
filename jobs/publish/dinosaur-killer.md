@@ -6,8 +6,7 @@ Film: v2.1 picture + v2.2 sound (delivery note jobs/deliveries/dinosaur-killer.m
 
 ## YouTube
 
-- SCHEDULED 18/11/2026 15:57 +07 via cloud browser (browser-task:c133adf9). Video ID VGJ2XsIMw0U. https://youtu.be/VGJ2XsIMw0U
-- Scheduled to go public: 19/11/2026 20:00 GMT+07 (verified in Studio: "Video của bạn sẽ ở chế độ công khai vào lúc 20:00 19 tháng 11, 2026"). NOT public immediately.
+- PUBLISHED 18/11/2026 18:34 +07 (owner order 18:11 18:33: "Đăng luôn đi không chờ tối mai nữa"). Was scheduled for 19/11 20:00; changed to Public in Studio via cloud browser (browser-task:031fc77a), verified on the public watch page ("0 lượt xem 9 giây trước" at ~18:34). Video ID VGJ2XsIMw0U. https://youtu.be/VGJ2XsIMw0U
 - Title: "What Killed the Dinosaurs? The Iridium Clue That Solved It" (58 chars, SEO title from the approved SEO research).
 - Description: 2,303 chars (SEO opening + 8 chapters from the .srt + Watch more links + sources + real stock credits + v2.2 music credits + AI narration disclosure). Local copy: ~/workspace/ifm-staging/fathom_publish/dinosaur-killer/youtube_description.txt.
 - Tags (10): what killed the dinosaurs, Chicxulub asteroid, dinosaur extinction, K-Pg extinction, Alvarez hypothesis, iridium layer, what killed dinosaurs asteroid, how dinosaurs went extinct, Cretaceous extinction, fathomline.
@@ -18,7 +17,7 @@ Film: v2.1 picture + v2.2 sound (delivery note jobs/deliveries/dinosaur-killer.m
 - Playlists: "How We Know" (PLeJs39k3p__4) + "Earth" (PLTd_UKxhpAsg).
 - Upload file: CRF 33 re-encode dinosaur-killer_16x9_crf33.mp4, 87,677,381 bytes (CRF 32 came out 101 MB, over the ~94 MB browser grant limit seen before, so re-encoded at CRF 33). Duration verified 507.201 s.
 - Checks passed: SD and HD processed, no copyright claim, no community violation. Studio shows duration 8:28 (master is 8:27); end screen/card timestamps still fit.
-- PINNED COMMENT PENDING: Studio on a scheduled video says "Tài khoản này không có quyền tạo bình luận" and the comment box is disabled, so the comment could NOT be posted or pinned yet. Post + pin after the video goes public at 20:00 on 19/11/2026. Comment text: "The dinosaurs ruled for 160 million years, then vanished in a geological instant. What should we figure out next?" A runonce job is set for 19/11 20:05 to do it.
+- PINNED COMMENT DONE 18/11 18:35: posted and pinned on the public video ("Đã ghim bình luận", "@Fathomline-films đã ghim" label, comment at the top). Text: "The dinosaurs ruled for 160 million years, then vanished in a geological instant. What should we figure out next?" Note: the comment count header still showed "0 bình luận" (count not yet updated) but the pinned comment was visibly at the top. The runonce pin job set earlier the same day was cancelled as no longer needed.
 
 ## Captions sent to the owner (18/11 ~15:12, for FB/IG/TikTok, owner posts himself)
 
