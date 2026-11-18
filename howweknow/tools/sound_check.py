@@ -26,6 +26,9 @@ for i, l in enumerate(E['lines']):
     for a, b in zip(s, s[1:]):
         if b['at'] - a['at'] < 1.2: err.append(f'L{i}: two sfx {b["at"] - a["at"]:.1f} s apart ({os.path.basename(a["file"])}, {os.path.basename(b["file"])})')
     for x in s:
+        if E.get('sfx_rel') or E.get('engine', 0) >= 10:   # engine ≥ 10: db is a trim relative to the music (owner: "to ngang nhạc nền")
+            if not -6 <= x['db'] <= 3: err.append(f'L{i}: {os.path.basename(x["file"])} trim {x["db"]} dB (−6…+3 around the music level)')
+            continue
         cap = -20 if re.search(r'bass_drop|glass_break|impact_heavy', x['file']) else -24
         if x['db'] > cap: err.append(f'L{i}: {os.path.basename(x["file"])} at {x["db"]} dB (≤ {cap})')
 pm = n / (D / 60)

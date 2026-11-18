@@ -93,6 +93,8 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
 - Music: mysterious parts draw ONLY from score.py `MYSTERY_OK` (hand-curated dark/ambient tracks); levels −20…−23 dB (score.py LEVEL); one cue
   per part (≥ 60 s). Sound effects hand-placed on ACTIONS in world.py (`SF(i, fraction, file, db)`), 3–10 per minute, ≥ 1.2 s apart, ≤ −24 dB
   (impacts ≤ −20). Gate: `tools/sound_check.py` (make.sh, before the mix). A sound-only fix never re-renders the picture: remix + remux + fit.
+- From the next film (engine ≥ 10, owner 18 Nov 2026: "hiệu ứng âm thanh cho to ngang nhạc nền"): mix.py levels every effect to the music's
+  loudness at that moment; an effect's `db` in world.py is a TRIM around the music (0 = as loud as the score; −6…+3).
 
 ## Engine v10 — owner 18 Nov 2026 ("kiểu tranh khắc cổ… vẽ như bản trước là ok rồi… từ sau không cần khắc cổ nữa cho nặng và lâu… tối ưu cả token usage, chất lượng giữ nguyên")
 - From the next film: `E['engine'] = 10` — NO engraving pass (Look `engrave` forced 0), no antique-engraving requirement: the clean drawn house

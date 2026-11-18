@@ -38,10 +38,24 @@ if cues:
     flt.append(f'{"".join(parts)}amix=inputs={len(parts)}:normalize=0:duration=longest,atrim=0:{dur:.3f}{gain}[mu]')
     flt.append('[mu][key]sidechaincompress=threshold=0.03:ratio=4:attack=60:release=700[duck]'); mixes.append('[duck]')
 else: flt[0] = '[0:a]aformat=sample_rates=48000:channel_layouts=stereo[vo]'
+# owner 18 Nov 2026: "hiệu ứng âm thanh cho to ngang nhạc nền… từ tập sau" — engine ≥ 10 (or `sfx_rel`): every effect is levelled to the
+# loudness of the music playing at its moment; its `db` is then a trim relative to the music (0 = as loud as the score, −3 a touch under).
+REL = bool(E.get('sfx_rel') or E.get('engine', 0) >= 10)
+_act = {}
+def active_db(f):   # the loudness of the sound while it sounds: the 90th percentile of 50-ms RMS windows, in dBFS
+    if f not in _act:
+        import numpy as np, soundfile as sf
+        x, sr = sf.read(f, dtype='float32'); x = x.mean(1) if x.ndim > 1 else x; w = max(1, int(sr * .05)); k = len(x) // w
+        r = np.sqrt((x[:k * w].reshape(k, w) ** 2).mean(1) + 1e-12) if k else np.array([1e-6]); _act[f] = 20 * np.log10(np.percentile(r, 90))
+    return _act[f]
+def music_db(t):   # the score's level at t: each cue is levelled to `norm` LUFS, then `db`
+    if not cues: return -34.0
+    st = [tref(c['at']) for c in cues]; j = max([i for i, a in enumerate(st) if a <= t] or [0]); return float(M.get('norm', -18)) + cues[j].get('db', -22)
 for L in TL['lines']:
     for s in L.get('sfx', []):
         inp += ['-i', s['file']]; at = int((L['start'] + s['at']) * 1000)
-        flt.append(f'[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={s.get("db", -18)}dB,adelay={at}|{at}[s{n}]'); mixes.append(f'[s{n}]'); n += 1
+        g = (music_db(L['start'] + s['at']) - active_db(s['file']) + s.get('db', 0)) if REL else s.get('db', -18)
+        flt.append(f'[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={g:.1f}dB,adelay={at}|{at}[s{n}]'); mixes.append(f'[s{n}]'); n += 1
 flt.append(f'{"".join(mixes)}amix=inputs={len(mixes)}:normalize=0:duration=first[out]')
 subprocess.run(['ffmpeg', '-v', 'error', '-y', *inp, '-filter_complex', ';'.join(flt), '-map', '[out]', '-ar', '48000', f'{B}/pre.wav'], check=True)
 # −16 LUFS by ONE fixed gain + a true-peak limiter (owner 17 Nov 2026: the music must really be as quiet as score.py sets it — the old
