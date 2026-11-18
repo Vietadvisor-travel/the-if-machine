@@ -268,7 +268,7 @@ const GreenlandTent: React.FC<{ x?: N; y?: N; s?: N; draw?: N; snow?: N; lamp?: 
 
 // ================================================================ 3. SEA CHART — an old nautical chart: a big empty ocean, compass rose, rhumb lines, a coast at the left
 // monster 0..1 a sea-serpent doodle in the lower right; moon 0..1 an inset Moon (near side drawn, far side blank); sound 0..1 soundings along a track.
-const SeaChart: React.FC<{ x?: N; y?: N; s?: N; draw?: N; monster?: N; moon?: N; sound?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, monster = 0, moon = 0, sound = 0, tm = 0 }) => {
+const BlankSeaChart: React.FC<{ x?: N; y?: N; s?: N; draw?: N; monster?: N; moon?: N; sound?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, monster = 0, moon = 0, sound = 0, tm = 0 }) => {
   const id = 'sch' + Math.round(x), RC: Pt = [1080, 520];
   const coast = sm([[0, 60], [210, 90], [250, 170], [200, 250], [260, 330], [310, 380], [270, 460], [220, 540], [250, 640], [330, 700], [300, 790], [240, 860], [270, 940], [230, 1020]]);
   const track: Pt[] = [[340, 770], [600, 720], [880, 690], [1160, 700], [1420, 660], [1700, 600]];
@@ -933,11 +933,11 @@ const NailAtlantic: React.FC<{ x?: N; y?: N; s?: N; draw?: N; grow?: N; line?: N
   </g>;
 };
 
-export const ART_B: Record<string, React.FC<any>> = { RockShip, GreenlandTent, SeaChart, SurveyShip, PenRecorder, StripeFloor, RidgeGlobe, Cambridge, Compass, RidgeTape, PlateGlobe, Trench,
+export const ART_B: Record<string, React.FC<any>> = { RockShip, GreenlandTent, BlankSeaChart, SurveyShip, PenRecorder, StripeFloor, RidgeGlobe, Cambridge, Compass, RidgeTape, PlateGlobe, Trench,
   RugHimalaya, AtlanticOpen, GPSMarker, NailAtlantic };
 // mid-action props for the contact sheet (full-frame: the film's index exports FULL = true)
 export const SAMPLE_B: Record<string, object> = {
-  RockShip: { sail: .9, crumple: .45, sink: .12, tm: 1 }, GreenlandTent: { snow: .6, lamp: .8, skis: 1, tm: 1 }, SeaChart: { monster: 1, moon: 1, sound: .7 },
+  RockShip: { sail: .9, crumple: .45, sink: .12, tm: 1 }, GreenlandTent: { snow: .6, lamp: .8, skis: 1, tm: 1 }, BlankSeaChart: { monster: 1, moon: 1, sound: .7 },
   SurveyShip: { sail: .45, ping: .45, cable: .8, xray: .6, needle: .4, tm: 1 }, PenRecorder: { k: .6, spill: .6, tm: 1 }, StripeFloor: { k: 1, pair: 2.5, piano: .7 },
   RidgeGlobe: { k: .8, spin: .02 }, Cambridge: { lamp: 1, tm: 1 }, Compass: { flip: .35, tm: 1 }, RidgeTape: { well: 1, cool: .6, run: .4, arrows: 1, gold: .6, belt: .5, cross: 1, tm: 1 },
   PlateGlobe: { crack: 1, shift: .5, quakes: 1, tm: .6 }, Trench: { dive: .5, quakes: 1, puff: .6, tm: 1 }, RugHimalaya: { push: .8, peaks: .35 }, AtlanticOpen: { open: .6, glow: 1, tm: 1 },

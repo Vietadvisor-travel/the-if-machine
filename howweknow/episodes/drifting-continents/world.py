@@ -34,7 +34,7 @@ mark('mk2', 'circle', [700, 380, 520, 360], L(2, 6.2), L(3, .2), w=4)
 SF(1, .3, 'foley_page_turn_1.wav', 0); SF(2, .35, 'swoosh_thin_1.wav', -3); SF(3, .2, 'machine_paper_1.wav', 2); SF(3, .7, 'scratch_1.wav', -4)
 
 # ---------------------------------------------------------------- L4–L8 · the ground that never moves; four clues; the town that grows round a rock
-art('mr4', 'MeadowRock', L(4, .1), None, [], enter='pour', eo='down', boots=0, stamp=0, snail=0, grow=0, town=0, night=0, shift=0, hour=0, sand=0, **C, z=6, xs='flip')
+art('mr4', 'MeadowRock', L(4, .1), None, [], enter='pour', eo='down', boots=0, stamp=0, snail=0, grow=0, town=0, night=0, shift=0, hour=0, sand=0, x=960, s=1, z=6, xs='flip')
 A_('mr4', 4, (.25, {'boots': 1}), (.45, .5, {'stamp': 1}), (.55, .5, {'stamp': 0}), (.62, .5, {'stamp': 1}), (.7, .5, {'stamp': 0}), (.78, 2.4, {'snail': 1}))
 A_('mr4', 5, (.05, {'boots': 0}))
 G('mr4')['keys'] += [K(L(5, .3), .8, 'soft', a=0)]
@@ -61,11 +61,11 @@ SF(8, .1, 'transition_whoosh_airy_1.wav', -2); SF(8, .42, 'impact_wood_3.wav', -
 art('gi9', 'GreenlandIce', L(9), None, [], enter='wipe', eo='up', snow=0, sledge=0, flag=0, **C, z=4, xs='down')
 person('weg9', 'Alfred Wegener, meteorologist, Greenland (1910s)', L(9, .6), None, [], x=820, y=960, h=520, facing=1, pose='stand', pose2='raise', pk=0, expr='focus', ek=0, look=[.4, -.6], **WEGA, z=14)
 A_('weg9', 9, (.15, {'pk': 1}), (.42, .5, {'pose2': 'reach', 'pk': .3}), (.55, {'pk': 1, 'expr': 'smile', 'ek': 1}), (.78, {'pose2': 'look', 'pk': 1}))
-art('bal9', 'Balloon', L(9, .4), None, [], enter='bleed', rise=0, x=980, y=560, s=1, z=16, xs='up')
+art('bal9', 'Balloon', L(9, .4), None, [], enter='bleed', rise=0, bg=0, x=980, y=560, s=1, z=16, xs='up')
 A_('bal9', 9, (.45, 1.8, {'rise': .3}), (.7, 1.8, {'rise': .6}))
 A_('bal9', 10, (.05, 1.6, {'rise': 1}))
 G('weg9')['keys'] += gone2(L(10, .2), 'down', .9); G('gi9')['keys'] += gone2(L(10, .5), 'down', 1.2); G('bal9')['keys'] += gone2(L(10, 3.0), 'up', 1.0)
-art('pin9', 'CabinetCard', L(9, 5.2), L(10, .2), [], ink=False, src=ST + 'P-01_wegener-villumsen-greenland-1930.jpg', x=1540, y=300, w=420, h=300, rot=-3,
+art('pin9', 'CabinetCard', L(9, 5.2), L(10, .2), [], ink=False, src=ST + 'P-01_wegener-villumsen-greenland-1930.jpg', x=1520, y=380, w=360, h=260, rot=-3,
     caption='Wegener (left) and Villumsen, Greenland 1930', draw=1, enter='bleed', z=30, xs='burn')
 text('pl9', 'Alfred Wegener · weather scientist', 'plate', 760, 160, L(9, 1.4), L(10, .2), size=40, col=INK)
 art('sd10', 'StudyDesk', L(10, 1.2), None, [], enter='scale', eo=[960, 300], lamp=0, mag=0, shells=0, **C, z=8, xs='fade')
@@ -98,10 +98,10 @@ A_('qp15', 16, (.05, 1.4, {'cloth': 1, 'stamp': 0}), (.22, 1.4, {'stitch': .3}),
 SF(15, .25, 'impact_wood_3.wav', 0); SF(16, .25, 'scratch_2.wav', -5); SF(16, .6, 'scratch_2.wav', -6)
 
 # ---------------------------------------------------------------- CLUE 2 — the same fossils on both sides
-art('ms17', 'Mesosaurus', L(17, .3), None, [], enter='glide', eo=[-500, 0], walk=0, swim=0, bones=0, splutter=0, x=900, y=620, s=1, z=20, xs='fade')
-G('ms17')['keys'] += [K(L(17, .3), dur(17) - 1, 'linear', walk=4, x=1100)]
+art('ms17', 'Mesosaurus', L(17, .3), None, [], enter='glide', eo=[-500, 0], walk=0, swim=0, bones=0, splutter=0, x=760, y=600, s=.34, z=20, xs='fade')
+G('ms17')['keys'] += [K(L(17, .3), dur(17) - 1, 'linear', walk=4, x=980)]
 A_('ms17', 17, (.3, .6, {'tail': 1}), (.5, .6, {'tail': 0}), (.8, 1.0, {'swim': 1}))
-art('pin17', 'Pinned', L(17, 6.4), L(18, .4), [], ink=False, src=ST + 'P-02_mesosaurus-tenuidens-senckenberg.jpg', x=1560, y=280, w=400, h=280, rot=3,
+art('pin17', 'Pinned', L(17, 6.4), L(18, .4), [], ink=False, src=ST + 'P-02_mesosaurus-tenuidens-senckenberg.jpg', x=1580, y=830, w=360, h=230, rot=3,
     caption='Mesosaurus fossil · Senckenberg', draw=1, enter='bleed', z=30, xs='burn')
 G('qp15')['keys'] += gone2(L(18, .1), 'fade', .9)
 A_('ms17', 18, (.02, 1.0, {'bones': 1}))
@@ -170,7 +170,7 @@ A_('gt30', 31, (.15, 1.6, {'skis': 1}), (.55, 1.6, {'snow': 1}))
 A_('gt30', 32, (.05, 1.6, {'under': 1}), (.3, 1.4, {'root': .5}), (.5, 1.4, {'root': 1}))
 counter('c31', 'Alfred Wegener · 1880–{n}', 960, 940, L(31, .8), L(32, .2), [K(L(31, .8), 1.4, 'out', num=1930)], size=46, col=CREAM, light=True)
 G('gt30')['keys'] += gone2(L(32, 5.4), 'fade', 1.2)
-art('sc32', 'SeaChart', L(32, 5.0), None, [], enter='bleed', monster=0, moon=0, sound=0, **C, z=6, xs='left')
+art('sc32', 'BlankSeaChart', L(32, 5.0), None, [], enter='bleed', monster=0, moon=0, sound=0, **C, z=6, xs='left')
 SF(30, .2, 'real_wind_3.wav', 0); SF(30, .86, 'swoosh_thin_2.wav', -6); SF(31, .2, 'thud_soft_2.wav', -4); SF(32, .3, 'crack_wood_1.wav', -8); SF(32, .8, 'foley_page_turn_1.wav', -3)
 
 # ---------------------------------------------------------------- CLUE 4 — the striped sea floor (set piece 3)
@@ -273,6 +273,23 @@ G('atl56')['keys'] += gone2(L(57, 3.0), 'fade', 1.6)
 SF(55, .3, 'swoosh_deep_3.wav', -4); SF(55, .7, 'blip_click_4.wav', -2); SF(56, .2, 'foley_page_turn_1.wav', -2); SF(56, .55, 'thud_soft_2.wav', -5)
 SF(57, .3, 'world_footstep_wood_1.wav', -6); SF(57, .6, 'blip_click_3.wav', -4)
 G('jig0')['keys'] += gone2(L(57, 6.4), 'fade', 2.4)
+
+# ======================================================================== LIGHT — every place has a named source, shadows and depth (critic, keyframes)
+haze('hz9', 560, 760, L(9), L(10, .6), k=.45, col='#DDE7EE'); shadow('sh9', 900, 975, 260, 18, L(9, .6), L(10, .2), k=.5)
+lamp('lp9', [1700, 300], L(9), L(10, .4), r=1400, dark=.18, warm=.35)
+lamp('lp10', [700, 240], L(10, 1.2), L(13, 7.0), r=900, dark=.45, warm=.9)
+lamp('lp17', [800, 200], L(15), L(24, .3), r=1300, dark=.3, warm=.7)
+lamp('lp25', [960, 120], L(25), L(27, .2), r=1100, dark=.5, warm=.8)
+shaft('sf25', [300, 0], [700, 900], L(25), L(27, .2), w0=120, w1=420, n=2, k=.35)
+haze('hz28', 540, 760, L(28, 3.6), L(30, .4), k=.5, col='#E4ECF2'); lamp('lp28', [1650, 520], L(28, 3.6), L(30, .4), r=1300, dark=.2, warm=.4)
+lamp('lp30', [960, 600], L(30), L(30, 5.6), r=700, dark=.6, warm=1.0)
+haze('hz30', 600, 900, L(30), L(32, 5.2), k=.5, col='#C9D7E6')
+haze('hz33', 300, 900, L(34), L(42, .2), k=.35, col='#9FB8C8')
+lamp('lp42', [1180, 520], L(42), L(43, .4), r=800, dark=.55, warm=.9)
+lamp('lp43', [700, 200], L(43), L(44, .4), r=1000, dark=.4, warm=.7)
+lamp('lp44', [960, 900], L(44), L(48, .3), r=1000, dark=.35, warm=1.0)
+lamp('lp48', [1500, 250], L(48), L(52, .3), r=1400, dark=.3, warm=.6)
+lamp('lp53', [420, 200], L(53), L(57, 8.0), r=1300, dark=.35, warm=.85)
 
 # ======================================================================== SECOND ACTIONS — the gaps event_check finds get a beat on the line's own subject
 MAIN = dict(enumerate('jig0 atl1 atl1 atl1 mr4 fc5 mr4 mr4 ml8 bal9 sd10 tn11 tn11 sd10 lh14 qp15 qp15 ms17 fm18 fm18 fm18 fm18 fi22 fi22 tn24 lh14 lh14 rs27 gi9 gi9 '

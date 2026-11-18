@@ -6,7 +6,39 @@ import React from 'react';
 import { ART_A as A, SAMPLE_A } from './a';
 import { ART_B as B, SAMPLE_B } from './b';
 export { THUMB, THUMB_V } from './thumb';
-export const ART: Record<string, React.FC<any>> = { ...A, ...B };
+export const ART: Record<string, React.FC<any>> = {
+  Jigsaw: A.Jigsaw,
+  AtlasPage: A.AtlasPage,
+  MeadowRock: A.MeadowRock,
+  FourClues: A.FourClues,
+  MapLeaves: A.MapLeaves,
+  GreenlandIce: A.GreenlandIce,
+  Balloon: A.Balloon,
+  StudyDesk: A.StudyDesk,
+  TornNews: A.TornNews,
+  LectureHall: A.LectureHall,
+  QuiltPangaea: A.QuiltPangaea,
+  Mesosaurus: A.Mesosaurus,
+  FossilMap: A.FossilMap,
+  Fern: A.Fern,
+  FernIce: A.FernIce,
+  RockShip: B.RockShip,
+  GreenlandTent: B.GreenlandTent,
+  BlankSeaChart: B.BlankSeaChart,
+  SurveyShip: B.SurveyShip,
+  PenRecorder: B.PenRecorder,
+  StripeFloor: B.StripeFloor,
+  RidgeGlobe: B.RidgeGlobe,
+  Cambridge: B.Cambridge,
+  Compass: B.Compass,
+  RidgeTape: B.RidgeTape,
+  PlateGlobe: B.PlateGlobe,
+  Trench: B.Trench,
+  RugHimalaya: B.RugHimalaya,
+  AtlanticOpen: B.AtlanticOpen,
+  GPSMarker: B.GPSMarker,
+  NailAtlantic: B.NailAtlantic,
+};
 export const COSTUMES: Record<string, object> = {
   wegener1912: { coat: .44, mat: 'night', t: .66, flare: .01, leg: 'night', legT: .66, shoe: 'boot', neck: 'tie', hat: 'none', hair: 'short', sleeve: 1.05, vest: 'cloth' },
   wegenerArctic: { coat: .36, mat: 'sand', t: .5, flare: .05, leg: 'stone', legT: .6, shoe: 'boot', neck: 'none', hat: 'cap', hair: 'short', sleeve: 1.2 },

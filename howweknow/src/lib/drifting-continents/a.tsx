@@ -377,7 +377,7 @@ const FourClues: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, n = 4 }) 
         <path d={cpath('AFR', af[0] + 20 * s, af[1], kk, 0, 0)} fill="#E0B878" stroke={SEP} strokeWidth={1.2} transform={`rotate(3 ${cx} ${cy})`} />
         <path d={sm(jag(cx - 8 * s, cy - 112 * s, cx - 8 * s, cy + 112 * s, 12, 6 * s, 3), false)} stroke="#FBF4E2" strokeWidth={4} fill="none" />
         <path d={sm(jag(cx + 8 * s, cy - 112 * s, cx + 8 * s, cy + 112 * s, 12, 6 * s, 3), false)} stroke="#FBF4E2" strokeWidth={4} fill="none" /></g>; }
-    if (i === 1) return <g><path d={`M${cx - 140 * s} ${cy + 70 * s} H${cx + 140 * s}`} stroke={SEP} strokeWidth={1} opacity={.4} /><Mesosaurus x={cx + 6 * s} y={cy + 60 * s} s={.26 * s} draw={1} id={id + 'ms'} walk={.2} /></g>;
+    if (i === 1) return <g><path d={`M${cx - 140 * s} ${cy + 70 * s} H${cx + 140 * s}`} stroke={SEP} strokeWidth={1} opacity={.4} /><Mesosaurus x={cx + 4 * s} y={cy + 60 * s} s={.3 * s} draw={1} id={id + 'ms'} walk={.2} /></g>;
     if (i === 2) return <g>
       <rect x={cx - 140 * s} y={cy - 110 * s} width={280 * s} height={220 * s} fill="#DDE6EA" />
       <path d={`M${cx - 140 * s} ${cy + 30 * s} Q${cx} ${cy + 10 * s} ${cx + 140 * s} ${cy + 36 * s} V${cy + 110 * s} H${cx - 140 * s}Z`} fill="#FFFFFF" stroke={SEP} strokeWidth={1} />
@@ -514,7 +514,7 @@ const GreenlandIce: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, snow =
       <linearGradient id={id + 'ic'} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#E3EBEE" /><stop offset="1" stopColor="#FFFFFF" /></linearGradient></defs>
     <rect x={-200} y={-200} width={2320} height={hz + 210} fill={`url(#${id}sk)`} />
     <circle cx={x + 520 * s} cy={hz - 50 * s} r={260 * s} fill="url(#glowW)" opacity={.8} />
-    <circle cx={x + 520 * s} cy={hz - 50 * s} r={42 * s} fill="#FFF4D2" stroke="#E9B456" strokeWidth={1} opacity={.95} />
+    <circle cx={x + 520 * s} cy={hz - 50 * s} r={42 * s} fill="#FBE3A0" stroke="#E9B456" strokeWidth={1} />
     {[[-1100, -300, 70], [-500, 40, 50], [300, 520, 40], [700, 1100, 60]].map(([a, b, h], i) => <path key={i}
       d={`M${x + a * s} ${hz} ${Array.from({ length: 8 }, (_, j) => `L${f1(x + lerp(a, b, (j + .5) / 8) * s)} ${f1(hz - (h * (.4 + rnd(i * 9 + j) * .6)) * s)}`).join(' ')} L${x + b * s} ${hz}Z`} fill="#9FB6C8" opacity={.55} stroke="#7FA8C4" strokeWidth={.8} />)}
     <rect x={-200} y={hz} width={2320} height={1300 - hz} fill={`url(#${id}ic)`} />
@@ -870,9 +870,10 @@ const Mesosaurus: React.FC<any> = ({ x = 960, y = 760, s = .9, draw = 1, walk = 
   const flesh = 1 - ease(bones);
   return <g opacity={draw}>
     {bones > 0 && <g opacity={ease(bones * 1.5)}>
-      <path d={sm([T([-600, -230]), T([-200, -270]), T([200, -250]), T([600, -230]), T([620, 30]), T([200, 60]), T([-300, 50]), T([-620, 30])])} fill="#D9CDB0" stroke={SEP} strokeWidth={2} />
-      <Stipple x={x - 620 * s} y={y - 270 * s} w={1240 * s} h={330 * s} n={900} seed={id + 'rk'} col="#8C6E4A" a={.35} />
-      {[[-500, -200, 300], [100, 20, 260], [-200, 30, 200]].map(([a, b, w], i) => <path key={i} d={`M${T([a, b]).join(' ')} l${w * s * flip} ${8 * s}`} stroke={SEP} strokeWidth={1} opacity={.4} />)}
+      <path d={sm([T([-590, -170]), T([-200, -190]), T([200, -175]), T([590, -160]), T([600, 10]), T([200, 30]), T([-300, 26]), T([-600, 20])])} fill="#9C9078" stroke={SEP} strokeWidth={2.2} />
+      <path d={sm([T([-560, -150]), T([-200, -170]), T([200, -155]), T([560, -140]), T([570, -6]), T([200, 12]), T([-300, 8]), T([-570, 2])])} fill="#B3A68A" opacity={.7} />
+      <Stipple x={x - 600 * s} y={y - 190 * s} w={1200 * s} h={220 * s} n={1100} seed={id + 'rk'} col="#4A3A28" a={.4} />
+      {[[-500, -130, 300], [100, -10, 260], [-260, -40, 200]].map(([a, b, w], i) => <path key={i} d={`M${T([a, b]).join(' ')} l${w * s * flip} ${8 * s}`} stroke={SEP} strokeWidth={1} opacity={.4} />)}
       {/* the skeleton: vertebrae and their spines, thick ribs, skull, limbs */}
       {Array.from({ length: 56 }, (_, i) => { const u = i / 55, f = u * (sp.length - 1), j = Math.min(sp.length - 2, Math.floor(f)), t2 = f - j, p = T([lerp(sp[j][0], sp[j + 1][0], t2), lerp(sp[j][1], sp[j + 1][1], t2)]), r = lerp(MESO_T[j][0], MESO_T[j + 1][0], t2) * s;
         if (u > .78) return null; return <g key={i}><rect x={p[0] - 4.5 * s} y={p[1] - 3.5 * s} width={9 * s} height={7 * s} rx={2 * s} fill="#F3E7CC" stroke={SEP} strokeWidth={.8} />
@@ -884,7 +885,7 @@ const Mesosaurus: React.FC<any> = ({ x = 960, y = 760, s = .9, draw = 1, walk = 
       <path d={sm([T([sp[10][0] - 10, sp[10][1] - 16]), T([sp[11][0], sp[11][1] - 15]), T([sp[12][0], sp[12][1] - 6]), T([sp[14][0], sp[14][1]]), T([sp[12][0], sp[12][1] + 6]), T([sp[11][0], sp[11][1] + 11]), T([sp[10][0] - 10, sp[10][1] + 14])])} fill="#F3E7CC" stroke={SEP} strokeWidth={1.3} />
       <circle cx={T(sp[11])[0] - 4 * s * flip} cy={T(sp[11])[1] - 5 * s} r={6 * s} fill="#8C6E4A" stroke={SEP} strokeWidth={1} />
       {teeth}
-      {LG.map(([h, p], i) => { const P = limb(h, p).map(T); return <g key={'lb' + i} opacity={i < 2 ? .7 : 1}>{[0, 1, 2].map(j => <path key={j} d={`M${f1(P[j][0])} ${f1(P[j][1])} L${f1(P[j + 1][0])} ${f1(P[j + 1][1])}`} stroke="#F3E7CC" strokeWidth={(h ? 7 : 5.5) * s} strokeLinecap="round" />)}
+      {LG.map(([h, p], i) => { const P = limb(h, p).map(T); return <g key={'lb' + i} opacity={i < 2 ? .7 : 1}>{[0, 1, 2].map(j => <path key={j} d={`M${f1(P[j][0])} ${f1(P[j][1])} L${f1(P[j + 1][0])} ${f1(P[j + 1][1])}`} stroke="#F3E7CC" strokeWidth={(h ? 10 : 8) * s} strokeLinecap="round" />)}
         {[0, 1, 2].map(j => <path key={'o' + j} d={`M${f1(P[j][0])} ${f1(P[j][1])} L${f1(P[j + 1][0])} ${f1(P[j + 1][1])}`} stroke={SEP} strokeWidth={.8} />)}</g>; })}
     </g>}
     {flesh > 0 && <g opacity={flesh}>
@@ -1055,6 +1056,6 @@ export const SAMPLE_A: Record<string, object> = {
   Jigsaw: { slide: .85, glow: .6, hand: 1 }, AtlasPage: { trace: .7, ghost: .5, tear: 1, gap: .6, q: 1 }, MeadowRock: { boots: 1, snail: .4, grow: .5, town: .7, night: .3, shift: 1, hour: 1, sand: .4 },
   FourClues: { n: 3.6 }, MapLeaves: { k: .55, stamp: 1, catch: .9, tm: 2 }, GreenlandIce: { snow: .4, sledge: .5, flag: 1, tm: 1 }, Balloon: { rise: .3, tm: 1 },
   StudyDesk: { lamp: 1, mag: .35, shells: 1, tm: 1 }, TornNews: { tear: 1, gap: .6, print: .8, fossils: .5 }, LectureHall: { map: .6, laugh: .8, steam: .5, bubbles: 1, stone: .3, tm: 1 },
-  QuiltPangaea: { stamp: 1, cloth: 1, stitch: .8, open: .3 }, Mesosaurus: { walk: .3, swim: 0, tm: 1 }, FossilMap: { pins: 1, grey: .5, waves: .5, close: .3, leaves: 4, ant: 1 },
+  QuiltPangaea: { stamp: 1, cloth: 1, stitch: .8, open: .3 }, Mesosaurus: { walk: .3, swim: 0, tm: 1, s: 1.3, y: 700 }, FossilMap: { pins: 1, grey: .5, waves: .5, close: .3, leaves: 4, ant: 1 },
   Fern: { unfurl: .8, blow: .2, tm: 1 }, FernIce: { snow: .3, freeze: 0, freezer: .7, thaw: .3, tm: 1 },
 };

@@ -27,9 +27,21 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "AtlanticOpen": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "AtlasPage": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "AtomosPapyrus": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "Balloon": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "Bedspring": {
   "kind": "sample",
@@ -38,6 +50,10 @@
  "Birds": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "BlankSeaChart": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "BlinkEye": {
   "kind": "episode",
@@ -70,6 +86,10 @@
  "CabinetCard": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "Cambridge": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "Candle": {
   "kind": "sample",
@@ -134,6 +154,10 @@
  "CoinFarHill": {
   "kind": "episode",
   "origin": "star-distance"
+ },
+ "Compass": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "ConferenceHall": {
   "kind": "episode",
@@ -231,6 +255,14 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "Fern": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "FernIce": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "FieldLines": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -250,6 +282,18 @@
  "Foraminifera": {
   "kind": "episode",
   "origin": "dinosaur-killer"
+ },
+ "FossilMap": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "FourClues": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "GPSMarker": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "GaiaProbe": {
   "kind": "episode",
@@ -294,6 +338,14 @@
  "GreatBalance": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "GreenlandIce": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "GreenlandTent": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "GubbioGorge": {
   "kind": "episode",
@@ -351,6 +403,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "Jigsaw": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "KoenigsbergDome": {
   "kind": "episode",
   "origin": "star-distance"
@@ -382,6 +438,10 @@
  "LeavittGraph": {
   "kind": "episode",
   "origin": "star-distance"
+ },
+ "LectureHall": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "LehmannRoom": {
   "kind": "episode",
@@ -419,6 +479,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "MapLeaves": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "Mark": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -426,6 +490,14 @@
  "MarsSection": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "MeadowRock": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "Mesosaurus": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "MeteoriteSlice": {
   "kind": "episode",
@@ -462,6 +534,10 @@
  "MuseumSkeleton": {
   "kind": "episode",
   "origin": "dinosaur-killer"
+ },
+ "NailAtlantic": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "NavalShell": {
   "kind": "episode",
@@ -527,6 +603,10 @@
   "kind": "episode",
   "origin": "star-distance"
  },
+ "PenRecorder": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "Pendulum": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -538,6 +618,10 @@
  "Pinned": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "PlateGlobe": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "PlumPudding": {
   "kind": "episode",
@@ -563,6 +647,10 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "QuiltPangaea": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "RadiumBlock": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -579,6 +667,14 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "RidgeGlobe": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "RidgeTape": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "RisingLoaf": {
   "kind": "episode",
   "origin": "star-distance"
@@ -587,9 +683,17 @@
   "kind": "episode",
   "origin": "dinosaur-killer"
  },
+ "RockShip": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "Rose": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "RugHimalaya": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "RutherfordDesk": {
   "kind": "episode",
@@ -707,6 +811,14 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "StripeFloor": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
+ "StudyDesk": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "Sun": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -722,6 +834,10 @@
  "SurveyRing": {
   "kind": "episode",
   "origin": "dinosaur-killer"
+ },
+ "SurveyShip": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "TallySheet": {
   "kind": "episode",
@@ -759,6 +875,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "TornNews": {
+  "kind": "episode",
+  "origin": "drifting-continents"
+ },
  "TorsionBalance": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -770,6 +890,10 @@
  "Tree": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "Trench": {
+  "kind": "episode",
+  "origin": "drifting-continents"
  },
  "Tyrannosaur": {
   "kind": "episode",
