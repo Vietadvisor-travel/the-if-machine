@@ -1,4 +1,4 @@
-# Treatment — Thứ gì đã giết khủng long? (dinosaur-killer) · director: Claude · 17 Nov 2026
+# Treatment v2 — Thứ gì đã giết khủng long? (dinosaur-killer) · director: Claude · 18 Nov 2026 (v1 rejected; follows chain v2)
 (CINEMA.md §1; the chain: jobs/scripts/dinosaur-killer_chain.md; research: jobs/research/dinosaur-killer.md)
 
 ## 1. Logline
@@ -12,12 +12,12 @@ A father and son measured a pinch of clay to time how fast it settled and found 
 
 ## 2. The feeling
 - word: awe and a shiver
-- the moment it lands: L36, the surviving mammal becoming a human hand
+- the moment it lands: L59, a sparrow lands on the skull — its eye where the living T. rex's eye was
 
 ## 3. Governing image & motif
 - image: the thin line of clay in the rock
 - motif (shape): the LINE: the clay layer, the needle off the scale, the ring traced on the map, the snapping food chain
-- returns (≥ 4): L7 — the blank page of clay · L12 — the needle · L23 — the half-ring · L34 — the chain snaps · L37 — the clay again
+- returns (≥ 4): L14 — the blank red page · L24 — the needle through the roof · L41 — the plane draws the half-ring · L56 — the chain snaps · L61 — the relics joined by one line
 
 ## 4. Visual metaphors
 - the last day: (1) a blank page in a stone book → (2) a stone dropped in a pond → (3) the Sun as a dim coin
@@ -32,14 +32,14 @@ A father and son measured a pinch of clay to time how fast it settled and found 
 - reveal: the rock remembers
 ### Set piece 2 — The needle (act II)
 - idea: a pinch of clay holds a metal from space
-- staging: a Berkeley laboratory
+- staging: the Berkeley study and the detector; L22–L24
 - camera: insert on the needle → it swings past the scale
 - transformation: the needle points through the roof to the sky
 - sound moment: a rising whine, then a held breath
 - reveal: an asteroid
 ### Set piece 3 — The forgotten ring (act III)
 - idea: the crater was found and forgotten
-- staging: a 1978 plane over the Yucatán; a dusty report
+- staging: a 1978 plane over the Yucatán; its passes ink the ring; L39–L42
 - camera: aerial over the coast, then a slow push to the shelf
 - transformation: the half-ring completes under jungle and sea
 - sound moment: the plane's drone, dust blown away
@@ -58,15 +58,15 @@ A father and son measured a pinch of clay to time how fast it settled and found 
 - accent colour: vermilion — the clay line, the ring
 
 ## 8. Light script
-- places & their light: Cretaceous dusk; Gubbio — noon sun on stone; the lab — fluorescent; the warehouse — a bare bulb
+- places & their light: Cretaceous dusk (low sun, right); Gubbio — noon sun on stone; the study — the green desk lamp; the lab — five hanging lamps; the records room — a window's light, day after day; the museum — moonlight, then dawn
 - the light that tells the story: the new star becoming the dimmed Sun
 
 ## 9. Rhythm
 - tension curve: an eerie beginning, detective middle, the impact's silence, dawn
-- held breaths (3): the new star (L3) · the needle (L12) · the impact (L16)
+- held breaths (3): the blank page (L14) · the needle through the roof (L24) · the impact (L53)
 - accelerations: the worldwide search for the crater
 
 ## 10. Bookends & material
-- opening image: a dinosaur skeleton in a moonlit museum
+- opening image: a living T. rex at its last dusk, a point of light in its eye
 - closing image (rhymes with it because…): a bird flying from the skeleton's shoulder into the dawn
 - real engravings / documents / footage and how they are used: 19th-c. dinosaur engravings (PD), geological section plates, the 1980 Science page (fair use? — artefact only if licensed), Gubbio photos (Muse)

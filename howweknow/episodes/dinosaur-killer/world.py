@@ -180,12 +180,13 @@ text('n8', 'Duria Antiquior, 1830', 'label', 960, 1050, L(8, .6), L(9), size=26)
 art('pw8', 'PocketWatch', L(8, 1.2), None, [K(L(8, 1.2), 1.6, 'out', rise=1), K(L(8, 2.6), 1.2, 'soft', swing=12), K(L(8, 3.8), 1.2, 'soft', swing=-10), K(L(8, 4.4), .6, hands=1),
     K(L(8, 4.4), 2.6, 'in', spin=3.2), K(L(8, 5.0), 1.2, 'soft', swing=6), K(L(8, 7.0), .8, hands=0, swing=0), K(L(9), .6, 'in', fx_s=.5, fx_y=320)] + gone2(L(9, .7), 'collapse', .3, [960, 820]),
     ink=False, draw=1, x=960, y=520, s=1, swing=0, hands=0, spin=0, rise=0, fx_s=1, fx_y=0, fx_ox=960, fx_oy=520, z=20, xs='collapse')
-text('q8', 'no clock in a bone', 'note', 1400, 860, L(8, 5.4), L(9), size=48, col=VERM)
+text('q8', 'no clock in a bone', 'note', 1260, 200, L(8, 5.4), L(9), size=48, col=VERM)
 sfx(8, 1.2, FX + 'amb_ocean_wave_1.wav', -32); sfx(8, 4.4, FX + 'clack_key_1.wav', -26)
 # ---------------------------------------------------------------- CLUE 1 — a line in the rock · the watch lands as a block of stone
-ent('clue', 'clue', {'n': 1, 'of': 4, 'label': 'A Line in the Rock', 'a': 0},
-    [K(L(9), .8, a=1), K(L(18), .5, a=0), K(L(18, .5), .01, n=2, label='Too Much of a Rare Metal'), K(L(18, .6), .8, a=1), K(L(29), .5, a=0), K(L(29, .5), .01, n=3, label='Scars in the Sand'),
-     K(L(29, .6), .8, a=1), K(L(36), .5, a=0), K(L(36, .5), .01, n=4, label='A Ring Under the Jungle'), K(L(36, .6), .8, a=1), K(L(50), .8, a=0)])
+# v2: no clue chyron on screen (critic) — each clue's name is stamped into its scene. The `clue` entity stays as the story's structure tag
+# (script_check: clues 1..4 in order) but is never shown (a = 0 throughout).
+ent('clue', 'clue', {'n': 1, 'of': 4, 'label': 'A Line in the Rock', 'a': 0}, [K(L(18, .5), .01, n=2, label='Too Much of a Rare Metal'), K(L(29, .5), .01, n=3, label='Scars in the Sand'),
+    K(L(36, .5), .01, n=4, label='A Ring Under the Jungle')])
 art('rb9', 'RockBook', L(9, .5), None, [K(L(9, .5), .7, 'in', fx_y=0), K(L(9, 1.2), .6, 'soft', red=1)] + gone2(L(10, .3), 'down', .9), ink=False, draw=1, x=960, y=600, s=1, open=0, red=0, fx_y=-500, z=20, xs='down')
 text('t9', 'Clue I · A Line in the Rock', 'stamp', 960, 250, L(9, 1.0), L(10, .3), size=58, col=VERM)
 sfx(9, 1.2, FX + 'impact_stone_1.wav', -20)
@@ -196,7 +197,7 @@ person('wal10', 'Walter Alvarez, geologist, at Gubbio (1970s)', L(10, .4), None,
     + gone2(L(11, .4), 'down', .8), x=120, y=1000, h=520, facing=1, pose='stand', pose2='raise', pk=0, walk=0, holds='hammer', expr='focus', ek=0, look=[1, -.3], **WALT, z=14)
 ent('chips10', 'particles', {'kind': 'dust', 'n': 26, 'k': 0, 'a': .9, 'speed': 1.2, 'para': .2}, [K(L(10, 5.2), .4, k=1), K(L(10, 6.8), 1.0, k=0)], z=30)
 art('pin10', 'Pinned', L(10, 7.0), None, gone2(L(11, .2), 'burn', 1.0, [1520, 280]), ink=False, src=ST + 'R-01-x1_alvarez-trio-gubbio.jpg', x=1520, y=280, w=420, h=280, rot=3, caption='Walter Alvarez at Gubbio', draw=1, enter='bleed', z=30, xs='burn')
-text('pl10', 'Gubbio, Italy · 1970s', 'plate', 1100, 980, L(10, 2.0), L(11, .2), size=38, col=CREAM, light=True)
+text('pl10', 'Gubbio, Italy · 1970s', 'plate', 1000, 940, L(10, 2.0), L(11, .2), size=38, col=CREAM, light=True)
 lamp('lp10', [1500, 160], L(10), L(11, .6), r=1200, dark=.25, warm=.6)
 sfx(10, 4.4, FX + 'impact_stone_2.wav', -24); sfx(10, 5.8, FX + 'impact_stone_3.wav', -24)
 # L11–L15 — SET PIECE 2a: the stone book opens; a finger reads it upward; a dive into a living page; the blank red page
@@ -256,7 +257,7 @@ text('l21', 'more iridium = more time', 'note', 760, 860, L(21, 8.6), L(22, .1),
 art('im22', 'IridiumMeter', L(22), None, [K(L(22, .3), .9, 'soft', drawer=1), K(L(22, 1.4), .7, 'soft', drawer=0), K(L(22, 2.2), 1.2, 'soft', v=.25), K(L(22, 3.4), .8, 'soft', v=.18),
     K(L(23, .2), 1.4, 'in', v=.7), K(L(23, 1.6), .6, 'in', v=1.08), K(L(23, 2.2), .4, 'out', v=1.02), K(L(23, 2.6), .5, 'in', v=1.12), K(L(23, 3.4), 1.0, 'in', v=1.25),
     K(L(24, .2), 3.0, 'in', roof=1)] + gone2(L(25, .1), 'tearout', 1.0), enter='blinds', x=960, y=600, s=1, v=.05, roof=0, drawer=0, room=1, z=10, xs='tearout')
-text('s23', 'far too much', 'stamp', 1420, 300, L(23, 2.2), L(24, .4), size=52, col=VERM)
+text('s23', 'far too much', 'stamp', 1280, 260, L(23, 2.2), L(24, .4), size=52, col=VERM)
 text('l23', 'dozens of times more than normal', 'note', 960, 990, L(23, 3.2), L(24, .2), size=40, col='#5A3A22')
 SKY('sky24', L(24, 1.4), L(25, .2))
 text('l24', 'it came from above', 'note', 1300, 160, L(24, 2.6), L(25), size=52, col=CREAM, light=True)
@@ -294,7 +295,7 @@ sfx(31, .2, FX + 'motion_whoosh_long_1.wav', -28)
 # L32–L35 — SET PIECE: the grain. Lamellae etch in; pressure arrows squeeze it hot; it shatters; the shards fly up and become the question
 art('sg32', 'ShockedGrain', L(32), None, [K(L(32, .6), 1.6, 'soft', etch=.45), K(L(32, 2.4), 1.6, 'soft', etch=.75), K(L(32, 4.2), 1.6, 'soft', etch=1),
     K(L(33, 1.4), 1.4, 'in', heat=.6), K(L(33, 3.0), .8, 'out', heat=.3), K(L(33, 4.0), 1.6, 'in', heat=1, crack=.2), K(L(34, .6), 1.0, 'in', crack=.6)]
-    + gone2(L(34, 1.8), 'shatter', 1.6, [920, 540]), enter='iris', eo=[960, 340], x=960, y=540, r=430, etch=.1, crack=0, heat=0, sharp=1, z=20, xs='shatter')
+    + [K(L(34, 1.8), 1.4, 'in', crack=1)] + gone2(L(34, 3.4), 'at', .8, [960, 540]), enter='iris', eo=[960, 340], x=960, y=540, r=430, etch=.1, crack=0, heat=0, sharp=1, z=20, xs='at')
 art('eye32', 'Eyepiece', L(32, 5.0), None, gone2(L(33, .8), 'lift', .9), ink=False, src=ST + 'P-03_shocked-quartz-usgs.jpg', x=1500, y=340, r=190, cross=0, draw=1, enter='bleed', z=34, xs='lift')
 text('l32', 'shocked quartz (USGS)', 'label', 1500, 570, L(32, 5.6), L(33, .8), size=26, col=CREAM, light=True)
 dark('dk32', L(32), L(35, .3), k=.9, d=.8, z=3, col='#1A1424', style='down')
@@ -392,7 +393,7 @@ art('mus59', 'MuseumSkeleton', L(59), None, [K(L(59), 2.0, 'soft', dawn=.4)] + g
 art('sp59', 'Sparrow', L(59, .3), None, [K(L(59, .3), 1.6, 'out', fx_y=0, fx_x=0), K(L(59, 1.2), .3, wing=.2), K(L(59, 1.5), .3, wing=.9), K(L(59, 1.9), .4, 'soft', wing=0, hop=1),
     K(L(60), 1.4, 'inOut', x=960, y=760, s=3.4), K(L(60, 1.6), .5, 'soft', head=.6), K(L(60, 2.2), .3, sing=1), K(L(60, 2.6), .3, sing=0), K(L(60, 3.0), .3, sing=1), K(L(60, 3.4), .3, sing=0),
     K(L(60, 4.0), .5, 'soft', head=-.3), K(L(59, .3), dur(59) + dur(60), 'linear', tm=dur(59) + dur(60))] + gone2(L(61, .2), 'fade', .6),
-    ink=False, draw=1, x=1390, y=330, s=.9, wing=1, sing=0, head=0, hop=0, tm=0, fx_y=-500, fx_x=300, z=20, xs='fade')
+    ink=False, draw=1, x=1500, y=362, s=.9, wing=1, sing=0, head=0, hop=0, tm=0, fx_y=-500, fx_x=300, z=20, xs='fade')
 text('n60', 'a living dinosaur', 'note', 1380, 400, L(60, 1.8), L(61, .2), size=60, col=VERM)
 sfx(60, 2.2, FX + 'amb_forest_dawn_1.wav', -28)
 art('rel61', 'ClueRelics', L(61), None, [K(L(61, .4), .5, 'out', n=1), K(L(61, 1.4), .5, 'out', n=2), K(L(61, 2.4), .5, 'out', n=3), K(L(61, 3.4), .5, 'out', n=4), K(L(61, 6.0), 1.6, 'soft', glow=1)]
@@ -408,7 +409,7 @@ text('q62', 'how long did one thin layer of clay take?', 'note', 960, 200, L(62,
 lamp('lp62', [960, 640], L(62), L(63, .6), r=760, dark=.5, warm=.75)
 art('mus63', 'MuseumSkeleton', L(63), None, [K(L(63, .2), dur(63), 'linear', dawn=1, moon=0)], enter='focus', moon=.4, dawn=.2, **MUS, z=8)
 art('sp63', 'Sparrow', L(63, .4), None, [K(L(63, 1.8), .3, wing=1), K(L(63, 2.1), .3, wing=.3), K(L(63, 2.4), .3, wing=1), K(L(63, 2.7), .3, wing=.3), K(L(63, 3.0), .3, wing=1),
-    K(L(63, 2.0), dur(63) - 2.0, 'in', fx_x=-820, fx_y=-260, s=.5), K(L(63, .4), dur(63), 'linear', tm=dur(63))], ink=False, draw=1, x=1390, y=330, s=.9, wing=0, sing=0, tm=0, fx_x=0, fx_y=0, enter='bleed', z=20)
+    K(L(63, 2.0), dur(63) - 2.0, 'in', fx_x=-820, fx_y=-260, s=.5), K(L(63, .4), dur(63), 'linear', tm=dur(63))], ink=False, draw=1, x=1500, y=362, s=.9, wing=0, sing=0, tm=0, fx_x=0, fx_y=0, enter='bleed', z=20)
 shaft('sf63', [340, 160], [1200, 900], L(63, .6), None, w0=240, w1=640, n=4, k=.7)
 ent('end', 'art', {'name': 'EndCard', 'k': 0, 'a': 0, 'ask': 'What will the rocks remember of us?', 'next': 'Fathom', 'lock': 1}, [K('L63$+0.3', .01, a=1), K('L63$+0.3', 2.6, 'linear', k=1)], z=95)
 sfx(63, .6, FX + 'amb_forest_dawn_2.wav', -28)
@@ -526,7 +527,7 @@ B('lui62', 62, (.5, .6, 'soft', {'pose2': 'explain', 'pk': 1}), (.72, .8, 'soft'
 B('wal62', 62, (.62, .6, 'soft', {'pose2': 'hold', 'pk': 1}), (.82, .8, 'soft', {'look': [.2, -.4]}))
 B('sp63', 63, (.45, .3, 'soft', {'wing': .3}), (.5, .3, 'soft', {'wing': 1}), (.6, .3, 'soft', {'wing': .3}), (.66, .3, 'soft', {'wing': 1}), (.76, .3, 'soft', {'wing': .3}), (.82, .3, 'soft', {'wing': 1}), (.92, .3, 'soft', {'wing': .3}))
 G('sp63')['keys'] = [k for k in G('sp63')['keys'] if not ('fx_x' in k and k.get('dur', 0) > 3)]
-B('sp63', 63, (.25, 2.2, 'in', {'fx_x': -260, 'fx_y': -60, 's': .8}), (.55, 2.2, 'linear', {'fx_x': -560, 'fx_y': -170, 's': .65}), (.83, 1.4, 'linear', {'fx_x': -820, 'fx_y': -260, 's': .5}))
+B('sp63', 63, (.25, 2.2, 'in', {'fx_x': -380, 'fx_y': -20, 's': .8}), (.55, 2.2, 'linear', {'fx_x': -780, 'fx_y': -50, 's': .65}), (.83, 1.4, 'linear', {'fx_x': -1120, 'fx_y': -70, 's': .45}))
 B('mus63', 63, (.35, .8, 'soft', {'head': .3}), (.7, .8, 'soft', {'head': .5}))
 
 trail('met20a', [[300, 120], [520, 300]], Lf(20, .5), .7, Lf(20, .7), col='#F7E3A0', w=3, r=4)
@@ -548,18 +549,18 @@ MOVE = {0: ('crane-down', (1100, 560), 'wide'), 1: ('rack', (1340, 300), 'close'
  50: ('push', (1100, 520), 'medium'), 51: ('pull', (960, 520), 'close'), 52: ('arc', (1300, 420), 'medium'), 53: ('whip', (960, 600), 'wide'), 54: ('crane-down', (960, 480), 'wide'),
  55: ('orbit', (960, 520), 'wide'), 56: ('tilt-down', (960, 500), 'medium'), 57: ('push', (360, 460), 'close'), 58: ('dolly', (1050, 620), 'medium'), 59: ('lock', (1300, 420), 'medium'),
  60: ('rack', (960, 700), 'close'), 61: ('pan-l', (960, 760), 'medium'), 62: ('dolly', (960, 640), 'medium'), 63: ('crane-up', (1100, 420), 'medium')}
-SOFT = {'wide': 1.02, 'medium': 1.12, 'close': 1.28, 'insert': 1.4, 'detail': 1.55}
+SOFT = {'wide': 1.08, 'medium': 1.14, 'close': 1.28, 'insert': 1.4, 'detail': 1.55}
 def S_(size, at, z=1.0, dx=0, dy=0, **x): return {**shot(size, at=(at[0] + dx, at[1] + dy), z=SOFT[size] * z), **x}
 def move(i, kind, at, size):
     d = dur(i); a = lambda o: L(i, o)
     base = lambda **x: K(a(0), 1.0, 'soft', **S_(size, at, **x))
     if kind == 'push': return [K(a(0), 1.0, 'soft', **S_(size, at, .92, roll=0)), K(a(1.0), d - .8, 'inOut', **S_(size, at, 1.25))]
     if kind == 'pull': return [K(a(0), .8, 'soft', **S_(size, at, 1.5, roll=0)), K(a(.8), d - .6, 'out', **S_(size, at, .95))]
-    if kind in ('pan-r', 'pan-l'): s = 1 if kind == 'pan-r' else -1; return [K(a(0), 1.0, 'soft', **S_(size, at, dx=-160 * s, roll=0)), K(a(1.0), d - .8, 'inOut', **S_(size, at, dx=160 * s))]
-    if kind in ('tilt-up', 'tilt-down'): s = -1 if kind == 'tilt-up' else 1; return [K(a(0), 1.0, 'soft', **S_(size, at, dy=-180 * s, roll=0)), K(a(1.0), d - .8, 'inOut', **S_(size, at, dy=180 * s))]
-    if kind in ('crane-down', 'crane-up'): s = 1 if kind == 'crane-down' else -1; return [K(a(0), .9, 'soft', **S_(size, at, 1.18, dy=-340 * s, roll=0)), K(a(.9), d - .6, 'inOut', **S_(size, at, 1.0))]
-    if kind == 'arc': return [K(a(0), 1.0, 'soft', **S_(size, at, dx=-130, dy=60, roll=-3)), K(a(1.0), d - .8, 'inOut', **S_(size, at, 1.1, dx=130, dy=-50, roll=3))]
-    if kind == 'orbit': return [K(a(0), 1.0, 'soft', **S_(size, at, 1.0, roll=-6)), K(a(1.0), d - .8, 'linear', **S_(size, at, 1.12, roll=6))]
+    if kind in ('pan-r', 'pan-l'): s = 1 if kind == 'pan-r' else -1; return [K(a(0), 1.0, 'soft', **S_(size, at, dx=-90 * s, roll=0)), K(a(1.0), d - .8, 'inOut', **S_(size, at, dx=90 * s))]
+    if kind in ('tilt-up', 'tilt-down'): s = -1 if kind == 'tilt-up' else 1; return [K(a(0), 1.0, 'soft', **S_(size, at, dy=-110 * s, roll=0)), K(a(1.0), d - .8, 'inOut', **S_(size, at, dy=110 * s))]
+    if kind in ('crane-down', 'crane-up'): s = 1 if kind == 'crane-down' else -1; return [K(a(0), .9, 'soft', **S_(size, at, 1.2, dy=-220 * s, roll=0)), K(a(.9), d - .6, 'inOut', **S_(size, at, 1.0))]
+    if kind == 'arc': return [K(a(0), 1.0, 'soft', **S_(size, at, 1.04, dx=-80, dy=40, roll=-3)), K(a(1.0), d - .8, 'inOut', **S_(size, at, 1.12, dx=80, dy=-30, roll=3))]
+    if kind == 'orbit': return [K(a(0), 1.0, 'soft', **S_(size, at, 1.1, roll=-5)), K(a(1.0), d - .8, 'linear', **S_(size, at, 1.18, roll=5))]
     if kind == 'dutch': return [K(a(0), 1.0, 'soft', **S_(size, at, roll=0)), K(a(1.4), 1.0, 'out', **S_(size, at, 1.1, roll=7)), K(a(d - 1.4), 1.2, 'soft', **S_(size, at, 1.15, roll=0))]
     if kind == 'whip': return [K(a(0), .01, **S_(size, at, dx=520, roll=0)), K(a(.05), .75, 'out', **S_(size, at)), K(a(.8), d - .6, 'linear', **S_(size, at, 1.08))]
     if kind == 'snap-zoom': t0 = min(1.0, d * .45); return [K(a(0), .6, 'soft', **S_(size, at, roll=0)), K(a(t0), .5, 'out', **S_(size, at, 1.45)), K(a(t0 + .5), max(.5, d - t0), 'linear', **S_(size, at, 1.5))]
@@ -570,7 +571,7 @@ def move(i, kind, at, size):
     if kind == 'dive': return [K(a(0), .8, 'soft', **S_(size, at, roll=0)), K(a(.8), 1.6, 'in', **S_(size, at, 2.2)), K(a(2.4), .9, 'out', **S_(size, at, 1.0)), K(a(3.3), d - 3.0, 'linear', **S_(size, at, 1.1))]
     if kind == 'lock': return [K(a(0), 1.0, 'soft', **S_(size, at, roll=0))]
     raise ValueError(kind)
-o_track = {10: (-420, 60), 39: (-500, 500), 45: (-300, 120)}
+o_track = {10: (-260, 40), 39: (-260, 260), 45: (-200, 80)}
 cam = G('camera'); ck = []
 for i in range(NL): ck += move(i, *MOVE[i])
 ck += [K(L(23, 1.6), .6, 'out', **shake(.35)), K(L(23, 2.4), 1.0, 'soft', **shake(0))]          # the needle slams the stop
