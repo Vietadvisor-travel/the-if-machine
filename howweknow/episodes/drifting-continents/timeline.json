@@ -101,7 +101,7 @@
    "sfx": [
     {
      "at": 0.66,
-     "file": "public/sfx/pour_sand_1.wav",
+     "file": "public/sfx/scratch_2.wav",
      "db": -2
     }
    ]
@@ -241,7 +241,7 @@
     },
     {
      "at": 8.02,
-     "file": "public/sfx/pond_water_1.wav",
+     "file": "public/sfx/real_splash_1.wav",
      "db": -2
     }
    ]

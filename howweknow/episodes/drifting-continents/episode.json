@@ -611,7 +611,7 @@
    "sfx": [
     {
      "at": 0.66,
-     "file": "public/sfx/pour_sand_1.wav",
+     "file": "public/sfx/scratch_2.wav",
      "db": -2
     }
    ]
@@ -1286,7 +1286,7 @@
     },
     {
      "at": 8.02,
-     "file": "public/sfx/pond_water_1.wav",
+     "file": "public/sfx/real_splash_1.wav",
      "db": -2
     }
    ]
@@ -1800,7 +1800,7 @@
      "the light shifts across the laughing professors"
     ]
    ],
-   "mood": "tense",
+   "mood": "tension",
    "shot": "wide",
    "light": "gaslight",
    "sfx": [
@@ -1870,7 +1870,7 @@
      "the light shifts across the stone bubbles"
     ]
    ],
-   "mood": "tense",
+   "mood": "tension",
    "shot": "close",
    "light": "cold gaslight",
    "setpiece": 2,
@@ -2076,7 +2076,7 @@
      "the light shifts across the two men in the storm"
     ]
    ],
-   "mood": "tense",
+   "mood": "tension",
    "shot": "wide",
    "light": "white blizzard",
    "setpiece": 2,
@@ -3438,7 +3438,7 @@
      "the camera travels on toward the diving plate"
     ]
    ],
-   "mood": "tense",
+   "mood": "tension",
    "shot": "close",
    "light": "red glow below",
    "sfx": [
@@ -4658,10 +4658,10 @@
     {
      "t": "L25",
      "dur": 3.0,
-     "warm": 0.05,
+     "warm": -0.18,
      "sat": 1,
      "expo": 1,
-     "engrave": 0.75,
+     "engrave": 1,
      "ease": "soft"
     },
     {
@@ -4765,10 +4765,10 @@
     {
      "t": "L29",
      "dur": 3.0,
-     "warm": 0.05,
+     "warm": -0.18,
      "sat": 1,
      "expo": 1,
-     "engrave": 0.75,
+     "engrave": 1,
      "ease": "soft"
     },
     {
@@ -5171,10 +5171,10 @@
     {
      "t": "L49",
      "dur": 3.0,
-     "warm": 0.05,
+     "warm": -0.18,
      "sat": 1,
      "expo": 1,
-     "engrave": 0.75,
+     "engrave": 1,
      "ease": "soft"
     },
     {

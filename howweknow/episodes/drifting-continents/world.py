@@ -48,7 +48,7 @@ G('mr4')['keys'] += [K(L(7, .1), dur(7) - .4, 'linear', sand=1)]
 G('mr4')['keys'] += gone2(L(8, .2), 'flip', 1.1)
 counter('c6', 'moved: {n} hair', 1500, 900, L(6, 6.0), L(7, .6), [K(L(6, 6.0), 1.0, 'out', num=1)], size=48, col=VERM)
 SF(4, .22, 'world_footstep_gravel_4.wav', 0); SF(4, .5, 'thud_soft_1.wav', -2); SF(5, .2, 'impact_woodlight_1.wav', -2); SF(5, .6, 'impact_woodlight_1.wav', -3)
-SF(6, .4, 'world_birds_1.wav', -4); SF(6, .82, 'sci_ui_tick_1.wav', 0); SF(7, .1, 'pour_sand_1.wav', -2); SF(7, .6, 'world_clock_tick_1.wav', -4)
+SF(6, .4, 'world_birds_1.wav', -4); SF(6, .82, 'sci_ui_tick_1.wav', 0); SF(7, .1, 'scratch_2.wav', -2); SF(7, .6, 'world_clock_tick_1.wav', -4)
 # the title, screen-locked, in the breath before "So how did we find out?"
 ent('title', 'art', {'name': 'TitleCard', 'k': 0, 'title': 'How do we know\nthe continents move?', 'sub': 'a story in four clues', 'a': 0, 'lock': 1},
     [K(L(5, -5.6), .01, a=1), K(L(5, -5.6), 2.0, 'linear', k=.5), K(L(5, -3.6), 2.0, 'linear', k=1), K(L(5, -1.2), 1.3, 'linear', dissolve=0, dissolveAt=[960, 540], dissolveR=520), K(L(5, .2), .01, a=0)], z=90)
@@ -115,8 +115,8 @@ text('q19', '?', 'title', 1060, 380, L(19, 7.4), L(20, .3), size=120, col=VERM)
 A_('fm18', 20, (.05, 1.4, {'close': .5, 'grey': .3, 'waves': 0}), (.3, 1.2, {'close': 1}), (.55, {'grey': 0}))
 art('ms20', 'Mesosaurus', L(20, 3.0), L(21, .1), [], enter='focus', walk=0, swim=1, x=820, y=560, s=.45, z=22, xs='fade')
 G('ms20')['keys'] += [K(L(20, 3.0), 3.0, 'linear', x=1080, walk=3)]
-SF(17, .3, 'world_footstep_gravel_4.wav', -6); SF(17, .82, 'pond_water_1.wav', -2); SF(18, .3, 'impact_woodlight_1.wav', -2); SF(18, .5, 'impact_woodlight_1.wav', -4)
-SF(19, .1, 'pond_water_1.wav', -3); SF(19, .4, 'dropper_1.wav', -2); SF(20, .3, 'swoosh_deep_1.wav', -3); SF(20, .7, 'pond_water_1.wav', -4)
+SF(17, .3, 'world_footstep_gravel_4.wav', -6); SF(17, .82, 'real_splash_1.wav', -2); SF(18, .3, 'impact_woodlight_1.wav', -2); SF(18, .5, 'impact_woodlight_1.wav', -4)
+SF(19, .1, 'real_splash_1.wav', -3); SF(19, .4, 'dropper_1.wav', -2); SF(20, .3, 'swoosh_deep_1.wav', -3); SF(20, .7, 'real_splash_1.wav', -4)
 # L21–L23 · Glossopteris on four continents — and Antarctica; the fern in a freezer
 A_('fm18', 21, (.3, .6, {'leaves': 1, 'close': 0}), (.45, .6, {'leaves': 2}), (.62, .6, {'leaves': 3}), (.8, .6, {'leaves': 4}))
 art('fern21', 'Fern', L(21), L(21, 4.0), [], enter='pour', eo='up', unfurl=0, blow=0, x=300, y=640, s=.8, z=24, xs='left')
@@ -144,7 +144,7 @@ SF(25, .38, 'critter_cat_purr_1.wav', -10); SF(25, .7, 'swoosh_thin_1.wav', -4);
 art('rs27', 'RockShip', L(27, .4), None, [], enter='wipe', eo='right', sail=0, crumple=0, sink=0, **C, z=10, xs='down')
 A_('rs27', 27, (.05, 1.6, {'sail': 1}), (.3, .5, {'crumple': .5}), (.42, .6, {'crumple': 1}), (.6, 1.6, {'sink': .6}), (.82, 1.2, {'sink': 1}))
 G('rs27')['keys'] += gone2(L(28, .2), 'down', 1.0)
-SF(27, .3, 'crack_wood_1.wav', 0); SF(27, .62, 'pond_water_1.wav', -2); SF(27, .85, 'dropper_1.wav', -4)
+SF(27, .3, 'crack_wood_1.wav', 0); SF(27, .62, 'real_splash_1.wav', -2); SF(27, .85, 'dropper_1.wav', -4)
 # L28 · the book's editions (D-01) turn into the white ice; a sledge crosses
 art('d28', 'DocumentPage', L(28, .2), L(28, 4.4), [], ink=False, src=ST + 'D-01_wegener-1915-carbon-reconstruction.jpg', x=960, y=480, w=760, h=520, rot=-1,
     caption='Wegener’s own maps, 1922 edition', draw=1, enter='bleed', z=30, xs='flip')
@@ -221,7 +221,7 @@ A_('rt44', 44, (.1, 1.4, {'well': 1}), (.35, 1.4, {'cool': 1}), (.55, 1.0, {'arr
 G('rt44')['keys'] += [K(L(45), dur(45) + dur(46) + dur(47), 'linear', run=6)]
 A_('rt44', 45, (.1, .6, {'well': .6}), (.22, .6, {'well': 1}), (.45, .6, {'well': .6}), (.6, .6, {'well': 1}), (.8, .6, {'well': .7}))
 A_('rt44', 46, (.1, 1.0, {'gold': .5}), (.3, 1.0, {'gold': 1}), (.55, .6, {'arrows': .4}), (.7, .6, {'arrows': 1}))
-SF(44, .1, 'swoosh_deep_1.wav', -2); SF(44, .4, 'pond_water_1.wav', -6); SF(44, .75, 'machine_paper_1.wav', -6); SF(45, .2, 'world_clock_tick_2.wav', -4); SF(45, .6, 'swoosh_deep_2.wav', -4)
+SF(44, .1, 'swoosh_deep_1.wav', -2); SF(44, .4, 'real_splash_1.wav', -6); SF(44, .75, 'machine_paper_1.wav', -6); SF(45, .2, 'world_clock_tick_2.wav', -4); SF(45, .6, 'swoosh_deep_2.wav', -4)
 SF(46, .3, 'blip_click_3.wav', -4); SF(46, .7, 'impact_soft_3.wav', -2)
 
 # ---------------------------------------------------------------- ANSWER — the conveyor, the plates, the trench, the rug, the Atlantic today
@@ -257,7 +257,7 @@ G('qp15')['keys'] += [K(L(54, 1.8), 1.0, 'soft', a=1, dissolve=1, stamp=0, cloth
 A_('qp15', 54, (.35, 1.0, {'open': .3}), (.5, 1.0, {'open': .6}), (.68, 1.2, {'open': 1}))
 counter('c54', '{n} million years', 960, 960, L(54, 5.0), L(55, .4), [K(L(54, 5.0), 1.4, 'out', num=200)], size=54, col=CREAM, light=True)
 G('qp15')['keys'] += gone2(L(55, .3), 'fade', 1.0)
-SF(53, .2, 'scratch_2.wav', -5); SF(53, .55, 'sci_ui_tick_1.wav', -4); SF(54, .1, 'pond_water_1.wav', -4); SF(54, .5, 'machine_paper_1.wav', -4); SF(54, .8, 'swoosh_deep_1.wav', -3)
+SF(53, .2, 'scratch_2.wav', -5); SF(53, .55, 'sci_ui_tick_1.wav', -4); SF(54, .1, 'real_splash_1.wav', -4); SF(54, .5, 'machine_paper_1.wav', -4); SF(54, .8, 'swoosh_deep_1.wav', -3)
 G('jig0')['keys'] += [K(L(55, .2), .9, 'soft', a=1, dissolve=1, slide=1, glow=0, hand=0, apart=0)]
 A_('jig0', 55, (.1, 1.4, {'future': .3}), (.3, 1.4, {'future': .6}), (.5, 1.4, {'future': .85}), (.7, 1.2, {'future': 1}), (.85, .6, {'glow': 1}))
 art('atl56', 'AtlasPage', L(56, .1), None, [], enter='focus', trace=0, ghost=0, tear=1, gap=1, q=0, x=1300, y=600, s=.62, z=12, xs='fade')

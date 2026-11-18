@@ -134,11 +134,11 @@ R('CLUE2', "Matching coasts, matching fossils. To Wegener, the torn newspaper re
 R('CLUE3', "But the experts were not convinced. Most geologists rejected the idea, and many of them mocked *it*.", 'F4',
   'swell', 'the newspaper', 'the lecture hall again: professors in rows laugh; the laughter rises like steam', 'Experts mocked him.', 'the laughing professors',
   [(0, 'the hall fills'), (1.4, 'the first laugh'), (2.6, 'the row laughs'), (3.8, 'steam rises from the laughter')],
-  'tense', 'wide', 'gaslight', 'whip', ['LectureHall'], 'mockery')
+  'tension', 'wide', 'gaslight', 'whip', ['LectureHall'], 'mockery')
 R('CLUE3', "Their question was simple, and it was a good one. What force could push a whole continent through the solid floor of the *ocean*?", 'F4',
   'form', 'the steam', 'the steam hardens into a stone wall of speech bubbles, each saying “impossible!”', 'No force could do it.', 'the stone bubbles',
   [(0, 'the steam forms bubbles'), (1.4, '“impossible!”'), (2.8, 'another'), (4.0, 'they turn to stone'), (5.2, 'they stack into a wall')],
-  'tense', 'close', 'cold gaslight', 'push', ['LectureHall'], 'stone-wall', sp=2)
+  'tension', 'close', 'cold gaslight', 'push', ['LectureHall'], 'stone-wall', sp=2)
 R('CLUE3', "Wegener had no good answer. It sounded like claiming a ship could sail straight through rock. His idea began to *sink*.", 'F4',
   'empty-out', 'the stone wall', 'a toy ship tries to sail into a block of rock and crumples; the map behind it sinks out of sight', 'He had no answer.', 'the ship against the rock',
   [(0, 'a ship sails at the rock'), (1.4, 'it bumps'), (2.6, 'its bow crumples'), (3.8, 'it sinks'), (5.0, 'bubbles rise')],
@@ -150,7 +150,7 @@ R('CLUE3', "He didn’t give up. He kept improving his book, and he kept going b
 R('CLUE3', "In 1930 he led an expedition onto the ice cap, hauling supplies to a camp in the middle of Greenland through storms of terrible *cold*.", 'F5',
   'blow', 'the sledge', 'a blizzard rolls across: Wegener and a companion push on beside the sledge, heads down', 'The 1930 expedition.', 'the two men in the storm',
   [(0, 'wind picks up'), (1.4, 'snow streaks'), (2.8, 'the two men lean into it'), (4.2, 'the dogs pull'), (5.6, 'the camp flag far ahead')],
-  'tense', 'wide', 'white blizzard', 'handheld', ['GreenlandIce'], 'blizzard', sp=2, stock=['P-01', 'R-01'])
+  'tension', 'wide', 'white blizzard', 'handheld', ['GreenlandIce'], 'blizzard', sp=2, stock=['P-01', 'R-01'])
 R('CLUE3', "In November, on the way back from that camp, he never arrived. His body was found the next year, under the *snow*.", 'F5',
   'dim', 'the storm', 'a small tent in the blizzard; inside, a lamp; snow piles up; the lamp gutters and goes out', 'He died on the ice.', 'the tent lamp',
   [(0, 'the tent in the snow'), (1.6, 'the lamp glows'), (3.0, 'snow drifts up'), (4.4, 'the lamp flickers'), (5.6, 'it goes out')],
@@ -233,7 +233,7 @@ R('ANSWER', "Wegener was right that the continents move. He was wrong only about
 R('ANSWER', "Where plates pull apart, new sea floor is born. Where they push together, one dives deep under the other, and the ground *shakes*.", 'F11',
   'dive', 'the globe', 'cross-section: one plate slides down under another into the hot mantle; earthquake stars flash along the edge', 'New floor at ridges; old floor dives at trenches.', 'the diving plate',
   [(0, 'two plates meet'), (1.4, 'one bends down'), (2.8, 'it slides under'), (4.2, 'quakes flash'), (5.4, 'a volcano puffs')],
-  'tense', 'close', 'red glow below', 'tilt-down', ['Trench'], 'trench')
+  'tension', 'close', 'red glow below', 'tilt-down', ['Trench'], 'trench')
 R('ANSWER', "Where two continents crash, the land crumples like a rug shoved against a wall. That is how the Himalaya were *born*.", 'F11',
   'wobble', 'the quake', 'a rug slides along a floor into a wall and wrinkles; the wrinkles become snowy Himalayan peaks', 'Mountains are wrinkles.', 'the rug wrinkling',
   [(0, 'a rug slides'), (1.4, 'it hits a wall'), (2.6, 'it wrinkles'), (3.8, 'the wrinkles turn to peaks'), (5.0, 'snow on the peaks')],
