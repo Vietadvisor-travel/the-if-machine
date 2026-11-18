@@ -21,7 +21,10 @@ def R(sec, text, src, how, frm, to, reads, focus, acts, mood, shot, light, cam, 
     X = {'reads': reads, 'focus': focus, 'becomes': {'from': frm, 'to': to, 'how': how}, 'acts': [list(a) for a in acts], 'mood': mood, 'shot': shot, 'light': light}
     if sp: X['setpiece'] = sp
     if motif: X['motif'] = motif
-    ROWS.append((sec, text, src, INS[(i * 7) % len(INS)], how, cam, COMPS[(i * 3) % len(COMPS)], ['dust'], set_, list(new), list(stock), to[0].upper() + to[1:] + '.', beats, X))
+    CAMV = {'crane-up': 'crane', 'crane-down': 'crane', 'pan-l': 'pan', 'pan-r': 'pan', 'tilt-down': 'tilt-up', 'arc': 'orbit', 'dolly': 'push', 'track': 'ride',
+            'lock': 'hold', 'handheld': 'tremble', 'snap-zoom': 'push', 'dutch': 'roll'}
+    LIFE = ['sway', 'breathe', 'flicker', 'bob', 'particles', 'ripple']
+    ROWS.append((sec, text, src, INS[(i * 7) % len(INS)], how, CAMV.get(cam, cam), COMPS[(i * 3) % len(COMPS)], [LIFE[i % 6]], set_, list(new), list(stock), to[0].upper() + to[1:] + '.', beats, X))
 
 # ======================================================================== COLD — the jigsaw and the torn atlas (set piece 1)
 R('COLD', "Take two pieces of a jigsaw puzzle. If their edges fit perfectly, you know at once that they were cut from the same *picture*.", '-',

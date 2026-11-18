@@ -95,7 +95,7 @@
     "cam": "push",
     "comp": "centre-large",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "Jigsaw"
@@ -162,10 +162,10 @@
    "plan": {
     "in": "rise",
     "trans": "outline-morph",
-    "cam": "pan-r",
+    "cam": "pan",
     "comp": "left-third-medium",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "AtlasPage"
@@ -229,10 +229,10 @@
    "plan": {
     "in": "flip",
     "trans": "slide-in",
-    "cam": "arc",
+    "cam": "orbit",
     "comp": "two-figures",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "AtlasPage"
@@ -290,10 +290,10 @@
    "plan": {
     "in": "grow",
     "trans": "tear",
-    "cam": "dolly",
+    "cam": "push",
     "comp": "wide-sky",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "AtlasPage"
@@ -356,10 +356,10 @@
    "plan": {
     "in": "blinds",
     "trans": "dive",
-    "cam": "crane-down",
+    "cam": "crane",
     "comp": "centre-medium",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "MeadowRock"
@@ -424,10 +424,10 @@
    "plan": {
     "in": "focus",
     "trans": "split",
-    "cam": "pan-l",
+    "cam": "pan",
     "comp": "wide-landscape",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "FourClues"
@@ -494,10 +494,10 @@
    "plan": {
     "in": "iris",
     "trans": "time-lapse",
-    "cam": "lock",
+    "cam": "hold",
     "comp": "diagonal",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "MeadowRock"
@@ -564,10 +564,10 @@
    "plan": {
     "in": "burn",
     "trans": "dim",
-    "cam": "tilt-down",
+    "cam": "tilt-up",
     "comp": "right-third-large",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "MeadowRock"
@@ -626,7 +626,7 @@
     "cam": "tilt-up",
     "comp": "tiny-in-vast",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "MapLeaves"
@@ -684,10 +684,10 @@
    "plan": {
     "in": "stamp",
     "trans": "hand-over",
-    "cam": "crane-up",
+    "cam": "crane",
     "comp": "right-third-medium",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "GreenlandIce",
@@ -756,7 +756,7 @@
     "cam": "dive",
     "comp": "centre-large",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "Balloon",
@@ -822,7 +822,7 @@
     "cam": "push",
     "comp": "left-third-medium",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "TornNews",
@@ -887,10 +887,10 @@
    "plan": {
     "in": "tear-in",
     "trans": "travel-line",
-    "cam": "track",
+    "cam": "ride",
     "comp": "two-figures",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "TornNews"
@@ -960,10 +960,10 @@
    "plan": {
     "in": "wipe",
     "trans": "shrink-into",
-    "cam": "pan-l",
+    "cam": "pan",
     "comp": "wide-sky",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "StudyDesk"
@@ -1026,7 +1026,7 @@
     "cam": "orbit",
     "comp": "centre-medium",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "LectureHall"
@@ -1094,10 +1094,10 @@
    "plan": {
     "in": "ink-bleed",
     "trans": "crane-in",
-    "cam": "snap-zoom",
+    "cam": "push",
     "comp": "wide-landscape",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "QuiltPangaea"
@@ -1156,10 +1156,10 @@
    "plan": {
     "in": "assemble",
     "trans": "form",
-    "cam": "crane-up",
+    "cam": "crane",
     "comp": "diagonal",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "QuiltPangaea"
@@ -1220,10 +1220,10 @@
    "plan": {
     "in": "ink-on",
     "trans": "walk-in",
-    "cam": "track",
+    "cam": "ride",
     "comp": "right-third-large",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "Mesosaurus",
@@ -1301,7 +1301,7 @@
     "cam": "pull",
     "comp": "tiny-in-vast",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "FossilMap"
@@ -1363,10 +1363,10 @@
    "plan": {
     "in": "flip",
     "trans": "ripple-through",
-    "cam": "handheld",
+    "cam": "tremble",
     "comp": "right-third-medium",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "FossilMap",
@@ -1429,10 +1429,10 @@
    "plan": {
     "in": "grow",
     "trans": "merge",
-    "cam": "pan-r",
+    "cam": "pan",
     "comp": "centre-large",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "FossilMap",
@@ -1495,10 +1495,10 @@
    "plan": {
     "in": "blinds",
     "trans": "fly-out",
-    "cam": "pan-l",
+    "cam": "pan",
     "comp": "left-third-medium",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "Fern",
@@ -1573,10 +1573,10 @@
    "plan": {
     "in": "focus",
     "trans": "settle",
-    "cam": "crane-down",
+    "cam": "crane",
     "comp": "two-figures",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "FernIce"
@@ -1634,10 +1634,10 @@
    "plan": {
     "in": "iris",
     "trans": "open",
-    "cam": "dutch",
+    "cam": "roll",
     "comp": "wide-sky",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "FernIce"
@@ -1700,7 +1700,7 @@
     "cam": "rack",
     "comp": "centre-medium",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "TornNews",
@@ -1759,7 +1759,7 @@
     "cam": "whip",
     "comp": "wide-landscape",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "LectureHall"
@@ -1821,7 +1821,7 @@
     "cam": "push",
     "comp": "diagonal",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "LectureHall"
@@ -1889,10 +1889,10 @@
    "plan": {
     "in": "slide",
     "trans": "empty-out",
-    "cam": "tilt-down",
+    "cam": "tilt-up",
     "comp": "right-third-large",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "RockShip"
@@ -1954,10 +1954,10 @@
    "plan": {
     "in": "unroll",
     "trans": "page-turn",
-    "cam": "pan-r",
+    "cam": "pan",
     "comp": "tiny-in-vast",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "GreenlandIce"
@@ -2021,10 +2021,10 @@
    "plan": {
     "in": "tear-in",
     "trans": "blow",
-    "cam": "handheld",
+    "cam": "tremble",
     "comp": "right-third-medium",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "GreenlandIce"
@@ -2103,7 +2103,7 @@
     "cam": "push",
     "comp": "centre-large",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "GreenlandTent"
@@ -2167,10 +2167,10 @@
    "plan": {
     "in": "quill",
     "trans": "blur",
-    "cam": "lock",
+    "cam": "hold",
     "comp": "left-third-medium",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "GreenlandTent"
@@ -2228,10 +2228,10 @@
    "plan": {
     "in": "ink-bleed",
     "trans": "crane-down",
-    "cam": "crane-down",
+    "cam": "crane",
     "comp": "two-figures",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "GreenlandTent",
@@ -2298,7 +2298,7 @@
     "cam": "pull",
     "comp": "wide-sky",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "SeaChart"
@@ -2370,10 +2370,10 @@
    "plan": {
     "in": "ink-on",
     "trans": "glide",
-    "cam": "track",
+    "cam": "ride",
     "comp": "centre-medium",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "SurveyShip"
@@ -2439,7 +2439,7 @@
     "cam": "push",
     "comp": "wide-landscape",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "SurveyShip"
@@ -2501,10 +2501,10 @@
    "plan": {
     "in": "flip",
     "trans": "trace-to",
-    "cam": "tilt-down",
+    "cam": "tilt-up",
     "comp": "diagonal",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "PenRecorder"
@@ -2572,10 +2572,10 @@
    "plan": {
     "in": "grow",
     "trans": "band",
-    "cam": "crane-up",
+    "cam": "crane",
     "comp": "right-third-large",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "StripeFloor"
@@ -2642,7 +2642,7 @@
     "cam": "orbit",
     "comp": "tiny-in-vast",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "StripeFloor",
@@ -2706,10 +2706,10 @@
    "plan": {
     "in": "focus",
     "trans": "blink",
-    "cam": "lock",
+    "cam": "hold",
     "comp": "right-third-medium",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "StripeFloor"
@@ -2771,10 +2771,10 @@
    "plan": {
     "in": "iris",
     "trans": "fold",
-    "cam": "dolly",
+    "cam": "push",
     "comp": "centre-large",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "StripeFloor"
@@ -2835,10 +2835,10 @@
    "plan": {
     "in": "burn",
     "trans": "wing",
-    "cam": "arc",
+    "cam": "orbit",
     "comp": "left-third-medium",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "StripeFloor"
@@ -2901,7 +2901,7 @@
     "cam": "push",
     "comp": "two-figures",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "Cambridge"
@@ -2965,10 +2965,10 @@
    "plan": {
     "in": "stamp",
     "trans": "turn",
-    "cam": "snap-zoom",
+    "cam": "push",
     "comp": "wide-sky",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "Compass"
@@ -3030,10 +3030,10 @@
    "plan": {
     "in": "slide",
     "trans": "rise-from",
-    "cam": "crane-up",
+    "cam": "crane",
     "comp": "centre-medium",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "RidgeTape"
@@ -3101,10 +3101,10 @@
    "plan": {
     "in": "unroll",
     "trans": "stream",
-    "cam": "pan-r",
+    "cam": "pan",
     "comp": "wide-landscape",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "RidgeTape"
@@ -3174,7 +3174,7 @@
     "cam": "pull",
     "comp": "diagonal",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "RidgeTape"
@@ -3245,10 +3245,10 @@
    "plan": {
     "in": "wipe",
     "trans": "stream-through",
-    "cam": "track",
+    "cam": "ride",
     "comp": "right-third-large",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "RidgeTape"
@@ -3320,10 +3320,10 @@
    "plan": {
     "in": "quill",
     "trans": "cut-open",
-    "cam": "arc",
+    "cam": "orbit",
     "comp": "tiny-in-vast",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "PlateGlobe"
@@ -3390,10 +3390,10 @@
    "plan": {
     "in": "ink-bleed",
     "trans": "dive",
-    "cam": "tilt-down",
+    "cam": "tilt-up",
     "comp": "right-third-medium",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "Trench"
@@ -3456,10 +3456,10 @@
    "plan": {
     "in": "assemble",
     "trans": "wobble",
-    "cam": "crane-up",
+    "cam": "crane",
     "comp": "centre-large",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "RugHimalaya"
@@ -3522,10 +3522,10 @@
    "plan": {
     "in": "ink-on",
     "trans": "scale-out",
-    "cam": "crane-up",
+    "cam": "crane",
     "comp": "left-third-medium",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "AtlanticOpen"
@@ -3591,7 +3591,7 @@
     "cam": "rack",
     "comp": "two-figures",
     "life": [
-     "dust"
+     "particles"
     ],
     "new": [
      "GPSMarker"
@@ -3662,7 +3662,7 @@
     "cam": "push",
     "comp": "wide-sky",
     "life": [
-     "dust"
+     "ripple"
     ],
     "new": [
      "NailAtlantic"
@@ -3720,7 +3720,7 @@
     "cam": "pull",
     "comp": "centre-medium",
     "life": [
-     "dust"
+     "sway"
     ],
     "new": [
      "NailAtlantic",
@@ -3787,7 +3787,7 @@
     "cam": "orbit",
     "comp": "wide-landscape",
     "life": [
-     "dust"
+     "breathe"
     ],
     "new": [
      "Jigsaw"
@@ -3855,10 +3855,10 @@
    "plan": {
     "in": "focus",
     "trans": "echo",
-    "cam": "pan-l",
+    "cam": "pan",
     "comp": "diagonal",
     "life": [
-     "dust"
+     "flicker"
     ],
     "new": [
      "AtlasPage",
@@ -3925,10 +3925,10 @@
    "plan": {
     "in": "iris",
     "trans": "dissolve",
-    "cam": "crane-up",
+    "cam": "crane",
     "comp": "right-third-large",
     "life": [
-     "dust"
+     "bob"
     ],
     "new": [
      "Jigsaw"
