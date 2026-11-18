@@ -58,7 +58,7 @@ G('ml8')['keys'] += gone2(L(9, .3), 'right', 1.0)
 SF(8, .1, 'transition_whoosh_airy_1.wav', -2); SF(8, .42, 'impact_wood_3.wav', -3); SF(8, .8, 'swoosh_thin_2.wav', -2)
 
 # ---------------------------------------------------------------- CLUE 1 — the torn page · Wegener lets a balloon go over Greenland
-art('gi9', 'GreenlandIce', L(9), None, [], enter='wipe', eo='up', snow=0, sledge=0, flag=0, **C, z=4, xs='down')
+art('gi9', 'GreenlandIce', L(9), None, [], enter='wipe', eo='up', snow=0, sledge=0, flag=0, cast=[[820, 960, 520]], **C, z=4, xs='down')
 person('weg9', 'Alfred Wegener, meteorologist, Greenland (1910s)', L(9, .6), None, [], x=820, y=960, h=520, facing=1, pose='stand', pose2='raise', pk=0, expr='focus', ek=0, look=[.3, -1], nod=-18, **WEGA, z=14)
 A_('weg9', 9, (.15, {'pk': 1}), (.42, .5, {'pose2': 'reach', 'pk': .3}), (.55, {'pk': 1, 'expr': 'smile', 'ek': 1}), (.78, {'pose2': 'look', 'pk': 1}))
 art('bal9', 'Balloon', L(9, .4), None, [], enter='bleed', rise=0, bg=0, x=980, y=560, s=1, z=16, xs='up')
