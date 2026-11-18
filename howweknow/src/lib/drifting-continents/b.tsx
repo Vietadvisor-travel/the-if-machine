@@ -1017,7 +1017,7 @@ const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N
   const far: { d: N; el: React.ReactNode }[] = [], near: { d: N; el: React.ReactNode }[] = [];
   for (let j = 0; j < NV; j++) { const v0 = vS(j), v1 = vS(j + 1), Z0 = Zv(v0), Z1 = Zv(v1), keepRug = 1 - cl((v0 - .1) * 8);
     for (let i = 0; i < NU; i++) { const u0 = i / NU, u1 = (i + 1) / NU, h00 = H(u0, v0), h10 = H(u1, v0), h01 = H(u0, v1), h11 = H(u1, v1);
-      const X0 = Xu(u0), X1 = Xu(u1), ax = X1 - X0, ay = (h10 - h00) * 2.4, by = (h01 - h00) * 2.4, bz = Z1 - Z0;   // slopes exaggerated for the shading let nx = ay * bz, ny = -ax * bz, nz = ax * by; if (ny < 0) { nx = -nx; ny = -ny; nz = -nz; }
+      const X0 = Xu(u0), X1 = Xu(u1), ax = X1 - X0, ay = (h10 - h00) * 2.4, by = (h01 - h00) * 2.4, bz = Z1 - Z0; /* slopes exaggerated for the shading */ let nx = ay * bz, ny = -ax * bz, nz = ax * by; if (ny < 0) { nx = -nx; ny = -ny; nz = -nz; }
       const nl = Math.hypot(nx, ny, nz) || 1, lit0 = Math.max(0, (nx * Lx + ny * Ly + nz * Lz) / nl), hm = (h00 + h10 + h01 + h11) / 4, sh = shadowAt((X0 + X1) / 2, hm, (Z0 + Z1) / 2), lit = lit0 * (1 - .6 * sh);
       const um = (u0 + u1) / 2, vm = (v0 + v1) / 2, rel = hm / Hm, dv = v1 - v0;
       const base = mix(mix(rugPat(u0 + .25 / NU, v0 + .25 * dv), rugPat(u0 + .75 / NU, v0 + .75 * dv), .5), mix(rugPat(u0 + .75 / NU, v0 + .25 * dv), rugPat(u0 + .25 / NU, v0 + .75 * dv), .5), .5);
