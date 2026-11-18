@@ -9,9 +9,9 @@
    "dur": 7.224,
    "sfx": [
     {
-     "at": 4.4,
+     "at": 0.4,
      "file": "public/sfx/animal_dino_roar_3.wav",
-     "db": -30
+     "db": -32
     }
    ]
   },
@@ -29,7 +29,12 @@
    "dur": 7.848,
    "sfx": [
     {
-     "at": 1.6,
+     "at": 1.9,
+     "file": "public/sfx/impact_bass_drop_1.wav",
+     "db": -22
+    },
+    {
+     "at": 2.2,
      "file": "public/sfx/motion_whoosh_deep_1.wav",
      "db": -24
     }
@@ -40,13 +45,7 @@
    "text": "Nobody was there to see it. Nobody wrote it down. And yet today we can say what happened, and where.",
    "start": 27.176,
    "dur": 6.452,
-   "sfx": [
-    {
-     "at": 3.4,
-     "file": "public/sfx/real_wind_3.wav",
-     "db": -32
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 4,
@@ -60,7 +59,28 @@
    "text": "This is the story of how we found out: from a line in the rock, a pinch of clay, a scratched grain of sand\u2026 and a report that nobody read.",
    "start": 48.994,
    "dur": 9.102,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.2,
+     "file": "public/sfx/impact_wood_1.wav",
+     "db": -26
+    },
+    {
+     "at": 2.6,
+     "file": "public/sfx/impact_glass_1.wav",
+     "db": -28
+    },
+    {
+     "at": 4.0,
+     "file": "public/sfx/impact_soft_1.wav",
+     "db": -28
+    },
+    {
+     "at": 5.4,
+     "file": "public/sfx/impact_cardboard_1.wav",
+     "db": -28
+    }
+   ]
   },
   {
    "i": 6,
@@ -69,9 +89,19 @@
    "dur": 8.333,
    "sfx": [
     {
-     "at": 1.4,
+     "at": 1.0,
      "file": "public/sfx/foley_page_turn_1.wav",
      "db": -26
+    },
+    {
+     "at": 4.4,
+     "file": "public/sfx/impact_soft_2.wav",
+     "db": -28
+    },
+    {
+     "at": 5.8,
+     "file": "public/sfx/amb_thunder_roll_1.wav",
+     "db": -32
     }
    ]
   },
@@ -80,14 +110,36 @@
    "text": "None of these ideas could be tested. Was it a slow fade, or a sudden blow? The rocks did not seem to hold any answer.",
    "start": 67.829,
    "dur": 7.723,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 2.6,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -26
+    },
+    {
+     "at": 3.8,
+     "file": "public/sfx/machine_paper_1.wav",
+     "db": -28
+    }
+   ]
   },
   {
    "i": 8,
    "text": "Bones can tell you how big an animal was, and what it ate. But they cannot tell you how fast it died. For that, you need a clock.",
    "start": 76.252,
    "dur": 8.533,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.2,
+     "file": "public/sfx/amb_ocean_wave_1.wav",
+     "db": -32
+    },
+    {
+     "at": 4.4,
+     "file": "public/sfx/clack_key_1.wav",
+     "db": -26
+    }
+   ]
   },
   {
    "i": 9,
@@ -96,9 +148,9 @@
    "dur": 1.87,
    "sfx": [
     {
-     "at": 0.2,
+     "at": 1.2,
      "file": "public/sfx/impact_stone_1.wav",
-     "db": -24
+     "db": -20
     }
    ]
   },
@@ -107,20 +159,25 @@
    "text": "The geologist Walter Alvarez was studying the rock layers of a gorge near Gubbio, in Italy, reading the history of an ancient sea floor.",
    "start": 88.855,
    "dur": 9.503,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 4.4,
+     "file": "public/sfx/impact_stone_2.wav",
+     "db": -24
+    },
+    {
+     "at": 5.8,
+     "file": "public/sfx/impact_stone_3.wav",
+     "db": -24
+    }
+   ]
   },
   {
    "i": 11,
    "text": "The rock there is like a book lying on its side. Each layer is a page, and every page is a slice of time.",
    "start": 99.058,
    "dur": 7.22,
-   "sfx": [
-    {
-     "at": 1.6,
-     "file": "public/sfx/foley_book_close_1.wav",
-     "db": -26
-    }
-   ]
+   "sfx": []
   },
   {
    "i": 12,
@@ -145,7 +202,12 @@
     {
      "at": 0.2,
      "file": "public/sfx/transition_page_turn_2.wav",
-     "db": -24
+     "db": -22
+    },
+    {
+     "at": 2.6,
+     "file": "public/sfx/clang_metal_2.wav",
+     "db": -28
     }
    ]
   },
@@ -168,7 +230,13 @@
    "text": "Walter wanted to know one simple thing. How long had that centimetre taken to form? A year? A thousand years?",
    "start": 150.876,
    "dur": 7.613,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 2.2,
+     "file": "public/sfx/foley_book_close_1.wav",
+     "db": -30
+    }
+   ]
   },
   {
    "i": 18,
@@ -205,7 +273,7 @@
    "dur": 4.591,
    "sfx": [
     {
-     "at": 1.0,
+     "at": 0.3,
      "file": "public/sfx/clack_toggle_1.wav",
      "db": -24
     }
@@ -218,8 +286,13 @@
    "dur": 5.844,
    "sfx": [
     {
-     "at": 3.6,
+     "at": 1.6,
      "file": "public/sfx/impact_metal_2.wav",
+     "db": -22
+    },
+    {
+     "at": 2.6,
+     "file": "public/sfx/impact_metal_1.wav",
      "db": -24
     }
    ]
@@ -242,14 +315,26 @@
    "text": "It was as if a century of dust had fallen on a shelf in a single afternoon.",
    "start": 211.141,
    "dur": 4.8,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.3,
+     "file": "public/sfx/rewind_1.wav",
+     "db": -28
+    }
+   ]
   },
   {
    "i": 26,
    "text": "On the Earth's surface, iridium is rare. But some rocks that fall from space are rich in it.",
    "start": 216.641,
    "dur": 6.146,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.4,
+     "file": "public/sfx/machine_ratchet_engine_1.wav",
+     "db": -30
+    }
+   ]
   },
   {
    "i": 27,
@@ -270,7 +355,13 @@
    "text": "Clue three: scars in the sand.",
    "start": 242.235,
    "dur": 2.012,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.2,
+     "file": "public/sfx/clack_key_2.wav",
+     "db": -26
+    }
+   ]
   },
   {
    "i": 30,
@@ -286,7 +377,7 @@
    "dur": 4.792,
    "sfx": [
     {
-     "at": 0.4,
+     "at": 0.2,
      "file": "public/sfx/motion_whoosh_long_1.wav",
      "db": -28
     }
@@ -304,7 +395,13 @@
    "text": "Quartz is one of the toughest minerals on Earth. Ordinary forces barely mark it. Only a tremendous shock can.",
    "start": 269.23,
    "dur": 7.439,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.4,
+     "file": "public/sfx/sweep_riser_2s_1.wav",
+     "db": -28
+    }
+   ]
   },
   {
    "i": 34,
@@ -313,9 +410,9 @@
    "dur": 5.179,
    "sfx": [
     {
-     "at": 2.2,
+     "at": 1.8,
      "file": "public/sfx/real_glass_break_1.wav",
-     "db": -22
+     "db": -20
     }
    ]
   },
@@ -354,7 +451,7 @@
    "dur": 14.822,
    "sfx": [
     {
-     "at": 1.2,
+     "at": 0.8,
      "file": "public/sfx/impact_soft_engine_1.wav",
      "db": -30
     }
@@ -365,7 +462,13 @@
    "text": "They were looking for oil, deep beneath the jungle. Instead, they found something far older and far stranger.",
    "start": 327.287,
    "dur": 7.277,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 1.4,
+     "file": "public/sfx/cue_reveal_1.wav",
+     "db": -28
+    }
+   ]
   },
   {
    "i": 41,
@@ -402,9 +505,9 @@
    "dur": 8.872,
    "sfx": [
     {
-     "at": 1.6,
+     "at": 3.4,
      "file": "public/sfx/real_wind_4.wav",
-     "db": -30
+     "db": -28
     }
    ]
   },
@@ -413,7 +516,13 @@
    "text": "He tracked down old drill cores that the oil company had pulled up from deep inside the ring years before, and stored away.",
    "start": 372.198,
    "dur": 7.762,
-   "sfx": []
+   "sfx": [
+    {
+     "at": 0.6,
+     "file": "public/sfx/impact_woodheavy_1.wav",
+     "db": -26
+    }
+   ]
   },
   {
    "i": 47,
@@ -429,7 +538,7 @@
    "dur": 6.456,
    "sfx": [
     {
-     "at": 2.0,
+     "at": 1.6,
      "file": "public/sfx/impact_wood_2.wav",
      "db": -22
     }
@@ -449,7 +558,7 @@
    "dur": 8.476,
    "sfx": [
     {
-     "at": 0.4,
+     "at": 0.2,
      "file": "public/sfx/cue_twist_1.wav",
      "db": -26
     }
@@ -476,12 +585,12 @@
    "dur": 7.488,
    "sfx": [
     {
-     "at": 0.4,
+     "at": 0.2,
      "file": "public/sfx/transition_riser_2s_2.wav",
      "db": -26
     },
     {
-     "at": 3.0,
+     "at": 2.6,
      "file": "public/sfx/impact_bass_drop_2.wav",
      "db": -18
     }
@@ -508,8 +617,13 @@
    "dur": 8.217,
    "sfx": [
     {
-     "at": 4.0,
+     "at": 3.4,
      "file": "public/sfx/clang_metal_1.wav",
+     "db": -26
+    },
+    {
+     "at": 5.8,
+     "file": "public/sfx/clang_metal_2.wav",
      "db": -26
     }
    ]
@@ -542,7 +656,7 @@
    "dur": 4.962,
    "sfx": [
     {
-     "at": 2.4,
+     "at": 2.2,
      "file": "public/sfx/amb_forest_dawn_1.wav",
      "db": -28
     }

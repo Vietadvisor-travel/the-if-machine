@@ -121,6 +121,34 @@ same kind twice running. Demo of the new ones: `episodes/fx-reel` (`out/fx-reel_
 | `stream-through` | a flow of particles runs through the old picture and the new one is seen by what it does to the flow (straight through a pudding, flung round a nucleus) | `stream` {paths, n, k, every, speed} — beads with tails on computed paths (empty-atom, 2026-11) |
 Combine freely (a `swarm` that lands inside a `shape-window`); invent new ones — add the row here first.
 
+| `crane-in` | the camera comes down through the set onto the subject | camera move `crane-down` + the subject acting as we arrive (dinosaur-killer L0) |
+| `walk-in` | a figure walks into the frame and starts the scene | Person / creature `walk` cycles + `x` in ≤ 3-s strides |
+| `rise-from` | a thing rises out of the last picture (out of water, out of the page) | `rise` / `fx_y` from below inside the old scene |
+| `drop` | it falls and lands as the next thing (the watch lands as a stone) | `fx_y` from above, `in` ease, a shake on landing |
+| `unfold` | a closed thing opens into the next scene (the cliff opens like a book) | the drawing's own `open` prop |
+| `blink-out` | the things of a scene go out one by one | the drawing's `blink` / count prop in steps |
+| `glide` | the next thing slides in by hand, physically (a hand onto the clay) | `enter='glide'` with `eo` offset |
+| `flip` | the object turns over and becomes the next state (the hourglass) | `turn` / `flipY` on the object |
+| `slide-in` | a drawer, a tray, a sample slides into place | the drawing's slide prop (`drawer`) or `fx_x` |
+| `time-lapse` | time runs fast on screen (a clock spins, days and nights sweep) | `tick` / `day` props in steps |
+| `cut-open` | a saw or blade opens the object and shows its inside | the drawing's `cut` prop with the blade at the edge |
+| `swell` | a small thing swells into the big thing it stands for | `enter='scale'` from the small thing's point |
+| `focus-pull` | a blurred field sharpens into the subject | drawing `sharp` / `blur` → 0 |
+| `search` | a lens sweeps a world and finds nothing | `look` steps + question marks |
+| `tear` | the old picture is torn away to reveal the next | `enter='tear'` / exit `tearout` |
+| `fly-over` | we fly over a place with a craft whose course becomes the next drawing | plane `fx_x` strides + `trail` |
+| `x-ray` | the surface turns transparent and shows what is buried | the drawing's `ring` / reveal prop in steps |
+| `empty-out` | a full place empties, one by one | the drawing's `empty` prop in steps |
+| `blow-away` | dust, leaves, ash are blown off to reveal | `blow` prop + particles |
+| `scale-out` | from a place on the ground up to the size of a region | `s` of the map shrinks while the overlay grows |
+| `turn-head` | a figure or skull turns toward the next scene | `head` / `look` |
+| `settle` | moving things come to rest and form the next shape | ring / plume settling props |
+| `spread` | a cloud spreads over a globe and becomes a layer | `dust` → `band` on the world drawing |
+| `snap` | a chain breaks link by link | `snap` steps |
+| `land-on` | a bird or a hand lands on the last object, making the next picture | flight keys `fx_x/fx_y` + `wing` beats + `hop` |
+| `assemble` | parts come together into the whole (bones, relics) | the drawing's `build` / `n` in steps |
+| `fly-out` | the subject flies out of the scene into the next sky | flight strides + `wing` beats |
+
 ## I. ENGINE v6 (owner 17 Nov 2026) — light, depth, lens, life (ENGINE.md "ENGINE v6")
 | name | what you see | use it when the line… |
 |---|---|---|

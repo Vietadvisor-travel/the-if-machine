@@ -384,7 +384,9 @@ const IridiumMeter: React.FC<{ x?: N; y?: N; s?: N; draw?: N; v?: N; roof?: N; d
   const tip: Pt = [cx + Math.cos(ar) * R * .9, cy + Math.sin(ar) * R * .9];
   return <g opacity={draw}>
     {room > 0 && <g opacity={room}><SR d={rect(X(-1100), Y(-700), 2200 * s, 1400 * s)} mat="stone" t={.3} draw={draw} sw={0} hatch={0} rim={false} />
-      {Array.from({ length: 6 }, (_, i) => <rect key={i} x={X(-900 + i * 340)} y={Y(-660)} width={220 * s} height={18 * s} fill="#FFFDF4" opacity={.8} />)}
+      {[-700, -350, 0, 350, 700].map((k, i) => <g key={i}><Line d={`M${X(k)} ${Y(-700)} V${Y(-560)}`} w={2} /><path d={`M${X(k - 50)} ${Y(-520)} Q${X(k)} ${Y(-575)} ${X(k + 50)} ${Y(-520)}Z`} fill="#5F8A5A" stroke={SEP} strokeWidth={1.2} /><circle cx={X(k)} cy={Y(-515)} r={9 * s} fill="#FFF4D2" /></g>)}
+      {roof > 0 && <g opacity={cl(roof * 3)}><rect x={X(-1100)} y={Y(-2400)} width={2200 * s} height={1700 * s} fill="#141C38" />{Array.from({ length: 60 }, (_, i) => <circle key={i} cx={X(-1000 + rnd(i) * 2000)} cy={Y(-2300 + rnd(i + 7) * 1550)} r={1 + rnd(i + 3) * 1.8} fill="#FFF4D2" />)}
+        <path d={`M${X(-1100)} ${Y(-700)} L${X(1100)} ${Y(-700)}`} stroke="#3A2418" strokeWidth={30 * s} strokeDasharray={`${60 * s} ${8 * s}`} /></g>}
       <SR d={rect(X(-1100), Y(320), 2200 * s, 400 * s)} mat="stone" t={.45} draw={draw} sw={1} hatch={0} /></g>}
     <Floor x={x} y={Y(330)} rx={420 * s} ry={24 * s} a={.35} />
     <SR d={rr(X(-380), Y(-380), 760 * s, 710 * s, 14 * s)} mat="stone" t={.55} ang={0} draw={draw} sw={1.8} />
@@ -456,7 +458,7 @@ const Asteroid: React.FC<{ x?: N; y?: N; r?: N; draw?: N; rot?: N; glow?: N; tra
         <path d={`M${cx - cr} ${cy} A${cr} ${cr * .8} 0 0 1 ${cx + cr} ${cy}`} stroke="#EFE0C2" strokeWidth={2} fill="none" opacity={.7} /></g>; })}
       <Stipple x={x - r} y={y - r} w={2 * r} h={2 * r} n={500} seed="ast" a={.35} />
     </g>
-    {glow > 0 && <path d={d} fill="none" stroke="#F7E3A0" strokeWidth={6} opacity={glow} />}
+    {glow > 0 && <path d={d} fill="none" stroke="#F7E3A0" strokeWidth={6} opacity={glow} transform={`rotate(${rot} ${x} ${y})`} />}
   </g>;
 };
 
