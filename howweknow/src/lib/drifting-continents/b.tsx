@@ -929,43 +929,59 @@ const Trench: React.FC<{ x?: N; y?: N; s?: N; draw?: N; dive?: N; quakes?: N; pu
   </g>;
 };
 
-// ================================================================ 13. RUG → HIMALAYA — a patterned oriental rug on a wooden floor, pushed into a wall; its folds become snowy peaks
-// push 0..1 slides it into the wall and wrinkles it; peaks 0..1 turns the folds into the Himalaya (same silhouette).
-const FOLDS: [N, N, N][] = [[.5, 70, .035], [.58, 120, .03], [.65, 95, .028], [.71, 175, .03], [.77, 140, .026], [.83, 230, .03], [.89, 175, .025], [.94, 110, .022]];   // u, height, width
+// ================================================================ 13. RUG → HIMALAYA — a low camera on a wooden floor: a big patterned rug fills the frame, its far edge
+// against the skirting board; sunlight from a window at the left rakes across it. push 0..1 shoves it into the wall: it rucks up into folds
+// parallel to the wall; peaks 0..1 the folds become the Himalaya — sharp snowy ridges, rank behind rank, filling the frame width, the wall a sky.
+const RUGF: [N, N, N][] = [[.94, 1, .03], [.85, .82, .036], [.75, .66, .04], [.64, .5, .044], [.53, .34, .046]];   // v (0 near … 1 at the wall), height, width
 const RugHimalaya: React.FC<{ x?: N; y?: N; s?: N; draw?: N; push?: N; peaks?: N; tm?: N }> = ({ x = 960, y = 540, s = 1, draw = 1, push = 0, peaks = 0 }) => {
-  const id = 'rug' + Math.round(x), pk = sst(peaks), xR = Math.min(1560, 1420 + push * 470), xL = 220 + push * 620, comp = cl((1200 - (xR - xL)) / 480);
-  const h = (u: N) => FOLDS.reduce((a, [uc, H, w]) => { const sm2 = Math.exp(-(((u - uc) / w) ** 2)), sh = Math.max(0, 1 - Math.abs(u - uc) / (w * 2.2)) ** 1.15; return a + H * lerp(sm2, sh, pk); }, 0) * comp * (1 + pk * 1.5);
-  const hmax = 230 * (1 + pk * 1.5) * comp || 1;
-  const col = (u: N, v: N) => { const e = Math.min(u, 1 - u) * 6.5, bord = Math.min(v, 1 - v);
-    if (bord < .1 || e < .08) return '#22305E'; if (bord < .15 || e < .14) return GOLD; const md = Math.abs(u - .5) / .16 + Math.abs(v - .5) / .3; return md < .55 ? '#E2C98A' : md < 1 ? '#22305E' : '#A8432A'; };
-  const NU = 110, VS = [0, .1, .15, .32, .5, .68, .85, .9, 1];
-  const P = (u: N, v: N): Pt => { const xx = lerp(xL, xR, u) + v * 70, yy = lerp(880, 712, v) - h(u); return [xx, yy]; };
+  const id = 'rug' + Math.round(x), pk = sst(peaks), F = 1500, HY = 150, CH = 300, ZW = 1700, LR = 1260, comp = sst(push);
+  const P = (X: N, Y: N, Z: N): Pt => [960 + X * F / Z, HY + (CH - Y) * F / Z];
+  const ZE = ZW - LR * (1 - .32 * comp), Zv = (v: N) => lerp(ZE, ZW, v), Xu = (u: N) => lerp(-1300, 1300, u) * (1 + pk * .75);
+  const mtn = (u: N, j: N) => { let m = 0; for (let q = 0; q < 9; q++) { const c = rnd(j * 17 + q * 3.1), w = .05 + .07 * rnd(j * 5 + q), hh = .55 + .45 * rnd(j * 11 + q * 7);
+      m = Math.max(m, hh * Math.max(0, 1 - Math.abs(u - c) / w) ** 1.15); } return .25 + .75 * m + .05 * Math.sin(u * 90 + j); };
+  const H = (u: N, v: N) => RUGF.reduce((a, [c, hf, w], j) => { const ww = w * (1 + pk * 1.6), sm2 = Math.exp(-(((v - c) / ww) ** 2)), sh = Math.max(0, 1 - Math.abs(v - c) / (ww * 2)) ** 1.2;
+    return a + hf * lerp(sm2, sh, pk) * lerp(.86 + .14 * Math.sin(u * 7 + j * 2), mtn(u, j), pk); }, 0) * comp * 300 * (1 + pk * .5);
+  const rugCol = (u: N, v: N) => { const e = Math.min(u, 1 - u), b2 = Math.min(v, 1 - v) * 2.1;
+    if (e < .035 || b2 < .07) return '#6E2A20'; if (e < .05 || b2 < .1) return '#C9A266'; if (e < .085 || b2 < .17) return (Math.floor(u * 60 + v * 30) % 2) ? '#3E4E6A' : '#6E2A20';
+    const md = Math.abs(u - .5) / .2 + Math.abs(v - .5) / .32; return md < .3 ? '#3E4E6A' : md < .55 ? '#C9A266' : md < .62 ? '#3E4E6A' : (Math.abs(u - .5) > .3 && Math.abs(v - .5) > .26) ? '#C9A266' : '#94503C'; };
+  const NU = 84, NV = 64, Lx = -.62, Ly = .7, Lz = -.36, HAZE = '#C9D8E0';
   const quads: React.ReactNode[] = [];
-  for (let i = 0; i < NU; i++) { const u0 = i / NU, u1 = (i + 1) / NU, dh = (h(u1) - h(u0)) * NU / 400, lit = cl(.5 + dh * .6);
-    for (let j = 0; j < VS.length - 1; j++) { const v0 = VS[j], v1 = VS[j + 1], um = (u0 + u1) / 2, vm = (v0 + v1) / 2, hh = h(um) / hmax;
-      const rugC = col(um, vm), mount = hh > .4 - .08 * Math.sin(um * 47 + vm * 9) ? '#F4F7F8' : hh > .16 ? mix('#7E8590', '#5A6070', vm) : mix('#A99A6E', '#8A7A5A', hh / .16), base = mix(rugC, mount, pk);
-      quads.push(<path key={i + '_' + j} d={pathOf([P(u0, v0), P(u1, v0), P(u1, v1), P(u0, v1)], true)} fill={mix(mix(base, '#2B1D12', (1 - lit) * .55), '#FFF8E6', lit * .25)} stroke={mix(base, '#2B1D12', .2)} strokeWidth={.6} />); } }
-  const front = 'M' + Array.from({ length: NU + 1 }, (_, i) => { const p = P(i / NU, 0); return `${f1(p[0])} ${f1(p[1])}`; }).join(' L');
+  for (let j = NV - 1; j >= 0; j--) { const v0 = j / NV, v1 = (j + 1) / NV, Z0 = Zv(v0), Z1 = Zv(v1);
+    for (let i = 0; i < NU; i++) { const u0 = i / NU, u1 = (i + 1) / NU, h00 = H(u0, v0), h10 = H(u1, v0), h01 = H(u0, v1), h11 = H(u1, v1);
+      const X0 = Xu(u0), X1 = Xu(u1), ax = X1 - X0, ay = h10 - h00, by = h01 - h00, bz = Z1 - Z0; let nx = ay * bz, ny = -ax * bz, nz = ax * by; if (ny < 0) { nx = -nx; ny = -ny; nz = -nz; }
+      const nl = Math.hypot(nx, ny, nz) || 1, lit = Math.max(0, (nx * Lx + ny * Ly + nz * Lz) / nl), hm = (h00 + h10 + h01 + h11) / 4, um = (u0 + u1) / 2, vm = (v0 + v1) / 2;
+      const rel = hm / (300 * (1 + .5 * pk)), rock = rel > .5 + .07 * Math.sin(um * 31 + vm * 7) - lit * .08 ? mix('#E6EDF2', '#FFFFFF', lit) : rel > .2 ? mix('#3E424C', '#A2A6AC', lit) : mix('#5E6A4A', '#A49A6E', lit);
+      const rugC = mix(mix(rugCol(um, vm), '#1E140E', (1 - lit) * .62), '#FFF2D8', Math.max(0, lit - .6) * .45);
+      const c = mix(rugC, mix(rock, HAZE, .6 * Math.pow(cl((vm - .45) / .55), 1.4)), pk);
+      quads.push(<path key={j + '_' + i} d={pathOf([P(X0, h00, Z0), P(X1, h10, Z0), P(X1, h11, Z1), P(X0, h01, Z1)], true)} fill={c} stroke={c} strokeWidth={.7} />); } }
+  const front = Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), H(i / NU, 0), ZE)), back = Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), H(i / NU, 1), ZW));
+  const ridgeLines = RUGF.map(([c], j) => Array.from({ length: NU + 1 }, (_, i) => P(Xu(i / NU), H(i / NU, c), Zv(c))));
+  const yW = P(0, 0, ZW)[1], ySk = P(0, 80, ZW)[1];
   return <g transform={TR(x, y, s)}>
-    <defs>{grad(id + 'sky', [[0, '#7FA8C4'], [1, '#E6EEF0']])}</defs>
-    {/* the room: wallpaper and skirting; it fades into a sky as the rug becomes mountains */}
-    <rect x={-100} y={-100} width={2120} height={700} fill="#E6D3A6" opacity={ph(draw, 0, .5)} />
-    {Array.from({ length: 22 }, (_, i) => <path key={i} d={`M${-80 + i * 96} -100 V600`} stroke="#C7A57A" strokeWidth={14} opacity={.35 * ph(draw, .2, .8)} />)}
-    <rect x={-100} y={-100} width={2120} height={700} fill={`url(#${id}sky)`} opacity={pk} />
-    <RG d="M-100 600 H2020 V1180 H-100Z" mat="wood" t={.4} draw={draw} sw={0} rim={false} a={1 - pk * .7} />
-    {Array.from({ length: 9 }, (_, i) => <path key={'p' + i} d={`M-100 ${600 + i * i * 7 + i * 14} H2020`} stroke="#4F3020" strokeWidth={1.4} opacity={.5 * (1 - pk)} />)}
-    {Array.from({ length: 16 }, (_, i) => <path key={'q' + i} d={`M${960 + (i - 8) * 60} 600 L${960 + (i - 8) * 260} 1100`} stroke="#4F3020" strokeWidth={1} opacity={.3 * (1 - pk)} />)}
-    <rect x={-100} y={600} width={2120} height={580} fill="#B7A57E" opacity={pk * .85} />
-    <rect x={-100} y={586} width={2120} height={16} fill="#8C5A36" opacity={1 - pk} />
-    {/* the wall the rug is pushed into */}
-    <g opacity={1 - pk}><RG d="M1435 1180 L1677 600 L1677 -100 L2020 -100 L2020 1180Z" color="#C9B48A" draw={draw} sw={2} />
-      <path d="M1435 1180 L1677 600" stroke="#6A4430" strokeWidth={14} fill="none" /><path d="M1677 600 V-100" stroke={SEP} strokeWidth={2} /></g>
-    {/* the rug (or the range) */}
+    <defs>{grad(id + 'sky', [[0, '#6E9CC0'], [.6, '#B9D0DE'], [1, '#EEF2EE']])}{grad(id + 'wall', [[0, '#D9C8A0'], [1, '#EADBB6']], false)}</defs>
+    {/* the room: wallpaper, a patch of window light, the skirting board, the floorboards */}
+    <g opacity={ph(draw, 0, .5)}>
+      <rect x={-100} y={-100} width={2120} height={yW + 100} fill={`url(#${id}wall)`} />
+      {Array.from({ length: 24 }, (_, i) => <path key={i} d={`M${-80 + i * 92} -100 V${f1(yW)}`} stroke="#B89A6E" strokeWidth={10} opacity={.28} />)}
+      {Array.from({ length: 24 }, (_, i) => Array.from({ length: 6 }, (_, j2) => <path key={i + '_' + j2} d={`M${-34 + i * 92} ${30 + j2 * 90 + (i % 2) * 45} l8 -12 l8 12 l-8 12Z`} fill="#A8836A" opacity={.35} />))}
+      <path d={`M120 -100 L620 -100 L860 ${f1(yW)} L300 ${f1(yW)}Z`} fill="#FFF4D8" opacity={.38} />
+      <rect x={-100} y={f1(ySk)} width={2120} height={f1(yW - ySk)} fill="#8C5A36" stroke={SEP} strokeWidth={1.6} /><path d={`M-100 ${f1(ySk + 6)} H2020`} stroke="#C99A6A" strokeWidth={2} />
+      <rect x={-100} y={f1(yW)} width={2120} height={1200} fill="#9A6A42" />
+      {Array.from({ length: 30 }, (_, i) => { const X = (i - 15) * 220; return <path key={i} d={pathOf([P(X, 0, ZW), P(X, 0, 300)])} stroke="#4F3020" strokeWidth={1.4} opacity={.55} />; })}
+      {[0, 1, 2, 3, 4].map(i => <path key={'b' + i} d={pathOf([P(-4000, 0, ZW - i * 260), P(4000, 0, ZW - i * 260)])} stroke="#4F3020" strokeWidth={1} opacity={.35} />)}
+    </g>
+    {/* the sky and the valley floor arrive as the rug becomes a range */}
+    <rect x={-100} y={-100} width={2120} height={f1(yW + 100)} fill={`url(#${id}sky)`} opacity={pk} />
+    <rect x={-100} y={f1(ySk - 10)} width={2120} height={1200} fill="#9A9A7A" opacity={pk * .9} />
+    {/* the rug's shadow on the floor (window light from the left) */}
+    <path d={pathOf([...front, ...[...back].reverse()].map(p => [p[0] + 26, p[1] + 10] as Pt), true)} fill="#1E140E" opacity={.3 * (1 - pk)} filter="url(#b8)" />
     <g opacity={ph(draw, .2, .8)}>
-      <path d={front + ` L${f1(P(1, 0)[0])} ${f1(P(1, 0)[1] + 12)} L${f1(P(0, 0)[0])} ${f1(P(0, 0)[1] + 12)}Z`} fill={mix('#6A2A1C', '#4A4E58', pk)} />
       {quads}
-      <path d={front} stroke={SEP} strokeWidth={2} fill="none" />
-      {pk < .9 && Array.from({ length: 16 }, (_, i) => { const v = (i + .5) / 16, p = P(0, v); return <path key={'f' + i} d={`M${f1(p[0])} ${f1(p[1])} l-22 ${f1(4 + Math.sin(i) * 3)}`} stroke="#EFE2C6" strokeWidth={2.4} opacity={1 - pk} />; })}
+      {/* the folds' crests in ink, and the rug's edges */}
+      {ridgeLines.map((L2, j) => <path key={j} d={pathOf(L2)} stroke={SEP} strokeWidth={1.2 + pk * .6} fill="none" opacity={comp * .35 * (1 - pk)} />)}
+      <path d={pathOf(front)} stroke={SEP} strokeWidth={2} fill="none" opacity={1 - pk} />
+      <path d={pathOf(back)} stroke={SEP} strokeWidth={1.6} fill="none" opacity={1 - pk} />
+      {pk < .9 && front.map((p, i) => i % 2 ? null : <path key={'f' + i} d={`M${f1(p[0])} ${f1(p[1])} l${f1((p[0] - 960) * .02)} 26`} stroke="#EFE2C6" strokeWidth={3} opacity={1 - pk} strokeLinecap="round" />)}
     </g>
   </g>;
 };
