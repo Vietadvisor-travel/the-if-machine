@@ -14,13 +14,20 @@ reference for the mechanics, this file is the live checklist.
   delivery note), _cover.jpg, .srt. Verify with ffprobe (duration, 1920x1080)
   and that the .srt is readable.
 - Title: delivery note option 1, unless the owner picks another option.
-- File size warning: the master is ~172 MB. If the browser file grant rejects it,
-  try browser direct-download from the Drive share link first; fallback: re-encode
-  CRF 20 (YouTube) / CRF 28 (TikTok/IG/FB, ~50 MB) and use the re-encode.
+- File size rule (18/11, star-distance): masters now arrive at 5-600 MB. The browser
+  file grant rejects 176 MB and accepts 94 MB; Muse storage rejects 176 MB (HTTP 413)
+  and accepts 94 MB. Re-encode to ~90-100 MB (CRF 32, preset fast) and grant/upload
+  that file. NEVER tell the browser to download the master from Drive and upload it:
+  the cloud browser agent cannot open the native file picker for a downloaded
+  (ungranted) file (TikTok proved it 18/11). Downloads are done by command (pp_drive)
+  only; the browser only posts with granted files. The owner corrected this mid-post
+  (09:39): downloads by command, browser only for posting, open the cloud browser
+  visibly to post, no silent background work.
 
 ## 1. YouTube (cloud browser, Studio — signed in as fathomlinefilms)
 
-- Upload the master. Fill: title, description (template §A below + sources from
+- Upload the master (or the ~90-100 MB re-encode if the browser file grant rejects
+  the master). Fill: title, description (template §A below + sources from
   the research pack + music/stock credits from the delivery note + AI narration
   disclosure), tags: fathomline, how we know, [topic tags].
 - Category Education, language English, audience not made for kids: all already
@@ -44,14 +51,17 @@ reference for the mechanics, this file is the live checklist.
   Status 2026-11-16 11:20 (checked live): Standard Enabled, Intermediate Enabled
   (phone verification done — custom thumbnails work), Advanced Pending — the
   owner started it; check the result in Studio before pinning a comment.
+  Status 2026-11-18: Advanced ENABLED (checked live); the star-distance comment was
+  posted and pinned. The inside-earth and empty-atom comments are still unpinned.
 - First film only: after the video is public, flip "How We Know" to Public;
   enable the Home tab and set the film as the channel trailer
   (Customization > Layout).
 
 ## 2. TikTok (cloud browser, TikTok Studio — signed in as @fathomlinefilms)
 
-- File: the 16:9 master as-is. No vertical cut exists for FATHOM films (open
-  question §C). If the browser file grant rejects the file, re-encode CRF 28.
+- File: the 16:9 master as-is, or the ~90-100 MB re-encode if the browser file grant
+  rejects the master (grant rejects 176 MB, accepts 94 MB, measured 18/11). No vertical
+  cut exists for FATHOM films (open question §C).
 - Caption: hook (2-3 sentences) + hashtags #fathomline #howweknow #[topic].
   Max 1-2 emoji. No links (TikTok captions have none).
 - Cover: use the "Sửa ảnh bìa" (Edit cover) control at upload; upload the vertical
