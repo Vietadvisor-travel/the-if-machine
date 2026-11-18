@@ -1,4 +1,4 @@
-# Publish — Bên trong Trái Đất có gì (inside-earth) · Fathomline · first film · 2026-11-16
+# Publish - Bên trong Trái Đất có gì (inside-earth) · Fathomline · first film · 2026-11-16
 
 Owner order: "đăng tập Bên trong Trái Đất có gì" (16/11/2026 19:29 +07).
 Posted film: **v2 remake** (Claude DELIVERED v2 16/11 10:23; v1 HELD by the owner 16/11 04:34, never posted).
@@ -8,9 +8,9 @@ six-cue score. Thumb/cover identical 1280x720 (md5 d94da112bdd16e963cf5b17268126
 SRT: inside-earth.srt, 12,068 bytes, last cue 00:09:15,460 (v2 SRT, matches 9:23).
 
 Title (all channels use the delivery option 1 title on YouTube; short captions elsewhere):
-"What Is Inside the Earth? Nobody Has Been There — Here's How We Know"
+"What Is Inside the Earth? Nobody Has Been There - Here's How We Know"
 
-## YouTube — PUBLISHED 16/11/2026 20:01 +07
+## YouTube - PUBLISHED 16/11/2026 20:01 +07
 - URL: https://www.youtube.com/watch?v=7fBtJMcFyzY (short: https://youtu.be/7fBtJMcFyzY)
 - Video ID: 7fBtJMcFyzY, channel Fathomline UChtJIYrqxnBAsVk0hk3ULiw (@fathomline-films)
 - Uploaded file: inside-earth_16x9_crf28.mp4 (60 MB CRF 28 re-encode of the 248 MB master).
@@ -31,7 +31,7 @@ Title (all channels use the delivery option 1 title on YouTube; short captions e
   only the video currently playing, so YouTube has no next video to offer. Unconfirmed.
   Re-check when the second film is added.
 - Pinned comment: comment POSTED as @Fathomline-films, exact text "We didn't go there.
-  Nobody did. So how do we know? What should we figure out next?" — verified while signed in.
+  Nobody did. So how do we know? What should we figure out next?" - verified while signed in.
   NOT pinned: Advanced features still Pending (checked 16/11 19:57 and 20:02; Standard +
   Intermediate Enabled). Pin it once Advanced enables; only the owner can finish ID verification.
 - Signed-out check: video plays (checked 0:19, 9:00, 9:05; total 9:22 shown), title, channel,
@@ -46,7 +46,7 @@ Title (all channels use the delivery option 1 title on YouTube; short captions e
   Nelson College after the 1929 Buller quake (PD). Verified: the music line shows correctly
   and "Ossuary" no longer appears anywhere on the watch page. Nothing else was changed.
 
-## TikTok — PUBLISHED 16/11/2026 ~20:21 +07
+## TikTok - PUBLISHED 16/11/2026 ~20:21 +07
 - URL: https://www.tiktok.com/@fathomlinefilms/video/7708758889503968520
 - Video ID: 7708758889503968520, account @fathomlinefilms
 - Uploaded file: the same 60 MB CRF 28 re-encode (granted to the cloud browser).
@@ -61,16 +61,16 @@ Title (all channels use the delivery option 1 title on YouTube; short captions e
   do not ask for it again.
 - Playlist "How We Know": NOT created. DROPPED per owner 16/11 21:06: no TikTok playlist
   for this account; do not ask for it again.
-- Auto-captions: NOT enabled — no control on TikTok web; player captions show "not available"
+- Auto-captions: NOT enabled - no control on TikTok web; player captions show "not available"
   / "speech not recognised". Phone-app job for the owner if he wants it.
-- Duet/Stitch: NOT available — TikTok states duet/stitch are unavailable for videos longer
+- Duet/Stitch: NOT available - TikTok states duet/stitch are unavailable for videos longer
   than 60 seconds; the film is 9:23. Platform limit, not an error.
 - Bot check: TikTok showed a rotate-slider verification while opening comments; the browser's
   automated attempts failed and the video page briefly 403'd. After the owner briefly took
   the browser (20:51-20:52, no recorded activity), the check cleared and the page loaded
   normally. Comment was then posted without a challenge.
 
-## Facebook — PUBLISHED 16/11/2026 19:42:07 +07
+## Facebook - PUBLISHED 16/11/2026 19:42:07 +07
 - Post URL: https://facebook.com/reel/1796991128268020/
 - Post ID: 122098950213553368, media ID: 1796991128268020
 - Posted via facebook-cli as the Fathomline Page (1409513838916477), file = 248 MB master.
@@ -79,7 +79,7 @@ Title (all channels use the delivery option 1 title on YouTube; short captions e
   5,400°C hot? #fathomline #howweknow #earth #science"
 - Verified via facebook-cli post read: owner Fathomline, caption exact, full video transcript present.
 
-## Instagram — PUBLISHED 16/11/2026 20:03:40 +07
+## Instagram - PUBLISHED 16/11/2026 20:03:40 +07
 - URL: https://www.instagram.com/reel/DfzaVGVjmpt/
 - Media ID: 17964350039996808, account @fathomlinefilms (17841435974347255)
 - Posted via Meta Graph API (ifm-graph.py ig-reel). Video URL: Muse storage link for the
