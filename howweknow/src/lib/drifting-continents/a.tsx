@@ -485,6 +485,7 @@ const FourClues: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, n = 4 }) 
       <Line d={`M${cx} ${cy - 96 * s} V${cy + 96 * s}`} w={2} col={VERM} a={.9} /></g>;
   };
   return <g opacity={draw}>
+    <defs><linearGradient id={id + 'sw'} x1="0" y1="0" x2="1" y2="1"><stop offset=".4" stopColor="#4F3020" stopOpacity={0} /><stop offset="1" stopColor="#4F3020" stopOpacity={.22} /></linearGradient></defs>
     <rect x={-200} y={-200} width={2320} height={1480} fill="#B98A50" />
     <SR d={rect(-200, -200, 2320, 1480)} mat="sand" t={.6} draw={draw} sw={0} hatch={0} rim={false} />
     <Stipple x={-200} y={-200} w={2320} h={1480} n={5200} seed="cork" col="#6A4430" a={.45} r0={.8} />
@@ -494,7 +495,9 @@ const FourClues: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, n = 4 }) 
       const tag = `M${cx - TW / 2} ${cy - TH / 2 + 40 * s} L${cx - TW / 2 + 40 * s} ${cy - TH / 2} H${cx + TW / 2 - 40 * s} L${cx + TW / 2} ${cy - TH / 2 + 40 * s} V${cy + TH / 2} H${cx - TW / 2}Z`;
       return <g key={i} opacity={cl(k * 3)} transform={`translate(0 ${dr}) rotate(${r + (1 - k) * 8} ${cx} ${cy - TH / 2})`}>
         <path d={tag} transform={`translate(${10 * s} ${14 * s})`} fill={SEP} opacity={.35} filter="url(#b8)" />
+        <path d={tag} transform={`translate(${3 * s} ${4 * s})`} fill="#1A120B" opacity={.45} filter="url(#b2s)" />
         <SR d={tag} mat="paper" t={.12} draw={draw} sw={1.6} hatch={0} />
+        <path d={tag} fill={`url(#${id}sw)`} />
         <path d={`M${cx - 120 * s} ${cy - 46 * s + 4 * s} H${cx + 120 * s}`} stroke={SEP} strokeWidth={.5} opacity={0} />
         <g transform={`translate(0 ${30 * s})`}>{art(i, cx, cy)}</g>
         <circle cx={cx} cy={cy - TH / 2 + 34 * s} r={14 * s} fill="#E0B878" stroke={SEP} strokeWidth={1} /><circle cx={cx} cy={cy - TH / 2 + 34 * s} r={6 * s} fill="#6A4430" />
@@ -563,6 +566,7 @@ const Husky: React.FC<{ X: N; Y: N; k: N; ph: N; id: string; col?: string; dark?
   const LJ = (P: Pt[], r0: N): Joint[] => P.map((p, i) => ({ p, up: (r0 - i * 1.6) * k, dn: (r0 - i * 1.6) * k }));
   const tail = sm([T([-50, -62 + bob]), T([-62, -80 + bob]), T([-56, -98 + bob]), T([-40, -96 + bob]), T([-36, -84 + bob])], false), hd = T([74, -90 + bob]);
   return <g>
+    <ellipse cx={X + 20 * k} cy={Y + 2 * k} rx={72 * k} ry={6 * k} fill="#3E5A78" opacity={.45} filter="url(#b2s)" />
     {legs.slice(2).map(([hx, fr, p], i) => <Skin key={'f' + i} id={id + 'lf' + i} J={LJ(leg(hx, fr, p), 6)} col={mix(c, '#2B1D12', .3)} hatch={.4} sw={1} per={5} rim={0} />)}
     <path d={tail} stroke={mix(c, '#2B1D12', .15)} strokeWidth={13 * k} fill="none" strokeLinecap="round" /><path d={tail} stroke={SEP} strokeWidth={1} fill="none" strokeDasharray="2 3" />
     {legs.slice(0, 2).map(([hx, fr, p], i) => <Skin key={'n' + i} id={id + 'ln' + i} J={LJ(leg(hx, fr, p), 6.5)} col={c} hatch={.3} sw={1.1} per={5} rim={.4} />)}
@@ -583,6 +587,7 @@ const Walker: React.FC<{ X: N; Y: N; k: N; ph: N; id: string; col?: string; arm?
   const armP = (p: N) => fk([4, -160 + bob], 90 + Math.sin(p * Math.PI * 2) * 24 - arm, [[30, 0], [28, -20 - arm * .3]]).map(T);
   const hd = T([8, -192 + bob]);
   return <g>
+    <ellipse cx={X + 6 * k} cy={Y + 2 * k} rx={44 * k} ry={6 * k} fill="#3E5A78" opacity={.5} filter="url(#b2s)" />
     <Skin id={id + 'l2'} J={LJ(leg(ph + .5), [10, 8, 6, 5])} col={mix(col, '#1A120B', .4)} hatch={.5} sw={1.2} per={5} rim={0} />
     <Skin id={id + 'a2'} J={LJ(armP(ph), [8, 7, 6])} col={mix(col, '#1A120B', .4)} hatch={.5} sw={1.1} per={5} rim={0} />
     <Skin id={id + 'l1'} J={LJ(leg(ph), [10.5, 8.5, 6.5, 5.5])} col={mix(col, '#1A120B', .15)} hatch={.4} sw={1.3} per={5} />
@@ -640,10 +645,11 @@ const GreenlandIce: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, snow =
       {[0, 1, 2].map(j => [0, 1].map(sd => <path key={j + '_' + sd} d={`M${GX + 20 * s} ${gy - 34 * s} L${GX + (110 + j * 120) * s} ${gy - (52 + (sd ? 0 : 14)) * s - (sd ? 0 : 10 * s)}`} stroke={SEP} strokeWidth={1} opacity={.7} />))}
       {[0, 1, 2].map(j => <Husky key={'d' + j} id={pre + 'df' + j} X={GX + (130 + j * 120) * s} Y={gy - 16 * s} k={.82 * s} ph={ph + j * .3 + .15} dark={.25} col="#8C877A" />)}
       {/* the sledge: long runners curled at the front, stanchions, a load lashed under canvas, the handlebar */}
-      <ellipse cx={GX - 110 * s} cy={gy + 4 * s} rx={170 * s} ry={10 * s} fill={SEP} opacity={.18} filter="url(#b2s)" />
+      <ellipse cx={GX - 110 * s} cy={gy + 3 * s} rx={170 * s} ry={8 * s} fill="#3E5A78" opacity={.5} filter="url(#b2s)" />
       <path d={`M${GX - 260 * s} ${gy} H${GX - 10 * s} Q${GX + 30 * s} ${gy} ${GX + 26 * s} ${gy - 34 * s}`} stroke="#4F3020" strokeWidth={6 * s} fill="none" strokeLinecap="round" />
       {[-240, -170, -100, -30].map(px => <line key={px} x1={GX + px * s} y1={gy} x2={GX + px * s} y2={gy - 40 * s} stroke="#4F3020" strokeWidth={4 * s} />)}
       <SR d={`M${GX - 250 * s} ${gy - 40 * s} L${GX - 236 * s} ${gy - 100 * s} Q${GX - 140 * s} ${gy - 122 * s} ${GX - 44 * s} ${gy - 96 * s} L${GX - 20 * s} ${gy - 40 * s}Z`} mat="cloth" t={.3} draw={draw} sw={1.4} />
+      <path d={`M${GX - 250 * s} ${gy - 40 * s} L${GX - 240 * s} ${gy - 84 * s} Q${GX - 150 * s} ${gy - 70 * s} ${GX - 20 * s} ${gy - 40 * s}Z`} fill="#4A5A6A" opacity={.3} />
       {[-200, -140, -80].map(px => <path key={px} d={`M${GX + px * s} ${gy - 40 * s} Q${GX + (px + 10) * s} ${gy - 80 * s} ${GX + (px + 4) * s} ${gy - 112 * s}`} stroke={SEP} strokeWidth={1.4} fill="none" />)}
       <path d={`M${GX - 258 * s} ${gy - 40 * s} L${GX - 280 * s} ${gy - 120 * s} M${GX - 272 * s} ${gy - 100 * s} L${GX - 250 * s} ${gy - 96 * s}`} stroke="#4F3020" strokeWidth={5 * s} strokeLinecap="round" />
       <Walker id={pre + 'w1'} X={GX - 330 * s} Y={gy + 4 * s} k={.86 * s} ph={ph * .55} col="#5A4632" arm={50} />
@@ -720,24 +726,31 @@ const StudyDesk: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, lamp = 1,
     <circle cx={X(-640)} cy={Y(-200)} r={900 * s} fill="url(#glowW)" opacity={.55 * lamp} />
     {/* loose papers with handwriting, the ink pot and pen */}
     {[[-700, 280, -14], [620, 330, 10], [700, -200, 6]].map(([px, py, r], i) => <g key={i} transform={`rotate(${r} ${X(px)} ${Y(py)})`}>
-      <rect x={X(px) - 150 * s + 6} y={Y(py) - 100 * s + 8} width={300 * s} height={200 * s} fill={SEP} opacity={.3} filter="url(#b2s)" />
+      <rect x={X(px) - 150 * s + 22} y={Y(py) - 100 * s + 14} width={300 * s} height={200 * s} fill={SEP} opacity={.25} filter="url(#b8)" />
+      <rect x={X(px) - 150 * s + 2} y={Y(py) - 100 * s + 3} width={300 * s} height={200 * s} fill="#1A120B" opacity={.45} filter="url(#b2s)" />
       <SR d={rect(X(px) - 150 * s, Y(py) - 100 * s, 300 * s, 200 * s)} mat="paper" t={.12} draw={draw} sw={1.1} hatch={0} />
       {Array.from({ length: 8 }, (_, j) => <path key={j} d={`M${X(px) - 130 * s} ${Y(py) - 78 * s + j * 21 * s} ${Array.from({ length: 10 }, (_, q) => `q${10 * s} ${(rnd(i * 50 + j * 9 + q) - .5) * 8 * s} ${24 * s} 0`).join(' ')}`} stroke={SEP} strokeWidth={1} fill="none" opacity={.55} />)}</g>)}
-    <g><ellipse cx={X(560)} cy={Y(-120)} rx={56 * s} ry={20 * s} fill={SEP} opacity={.3} filter="url(#b2s)" />
+    <g><path d={`M${X(520)} ${Y(-128)} L${X(720)} ${Y(-150)} Q${X(740)} ${Y(-128)} ${X(720)} ${Y(-108)} L${X(560)} ${Y(-112)}Z`} fill="#1A120B" opacity={.35} filter="url(#b8)" />
+      <ellipse cx={X(552)} cy={Y(-124)} rx={46 * s} ry={12 * s} fill="#1A120B" opacity={.5} filter="url(#b2s)" />
       <SR d={`M${X(510)} ${Y(-130)} L${X(518)} ${Y(-200)} Q${X(550)} ${Y(-214)} ${X(582)} ${Y(-200)} L${X(590)} ${Y(-130)} Q${X(550)} ${Y(-116)} ${X(510)} ${Y(-130)}Z`} mat="night" t={.7} draw={draw} sw={1.4} hatch={0} />
+      <path d={`M${X(556)} ${Y(-208)} Q${X(586)} ${Y(-200)} ${X(590)} ${Y(-130)} Q${X(570)} ${Y(-120)} ${X(552)} ${Y(-121)}Z`} fill="#0B1030" opacity={.4} />
       <ellipse cx={X(550)} cy={Y(-204)} rx={20 * s} ry={7 * s} fill="#1A120B" /><path d={`M${X(546)} ${Y(-206)} L${X(470)} ${Y(-380)}`} stroke="#4F3020" strokeWidth={4 * s} />
       <path d={`M${X(470)} ${Y(-380)} q${-30 * s} ${-40 * s} ${-10 * s} ${-90 * s} q${20 * s} ${40 * s} ${10 * s} ${90 * s}`} fill="#EFE2C6" stroke={SEP} strokeWidth={1} /></g>
     {/* the oil lamp: brass font, glass chimney, the flame */}
     <g><ellipse cx={X(-640)} cy={Y(-110)} rx={90 * s} ry={24 * s} fill={SEP} opacity={.35} filter="url(#b8)" />
       <SR d={`M${X(-710)} ${Y(-110)} Q${X(-640)} ${Y(-90)} ${X(-570)} ${Y(-110)} L${X(-600)} ${Y(-150)} L${X(-680)} ${Y(-150)}Z`} mat="brass" t={.5} draw={draw} sw={1.4} />
       <SR d={ell(X(-640), Y(-190), 62 * s, 46 * s)} mat="brass" t={.4} draw={draw} sw={1.4} />
+      <path d={`M${X(-640)} ${Y(-236)} A${62 * s} ${46 * s} 0 0 1 ${X(-640)} ${Y(-144)} Q${X(-600)} ${Y(-190)} ${X(-640)} ${Y(-236)}Z`} fill="#4F3020" opacity={.3} />
       <SR d={rect(X(-664), Y(-250), 48 * s, 26 * s)} mat="brass" t={.55} draw={draw} sw={1.2} />
       <path d={`M${X(-660)} ${Y(-250)} C${X(-690)} ${Y(-300)} ${X(-670)} ${Y(-330)} ${X(-656)} ${Y(-350)} V${Y(-430)} H${X(-624)} V${Y(-350)} C${X(-610)} ${Y(-330)} ${X(-590)} ${Y(-300)} ${X(-620)} ${Y(-250)}Z`} fill="#E8F0F0" fillOpacity={.35} stroke={SEP} strokeWidth={1.3} />
       <path d={`M${X(-640)} ${Y(-262)} q${-12 * s} ${-24 * s} 0 ${-56 * s - Math.sin(tm * 9) * 4 * s} q${12 * s} ${32 * s} 0 ${56 * s}`} fill="#F6CF7A" stroke="#E89A3E" strokeWidth={1} opacity={.4 + .6 * lamp} />
       <circle cx={X(-640)} cy={Y(-290)} r={120 * s} fill="url(#glowG)" opacity={lamp * (.8 + Math.sin(tm * 7) * .05)} />
       <path d={`M${X(-650)} ${Y(-340)} V${Y(-420)}`} stroke="#FFFFFF" strokeWidth={3 * s} opacity={.5} /></g>
     {/* the open atlas */}
+    <rect x={ax - AW / 2} y={ay - AH / 2 + 10 * s} width={AW + 70 * s} height={AH + 40 * s} rx={8 * s} fill="#1A120B" opacity={.35} filter="url(#b8)" />
+    <rect x={ax - AW / 2 - 22 * s} y={ay - AH / 2 - 14 * s} width={AW + 50 * s} height={AH + 38 * s} rx={8 * s} fill="#1A120B" opacity={.5} filter="url(#b2s)" />
     <rect x={ax - AW / 2 - 24 * s} y={ay - AH / 2 - 18 * s} width={AW + 48 * s} height={AH + 36 * s} rx={8 * s} fill="#3A4A3A" stroke={SEP} strokeWidth={1.4} />
+    <rect x={ax + 120 * s} y={ay - AH / 2} width={AW / 2 - 120 * s} height={AH} fill="url(#h1_45)" opacity={0} />
     <Floor x={ax} y={ay + AH / 2 + 22 * s} rx={AW * .55} ry={20 * s} a={.45} />
     <rect x={ax - AW / 2} y={ay - AH / 2} width={AW} height={AH} fill="#EFE0C2" stroke={SEP} strokeWidth={1.4} />
     <defs><clipPath id={id + 'a'}><rect x={ax - AW / 2 + 30 * s} y={ay - AH / 2 + 30 * s} width={AW - 60 * s} height={AH - 60 * s} /></clipPath><clipPath id={id + 'm'}><circle cx={mx} cy={my} r={mr} /></clipPath></defs>
@@ -745,6 +758,8 @@ const StudyDesk: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, lamp = 1,
     {[1, 2, 3, 4].map(i => <path key={i} d={`M${ax - i * 8 * s} ${ay - AH / 2} V${ay + AH / 2} M${ax + i * 8 * s} ${ay - AH / 2} V${ay + AH / 2}`} stroke={SEP} strokeWidth={6 * s} opacity={.06 * (5 - i)} />)}
     <path d={`M${ax} ${ay - AH / 2} V${ay + AH / 2}`} stroke={SEP} strokeWidth={1.2} opacity={.6} />
     <Stipple x={ax - AW / 2} y={ay - AH / 2} w={AW} h={AH} n={500} seed="sdfox" col="#8C5A36" a={.2} />
+    <defs><linearGradient id={id + 'aw'} x1="0" y1="0" x2="1" y2="0"><stop offset=".35" stopColor="#4F3020" stopOpacity={0} /><stop offset="1" stopColor="#4F3020" stopOpacity={.28} /></linearGradient></defs>
+    <rect x={ax - AW / 2} y={ay - AH / 2} width={AW} height={AH} fill={`url(#${id}aw)`} />
     {/* the magnifying glass: the map seen bigger through it */}
     {mag > 0 && <g>
       <ellipse cx={mx + 30 * s} cy={my + 40 * s} rx={mr} ry={mr * .9} fill={SEP} opacity={.25} filter="url(#b8)" />
@@ -1317,14 +1332,20 @@ const FernIce: React.FC<any> = ({ x = 960, y = 540, s = 1, draw = 1, snow = 0, f
       {sn > 0 && <g><path d={coverD} transform={`translate(0 ${-12 * s})`} fill="#B9D0DC" /><path d={coverD} fill="#FBFCFA" /><path d={coverTopD} stroke="#7FA8C4" strokeWidth={1.6} fill="none" />
         <path d={coverTopD} transform={`translate(0 ${16 * s})`} stroke="#B9D0DC" strokeWidth={10 * s} fill="none" opacity={.6} filter="url(#b2s)" />
         {Array.from({ length: 12 }, (_, i) => <path key={i} d={`M${X(-1100 + i * 170)} ${coverTop + (70 + rnd(i) * 160) * s} q${50 * s} ${-10 * s} ${110 * s} 0`} stroke="#B9C8D0" strokeWidth={1.4} fill="none" />)}</g>}
-      {/* the ghost of the living plant: a faint, translucent crown of tongue-leaves floating just above its fossil, dashed and glowing — no stem, no roots */}
-      {ghost > 0 && (() => { const g = ease(ghost), gx = X(-60), gy0 = Y(30) - (10 + Math.sin(tm * 1.6) * 6) * s * g, n = 9;
+      {/* the ghost of the living plant, floating above its fossil: a Glossopteris shoot — a short woody twig with a whorl of long tongue-shaped
+          leaves (narrow ovals, rounded tips, strong midribs, net veins) at its tip, some up, some drooping; pale, translucent, glowing */}
+      {ghost > 0 && (() => { const g = ease(ghost), bob = Math.sin(tm * 1.6) * 6 * s, tx = X(-20), ty = Y(-40) - bob, bx = X(-110), by = Y(110) - bob;
+        // leaves set in a loose spiral along the last part of the twig (not one fan): [position along twig 0..1, angle°, length, width]
+        const W: [N, N, N, N][] = [[.55, -175, 150, .3], [.62, 20, 140, .3], [.72, -150, 190, .3], [.8, -30, 180, .32], [.88, -125, 200, .3], [.94, -62, 190, .32], [1, -95, 170, .3]];
+        const at = (u: N): Pt => { const v = 1 - u; return [v * v * bx + 2 * v * u * (bx + 4 * s) + u * u * tx, v * v * by + 2 * v * u * ((by + ty) / 2) + u * u * ty]; };
+        const leaves = W.map(([u, a, L, w], i) => ({ p: at(u), a: a + Math.sin(tm * 1.1 + i) * 2, L: L * s * (.65 + .35 * g), w }));
         return <g opacity={g * (1 - frz)}>
-          <ellipse cx={gx} cy={gy0 - 60 * s} rx={300 * s} ry={170 * s} fill="url(#glowW)" opacity={.5} />
-          {Array.from({ length: n }, (_, i) => { const a = -165 + i * (150 / (n - 1)) + Math.sin(tm * 1.2 + i) * 3, L = (190 + (i % 2) * 60) * s * (.6 + .4 * g);
-            return <g key={i}><g opacity={.16}><GlossLeaf x={gx} y={gy0} L={L} a={a} col="#BFE0A0" vein="#BFE0A0" w={.3} /></g>
-              <g opacity={.85}><GlossLeaf x={gx} y={gy0} L={L} a={a} col="none" vein="#8FC07A" w={.3} vw={.8} /></g></g>; })}
-          <circle cx={gx} cy={gy0} r={8 * s} fill="#DCEFC8" opacity={.6} /></g>; })()}
+          <ellipse cx={tx} cy={ty - 40 * s} rx={300 * s} ry={190 * s} fill="url(#glowW)" opacity={.45} />
+          <path d={`M${bx} ${by} Q${bx + 4 * s} ${(by + ty) / 2} ${tx} ${ty}`} stroke="#D6DCC0" strokeWidth={12 * s} fill="none" strokeLinecap="round" opacity={.55} />
+          <path d={`M${bx} ${by} Q${bx + 4 * s} ${(by + ty) / 2} ${tx} ${ty}`} stroke="#8C9A70" strokeWidth={1.2} fill="none" strokeDasharray={`${6 * s} ${4 * s}`} opacity={.9} />
+          {leaves.map((l, i) => <g key={i}><g opacity={.32}><GlossLeaf x={l.p[0]} y={l.p[1]} L={l.L} a={l.a} col="#CFE8B4" vein="#CFE8B4" w={l.w} /></g>
+            <g opacity={.9}><GlossLeaf x={l.p[0]} y={l.p[1]} L={l.L} a={l.a} col="none" vein="#7FA86A" w={l.w} vw={1.4} /></g></g>)}
+          <circle cx={tx} cy={ty} r={7 * s} fill="#DCEFC8" opacity={.7} /></g>; })()}
     </g>
     {/* ---- the cold closing in, and the leaf sealed in a clear block of ice */}
     {cold > 0 && <rect x={-200} y={-200} width={2320} height={1480} fill="#5E8AA8" opacity={cold * .35} style={{ mixBlendMode: 'multiply' }} />}
