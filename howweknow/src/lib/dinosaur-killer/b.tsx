@@ -255,13 +255,14 @@ const ImpactRings: React.FC<{ x?: N; y?: N; draw?: N; flash?: N; ring?: N; plume
         {Array.from({ length: 36 }, (_, j) => { const an = j / 36 * Math.PI * 2; return <line key={j} x1={x + Math.cos(an) * rx * .96} y1={y + Math.sin(an) * ry * .96} x2={x + Math.cos(an) * rx * 1.03} y2={y + Math.sin(an) * ry * 1.03} stroke={SEP} strokeWidth={1} />; })}</g>; })}
     {/* the bowl */}
     {(ring > 0 || flash > 0) && <g><SR d={ell(x, y + 6, 90, 26)} mat="night" t={.85} draw={draw} sw={2} /><ellipse cx={x} cy={y + 2} rx={70} ry={18} fill="#D2643E" opacity={.6 * Math.max(flash, cl(1 - ring))} /></g>}
-    {/* the plume: engraved billows climbing */}
-    {plume > 0 && Array.from({ length: 16 }, (_, i) => { const u = i / 15, h = plume * (120 + u * 520), wob = Math.sin(i * 2.3) * 120 * u, r = (50 + u * 110) * (.4 + plume * .6);
-      return <SR key={i} d={ell(x + wob, y - h, r, r * .72)} mat={u < .3 ? 'red' : 'stone'} t={u < .3 ? .55 : .62 - u * .2} ang={30 + i * 15} draw={draw} sw={1.6} />; })}
-    {plume > 0 && Array.from({ length: 22 }, (_, i) => { const an = -Math.PI / 2 + (rnd(i) - .5) * 2.4, L2 = plume * (180 + rnd(i + 3) * 420); return <path key={'e' + i} d={`M${x} ${y} Q${x + Math.cos(an) * L2 * .5} ${y + Math.sin(an) * L2 * .8} ${x + Math.cos(an) * L2} ${y + Math.sin(an) * L2 * .6 + 80}`} stroke={i % 3 ? SEP : '#8C3424'} strokeWidth={1.4} fill="none" opacity={.75} />; })}
+    {/* the plume: a column of hatched billows that spreads into a mushroom cap; ejecta arcs fall back */}
+    {plume > 0 && Array.from({ length: 10 }, (_, i) => { const u = i / 9, h = plume * u * 460, r = (40 + u * 30) * (.5 + plume * .5);
+      return <SR key={'c' + i} d={ell(x + Math.sin(i * 1.9) * 18, y - h, r, r * .8)} mat={u < .25 ? 'red' : 'stone'} t={u < .25 ? .5 : .66} ang={40 + i * 20} draw={draw} sw={1.4} />; })}
+    {plume > .3 && Array.from({ length: 13 }, (_, i) => { const a2 = (i / 12 - .5) * Math.PI * .9, k = cl((plume - .3) / .7), cx = x + Math.sin(a2) * 300 * k, cy = y - 470 * plume - Math.cos(a2) * 70 * k, r = (60 + (i % 3) * 22) * k;
+      return <SR key={'m' + i} d={ell(cx, cy, r, r * .7)} mat="stone" t={.55 + (i % 3) * .06} ang={20 + i * 25} draw={draw} sw={1.6} />; })}
     {/* the flash: a cream disc ringed by engraved rays */}
-    {flash > 0 && <g opacity={flash}><circle cx={x} cy={y} r={60 + flash * 160} fill="#FBF4E2" stroke={SEP} strokeWidth={1.4} />
-      {Array.from({ length: 64 }, (_, i) => { const an = i / 64 * Math.PI * 2, r0 = 70 + flash * 170, r1 = r0 + 80 + (i % 3) * 90 * flash; return <line key={i} x1={x + Math.cos(an) * r0} y1={y + Math.sin(an) * r0 * .7} x2={x + Math.cos(an) * r1} y2={y + Math.sin(an) * r1 * .7} stroke={SEP} strokeWidth={i % 2 ? 1 : 2} />; })}</g>}
+    {flash > 0 && <g opacity={flash}><circle cx={x} cy={y} r={30 + flash * 60} fill="#FBF4E2" stroke={SEP} strokeWidth={1.4} />
+      {Array.from({ length: 64 }, (_, i) => { const an = i / 64 * Math.PI * 2, r0 = 40 + flash * 66, r1 = r0 + 40 + (i % 3) * 60 * flash; return <line key={i} x1={x + Math.cos(an) * r0} y1={y + Math.sin(an) * r0 * .7} x2={x + Math.cos(an) * r1} y2={y + Math.sin(an) * r1 * .7} stroke={SEP} strokeWidth={i % 2 ? 1 : 2} />; })}</g>}
     {dark > 0 && <rect x={-200} y={-200} width={2320} height={1480} fill="#1A120B" opacity={dark * .6} />}
   </g>;
 };

@@ -122,7 +122,7 @@ export const renderEntity = (e: Entity, s: Props, c: Ctx): React.ReactNode => {
     case 'text': {   // words IN the scene (no subtitles): title | plate | note | label | figure | stamp — kit/SceneText.tsx; to = leader-line anchor
       const [x, y] = s.space === 'world' ? toScreen(cam, s.x, s.y) : [s.x, s.y], to = s.to ? anchor(s.to, cam, S) : null;
       // v5: `num` (glides) + `fmt` ("{n} km", `dec` decimals) = a COUNTER — the number itself runs up while the thing it measures grows
-      const txt = s.num !== undefined ? String(s.fmt ?? '{n}').replace('{n}', Number(s.num).toLocaleString('en-US', { minimumFractionDigits: s.dec ?? 0, maximumFractionDigits: s.dec ?? 0 })) : s.text;
+      const txt = s.num !== undefined ? String(s.fmt ?? '{n}').replace('{n}', Number(s.num).toLocaleString('en-US', { minimumFractionDigits: s.dec ?? 0, maximumFractionDigits: s.dec ?? 0, useGrouping: s.sep !== false })) : s.text;
       return <AbsoluteFill style={{ pointerEvents: 'none' }}><SceneText {...(s as any)} text={txt} x={x} y={y} to={to as any} a={a} /></AbsoluteFill>;
     }
     case 'group': return <AbsoluteFill style={{ opacity: a }}>{kids(e, c)}</AbsoluteFill>;   // children share this entity's fx (move/flip/wipe a whole composition)

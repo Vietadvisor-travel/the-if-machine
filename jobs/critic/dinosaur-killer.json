@@ -1,0 +1,448 @@
+{
+ "keyframes": {
+  "by": "fresh agent (fathom-critic)",
+  "version": "v2",
+  "date": "2026-11-18",
+  "scores": {
+   "invention": 5,
+   "drawing": 3,
+   "light": 3,
+   "composition": 4,
+   "style": 4
+  },
+  "verdict": "NOT READY. The chain on paper has real ideas (eye-reflection, watch out of Duria, stone book, needle through the roof, plane inks the ring, sparrow on the skull), but the frames do not deliver them: drawing is flat vector clip-art, almost no named light, most transitions are screen overlays (burn blotches, cracked-glass) instead of the object's own physics, and the climax (impact, 12807) is a broken digital frame. A HUD 'CLUE n' badge sits on 15 of 24 frames. v1's complaint 'not cinematic, not creative' still stands; the title card is now centred (fixed).",
+  "frames": [
+   {
+    "frame": "element-00105.jpeg",
+    "scores": {
+     "invention": 5,
+     "drawing": 3,
+     "light": 4,
+     "composition": 4,
+     "style": 3
+    },
+    "fix": "The rex is a flat lime-green cut-out: the thigh is a separate pale lozenge pasted on the body, the jaw line breaks behind the teeth (gap at the mouth corner), a dark rectangle sits on the cheek, the legs are cut off by the frame bottom with no feet or shadow, the arm floats. Redraw on anatomy.tsx Skin with a real T. rex skeleton, cross-contour engraving, sepia ink + verdigris/ochre WASH (not saturated lime). Trees are stick icons — replace with engraved araucaria. Top 60 % of frame is empty gradient: crane-down should start in the fronds, not on empty sky. Lit by the low sun: put rim light on the back and a long shadow on the shore."
+   },
+   {
+    "frame": "element-00450.jpeg",
+    "scores": {
+     "invention": 6,
+     "drawing": 3,
+     "light": 4,
+     "composition": 5,
+     "style": 4
+    },
+    "fix": "The chain's invention (the point appears REFLECTED in the amber eye first, then racks to the sky) is not in the frame: we get a mid-wide with the point already ringed. Build the close-up on the eye (iris, wet highlight, the point in the pupil) and rack out. Jaw is open showing a white comb of teeth that float outside the lip line; tree is pasted in front of the snout. The red ring is a marker circle on the sky — fine as Mark, but the point needs a glow that lights the rex's face from above."
+   },
+   {
+    "frame": "element-00658.jpeg",
+    "scores": {
+     "invention": 5,
+     "drawing": 2,
+     "light": 3,
+     "composition": 3,
+     "style": 3
+    },
+    "fix": "The 'burn' is a soft noise mask: blurred brown holes with orange contour lines that do NOT follow the hole edges (offset by 20–60 px), and the rex breaks into green leaf fragments. It reads as a glitch, not paper burning from the flash point. Make the burn spread radially FROM the flash point, with a hard charred edge, glowing ember rim exactly on the edge, curling paper and ash flakes that become the bones in L3."
+   },
+   {
+    "frame": "element-00912.jpeg",
+    "scores": {
+     "invention": 6,
+     "drawing": 2,
+     "light": 2,
+     "composition": 4,
+     "style": 4
+    },
+    "fix": "Skeleton is cheap shapes: pelvis is a flat lozenge, femur/tibia are plain sticks, tail vertebrae are separate dots with gaps, skull is a box with three black ellipses. Trace a real T. rex mount (PD plate, trace.py/Traced): ilium, ischium, pubic boot, real fenestrae, serrated teeth. Mount rods end mid-air (x≈510, 1225) and a black line runs through the window — fix the armature. 'Moonlight pours in' is absent: add a cold shaft from the window across the plinth, the skeleton's shadow thrown on the wall. Upper half of frame is dead tan wall."
+   },
+   {
+    "frame": "element-01379.jpeg",
+    "scores": {
+     "invention": 4,
+     "drawing": 6,
+     "light": 4,
+     "composition": 7,
+     "style": 5
+    },
+    "fix": "Now centred — good. But the title is set in the italic caption face; titles are IM Fell English SC. The disc is grey-olive, not cream paper; the ground is near-black, not deep sepia. It arrives from the plinth iris in the chain — make the disc be that iris (the plinth/relics faintly seen round it) so the title is an object in the world, not a card."
+   },
+   {
+    "frame": "element-01938.jpeg",
+    "scores": {
+     "invention": 4,
+     "drawing": 3,
+     "light": 2,
+     "composition": 3,
+     "style": 5
+    },
+    "fix": "There is no book: a raw Hawkins plate stuck top-left against the frame edge and three Polaroid-like boxes floating on blank paper, bottom 45 % empty, a grey strip along the bottom edge (set does not cover the frame). The three 'plates' are clip-art — two green triangles, a green oval on four peg legs, a trapezoid volcano — next to a real 1853 engraving, which violates the §4b mixing rule. Draw (or etch) the three hypotheses as period engravings on the open pages of a lit book, and animate them as written (frost creeping, beast keeling over, eruption)."
+   },
+   {
+    "frame": "element-02441.jpeg",
+    "scores": {
+     "invention": 7,
+     "drawing": 5,
+     "light": 3,
+     "composition": 5,
+     "style": 4
+    },
+    "fix": "Good idea, wrong execution: the watch HAS hands (the line is 'no hands'); it is a crisp flat vector next to a soft scan at the same depth (§4b) and its chain is hooked to the pterosaur. Duria Antiquior is shown in photo grey, not cut to sepia ink; dark blotches in the sky. The vermilion handwriting 'no clock in a bone' is cut off by the bottom edge. Run the plate through etch.py, engrave the watch (hatch the case, cast its shadow on the water), let it rise out of the sea, keep the hands off the dial."
+   },
+   {
+    "frame": "element-02836.jpeg",
+    "scores": {
+     "invention": 4,
+     "drawing": 4,
+     "light": 3,
+     "composition": 3,
+     "style": 4
+    },
+    "fix": "The road is a flat navy slab with white highway dashes; the left 270 px is a mismatched grey/tan strip (set does not reach the frame edge); 'Gubbio, Italy ·-1…' is cut off at the right edge. The clay band is a thick saturated orange stripe ~60 px wide — it should be a hair-thin dark line in pale limestone (it is the governing image, 1 cm). Walter holds the hammer by its head with a stiff hand. Add noon sun: hard shadow under him and the bed edges. Remove the HUD 'CLUE 1' badge (see top fixes)."
+   },
+   {
+    "frame": "element-03101.jpeg",
+    "scores": {
+     "invention": 6,
+     "drawing": 3,
+     "light": 3,
+     "composition": 4,
+     "style": 5
+    },
+    "fix": "The 'stone book' reads as a pink ruled notebook with tiny circles; the right page is blank ruled paper. Lyell's section is cut off by the top edge and covered by the badge. Give the pages limestone texture (engraved stipple, bed edges with thickness), the band a thin dark clay line, and stage the book large with the section unrolling fully in frame; bottom 30 % is empty paper with a floating drop shadow."
+   },
+   {
+    "frame": "element-03540.jpeg",
+    "scores": {
+     "invention": 6,
+     "drawing": 4,
+     "light": 4,
+     "composition": 6,
+     "style": 5
+    },
+    "fix": "Forams are clusters of plain circles with radiating hairlines (that is a radiolarian, not a globigerinid). Draw true Globigerina/Heterohelix chambers with pore stipple and engraved shading; give the field a light source (under-lit glow, darker vignette at the rim). A ghost rectangle shows behind the lens (x 500–1430, y 790–910) and a caption is cut at the bottom edge."
+   },
+   {
+    "frame": "element-03886.jpeg",
+    "scores": {
+     "invention": 6,
+     "drawing": 5,
+     "light": 3,
+     "composition": 5,
+     "style": 5
+    },
+    "fix": "The ruler spans ~430 px of page but '≈ 1 cm' refers to the band — make the ruler's 1 cm marks bracket ONLY the band (close-up insert). The band now bends into a V across the gutter while beds above it don't — consistent geometry. The real photo P-01 is cool grey; tone it warm (STYLE §6) and let it be 'torn in' beside the band, not parked in the corner."
+   },
+   {
+    "frame": "element-05040.jpeg",
+    "scores": {
+     "invention": 3,
+     "drawing": 3,
+     "light": 5,
+     "composition": 3,
+     "style": 5
+    },
+    "fix": "Both men stand IN FRONT of the desk's front panel with their feet on it — there is no floor; the desk is a huge wall-to-wall counter. Walter walks with clenched empty fists while Luis already holds the phial: the handover (the acting beat) is missed. Figures are stiff; no expression (Luis should frown at the phial). The lamp is a flat green trapezoid with no glowing bulb. Re-block: floor plane, desk at mid-depth, Walter's hand passing the phial into Luis's hand in a close insert, lamp light on both faces."
+   },
+   {
+    "frame": "element-06035.jpeg",
+    "scores": {
+     "invention": 5,
+     "drawing": 5,
+     "light": 3,
+     "composition": 4,
+     "style": 5
+    },
+    "fix": "Layering errors: the gold bezel overlaps the blue knobs (they vanish under it at x≈660 and 1190); a stray green lamp-shade sliver sits at the top edge; the 'FAR TOO MUCH' stamp is cut off at the right and stamped across the table, not on the meter or the printout. Pull back so the whole instrument and stamp fit; engrave the dial plate; light it from the lamp above."
+   },
+   {
+    "frame": "element-06262.jpeg",
+    "scores": {
+     "invention": 7,
+     "drawing": 3,
+     "light": 2,
+     "composition": 4,
+     "style": 4
+    },
+    "fix": "Strong idea, cheapest execution: five identical green dome lamps evenly spaced (copy-paste), the 'roof' is a row of dark rectangles, no tiles part. The needle becomes a thin straight red line to the top edge with no star at its tip (the rhyme with L1 is lost). Show the roof breaking (tiles lifting, the line of the needle punching through), end on the star; give the lamps pools of light and vary them."
+   },
+   {
+    "frame": "element-07167.jpeg",
+    "scores": {
+     "invention": 4,
+     "drawing": 2,
+     "light": 2,
+     "composition": 3,
+     "style": 3
+    },
+    "fix": "The 'shadow' is a hard dark translucent rectangle over the left 820 px — a split screen, not a cast shadow. Everest is a flat triangle with a zigzag; the asteroid is a polygon with a crisp yellow outline and overlapping-ellipse craters inside a blue/orange airbrush halo (digital, off-palette). No climber. Draw an engraved Everest (trace a PD survey plate), an engraved tumbling rock lit from one side, and let its real shadow fall over the mountain."
+   },
+   {
+    "frame": "element-08233.jpeg",
+    "scores": {
+     "invention": 5,
+     "drawing": 4,
+     "light": 5,
+     "composition": 6,
+     "style": 4
+    },
+    "fix": "Shock lamellae are drawn as a regular triangular grid over the whole grain (reads as a waffle fill); real PDFs are sets of parallel lines in 1–3 directions, each set in part of the grain. The pressure arrows sit outside the eyepiece, on the wall. Background is nearly #000 (night must be sepia-black). A stray white stroke at the grain's left edge."
+   },
+   {
+    "frame": "element-08398.jpeg",
+    "scores": {
+     "invention": 4,
+     "drawing": 3,
+     "light": 3,
+     "composition": 3,
+     "style": 3
+    },
+    "fix": "The 'shatter' is a cracked-glass overlay across the whole screen — eyepiece ring, background, badge all crack, while the grain under it is intact. The chain says the GRAIN shatters and shards fly. Break the grain itself into lit shards that fly out of the field (and land as cliffs on the globe, L35)."
+   },
+   {
+    "frame": "element-09530.jpeg",
+    "scores": {
+     "invention": 3,
+     "drawing": 2,
+     "light": 2,
+     "composition": 2,
+     "style": 2
+    },
+    "fix": "Flat saturated green and blue fields, no jungle (only tiny bump marks), a 3×3 grid of cream squares as the village, the plane cut off at the right edge, a grey paper strip down the left edge. Catherwood's 1844 Yucatán engraving (L36) is missing entirely. Build the coast as an engraved map/landscape in house washes (indigo sea with engraved wave lines, verdigris jungle with stipple canopy), bring the plane fully in."
+   },
+   {
+    "frame": "element-09993.jpeg",
+    "scores": {
+     "invention": 7,
+     "drawing": 3,
+     "light": 2,
+     "composition": 5,
+     "style": 3
+    },
+    "fix": "The idea (the plane's course inks the ring) is good, but the plane is a glider-shaped silhouette with a drag-stick tail, the 'ink' is blue beads, and the background is the same flat green/blue. Make the course a sepia dotted survey line that becomes contour ink; engrave the plane (a real 1970s survey aircraft, traced); the hand note in vermilion on open sea has no surface to live on."
+   },
+   {
+    "frame": "element-10579.jpeg",
+    "scores": {
+     "invention": 6,
+     "drawing": 2,
+     "light": 3,
+     "composition": 4,
+     "style": 3
+    },
+    "fix": "Audience is rows of identical blob heads (navy/brown circles on shoulder shapes) — clip-art. The vermilion half-ring spills OFF the projector screen onto the wall below it. Screen top touches the frame edge and is covered by the badge. Projector beam barely visible. Draw a real lecture hall (perspective rows, seat backs with depth), back-lit heads in the beam, and empty them one by one in a lit composition."
+   },
+   {
+    "frame": "element-12049.jpeg",
+    "scores": {
+     "invention": 5,
+     "drawing": 2,
+     "light": 2,
+     "composition": 4,
+     "style": 3
+    },
+    "fix": "The 'circle closes' is a wobbly open arc (gap at top, not round), the land is a green rectangle floating on blue with a hard left edge, '≈ 180 km' is struck through by its own scale bar. The real ring M-01 (gravity map) is absent. Close a true circle centred on Chicxulub, pin the real gravity map beside it, set the label clear of the bar."
+   },
+   {
+    "frame": "element-12807.jpeg",
+    "scores": {
+     "invention": 3,
+     "drawing": 1,
+     "light": 2,
+     "composition": 3,
+     "style": 1
+    },
+    "fix": "WORST FRAME, and it is the climax. Pixelated orange blocks for the impact (raster/blur artefact), a blurred blocky smudge top-left (the asteroid?), neon-orange vector ellipses over flat green/blue planes, no ink line anywhere — it stops being FATHOM. Rebuild the impact as an engraved set piece: the streak seen through the museum window as the chain says, a hand-engraved flash, shock rings as engraved ripples on an indigo Gulf, a sepia plume with cross-hatched billows, the room shaking."
+   },
+   {
+    "frame": "element-14104.jpeg",
+    "scores": {
+     "invention": 7,
+     "drawing": 4,
+     "light": 2,
+     "composition": 5,
+     "style": 5
+    },
+    "fix": "The sparrow hovers ~130 px ABOVE the skull with faint pink stick legs — it has not landed, and its eye is not where the rex's eye was (the bookend rhyme fails). Land it on the skull, feet gripping the bone, eye aligned to L1's eye position. A dark band runs down the right edge (x>1860): the set does not cover the frame. Same crude skeleton as 912. Museum at dawn needs the dawn: warm light through the window, long shadows."
+   },
+   {
+    "frame": "element-15013.jpeg",
+    "scores": {
+     "invention": 5,
+     "drawing": 3,
+     "light": 4,
+     "composition": 4,
+     "style": 5
+    },
+    "fix": "The sparrow flies RIGHT, away from the window on the left — it should fly out of the window into the morning sky. Its wing is a comb of vertical strokes (reads as a broom); draw a real spread wing (primaries, secondaries, coverts). The window is now golden but casts no light on the floor or skeleton."
+   }
+  ],
+  "top_fixes": [
+   "STYLE/DRAWING across the film: almost nothing except the PD plates reads as hand-coloured engraving. The rex, skeleton, Everest, asteroid, coast, plane, audience, lamps are flat vector shapes with saturated fills (lime green, flat navy, neon orange). Redraw every hero (rex on anatomy.tsx Skin from a real skeleton, the mounted skeleton traced from a PD plate, Walter/Luis with acting hands, the survey plane, Everest, the asteroid) with engraved line, hatching and house-pigment WASHES; run refcheck.py on each.",
+   "Rebuild the climax 12807 (impact) and the coast/plane/ring sequence (9530, 9993, 12049): pixelated raster blobs, neon ellipses, flat green/blue fields. Use Catherwood's 1844 Yucatán plate (missing), engraved sea and jungle, a true closed ring with M-01 pinned, and the impact seen through the museum window as the chain promises.",
+   "Remove the HUD 'CLUE n · … ▢▢▢▢' badge from the top-left (15 of 24 frames): it is a UI chyron, not words in the scene, and it covers Lyell's section (3101) and the projection screen (10579). Put the clue name on an object in the world (stamped on the stone block, L9; the hourglass, L18).",
+   "Transitions must be the object's own physics, not screen overlays: the burn (658) must spread from the flash point with a hard charred edge (its orange contours currently float off the holes); the shatter (8398) must break the GRAIN, not crack the whole screen; the shadow (7167) must be cast by the asteroid, not a dark rectangle; the needle (6262) must punch through real roof tiles and end on the star.",
+   "Light: give every scene its named light visibly — low sun with long shadows on the shore (105), moon shaft across the plinth and the skeleton's shadow on the wall (912), noon sun on Gubbio stone (2836), lamp pools in the study and lab (5040, 6262), dawn through the window (14104/15013). Today most frames are flat-lit with one plane.",
+   "Frame hygiene: sets that do not cover the frame (grey/tan strips at 1938 bottom, 2836 left, 9530 left, 14104 right), text cut by the edge (2441, 2836, 6035), layering errors (6035 knobs under the bezel, 10579 ring off the screen), the sparrow floating above the skull (14104) and flying the wrong way (15013)."
+  ],
+  "notes": "The treatment file is stale (set pieces, feeling and motif-return line numbers refer to v1 numbering — e.g. 'L36 the surviving mammal becoming a human hand', light script 'warehouse bare bulb', opening image 'museum skeleton' vs chain's dusk shore). Update it to match chain v2 before the animatic. Inventions visible in the stills: eye/point ring (partial), watch out of Duria, stone book, needle through roof, plane inks the ring, sparrow on the skull — about 6, several half-delivered; the chain's ★ ash→bones, socket→iris, hourglass, snow-clock, ink half-ring lifting off the report cannot be confirmed from these keyframes."
+ },
+ "animatic": {
+  "by": "fresh agent (fathom-critic)",
+  "video": "out/dinosaur-killer_animatic.mp4",
+  "sha": "3870cc805151",
+  "scores": {
+   "invention": 5,
+   "motion": 4,
+   "variety": 3,
+   "acting": 4,
+   "rhythm": 4,
+   "drawing": 3,
+   "light": 3,
+   "style": 5
+  },
+  "verdict": "NOT READY for full render. Some keyframe fixes landed (grain now shatters itself 280s; FAR TOO MUCH stamped on the meter 200s; Luis hands the phial back 488-492s; sparrow flies toward the window 500s; ring closes with the NASA photo pinned 344s; seats empty 348-352s; study has a floor). But the chain's main inventions are still missing on screen (eye reflection, ash into bones, socket into iris, plates animating in a book, needle ending on a star, jungle turning see-through, half-ring lifting off the report, impact seen through the museum window). One soft-blotch 'burn' wipe is used about 6 times. Sets come back 3-4 times. Many shots hold a near-identical picture for 5-10 s. Drawing is still flat vector clip-art: the stick skeleton, the lozenge-thigh rex, the polygon asteroid, the green-blob globe, the bubble jungle.",
+  "scenes": [
+   {
+    "t": "0-18s",
+    "lines": "L0-L1",
+    "fix": "The ★ eye reflection is not there: at 10-16s we get a mid-wide with the point already ringed in the sky. Cut to an ECU of the amber eye with the point in the pupil, then rack to the sky. The rex is cropped at the thigh by the frame bottom from 8-16s, so there are no feet and no drink. It is still the olive cut-out with a pasted lozenge thigh and stick araucarias. Redraw it on anatomy Skin and frame it head to feet at the water."
+   },
+   {
+    "t": "18-28s",
+    "lines": "L2-L3",
+    "fix": "The burn at 20s is the same soft brown noise blotch the keyframes rejected. Then 22.5-27.5s is BLANK cream paper for about 5 s, with one stray ash flake at 22.5 (dead stretch). Ash flakes must fall and become bones on the frame, starting at about 22s."
+   },
+   {
+    "t": "28-44s",
+    "lines": "L3-L4",
+    "fix": "It is the same stick skeleton: a table-top pelvis, sticks for femurs, a skull with 3 black ellipses, dots for the tail. The moon shaft is now visible (32s, good), but the skeleton throws no shadow on the wall. The push into the eye socket does not read: 36-40s is a soft spotlight on the skull, then a cut. Trace a real mount."
+   },
+   {
+    "t": "44-58s",
+    "lines": "L5/title",
+    "fix": "The title still uses the italic caption face on a grey-olive disc over a near-black ground; use IM Fell English SC on cream. It comes BEFORE the relics, but the chain says relics then title. A black cow-print blotch wipe at 48s is the 2nd use. At 52-58s four tiny icons sit on blank paper for 6 s with almost no change, and the top 60 % of the frame is empty. Use the gloved hand, a lit plinth and each relic landing."
+   },
+   {
+    "t": "58-76s",
+    "lines": "L6-L7",
+    "fix": "There is no book. The Hawkins plate is cropped at the frame edge, and three Polaroid boxes hold clip-art: green triangles, a green pole, a trapezoid volcano. The frost, the keeling beast and the eruption are not animated. The tearing at 72s is faint ghost shards on blank paper. Build the open book, lit, and animate each plate."
+   },
+   {
+    "t": "76-88s",
+    "lines": "L8-L9",
+    "fix": "The watch out of Duria works as an idea, and the hands spinning in is right. But Duria is still photo-grey next to a crisp flat watch with no shadow on the water. The 'Clue I' stone block drop is not visible in the stills; make sure the drop and the stamp land."
+   },
+   {
+    "t": "88-99s",
+    "lines": "L10",
+    "fix": "Unchanged from the keyframes: a navy slab with white highway dashes, a thick saturated orange band about 50 px tall (it should be a hair-thin dark clay line), and a grey strip down the left edge (88-92s). 'Gubbio, Italy · 197…' is cut off at the right edge at 92s. Walter walks in well, but the hammer tap and flying chips are not seen. Show the noon sun and his shadow."
+   },
+   {
+    "t": "99-125s",
+    "lines": "L11-L13",
+    "fix": "The stone book is still a pink ruled notebook. Lyell's section is cropped by the top edge at 104-108s. The 'finger walking up' is a white blade or leaf shape at 108-112s, not the HumanHand. The plankton disc (116-122s) is plain circles on flat blue, then a 3rd blotch wipe at 124s."
+   },
+   {
+    "t": "125-150s",
+    "lines": "L14-L16",
+    "fix": "The P-01 photo is still parked in the top-right corner instead of being torn in beside the band. At 140s there is a hard vertical split screen with stray hairlines across the left half, a transition artefact. 144-149s shows the same hand on the band for 5 s; the ember glow and pulse are barely visible. Make the band glow and the finger press."
+   },
+   {
+    "t": "150-163s",
+    "lines": "L17-L18",
+    "fix": "The hourglass sits alone on blank paper for about 10 s (152-162s). The clay is never scooped or poured from the band. Show the pour from the glowing band into the glass, keep the band in frame, and give the stamp a ripple."
+   },
+   {
+    "t": "163-174s",
+    "lines": "L19",
+    "fix": "Walter WALKS IN PLACE. The same stride pose at the same x for 164, 168 and 172s: a treadmill walk; he never reaches the desk. Luis already holds the phial, so the handover beat is lost again (it only happens at the end, 488s). Luis's frown at the lamp is not visible. The lamp is still a flat green trapezoid with no bulb and no pool of light."
+   },
+   {
+    "t": "174-193s",
+    "lines": "L20-L21",
+    "fix": "This is a text slide: '1 000 / 10 000 / 100 000 years' stacks up beside a small hourglass on a night sky. The camera going out of the study window to the Earth's curve is not seen (a cut at 176s). Make the dust visibly fall INTO the glass and the gauge rise per flake; drop the number stack, or write it on the gauge."
+   },
+   {
+    "t": "193-216s",
+    "lines": "L22-L25",
+    "fix": "The needle and stamp now work. There are horizontal white scan lines over the whole frame at 192s (artefact). The five lamps are still identical copy-paste green domes (192, 204, 208s). At 208s the roof is a row of dark rectangles and the needle is a red line to the top edge with NO star: the L1 rhyme is still missing. The clock on the shelf (212s) is fine but static."
+   },
+   {
+    "t": "216-245s",
+    "lines": "L26-L29",
+    "fix": "The meteorite is a hatched egg with a navy half and reads as nothing. The asteroid is the same polygon with ellipse craters (224-240s). The Everest shadow is now a round dark blob, not a cast shape; the mountain is a flat triangle; '≈ 10 km' is at the bottom edge. At 244s the 'shadow into the microscope field' is a Pac-Man disc with notches."
+   },
+   {
+    "t": "245-292s",
+    "lines": "L30-L36",
+    "fix": "The cliffs are striped flowerpots on green-blob islands. The 4th blotch wipe is at 260s. The grain is still a triangular waffle grid (264-278s) and the pressure arrows are outside the eyepiece. 280s is an empty dark frame. The 'Clue IV' stamp is behind 'where?' and illegible (288s). Catherwood's Yucatán appears only as a sliver at the right edge, 288s."
+   },
+   {
+    "t": "292-336s",
+    "lines": "L37-L41",
+    "fix": "The globe is a blue disc with green ellipses, and a lens sweeps over it for 3 near-identical frames (292-300s). The plane sequence runs 312-334s over a flat green field with bubble dots and a 3×3 white-square village. The plane is a white cross, cut off at the frame corner at 328s. The ★ jungle turning see-through to show sinkholes never happens."
+   },
+   {
+    "t": "336-356s",
+    "lines": "L41-L43",
+    "fix": "This is the best stretch: contours ink, the circle closes, the NASA image is pinned, and the seats empty. The audience is still blob heads. Light the screen and let the projector beam carry when the hall empties."
+   },
+   {
+    "t": "356-389s",
+    "lines": "L44-L47",
+    "fix": "The year counter reads '1,984' and '1,990' with thousands commas; years must not have commas. The window-light day/night sweep is too faint. Hildebrand blowing the dust off is not seen. The eyepiece grain at 380-386s is the SAME waffle shot as 264s, the 3rd identical eyepiece."
+   },
+   {
+    "t": "389-419s",
+    "lines": "L48-L51",
+    "fix": "The 5th blotch wipe is at 388s. The coast ring set (396, 400s) repeats L41. The ★ twist is static: the report shows the same half-ring at 408, 412 and 416s, and the ink half-ring never lifts off the page to complete into the real ring. The 'hidden on a shelf' stamp is cut by the top edge at 416s."
+   },
+   {
+    "t": "419-449s",
+    "lines": "L52-L55",
+    "fix": "At 420s '…ed the dinosaurs?' is cut by the left edge; the skull does not turn. The impact is NOT through the museum window as the chain says: it is a white spiky disc on a flat blue/green field (424s), then a stacked-coil plume with '66 million years ago' cut by the top edge (428-430s). The coast ring (432-436s) and the globe of flowerpots (440-446s) are each used a 3rd time. Build the impact as the set piece: the window, the streak, the flash lighting the skeleton, shock rings, the room shaking."
+   },
+   {
+    "t": "449-471s",
+    "lines": "L56-L58",
+    "fix": "Food-chain medallions over a blotch map. At 456-459s the frame is near-empty brown with one sun medallion (dead). The 6th blotch/iris wipe into the burrow is at 460s. The mammal is a grub-like body, and the ★ link becoming the burrow mouth does not read."
+   },
+   {
+    "t": "467-488s",
+    "lines": "L59-L61",
+    "fix": "The sparrow perches ABOVE the skull, not with its eye on the L1 eye position. The sparrow close-up (472-478s) is on blank paper with no museum and no light. The relics joined by a line (480-487s) are a near-copy of the 52s composition, static for 7 s, with the top 60 % empty."
+   },
+   {
+    "t": "488-507s",
+    "lines": "L62-L63",
+    "fix": "The handover finally happens (good). The sparrow flies to the dawn window (good). But the window throws no light on the skeleton or floor, and the end card sits over the busy skeleton."
+   }
+  ],
+  "top_fixes": [
+   "VARIETY: the soft-blotch 'burn/ink-bleed' wipe is used about 6 times (20, 48, 124, 260, 388, 460s), well over the limit of 3, and it is the effect the keyframe critic rejected. Keep ONE real burn from the flash point at 20s. Replace the other five with the chain's own physics: socket→iris (48), page-leaf into the lens (124), thread→eyepiece (260), dust cloud→sign (388), link→burrow mouth (460).",
+   "MOTION / dead stretches: 22.5-27.5s is blank paper; 52-58s static relics; 144-149s same hand; 152-162s hourglass alone; 164-172s Walter treadmill-walking in place; 280s empty dark; 408-418s static report; 456-459s empty brown; 472-487s bird on blank paper, then static relics. Each needs an action on the frame every ≤ 2.5 s.",
+   "INVENTION: the ★ inventions that make this film are still missing on screen. The eye reflection (L1, 9-17s); ash becoming bones (L3, 22-28s); the plates animating in an open book (L6, 58-67s); the needle ending ON a star (L24, 208s); the jungle turning see-through to show sinkholes (L40, 327s); the ink half-ring lifting off the report to complete the real ring (L50, 405-413s); the impact seen through the museum window with the skull turning (L52-53, 419-431s). Build these before anything else.",
+   "Repeated sets: the same globe with striped flowerpot cliffs (248, 284, 440s), the same coast ring with a 3×3 village (396, 432s), the same waffle eyepiece (264, 380s), and the relic row twice (52, 480s). Where a return is a rhyme, change the shot size, light or angle so it reads as a return, not a reused clip; otherwise invent a new staging.",
+   "DRAWING/LIGHT: the hero drawings are unchanged clip-art: the stick skeleton (28-42, 420, 468-504s), the lozenge-thigh rex, the polygon asteroid with ellipse craters, the flat-triangle Everest with a round blob shadow, the waffle-grid quartz (real shock lamellae are sets of parallel lines), the white-cross plane and bubble jungle, the blue-disc globe with green ellipses. Redraw them true to life (anatomy Skin, Traced). Give each scene its named light with cast shadows: low sun on the rex, lamp pool in the study, a star at the needle tip, dawn light on the skeleton.",
+   "Frame hygiene: text cut by the frame edge at 92s ('Gubbio, Italy · 197…'), 104-108s (Lyell section), 416s (stamp), 420s (title question), 428s ('66 million years ago'); the grey strip on the left at 88-92s; the split-screen artefact at 140s; scan lines at 192s; year counters '1,984' and '1,990' with commas; 'Clue IV' stamp hidden behind 'where?' at 288s; the title in the italic caption face instead of IM Fell English SC (44s)."
+  ],
+  "landed_from_keyframes": [
+   "grain shatters itself (280s)",
+   "FAR TOO MUCH stamped on the meter (200s)",
+   "ring closes + real image pinned (344s)",
+   "study has a floor; handover at the end (488-492s)",
+   "sparrow flies to the window (500s)",
+   "moon shaft in the museum (32s)",
+   "seats empty in the hall (348-352s)",
+   "no HUD clue badge"
+  ],
+  "weakest": [
+   "18-28s blank after burn",
+   "44-76s title/relics/no-book",
+   "150-193s hourglass + treadmill walk + number stack",
+   "292-336s globe/plane over bubble jungle",
+   "404-460s static report twist, impact not set piece, repeated sets"
+  ]
+ }
+}

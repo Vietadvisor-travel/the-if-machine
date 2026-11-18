@@ -99,7 +99,7 @@ export const TitleCard: React.FC<{ k?: number; title?: string; sub?: string; kic
       return <line key={i} x1={x + Math.sin(a) * (r - 13)} y1={y - Math.cos(a) * (r - 13)} x2={x + Math.sin(a) * (r - 13 - L)} y2={y - Math.cos(a) * (r - 13 - L)} stroke={SEP} strokeWidth={i % 10 ? .9 : 1.6} opacity={.75} />; })}
     <g opacity={textA}><text x={x} y={y - 150} textAnchor="middle" fontFamily="IM Fell English SC" fontSize={30} letterSpacing={10} fill="#8C3424" opacity={kc}>{kicker}</text>
     {lines.map((ln, i) => { const q = seg(tl, i * .35, i * .35 + .65), yy = y - 30 + (i - (lines.length - 1) / 2) * fs * 1.05 + (lines.length > 1 ? 30 : 0);
-      return <text key={i} x={x} y={yy + (1 - q) * 14} textAnchor="middle" fontFamily="IM Fell English" fontStyle="italic" fontSize={fs} fill={SEP} opacity={q}
+      return <text key={i} x={x} y={yy + (1 - q) * 14} textAnchor="middle" fontFamily="IM Fell English SC" fontSize={fs * .82} fill={SEP} opacity={q}
         style={{ filter: q < .98 ? `blur(${(1 - q) * 5}px)` : undefined }}>{ln}</text>; })}
     <Rule x={x} y={y + 120} w={420} k={rule} />
     {sub && <text x={x} y={y + 178} textAnchor="middle" fontFamily="IM Fell DW Pica" fontStyle="italic" fontSize={36} fill={SEP} opacity={sb}>{sub}</text>}</g>

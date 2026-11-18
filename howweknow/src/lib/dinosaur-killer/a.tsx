@@ -68,8 +68,8 @@ const lerpPt = (a: PP, b: PP, t: N): PP => [a[0] + (b[0] - a[0]) * t, a[1] + (b[
 const SKULL_TOP: PP[] = [[-12, -36], [10, -44], [34, -46], [50, -50], [60, -44], [86, -40], [112, -32], [134, -24], [148, -12], [152, 0]];
 const UPPER_JAW: PP[] = [[150, 8], [128, 12], [96, 14], [66, 16], [40, 18], [16, 24], [-12, 30]];
 const LOWER_JAW: PP[] = [[-6, 32], [16, 34], [30, 46], [62, 44], [100, 36], [130, 26], [146, 18]];
-const Theropod: React.FC<{ x?: N; y?: N; s?: N; draw?: N; head?: N; eye?: N; flip?: N; mat?: string; bones?: N; jaw?: N; walk?: N; breathe?: N; sway?: N; tm?: N; id?: string; build?: N }> =
-  ({ x = 960, y = 760, s = 1, draw = 1, head = 0, eye = 1, flip = 1, mat = 'land', bones = 0, jaw = 0, walk = -1, breathe = 0, sway = 0, tm: t = 0, id = 'rex', build = 1 }) => {
+const Theropod: React.FC<{ x?: N; y?: N; s?: N; draw?: N; head?: N; eye?: N; flip?: N; mat?: string; bones?: N; jaw?: N; walk?: N; breathe?: N; sway?: N; tm?: N; id?: string; build?: N; glint?: N }> =
+  ({ x = 960, y = 760, s = 1, draw = 1, head = 0, eye = 1, flip = 1, mat = 'land', bones = 0, jaw = 0, walk = -1, breathe = 0, sway = 0, tm: t = 0, id = 'rex', build = 1, glint = 0 }) => {
   const T = (p: PP): PP => [x + p[0] * s * flip, y + p[1] * s];
   const bob = walk >= 0 ? Math.abs(Math.sin(walk * Math.PI * 2)) * -8 : 0, br = 1 + breathe * .05 * Math.sin(t * Math.PI * 2 / 3.5);
   // the axial chain: tail tip → hip → gut → chest → shoulder → neck → skull base (relative to the hip)
@@ -152,6 +152,7 @@ const Theropod: React.FC<{ x?: N; y?: N; s?: N; draw?: N; head?: N; eye?: N; fli
     <circle cx={eyeP[0]} cy={eyeP[1]} r={8 * s} fill="#E9B456" stroke={SEP} strokeWidth={1.4} />
     <circle cx={eyeP[0] + 1.5 * s * flip} cy={eyeP[1]} r={4 * s} fill="#1A120B" />
     {eye > 0 && <circle cx={eyeP[0] + 3.5 * s * flip} cy={eyeP[1] - 3 * s} r={1.8 * s} fill="#FFFDF4" opacity={eye} />}
+    {glint > 0 && <g opacity={glint}><circle cx={eyeP[0] - 1 * s * flip} cy={eyeP[1] + 1.5 * s} r={(1 + glint * 1.6) * s} fill="#FFF4D2" /><circle cx={eyeP[0] - 1 * s * flip} cy={eyeP[1] + 1.5 * s} r={4 * s * glint} fill="none" stroke="#B8432A" strokeWidth={.8 * s} /></g>}
     {/* the tiny arm: upper arm, forearm, two clawed fingers */}
     <Skin id={id + 'arm'} J={W([{ p: arm[0], up: 9, dn: 9 }, { p: arm[1], up: 7, dn: 7 }, { p: arm[2], up: 5, dn: 5 }, { p: arm[3], up: 2, dn: 2 }])} col={RC[1]} hatch={.4} sw={1.3} rim={0} />
     <Skin id={id + 'ln'} J={W(legJ(near, 1))} col={RC[1]} light={[-.5 * flip, -.85]} hatch={.5} sw={2} />
@@ -186,16 +187,16 @@ const MuseumHall: React.FC<{ x?: N; y?: N; s?: N; draw?: N; moon?: N; dawn?: N }
 // ================================================================ THE FOUR RELICS on the plinth: a slab of striped rock, a phial of red clay, a grain under a small lens,
 // a report tied with string. n 0..4 = how many are shown; glow 0..1.
 const ClueRelics: React.FC<{ x?: N; y?: N; s?: N; draw?: N; n?: N; glow?: N }> = ({ x = 960, y = 760, s = 1, draw = 1, n = 4, glow = 0 }) => {
-  const X = (d: N) => x + d * s, Y = (d: N) => y + d * s, A = (i: N) => cl(n - i) * draw;
+  const X = (d: N) => x + d * s, Y = (d: N) => y + d * s, A = (i: N) => cl(n - i) * draw, D = (i: N) => (1 - cl((n - i) * 1.4)) * -160 * s;   // each relic drops onto the plinth
   return <g>
-    <g opacity={A(0)}><Floor x={X(-480)} y={Y(6)} rx={120 * s} ry={10 * s} a={.3} />
+    <g opacity={A(0)} transform={`translate(0 ${D(0)})`}><Floor x={X(-480)} y={Y(6)} rx={120 * s} ry={10 * s} a={.3} />
       {[0, 1, 2, 3, 4, 5, 6].map(i => <SR key={i} d={rect(X(-580), Y(-140 + i * 20), 200 * s, (i === 4 ? 6 : 20) * s)} mat={i === 4 ? 'red' : i % 2 ? 'stone' : 'sand'} t={i === 4 ? .6 : .35 + (i % 3) * .1} ang={0} draw={draw} sw={.9} hatch={0} />)}</g>
-    <g opacity={A(1)}><Floor x={X(-160)} y={Y(6)} rx={50 * s} ry={8 * s} a={.3} />
+    <g opacity={A(1)} transform={`translate(0 ${D(1)})`}><Floor x={X(-160)} y={Y(6)} rx={50 * s} ry={8 * s} a={.3} />
       <path d={`M${X(-190)} ${Y(-150)} H${X(-130)} V${Y(-10)} Q${X(-160)} ${Y(10)} ${X(-190)} ${Y(-10)}Z`} fill="#C9DDE6" fillOpacity={.35} stroke={SEP} strokeWidth={1.4} />
       <path d={`M${X(-188)} ${Y(-70)} H${X(-132)} V${Y(-12)} Q${X(-160)} ${Y(6)} ${X(-188)} ${Y(-12)}Z`} fill="#8C3424" opacity={.85} /><SR d={rect(X(-196), Y(-170), 72 * s, 22 * s)} mat="wood" t={.6} draw={draw} sw={1} /></g>
-    <g opacity={A(2)}><Floor x={X(170)} y={Y(6)} rx={90 * s} ry={8 * s} a={.3} /><circle cx={X(170)} cy={Y(-60)} r={6 * s} fill="#EFE0C2" stroke={SEP} />
+    <g opacity={A(2)} transform={`translate(0 ${D(2)})`}><Floor x={X(170)} y={Y(6)} rx={90 * s} ry={8 * s} a={.3} /><circle cx={X(170)} cy={Y(-60)} r={6 * s} fill="#EFE0C2" stroke={SEP} />
       <circle cx={X(150)} cy={Y(-80)} r={46 * s} fill="#FFFDF4" fillOpacity={.2} stroke="url(#gold)" strokeWidth={8 * s} /><Line d={`M${X(186)} ${Y(-44)} L${X(240)} ${Y(4)}`} w={8 * s} col="#4F3020" /></g>
-    <g opacity={A(3)}><Floor x={X(500)} y={Y(6)} rx={140 * s} ry={10 * s} a={.3} />
+    <g opacity={A(3)} transform={`translate(0 ${D(3)})`}><Floor x={X(500)} y={Y(6)} rx={140 * s} ry={10 * s} a={.3} />
       <SR d={pathOf([[X(380), Y(0)], [X(620), Y(0)], [X(600), Y(-40)], [X(400), Y(-40)]], true)} mat="paper" t={.3} draw={draw} sw={1.2} hatch={0} />
       <Line d={`M${X(500)} ${Y(-40)} V${Y(0)} M${X(390)} ${Y(-20)} H${X(610)}`} w={2} col="#8C3424" a={.9} /><Stipple x={X(400)} y={Y(-40)} w={200 * s} h={40 * s} n={60} seed="dustr" a={.4} /></g>
     {glow > 0 && <circle cx={x} cy={Y(-60)} r={600 * s} fill="url(#glowW)" opacity={.3 * glow} />}
@@ -423,7 +424,7 @@ const IridiumMeter: React.FC<{ x?: N; y?: N; s?: N; draw?: N; v?: N; roof?: N; d
     {/* the needle — bending against the stop, then going on up through the roof */}
     <path d={`M${cx} ${cy} Q${cx + Math.cos(ar) * R * .5} ${cy + Math.sin(ar) * R * .5 - bend * s} ${tip[0] + bend * .2 * s} ${tip[1] - bend * s}`} stroke="#B8432A" strokeWidth={4 * s} fill="none" strokeLinecap="round" />
     {roof > 0 && <path d={`M${tip[0] + bend * .2 * s} ${tip[1] - bend * s} L${tip[0] + bend * .2 * s + 40 * s} ${tip[1] - bend * s - 1600 * roof * s}`} stroke="#B8432A" strokeWidth={4 * s} strokeLinecap="round" />}
-    {roof > .6 && <Star x={tip[0] + bend * .2 * s + 40 * s} y={tip[1] - bend * s - 1600 * roof * s - 18 * s} r={5 * s * cl((roof - .6) * 3)} glow={1} />}
+    {roof > .6 && <g opacity={cl((roof - .6) * 3)}><circle cx={tip[0] + bend * .2 * s + 30 * s} cy={Y(-600)} r={40 * s} fill="url(#glowW)" /><Star x={tip[0] + bend * .2 * s + 30 * s} y={Y(-600)} r={7 * s} glow={1} /></g>}
     <circle cx={cx} cy={cy} r={12 * s} fill="url(#gold)" stroke={SEP} />
   </g>;
 };
