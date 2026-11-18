@@ -650,7 +650,7 @@ for i in SFX:   # nothing loud: −24 dB at most, the impact alone may reach −
 # the score: mysterious, quiet, one cue per part (owner: "nhạc nền phù hợp từng đoạn")
 E['music'] = {'cues': [
     {'file': '../studio/music/wonder_lightless_dawn.wav', 'at': 0, 'start': 0, 'db': -21},           # the last evening, the museum, the old theories — dark, slow
-    {'file': '../studio/music/curious_hidden_agenda.wav', 'at': 'L9-1.6', 'start': 0, 'db': -23},     # clues I–II: the detective work, a quiet pulse
+    {'file': '../studio/music/wonder_long_note_one.wav', 'at': 'L9-1.6', 'start': 0, 'db': -21},     # clues I–II: a slow, dark ambient (owner: Hidden Agenda was too busy)
     {'file': '../studio/music/curious_aftermath.wav', 'at': 'L29-1.6', 'start': 0, 'db': -20},      # clues III–IV: deeper, darker, very quiet
     {'file': '../studio/music/tension_darkness_is_coming.wav', 'at': 'L50-1.6', 'start': 0, 'db': -22},  # the twist and the impact
     {'file': '../studio/music/wonder_silver_blue_light.wav', 'at': 'L58-1.0', 'start': 0, 'db': -23}],  # what survived — soft, open

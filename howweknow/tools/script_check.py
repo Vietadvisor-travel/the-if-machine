@@ -37,6 +37,20 @@ for i, l in enumerate(L):
     if not re.search(rf'"L{i}([@$+\-"])', refs): err.append(f'L{i}: the picture does not change on this line (no entity key refers to L{i})')
 clues = [k.get('n') for e in W if e.get('type') == 'clue' for k in [e.get('props', {})] + e.get('keys', []) if k.get('n') is not None]
 if not short and sorted(set(clues)) != list(range(1, max(clues or [0]) + 1)) or (not short and len(set(clues)) < 3): err.append(f'clues: tags {sorted(set(clues))} — need 1..N in order, N ≥ 3')
+# POPULAR, NOT ACADEMIC (owner 18 Nov 2026: "kênh khoa học và đại chúng… không quá khó hiểu… thiên hướng dễ tiếp cận đại chúng hơn là giải thích
+# quá học thuật"): a technical word (a long Latin/Greek-built term, or one in the list) must come with an everyday image in the SAME or the
+# NEXT line ("like…", "as if…", "imagine…", "the size of…", "a kind of…", "think of…", "about as…", "—"), and is never left unexplained.
+JARGON = re.compile(r"\b(\w*(ology|ometry|ometer|ification|isation|ization|aceous|iferous|lamell\w*|isotop\w*|anomal\w*|stratigraph\w*|geophysic\w*|metamorph\w*|foraminifer\w*|iridium|parallax|spectr\w*|magnetometer|sediment\w*|boundary layer|impact winter))\b", re.I)
+GLOSS = re.compile(r"\b(like|as if|imagine|the size of|a kind of|think of|about as|that is|which means|in other words|called|we call)\b|—|:", re.I)
+seen = set()
+for i, l in enumerate(L):
+    t = l['text'].replace('*', ''); nxt = L[i + 1]['text'] if i + 1 < len(L) else ''
+    for m in JARGON.finditer(t):
+        w = m.group(1).lower()
+        if w in seen: continue
+        seen.add(w)
+        if not (GLOSS.search(t) or GLOSS.search(nxt)): err.append(f'L{i}: "{m.group(1)}" with no everyday image in this or the next line (popular channel — explain it like to a curious 14-year-old)')
+    if len(t.split()) > 30: warn.append(f'L{i}: {len(t.split())} words in one line — split it; one idea per line')
 print(f'script_check {E["slug"]}: {len(L)} lines · {total} words · ≈ {dur / 60:.1f} min')
 for w in warn: print('  WARN ', w)
 for e in err: print('  ERROR', e)

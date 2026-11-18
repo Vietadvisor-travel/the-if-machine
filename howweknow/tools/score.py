@@ -21,8 +21,8 @@ WIN = 8.0
 MAXPART = 120     # s: chapters with the same mood share a cue only up to this long
 MINPART = 60      # s: no music part shorter than this (owner: "nhạc chèn lung tung quá")
 BLOCK = {'tension_sneaky_snitch', 'study_and_relax'}   # + FreePD 'Study and Relax': a YouTube Content ID claim on empty-atom (Muse, 17 Nov 2026)   # comic pizzicato despite its tag — wrong for FATHOM's mysterious score
-MYSTERY_OK = {'wonder_lightless_dawn', 'curious_hidden_agenda', 'curious_aftermath', 'tension_darkness_is_coming', 'wonder_long_note_one',
-              'wonder_silver_blue_light', 'gregorian_chant', 'space_ambience', 'curious_mystery_bazaar', 'tension_achaidh_cheide'}
+MYSTERY_OK = {'wonder_lightless_dawn', 'curious_aftermath', 'tension_darkness_is_coming', 'wonder_long_note_one',   # owner 18 Nov 2026: Lightless Dawn,
+              'wonder_silver_blue_light', 'gregorian_chant'}   # Aftermath = "chuẩn bí ẩn"; Hidden Agenda = "nhộn nhịp dồn dập" → out (and every busy, pulsing track)
 LEAN = .6        # every mood target leans this far toward 'mystery' (owner: "ưu tiên nhạc kiểu bí ẩn")
 LEVEL = {'mystery': -21, 'awe': -21, 'tension': -21, 'wonder': -21.5, 'triumph': -20.5, 'sad': -22,   # owner 18 Nov 2026: "nhạc vẫn bị to quá" → −6 dB more   # dB per part — owner 17 Nov: "nhỏ hơn ~30 %",
          'warm': -22.5, 'curious': -23, 'calm': -23, 'playful': -23}                                   # then "vẫn to quá, nhỏ đi 30 % nữa" (−3 dB twice vs -9)

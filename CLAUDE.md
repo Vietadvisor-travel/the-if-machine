@@ -89,6 +89,14 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   line BEFORE drawing; draw each hero object true to its reference and check it on the LibSheet BEFORE world.py; 6 keyframes → fresh critic
   BEFORE the full world; only then build everything. No first draft that has to be thrown away.
 
+## CLEAR & POPULAR (owner 18 Nov 2026: "cần chỉn chu hơn ở mọi cảnh mọi hình, không chỉ vật và người, hình vẽ giờ đang bị mơ hồ quá khó hình dung
+## được nó là gì… thiên hướng dễ tiếp cận đại chúng hơn là giải thích quá học thuật… đây là kênh khoa học và đại chúng nên không quá khó hiểu")
+- EVERY picture (places, maps, instruments, abstract ideas — not only people and objects) passes the NAME-IT TEST: a stranger names what it is
+  at a glance, without labels. Draw familiar silhouettes, true colours, the context that says where we are, an everyday object for scale; never
+  a blob, a grid of dots, a bare symbol or a diagram only the maker understands. Check every drawing on the LibSheet against this BEFORE world.py.
+- Words for a curious 14-year-old: one idea per line; every technical word arrives with an everyday image in the same or next line
+  (gate: script_check JARGON/GLOSS); on-screen labels in plain words. The fresh critic scores CLARITY and POPULAR (critic_gate requires both ≥ 8).
+
 ## SOUND (owner 18 Nov 2026: "nhạc vẫn to quá… nhạc vui tươi, không phải bí ẩn… thêm hiệu ứng âm thanh ở điểm nhấn và các thành phần, đừng spam và quá to")
 - Music: mysterious parts draw ONLY from score.py `MYSTERY_OK` (hand-curated dark/ambient tracks); levels −20…−23 dB (score.py LEVEL); one cue
   per part (≥ 60 s). Sound effects hand-placed on ACTIONS in world.py (`SF(i, fraction, file, db)`), 3–10 per minute, ≥ 1.2 s apart, ≤ −24 dB

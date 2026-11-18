@@ -5,6 +5,12 @@ description: Judge FATHOM keyframes, animatics and set pieces as a demanding fil
 # FATHOM critic
 Inputs: frames (keyframes `out/<slug>_key_*.jpg`, the animatic contact sheet or stills per line), `jobs/scripts/<slug>_treatment.md`.
 Score every frame/scene 1–10 on:
+00. **CLARITY** (owner 18 Nov 2026: "hình vẽ giờ đang bị mơ hồ quá khó hình dung được nó là gì" — first, a gate): the NAME-IT TEST — for every
+   picture, write down in three words what it shows WITHOUT reading the labels or the script. Anything you cannot name at a glance (a blob, a
+   grid of dots, a symbol, a diagram only the maker understands) scores ≤ 5 and is listed for a redraw: familiar silhouettes, true colours,
+   context that says where we are (a lab has benches and glassware), an everyday object for scale.
+01. **POPULAR** (owner: "kênh khoa học và đại chúng… không quá khó hiểu"): would a curious 14-year-old follow this scene from the picture and
+   the words alone? Every technical idea shown through an everyday image; no scene that only makes sense to a specialist.
 0. **INVENTION** (first): does each picture TURN INTO the next in a surprising, meaningful way (CINEMA §0)? Count the real inventions;
    a film with fewer than ten, or with plain cuts/fades between ideas, is not ready.
 1. **STYLE** (first, a gate): does it read as ONE hand-coloured engraving on cream paper — sepia ink, house pigments, house type
@@ -15,5 +21,5 @@ Score every frame/scene 1–10 on:
 5. **ACTING**: people want something and show it; the feeling visible on a face.
 6. **RHYTHM**: something happens every ≤ 2.5 s; held breaths where the treatment says; no dead stretch, no rush.
 7. **SOUND** (animatic only): signature sounds on the frame; music drops at the held breaths.
-Output: a table (scene · scores · the single biggest fix), then the three fixes that would lift the film most. Bar: every axis ≥ 8.
+Output: a table (scene · scores · the single biggest fix), then the three fixes that would lift the film most. Bar: every axis ≥ 8 — CLARITY and POPULAR included.
 Be specific ("the bench has no shadow; Marsden's hand floats 20 px off the knob"), never vague.

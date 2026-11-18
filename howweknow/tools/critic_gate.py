@@ -18,7 +18,7 @@ else:
     if C and 'fresh' not in str(C.get('by', '')): err.append('scores must come from a fresh critic agent, not the maker')
     for k, v in (C.get('scores') or {}).items():
         if v < 8: err.append(f'{stage} {k} = {v} (< 8) — rebuild, then a fresh critic again')
-    need = {'invention', 'drawing', 'light', 'composition', 'style'} if stage == 'keyframes' else {'invention', 'motion', 'variety', 'acting', 'rhythm', 'drawing', 'light', 'style'}
+    need = {'clarity', 'invention', 'drawing', 'light', 'composition', 'style'} if stage == 'keyframes' else {'clarity', 'popular', 'invention', 'motion', 'variety', 'acting', 'rhythm', 'drawing', 'light', 'style'}
     if C and not need <= set(C.get('scores') or {}): err.append(f'{stage} scores missing: {sorted(need - set(C.get("scores") or {}))}')
     if stage == 'animatic' and C:
         v = f'{R}/out/{slug}_animatic.mp4'
