@@ -4,6 +4,7 @@
 // and `walk` (cycles) animates a real gait. Angles: degrees from straight down, positive = toward where the figure faces.
 import React from 'react';
 import { Region, Ink, Line, SEP, PIG, tone } from './paint';
+import { HumanHand } from './anatomy';
 
 type N = number; type Pt = [N, N];
 const D = Math.PI / 180;
@@ -103,6 +104,11 @@ export const Person: React.FC<PersonP> = (pp) => {
       {C.stock && <Line d={`M${f1(kn[0] - .03 * u)} ${f1(kn[1] + .02 * u)} L${f1(kn[0] + .03 * u)} ${f1(kn[1] + .02 * u)}`} w={inkW * 1.5} a={draw} col={SEP} />}</>}
       {shoe(an, back)}</g>; };
   const hand = (wr: Pt, el: Pt, kind: string, back: boolean) => { const a = angOf(el, wr), r = .02 * u, c = Math.cos(a * D), s = Math.sin(a * D), at = (l: N, w: N): Pt => [wr[0] + c * l * u - s * w * u, wr[1] + s * l * u + c * w * u];
+    if (!C.suit && draw > .02) {   // v9 ANATOMICAL HAND (owner 18 Nov 2026: "các bộ phận người… sơ sài, không giống"): Gray's proportions, FK fingers
+      const map: Record<string, string> = { open: 'open', flat: 'open', point: 'point', fist: 'grip', grip: 'pinch' };
+      return <g key={'hd' + back} opacity={draw}><HumanHand id={`ph${Math.round(wr[0])}_${Math.round(wr[1])}${back ? 'b' : 'f'}`} x={wr[0]} y={wr[1]} s={u * .108 / 185} ang={a} pose={map[kind] || 'grip'} mirror={f < 0}
+        skin={tone(skinMat, sk + (back ? .12 : 0))} /></g>;
+    }
     if (u >= 452 && !C.suit) {   // v7 CLOSE-UP HAND (owner 17 Nov 2026): five fingers in two joints, knuckles, nails; grips that hold things
       const curl: Record<string, number[]> = { open: [0, 0, 0, 0, .1], flat: [0, 0, 0, 0, 0], point: [0, 1, 1, 1, .6], fist: [1, 1, 1, 1, 1], grip: [.55, .9, 1, 1, .5] };
       const cu = curl[kind] || curl.fist, spread = kind === 'open' ? 1 : kind === 'flat' ? .3 : .15, tone2 = sk + (back ? .12 : 0);

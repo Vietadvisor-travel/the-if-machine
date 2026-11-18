@@ -49,7 +49,7 @@ def search(words, n=12):
            'iiprop': 'url|size|extmetadata'})
     rows = info(d.get('query', {}).get('pages', {}))
     for r in rows:
-        print(('PD  ' if r['pd'] else 'no  ') + f"{r['title'][:90]}  [{r['licence']}] {r['w']}×{r['h']}  {r['date']}  — {r['desc'][:90]}")
+        print(('PD  ' if r['pd'] else 'no  ') + f"{r['title'][:160]}  [{r['licence']}] {r['w']}×{r['h']}  {r['date']}  — {r['desc'][:90]}")
     return rows
 
 

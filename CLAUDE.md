@@ -71,6 +71,11 @@ and clone it to `/home/user/frame-batch`; without it `make.sh` silently renders 
   `tools/trace.py` + `Traced` for true geometry from PD/CC0 sources; costumes take `top` (bodice/blouse over a skirt). ENGINE.md "ENGINE v8".
 - File size: the engraving pass, not the grain, makes a master ≈ 1.3–1.5 GB at CRF 17 (CRF 20 ≈ 0.95 GB, CRF 22 ≈ 0.7 GB, no visible difference) — the CRF is the owner's call.
 
+## Engine v9 — ANATOMY (owner 18 Nov 2026: "con vật, bộ phận người… sơ sài, không giống… nâng cấp khả năng vẽ") — every new film
+- Animals and body parts are built on `src/paint/anatomy.tsx`: `Skin` (skinned spine, cross-contour engraving, rim light), `fk`/`stride`/`wave`
+  (real bone lengths, gait, follow-through; key the creature's `tm`), `HumanHand` (Gray's proportions; every Person uses it), `SmallMammal`.
+  Never glue ellipses together for a living thing; proportions from a real skeleton/plate. ENGINE.md "ENGINE v9".
+
 ## Roles
 - **Claude:** everything creative — topics, research, scripts planned to the frame, every drawing, the engine, rendering, delivery.
 - **Muse:** sourcing only (lean: ~1 hour per film, ≤ 15 rows), against Claude's orders (`jobs/orders/<slug>.md`): photos, documents, maps, footage, audio, music, sfx, references,

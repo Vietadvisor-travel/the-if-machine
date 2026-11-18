@@ -158,3 +158,7 @@ for an earlier film. A device in this table is open to later films only as a sta
 | `shatter` | a pane of glass cracks, then breaks into shards that fly and fall (Fx, any entity; `shatterAt`) | v8 (engine) |
 | `breathe` (drawing) | Cepheid stars that swell and fade with their own periods (BreathingField) | star-distance |
 | `parallax` (drawing) | two eyepiece fields laid over each other like tracing paper (ParallaxField) | star-distance |
+| `RockBook` (drawing) | a block of strata OPENS like a book; its pages are the beds, crowded with shells below a red clay line and nearly empty above; a leaf turns (`open`, `page`, `red`, `thread`, `sparse`) | dinosaur-killer |
+| `IridiumMeter` (drawing) | a detector dial whose needle swings past "normal", bends on its stop, then grows on up through the roof (`v` > 1.08 bends, `roof` lengthens) | dinosaur-killer |
+| `ShockedGrain` (drawing) | a quartz grain in the microscope field: sets of parallel shock lamellae ETCH in direction by direction, then it cracks along them (`etch`, `crack`) | dinosaur-killer |
+| `SurveyRing` (drawing) | contour lines inked by a survey's passes bunch into HALF a ring on land; the sea half follows; the circle closes in vermilion; a scale bar (`pas`, `sea`, `whole`, `scale`) | dinosaur-killer |

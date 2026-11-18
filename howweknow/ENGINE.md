@@ -147,3 +147,18 @@ A film is v8 when `episode.json` has `"engine": 8` (world.py: `E['engine'] = 8`)
   (outline, tone parts, construction lines) that `src/paint/traced.tsx` `Traced` inks in the house style; never a copyrighted reference.
 - **People**: costumes take a `top` (+ `topT`) — a bodice / shirtwaist in its own pigment over a skirt or coat of `mat`; a long skirt drapes over
   the knees when she sits (no more "women read as men in suits").
+
+## ENGINE v9 — ANATOMY (owner 18 Nov 2026: "hình thù các con vật, các bộ phận người… sơ sài và xấu, không giống thật… cả animation cũng nên nâng cấp")
+`src/paint/anatomy.tsx`. Living forms are no longer stacks of circles and polygons:
+- **Skin** — a skinned chain: a smooth spine (Catmull-Rom) through joints, flesh given per joint ABOVE and BELOW the spine (a belly deeper than a
+  back), one continuous outline. Shaded like an engraving of a living body: cross-contour lines that wrap the volume (dense in shadow, thinning
+  into light), a core shadow, a rim light on the lit edge, a swelling outline heavy on the shadow side; `fur`, `scales`; `openStart/openEnd`
+  stroke no seam where one part grows into another (neck → skull, thigh → body).
+- **fk / stride / wave** — limbs are forward-kinematic chains with real bone lengths; `stride(phase)` is a biped gait (knee leads, foot folds in
+  the swing, rolls onto the toes); `wave` sends follow-through down a tail or a neck with lag. Animate a creature by keying its time prop `tm`.
+- **HumanHand** — Gray's proportions, three phalanges per finger, thumb at the side; curled fingers foreshorten seen from the back; knuckle
+  creases, tendons, nails; poses point / open / grip / rest / pinch or `curl` per finger. EVERY Person now uses it (people.tsx `hand`).
+- **SmallMammal** — a furred insect-eater (snout, whiskers, ear, eye) that breathes, sniffs, looks up, or sleeps curled in a ball.
+- Creatures are DATA on top: proportions taken from a real skeleton or plate (dinosaur-killer `Theropod`: AMNH 1913 restoration — level back,
+  short S-neck, deep skull, tiny arms, huge thigh; `Sparrow`: plumage map of Passer domesticus, separate feathers that fan when the wing opens).
+- Rule: a new animal or body part is built on `Skin` + `fk` from a reference (refcheck), never drawn as ellipses glued together.

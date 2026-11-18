@@ -1,4 +1,8 @@
 {
+ "AlvarezStudy": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "AndromedaEngraving": {
   "kind": "episode",
   "origin": "star-distance"
@@ -14,6 +18,10 @@
  "AssamHills": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "Asteroid": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "Astrolabe": {
   "kind": "sample",
@@ -54,6 +62,10 @@
  "BullerSlip": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "Burrow": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "CabinetCard": {
   "kind": "core",
@@ -99,6 +111,10 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "ClayHourglass": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "Clipping": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -111,13 +127,25 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "ClueRelics": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "CoinFarHill": {
   "kind": "episode",
   "origin": "star-distance"
  },
+ "ConferenceHall": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "CoolingTowers": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "CretaceousDusk": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "CrustSlab": {
   "kind": "episode",
@@ -159,6 +187,14 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "DrillCore": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "DustShelf": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "Earth": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -183,6 +219,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "EverestScale": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "Eyepiece": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -198,6 +238,18 @@
  "FilmStrip": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "FingerOnClay": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "FoodChain": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "Foraminifera": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "GaiaProbe": {
   "kind": "episode",
@@ -243,6 +295,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "GubbioGorge": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "HairSection": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -267,9 +323,17 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "ImpactRings": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "InnerCoreBall": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "IridiumMeter": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "IronMeteorite": {
   "kind": "episode",
@@ -363,6 +427,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "MeteoriteSlice": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "MilkyWayBand": {
   "kind": "episode",
   "origin": "star-distance"
@@ -386,6 +454,14 @@
  "MudTrack": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "MuseumHall": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "MuseumSkeleton": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "NavalShell": {
   "kind": "episode",
@@ -491,6 +567,10 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "ReportShelf": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "Ridge": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -498,6 +578,10 @@
  "RisingLoaf": {
   "kind": "episode",
   "origin": "star-distance"
+ },
+ "RockBook": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "Rose": {
   "kind": "sample",
@@ -531,6 +615,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "SearchGlobe": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "SeismoRecord": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -551,9 +639,21 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "ShockedGrain": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "Sky": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
+ },
+ "SpaceDust": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "Sparrow": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "SpectrumStrip": {
   "kind": "episode",
@@ -611,6 +711,14 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "SurveyPlane": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "SurveyRing": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "TallySheet": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -626,6 +734,14 @@
  "Temple": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "TheoryCards": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "Theropod": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "ThumbHand": {
   "kind": "episode",
@@ -651,9 +767,17 @@
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
  },
+ "Tyrannosaur": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "ViewerHand": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "VillageSign": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "WallTelescope": {
   "kind": "episode",
@@ -674,6 +798,14 @@
  "Window": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "WorldOutcrops": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
+ "YucatanCoast": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "ZagrebRoom": {
   "kind": "episode",
@@ -727,6 +859,10 @@
   "kind": "episode",
   "origin": "star-distance"
  },
+ "costume:hildebrand1990": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "costume:hubble1923": {
   "kind": "episode",
   "origin": "star-distance"
@@ -755,6 +891,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "costume:luis1980": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
+ },
  "costume:marsden1909": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -766,6 +906,10 @@
  "costume:oldham1897": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "costume:penfield1978": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "costume:ptStudent": {
   "kind": "episode",
@@ -798,6 +942,10 @@
  "costume:uniform": {
   "kind": "sample",
   "origin": "people.tsx presets"
+ },
+ "costume:walter1977": {
+  "kind": "episode",
+  "origin": "dinosaur-killer"
  },
  "costume:wiechert1896": {
   "kind": "episode",
