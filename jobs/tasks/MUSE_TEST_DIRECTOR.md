@@ -1,3 +1,5 @@
+# CANCELLED (owner 19 Nov 2026: Muse retired — Claude only). Kept for the record.
+
 # Muse — DIRECTOR TEST (owner order, 19 Nov 2026) · one ~90-second FATHOM segment, made end to end by Muse
 
 The owner wants to see whether Muse can do what Claude does: write and DIRECT a FATHOM film segment (script, visual ideas, drawings,

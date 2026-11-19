@@ -28,6 +28,11 @@ Every step below is REQUIRED (quality); the HOW is token-lean. Read only what a 
 - WHAT THE OWNER JUDGES (19 Nov): never static — continuous, inventive transformation (the "wow" of drifting-continents). Drawing polish at the
   drifting-continents level is enough. Bars (critic_gate): motion/invention/variety/rhythm ≥ 8 · clarity/popular ≥ 7 · drawing/light/composition/style ≥ 6.
   Keyframes = name-it + craft check only; the real gate is the REVIEW render (motion). Never spend a redraw round on polish alone.
+- MODELS: critic agents run on `model: "sonnet"` (they only look and score); drawing agents keep the default model. Drawing briefs =
+  howweknow/DRAW_DIGEST.md + the prop list + the chain links — never "read dinosaur-killer a.tsx".
+- STOCK (Muse retired 19 Nov): ≤ 6 PD/CC0 items fetched by Claude at step 0b (Commons/Internet Archive), into public/stock/_hwk/<slug>/ with
+  a manifest line (source_url, licence, credit); skip it rather than spend > 15 min. Drawn scenes carry the film; stock is optional.
+- Images for the maker: one sheet per step at --scale 0.5; never re-read a sheet already seen.
 - Critic: ONE keyframe round + ONE fix round. Still < 8 → send the keyframe sheet to the owner and let him decide (he approved 6–7 critic
   frames and rated the film 8.5). Never a 3rd/4th round on your own. Skip the review-stage critic when the owner already approved.
 - Drawing agents: give them a 10-line style digest + the exact prop list, NOT dinosaur-killer a.tsx/anatomy.tsx to read in full. A fix round
