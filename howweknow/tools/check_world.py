@@ -39,4 +39,15 @@ def walk(ents, path=''):
         if e.get('children'): walk(e['children'], w + '/')
 walk(E.get('world', []))
 if not any(e.get('type') == 'camera' for e in E.get('world', [])): err.append('no camera entity')
+# owner 19 Nov 2026 (drifting-continents): a drawing prop named like an engine mask (tear/burn/…) silently hides the drawing; a missing sfx kills the mix
+import glob as _g
+RESV = {'tear', 'burn', 'lift', 'pour', 'wipe', 'unroll', 'iris', 'blinds', 'brush', 'dissolve', 'blur', 'shatter', 'flipY', 'draw_', 'a'}
+for f in _g.glob(f'src/lib/{E["slug"]}/*.tsx'):
+    for comp, params in re.findall(r'const (\w+): React\.FC<any> = \(\{([^}]*)\}\)', open(f).read()):
+        for prm in re.findall(r'(?:^|,)\s*(\w+)\s*(?:=|,|$)', params):
+            if prm in RESV: err.append(f'{f}: {comp} prop "{prm}" collides with an engine mask — rename it (e.g. tear → rip)')
+for l in E['lines']:
+    for x in l.get('sfx', []):
+        if not os.path.exists(os.path.join('public', x['file'].replace('public/', ''))) and not os.path.exists(x['file']): err.append(f'sfx missing: {x["file"]}')
+
 print(f'check_world {E["slug"]}: {len(ids)} entities'); [print('  ERROR', x) for x in err]; print('PASS' if not err else 'FAIL'); sys.exit(1 if err else 0)
