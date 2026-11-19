@@ -11,3 +11,7 @@
 - NEVER name a prop tear/burn/lift/pour/wipe/unroll/iris/blinds/brush/dissolve/blur/shatter/flipY/a (engine masks; check_world refuses).
 - Check IN THE FILM, one still per fix: `npx remotion still Story out/x.jpg --frame=<sec*30> --props='{"slug":"<slug>"}' --scale=0.5`.
   Polish bar = drifting-continents level; spend effort on what MOVES (props that act), not on extra detail.
+- ENGINE 11 (owner 19 Nov 2026, sun-fire 6/10 vs drifting 8.5): a drawing is a PLACE (depth, scale, a human or a known object), never a lone
+  object on a plain wall. Its main props change the SHAPE of that world (things move, split, join, melt, flood, grow, turn into the next
+  picture) — never props that only add arrows, tapes, numbers, labels. No cartoon faces on objects or particles. Look at
+  public/stock/_hwk_core/reference/drifting-continents_pairs_*.jpg (the bar) and sun-fire-v1_pairs_*.jpg (what not to do) first.

@@ -25,6 +25,26 @@ picture TURNS INTO the next in a way the viewer did not see coming and instantly
   riding the particle) · two ideas collided into one image.
 - **Written in** `jobs/scripts/<slug>_chain.md` (one link per line, ★ on the ten inventions) and checked by `tools/treatment_check.py`.
 
+## 0b. THE WORLD TRANSFORMS — engine 11 (owner 19 Nov 2026: sun-fire 6/10, drifting-continents 8.5: "cái chính là visual, vẽ, các cảnh ấn
+## tượng, sự chuyển biến, biến đổi") — look at the pair sheets in public/stock/_hwk_core/reference/ (bash tools/sync.sh) before the chain
+What drifting-continents did and sun-fire v1 did not (seen side by side, BEFORE→AFTER of every line):
+- **A place, not a prop on a wall.** Every scene is a PLACE with depth and scale — the map table, the ice sheet, the sea with a ship, the
+  hall full of men shouting "impossible!". Sun-fire showed a calendar, a Sun with arrows, a balance, E=mc², a door — each centred on a
+  brown wall. FORBIDDEN: a lone object on a plain background (except a ≤ 4 s insert inside a place).
+- **The world itself changes shape.** Continents slid, split, rejoined; the fern spread across Gondwana; the ship sank; the tent was buried.
+  Sun-fire ADDED things (arrows, a tape, a counter, a label) to a picture that stayed the same. The "after" of a line must be a different
+  world from its "before": something moved, split, joined, melted, flooded, grew, shrank, turned into something else.
+- **One canvas per act.** The map carried a whole act while things happened ON it. Give each act a governing canvas where the science
+  plays out physically (for the Sun: ONE Sun that is gripped as coal, burns to cinder, is squeezed smaller, is cut open, spits out sparks).
+- **The process is shown as an event, not explained.** Not "arrows press in" but the Sun visibly shrinking while the cliff grows taller
+  beside it; not "E=mc² in sparks" but four balloons tied into one, the bead falling, and the bead becoming a sunrise.
+- **Comedy, crowds, scale, surprise.** The "impossible!" crowd, the fridge-fern, the sinking ship: one human, funny or shocking picture per
+  act, people big enough to act. Cartoon faces on objects (sun-fire's protons) read as a children's show — no.
+- **Colour moves by act** (ice blue, sea, sand, map ochre) — not one brown from start to end.
+Gate: `tools/chain_check.py` (PLACE :: WORLD → next; no label-only links; ≥ 40 % of links stay in the same place; ≥ 12 places) — an old
+chain (written before 19 Nov) is REWRITTEN in this form. The critic scores `wow` against the reference films and must say
+`vs_reference` better|equal (tools/critic_gate.py). `tools/wow_check.py` reports words, people size, how long a scene sits, light.
+
 ## 1. The director's treatment — `jobs/scripts/<slug>_treatment.md` (template: `jobs/scripts/_TREATMENT.md`; gate: `tools/treatment_check.py`)
 Written after the research pack, BEFORE lines.py. Short, concrete, visual. Ten parts:
 1. **Logline** — one sentence: who, what impossible question, what they did. ("A 20-year-old counts flashes in the dark and finds that every atom is empty.")

@@ -22,6 +22,10 @@ else:
         # what MOVES and SURPRISES; the craft axes only need the drifting-continents level (critic gave it 6–7, the owner rated the film 8.5)
         bar = BAR.get(k, 8)
         if v < bar: err.append(f'{stage} {k} = {v} (< {bar}) — rebuild, then a fresh critic again')
+    # owner 19 Nov 2026 (sun-fire: a critic gave 8, the owner 6): the critic must place the film against the reference films side by side —
+    # `wow` (0–10, drifting-continents = 8.5, sun-fire v1 = 6) and `vs_reference` ("better" | "equal" | "worse" than drifting-continents)
+    if C and C.get('vs_reference') not in ('better', 'equal'): err.append(f'{stage} vs_reference = {C.get("vs_reference")!r} — must be "better" or "equal" than drifting-continents (compare the pair sheets in public/stock/_hwk_core/reference/)')
+    if C and (C.get('scores') or {}).get('wow', 0) < 8.5: err.append(f'{stage} wow = {(C.get("scores") or {}).get("wow")} (< 8.5, the drifting-continents level)')
     need = {'clarity', 'invention', 'drawing', 'light', 'composition', 'style'} if stage == 'keyframes' else {'clarity', 'popular', 'invention', 'motion', 'variety', 'acting', 'rhythm', 'drawing', 'light', 'style'}
     if C and not need <= set(C.get('scores') or {}): err.append(f'{stage} scores missing: {sorted(need - set(C.get("scores") or {}))}')
     if stage == 'review' and C:   # the fast path: the critic scored the full render's PICTURE (silent master)

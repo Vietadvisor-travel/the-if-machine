@@ -31,6 +31,11 @@ Read this file + `tail -5 jobs/INBOX.md`. For a film: `howweknow/RUNBOOK.md` and
 - **Right first time:** chain → drawings checked on the LibSheet → 6 keyframes → fresh `fathom-critic` agent ≥ 8 on every axis (clarity,
   popular included) → only then the full world → animatic → fresh critic ≥ 8 → ONE full render (`critic_gate`; the owner's explicit OK overrides).
   The maker never scores his own film. Quality is never traded for time; estimate honestly at the start.
+- **Engine 11 — the world transforms (owner 19 Nov 2026: sun-fire 6/10, drifting-continents 8.5 is the bar):** every scene is a PLACE, never
+  an object on a plain wall; the picture's "after" is a different world from its "before" (things move, split, join, melt, turn into the
+  next) — never arrows/tapes/numbers/labels added to a still picture; one canvas per act; chains in the `PLACE :: WORLD → next` form
+  (`chain_check`; old chains are rewritten); the critic compares with the reference pair sheets (`_hwk_core/reference/`, `sheet.py --pairs`)
+  and must score `wow` ≥ 8.5 and `vs_reference` better|equal (`critic_gate`). CINEMA §0b.
 - **Sound:** voice af_heart (Kokoro) 0.86, plain read; music ONLY from `score.py` MYSTERY_OK (dark/ambient; never busy or cheerful), one cue per
   part (≥ 60 s), −20…−23 dB; sound effects on the ACTIONS (`SF(line, frac, file, trim)`), 3–10/min, ≥ 1.2 s apart, AS LOUD AS THE MUSIC (mix.py
   levels them; trim −6…+3); −16 LUFS; `sound_check`. Sound-only fixes = remix + remux + fit, never a re-render.

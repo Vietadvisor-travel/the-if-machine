@@ -2,7 +2,7 @@
 """<slug> — the story world (engine 10). Staging ONLY: every helper is in tools/world_kit.py (read its docstring once, not this whole repo).
 Chain: jobs/scripts/<slug>_chain.md (one action + one camera move per line). Gates: event_check · novelty · plan_check · check_world · sound_check."""
 import os, sys; sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../tools')); from world_kit import *
-E = init(__file__)
+E = init(__file__, engine=11)   # engine 11: chain_check + wow_check + critic vs the reference films (CINEMA §0b)
 # ---------------------------------------------------------------- L0 … (one block per line: the action, the beats, its sound)
 # art('x0', 'MyDrawing', L(0), L(1, .4), [K(L(0, 1.0), .8, 'soft', prop=1)], enter='glide', eo=[0, 600], xs='flip', x=960, y=540)
 # B('x0', 0, (.5, .7, 'soft', {'prop': .5}), (.8, .6, 'soft', {'prop': 1}))     # something happens ≤ every 2.5 s

@@ -7,7 +7,7 @@ episode's world.py holds ONLY its own staging (≈ 250 lines instead of 650). Ex
   finish(MOVE, HOW, new_devices=[…], thumb={…}, music=[(file, at, db), …], swells=[…], motif_art=[…], track={line: (dx0, dx1)})
 Helpers: L(i, off) time refs · Lf(i, frac) a fraction of the line · K(t, dur, ease, **props) a key · G(id) an entity · art(…, enter=ENTER kind,
 xs=exit kind) · gone2 exits: ink/left/right/up/down/at/burn/shatter/lift/flip/collapse/fade/tearout · text/counter/person/shape/trail/ripple/
-spot/quill/mark/dark · light: lamp/shaft/motes/shadow/haze/sheen · SKY · camera grammar MOVE {line: (kind, at, size)} with kinds push/pull/
+spot/quill/mark/dark · light: lamp/shaft/motes/shadow/haze/sheen, LIGHT rigs per scene (finish LIGHT=…) + moment() flashes/bursts · SKY · camera grammar MOVE {line: (kind, at, size)} with kinds push/pull/
 pan-l/pan-r/tilt-up/tilt-down/crane-up/crane-down/arc/orbit/dutch/whip/snap-zoom/track/dolly/rack/handheld/dive/lock (CAMERA_OVERRIDE for one line)."""
 import json, math, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from v6 import shot, rack, shake, grade, grade_keys
@@ -148,10 +148,42 @@ def move(i, kind, at, size):
     if kind == 'dive': return [K(a(0), .8, 'soft', **S_(size, at, roll=0)), K(a(.8), 1.6, 'in', **S_(size, at, 2.2)), K(a(2.4), .9, 'out', **S_(size, at, 1.0)), K(a(3.3), d - 3.0, 'linear', **S_(size, at, 1.1))]
     if kind == 'lock': return [K(a(0), 1.0, 'soft', **S_(size, at, roll=0))]
     raise ValueError(kind)
+
+# v11 LIGHT & MOMENTS (owner 19 Nov 2026: sun-fire 6/10 — "hình ảnh, hiệu ứng, visual, độ wow"; it had 3 light entities, drifting 25).
+# LIGHT = {line: (kind, (x, y))} — one named light per scene, held until the next entry; finish(..., LIGHT=LIGHT) builds the rig.
+#   lamp (warm interior) · window (daylight beam + dust) · fire (hot, embers) · night (cool, dark, haze) · day (soft, high haze) ·
+#   space (a star's glow, dust drifting) · glow (a thing that shines by itself: white-hot heat, motes) · lab (cool even light, haze) · none
+RIGS = {
+    'lamp':   lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=1100, dark=.55, warm=.95), motes(f'M{n}', [a[0] - 500, a[1] - 200, 1000, 700], t0, t1, n=26, k=.7)],
+    'window': lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=1300, dark=.4, warm=.7), shaft(f'S{n}', a, [a[0] - 300 if a[0] > 960 else a[0] + 300, 980], t0, t1, w0=110, w1=460, n=2, k=.4),
+                                    motes(f'M{n}', [a[0] - 400, a[1], 800, 800], t0, t1, n=34, k=.8)],
+    'fire':   lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=1000, dark=.62, warm=1.0),
+                                    ent(f'P{n}', 'particles', {'kind': 'embers', 'n': 50, 'k': 0, 'a': .9, 'speed': 1.1, 'para': .4, 'box': [a[0] - 500, a[1] - 400, 1000, 800]}, [K(t0, 1.4, k=1), K(t1, 1.0, k=0)], z=70)],
+    'night':  lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=900, dark=.7, warm=.35), haze(f'H{n}', 560, 1080, t0, t1, k=.4, col='#8FA9BC')],
+    'day':    lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=1500, dark=.25, warm=.6), haze(f'H{n}', 380, 820, t0, t1, k=.45, col='#E4ECF2')],
+    'space':  lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=1400, dark=.5, warm=.85),
+                                    ent(f'P{n}', 'particles', {'kind': 'dust', 'n': 60, 'k': 0, 'a': .7, 'speed': .6, 'para': .6, 'box': [0, 0, 1920, 1080]}, [K(t0, 1.4, k=1), K(t1, 1.0, k=0)], z=70)],
+    'glow':   lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=900, dark=.5, warm=1.0), motes(f'M{n}', [a[0] - 600, a[1] - 400, 1200, 800], t0, t1, n=40, k=1)],
+    'lab':    lambda a, t0, t1, n: [lamp(f'L{n}', a, t0, t1, r=1600, dark=.2, warm=.45), haze(f'H{n}', 200, 700, t0, t1, k=.3, col='#DDE7EE')],
+}
+def light_rig(LIGHT):
+    ks = sorted(LIGHT)
+    for j, i in enumerate(ks):
+        kind, at = LIGHT[i]
+        if kind == 'none': continue
+        t0 = L(i); t1 = L(ks[j + 1], .4) if j + 1 < len(ks) else 'end'
+        RIGS[kind](list(at), t0, None if t1 == 'end' else t1, f'_lx{i}')
+def moment(id, i, frac, at, kind='flash', col='#FFFDF4', glow='#F7E3A0', n=60, d=2.4):
+    """A set-piece MOMENT: a flash of light (the bead, the fusion, the strike) or a burst of particles (sparks, embers, photons)."""
+    if kind == 'flash': return ent(id, 'flash', {'at': [[Lf(i, frac), at[0], at[1], 90]], 'col': col, 'glow': glow, 'life': 1.2}, [], z=70)
+    t = Lf(i, frac)
+    return ent(id, 'particles', {'kind': kind, 'n': n, 'k': 0, 'a': .95, 'speed': 1.6, 'para': .3, 'box': [at[0] - 300, at[1] - 300, 600, 600]},
+               [K(t, .4, 'out', k=1), K(_tadd(t, d), 1.2, 'soft', k=0)], z=72)
 o_track = {}
-def finish(MOVE, HOW, new_devices, thumb, music=None, swells=(), motif_art=(), track=None, shakes=(), extra_cam=()):
+def finish(MOVE, HOW, new_devices, thumb, music=None, swells=(), motif_art=(), track=None, shakes=(), extra_cam=(), LIGHT=None):
     """Camera (one named move per line) + grade, the becomes.how per line, sound, music, and write episode.json/timeline.json/public/ep."""
     if track: o_track.update(track)
+    if LIGHT: light_rig(LIGHT)
     cam = next((e for e in W if e['type'] == 'camera'), None) or ent('camera', 'camera', {'x': 960, 'y': 540, 'zoom': 1, 'drift': .35, 'light': .4, **grade('mystery'), 'push': 1, 'pan_x': 0, 'pan_y': 0, 'dof': 0, 'focus': 0, 'shake': 0, 'roll': 0, 'dolly': 0})
     ck = []
     for i in range(NL()): ck += CAMERA_OVERRIDE[i] if i in CAMERA_OVERRIDE else move(i, *MOVE[i])

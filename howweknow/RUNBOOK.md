@@ -6,9 +6,11 @@ Every step below is REQUIRED (quality); the HOW is token-lean. Read only what a 
 1. **Facts & words** — `jobs/research/<slug>.md` (exists) → `episodes/<slug>/lines.py` (pattern: episodes/dinosaur-killer/lines.py; read its
    first 30 lines only). Plain words for a curious 14-year-old; every technical word with an everyday image. Gates: `script_check`, `plan_check`.
    THEN at once, in the background: `bash tools/vo_fast.sh episodes/<slug> 3` (parallel voice, ≈ 6–8 min) — it runs while you plan and draw.
-2. **Chain = the plan** — `jobs/scripts/<slug>_chain.md`: one link per line: the ACTION on screen (what moves/changes ≤ every 2.5 s), how it
-   turns into the next, the camera move, the sound on the action; ★ ten inventions. Treatment (short) → `treatment_check`. Load
-   `fathom-director` only for this step.
+2. **Chain = the plan** (engine 11, owner 19 Nov 2026 — sun-fire 6/10 because this step was skipped) — `bash tools/sync.sh` and LOOK at
+   `public/stock/_hwk_core/reference/drifting-continents_pairs_1.jpg` (the bar) and `sun-fire-v1_pairs_1.jpg` (what not to do); read CINEMA §0 + §0b.
+   Write `jobs/scripts/<slug>_chain.md` in the engine-11 form `N. [★] PLACE :: what the WORLD physically does → next | camera | sound`
+   (one per line; ★ ten inventions; one canvas per act). A chain written before 19 Nov is REWRITTEN, never reused. Gate `chain_check` +
+   `treatment_check`. Load `fathom-director` for this step. Every drawing = a PLACE whose props change the world's shape.
 3. **Draw** — `src/lib/<slug>/` (a.tsx/b.tsx/index.tsx/thumb.tsx; anatomy.tsx for every living thing; NAME-IT test for EVERY picture:
    recognizable silhouettes, true colours, context, scale). Check ALL drawings on ONE sheet: `npx remotion still LibSheet out/<slug>_lib.jpg
    --props='{"slug":"<slug>","page":0}' --frame=40` (9 per page). Fix before going on.
@@ -18,9 +20,9 @@ Every step below is REQUIRED (quality); the HOW is token-lean. Read only what a 
 5. **World** — copy `episodes/_template10/world.py`; write only the staging from the chain (helpers: tools/world_kit.py docstring). Gates in
    one go: `for t in event_check novelty check_world plan_check sound_check script_check; do python3 tools/$t.py episodes/<slug> | tail -3; done`.
 6. **Keyframes** — `python3 tools/sheet.py <slug> --lines <6 key lines>` → ONE fresh `fathom-critic` agent with `jobs/critic/_PROMPT.md`
-   (stage keyframes, sheets only). Every axis ≥ 8 or fix and re-check only the frames that changed.
+   (stage keyframes, sheets only, CALIBRATED against the reference pair sheets: `wow` ≥ 8.5 and `vs_reference` better|equal). Every axis ≥ 8 or fix and re-check only the frames that changed.
 7. **Review render (fast path, no separate animatic)** — `bash tools/make.sh <slug> --review` (the FULL film on the farm, ≈ 20–30 min) →
-   `python3 tools/sheet.py <slug> --video out/<slug>_16x9.mp4 --every 6` → fresh critic, stage "review", sha = `out/<slug>_review.sha`.
+   `python3 tools/sheet.py <slug> --video out/<slug>_16x9.mp4 --pairs` (BEFORE→AFTER per line) → fresh calibrated critic, stage "review", sha = `out/<slug>_review.sha`.
    Fixes that change the picture → `--review` again; sound-only fixes keep the sha.
 8. **Ship** — `bash tools/make.sh <slug> --ship` (reuses the reviewed render — no second render; critic_gate needs review ≥ 8 or the owner's OK) →
    `jobs/deliveries/<slug>.md`, STATUS, INBOX, `novelty.py --record`, `variety.py --record`, commit, one short Vietnamese report with the link.
@@ -28,7 +30,7 @@ Every step below is REQUIRED (quality); the HOW is token-lean. Read only what a 
 - WHAT THE OWNER JUDGES (19 Nov): never static — continuous, inventive transformation (the "wow" of drifting-continents). Drawing polish at the
   drifting-continents level is enough. Bars (critic_gate): motion/invention/variety/rhythm ≥ 8 · clarity/popular ≥ 7 · drawing/light/composition/style ≥ 6.
   Keyframes = name-it + craft check only; the real gate is the REVIEW render (motion). Never spend a redraw round on polish alone.
-- MODELS: critic agents run on `model: "sonnet"` (they only look and score); drawing agents keep the default model. Drawing briefs =
+- MODELS: critic agents run on the default model since 19 Nov (a sonnet critic scored sun-fire 8, the owner 6); drawing agents keep the default model. Drawing briefs =
   howweknow/DRAW_DIGEST.md + the prop list + the chain links — never "read dinosaur-killer a.tsx".
 - Images for the maker: one sheet per step at --scale 0.5; never re-read a sheet already seen.
 - Critic: ONE keyframe round + ONE fix round. Still < 8 → send the keyframe sheet to the owner and let him decide (he approved 6–7 critic
@@ -40,3 +42,6 @@ Every step below is REQUIRED (quality); the HOW is token-lean. Read only what a 
   run it BEFORE any render. The maker looks at images only as one sheet per step.
 Token rules: never print logs (`| tail -3`); never read a file you do not edit; images only as sheets; one Edit per change, not re-reads;
 sound-only fixes = remix + remux + fit, never a re-render; ask the owner nothing until the final report unless blocked.
+- ENGINE 11 LESSONS (sun-fire, 19 Nov): never satisfy event_check with filler beats (tiny nudges, captions) — if a line is dead, its
+  drawing is wrong: redesign the action. A drawing on screen > 30 s must keep transforming (wow_check HOLD). Critic scores ≠ the owner's:
+  the calibrated critic compares with the reference films; "worse than drifting" = not ready, whatever the other numbers say.

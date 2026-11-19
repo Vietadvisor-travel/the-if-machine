@@ -3,13 +3,21 @@
   python3 tools/sheet.py <slug> --frames 105,450,…      → renders those Story frames, then out/<slug>_sheet_<n>.jpg (24 per sheet, 6×4, 640 px wide cells)
   python3 tools/sheet.py <slug> --video out/x.mp4 --every 6  → one still every 6 s from a video (the animatic)
   python3 tools/sheet.py <slug> --lines 0,5,11 [--at .6]   → the frame at 60 % of each listed line
+  python3 tools/sheet.py <slug> --video out/x.mp4 --pairs    → BEFORE→AFTER of every line (10 % | 90 %), 3 lines per row: did the PICTURE
+      transform (a thing became another, the world changed shape) or did only the camera/labels move? (owner 19 Nov 2026, sun-fire 6/10)
 Prints only the sheet paths."""
 import json, os, shutil, subprocess, sys, glob
 from PIL import Image, ImageDraw
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); os.chdir(R)
 a = sys.argv[1:]; slug = a[0]; opt = lambda k, d=None: a[a.index('--' + k) + 1] if '--' + k in a else d
 tmp = f'out/_sheet_{slug}'; shutil.rmtree(tmp, ignore_errors=True); os.makedirs(tmp)
-if opt('video'):
+if opt('video') and '--pairs' in a:
+    T = json.load(open(f'episodes/{slug}/timeline.json'))['lines']; files, tags = [], []
+    for i, l in enumerate(T):
+        for f0, tg in ((.1, 'a'), (.9, 'b')):
+            o = f'{tmp}/{i:03d}{tg}.jpg'; subprocess.run(['ffmpeg', '-v', 'error', '-ss', f"{l['start'] + l['dur'] * f0:.2f}", '-i', opt('video'), '-frames:v', '1', '-vf', 'scale=320:-1', o], check=True)
+            files.append(o); tags.append(f'L{i} {"before" if tg == "a" else "after"}')
+elif opt('video'):
     subprocess.run(['ffmpeg', '-v', 'error', '-i', opt('video'), '-vf', f"fps=1/{opt('every', '6')},scale=640:-1", f'{tmp}/%04d.jpg'], check=True)
     files = sorted(glob.glob(f'{tmp}/*.jpg')); tags = [f'{i * float(opt("every", "6")):.0f}s' for i in range(len(files))]
 else:
