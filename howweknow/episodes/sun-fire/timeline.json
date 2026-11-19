@@ -1,6 +1,6 @@
 {
  "slug": "sun-fire",
- "duration": 524.275,
+ "duration": 526.671,
  "lines": [
   {
    "i": 0,
@@ -673,12 +673,12 @@
   },
   {
    "i": 48,
-   "text": "The answer came from another mine, in Canada. Deep underground, a giant ball of heavy water, watched by thousands of electric eyes.",
+   "text": "The answer came from another mine, in Canada. Deep underground sat a giant ball of heavy water, a rare, weightier kind of water. Thousands of electric eyes watched it.",
    "start": 417.656,
-   "dur": 9.407,
+   "dur": 11.803,
    "sfx": [
     {
-     "at": 0.47,
+     "at": 0.59,
      "file": "public/sfx/crack_wood_1.wav",
      "db": -2
     }
@@ -687,7 +687,7 @@
   {
    "i": 49,
    "text": "It could catch neutrinos of every kind. And it turns out there are three kinds, like three different flavours.",
-   "start": 427.964,
+   "start": 430.36,
    "dur": 6.621,
    "sfx": [
     {
@@ -700,7 +700,7 @@
   {
    "i": 50,
    "text": "And on the long flight from the Sun, a neutrino can change from one kind into another.",
-   "start": 435.485,
+   "start": 437.881,
    "dur": 5.174,
    "sfx": [
     {
@@ -713,7 +713,7 @@
   {
    "i": 51,
    "text": "Davis\u2019s tank could only see one kind. The missing two thirds had never been missing at all. They had changed their coats.",
-   "start": 441.359,
+   "start": 443.755,
    "dur": 7.589,
    "sfx": [
     {
@@ -726,7 +726,7 @@
   {
    "i": 52,
    "text": "In 2001 and 2002, Sudbury counted all three kinds together. Would the total match the prediction? It did. The Sun really is a nuclear furnace.",
-   "start": 449.648,
+   "start": 452.044,
    "dur": 11.68,
    "sfx": [
     {
@@ -744,7 +744,7 @@
   {
    "i": 53,
    "text": "Ray Davis won a Nobel Prize in 2002. The neutrino hunters behind the final answer won one in 2015.",
-   "start": 462.028,
+   "start": 464.424,
    "dur": 9.081,
    "sfx": [
     {
@@ -762,7 +762,7 @@
   {
    "i": 54,
    "text": "So here is what the Sun really is. Every second, it turns about four million tonnes of itself into light.",
-   "start": 472.009,
+   "start": 474.405,
    "dur": 7.075,
    "sfx": [
     {
@@ -775,7 +775,7 @@
   {
    "i": 55,
    "text": "It has been doing that for four and a half billion years, and it has billions of years still to go.",
-   "start": 479.984,
+   "start": 482.38,
    "dur": 5.653,
    "sfx": [
     {
@@ -788,7 +788,7 @@
   {
    "i": 56,
    "text": "That light grows our wheat and our rice. It runs through a solar panel. It warms your face on a cold morning.",
-   "start": 486.537,
+   "start": 488.933,
    "dur": 7.186,
    "sfx": [
     {
@@ -801,7 +801,7 @@
   {
    "i": 57,
    "text": "Every bit of it began as a sliver of lost weight, deep in the Sun\u2019s crushing heart, where hydrogen becomes helium.",
-   "start": 494.623,
+   "start": 497.019,
    "dur": 7.443,
    "sfx": [
     {
@@ -814,7 +814,7 @@
   {
    "i": 58,
    "text": "We found all this out without ever going there. Just a lump of coal, a balance, a typewriter, and a tank of cleaning fluid deep under the ground.",
-   "start": 502.966,
+   "start": 505.363,
    "dur": 9.508,
    "sfx": [
     {
@@ -827,7 +827,7 @@
   {
    "i": 59,
    "text": "Go back to the window. The candle is long gone, burnt down to a puddle of wax. And the Sun is still rising.",
-   "start": 513.375,
+   "start": 515.771,
    "dur": 7.3,
    "sfx": [
     {

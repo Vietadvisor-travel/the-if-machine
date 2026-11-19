@@ -207,15 +207,13 @@ A_('cw44', 47, (.05, 1.2, {'age': .25, 'arrows': 0}), (.22, 1.2, {'age': .5}), (
 out('davd46', L(47, 3.2), 'fade', 1.6)
 person('davo47', 'Ray Davis, thirty years on', L(47, 3.0), L(47, 8.4), [], x=1500, y=1010, h=520, facing=-1, pose='sit', pose2='sitpeer', pk=0, expr='focus', ek=0, enter='bleed', **{**DAVD, 'hairCol': '#CFCAC0', 'face': {**DAVD['face'], 'age': .8}}, z=14, xs='fade')
 A_('davo47', 47, (.65, {'pk': 1}), (.85, {'expr': 'smile', 'ek': 1}))
-counter('c47', '{n}', 1600, 180, L(47, .4), L(47, 7.6), [K(L(47, .4), 5.4, 'linear', num=2001)], size=60, col=VERM)
-G('c47')['props']['num'] = 1968
 SF(44, .2, 'dial_tick_1.wav', -2); SF(44, .62, 'sting_fail_1.wav', -5); SF(45, .05, 'sting_twist_1.wav', -3); SF(45, .3, 'sting_suspense_3.wav', -5)
 SF(46, .05, 'scratch_2.wav', -3); SF(46, .5, 'real_cloth_1.wav', -4); SF(47, .05, 'world_clock_tick_1.wav', -2); SF(47, .5, 'rewind_2.wav', -4)
 
 # ---------------------------------------------------------------- L48–L53 · Sudbury; three doors; the coat; the count matches
 art('sn48', 'SNOSphere', L(48, .1), None, [], crack=0, eyes=0, flash=0, **C, z=6, xs='ink', ink=False, draw=1)
 G('sn48')['keys'] = [K(L(48, .1), .01, a=1)]
-A_('sn48', 48, (.02, 1.6, {'crack': .5}), (.2, 1.6, {'crack': 1}), (.45, 1.6, {'eyes': .6}), (.65, 1.4, {'eyes': 1}), (.85, .8, {'flash': 1}))
+A_('sn48', 48, (.02, 1.6, {'crack': .5}), (.2, 1.6, {'crack': 1}), (.32, 1.0, {'eyes': .25}), (.45, 1.6, {'eyes': .6}), (.65, 1.4, {'eyes': 1}), (.85, .8, {'flash': 1}), (.95, .6, {'flash': 0}))
 out('cw44', L(48, .2), 'ink', 1.0)
 art('p48', 'Pinned', L(48, 6.0), L(49, .3), [], ink=False, src=ST + 'P-02_sno-detector.jpg', x=1560, y=480, w=330, h=496, rot=2, caption='Sudbury, Canada (SNO+, CC BY 4.0)', draw=1, enter='glide', eo=[500, 0], z=30, xs='right')
 SF(48, .05, 'crack_wood_1.wav', -2); SF(48, .45, 'sci_power_up_engine_2.wav', -5); SF(48, .85, 'sci_ui_tick_1.wav', -3)
@@ -266,7 +264,9 @@ SF(59, .1, 'world_birds_3.wav', -5); SF(59, .55, 'cue_reveal_2.wav', -4)
 
 # ---------------------------------------------------------------- second beats: something happens ≤ every 2.5 s (event_check), each a real action
 ST0 = [l.get('t', l.get('start')) for l in _wk._LN]
+SHIFT = ST0[49] - 427.964   # beats after L48 were placed on the first voice take; L48 grew by a gloss
 def AT(id, t, d, **p):   # a beat at an absolute time (s) of the voice track
+    t = t + SHIFT if t > 425 else t
     i = max(j for j in range(len(ST0)) if ST0[j] <= t); G(id)['keys'].append(K(f'L{i}+{round(t - ST0[i], 2):g}', d, 'soft', **p))
 def TX(id, s, style, x, y, t, t2, **kw):
     i = max(j for j in range(len(ST0)) if ST0[j] <= t); i2 = max(j for j in range(len(ST0)) if ST0[j] <= t2)

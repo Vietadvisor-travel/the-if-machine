@@ -226,7 +226,7 @@ R('TWIST', "For thirty years nobody could say. The prediction hung on the wall w
   'time-lapse', 'the gap', 'the wall ages thirty years in seconds: posters change, the paint yellows, Davis’s hair greys at the desk', 'Thirty years.', 'the ageing wall',
   [(0, 'a poster changes'), (1.2, 'another'), (2.4, 'paint yellows'), (3.6, 'Davis greys'), (4.8, 'the chalk stays')],
   'calm', 'medium', 'bulb, then fluorescent, then daylight', 'track', ['CountWall'], sp=3)
-R('TWIST', "The answer came from another mine, in Canada. Deep underground, a giant ball of heavy water, watched by thousands of electric *eyes*.", 'F8',
+R('TWIST', "The answer came from another mine, in Canada. Deep underground sat a giant ball of heavy water, a rare, weightier kind of water. Thousands of electric eyes watched *it*.", 'F8',
   'cut-open', 'the ageing wall', 'the wall cracks open into a vast cavern; a giant sphere stands in it, studded with thousands of light sensors', 'Sudbury.', 'the sphere',
   [(0, 'the wall cracks'), (1.4, 'a cavern'), (2.8, 'a sphere'), (4.0, 'thousands of eyes'), (5.4, 'the real photo')],
   'wonder', 'wide', 'cool cavern light', 'crane-up', ['SNOSphere'], 'sudbury', stock=['P-02'])
