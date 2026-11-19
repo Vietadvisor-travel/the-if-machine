@@ -15,8 +15,8 @@ if not starts:
     for l in L: starts.append(acc); acc += words(l['text']) / 2.35 + l.get('gap', .6)
 dur = tl['duration'] if tl else acc
 if not short:
-    if not 1250 <= total <= 1800: err.append(f'length: {total} words (target 1,300–1,700 for 9–12 min)')
-    if not 480 <= dur <= 780: err.append(f'duration ≈ {dur / 60:.1f} min (target 8–12)')
+    if not 1350 <= total <= 1800: err.append(f'length: {total} words (target 1,350–1,800 for 9–12 min — owner 19 Nov 2026; af_heart 0.86 reads ≈ 2.5 words/s)')
+    if not 540 <= dur <= 720: err.append(f'duration ≈ {dur / 60:.1f} min (target 9–12, owner 19 Nov 2026)')
 BAN = ['little did', 'may surprise you', 'buckle up', 'fun fact', "in today's video", "let's dive", 'in this video', 'stay tuned', 'smash that', 'without further ado', 'what if']
 LOOP = re.compile(r"\?|\bbut\b|\byet\b|\buntil\b|\bexcept\b|\bproblem\b|\bmystery\b|\bnobody\b|\bno one\b|\bstill\b|\bwhy\b|\bhow\b|…", re.I)
 NUM = re.compile(r"\d|\b(hundred|thousand|million|billion|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|point)\b", re.I)   # real quantities, not "clue one" / "two places"

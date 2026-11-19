@@ -14,6 +14,10 @@ The owner: Muse spends far too long per episode. From now on:
 no facts chosen for the film, no opinions on style. **Claude** owns topics, research conclusions, script, shot plan, drawings, engine.
 **The owner** picks topics and approves films. Muse fulfils Claude's **resource orders** exactly, generously, with proof and licences.
 
+## 0b. Publishing schedule (owner, 19 Nov 2026)
+4 films a week on YouTube + Facebook + TikTok: Tuesday, Thursday, Saturday, Sunday. Publish only a film the owner approved (still only on
+"đăng tập <tên>"); if no approved film is ready for a day, skip the day — never publish a film below the bar to fill it.
+
 ## 1. The flow
 1. Claude proposes topics → the owner picks.
 2. Claude writes the research pack + script + shot plan, then a **resource order**: `jobs/orders/<slug>.md` (template `_TEMPLATE.md`),

@@ -5,7 +5,7 @@ Status: **LOCKED by the owner** except where marked "to present". Engine work st
 ## 1. Channel
 - Name: **Fathom** ("to measure the depth" and "to understand fully"). Handle to check when the owner creates it (@Fathom is likely
   taken; fallbacks @FathomFilms, @FathomHQ, @WeFathom).
-- Language English · landscape 16:9 · 8–12 min per episode.
+- Language English · landscape 16:9 · 9–12 min per episode (owner 19 Nov 2026) · 4 episodes a week: Tue, Thu, Sat, Sun.
 
 ## 2. Content line (locked: pool 1 only)
 **How humans came to know, measure or discover something that seemed impossible to know.** How far is the Moon · how old is the Earth ·

@@ -1,8 +1,8 @@
-# FATHOM script standard — long films (8–12 min, 16:9, English) — read before writing any episode
+# FATHOM script standard — long films (9–12 min, 16:9, English) — read before writing any episode
 
 The owner wants "kịch bản đỉnh cao": a script you cannot stop watching, every claim true, every line a picture.
 
-## 1. Shape (≈ 1,300–1,700 words at af_heart 0.86 ≈ 9–12 min)
+## 1. Shape (≈ 1,350–1,800 words at af_heart 0.86 ≈ 2.5 words/s ≈ 9–12 min; owner 19 Nov 2026)
 | part | time | job |
 |---|---|---|
 | **Narrated opening** | 0:00–0:50 | (owner 17 Nov 2026: "mở đầu kiểu dẫn chuyện hơn… dẫn dẫn như kênh khoa học", not a bang.) The narrator LEADS the viewer in, calmly: start from something familiar the viewer can picture (an everyday object, a sky, a map, their own hand), widen to the old question humans asked about it, then step back in time to the place and the people — and only then arrive at THE question, said plainly. 4–7 lines, unhurried, each one opening the next ("For thousands of years…", "And yet…", "In 1909, in a quiet lab in Manchester…"). The picture eases in too: a slow establishing move, one thing drawing itself at a time. Mood `mystery`. No shock first line, no mid-action start, no "what if", no title card, no "in this video". |

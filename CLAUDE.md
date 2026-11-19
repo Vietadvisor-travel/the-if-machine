@@ -15,7 +15,7 @@ Read this file + `tail -5 jobs/INBOX.md`. For a film: `howweknow/RUNBOOK.md` and
 
 ## The channel (locked)
 - Content: pool 1 — how humans came to know/measure something that seemed impossible; one big question, 3–4 clues, a twist, the answer, what it
-  means today; one continuous story; English, 16:9, 8–12 min; narrated science-channel opening (not a bang).
+  means today; one continuous story; English, 16:9, 9–12 min (owner 19 Nov 2026); narrated science-channel opening (not a bang).
 - Picture (engine 10): 2D, the CLEAN DRAWN house style — cream paper, sepia ink outlines, house pigments, house type; NO engraving pass, PD
   engravings optional. Every film draws its own world in `src/lib/<slug>/` (variety.py). The picture transforms with the narration — never
   plain cuts. Text lives in the scene (no subtitles); faces: titles/stamps IM Fell English SC · captions IM Fell DW Pica italic · hand La Belle
@@ -40,6 +40,13 @@ Read this file + `tail -5 jobs/INBOX.md`. For a film: `howweknow/RUNBOOK.md` and
   part (≥ 60 s), −20…−23 dB; sound effects on the ACTIONS (`SF(line, frac, file, trim)`), 3–10/min, ≥ 1.2 s apart, AS LOUD AS THE MUSIC (mix.py
   levels them; trim −6…+3); −16 LUFS; `sound_check`. Sound-only fixes = remix + remux + fit, never a re-render.
 - Render: never change engine code while a render runs; any speed-up must leave the picture identical. Masters fitted to ≈ 545 MB (`fit.py`).
+
+## Schedule & the ratchet (owner 19 Nov 2026)
+- 4 films a week, published Tue · Thu · Sat · Sun (YouTube + Facebook + TikTok). Each film made with care — polished, beautiful, "wow" — never
+  rushed to hit a day; a film below the bar is not published, the day is skipped.
+- THE RATCHET: quality only goes UP from chat to chat. The reference for the critic (`_hwk_core/reference/`) is the best film the owner has
+  rated; when he rates a new film higher than it, that film's pair sheets become the new reference (`sheet.py --pairs`, upload to Drive
+  `_hwk_core/reference/`, update CINEMA §0b + `jobs/critic/_PROMPT.md`). Owner ratings so far: drifting-continents 8.5 (the bar) · sun-fire v1 6.
 
 ## Roles & standing rules
 - Claude: everything creative and technical. Muse: sourcing only (Drive `_hwk/<slug>/` + manifest + licences; INBOX `KIT_READY`) + publishing.
