@@ -73,7 +73,7 @@ SF(14, .2, 'thud_heavy_1.wav', -2); SF(14, .4, 'foley_coins_1.wav', -6)
 
 # ---------------------------------------------------------------- CLUE 2 · L15–L23 · Kelvin's squeeze, the rocks, Darwin, the scales
 person('kel15', 'William Thomson (Lord Kelvin), Glasgow (1860s)', L(15, .2), None, [], x=260, y=990, h=600, facing=1, pose='stand', pose2='look', pk=0, expr='focus', ek=0, look=[1, 0], **KEL, z=14)
-A_('kel15', 15, (.05, 2.0, {'x': 640}), (.35, {'pk': 1}), (.55, {'pose2': 'reach', 'pk': 1}), (.8, {'pose2': 'think', 'pk': 1, 'expr': 'smile', 'ek': 1}))
+A_('kel15', 15, (.05, 2.0, {'x': 820}), (.35, {'pk': 1}), (.55, {'pose2': 'reach', 'pk': 1}), (.8, {'pose2': 'think', 'pk': 1, 'expr': 'smile', 'ek': 1}))
 A_('vs14', 15, (.55, 1.0, {'lamp': 1}))
 art('cc15a', 'CabinetCard', L(15, 2.2), L(16, .1), [], ink=False, src=ST + 'P-03_helmholtz.jpg', x=1250, y=330, w=230, h=330, rot=-4, caption='Hermann von Helmholtz', draw=1, enter='focus', z=30, xs='up')
 art('cc15b', 'CabinetCard', L(15, 3.6), L(16, .1), [], ink=False, src=ST + 'P-03_kelvin.jpg', x=1560, y=350, w=230, h=330, rot=3, caption='William Thomson, Lord Kelvin', draw=1, enter='bleed', z=30, xs='up')
@@ -128,7 +128,7 @@ A_('sf27', 28, (.05, 1.4, {'swell': .4}), (.25, 1.6, {'swell': 1}), (.55, 1.4, {
 SF(27, .1, 'sting_magic_1.wav', -4); SF(27, .5, 'sci_power_up_3.wav', -4); SF(28, .1, 'transition_whoosh_airy_2.wav', -3); SF(28, .55, 'transition_riser_2s_1.wav', -2)
 art('ch29', 'CardiffHall', L(29, .1), None, [], enter='pour', eo='down', board=0, sheet=0, lid=0, clap=0, **C, z=8, xs='ink')
 out('sf27', L(29, .6), 'fade', 1.4)
-person('edd29', 'Arthur Eddington, Cardiff (1920)', L(29, 1.0), None, [], x=1120, y=980, h=560, facing=-1, pose='stand', pose2='present', pk=0, expr='focus', ek=0, look=[-1, 0], **EDD, z=14, xs='fade')
+person('edd29', 'Arthur Eddington, Cardiff (1920)', L(29, 1.0), None, [], x=960, y=780, h=420, facing=-1, pose='stand', pose2='present', pk=0, expr='focus', ek=0, look=[-1, 0], **EDD, z=14, xs='fade')
 A_('edd29', 29, (.25, {'pk': 1}), (.45, {'pose2': 'raise', 'pk': 1}), (.7, {'pose2': 'explain', 'pk': 1, 'expr': 'smile', 'ek': 1}))
 A_('ch29', 29, (.4, 1.6, {'board': .5}), (.6, 1.4, {'board': 1}), (.85, .8, {'clap': 1}))
 art('d29', 'DocumentPage', L(29, 5.2), L(30, .1), [], ink=False, src=ST + 'D-01_eddington-1920-mass-passage.jpg', x=1500, y=360, w=520, h=300, rot=2,

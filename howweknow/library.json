@@ -35,6 +35,14 @@
   "kind": "episode",
   "origin": "drifting-continents"
  },
+ "AtomBalance": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
+ "AtomGrain": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "AtomosPapyrus": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -46,6 +54,10 @@
  "Bedspring": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
+ },
+ "BikePump": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "Birds": {
   "kind": "sample",
@@ -87,6 +99,10 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "CalendarPad": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "Cambridge": {
   "kind": "episode",
   "origin": "drifting-continents"
@@ -106,6 +122,10 @@
  "CardBoxes": {
   "kind": "episode",
   "origin": "inside-earth"
+ },
+ "CardiffHall": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "CathodeTube": {
   "kind": "episode",
@@ -127,6 +147,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "ChlorineTank": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "City": {
   "kind": "sample",
   "origin": "library v3 (src/paint/)"
@@ -134,6 +158,10 @@
  "ClayHourglass": {
   "kind": "episode",
   "origin": "dinosaur-killer"
+ },
+ "CliffLayers": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "Clipping": {
   "kind": "core",
@@ -151,6 +179,14 @@
   "kind": "episode",
   "origin": "dinosaur-killer"
  },
+ "ClueTags": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
+ "CoalSun": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "CoinFarHill": {
   "kind": "episode",
   "origin": "star-distance"
@@ -166,6 +202,14 @@
  "CoolingTowers": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "CoreDoor": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
+ "CountWall": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "CretaceousDusk": {
   "kind": "episode",
@@ -186,6 +230,10 @@
  "DarkEye": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "DarwinTree": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "DebateHall": {
   "kind": "episode",
@@ -459,6 +507,10 @@
   "kind": "episode",
   "origin": "star-distance"
  },
+ "LightFields": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "LightRuler": {
   "kind": "episode",
   "origin": "star-distance"
@@ -491,6 +543,10 @@
   "kind": "episode",
   "origin": "inside-earth"
  },
+ "MatchCandle": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "MeadowRock": {
   "kind": "episode",
   "origin": "drifting-continents"
@@ -506,6 +562,10 @@
  "MilkyWayBand": {
   "kind": "episode",
   "origin": "star-distance"
+ },
+ "MineShaft": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "MistHillside": {
   "kind": "episode",
@@ -546,6 +606,10 @@
  "NelsonFarm": {
   "kind": "episode",
   "origin": "empty-atom"
+ },
+ "NeutrinoFlight": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "NightWindow": {
   "kind": "episode",
@@ -635,6 +699,10 @@
   "kind": "episode",
   "origin": "dinosaur-killer"
  },
+ "ProtonDance": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "PtSwingLamp": {
   "kind": "episode",
   "origin": "pipeline-test"
@@ -699,6 +767,10 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "SNOSphere": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "ScannerRing": {
   "kind": "episode",
   "origin": "empty-atom"
@@ -751,6 +823,10 @@
   "kind": "episode",
   "origin": "dinosaur-killer"
  },
+ "ShrinkingSun": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "Sky": {
   "kind": "core",
   "origin": "library v3 (src/paint/)"
@@ -758,6 +834,10 @@
  "SpaceDust": {
   "kind": "episode",
   "origin": "dinosaur-killer"
+ },
+ "SparkFormula": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "Sparrow": {
   "kind": "episode",
@@ -823,6 +903,18 @@
   "kind": "core",
   "origin": "library v3 (src/paint/)"
  },
+ "SunCutaway": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
+ "SunFurnace": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
+ "SunScales": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "SurveyDesk": {
   "kind": "episode",
   "origin": "inside-earth"
@@ -863,9 +955,17 @@
   "kind": "episode",
   "origin": "dinosaur-killer"
  },
+ "ThreeDoors": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "ThumbHand": {
   "kind": "episode",
   "origin": "star-distance"
+ },
+ "ThumbRain": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "TickSky": {
   "kind": "episode",
@@ -895,9 +995,17 @@
   "kind": "episode",
   "origin": "drifting-continents"
  },
+ "Typewriter": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "Tyrannosaur": {
   "kind": "episode",
   "origin": "dinosaur-killer"
+ },
+ "VictorianStudy": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "ViewerHand": {
   "kind": "episode",

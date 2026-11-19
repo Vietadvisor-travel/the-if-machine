@@ -7,7 +7,35 @@ import React from 'react';
 import { ART_A as A, SAMPLE_A } from './a';
 import { ART_B as B, SAMPLE_B } from './b';
 export { THUMB, THUMB_V } from './thumb';
-export const ART: Record<string, React.FC<any>> = { ...A, ...B };
+export const ART: Record<string, React.FC<any>> = {
+  MatchCandle: A.MatchCandle,
+  ClueTags: A.ClueTags,
+  SunCutaway: A.SunCutaway,
+  CoalSun: A.CoalSun,
+  VictorianStudy: A.VictorianStudy,
+  BikePump: A.BikePump,
+  ShrinkingSun: A.ShrinkingSun,
+  CalendarPad: A.CalendarPad,
+  CliffLayers: A.CliffLayers,
+  DarwinTree: A.DarwinTree,
+  SunScales: A.SunScales,
+  AtomBalance: A.AtomBalance,
+  SparkFormula: A.SparkFormula,
+  CardiffHall: A.CardiffHall,
+  CoreDoor: B.CoreDoor,
+  ProtonDance: B.ProtonDance,
+  Typewriter: B.Typewriter,
+  NeutrinoFlight: B.NeutrinoFlight,
+  ThumbRain: B.ThumbRain,
+  MineShaft: B.MineShaft,
+  ChlorineTank: B.ChlorineTank,
+  AtomGrain: B.AtomGrain,
+  CountWall: B.CountWall,
+  SNOSphere: B.SNOSphere,
+  ThreeDoors: B.ThreeDoors,
+  SunFurnace: B.SunFurnace,
+  LightFields: B.LightFields,
+};
 export const COSTUMES: Record<string, object> = {
   kelvin1860: { coat: .46, mat: 'night', t: .7, flare: .02, leg: 'night', legT: .7, shoe: 'boot', neck: 'tie', hat: 'none', hair: 'short', sleeve: 1.05, vest: 'cloth' },
   aston1920: { coat: .42, mat: 'stone', t: .6, flare: .01, leg: 'stone', legT: .62, shoe: 'boot', neck: 'tie', hat: 'none', hair: 'short', sleeve: 1.05, vest: 'cloth' },
