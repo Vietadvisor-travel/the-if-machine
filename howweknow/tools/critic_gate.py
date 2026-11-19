@@ -10,6 +10,7 @@ make.sh --ship runs the animatic check and stops if it fails or if the animatic 
 import hashlib, json, os, sys
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); slug, stage = sys.argv[1], sys.argv[2]
 P = f'{R}/../jobs/critic/{slug}.json'; err = []
+BAR = {'motion': 8, 'invention': 8, 'variety': 8, 'rhythm': 8, 'clarity': 7, 'popular': 7, 'acting': 6, 'drawing': 6, 'light': 6, 'composition': 6, 'style': 6}
 if os.path.exists(P) and json.load(open(P)).get('owner_ok'): print(f'critic_gate {slug} {stage}: owner approved ({json.load(open(P))["owner_ok"].get("date")}) — PASS'); sys.exit(0)   # the owner's explicit approval of this film overrides the critic bar
 if not os.path.exists(P): err.append(f'no critic record {P} — run a FRESH fathom-critic agent on the {stage}')
 else:
@@ -17,7 +18,10 @@ else:
     if not C: err.append(f'no "{stage}" scores in {P}')
     if C and 'fresh' not in str(C.get('by', '')): err.append('scores must come from a fresh critic agent, not the maker')
     for k, v in (C.get('scores') or {}).items():
-        if v < 8: err.append(f'{stage} {k} = {v} (< 8) — rebuild, then a fresh critic again')
+        # owner 19 Nov 2026: "cái anh khắt khe là video bị tĩnh… chất lượng vẽ thì không khắt khe, như tập vừa rồi là ổn" — the hard bar (8) is on
+        # what MOVES and SURPRISES; the craft axes only need the drifting-continents level (critic gave it 6–7, the owner rated the film 8.5)
+        bar = BAR.get(k, 8)
+        if v < bar: err.append(f'{stage} {k} = {v} (< {bar}) — rebuild, then a fresh critic again')
     need = {'clarity', 'invention', 'drawing', 'light', 'composition', 'style'} if stage == 'keyframes' else {'clarity', 'popular', 'invention', 'motion', 'variety', 'acting', 'rhythm', 'drawing', 'light', 'style'}
     if C and not need <= set(C.get('scores') or {}): err.append(f'{stage} scores missing: {sorted(need - set(C.get("scores") or {}))}')
     if stage == 'review' and C:   # the fast path: the critic scored the full render's PICTURE (silent master)

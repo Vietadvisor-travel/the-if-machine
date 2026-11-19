@@ -25,6 +25,9 @@ Every step below is REQUIRED (quality); the HOW is token-lean. Read only what a 
 8. **Ship** — `bash tools/make.sh <slug> --ship` (reuses the reviewed render — no second render; critic_gate needs review ≥ 8 or the owner's OK) →
    `jobs/deliveries/<slug>.md`, STATUS, INBOX, `novelty.py --record`, `variety.py --record`, commit, one short Vietnamese report with the link.
 ## TOKEN BUDGET (owner 19 Nov 2026: drifting-continents burned 2× the 5-h limit + ~20 % of the week — 70–80 % in critic→redraw rounds)
+- WHAT THE OWNER JUDGES (19 Nov): never static — continuous, inventive transformation (the "wow" of drifting-continents). Drawing polish at the
+  drifting-continents level is enough. Bars (critic_gate): motion/invention/variety/rhythm ≥ 8 · clarity/popular ≥ 7 · drawing/light/composition/style ≥ 6.
+  Keyframes = name-it + craft check only; the real gate is the REVIEW render (motion). Never spend a redraw round on polish alone.
 - Critic: ONE keyframe round + ONE fix round. Still < 8 → send the keyframe sheet to the owner and let him decide (he approved 6–7 critic
   frames and rated the film 8.5). Never a 3rd/4th round on your own. Skip the review-stage critic when the owner already approved.
 - Drawing agents: give them a 10-line style digest + the exact prop list, NOT dinosaur-killer a.tsx/anatomy.tsx to read in full. A fix round
