@@ -5,6 +5,7 @@ import * as empty_atom from './empty-atom';
 import * as inside_earth from './inside-earth';
 import * as pipeline_test from './pipeline-test';
 import * as star_distance from './star-distance';
-export const LIB_EP: Record<string, any> = { 'dinosaur-killer': dinosaur_killer, 'drifting-continents': drifting_continents, 'empty-atom': empty_atom, 'inside-earth': inside_earth, 'pipeline-test': pipeline_test, 'star-distance': star_distance };   // slug → module (ART, COSTUMES, SAMPLE)
-export const LIB_ART: Record<string, any> = Object.assign({}, dinosaur_killer.ART, drifting_continents.ART, empty_atom.ART, inside_earth.ART, pipeline_test.ART, star_distance.ART);
-export const LIB_COSTUMES: Record<string, any> = Object.assign({}, (dinosaur_killer as any).COSTUMES || {}, (drifting_continents as any).COSTUMES || {}, (empty_atom as any).COSTUMES || {}, (inside_earth as any).COSTUMES || {}, (pipeline_test as any).COSTUMES || {}, (star_distance as any).COSTUMES || {});
+import * as sun_fire from './sun-fire';
+export const LIB_EP: Record<string, any> = { 'dinosaur-killer': dinosaur_killer, 'drifting-continents': drifting_continents, 'empty-atom': empty_atom, 'inside-earth': inside_earth, 'pipeline-test': pipeline_test, 'star-distance': star_distance, 'sun-fire': sun_fire };   // slug → module (ART, COSTUMES, SAMPLE)
+export const LIB_ART: Record<string, any> = Object.assign({}, dinosaur_killer.ART, drifting_continents.ART, empty_atom.ART, inside_earth.ART, pipeline_test.ART, star_distance.ART, sun_fire.ART);
+export const LIB_COSTUMES: Record<string, any> = Object.assign({}, (dinosaur_killer as any).COSTUMES || {}, (drifting_continents as any).COSTUMES || {}, (empty_atom as any).COSTUMES || {}, (inside_earth as any).COSTUMES || {}, (pipeline_test as any).COSTUMES || {}, (star_distance as any).COSTUMES || {}, (sun_fire as any).COSTUMES || {});

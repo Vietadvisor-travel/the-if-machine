@@ -943,9 +943,17 @@
   "kind": "episode",
   "origin": "empty-atom"
  },
+ "costume:aston1920": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "costume:bessel1838": {
   "kind": "episode",
   "origin": "star-distance"
+ },
+ "costume:bethe1939": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "costume:cavendish1798": {
   "kind": "episode",
@@ -971,6 +979,18 @@
   "kind": "episode",
   "origin": "star-distance"
  },
+ "costume:davis1965": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
+ "costume:davisDesk": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
+ "costume:eddington1920": {
+  "kind": "episode",
+  "origin": "sun-fire"
+ },
  "costume:frock19": {
   "kind": "sample",
   "origin": "people.tsx presets"
@@ -994,6 +1014,10 @@
  "costume:hubble1923": {
   "kind": "episode",
   "origin": "star-distance"
+ },
+ "costume:kelvin1860": {
+  "kind": "episode",
+  "origin": "sun-fire"
  },
  "costume:kolaDriller": {
   "kind": "episode",

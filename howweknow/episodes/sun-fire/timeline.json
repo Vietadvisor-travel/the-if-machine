@@ -1,0 +1,841 @@
+{
+ "slug": "sun-fire",
+ "duration": 524.275,
+ "lines": [
+  {
+   "i": 0,
+   "text": "Strike a match in a dark room. For a moment it is the brightest thing there is\u2026 and in a few seconds, it burns out.",
+   "start": 1.0,
+   "dur": 7.152,
+   "sfx": [
+    {
+     "at": 1.07,
+     "file": "public/sfx/scratch_1.wav",
+     "db": 0
+    },
+    {
+     "at": 3.22,
+     "file": "public/sfx/real_air_pocket_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "text": "Light a candle from it, and you get a few hours. A little stick of wax, slowly burning down to a puddle.",
+   "start": 9.052,
+   "dur": 6.371,
+   "sfx": [
+    {
+     "at": 0.64,
+     "file": "public/sfx/motion_candent_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "text": "Now look out of the window. The Sun is coming up, just as it did yesterday, and every day for billions of years.",
+   "start": 16.323,
+   "dur": 7.405,
+   "sfx": [
+    {
+     "at": 3.33,
+     "file": "public/sfx/world_birds_1.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "text": "Speed up time. Candle after candle burns down on the sill, a whole forest of wax\u2026 and the Sun hasn\u2019t even flickered.",
+   "start": 24.628,
+   "dur": 7.93,
+   "sfx": [
+    {
+     "at": 1.59,
+     "file": "public/sfx/rewind_1.wav",
+     "db": -3
+    },
+    {
+     "at": 6.82,
+     "file": "public/sfx/sting_suspense_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 4,
+   "text": "So what is it burning? What fuel could possibly last that long, in a place where nobody can ever go?",
+   "start": 33.459,
+   "dur": 6.499,
+   "sfx": [
+    {
+     "at": 2.92,
+     "file": "public/sfx/sweep_riser_2s_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 5,
+   "text": "To find out, we needed a lump of coal, a shrinking star, a missing scrap of weight\u2026 and ghosts at the bottom of a gold mine.",
+   "start": 46.158,
+   "dur": 7.982,
+   "sfx": [
+    {
+     "at": 0.4,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -3
+    },
+    {
+     "at": 5.75,
+     "file": "public/sfx/impact_woodlight_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 6,
+   "text": "The trouble is, the Sun is a hundred and fifty million kilometres away. Nobody can fetch a piece of it to test.",
+   "start": 54.84,
+   "dur": 7.418,
+   "sfx": [
+    {
+     "at": 0.37,
+     "file": "public/sfx/transition_whoosh_deep_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 7,
+   "text": "And its heart is buried under seven hundred thousand kilometres of glowing gas. You could never look inside it, not even once.",
+   "start": 62.958,
+   "dur": 7.94,
+   "sfx": [
+    {
+     "at": 1.11,
+     "file": "public/sfx/real_cloth_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 8,
+   "text": "For centuries people watched the Sun through smoked glass and the first telescopes. They saw dark spots drift across it\u2026 but never what made it shine.",
+   "start": 71.598,
+   "dur": 9.608,
+   "sfx": [
+    {
+     "at": 0.96,
+     "file": "public/sfx/foley_page_turn_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 9,
+   "text": "So the scientists did the only thing they could. They took every fuel they knew, and asked: how long would it last?",
+   "start": 81.907,
+   "dur": 7.012,
+   "sfx": [
+    {
+     "at": 4.21,
+     "file": "public/sfx/clang_metal_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "text": "Start with the obvious answer: fire. Imagine the whole Sun as one gigantic lump of coal.",
+   "start": 90.419,
+   "dur": 6.406,
+   "sfx": [
+    {
+     "at": 0.64,
+     "file": "public/sfx/motion_candent_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 11,
+   "text": "Coal burns hot and bright. A heap the size of the Sun would make a fire beyond anything on Earth.",
+   "start": 97.525,
+   "dur": 6.594,
+   "sfx": [
+    {
+     "at": 0.33,
+     "file": "public/sfx/real_wind_3.wav",
+     "db": 0
+    },
+    {
+     "at": 3.63,
+     "file": "public/sfx/real_air_pocket_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 12,
+   "text": "But fire eats its fuel. Run the clock forward, and a coal Sun burns right through itself in just a few thousand years.",
+   "start": 104.819,
+   "dur": 7.814,
+   "sfx": [
+    {
+     "at": 1.17,
+     "file": "public/sfx/world_clock_tick_2.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 13,
+   "text": "A few thousand years is nothing. Human history alone is about that long, and the Earth was clearly far, far older.",
+   "start": 113.333,
+   "dur": 7.971,
+   "sfx": [
+    {
+     "at": 2.39,
+     "file": "public/sfx/impact_stone_engine_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 14,
+   "text": "Coal could not do it. No fire could. Scientists needed a fuel that could keep the Sun going far longer. But what could it possibly be?",
+   "start": 122.004,
+   "dur": 8.842,
+   "sfx": [
+    {
+     "at": 1.77,
+     "file": "public/sfx/thud_heavy_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 15,
+   "text": "In the 1850s, Hermann von Helmholtz in Germany, and William Thomson, later Lord Kelvin, in Scotland, had a cleverer idea.",
+   "start": 132.346,
+   "dur": 10.173,
+   "sfx": [
+    {
+     "at": 0.51,
+     "file": "public/sfx/world_footstep_wood_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 16,
+   "text": "Squeeze something, and it warms up. Pump a bicycle tyre hard, and feel how hot the pump gets.",
+   "start": 143.219,
+   "dur": 6.384,
+   "sfx": [
+    {
+     "at": 0.77,
+     "file": "public/sfx/real_air_pocket_1.wav",
+     "db": -2
+    },
+    {
+     "at": 5.23,
+     "file": "public/sfx/dial_tick_2.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 17,
+   "text": "Now let gravity do the squeezing. The Sun\u2019s own weight pulls it inward, and as it slowly shrinks, it glows hot.",
+   "start": 150.303,
+   "dur": 7.438,
+   "sfx": [
+    {
+     "at": 1.12,
+     "file": "public/sfx/motion_whoosh_deep_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 18,
+   "text": "Wrap a tape measure round its middle, and year after year the tape pulls a little tighter. Far too little to notice from Earth.",
+   "start": 158.442,
+   "dur": 7.512,
+   "sfx": [
+    {
+     "at": 0.75,
+     "file": "public/sfx/real_cloth_2.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 19,
+   "text": "Kelvin did the sums. Squeezing could keep the Sun shining for about twenty million years: thousands of times longer than coal.",
+   "start": 166.653,
+   "dur": 8.281,
+   "sfx": [
+    {
+     "at": 0.99,
+     "file": "public/sfx/transition_page_turn_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "text": "It sounded like a triumph. But out in the quarries, geologists were reading a very different calendar.",
+   "start": 175.634,
+   "dur": 6.254,
+   "sfx": [
+    {
+     "at": 0.63,
+     "file": "public/sfx/foley_hammer_1.wav",
+     "db": 0
+    },
+    {
+     "at": 2.5,
+     "file": "public/sfx/impact_stone_2.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 21,
+   "text": "Layer on layer of rock, each one laid down grain by grain. Their slow stacking spoke of hundreds of millions of years.",
+   "start": 182.589,
+   "dur": 8.101,
+   "sfx": [
+    {
+     "at": 4.05,
+     "file": "public/sfx/impact_stone_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 22,
+   "text": "And Charles Darwin needed even more. Living things change so slowly that twenty million years was nowhere near enough.",
+   "start": 191.389,
+   "dur": 7.934,
+   "sfx": [
+    {
+     "at": 1.43,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 23,
+   "text": "Physics said the Sun was young. Rocks and life said the Earth was old. They could not both be right.",
+   "start": 200.024,
+   "dur": 6.176,
+   "sfx": [
+    {
+     "at": 0.62,
+     "file": "public/sfx/impact_metal_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 24,
+   "text": "The answer came from somewhere nobody expected. In 1920, the scientist Francis Aston weighed atoms more exactly than anyone before.",
+   "start": 207.7,
+   "dur": 10.439,
+   "sfx": [
+    {
+     "at": 2.09,
+     "file": "public/sfx/motion_whoosh_short_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 25,
+   "text": "A helium atom is made of the same stuff as four hydrogen atoms. So it ought to weigh exactly the same as four.",
+   "start": 218.839,
+   "dur": 7.503,
+   "sfx": [
+    {
+     "at": 0.38,
+     "file": "public/sfx/motion_pop_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 26,
+   "text": "It doesn\u2019t. Helium is lighter, by about one part in a hundred and twenty. A sliver of weight has simply gone missing.",
+   "start": 227.042,
+   "dur": 7.859,
+   "sfx": [
+    {
+     "at": 3.22,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": 2
+    }
+   ]
+  },
+  {
+   "i": 27,
+   "text": "Where did it go? Albert Einstein had already given the answer. A little mass can turn into a huge amount of energy.",
+   "start": 235.601,
+   "dur": 7.58,
+   "sfx": [
+    {
+     "at": 0.76,
+     "file": "public/sfx/sting_magic_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 28,
+   "text": "The c is the speed of light, multiplied by itself: a gigantic number. So a crumb of lost weight becomes a flood of light.",
+   "start": 243.88,
+   "dur": 8.69,
+   "sfx": [
+    {
+     "at": 4.78,
+     "file": "public/sfx/transition_riser_2s_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 29,
+   "text": "That August, in Cardiff, the astronomer Arthur Eddington put it all together. The Sun, he said, must be turning hydrogen into helium.",
+   "start": 253.27,
+   "dur": 9.292,
+   "sfx": [
+    {
+     "at": 3.72,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "text": "And the old shrinking-Sun idea? Eddington called it an \u201cunburied corpse\u201d. It was time to put it in the ground.",
+   "start": 263.262,
+   "dur": 6.965,
+   "sfx": [
+    {
+     "at": 4.18,
+     "file": "public/sfx/amb_door_slam_1.wav",
+     "db": 0
+    }
+   ]
+  },
+  {
+   "i": 31,
+   "text": "But how, exactly? Deep in the middle of the Sun it is crushed and fierce, millions of degrees hot.",
+   "start": 270.927,
+   "dur": 6.51,
+   "sfx": [
+    {
+     "at": 1.3,
+     "file": "public/sfx/world_door_creak_1.wav",
+     "db": 0
+    }
+   ]
+  },
+  {
+   "i": 32,
+   "text": "Shrink down to the size of an atom\u2019s heart. Bare hydrogen cores, called protons, rush about, and shove each other away.",
+   "start": 278.137,
+   "dur": 8.177,
+   "sfx": [
+    {
+     "at": 3.68,
+     "file": "public/sfx/impact_boing_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 33,
+   "text": "Like two magnets held the wrong way round, they won\u2019t touch. But in that heat, now and then, two crash close enough to stick.",
+   "start": 287.014,
+   "dur": 7.705,
+   "sfx": [
+    {
+     "at": 0.39,
+     "file": "public/sfx/clack_toggle_1.wav",
+     "db": -3
+    },
+    {
+     "at": 5.86,
+     "file": "public/sfx/impact_glassheavy_1.wav",
+     "db": -1
+    }
+   ]
+  },
+  {
+   "i": 34,
+   "text": "In 1938 and 1939, Hans Bethe worked out each step: how four hydrogens, one by one, become a single helium. The lost weight leaves as sunlight.",
+   "start": 295.419,
+   "dur": 12.779,
+   "sfx": [
+    {
+     "at": 5.75,
+     "file": "public/sfx/machine_typewriter_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 35,
+   "text": "It was a beautiful idea. But could anyone prove it? You can\u2019t push a thermometer into the middle of the Sun.",
+   "start": 309.698,
+   "dur": 6.395,
+   "sfx": [
+    {
+     "at": 0.32,
+     "file": "public/sfx/transition_page_turn_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 36,
+   "text": "Then came a strange clue. Each time the Sun makes helium, it also spits out a tiny particle, called a neutrino.",
+   "start": 316.794,
+   "dur": 7.805,
+   "sfx": [
+    {
+     "at": 0.39,
+     "file": "public/sfx/machine_keys_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 37,
+   "text": "Neutrinos are like ghosts. They fly straight out of the Sun, across space, and right through the whole Earth, as if it were glass.",
+   "start": 325.299,
+   "dur": 7.992,
+   "sfx": [
+    {
+     "at": 0.4,
+     "file": "public/sfx/transition_whoosh_thin_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 38,
+   "text": "Billions of them pass through your thumbnail every second, day and night. You have never felt a single one.",
+   "start": 333.991,
+   "dur": 6.608,
+   "sfx": [
+    {
+     "at": 3.3,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 39,
+   "text": "Catch a few, and you could count what the Sun\u2019s heart is doing right now. A chemist named Ray Davis decided to try.",
+   "start": 341.3,
+   "dur": 7.443,
+   "sfx": [
+    {
+     "at": 0.74,
+     "file": "public/sfx/transition_whoosh_deep_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "text": "In the 1960s, he went down the Homestake gold mine in South Dakota. How deep? Almost one and a half kilometres underground.",
+   "start": 349.443,
+   "dur": 9.295,
+   "sfx": [
+    {
+     "at": 0.46,
+     "file": "public/sfx/machine_lever_clunk_1.wav",
+     "db": -2
+    },
+    {
+     "at": 6.69,
+     "file": "public/sfx/thud_heavy_2.wav",
+     "db": -1
+    }
+   ]
+  },
+  {
+   "i": 41,
+   "text": "The rock above blocks out everything else; only the ghosts get through. He filled a tank as big as a house with cleaning fluid.",
+   "start": 359.438,
+   "dur": 7.84,
+   "sfx": [
+    {
+     "at": 0.78,
+     "file": "public/sfx/real_water_lap_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 42,
+   "text": "Once in a long while, a neutrino strikes an atom in the fluid and turns it into a different atom. It\u2019s like one grain of sand turning to gold.",
+   "start": 367.978,
+   "dur": 9.793,
+   "sfx": [
+    {
+     "at": 2.45,
+     "file": "public/sfx/transition_whoosh_thin_3.wav",
+     "db": -3
+    },
+    {
+     "at": 3.92,
+     "file": "public/sfx/sci_coin_1.wav",
+     "db": 0
+    }
+   ]
+  },
+  {
+   "i": 43,
+   "text": "Davis fished out those few changed atoms and counted them, week after week, year after year.",
+   "start": 378.471,
+   "dur": 6.066,
+   "sfx": [
+    {
+     "at": 2.43,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 44,
+   "text": "Theory said how many he should catch. But his count came to only about a third of it.",
+   "start": 385.238,
+   "dur": 5.063,
+   "sfx": [
+    {
+     "at": 1.01,
+     "file": "public/sfx/dial_tick_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 45,
+   "text": "Two thirds of the Sun\u2019s ghosts were missing. Was the experiment wrong? Or was the Sun not burning the way everyone thought?",
+   "start": 391.2,
+   "dur": 7.59,
+   "sfx": [
+    {
+     "at": 0.38,
+     "file": "public/sfx/sting_twist_1.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 46,
+   "text": "Some physicists blamed Davis\u2019s tank. Others blamed the theory of the Sun. Davis just kept counting, and his number would not budge.",
+   "start": 399.691,
+   "dur": 9.118,
+   "sfx": [
+    {
+     "at": 0.46,
+     "file": "public/sfx/scratch_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 47,
+   "text": "For thirty years nobody could say. The prediction hung on the wall while posters changed, and hair turned grey.",
+   "start": 409.709,
+   "dur": 7.048,
+   "sfx": [
+    {
+     "at": 0.35,
+     "file": "public/sfx/world_clock_tick_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 48,
+   "text": "The answer came from another mine, in Canada. Deep underground, a giant ball of heavy water, watched by thousands of electric eyes.",
+   "start": 417.656,
+   "dur": 9.407,
+   "sfx": [
+    {
+     "at": 0.47,
+     "file": "public/sfx/crack_wood_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 49,
+   "text": "It could catch neutrinos of every kind. And it turns out there are three kinds, like three different flavours.",
+   "start": 427.964,
+   "dur": 6.621,
+   "sfx": [
+    {
+     "at": 0.66,
+     "file": "public/sfx/world_door_creak_2.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "text": "And on the long flight from the Sun, a neutrino can change from one kind into another.",
+   "start": 435.485,
+   "dur": 5.174,
+   "sfx": [
+    {
+     "at": 0.52,
+     "file": "public/sfx/real_footsteps_3.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 51,
+   "text": "Davis\u2019s tank could only see one kind. The missing two thirds had never been missing at all. They had changed their coats.",
+   "start": 441.359,
+   "dur": 7.589,
+   "sfx": [
+    {
+     "at": 0.38,
+     "file": "public/sfx/real_cloth_2.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 52,
+   "text": "In 2001 and 2002, Sudbury counted all three kinds together. Would the total match the prediction? It did. The Sun really is a nuclear furnace.",
+   "start": 449.648,
+   "dur": 11.68,
+   "sfx": [
+    {
+     "at": 1.75,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -2
+    },
+    {
+     "at": 4.09,
+     "file": "public/sfx/sci_ui_tick_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 53,
+   "text": "Ray Davis won a Nobel Prize in 2002. The neutrino hunters behind the final answer won one in 2015.",
+   "start": 462.028,
+   "dur": 9.081,
+   "sfx": [
+    {
+     "at": 0.91,
+     "file": "public/sfx/transition_riser_2s_2.wav",
+     "db": -3
+    },
+    {
+     "at": 2.72,
+     "file": "public/sfx/impact_bell_1.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "i": 54,
+   "text": "So here is what the Sun really is. Every second, it turns about four million tonnes of itself into light.",
+   "start": 472.009,
+   "dur": 7.075,
+   "sfx": [
+    {
+     "at": 4.95,
+     "file": "public/sfx/transition_riser_2s_3.wav",
+     "db": -3
+    }
+   ]
+  },
+  {
+   "i": 55,
+   "text": "It has been doing that for four and a half billion years, and it has billions of years still to go.",
+   "start": 479.984,
+   "dur": 5.653,
+   "sfx": [
+    {
+     "at": 0.28,
+     "file": "public/sfx/sweep_riser_1s_1.wav",
+     "db": -5
+    }
+   ]
+  },
+  {
+   "i": 56,
+   "text": "That light grows our wheat and our rice. It runs through a solar panel. It warms your face on a cold morning.",
+   "start": 486.537,
+   "dur": 7.186,
+   "sfx": [
+    {
+     "at": 3.59,
+     "file": "public/sfx/sci_gem_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 57,
+   "text": "Every bit of it began as a sliver of lost weight, deep in the Sun\u2019s crushing heart, where hydrogen becomes helium.",
+   "start": 494.623,
+   "dur": 7.443,
+   "sfx": [
+    {
+     "at": 5.81,
+     "file": "public/sfx/impact_glassheavy_1.wav",
+     "db": -2
+    }
+   ]
+  },
+  {
+   "i": 58,
+   "text": "We found all this out without ever going there. Just a lump of coal, a balance, a typewriter, and a tank of cleaning fluid deep under the ground.",
+   "start": 502.966,
+   "dur": 9.508,
+   "sfx": [
+    {
+     "at": 2.85,
+     "file": "public/sfx/scratch_1.wav",
+     "db": -4
+    }
+   ]
+  },
+  {
+   "i": 59,
+   "text": "Go back to the window. The candle is long gone, burnt down to a puddle of wax. And the Sun is still rising.",
+   "start": 513.375,
+   "dur": 7.3,
+   "sfx": [
+    {
+     "at": 4.02,
+     "file": "public/sfx/cue_reveal_2.wav",
+     "db": -4
+    }
+   ]
+  }
+ ]
+}
