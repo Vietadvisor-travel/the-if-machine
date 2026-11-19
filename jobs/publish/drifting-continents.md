@@ -12,6 +12,7 @@ Film: v1 (delivery note jobs/deliveries/drifting-continents.md, read after git p
 - Tags (10, 183/500 chars): continental drift, Alfred Wegener, Pangaea, plate tectonics, seafloor spreading, how continents move, Wegener continental drift theory, Marie Tharp, mid-ocean ridge, fathomline.
 - Category Education, language English, not made for kids (channel defaults, verified set).
 - Thumbnail: drifting-continents_thumb.jpg uploaded and showing ("WEGENER 1912 / HOW DO WE KNOW THE CONTINENTS MOVE? / A few centimetres a year", eye-checked before upload).
+- THUMBNAIL REPLACED 19/11 ~10:24 +07 (owner order "dung thumb moi"): Claude had replaced the Drive thumb at 10:06 (commit 9fee629, new 3-line title "DO THE / CONTINENTS / MOVE?"), after my download, so YouTube first showed the old thumb. Downloaded the new thumb (178,963 bytes, md5 cee73d49..., eye-checked, no spelling errors) and swapped it via Studio (same browser window). Verified on the public thumbnail file https://i.ytimg.com/vi/2YL_kc5vvbE/maxresdefault.jpg (1280x720): new thumb live, old one gone. Nothing else changed (title, description, tags, playlists, audience, Public all intact).
 - Subtitles: drifting-continents.srt uploaded as English CC, Studio reports published; subtitles showing in the player.
 - End screen 08:10-08:30: Subscribe + dinosaur-killer (VGJ2XsIMw0U). Card at 08:16 to dinosaur-killer. Verified on the watch page at 8:16-8:17 (end screen element + card button visible).
 - Playlists: "How We Know" (PLeJs39k3p__4, video #5 of 5) + "Earth" (PLTd_UKxhpAsg, video #1 of 3).
