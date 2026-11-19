@@ -37,8 +37,8 @@ Read this file + `tail -5 jobs/INBOX.md`. For a film: `howweknow/RUNBOOK.md` and
 - Render: never change engine code while a render runs; any speed-up must leave the picture identical. Masters fitted to ≈ 545 MB (`fit.py`).
 
 ## Roles & standing rules
-- Claude: everything creative and technical. Muse: sourcing only (Drive `_hwk/<slug>/` + manifest + licences; INBOX `KIT_READY`) and
-  publishing — never films (director test dropped, owner 19 Nov 2026). Two Claude accounts may work in parallel — `jobs/PARALLEL.md`. Owner:
+- Claude: everything creative and technical. Muse: sourcing only (Drive `_hwk/<slug>/` + manifest + licences; INBOX `KIT_READY`) + publishing.
+  Two Claude accounts may work in parallel — `jobs/PARALLEL.md`. Owner:
   picks topics, says "làm tập …", approves films.
 - Every message to the owner in Vietnamese, short, episodes by their Vietnamese name. Talk only at the start and the final report unless
   blocked by something only he can fix. Times in Vietnam time. Every background job gets a `send_later` watchdog; wait on a PID.
