@@ -1,17 +1,51 @@
 {
-  "keyframes": {
-    "by": "fresh agent (fathom-critic)",
-    "sha": "keyframes-19nov",
-    "scores": {"clarity": 7.5, "invention": 8.5, "drawing": 7, "light": 7.5, "composition": 7, "style": 7.5},
-    "top_fixes": [
-      "ProtonDance (lines 'Shrink down...' / 'Like two magnets'): the faced orange balls are cute but cartoon, not engraved-house; give them the channel's ink outline weight and real limbs, and keep the magnet prop big enough to read, or this scene breaks STYLE.",
-      "CalendarPad (line 'Kelvin did the sums'): the mid-action frame reads '8 800 000 years' while the line says twenty million; make the count visibly end on 20 000 000 (and keep it big, not a small pad on empty floor).",
-      "SunScales (line 'Physics said the Sun was young'): the scales are small, low-contrast, with a tiny Sun-calendar on one pan; the contradiction (young vs old) is not name-it at a glance. Put a large dawn Sun on one pan and the cliff and tree on the other, so the beam's swing is obvious.",
-      "Line 'heavy water' (Sudbury) has no everyday gloss and SNOSphere is a dotted ball; add a plain image (a giant glass ball of water ringed by a thousand lightbulb eyes, with a diver or a ladder for scale). JARGON check.",
-      "Several scenes are wide and dim with tiny figures (ChlorineTank, MineShaft, CountWall wall frame): Davis is a few pixels, so the acting and the lamp story are lost. Move to medium shots with Davis large for the lines 'He filled a tank' and 'Only a third'.",
-      "Line 'Billions of them pass through your thumbnail': the sparks rain on a pale street and are small red specks; the thumbnail lens works but needs bigger, brighter sparks passing visibly through the man, or the ghost idea is weak.",
-      "Rhythm risk: row 'For centuries people watched the Sun' (E-01 engraving, no device) and row 'Davis fished out' (photo plus tally) are the least-eventful rows; give each a real transformation (the traced spot walks across the sheet; the tally chalk marks turn into years on the calendar) so nothing is a picture plus a drifting camera.",
-      "Composition: the banner strip ('GHOSTS FROM THE CORE' etc.) collides with top edges and the 'Eddington' and 'Bethe' frames crop the subject at the right; keep the subject inside the safe third and give the banner clear paper."
-    ]
-  }
+ "keyframes": {
+  "by": "fresh agent (fathom-critic)",
+  "sha": "keyframes-19nov",
+  "scores": {
+   "clarity": 7.5,
+   "invention": 8.5,
+   "drawing": 7,
+   "light": 7.5,
+   "composition": 7,
+   "style": 7.5
+  },
+  "top_fixes": [
+   "ProtonDance (lines 'Shrink down...' / 'Like two magnets'): the faced orange balls are cute but cartoon, not engraved-house; give them the channel's ink outline weight and real limbs, and keep the magnet prop big enough to read, or this scene breaks STYLE.",
+   "CalendarPad (line 'Kelvin did the sums'): the mid-action frame reads '8 800 000 years' while the line says twenty million; make the count visibly end on 20 000 000 (and keep it big, not a small pad on empty floor).",
+   "SunScales (line 'Physics said the Sun was young'): the scales are small, low-contrast, with a tiny Sun-calendar on one pan; the contradiction (young vs old) is not name-it at a glance. Put a large dawn Sun on one pan and the cliff and tree on the other, so the beam's swing is obvious.",
+   "Line 'heavy water' (Sudbury) has no everyday gloss and SNOSphere is a dotted ball; add a plain image (a giant glass ball of water ringed by a thousand lightbulb eyes, with a diver or a ladder for scale). JARGON check.",
+   "Several scenes are wide and dim with tiny figures (ChlorineTank, MineShaft, CountWall wall frame): Davis is a few pixels, so the acting and the lamp story are lost. Move to medium shots with Davis large for the lines 'He filled a tank' and 'Only a third'.",
+   "Line 'Billions of them pass through your thumbnail': the sparks rain on a pale street and are small red specks; the thumbnail lens works but needs bigger, brighter sparks passing visibly through the man, or the ghost idea is weak.",
+   "Rhythm risk: row 'For centuries people watched the Sun' (E-01 engraving, no device) and row 'Davis fished out' (photo plus tally) are the least-eventful rows; give each a real transformation (the traced spot walks across the sheet; the tally chalk marks turn into years on the calendar) so nothing is a picture plus a drifting camera.",
+   "Composition: the banner strip ('GHOSTS FROM THE CORE' etc.) collides with top edges and the 'Eddington' and 'Bethe' frames crop the subject at the right; keep the subject inside the safe third and give the banner clear paper."
+  ]
+ },
+ "review": {
+  "by": "fresh agent (fathom-critic)",
+  "sha": "ccb2c447bceb",
+  "scores": {
+   "clarity": 7.5,
+   "popular": 8,
+   "invention": 8.5,
+   "motion": 8,
+   "variety": 8.5,
+   "acting": 6.5,
+   "rhythm": 8,
+   "drawing": 7,
+   "light": 7.5,
+   "composition": 7,
+   "style": 7.5
+  },
+  "top_fixes": [
+   "84-120s (CoalSun/tongs, ~36 s on one dark brown frame): same tongs-and-scuttle composition for ~7 sheet samples; the 90-102 s flame crown holds identical. Break it with a mid-scene transformation (tongs swing, coal heap grows, a clock or candle-count overlay) or shorten.",
+   "396-420 s (Apollo chalkboard, 5 samples): same board, same wall props, tiny figure at the edge; only bars and icons change. Cut to the bars physically growing or pull Davis large; add a camera move per line.",
+   "366-380 s (chlorine tank / Homestake): wide, dim, Davis a few pixels, tank reads as grey pipe; use a medium shot with Davis large and the lamp visible. Name-it test fails for the black panel.",
+   "60-66 s (cutaway Sun): concentric orange rings with dots read as a target, not a star interior; give recognisable layers (spots, flares, glowing core) or a cut-open orange look.",
+   "262-270 s (EquationVault / door) and 222-240 s (E=mc2 on brown): long text-on-dark stretches with little acting; add a visible mass-to-light conversion (a bead shrinking into a flash) so it is a picture, not a caption.",
+   "Acting 330-345 s and 426-440 s: human figures (the man at typewriter, shopper, miner) are small, stiff and in dim light; one clear face reaction per beat (surprise at the missing neutrinos) would lift acting above 7.",
+   "The ghost/neutrino ending 440-486 s: door scene (ThreeDoors) is small and low-contrast; enlarge the neutrino-in-coat character so the 'changes its coat' idea is instantly nameable.",
+   "516-527 s final room: near-empty sill for the last seconds while the tags tick; let the Sun rise with a last transformation (tea steam to sunrise ray, candle lit by the Sun) rather than holding."
+  ]
+ }
 }

@@ -441,7 +441,7 @@
     "stock": [],
     "see": "Four tags swing down on strings over the sill: a lump of coal, a tape measure, a little balance, a miner’s lamp.",
     "beats": "+0.0 a tag drops: coal | +1.6 a tape measure | +3.2 a little balance | +4.8 a miner’s lamp | +6.2 they swing | +8.4 the camera travels on toward each tag as it lands | +10.6 the light shifts across each tag as it lands",
-    "set": "four-clues"
+    "set": "clue-tags"
    },
    "src": "S1 S2 S1 S2 S3 S4 S5 S7 S8 S9",
    "facts": "F1 F2 F4 F7",
@@ -4078,7 +4078,7 @@
     "stock": [],
     "see": "The tags lift away; the Sun in the window; on the sill, the puddle of wax from the candle; the warm light rests.",
     "beats": "+0.0 the window | +1.4 the cold wax puddle | +2.8 the Sun rises | +4.0 warm light on the sill | +6.2 the light shifts across the sill | +8.4 the camera travels on toward the sill",
-    "set": "bookend"
+    "set": "sill-at-dawn"
    },
    "reads": "The candle is gone; the Sun is not.",
    "focus": "the sill",

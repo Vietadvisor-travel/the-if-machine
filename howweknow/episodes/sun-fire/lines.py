@@ -51,7 +51,7 @@ R('COLD', "So what is it burning? What fuel could possibly last that long, in a 
 R('COLD', "To find out, we needed a lump of coal, a shrinking star, a missing scrap of weight… and ghosts at the bottom of a gold *mine*.", 'F1 F2 F4 F7',
   'split', 'the Sun', 'four tags swing down on strings over the sill: a lump of coal, a tape measure, a little balance, a miner’s lamp', 'Four clues.', 'each tag as it lands',
   [(0, 'a tag drops: coal'), (1.6, 'a tape measure'), (3.2, 'a little balance'), (4.8, 'a miner’s lamp'), (6.2, 'they swing')],
-  'curious', 'wide', 'dawn', 'pan-l', ['ClueTags'], 'four-clues')
+  'curious', 'wide', 'dawn', 'pan-l', ['ClueTags'], 'clue-tags')
 # ======================================================================== STAKES — you cannot go there
 R('STAKES', "The trouble is, the Sun is a hundred and fifty million kilometres away. Nobody can fetch a piece of it to *test*.", 'F11',
   'whip', 'the four tags', 'we whip out of the window into space; the Earth shrinks to a dot, a dotted line runs to the Sun', 'The Sun is very far away.', 'the dotted line',
@@ -275,7 +275,7 @@ R('MEANING', "We found all this out without ever going there. Just a lump of coa
 R('MEANING', "Go back to the window. The candle is long gone, burnt down to a puddle of wax. And the Sun is still *rising*.", '-',
   'echo', 'the four tags', 'the tags lift away; the Sun in the window; on the sill, the puddle of wax from the candle; the warm light rests', 'The candle is gone; the Sun is not.', 'the sill',
   [(0, 'the window'), (1.4, 'the cold wax puddle'), (2.8, 'the Sun rises'), (4.0, 'warm light on the sill')],
-  'warm', 'medium', 'dawn through the window', 'crane-up', ['MatchCandle'], 'bookend', motif='the flame — the candle out, the Sun not')
+  'warm', 'medium', 'dawn through the window', 'crane-up', ['MatchCandle'], 'sill-at-dawn', motif='the flame — the candle out, the Sun not')
 
 ROWS[5][13]['gap'] = 6.2
 for i, r in enumerate(ROWS):
