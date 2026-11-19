@@ -66,7 +66,7 @@ R('STAKES', "For centuries people watched the Sun through smoked glass and the f
   [(0, 'the engraving develops'), (1.4, 'a telescope throws the Sun onto paper'), (2.8, 'a spot drifts'), (4.2, 'a hand traces it'), (5.6, 'the image fades to the bare Sun')],
   'curious', 'medium', 'a beam through a shutter', 'pan-l', [], stock=['E-01'])
 R('STAKES', "So the scientists did the only thing they could. They took every fuel they knew, and asked: how long would it *last*?", '-',
-  'merge', 'the closed Sun', 'a pair of huge iron tongs swings in from the dark and grips the Sun', 'Test every fuel.', 'the tongs',
+  'grip-hand', 'the closed Sun', 'a pair of huge iron tongs swings in from the dark and grips the Sun', 'Test every fuel.', 'the tongs',
   [(0, 'the tongs swing in'), (1.4, 'they open'), (2.8, 'they grip the Sun'), (4.0, 'it lifts')],
   'curious', 'medium', 'sunglow from below', 'crane-up', ['CoalSun'])
 # ======================================================================== CLUE 1 — too long for fire
@@ -112,7 +112,7 @@ R('CLUE2', "Kelvin did the sums. Squeezing could keep the Sun shining for about 
   [(0, 'the tape folds into a calendar'), (1.4, 'pages fly'), (2.8, 'faster'), (4.2, '20 000 000'), (5.4, 'Kelvin nods')],
   'triumph', 'medium', 'oil lamp', 'pull', ['CalendarPad'], 'calendar')
 R('CLUE2', "It sounded like a triumph. But out in the quarries, geologists were reading a very different *calendar*.", 'F3',
-  'through', 'the calendar', 'a geologist’s hammer cracks through the last calendar page into a cliff face of rock layers', 'Geologists disagree.', 'the hammer',
+  'shatter', 'the calendar', 'a geologist’s hammer cracks through the last calendar page into a cliff face of rock layers', 'Geologists disagree.', 'the hammer',
   [(0, 'a hammer swings'), (1.2, 'the page cracks'), (2.4, 'a cliff behind it'), (3.6, 'stripes of rock')],
   'tension', 'wide', 'flat daylight', 'whip', ['CliffLayers'], 'cliff')
 R('CLUE2', "Layer on layer of rock, each one laid down grain by grain. Their slow stacking spoke of hundreds of millions of *years*.", 'F3',
@@ -153,7 +153,7 @@ R('CLUE3', "That August, in Cardiff, the astronomer Arthur Eddington put it all 
   [(0, 'we descend into the hall'), (1.4, 'Eddington at the lectern'), (2.8, 'he raises a hand'), (4.2, 'H → He on the board'), (5.6, 'the printed page')],
   'triumph', 'wide', 'tall windows, morning', 'crane-down', ['CardiffHall'], 'cardiff', stock=['D-01', 'P-03'])
 R('CLUE3', "And the old shrinking-Sun idea? Eddington called it an “unburied corpse”. It was time to put it in the *ground*.", 'F4',
-  'hand-over', 'the lectern', 'Eddington lifts a sheet off a coffin marked “shrinking Sun”; the lid slams shut', 'The old idea is buried.', 'the coffin',
+  'lift-off', 'the lectern', 'Eddington lifts a sheet off a coffin marked “shrinking Sun”; the lid slams shut', 'The old idea is buried.', 'the coffin',
   [(0, 'a coffin by the lectern'), (1.4, 'he lifts the sheet'), (2.8, 'the old Sun inside'), (4.0, 'the lid slams')],
   'tension', 'medium', 'window light', 'handheld', ['CardiffHall'], sp=0)
 R('CLUE3', "But how, exactly? Deep in the middle of the Sun it is crushed and fierce, millions of degrees *hot*.", 'F11',
@@ -165,11 +165,11 @@ R('CLUE3', "Shrink down to the size of an atom’s heart. Bare hydrogen cores, c
   [(0, 'we dive in'), (1.4, 'dancers appear'), (2.8, 'two bump'), (3.8, 'they spring apart'), (5.0, 'again')],
   'wonder', 'close', 'white glow', 'dive', ['ProtonDance'], 'dance', sp=2)
 R('CLUE3', "Like two magnets held the wrong way round, they won’t touch. But in that heat, now and then, two crash close enough to *stick*.", 'F5',
-  'solid-morph', 'the dancers', 'two dancers rush together, refuse, rush again — and fuse in a flash', 'Two protons fuse.', 'the flash',
+  'bloom-out', 'the dancers', 'two dancers rush together, refuse, rush again — and fuse in a flash', 'Two protons fuse.', 'the flash',
   [(0, 'two magnets repel'), (1.4, 'two dancers run'), (2.8, 'they bounce'), (4.0, 'faster'), (5.0, 'flash — they fuse')],
   'awe', 'insert', 'a flash', 'snap-zoom', ['ProtonDance'], sp=2, motif='the flame — the flash of fusion')
 R('CLUE3', "In 1938 and 1939, Hans Bethe worked out each step: how four hydrogens, one by one, become a single helium. The lost weight leaves as *sunlight*.", 'F5',
-  'travel-line', 'the flash', 'a line of dancers changing partners runs out onto a paper strip feeding into Bethe’s typewriter', 'Bethe works out the chain.', 'the typewriter',
+  'page-turn', 'the flash', 'a line of dancers changing partners runs out onto a paper strip feeding into Bethe’s typewriter', 'Bethe works out the chain.', 'the typewriter',
   [(0, 'dancers change partners'), (1.4, 'four become one'), (2.8, 'the line becomes a paper strip'), (4.2, 'Bethe types'), (5.6, 'light spills from the page')],
   'triumph', 'medium', 'desk lamp', 'track', ['Typewriter'], 'bethe', stock=['P-03'])
 # ======================================================================== CLUE 4 — ghosts from the core
@@ -190,11 +190,11 @@ R('CLUE4', "Billions of them pass through your thumbnail every second, day and n
   [(0, 'a street'), (1.4, 'a man with coffee'), (2.8, 'sparks rain through'), (4.0, 'his thumbnail'), (5.0, 'he never notices')],
   'curious', 'close', 'morning street', 'rack', ['ThumbRain'], 'street')
 R('CLUE4', "Catch a few, and you could count what the Sun’s heart is doing right now. A chemist named Ray Davis decided to *try*.", 'F7',
-  'shrink-into', 'the thumbnail', 'the thumbnail becomes the mouth of a mine shaft; Davis in a hard hat steps into the cage', 'Ray Davis.', 'Davis',
+  'scale-dive', 'the thumbnail', 'the thumbnail becomes the mouth of a mine shaft; Davis in a hard hat steps into the cage', 'Ray Davis.', 'Davis',
   [(0, 'the nail becomes a shaft'), (1.4, 'a headframe'), (2.8, 'Davis in a hard hat'), (4.0, 'he steps into the cage')],
   'curious', 'medium', 'grey daylight at the pithead', 'pan-l', ['MineShaft'], 'mine', stock=['P-03'])
 R('CLUE4', "In the 1960s, he went down the Homestake gold mine in South Dakota. How deep? Almost one and a half kilometres *underground*.", 'F7',
-  'crane', 'the cage', 'the cage drops down the shaft; a depth gauge spins to 1,478 m; rock rushes past', 'Deep underground.', 'the depth gauge',
+  'drop', 'the cage', 'the cage drops down the shaft; a depth gauge spins to 1,478 m; rock rushes past', 'Deep underground.', 'the depth gauge',
   [(0, 'the cage drops'), (1.4, 'rock rushes past'), (2.8, 'the gauge spins'), (4.2, '1,478 m'), (5.0, 'a jolt')],
   'mystery', 'wide', 'helmet lamps in the dark', 'crane-down', ['MineShaft'], sp=3)
 R('CLUE4', "The rock above blocks out everything else; only the ghosts get through. He filled a tank as big as a house with cleaning *fluid*.", 'F7',
@@ -210,12 +210,12 @@ R('CLUE4', "Davis fished out those few changed atoms and counted them, week afte
   [(0, 'the photo develops'), (1.4, 'a tally mark'), (2.6, 'another'), (3.8, 'weeks pass')],
   'calm', 'medium', 'helmet lamp', 'pan-r', ['ChlorineTank'], stock=['P-01'])
 R('CLUE4', "Theory said how many he should catch. But his count came to only about a *third* of it.", 'F7 F13',
-  'count-up', 'the tally', 'on a wall: the prediction chalked large; the counter below climbs, then stops at a third of it', 'Only a third.', 'the counter',
+  'tick', 'the tally', 'on a wall: the prediction chalked large; the counter below climbs, then stops at a third of it', 'Only a third.', 'the counter',
   [(0, 'the chalk prediction'), (1.4, 'the counter climbs'), (2.8, 'it slows'), (3.6, 'it stops: about a third')],
   'mystery', 'medium', 'bare bulb', 'lock', ['CountWall'], 'wall')
 # ======================================================================== TWIST — thirty years of missing ghosts
 R('TWIST', "Two thirds of the Sun’s ghosts were missing. Was the experiment wrong? Or was the Sun not burning the way everyone *thought*?", 'F7',
-  'heat', 'the counter', 'the wall shimmers; the chalk prediction and the counter tug apart; two question marks appear', 'Two thirds missing.', 'the gap',
+  'swell', 'the counter', 'the wall shimmers; the chalk prediction and the counter tug apart; two question marks appear', 'Two thirds missing.', 'the gap',
   [(0, 'the gap opens'), (1.4, 'a question mark: the tank?'), (2.8, 'a question mark: the Sun?'), (4.2, 'they wobble')],
   'tension', 'close', 'bare bulb', 'dutch', ['CountWall'], sp=3)
 R('TWIST', "Some physicists blamed Davis’s tank. Others blamed the theory of the Sun. Davis just kept counting, and his number would not *budge*.", 'F7 F13',
@@ -223,15 +223,15 @@ R('TWIST', "Some physicists blamed Davis’s tank. Others blamed the theory of t
   [(0, 'arrows at the tank'), (1.4, 'arrows at the Sun'), (2.8, 'Davis adds a mark'), (4.0, 'the counter stays'), (5.2, 'he shrugs')],
   'tension', 'medium', 'bare bulb', 'pan-r', ['CountWall'])
 R('TWIST', "For thirty years nobody could say. The prediction hung on the wall while posters changed, and hair turned *grey*.", 'F13',
-  'light-change', 'the gap', 'the wall ages thirty years in seconds: posters change, the paint yellows, Davis’s hair greys at the desk', 'Thirty years.', 'the ageing wall',
+  'time-lapse', 'the gap', 'the wall ages thirty years in seconds: posters change, the paint yellows, Davis’s hair greys at the desk', 'Thirty years.', 'the ageing wall',
   [(0, 'a poster changes'), (1.2, 'another'), (2.4, 'paint yellows'), (3.6, 'Davis greys'), (4.8, 'the chalk stays')],
   'calm', 'medium', 'bulb, then fluorescent, then daylight', 'track', ['CountWall'], sp=3)
 R('TWIST', "The answer came from another mine, in Canada. Deep underground, a giant ball of heavy water, watched by thousands of electric *eyes*.", 'F8',
-  'through', 'the ageing wall', 'the wall cracks open into a vast cavern; a giant sphere stands in it, studded with thousands of light sensors', 'Sudbury.', 'the sphere',
+  'cut-open', 'the ageing wall', 'the wall cracks open into a vast cavern; a giant sphere stands in it, studded with thousands of light sensors', 'Sudbury.', 'the sphere',
   [(0, 'the wall cracks'), (1.4, 'a cavern'), (2.8, 'a sphere'), (4.0, 'thousands of eyes'), (5.4, 'the real photo')],
   'wonder', 'wide', 'cool cavern light', 'crane-up', ['SNOSphere'], 'sudbury', stock=['P-02'])
 R('TWIST', "It could catch neutrinos of every kind. And it turns out there are three kinds, like three different *flavours*.", 'F8',
-  'split', 'the sphere', 'the sphere opens three doors, red, blue and green', 'Three kinds.', 'the three doors',
+  'door-open', 'the sphere', 'the sphere opens three doors, red, blue and green', 'Three kinds.', 'the three doors',
   [(0, 'a red door'), (1.2, 'a blue door'), (2.4, 'a green door'), (3.6, 'they open')],
   'curious', 'medium', 'cool light', 'pan-l', ['ThreeDoors'], 'doors')
 R('TWIST', "And on the long flight from the Sun, a neutrino can change from one kind into *another*.", 'F8',
@@ -240,11 +240,11 @@ R('TWIST', "And on the long flight from the Sun, a neutrino can change from one 
   'wonder', 'close', 'cool light', 'track', ['ThreeDoors'], sp=3, motif='the flame — the coat that changes')
 # ======================================================================== ANSWER — the furnace confirmed
 R('ANSWER', "Davis’s tank could only see one kind. The missing two thirds had never been missing at all. They had changed their *coats*.", 'F8',
-  'echo', 'the blue coat', 'the coats hang side by side: red, blue, green; Davis’s tank sees only the red', 'They were never missing.', 'the coats',
+  'x-ray', 'the blue coat', 'the coats hang side by side: red, blue, green; Davis’s tank sees only the red', 'They were never missing.', 'the coats',
   [(0, 'three coats'), (1.4, 'the tank’s eye: red only'), (2.8, 'blue and green unseen'), (4.0, 'all three light up')],
   'wonder', 'medium', 'warming light', 'arc', ['ThreeDoors'])
 R('ANSWER', "In 2001 and 2002, Sudbury counted all three kinds together. Would the total match the prediction? It did. The Sun really is a nuclear *furnace*.", 'F8',
-  'merge', 'the coats', 'back at the wall: three counters add up, the total climbs and clicks onto the old chalk prediction', 'The count matches.', 'the total',
+  'build', 'the coats', 'back at the wall: three counters add up, the total climbs and clicks onto the old chalk prediction', 'The count matches.', 'the total',
   [(0, 'three counters'), (1.4, 'they add'), (2.8, 'the total climbs'), (4.0, 'it meets the chalk'), (5.2, 'click')],
   'triumph', 'medium', 'daylight', 'push', ['CountWall'], sp=3)
 R('ANSWER', "Ray Davis won a Nobel Prize in 2002. The neutrino hunters behind the final answer won one in *2015*.", 'F8',
@@ -261,7 +261,7 @@ R('MEANING', "It has been doing that for four and a half billion years, and it h
   [(0, 'a circle opens'), (1.4, 'a young Earth'), (2.8, 'forests'), (4.0, 'cities'), (5.0, 'still burning')],
   'awe', 'medium', 'sunlight', 'orbit', ['SunFurnace'])
 R('MEANING', "That light grows our wheat and our rice. It runs through a solar panel. It warms your face on a cold *morning*.", '-',
-  'stream-through', 'the ages', 'sunbeams stream down onto a wheat field, a solar panel, and a face turned up to the morning', 'Everything runs on it.', 'the face',
+  'spread', 'the ages', 'sunbeams stream down onto a wheat field, a solar panel, and a face turned up to the morning', 'Everything runs on it.', 'the face',
   [(0, 'beams stream down'), (1.4, 'wheat sways'), (2.8, 'a solar panel glints'), (4.0, 'a face in the light')],
   'warm', 'wide', 'morning sun', 'pan-r', ['LightFields'], 'fields')
 R('MEANING', "Every bit of it began as a sliver of lost weight, deep in the Sun’s crushing heart, where hydrogen becomes *helium*.", 'F4',

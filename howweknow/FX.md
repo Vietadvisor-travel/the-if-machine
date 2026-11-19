@@ -130,6 +130,7 @@ Combine freely (a `swarm` that lands inside a `shape-window`); invent new ones â
 | `glide` | the next thing slides in by hand, physically (a hand onto the clay) | `enter='glide'` with `eo` offset |
 | `flip` | the object turns over and becomes the next state (the hourglass) | `turn` / `flipY` on the object |
 | `slide-in` | a drawer, a tray, a sample slides into place | the drawing's slide prop (`drawer`) or `fx_x` |
+| `door-open` | a row of doors swings open one by one and the next thing is behind them (sun-fire L49: three neutrino flavours) | the drawing's own `open` prop, staggered |
 | `time-lapse` | time runs fast on screen (a clock spins, days and nights sweep) | `tick` / `day` props in steps |
 | `cut-open` | a saw or blade opens the object and shows its inside | the drawing's `cut` prop with the blade at the edge |
 | `swell` | a small thing swells into the big thing it stands for | `enter='scale'` from the small thing's point |

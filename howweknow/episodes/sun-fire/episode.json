@@ -703,7 +703,7 @@
    "section": "STAKES",
    "plan": {
     "in": "stamp",
-    "trans": "merge",
+    "trans": "grip-hand",
     "cam": "crane",
     "comp": "right-third-medium",
     "life": [
@@ -721,7 +721,7 @@
    "becomes": {
     "from": "the closed Sun",
     "to": "a pair of huge iron tongs swings in from the dark and grips the Sun",
-    "how": "merge"
+    "how": "grip-hand"
    },
    "acts": [
     [
@@ -1437,7 +1437,7 @@
    "section": "CLUE2",
    "plan": {
     "in": "grow",
-    "trans": "through",
+    "trans": "shatter",
     "cam": "whip",
     "comp": "centre-large",
     "life": [
@@ -1458,7 +1458,7 @@
    "becomes": {
     "from": "the calendar",
     "to": "a geologist’s hammer cracks through the last calendar page into a cliff face of rock layers",
-    "how": "through"
+    "how": "shatter"
    },
    "acts": [
     [
@@ -2112,7 +2112,7 @@
    "section": "CLUE3",
    "plan": {
     "in": "wipe",
-    "trans": "hand-over",
+    "trans": "lift-off",
     "cam": "tremble",
     "comp": "centre-large",
     "life": [
@@ -2132,7 +2132,7 @@
    "becomes": {
     "from": "the lectern",
     "to": "Eddington lifts a sheet off a coffin marked “shrinking Sun”; the lid slams shut",
-    "how": "hand-over"
+    "how": "lift-off"
    },
    "acts": [
     [
@@ -2303,7 +2303,7 @@
    "section": "CLUE3",
    "plan": {
     "in": "assemble",
-    "trans": "solid-morph",
+    "trans": "bloom-out",
     "cam": "push",
     "comp": "wide-sky",
     "life": [
@@ -2323,7 +2323,7 @@
    "becomes": {
     "from": "the dancers",
     "to": "two dancers rush together, refuse, rush again — and fuse in a flash",
-    "how": "solid-morph"
+    "how": "bloom-out"
    },
    "acts": [
     [
@@ -2379,7 +2379,7 @@
    "section": "CLUE3",
    "plan": {
     "in": "ink-on",
-    "trans": "travel-line",
+    "trans": "page-turn",
     "cam": "ride",
     "comp": "centre-medium",
     "life": [
@@ -2402,7 +2402,7 @@
    "becomes": {
     "from": "the flash",
     "to": "a line of dancers changing partners runs out onto a paper strip feeding into Bethe’s typewriter",
-    "how": "travel-line"
+    "how": "page-turn"
    },
    "acts": [
     [
@@ -2717,7 +2717,7 @@
    "section": "CLUE4",
    "plan": {
     "in": "focus",
-    "trans": "shrink-into",
+    "trans": "scale-dive",
     "cam": "pan",
     "comp": "right-third-medium",
     "life": [
@@ -2740,7 +2740,7 @@
    "becomes": {
     "from": "the thumbnail",
     "to": "the thumbnail becomes the mouth of a mine shaft; Davis in a hard hat steps into the cage",
-    "how": "shrink-into"
+    "how": "scale-dive"
    },
    "acts": [
     [
@@ -2785,7 +2785,7 @@
    "section": "CLUE4",
    "plan": {
     "in": "iris",
-    "trans": "crane",
+    "trans": "drop",
     "cam": "crane",
     "comp": "centre-large",
     "life": [
@@ -2805,7 +2805,7 @@
    "becomes": {
     "from": "the cage",
     "to": "the cage drops down the shaft; a depth gauge spins to 1,478 m; rock rushes past",
-    "how": "crane"
+    "how": "drop"
    },
    "acts": [
     [
@@ -3070,7 +3070,7 @@
    "section": "CLUE4",
    "plan": {
     "in": "slide",
-    "trans": "count-up",
+    "trans": "tick",
     "cam": "hold",
     "comp": "centre-medium",
     "life": [
@@ -3091,7 +3091,7 @@
    "becomes": {
     "from": "the tally",
     "to": "on a wall: the prediction chalked large; the counter below climbs, then stops at a third of it",
-    "how": "count-up"
+    "how": "tick"
    },
    "acts": [
     [
@@ -3132,7 +3132,7 @@
    "section": "TWIST",
    "plan": {
     "in": "unroll",
-    "trans": "heat",
+    "trans": "swell",
     "cam": "roll",
     "comp": "wide-landscape",
     "life": [
@@ -3152,7 +3152,7 @@
    "becomes": {
     "from": "the counter",
     "to": "the wall shimmers; the chalk prediction and the counter tug apart; two question marks appear",
-    "how": "heat"
+    "how": "swell"
    },
    "acts": [
     [
@@ -3263,7 +3263,7 @@
    "section": "TWIST",
    "plan": {
     "in": "wipe",
-    "trans": "light-change",
+    "trans": "time-lapse",
     "cam": "ride",
     "comp": "right-third-large",
     "life": [
@@ -3283,7 +3283,7 @@
    "becomes": {
     "from": "the gap",
     "to": "the wall ages thirty years in seconds: posters change, the paint yellows, Davis’s hair greys at the desk",
-    "how": "light-change"
+    "how": "time-lapse"
    },
    "acts": [
     [
@@ -3329,7 +3329,7 @@
    "section": "TWIST",
    "plan": {
     "in": "quill",
-    "trans": "through",
+    "trans": "cut-open",
     "cam": "crane",
     "comp": "tiny-in-vast",
     "life": [
@@ -3352,7 +3352,7 @@
    "becomes": {
     "from": "the ageing wall",
     "to": "the wall cracks open into a vast cavern; a giant sphere stands in it, studded with thousands of light sensors",
-    "how": "through"
+    "how": "cut-open"
    },
    "acts": [
     [
@@ -3397,7 +3397,7 @@
    "section": "TWIST",
    "plan": {
     "in": "ink-bleed",
-    "trans": "split",
+    "trans": "door-open",
     "cam": "pan",
     "comp": "right-third-medium",
     "life": [
@@ -3418,7 +3418,7 @@
    "becomes": {
     "from": "the sphere",
     "to": "the sphere opens three doors, red, blue and green",
-    "how": "split"
+    "how": "door-open"
    },
    "acts": [
     [
@@ -3522,7 +3522,7 @@
    "section": "ANSWER",
    "plan": {
     "in": "ink-on",
-    "trans": "echo",
+    "trans": "x-ray",
     "cam": "orbit",
     "comp": "left-third-medium",
     "life": [
@@ -3542,7 +3542,7 @@
    "becomes": {
     "from": "the blue coat",
     "to": "the coats hang side by side: red, blue, green; Davis’s tank sees only the red",
-    "how": "echo"
+    "how": "x-ray"
    },
    "acts": [
     [
@@ -3587,7 +3587,7 @@
    "section": "ANSWER",
    "plan": {
     "in": "rise",
-    "trans": "merge",
+    "trans": "build",
     "cam": "push",
     "comp": "two-figures",
     "life": [
@@ -3607,7 +3607,7 @@
    "becomes": {
     "from": "the coats",
     "to": "back at the wall: three counters add up, the total climbs and clicks onto the old chalk prediction",
-    "how": "merge"
+    "how": "build"
    },
    "acts": [
     [
@@ -3860,7 +3860,7 @@
    "section": "MEANING",
    "plan": {
     "in": "focus",
-    "trans": "stream-through",
+    "trans": "spread",
     "cam": "pan",
     "comp": "diagonal",
     "life": [
@@ -3879,7 +3879,7 @@
    "becomes": {
     "from": "the ages",
     "to": "sunbeams stream down onto a wheat field, a solar panel, and a face turned up to the morning",
-    "how": "stream-through"
+    "how": "spread"
    },
    "acts": [
     [
@@ -6447,6 +6447,19 @@
      "a": 0
     },
     {
+     "t": "L9+5.69",
+     "dur": 0.8,
+     "grip": 0.9,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+7.49",
+     "dur": 0.8,
+     "grip": 1,
+     "coal": 0.08,
+     "ease": "soft"
+    },
+    {
      "t": "L10+5.68",
      "dur": 1.2,
      "flames": 0.6,
@@ -7080,6 +7093,18 @@
      "t": "L20+2.58",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L19+6.15",
+     "dur": 0.8,
+     "crack": 0.08,
+     "ease": "soft"
+    },
+    {
+     "t": "L19+7.95",
+     "dur": 0.8,
+     "crack": 0,
+     "ease": "soft"
     }
    ],
    "z": 10
@@ -7287,51 +7312,15 @@
      "t": "L23+1.09",
      "dur": 0.01,
      "a": 0
+    },
+    {
+     "t": "L22+7.51",
+     "dur": 0.8,
+     "lag": 0.7,
+     "ease": "soft"
     }
    ],
    "z": 12
-  },
-  {
-   "id": "pl22",
-   "type": "text",
-   "props": {
-    "text": "Charles Darwin’s idea: life branches, slowly",
-    "style": "note",
-    "x": 960,
-    "y": 140,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 40,
-    "col": "#2B1D12"
-   },
-   "keys": [
-    {
-     "t": "L22+1.37",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L22+1.37",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L22+1.37",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L22+7.65",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
-     "ease": "soft"
-    }
-   ],
-   "z": 60
   },
   {
    "id": "sb23",
@@ -7761,9 +7750,21 @@
      "ease": "soft"
     },
     {
+     "t": "L27+5.8",
+     "dur": 0.9,
+     "blaze": 0.1,
+     "ease": "soft"
+    },
+    {
      "t": "L27+7.4",
      "dur": 0.9,
-     "blaze": 0.15,
+     "blaze": 0.25,
+     "ease": "soft"
+    },
+    {
+     "t": "L28+3.52",
+     "dur": 0.9,
+     "swell": 0.8,
      "ease": "soft"
     },
     {
@@ -8801,8 +8802,8 @@
     "name": "Person",
     "a": 0,
     "who": "Ray Davis, Homestake mine (1960s)",
-    "x": 760,
-    "y": 640,
+    "x": 890,
+    "y": 780,
     "h": 300,
     "facing": 1,
     "pose": "stand",
@@ -9758,6 +9759,18 @@
      "dur": 0.8,
      "match": 0.85,
      "ease": "soft"
+    },
+    {
+     "t": "L52+8.75",
+     "dur": 0.9,
+     "gap": 0.6,
+     "ease": "soft"
+    },
+    {
+     "t": "L52+10.75",
+     "dur": 0.9,
+     "gap": 0,
+     "ease": "soft"
     }
    ],
    "z": 8
@@ -10462,88 +10475,90 @@
    "z": 60
   },
   {
-   "id": "tx8a",
-   "type": "text",
+   "id": "lp8",
+   "type": "art",
    "props": {
-    "text": "the Sun, thrown onto paper",
-    "style": "note",
-    "x": 960,
-    "y": 140,
-    "k": 0,
+    "name": "Loupe",
     "a": 0,
-    "blur": 8,
-    "size": 40,
-    "col": "#2B1D12"
+    "src": "stock/_hwk/sun-fire/_pd/E-01_scheiner-viewing-sunspots-1625.jpg",
+    "x": 760,
+    "y": 600,
+    "r": 170,
+    "focus": [
+     0.4,
+     0.55
+    ],
+    "zoom": 2.6,
+    "srcW": 4061,
+    "srcH": 2121,
+    "draw": 1,
+    "fx_s": 0.08,
+    "fx_ox": 760,
+    "fx_oy": 600
    },
    "keys": [
     {
-     "t": "L8+1.6",
+     "t": "L8+1.4",
      "dur": 0.01,
      "a": 1
     },
     {
-     "t": "L8+1.6",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L8+1.6",
-     "dur": 1.2,
-     "k": 1,
+     "t": "L8+1.4",
+     "dur": 1.6,
+     "fx_s": 1,
      "ease": "out"
     },
     {
-     "t": "L8+6.4",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
+     "t": "L8+3.4",
+     "dur": 1.4,
+     "x": 1240,
+     "y": 420,
+     "focus": [
+      0.66,
+      0.38
+     ],
      "ease": "soft"
-    }
-   ],
-   "z": 60
-  },
-  {
-   "id": "tx8b",
-   "type": "text",
-   "props": {
-    "text": "spots — but no fire inside",
-    "style": "note",
-    "x": 960,
-    "y": 950,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 40,
-    "col": "#B8432A"
-   },
-   "keys": [
+    },
     {
-     "t": "L8+5",
+     "t": "L8+5.6",
+     "dur": 1.4,
+     "x": 1080,
+     "y": 560,
+     "focus": [
+      0.56,
+      0.5
+     ],
+     "ease": "soft"
+    },
+    {
+     "t": "L8+7.8",
+     "dur": 1.2,
+     "zoom": 3.4,
+     "ease": "soft"
+    },
+    {
+     "t": "L9+.1",
+     "dur": 1.3,
+     "fx_s": 0.05,
+     "ease": "in"
+    },
+    {
+     "t": "L9+1.42",
      "dur": 0.01,
-     "a": 1
+     "a": 0
     },
     {
-     "t": "L8+5",
+     "t": "L8+9.1",
      "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L8+5",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L8+10",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
+     "x": 1180,
+     "focus": [
+      0.62,
+      0.44
+     ],
      "ease": "soft"
     }
    ],
-   "z": 60
+   "z": 34
   },
   {
    "id": "mk8b",
@@ -10583,132 +10598,6 @@
    "z": 61
   },
   {
-   "id": "tx9a",
-   "type": "text",
-   "props": {
-    "text": "wood · coal · oil …",
-    "style": "figure",
-    "x": 1450,
-    "y": 200,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 52,
-    "col": "#2B1D12"
-   },
-   "keys": [
-    {
-     "t": "L9+5.89",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L9+5.89",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L9+5.89",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L10+0.18",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
-     "ease": "soft"
-    }
-   ],
-   "z": 60
-  },
-  {
-   "id": "tx9b",
-   "type": "text",
-   "props": {
-    "text": "how long?",
-    "style": "note",
-    "x": 1450,
-    "y": 290,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 56,
-    "col": "#B8432A"
-   },
-   "keys": [
-    {
-     "t": "L9+7.49",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L9+7.49",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L9+7.49",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L10+0.18",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
-     "ease": "soft"
-    }
-   ],
-   "z": 60
-  },
-  {
-   "id": "tx19",
-   "type": "text",
-   "props": {
-    "text": "Kelvin’s sum: ≈ 20 million years",
-    "style": "stamp",
-    "x": 960,
-    "y": 960,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 48,
-    "col": "#B8432A"
-   },
-   "keys": [
-    {
-     "t": "L19+5.95",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L19+5.95",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L19+5.95",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L20+0.97",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
-     "ease": "soft"
-    }
-   ],
-   "z": 60
-  },
-  {
    "id": "mk19",
    "type": "art",
    "props": {
@@ -10746,90 +10635,6 @@
    "z": 61
   },
   {
-   "id": "tx27",
-   "type": "text",
-   "props": {
-    "text": "Albert Einstein, 1905",
-    "style": "note",
-    "x": 960,
-    "y": 950,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 42,
-    "col": "#2B1D12"
-   },
-   "keys": [
-    {
-     "t": "L27+5.6",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L27+5.6",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L27+5.6",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L28+0.72",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
-     "ease": "soft"
-    }
-   ],
-   "z": 60
-  },
-  {
-   "id": "tx28",
-   "type": "text",
-   "props": {
-    "text": "c = 300 000 km every second",
-    "style": "label",
-    "x": 960,
-    "y": 900,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 44,
-    "col": "#2B1D12"
-   },
-   "keys": [
-    {
-     "t": "L28+3.32",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L28+3.32",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L28+3.32",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L28+6.72",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
-     "ease": "soft"
-    }
-   ],
-   "z": 60
-  },
-  {
    "id": "rp40",
    "type": "ripple",
    "props": {
@@ -10853,48 +10658,6 @@
     }
    ],
    "z": 57
-  },
-  {
-   "id": "tx52",
-   "type": "text",
-   "props": {
-    "text": "all three kinds together",
-    "style": "note",
-    "x": 960,
-    "y": 140,
-    "k": 0,
-    "a": 0,
-    "blur": 8,
-    "size": 44,
-    "col": "#2B1D12"
-   },
-   "keys": [
-    {
-     "t": "L52+8.75",
-     "dur": 0.01,
-     "a": 1
-    },
-    {
-     "t": "L52+8.75",
-     "dur": 0.9,
-     "blur": 0,
-     "ease": "soft"
-    },
-    {
-     "t": "L52+8.75",
-     "dur": 1.2,
-     "k": 1,
-     "ease": "out"
-    },
-    {
-     "t": "L53+0.17",
-     "dur": 1.0,
-     "blur": 10,
-     "a": 0,
-     "ease": "soft"
-    }
-   ],
-   "z": 60
   },
   {
    "id": "mk52",
