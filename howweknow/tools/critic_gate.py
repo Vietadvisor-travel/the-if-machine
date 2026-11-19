@@ -10,7 +10,7 @@ make.sh --ship runs the animatic check and stops if it fails or if the animatic 
 import hashlib, json, os, sys
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); slug, stage = sys.argv[1], sys.argv[2]
 P = f'{R}/../jobs/critic/{slug}.json'; err = []
-BAR = {'motion': 8, 'invention': 8, 'variety': 8, 'rhythm': 8, 'clarity': 7, 'popular': 7, 'acting': 6, 'drawing': 6, 'light': 6, 'composition': 6, 'style': 6}
+BAR = {}   # owner 19 Nov 2026 (after sun-fire 6/10): "chấm điểm cũng cần khắt khe lên như trước" — every axis ≥ 8 again, plus wow ≥ 8.5 and vs_reference
 if os.path.exists(P) and json.load(open(P)).get('owner_ok'): print(f'critic_gate {slug} {stage}: owner approved ({json.load(open(P))["owner_ok"].get("date")}) — PASS'); sys.exit(0)   # the owner's explicit approval of this film overrides the critic bar
 if not os.path.exists(P): err.append(f'no critic record {P} — run a FRESH fathom-critic agent on the {stage}')
 else:

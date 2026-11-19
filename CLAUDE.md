@@ -41,9 +41,10 @@ Read this file + `tail -5 jobs/INBOX.md`. For a film: `howweknow/RUNBOOK.md` and
   levels them; trim −6…+3); −16 LUFS; `sound_check`. Sound-only fixes = remix + remux + fit, never a re-render.
 - Render: never change engine code while a render runs; any speed-up must leave the picture identical. Masters fitted to ≈ 545 MB (`fit.py`).
 
-## Schedule & the ratchet (owner 19 Nov 2026)
-- 4 films a week, published Tue · Thu · Sat · Sun (YouTube + Facebook + TikTok). Each film made with care — polished, beautiful, "wow" — never
-  rushed to hit a day; a film below the bar is not published, the day is skipped.
+## Quality first & the ratchet (owner 19 Nov 2026)
+- For information only: the owner and Muse publish 4 films a week (Tue · Thu · Sat · Sun; YouTube + Facebook + TikTok). Claude follows no
+  schedule — it makes a film when the owner says so, takes the time the quality needs and NEVER delivers early: the engine's job is a film that
+  is absolutely right. Strict scoring, as before 19 Nov: every critic axis ≥ 8, `wow` ≥ 8.5, `vs_reference` better|equal; as many fix rounds as it takes.
 - THE RATCHET: quality only goes UP from chat to chat. The reference for the critic (`_hwk_core/reference/`) is the best film the owner has
   rated; when he rates a new film higher than it, that film's pair sheets become the new reference (`sheet.py --pairs`, upload to Drive
   `_hwk_core/reference/`, update CINEMA §0b + `jobs/critic/_PROMPT.md`). Owner ratings so far: drifting-continents 8.5 (the bar) · sun-fire v1 6.
