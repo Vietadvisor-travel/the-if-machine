@@ -31,9 +31,9 @@ const Stripes: React.FC<{ W: number; H: number }> = ({ W, H }) => { const ws = [
   ws.forEach(w => { bands.push([x, w]); x += w; });
   return <g opacity=".55">{bands.map(([o, w], i) => <g key={i}><rect x={W / 2 + o} y={0} width={w} height={H} fill={i % 2 ? '#1E2A44' : '#C9A24A'} /><rect x={W / 2 - o - w} y={0} width={w} height={H} fill={i % 2 ? '#1E2A44' : '#C9A24A'} /></g>)}
     <rect x={W / 2 - 3} y={0} width={6} height={H} fill={VERM} /></g>; };
-const words = (p: any) => ({ kicker: p.kicker ?? 'Wegener · 1912', title: p.lines ?? ['HOW DO WE', 'KNOW THE', 'CONTINENTS MOVE?'], accent: p.accent ?? 2, note: p.note ?? 'A few centimetres a year.' });
+const words = (p: any) => ({ kicker: p.kicker ?? 'Wegener · 1912', title: p.lines ?? ['DO THE', 'CONTINENTS', 'MOVE?'], accent: p.accent ?? 2, note: p.note ?? 'A few centimetres a year.' });
 const Atlas: React.FC<{ W: number; H: number; cx: number; cy: number; w: number }> = ({ W, H, cx, cy, w }) => { const A = ART_A.AtlasPage, h = w * 1080 / 1920;
   return <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}><svg x={cx - w / 2} y={cy - h / 2} width={w} height={h} viewBox="160 70 1600 940">
     <A x={960} y={540} s={1} draw={1} rip={1} gap={1} q={0} trace={0} ghost={0} /></svg></svg>; };
-export const THUMB: React.FC<any> = (p) => <ThumbPoster {...words(p)} hero={<Atlas W={1280} H={720} cx={930} cy={400} w={640} />} back={<Stripes W={1280} H={720} />} lamp={[930, 260]} />;
+export const THUMB: React.FC<any> = (p) => <ThumbPoster {...words(p)} hero={<Atlas W={1280} H={720} cx={985} cy={430} w={560} />} back={<Stripes W={1280} H={720} />} lamp={[930, 260]} />;
 export const THUMB_V: React.FC<any> = (p) => <ThumbPosterV {...words(p)} hero={<Atlas W={1080} H={1920} cx={540} cy={1100} w={1000} />} back={<Stripes W={1080} H={1920} />} />;

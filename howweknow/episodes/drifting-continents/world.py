@@ -325,7 +325,7 @@ MOVE = {0: ('push', (900, 560), 'insert'), 1: ('pan-r', (960, 520), 'medium'), 2
         56: ('dolly', (960, 540), 'medium'), 57: ('crane-up', (800, 560), 'wide')}
 HOW = {i: l['becomes']['how'] for i, l in enumerate(E['lines'])}
 finish(MOVE, HOW, new_devices=['TornNews', 'QuiltPangaea', 'RidgeTape', 'NailAtlantic'],
-       thumb={'t': 1, 'title': 'How do we know the continents move?', 'v': 'S', 'kicker': 'Wegener · 1912', 'lines': ['HOW DO WE', 'KNOW THE', 'CONTINENTS MOVE?'], 'accent': 2,
+       thumb={'t': 1, 'title': 'How do we know the continents move?', 'v': 'S', 'kicker': 'Wegener · 1912', 'lines': ['DO THE', 'CONTINENTS', 'MOVE?'], 'accent': 2,
               'note': 'A few centimetres a year.'},
        music=[('wonder_lightless_dawn', 0, -21), ('wonder_long_note_one', 'L9-1.6', -21), ('tension_darkness_is_coming', 'L25-1.6', -22),
               ('curious_aftermath', 'L33-1.6', -20), ('wonder_silver_blue_light', 'L47-1.0', -22)],
