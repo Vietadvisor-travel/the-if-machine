@@ -1,4 +1,4 @@
-# CANCELLED (owner 19 Nov 2026: Muse retired — Claude only). Kept for the record.
+# CANCELLED (owner 19 Nov 2026: Muse does not make films — sourcing + publishing only, as before). Kept for the record.
 
 # Muse — DIRECTOR TEST (owner order, 19 Nov 2026) · one ~90-second FATHOM segment, made end to end by Muse
 

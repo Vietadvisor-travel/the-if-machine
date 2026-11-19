@@ -10,9 +10,8 @@ Read this file + `tail -5 jobs/INBOX.md`. For a film: `howweknow/RUNBOOK.md` and
 ## What the owner says → what you do
 - **"làm tập <tên>"** → the film end to end, `howweknow/RUNBOOK.md` (slug from its Vietnamese name in `jobs/STATUS.md`).
 - **"đề tài mới"** → 15 topics (pool 1) in `jobs/topics/FATHOM_<date>.md` + short Vietnamese list. **He picks** → research pack (2 sources for
-  heavy claims) → lines.py → STATUS + INBOX. Stock (≤ 6 PD/CC0 items, optional) Claude fetches itself at production (`howweknow/RUNBOOK.md` step 0b).
-- **"đăng tập <tên>"** → write `jobs/publish/<slug>.md` (YouTube title, SEO description, tags, pinned comment, FB/IG/TikTok captions);
-  the owner uploads. Muse is retired (owner 19 Nov 2026) — Claude only.
+  heavy claims) → lines.py → Muse order `jobs/orders/<slug>.md` (≤ 15 rows, `jobs/tasks/MUSE_FATHOM.md` §0) → STATUS + INBOX.
+- **"đăng tập <tên>"** is for Muse, not you.
 
 ## The channel (locked)
 - Content: pool 1 — how humans came to know/measure something that seemed impossible; one big question, 3–4 clues, a twist, the answer, what it
@@ -38,7 +37,8 @@ Read this file + `tail -5 jobs/INBOX.md`. For a film: `howweknow/RUNBOOK.md` and
 - Render: never change engine code while a render runs; any speed-up must leave the picture identical. Masters fitted to ≈ 545 MB (`fit.py`).
 
 ## Roles & standing rules
-- Claude: everything, sourcing included (Muse retired 19 Nov 2026). Two Claude accounts may work in parallel — `jobs/PARALLEL.md`. Owner:
+- Claude: everything creative and technical. Muse: sourcing only (Drive `_hwk/<slug>/` + manifest + licences; INBOX `KIT_READY`) and
+  publishing — never films (director test dropped, owner 19 Nov 2026). Two Claude accounts may work in parallel — `jobs/PARALLEL.md`. Owner:
   picks topics, says "làm tập …", approves films.
 - Every message to the owner in Vietnamese, short, episodes by their Vietnamese name. Talk only at the start and the final report unless
   blocked by something only he can fix. Times in Vietnam time. Every background job gets a `send_later` watchdog; wait on a PID.
